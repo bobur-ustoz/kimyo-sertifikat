@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { supabase } from "./lib/supabaseClient";
-import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical } from "lucide-react";
+import { Upload } from "tus-js-client";
+import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud } from "lucide-react";
 
 const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", bgSoft:"#F8FAFC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626" };
 
@@ -203,7 +204,39 @@ function QuestionRow({q,onChanged,groups}){
   const [f,setF]=useState(()=>({question_type:"mcq",...q}));
   const [dirty,setDirty]=useState(false);
   const [open,setOpen]=useState(false);
+  const [uploadPct,setUploadPct]=useState(null);
+  const [uploadErr,setUploadErr]=useState("");
+  const fileRef=useRef(null);
   const set=(k,v)=>{setF(p=>({...p,[k]:v}));setDirty(true);};
+
+  const uploadVideo = async file => {
+    setUploadPct(0); setUploadErr("");
+    const { data:{session} } = await supabase.auth.getSession();
+    const authRes = await fetch("/api/bunny-auth",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},body:JSON.stringify({title:`${q.question_number}-savol`})});
+    const auth = await authRes.json();
+    if(!authRes.ok){ setUploadErr(auth.error||"Yuklashda xatolik"); setUploadPct(null); return; }
+    const upload = new Upload(file,{
+      endpoint:"https://video.bunnycdn.com/tusupload",
+      retryDelays:[0,3000,5000,10000],
+      headers:{
+        AuthorizationSignature: auth.authorizationSignature,
+        AuthorizationExpire: String(auth.authorizationExpire),
+        VideoId: auth.videoId,
+        LibraryId: String(auth.libraryId),
+      },
+      metadata:{ filetype:file.type, title:`${q.question_number}-savol` },
+      onError:err=>{ setUploadErr(err.message); setUploadPct(null); },
+      onProgress:(sent,total)=>setUploadPct(Math.round(sent/total*100)),
+      onSuccess: async ()=>{
+        await supabase.from("questions").update({bunny_video_id:auth.videoId,video_ready:true}).eq("id",q.id);
+        setUploadPct(null);
+        setF(p=>({...p,bunny_video_id:auth.videoId,video_ready:true}));
+        onChanged();
+      },
+    });
+    upload.start();
+  };
+
   const save = async () => {
     await supabase.from("questions").update({
       topic:f.topic,formula:f.formula,question_text:f.question_text,video_url:f.video_url,video_ready:f.video_ready,
@@ -227,10 +260,23 @@ function QuestionRow({q,onChanged,groups}){
         <input style={{...inputStyle,flex:1}} placeholder="Formula (ixtiyoriy)" value={f.formula||""} onChange={e=>set("formula",e.target.value)}/>
         <button style={btnGhost} onClick={()=>setOpen(o=>!o)}>{open?"Yopish":"Savol va javoblar"}</button>
       </div>
-      <div style={{display:"flex",gap:8,marginBottom:open?8:0}}>
-        <input style={{...inputStyle,flex:1}} placeholder="Video havolasi (URL)" value={f.video_url||""} onChange={e=>set("video_url",e.target.value)}/>
+      <div style={{display:"flex",gap:8,marginBottom:open?8:0,alignItems:"center"}}>
+        {f.bunny_video_id ? (
+          <div style={{...inputStyle,flex:1,display:"flex",alignItems:"center",gap:8,color:C.primary,fontWeight:600}}>
+            <CheckCircle2 size={14}/> Video yuklangan (Bunny)
+          </div>
+        ) : (
+          <input style={{...inputStyle,flex:1}} placeholder="Video havolasi (URL, ixtiyoriy)" value={f.video_url||""} onChange={e=>set("video_url",e.target.value)}/>
+        )}
+        <input ref={fileRef} type="file" accept="video/*" style={{display:"none"}} onChange={e=>{const file=e.target.files[0];if(file)uploadVideo(file);e.target.value="";}}/>
+        {uploadPct===null ? (
+          <button style={btnGhost} onClick={()=>fileRef.current?.click()}><UploadCloud size={13}/> {f.bunny_video_id?"Almashtirish":"Video yuklash"}</button>
+        ) : (
+          <div style={{fontSize:11.5,color:C.textMid,fontWeight:700,minWidth:90}}>Yuklanmoqda… {uploadPct}%</div>
+        )}
         {dirty && <button style={btnPrimary} onClick={save}><Save size={13}/> Saqlash</button>}
       </div>
+      {uploadErr && <p style={{fontSize:11,color:C.danger,marginBottom:open?8:0}}>Xatolik: {uploadErr}</p>}
       {open&&(
         <div style={{borderTop:`1px solid ${C.border}`,paddingTop:10,marginTop:2}}>
           <textarea style={{...inputStyle,minHeight:60,resize:"vertical",marginBottom:10,fontFamily:"inherit"}} placeholder="Savol matni" value={f.question_text||""} onChange={e=>set("question_text",e.target.value)}/>

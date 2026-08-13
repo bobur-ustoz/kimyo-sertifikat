@@ -349,6 +349,20 @@ function QuizBlock({question,session}){
   );
 }
 
+function BunnyPlayer({videoId}){
+  const [src,setSrc]=useState(null);
+  useEffect(()=>{
+    let cancelled=false;
+    setSrc(null);
+    fetch("/api/bunny-token",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({videoId})})
+      .then(r=>r.json())
+      .then(({token,expires,libraryId})=>{ if(!cancelled) setSrc(`https://iframe.mediadelivery.net/embed/${libraryId}/${videoId}?token=${token}&expires=${expires}`); });
+    return ()=>{cancelled=true;};
+  },[videoId]);
+  if(!src) return <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:12}}>Yuklanmoqda…</div>;
+  return <iframe src={src} loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowFullScreen/>;
+}
+
 function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
   const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
   const [aiState,setAiState]=useState("idle");
@@ -377,20 +391,17 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{activeQ}-Savol</span>
         </div>
         <div style={{background:"#0A0F1E",borderRadius:14,overflow:"hidden",aspectRatio:"16/9",width:"100%",position:"relative",marginBottom:15,boxShadow:"0 10px 36px rgba(0,0,0,0.22)"}}>
-          <a href={curQ?.video_url||undefined} target="_blank" rel="noreferrer" style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",cursor:curQ?.video_url?"pointer":"default",textDecoration:"none"}}
-            onClick={e=>{if(!curQ?.video_url)e.preventDefault();}}>
-            <div style={{position:"absolute",top:18,left:28,opacity:0.1,fontSize:54,userSelect:"none"}}>⬡</div>
-            <div style={{width:62,height:62,borderRadius:"50%",background:curQ?.video_ready?C.primary:"#334155",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:curQ?.video_ready?"0 0 0 14px rgba(15,81,50,0.2),0 0 0 28px rgba(15,81,50,0.08)":"none"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
-            <div style={{color:"#e2e8f0",fontSize:13,marginTop:16,fontWeight:600}}>{teacher.name} · {variantId}-Variant · {activeQ}-Savol</div>
-            <div style={{color:C.mint,fontSize:11.5,marginTop:4}}>{curTopic||"Mavzu kiritilmagan"}</div>
-            {!curQ?.video_ready&&<div style={{color:"#94A3B8",fontSize:11,marginTop:10,background:"rgba(255,255,255,0.06)",padding:"4px 12px",borderRadius:20}}>Video hali tayyor emas</div>}
-          </a>
-          {curQ?.video_ready&&(
-          <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"12px 16px",background:"linear-gradient(transparent,rgba(0,0,0,0.88))",display:"flex",alignItems:"center",gap:10}}>
-            <Play size={14} color="#fff" fill="#fff"/>
-            <div style={{flex:1,height:3,background:"rgba(255,255,255,0.18)",borderRadius:2}}><div style={{width:"35%",height:"100%",background:C.mint,borderRadius:2}}/></div>
-            <Volume2 size={13} color="#fff"/><SkipForward size={13} color="#fff"/>
-          </div>
+          {curQ?.bunny_video_id ? (
+            <BunnyPlayer key={curQ.id} videoId={curQ.bunny_video_id}/>
+          ) : (
+            <a href={curQ?.video_url||undefined} target="_blank" rel="noreferrer" style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",cursor:curQ?.video_url?"pointer":"default",textDecoration:"none"}}
+              onClick={e=>{if(!curQ?.video_url)e.preventDefault();}}>
+              <div style={{position:"absolute",top:18,left:28,opacity:0.1,fontSize:54,userSelect:"none"}}>⬡</div>
+              <div style={{width:62,height:62,borderRadius:"50%",background:curQ?.video_ready?C.primary:"#334155",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:curQ?.video_ready?"0 0 0 14px rgba(15,81,50,0.2),0 0 0 28px rgba(15,81,50,0.08)":"none"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
+              <div style={{color:"#e2e8f0",fontSize:13,marginTop:16,fontWeight:600}}>{teacher.name} · {variantId}-Variant · {activeQ}-Savol</div>
+              <div style={{color:C.mint,fontSize:11.5,marginTop:4}}>{curTopic||"Mavzu kiritilmagan"}</div>
+              {!curQ?.video_ready&&<div style={{color:"#94A3B8",fontSize:11,marginTop:10,background:"rgba(255,255,255,0.06)",padding:"4px 12px",borderRadius:20}}>Video hali tayyor emas</div>}
+            </a>
           )}
         </div>
         <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:11,padding:"10px 15px",marginBottom:12,display:"flex",flexWrap:"wrap",gap:7}}>
