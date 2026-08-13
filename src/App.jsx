@@ -7,17 +7,6 @@ import { supabase } from "./lib/supabaseClient";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const GEN_SRC = [2,1,3,4,2,1,3,4,2,3,1,4,2,3,1,4,2,1,3,4,2,3,4,1,2,3,4,1,2,3,1,4,2,3,1,4,2,1,3,4,2,3,1];
-const ANALYTICS = [
-  {topic:"Termokimyo",short:"Termo",score:38,attempted:8,correct:3,status:"weak",variants:[3,7,15]},
-  {topic:"Elektroliz",short:"Elektroliz",score:42,attempted:12,correct:5,status:"weak",variants:[4,12,18]},
-  {topic:"Redoks",short:"Redoks",score:44,attempted:16,correct:7,status:"weak",variants:[2,9,16]},
-  {topic:"Muvozanat",short:"Muvozanat",score:57,attempted:14,correct:8,status:"medium",variants:[1,5,8]},
-  {topic:"Organik",short:"Organik",score:75,attempted:32,correct:24,status:"good",variants:[]},
-  {topic:"Anorganik",short:"Anorganik",score:79,attempted:24,correct:19,status:"good",variants:[]},
-  {topic:"Kinetika",short:"Kinetika",score:80,attempted:10,correct:8,status:"good",variants:[]},
-  {topic:"Eritmalar",short:"Eritmalar",score:83,attempted:18,correct:15,status:"good",variants:[]},
-];
-const RADAR=[{subject:"Muvozanat",score:57},{subject:"Eritmalar",score:83},{subject:"Elektroliz",score:42},{subject:"Organik",score:75},{subject:"Anorganik",score:79},{subject:"Redoks",score:44},{subject:"Kinetika",score:80},{subject:"Termokimyo",score:38}];
 const PLANS = [
   { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"3 ta variant ko'rish",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"AI Adaptive Test Generator",ok:false},{t:"Barcha o'qituvchilar",ok:false},{t:"PDF yuklab olish",ok:false},{t:"Cheksiz test generatsiya",ok:false}] },
   { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"Mashhur",features:[{t:"Barcha variantlar (20 ta)",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"AI Adaptive Test Generator",ok:false},{t:"2 ta o'qituvchi kursi",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Cheksiz test generatsiya",ok:false}] },
@@ -49,6 +38,23 @@ async function fetchVariants(teacherId) {
 async function fetchQuestions(variantId) {
   const { data } = await supabase.from("questions").select("*").eq("variant_id",variantId).order("question_number");
   return data||[];
+}
+
+async function fetchAnalytics(studentId) {
+  const { data } = await supabase.from("answers").select("is_correct, questions(topic, variants(variant_number))").eq("student_id",studentId);
+  const byTopic = {};
+  (data||[]).forEach(a=>{
+    const topic = a.questions?.topic || "Boshqa";
+    if(!byTopic[topic]) byTopic[topic] = {topic,attempted:0,correct:0,variants:new Set()};
+    byTopic[topic].attempted++;
+    if(a.is_correct) byTopic[topic].correct++;
+    else { const vn=a.questions?.variants?.variant_number; if(vn) byTopic[topic].variants.add(vn); }
+  });
+  return Object.values(byTopic).map(t=>{
+    const score=Math.round((t.correct/t.attempted)*100);
+    return { topic:t.topic, short:t.topic.length>9?t.topic.slice(0,8)+"…":t.topic, score, attempted:t.attempted, correct:t.correct,
+      status: score>=75?"good":score>=60?"medium":"weak", variants:[...t.variants].slice(0,3) };
+  }).sort((a,b)=>a.score-b.score);
 }
 
 async function callClaude(prompt) {
@@ -246,7 +252,61 @@ function VariantsGrid({teacher,onOpen,variants}) {
 }
 
 // ── VIDEO PLAYER ──────────────────────────────────────────────────
-function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions}) {
+function QuizBlock({question,session}){
+  const [selected,setSelected]=useState(null);
+  const [saving,setSaving]=useState(false);
+  const options=[["A",question.option_a],["B",question.option_b],["C",question.option_c],["D",question.option_d]].filter(([,t])=>t);
+
+  useEffect(()=>{
+    setSelected(null);
+    if(!session||!question?.id) return;
+    supabase.from("answers").select("selected_option").eq("student_id",session.user.id).eq("question_id",question.id).maybeSingle()
+      .then(({data})=>{ if(data) setSelected(data.selected_option); });
+  },[question?.id,session]);
+
+  if(!question.correct_option||options.length<2) return null;
+
+  const answer = async opt => {
+    if(!session||saving||selected) return;
+    setSaving(true);
+    const is_correct = opt===question.correct_option;
+    const { error } = await supabase.from("answers").upsert({ student_id:session.user.id, question_id:question.id, selected_option:opt, is_correct }, { onConflict:"student_id,question_id" });
+    if(!error) setSelected(opt);
+    setSaving(false);
+  };
+
+  return (
+    <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"16px 18px",marginBottom:12}}>
+      <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:10}}>Javobingizni tanlang</div>
+      {!session&&<div style={{fontSize:12.5,color:C.textMid,marginBottom:8}}>Javob berish uchun hisobingizga kiring.</div>}
+      <div style={{display:"flex",flexDirection:"column",gap:8}}>
+        {options.map(([letter,text])=>{
+          const isSel=selected===letter; const isCorrect=letter===question.correct_option;
+          const revealed=!!selected;
+          let bg="#fff",border=C.border,color=C.text;
+          if(revealed&&isCorrect){ bg=C.mintBg; border=C.borderGreen; color=C.primary; }
+          else if(revealed&&isSel&&!isCorrect){ bg=C.dangerBg; border="#FCA5A5"; color=C.danger; }
+          return (
+            <button key={letter} disabled={!session||!!selected||saving} onClick={()=>answer(letter)}
+              style={{display:"flex",alignItems:"center",gap:10,textAlign:"left",padding:"10px 13px",borderRadius:9,border:`1px solid ${border}`,background:bg,color,cursor:session&&!selected?"pointer":"default",fontFamily:"inherit",fontSize:13}}>
+              <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:800,background:revealed&&isCorrect?C.primary:revealed&&isSel?C.danger:"#F1F5F9",color:revealed&&(isCorrect||isSel)?"#fff":C.textMid}}>{letter}</div>
+              <span style={{flex:1}}>{text}</span>
+              {revealed&&isCorrect&&<CheckCircle2 size={16} color={C.primary}/>}
+              {revealed&&isSel&&!isCorrect&&<XCircle size={16} color={C.danger}/>}
+            </button>
+          );
+        })}
+      </div>
+      {selected&&(
+        <div style={{marginTop:10,fontSize:12.5,fontWeight:700,color:selected===question.correct_option?C.primary:C.danger}}>
+          {selected===question.correct_option?"✓ To'g'ri javob!":`✗ Noto'g'ri. To'g'ri javob: ${question.correct_option}`}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
   const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
   const [aiState,setAiState]=useState("idle");
   const [aiResult,setAiResult]=useState(null);
@@ -302,6 +362,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions}) {
           <p style={{fontSize:14,color:C.text,lineHeight:1.75,marginBottom:11}}>{curQ?.question_text||"Savol matni hali admin panelda kiritilmagan."}</p>
           {curQ?.formula&&<div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:9,padding:"10px 15px",fontFamily:"'Courier New',monospace",fontSize:13.5,color:C.primary}}>{curQ.formula}</div>}
         </div>
+        {curQ&&<QuizBlock question={curQ} session={session}/>}
 
         {/* Static PDF button */}
         <div style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(15,81,50,0.28)",marginBottom:12}}>
@@ -479,18 +540,33 @@ function TopicsDirectory({onGoVariant,teacher,setTab,questions}) {
 }
 
 // ── ANALYTICS SCREEN ──────────────────────────────────────────────
-function BTooltip({active,payload,label}){
+function BTooltip({active,payload,label,data}){
   if(!active||!payload?.length)return null;
-  const d=ANALYTICS.find(b=>b.short===label); const col=barCol(payload[0].value);
+  const d=(data||[]).find(b=>b.short===label); const col=barCol(payload[0].value);
   return(<div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:10,padding:"12px 15px",boxShadow:"0 4px 16px rgba(0,0,0,0.1)",minWidth:180}}>
     <div style={{fontWeight:800,color:C.text,marginBottom:6}}>{d?.topic}</div>
     <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}><div style={{width:10,height:10,borderRadius:2,background:col}}/><span style={{fontSize:13,fontWeight:700,color:col}}>{payload[0].value}%</span><span style={{fontSize:11,color:C.textMid}}>ball</span></div>
     <div style={{fontSize:11,color:C.textMid}}>{d?.correct}/{d?.attempted} to'g'ri javob</div>
   </div>);
 }
-function AnalyticsScreen(){
-  const avg=Math.round(ANALYTICS.reduce((s,b)=>s+b.score,0)/ANALYTICS.length);
-  const weak=ANALYTICS.filter(b=>b.status==="weak"); const med=ANALYTICS.filter(b=>b.status==="medium"); const good=ANALYTICS.filter(b=>b.status==="good");
+function AnalyticsScreen({session,analytics,setTab}){
+  if(!session) return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
+      <div style={{fontSize:48}}>📊</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>Hisobingizga kiring</div>
+      <div style={{fontSize:14,color:C.textMid,maxWidth:360,textAlign:"center"}}>Shaxsiy tahlil grafigini ko'rish uchun avval hisobingizga kiring va savollarga javob bering.</div>
+      <button onClick={()=>setTab("profile")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kirish</button>
+    </div>
+  );
+  if(!analytics.length) return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
+      <div style={{fontSize:48}}>🧪</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>Hali test yechilmagan</div>
+      <div style={{fontSize:14,color:C.textMid,maxWidth:360,textAlign:"center"}}>Video pleer sahifasida savollarga javob bera boshlaganingizda, shaxsiy tahlilingiz shu yerda paydo bo'ladi.</div>
+      <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Variantlarni ko'rish</button>
+    </div>
+  );
+  const avg=Math.round(analytics.reduce((s,b)=>s+b.score,0)/analytics.length);
+  const weak=analytics.filter(b=>b.status==="weak"); const med=analytics.filter(b=>b.status==="medium"); const good=analytics.filter(b=>b.status==="good");
+  const radarData=analytics.map(b=>({subject:b.short,score:b.score}));
   return(
     <div style={{padding:"24px 28px",overflowY:"auto"}}>
       <div style={{marginBottom:18}}>
@@ -521,20 +597,20 @@ function AnalyticsScreen(){
             ))}
           </div>
           <ResponsiveContainer width="100%" height={230}>
-            <BarChart data={ANALYTICS} layout="vertical" margin={{top:0,right:16,left:0,bottom:0}}>
+            <BarChart data={analytics} layout="vertical" margin={{top:0,right:16,left:0,bottom:0}}>
               <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#F1F5F9"/>
               <XAxis type="number" domain={[0,100]} tickCount={6} tick={{fontSize:10,fill:C.textLight}} tickFormatter={v=>`${v}%`}/>
               <YAxis type="category" dataKey="short" width={70} tick={{fontSize:11,fill:C.text,fontWeight:600}}/>
-              <Tooltip content={<BTooltip/>}/>
-              <Bar dataKey="score" radius={[0,5,5,0]} maxBarSize={20}>{ANALYTICS.map((e,i)=><Cell key={i} fill={barCol(e.score)}/>)}</Bar>
+              <Tooltip content={<BTooltip data={analytics}/>}/>
+              <Bar dataKey="score" radius={[0,5,5,0]} maxBarSize={20}>{analytics.map((e,i)=><Cell key={i} fill={barCol(e.score)}/>)}</Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
         <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"18px",boxShadow:"0 1px 5px rgba(0,0,0,0.05)"}}>
           <div style={{fontSize:13.5,fontWeight:800,color:C.text,marginBottom:3}}>Qamrov Diagrammasi</div>
-          <div style={{fontSize:11,color:C.textMid,marginBottom:10}}>8 soha bo'yicha umumiy ko'rinish</div>
+          <div style={{fontSize:11,color:C.textMid,marginBottom:10}}>{analytics.length} soha bo'yicha umumiy ko'rinish</div>
           <ResponsiveContainer width="100%" height={230}>
-            <RadarChart data={RADAR} margin={{top:10,right:20,left:20,bottom:10}}>
+            <RadarChart data={radarData} margin={{top:10,right:20,left:20,bottom:10}}>
               <PolarGrid stroke={C.border}/>
               <PolarAngleAxis dataKey="subject" tick={{fontSize:9.5,fill:C.textMid,fontWeight:600}}/>
               <PolarRadiusAxis angle={30} domain={[0,100]} tick={{fontSize:9,fill:C.textLight}}/>
@@ -589,7 +665,7 @@ function AnalyticsScreen(){
 }
 
 // ── TEST GENERATOR (with AI Adaptive) ────────────────────────────
-function TestGenerator({teacher,plan,setTab}) {
+function TestGenerator({teacher,plan,setTab,analytics}) {
   const [start,setStart]=useState(1); const [end,setEnd]=useState(4);
   const [shown,setShown]=useState(true); const [loading,setLoading]=useState(false);
   const [adaptState,setAdaptState]=useState("idle");
@@ -598,7 +674,7 @@ function TestGenerator({teacher,plan,setTab}) {
   const vColors=["#0F5132","#0D9488","#7C3AED","#B45309","#0369A1","#DC2626"];
   const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%",appearance:"none",WebkitAppearance:"none"};
   const allowed=canUse(plan,"adaptive");
-  const weakTopics=ANALYTICS.filter(b=>b.status==="weak").map(b=>b.topic);
+  const weakTopics=analytics.filter(b=>b.status==="weak").map(b=>b.topic);
 
   const generateAdaptive = async () => {
     setAdaptState("loading"); setAdaptQs([]);
@@ -630,11 +706,17 @@ function TestGenerator({teacher,plan,setTab}) {
               <div style={{color:"#94A3B8",fontSize:12.5,lineHeight:1.6}}>Sun'iy intellekt sizning <strong style={{color:"#FCA5A5"}}>zaif mavzularingiz</strong>ni aniqlab, maxsus 9 savollik test yaratadi</div>
             </div>
           </div>
+          {weakTopics.length>0&&(
           <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:16}}>
             <span style={{fontSize:11,color:"#94A3B8",fontWeight:600}}>Zaif mavzular aniqlandi:</span>
             {weakTopics.map(t=>(<span key={t} style={{fontSize:11,fontWeight:700,background:"rgba(220,38,38,0.15)",color:"#FCA5A5",padding:"3px 10px",borderRadius:20,border:"1px solid rgba(220,38,38,0.2)"}}>{t}</span>))}
-          </div>
-          {!allowed ? (
+          </div>)}
+          {weakTopics.length===0 ? (
+            <div style={{display:"flex",alignItems:"center",gap:12,background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"14px",border:"1px solid rgba(255,255,255,0.08)"}}>
+              <Info size={16} color="#94A3B8"/>
+              <div style={{flex:1}}><div style={{color:"#CBD5E1",fontSize:13,fontWeight:700}}>Hali yetarli ma'lumot yo'q</div><div style={{color:"#64748B",fontSize:11.5,marginTop:2}}>Zaif mavzularingizni aniqlash uchun avval video pleerda savollarga javob bering</div></div>
+            </div>
+          ) : !allowed ? (
             <div style={{display:"flex",alignItems:"center",gap:12,background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"14px",border:"1px solid rgba(255,255,255,0.08)"}}>
               <Lock size={16} color="#94A3B8"/>
               <div style={{flex:1}}><div style={{color:"#CBD5E1",fontSize:13,fontWeight:700}}>Bu funksiya Premium rejada mavjud</div><div style={{color:"#64748B",fontSize:11.5,marginTop:2}}>AI Adaptive Test Generator faqat Premium obunachilarga</div></div>
@@ -960,6 +1042,13 @@ export default function App() {
     supabase.from("profiles").select("*").eq("id",session.user.id).single().then(({data})=>setProfile(data));
   },[session]);
 
+  const [analytics,setAnalytics]=useState([]);
+  useEffect(()=>{
+    if(!session){ setAnalytics([]); return; }
+    if(tab!=="analytics"&&tab!=="generator") return;
+    fetchAnalytics(session.user.id).then(setAnalytics);
+  },[session,tab]);
+
   useEffect(()=>{
     if(!teacher){ setVariants([]); setTeacherQuestions([]); return; }
     fetchVariants(teacher.id).then(setVariants);
@@ -1010,10 +1099,10 @@ export default function App() {
           </div>
         )}
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants}/>}
-        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions}/>}
+        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session}/>}
         {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
-        {tab==="analytics"&&<AnalyticsScreen/>}
-        {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab}/>}
+        {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
+        {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} analytics={analytics}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>

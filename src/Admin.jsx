@@ -153,9 +153,10 @@ function VariantsPanel({teacher,onBack,onSelect}){
 function QuestionRow({q,onChanged}){
   const [f,setF]=useState(q);
   const [dirty,setDirty]=useState(false);
+  const [open,setOpen]=useState(false);
   const set=(k,v)=>{setF(p=>({...p,[k]:v}));setDirty(true);};
   const save = async () => {
-    await supabase.from("questions").update({topic:f.topic,formula:f.formula,question_text:f.question_text,video_url:f.video_url,video_ready:f.video_ready}).eq("id",q.id);
+    await supabase.from("questions").update({topic:f.topic,formula:f.formula,question_text:f.question_text,video_url:f.video_url,video_ready:f.video_ready,option_a:f.option_a,option_b:f.option_b,option_c:f.option_c,option_d:f.option_d,correct_option:f.correct_option}).eq("id",q.id);
     setDirty(false); onChanged();
   };
   return (
@@ -167,11 +168,26 @@ function QuestionRow({q,onChanged}){
         <div style={{fontWeight:800,fontSize:13,color:C.text,width:70,flexShrink:0}}>{q.question_number}-savol</div>
         <input style={{...inputStyle,flex:1}} placeholder="Mavzu" value={f.topic||""} onChange={e=>set("topic",e.target.value)}/>
         <input style={{...inputStyle,flex:1}} placeholder="Formula (ixtiyoriy)" value={f.formula||""} onChange={e=>set("formula",e.target.value)}/>
+        <button style={btnGhost} onClick={()=>setOpen(o=>!o)}>{open?"Yopish":"Savol va javoblar"}</button>
       </div>
-      <div style={{display:"flex",gap:8}}>
+      <div style={{display:"flex",gap:8,marginBottom:open?8:0}}>
         <input style={{...inputStyle,flex:1}} placeholder="Video havolasi (URL)" value={f.video_url||""} onChange={e=>set("video_url",e.target.value)}/>
         {dirty && <button style={btnPrimary} onClick={save}><Save size={13}/> Saqlash</button>}
       </div>
+      {open&&(
+        <div style={{borderTop:`1px solid ${C.border}`,paddingTop:10,marginTop:2}}>
+          <textarea style={{...inputStyle,minHeight:60,resize:"vertical",marginBottom:8,fontFamily:"inherit"}} placeholder="Savol matni" value={f.question_text||""} onChange={e=>set("question_text",e.target.value)}/>
+          <div style={{fontSize:10.5,fontWeight:700,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:6}}>Javob variantlari</div>
+          {["A","B","C","D"].map(letter=>(
+            <div key={letter} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+              <button onClick={()=>set("correct_option",letter)} title="To'g'ri javob qilib belgilash"
+                style={{width:26,height:26,borderRadius:"50%",flexShrink:0,border:`1px solid ${f.correct_option===letter?C.primary:C.border}`,background:f.correct_option===letter?C.primary:"#fff",color:f.correct_option===letter?"#fff":C.textMid,fontSize:11,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>{letter}</button>
+              <input style={{...inputStyle,flex:1}} placeholder={`${letter} variant matni`} value={f[`option_${letter.toLowerCase()}`]||""} onChange={e=>set(`option_${letter.toLowerCase()}`,e.target.value)}/>
+            </div>
+          ))}
+          <p style={{fontSize:11,color:C.textLight}}>To'g'ri javobni belgilash uchun harf tugmasini bosing (hozir: {f.correct_option||"tanlanmagan"}).</p>
+        </div>
+      )}
     </div>
   );
 }
