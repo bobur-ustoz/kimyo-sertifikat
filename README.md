@@ -118,3 +118,4 @@ VITE_ANTHROPIC_API_KEY=sk-ant-...
 ---
 
 *Kimyo Sertifikat · Milliy Sertifikat 2026*
+
