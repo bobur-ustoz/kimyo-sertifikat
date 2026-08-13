@@ -36,7 +36,7 @@ async function fetchVariants(teacherId) {
 }
 
 async function fetchQuestions(variantId) {
-  const { data } = await supabase.from("questions").select("*").eq("variant_id",variantId).order("question_number");
+  const { data } = await supabase.from("questions").select("*, option_groups(options)").eq("variant_id",variantId).order("question_number");
   return data||[];
 }
 
@@ -57,11 +57,11 @@ async function fetchAnalytics(studentId) {
   }).sort((a,b)=>a.score-b.score);
 }
 
-async function callClaude(prompt) {
-  const res = await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,messages:[{role:"user",content:prompt}]})});
+async function callClaude(prompt, maxTokens) {
+  const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
   const data = await res.json();
-  const text = data.content[0].text;
-  return text.replace(/```json\n?|\n?```/g,"").trim();
+  if(!res.ok) throw new Error(data.error||"AI xatosi");
+  return (data.text||"").replace(/```json\n?|\n?```/g,"").trim();
 }
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
@@ -255,14 +255,57 @@ function VariantsGrid({teacher,onOpen,variants}) {
 function QuizBlock({question,session}){
   const [selected,setSelected]=useState(null);
   const [saving,setSaving]=useState(false);
-  const options=[["A",question.option_a],["B",question.option_b],["C",question.option_c],["D",question.option_d]].filter(([,t])=>t);
+  const [textAnswer,setTextAnswer]=useState("");
+  const [textResult,setTextResult]=useState(null);
+  const [checking,setChecking]=useState(false);
+  const isOpen = question.question_type==="open";
+  const isMatch = question.question_type==="match";
+  const options = isMatch
+    ? (question.option_groups?.options||[]).map(o=>[o.letter,o.text])
+    : [["A",question.option_a],["B",question.option_b],["C",question.option_c],["D",question.option_d]].filter(([,t])=>t);
 
   useEffect(()=>{
-    setSelected(null);
+    setSelected(null); setTextAnswer(""); setTextResult(null);
     if(!session||!question?.id) return;
-    supabase.from("answers").select("selected_option").eq("student_id",session.user.id).eq("question_id",question.id).maybeSingle()
-      .then(({data})=>{ if(data) setSelected(data.selected_option); });
+    supabase.from("answers").select("selected_option,selected_text,is_correct").eq("student_id",session.user.id).eq("question_id",question.id).maybeSingle()
+      .then(({data})=>{
+        if(!data) return;
+        if(isOpen){ setTextAnswer(data.selected_text||""); setTextResult({correct:data.is_correct}); }
+        else setSelected(data.selected_option);
+      });
   },[question?.id,session]);
+
+  if(isOpen){
+    if(!question.correct_answer_text) return null;
+    const submit = async () => {
+      if(!session||checking||textResult||!textAnswer.trim()) return;
+      setChecking(true);
+      try{
+        const prompt = `Kimyo fanidan savolga talaba javobi to'g'riligini tekshir.\nTo'g'ri javob (namuna): "${question.correct_answer_text}"\nTalaba javobi: "${textAnswer.trim()}"\nAgar ular matematik/mazmunan bir xil qiymatni ifodalasa (turli formatda yozilgan bo'lsa ham, masalan kasr yoki o'nlik son) TO'G'RI hisoblansin. FAQAT "TRUE" yoki "FALSE" so'zini yoz, boshqa hech narsa yozma.`;
+        const text = await callClaude(prompt,10);
+        const is_correct = text.trim().toUpperCase().startsWith("TRUE");
+        await supabase.from("answers").upsert({student_id:session.user.id,question_id:question.id,selected_text:textAnswer.trim(),is_correct},{onConflict:"student_id,question_id"});
+        setTextResult({correct:is_correct});
+      } catch(e){ setTextResult({correct:null,error:true}); }
+      setChecking(false);
+    };
+    return (
+      <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"16px 18px",marginBottom:12}}>
+        <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:10}}>Javobingizni yozing</div>
+        {!session&&<div style={{fontSize:12.5,color:C.textMid,marginBottom:8}}>Javob berish uchun hisobingizga kiring.</div>}
+        <div style={{display:"flex",gap:8}}>
+          <input disabled={!session||!!textResult} value={textAnswer} onChange={e=>setTextAnswer(e.target.value)} placeholder="Javobingizni kiriting..."
+            style={{flex:1,padding:"10px 13px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",background:textResult?C.bgSoft:"#fff"}}/>
+          {!textResult&&<button onClick={submit} disabled={!session||checking||!textAnswer.trim()} style={{padding:"10px 16px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0,opacity:!session||checking||!textAnswer.trim()?0.6:1}}>{checking?"Tekshirilmoqda...":"Yuborish"}</button>}
+        </div>
+        {textResult&&(
+          <div style={{marginTop:10,fontSize:12.5,fontWeight:700,color:textResult.error?C.warning:textResult.correct?C.primary:C.danger}}>
+            {textResult.error?"Tekshirishda xatolik yuz berdi, qayta urinib ko'ring.":textResult.correct?"✓ To'g'ri javob!":"✗ Noto'g'ri javob."}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   if(!question.correct_option||options.length<2) return null;
 
