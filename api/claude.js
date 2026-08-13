@@ -19,7 +19,8 @@ export default async function handler(req, res) {
     });
     const data = await r.json();
     if (!r.ok) return res.status(r.status).json({ error: data.error?.message || "Anthropic API error" });
-    res.status(200).json({ text: data.content?.[0]?.text || "" });
+    const textBlock = (data.content || []).find((b) => b.type === "text");
+    res.status(200).json({ text: textBlock?.text || "" });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
