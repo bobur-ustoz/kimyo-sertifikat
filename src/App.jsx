@@ -1,27 +1,11 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, RefreshCw, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
+import { supabase } from "./lib/supabaseClient";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
-const TEACHERS = [
-  { id:"tongotarov",name:"Tongotarov M.S.",initials:"TM",color:"#0F5132",bgColor:"#F0FDF4",subject:"Umumiy Kimyo",variants:20,rating:4.9,students:1240,badge:"Top",free:true,desc:"Milliy sertifikat uchun eng to'liq kimyo kursi. 20 ta variant, 860 ta video dars.",watchedArr:[15,8,43,22,0,35,12,43,7,30,18,43,5,27,40,3,43,11,25,38] },
-  { id:"raximov",name:"Raximov A.K.",initials:"RA",color:"#0369A1",bgColor:"#EFF6FF",subject:"Anorganik Kimyo",variants:15,rating:4.8,students:890,badge:"Mashhur",free:true,desc:"Anorganik kimyo bo'yicha chuqur variant tahlili. 15 ta variant, 645 ta video.",watchedArr:[30,15,43,0,43,12,38,7,43,22,0,43,18,33,43] },
-  { id:"xoliqov",name:"Xoliqov B.M.",initials:"XB",color:"#7C3AED",bgColor:"#F5F3FF",subject:"Organik Kimyo",variants:18,rating:4.7,students:650,badge:"Yangi",free:false,desc:"Organik kimyo bo'limini mukammal o'rganish uchun 18 ta variant tahlili.",watchedArr:[43,0,22,43,10,38,43,15,28,43,5,40,43,18,0,33,43,12] },
-  { id:"ergashev",name:"Ergashev S.T.",initials:"ES",color:"#B45309",bgColor:"#FFFBEB",subject:"Fizik Kimyo",variants:12,rating:4.6,students:420,badge:null,free:false,desc:"Fizik kimyo: termodinamika, kinetika va elektrokimyo. 12 ta variant tahlili.",watchedArr:[43,20,0,38,43,5,25,43,12,0,43,30] },
-  { id:"nazarova",name:"Nazarova D.A.",initials:"ND",color:"#BE185D",bgColor:"#FDF2F8",subject:"Analitik Kimyo",variants:10,rating:4.8,students:380,badge:"Premium",free:false,desc:"Analitik kimyo va titrlash usullari. 10 ta variant bilan chuqur mashq.",watchedArr:[43,35,43,0,20,43,10,43,28,43] },
-  { id:"yusupov",name:"Yusupov H.R.",initials:"YH",color:"#0D9488",bgColor:"#F0FDFA",subject:"Kimyoviy Texnologiya",variants:8,rating:4.5,students:290,badge:null,free:true,desc:"Kimyoviy texnologiya va sanoat kimyosi asoslari. 8 ta variant tahlili.",watchedArr:[43,0,30,43,15,43,8,40] },
-];
-
-const TOPICS_43 = ["Kimyoviy bog'lanish","Atom tuzilishi","Davriy jadval","Eritmalar va pH","Kimyoviy muvozanat","Elektroliz","Oksidlanish-Qaytarilish","Alkanlar kimyosi","Alkenlar kimyosi","Alkinlar kimyosi","Spirtlar va efirlar","Karbon kislotalar","Aldegidlar va ketonlar","Aminlar","Polimer kimyosi","Oltingugurt birikmalari","Azot birikmalari","Fosfor birikmalari","Galogen birikmalari","Metallurgiya asoslari","Kimyoviy kinetika","Termokimyo va entalpiya","Gidroliz reaksiyalari","Buffer eritmalar","pH va pOH hisoblash","Kristallogidratlar","Ideal gaz qonunlari","Molyar massa hisoblash","Mol hisoblash","Massa ulushi","Hajm ulushi","Ekvivalent va normalliq","Titrlash usullari","Elektroliz hisoblash","Muvozanat konstantasi","Le-Shatel'e prinsipi","Gibbs energiyasi","Entropiya","Aktivlanish energiyasi","Katalizator ta'siri","Kimyoviy formulalar","Nomenklatura qoidalari","Aralash hisoblash masalasi"];
-const TOPIC_CATS = [{id:"muvozanat",name:"Kimyoviy Muvozanat",icon:"⚖️",count:14},{id:"eritmalar",name:"Eritmalar va Gidroliz",icon:"💧",count:18},{id:"elektroliz",name:"Elektroliz",icon:"⚡",count:12},{id:"organik",name:"Organik Kimyo",icon:"🔗",count:32},{id:"anorganik",name:"Anorganik Kimyo",icon:"⚗️",count:24},{id:"redoks",name:"Oksidlanish-Qaytarilish",icon:"🔄",count:16},{id:"kinetika",name:"Kimyoviy Kinetika",icon:"⏱️",count:10},{id:"termo",name:"Termokimyo",icon:"🌡️",count:8}];
-const TOPIC_QS = {
-  muvozanat:[{vId:1,qId:5,formula:"N₂(g) + 3H₂(g) ⇌ 2NH₃(g)"},{vId:3,qId:15,formula:"H₂(g) + I₂(g) ⇌ 2HI(g)"},{vId:5,qId:12,formula:"CO(g) + H₂O(g) ⇌ CO₂(g) + H₂(g)"},{vId:8,qId:28,formula:"2SO₂(g) + O₂(g) ⇌ 2SO₃(g)"},{vId:11,qId:7,formula:"N₂O₄(g) ⇌ 2NO₂(g)"},{vId:14,qId:24,formula:"PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)"}],
-  eritmalar:[{vId:2,qId:9,formula:"NaCl → Na⁺ + Cl⁻"},{vId:6,qId:18,formula:"CH₃COOH ⇌ CH₃COO⁻ + H⁺"},{vId:9,qId:3,formula:"NH₃ + H₂O ⇌ NH₄⁺ + OH⁻"},{vId:13,qId:21,formula:"pH = –log[H⁺]"}],
-  elektroliz:[{vId:4,qId:30,formula:"2H₂O → 2H₂ + O₂"},{vId:7,qId:22,formula:"Cu²⁺ + 2e⁻ → Cu"},{vId:12,qId:38,formula:"2NaCl + 2H₂O → Cl₂ + H₂ + 2NaOH"}],
-  organik:[{vId:1,qId:8,formula:"CH₄ + Cl₂ → CH₃Cl + HCl (hν)"},{vId:4,qId:16,formula:"C₂H₄ + H₂ → C₂H₆ (Ni)"},{vId:8,qId:6,formula:"C₂H₅OH + Na → C₂H₅ONa + ½H₂"}],
-};
 const GEN_SRC = [2,1,3,4,2,1,3,4,2,3,1,4,2,3,1,4,2,1,3,4,2,3,4,1,2,3,4,1,2,3,1,4,2,3,1,4,2,1,3,4,2,3,1];
 const ANALYTICS = [
   {topic:"Termokimyo",short:"Termo",score:38,attempted:8,correct:3,status:"weak",variants:[3,7,15]},
@@ -41,8 +25,31 @@ const PLANS = [
 ];
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
-const getVariants = t => Array.from({length:t.variants},(_,i)=>({id:i+1,total:43,watched:t.watchedArr[i]??0}));
 const canUse = (plan,feature) => { if(feature==="analog") return plan!=="free"; if(feature==="adaptive") return plan==="premium"; return true; };
+
+async function fetchTeachers() {
+  const { data: tRows } = await supabase.from("teachers").select("*").order("sort_order").order("created_at");
+  const { data: vRows } = await supabase.from("variants").select("teacher_id,total_questions");
+  const counts = {}, videoCounts = {};
+  (vRows||[]).forEach(v=>{ counts[v.teacher_id]=(counts[v.teacher_id]||0)+1; videoCounts[v.teacher_id]=(videoCounts[v.teacher_id]||0)+(v.total_questions||43); });
+  return (tRows||[]).map(t=>({ ...t, bgColor:t.bg_color, free:t.is_free, desc:t.description, variants:counts[t.id]||0, videoCount:videoCounts[t.id]||0 }));
+}
+
+async function fetchVariants(teacherId) {
+  const { data: vRows } = await supabase.from("variants").select("*").eq("teacher_id",teacherId).order("variant_number");
+  const ids = (vRows||[]).map(v=>v.id);
+  const readyMap = {};
+  if (ids.length) {
+    const { data: qRows } = await supabase.from("questions").select("variant_id,video_ready").in("variant_id",ids);
+    (qRows||[]).forEach(q=>{ if(q.video_ready) readyMap[q.variant_id]=(readyMap[q.variant_id]||0)+1; });
+  }
+  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0 }));
+}
+
+async function fetchQuestions(variantId) {
+  const { data } = await supabase.from("questions").select("*").eq("variant_id",variantId).order("question_number");
+  return data||[];
+}
 
 async function callClaude(prompt) {
   const res = await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,messages:[{role:"user",content:prompt}]})});
@@ -52,10 +59,11 @@ async function callClaude(prompt) {
 }
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
-function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose}) {
+function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose,variants}) {
   const TABS=[{id:"collections",label:"Kolleksiyalar",icon:BookOpen},{id:"variants",label:"Variantlar",icon:Grid3X3},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
-  const vList=teacher?getVariants(teacher):[];
-  const done=vList.filter(v=>v.watched===v.total).length;
+  const vList=teacher?variants:[];
+  const total=vList.length;
+  const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
   const planColors={free:"#475569",standart:"#0D9488",premium:"#0F5132"};
   const planNames={free:"Bepul",standart:"Standart ⭐",premium:"Premium 💎"};
   return (
@@ -113,12 +121,12 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
       {teacher&&(
         <div style={{margin:"0 10px 12px",padding:"12px 14px",borderRadius:12,background:C.mintBg,border:`1px solid ${C.borderGreen}`}}>
           <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:6}}><TrendingUp size={11} color={C.primary}/><span style={{fontSize:9.5,fontWeight:800,color:C.primary,textTransform:"uppercase",letterSpacing:"0.07em"}}>Sizning natijangiz</span></div>
-          <div style={{fontSize:21,fontWeight:900,color:C.primary,lineHeight:1}}>{done}<span style={{fontSize:12,color:C.textMid,fontWeight:500}}>/{teacher.variants} Variant</span></div>
-          <div style={{fontSize:10,color:C.textMid,margin:"2px 0 8px"}}>bajarildi ✓</div>
+          <div style={{fontSize:21,fontWeight:900,color:C.primary,lineHeight:1}}>{done}<span style={{fontSize:12,color:C.textMid,fontWeight:500}}>/{total} Variant</span></div>
+          <div style={{fontSize:10,color:C.textMid,margin:"2px 0 8px"}}>video tayyor ✓</div>
           <div style={{background:C.mintLight,borderRadius:4,height:5,overflow:"hidden"}}>
-            <div style={{width:`${(done/teacher.variants)*100}%`,height:"100%",background:C.primary,borderRadius:4}}/>
+            <div style={{width:`${total?(done/total)*100:0}%`,height:"100%",background:C.primary,borderRadius:4}}/>
           </div>
-          <div style={{fontSize:9.5,color:C.textLight,marginTop:4}}>{Math.round((done/teacher.variants)*100)}% tugatildi</div>
+          <div style={{fontSize:9.5,color:C.textLight,marginTop:4}}>{total?Math.round((done/total)*100):0}% tugatildi</div>
         </div>
       )}
     </div>
@@ -126,7 +134,10 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
 }
 
 // ── TEACHERS GRID ─────────────────────────────────────────────────
-function TeachersGrid({onSelect,plan}) {
+function TeachersGrid({onSelect,plan,teachers}) {
+  const totalVariants = teachers.reduce((s,t)=>s+t.variants,0);
+  const totalVideos = teachers.reduce((s,t)=>s+t.videoCount,0);
+  const totalStudents = teachers.reduce((s,t)=>s+(t.students||0),0);
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{marginBottom:22}}>
@@ -135,15 +146,20 @@ function TeachersGrid({onSelect,plan}) {
         <p style={{color:C.textMid,fontSize:13.5}}>Har bir o'qituvchining milliy sertifikat variant tahlillari bilan ishlang</p>
       </div>
       <div className="stat-row" style={{display:"flex",gap:12,marginBottom:22}}>
-        {[{icon:"👨‍🏫",val:"6",label:"O'qituvchi"},{icon:"📚",val:"83",label:"Jami variant"},{icon:"🎬",val:"3,568",label:"Video dars"},{icon:"👥",val:"3,870+",label:"O'quvchi"}].map(s=>(
+        {[{icon:"👨‍🏫",val:String(teachers.length),label:"O'qituvchi"},{icon:"📚",val:String(totalVariants),label:"Jami variant"},{icon:"🎬",val:totalVideos.toLocaleString(),label:"Video dars"},{icon:"👥",val:totalStudents.toLocaleString()+"+",label:"O'quvchi"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"13px 14px",display:"flex",alignItems:"center",gap:9,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:22}}>{s.icon}</span>
             <div><div style={{fontSize:18,fontWeight:900,color:C.primary}}>{s.val}</div><div style={{fontSize:10,color:C.textMid}}>{s.label}</div></div>
           </div>
         ))}
       </div>
+      {teachers.length===0 ? (
+        <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:16,padding:40,textAlign:"center",color:C.textMid}}>
+          Hali o'qituvchi qo'shilmagan. <a href="/admin" style={{color:C.accent,fontWeight:700}}>Admin panel</a> orqali qo'shing.
+        </div>
+      ) : (
       <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:15}}>
-        {TEACHERS.map(t=>{
+        {teachers.map(t=>{
           const locked = !t.free && plan==="free";
           return (
             <div key={t.id} onClick={()=>onSelect(t)}
@@ -158,7 +174,7 @@ function TeachersGrid({onSelect,plan}) {
               <div style={{display:"inline-flex",background:t.bgColor,color:t.color,fontSize:10.5,fontWeight:700,padding:"3px 9px",borderRadius:20,marginBottom:12,border:`1px solid ${t.color}30`}}>{t.subject}</div>
               <p style={{fontSize:12,color:C.textMid,lineHeight:1.6,marginBottom:14}}>{t.desc}</p>
               <div style={{display:"flex",gap:14,marginBottom:16}}>
-                {[[t.variants,"Variant"],[`⭐${t.rating}`,"Reyting"],[t.students.toLocaleString(),"O'quvchi"]].map(([v,l])=>(
+                {[[t.variants,"Variant"],[`⭐${t.rating}`,"Reyting"],[(t.students||0).toLocaleString(),"O'quvchi"]].map(([v,l])=>(
                   <div key={l}><div style={{fontSize:15,fontWeight:900,color:t.color}}>{v}</div><div style={{fontSize:10,color:C.textLight}}>{l}</div></div>
                 ))}
               </div>
@@ -169,13 +185,14 @@ function TeachersGrid({onSelect,plan}) {
           );
         })}
       </div>
+      )}
     </div>
   );
 }
 
 // ── VARIANTS GRID ─────────────────────────────────────────────────
-function VariantsGrid({teacher,onOpen}) {
-  const vList=getVariants(teacher); const done=vList.filter(v=>v.watched===v.total).length; const total=vList.reduce((s,v)=>s+v.watched,0);
+function VariantsGrid({teacher,onOpen,variants}) {
+  const vList=variants; const done=vList.filter(v=>v.total>0&&v.ready===v.total).length; const totalReady=vList.reduce((s,v)=>s+v.ready,0);
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{marginBottom:20}}>
@@ -184,30 +201,35 @@ function VariantsGrid({teacher,onOpen}) {
           <span style={{fontSize:12,fontWeight:700,color:teacher.color,textTransform:"uppercase",letterSpacing:"0.08em"}}>{teacher.name} · {teacher.subject}</span>
         </div>
         <h1 style={{fontSize:23,fontWeight:900,color:C.text,marginBottom:6}}>{teacher.name} — Variantlar Tahlili</h1>
-        <p style={{color:C.textMid,fontSize:13.5}}>Har bir variantda <strong>43 ta masala</strong> to'liq video tahlili — milliy sertifikat qolipida</p>
+        <p style={{color:C.textMid,fontSize:13.5}}>Har bir variantdagi masalalar to'liq video tahlili — milliy sertifikat qolipida</p>
       </div>
       <div className="stat-row" style={{display:"flex",gap:12,marginBottom:20}}>
-        {[{icon:"📚",val:teacher.variants,label:"Jami variantlar"},{icon:"📝",val:"43",label:"Har variantda"},{icon:"🎬",val:teacher.variants*43,label:"Jami video"},{icon:"✅",val:done,label:"Tugatilgan"},{icon:"👁",val:total,label:"Ko'rilgan"}].map(s=>(
+        {[{icon:"📚",val:vList.length,label:"Jami variantlar"},{icon:"🎬",val:vList.reduce((s,v)=>s+v.total,0),label:"Jami savol"},{icon:"✅",val:done,label:"To'liq tayyor"},{icon:"👁",val:totalReady,label:"Video tayyor"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 13px",display:"flex",alignItems:"center",gap:8,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:20}}>{s.icon}</span>
             <div><div style={{fontSize:17,fontWeight:900,color:C.primary}}>{s.val}</div><div style={{fontSize:10,color:C.textMid}}>{s.label}</div></div>
           </div>
         ))}
       </div>
+      {vList.length===0 ? (
+        <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:16,padding:40,textAlign:"center",color:C.textMid}}>
+          Hali variant qo'shilmagan. <a href="/admin" style={{color:C.accent,fontWeight:700}}>Admin panel</a> orqali qo'shing.
+        </div>
+      ) : (
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14}}>
         {vList.map(v=>{
-          const pct=Math.round((v.watched/v.total)*100); const dn=v.watched===v.total; const bc=pct===100?C.primary:pct>60?C.accent:C.mint;
+          const pct=v.total?Math.round((v.ready/v.total)*100):0; const dn=v.total>0&&v.ready===v.total; const bc=pct===100?C.primary:pct>60?C.accent:C.mint;
           return (
-            <div key={v.id} onClick={()=>onOpen(v.id)}
+            <div key={v.id} onClick={()=>onOpen(v.number)}
               style={{background:"#fff",borderRadius:14,padding:"16px 15px",border:dn?`2px solid ${C.primary}`:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)",position:"relative"}}
               onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 26px rgba(15,81,50,0.16)";}}
               onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow=dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)";}}>
               {dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>}
               <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Milliy qolip</div>
-              <div style={{fontSize:16,fontWeight:900,color:C.text,marginBottom:2}}>{v.id}-Variant</div>
-              <div style={{fontSize:10.5,color:C.textMid,marginBottom:10}}>43 ta masala · video tahlil</div>
+              <div style={{fontSize:16,fontWeight:900,color:C.text,marginBottom:2}}>{v.number}-Variant</div>
+              <div style={{fontSize:10.5,color:C.textMid,marginBottom:10}}>{v.total} ta masala · video tahlil</div>
               <div style={{marginBottom:10}}>
-                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{fontSize:10,color:C.textMid}}>Ko'rildi</span><span style={{fontSize:11,fontWeight:800,color:dn?C.primary:C.textMid}}>{v.watched}/{v.total}</span></div>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{fontSize:10,color:C.textMid}}>Video tayyor</span><span style={{fontSize:11,fontWeight:800,color:dn?C.primary:C.textMid}}>{v.ready}/{v.total}</span></div>
                 <div style={{background:"#F1F5F9",borderRadius:4,height:6,overflow:"hidden"}}><div style={{width:`${pct}%`,height:"100%",borderRadius:4,background:bc}}/></div>
                 <div style={{fontSize:9.5,color:C.textLight,marginTop:3}}>{pct}% bajarildi</div>
               </div>
@@ -218,18 +240,19 @@ function VariantsGrid({teacher,onOpen}) {
           );
         })}
       </div>
+      )}
     </div>
   );
 }
 
 // ── VIDEO PLAYER ──────────────────────────────────────────────────
-function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
-  const [activeQ,setActiveQ]=useState(3);
+function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions}) {
+  const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
   const [aiState,setAiState]=useState("idle");
   const [aiResult,setAiResult]=useState(null);
-  const vList=getVariants(teacher); const v=vList.find(x=>x.id===variantId);
-  const questions=TOPICS_43.map((t,i)=>({id:i+1,topic:t}));
-  const curTopic=questions[activeQ-1]?.topic;
+  const total=questions.length; const ready=questions.filter(q=>q.video_ready).length;
+  const curQ=questions.find(q=>q.question_number===activeQ);
+  const curTopic=curQ?.topic||"";
 
   const generateAnalog = async () => {
     setAiState("loading"); setAiResult(null);
@@ -251,18 +274,21 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{activeQ}-Savol</span>
         </div>
         <div style={{background:"#0A0F1E",borderRadius:14,overflow:"hidden",aspectRatio:"16/9",width:"100%",position:"relative",marginBottom:15,boxShadow:"0 10px 36px rgba(0,0,0,0.22)"}}>
-          <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)"}}>
+          <a href={curQ?.video_url||undefined} target="_blank" rel="noreferrer" style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",cursor:curQ?.video_url?"pointer":"default",textDecoration:"none"}}
+            onClick={e=>{if(!curQ?.video_url)e.preventDefault();}}>
             <div style={{position:"absolute",top:18,left:28,opacity:0.1,fontSize:54,userSelect:"none"}}>⬡</div>
-            <div style={{width:62,height:62,borderRadius:"50%",background:C.primary,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",boxShadow:"0 0 0 14px rgba(15,81,50,0.2),0 0 0 28px rgba(15,81,50,0.08)"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
+            <div style={{width:62,height:62,borderRadius:"50%",background:curQ?.video_ready?C.primary:"#334155",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:curQ?.video_ready?"0 0 0 14px rgba(15,81,50,0.2),0 0 0 28px rgba(15,81,50,0.08)":"none"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
             <div style={{color:"#e2e8f0",fontSize:13,marginTop:16,fontWeight:600}}>{teacher.name} · {variantId}-Variant · {activeQ}-Savol</div>
-            <div style={{color:C.mint,fontSize:11.5,marginTop:4}}>{curTopic}</div>
-          </div>
+            <div style={{color:C.mint,fontSize:11.5,marginTop:4}}>{curTopic||"Mavzu kiritilmagan"}</div>
+            {!curQ?.video_ready&&<div style={{color:"#94A3B8",fontSize:11,marginTop:10,background:"rgba(255,255,255,0.06)",padding:"4px 12px",borderRadius:20}}>Video hali tayyor emas</div>}
+          </a>
+          {curQ?.video_ready&&(
           <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"12px 16px",background:"linear-gradient(transparent,rgba(0,0,0,0.88))",display:"flex",alignItems:"center",gap:10}}>
             <Play size={14} color="#fff" fill="#fff"/>
             <div style={{flex:1,height:3,background:"rgba(255,255,255,0.18)",borderRadius:2}}><div style={{width:"35%",height:"100%",background:C.mint,borderRadius:2}}/></div>
             <Volume2 size={13} color="#fff"/><SkipForward size={13} color="#fff"/>
-            <span style={{color:"rgba(255,255,255,0.8)",fontSize:11}}>4:23 / 12:45</span>
           </div>
+          )}
         </div>
         <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:11,padding:"10px 15px",marginBottom:12,display:"flex",flexWrap:"wrap",gap:7}}>
           {[["Savol",`${activeQ}-savol`],["Yil","2026"],["Mavzu",curTopic],["O'qituvchi",teacher.name]].map(([l,val])=>(
@@ -273,8 +299,8 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
         </div>
         <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"16px 18px",marginBottom:12}}>
           <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:8}}>Savol matni — {variantId}-Variant · {activeQ}-Savol</div>
-          <p style={{fontSize:14,color:C.text,lineHeight:1.75,marginBottom:11}}>N₂(g) + 3H₂(g) ⇌ 2NH₃(g) reaksiyasining muvozanat konstantasini aniqlang. Agar reaksiya idishiga 0.5 mol N₂ va 1.5 mol H₂ kiritilgan bo'lsa va muvozanat holatida NH₃ miqdori 0.4 mol bo'lsa, K<sub>c</sub> qiymatini hisoblang.</p>
-          <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:9,padding:"10px 15px",fontFamily:"'Courier New',monospace",fontSize:13.5,color:C.primary}}>Kc = [NH₃]² / ([N₂] · [H₂]³)</div>
+          <p style={{fontSize:14,color:C.text,lineHeight:1.75,marginBottom:11}}>{curQ?.question_text||"Savol matni hali admin panelda kiritilmagan."}</p>
+          {curQ?.formula&&<div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:9,padding:"10px 15px",fontFamily:"'Courier New',monospace",fontSize:13.5,color:C.primary}}>{curQ.formula}</div>}
         </div>
 
         {/* Static PDF button */}
@@ -357,18 +383,18 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
 
       <div className="video-sidebar" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
         <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>{variantId}-Variant · Savollar</div>
-        <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{v.watched}/{v.total} ko'rildi</div>
+        <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{ready}/{total} video tayyor</div>
         {questions.map(q=>{
-          const isA=q.id===activeQ; const isW=q.id<=v.watched;
+          const isA=q.question_number===activeQ; const isW=q.video_ready;
           return (
-            <button key={q.id} onClick={()=>{setActiveQ(q.id);setAiState("idle");setAiResult(null);}}
+            <button key={q.id} onClick={()=>{setActiveQ(q.question_number);setAiState("idle");setAiResult(null);}}
               style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:isA?C.primary:"transparent",border:isA?"none":`1px solid ${isW?"#BBF7D0":C.border}`,cursor:"pointer",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7}}>
               <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:isA?"rgba(255,255,255,0.18)":isW?C.mintBg:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:800,color:isA?C.mint:isW?C.primary:C.textMid}}>
-                {isW&&!isA?"✓":q.id}
+                {isW&&!isA?"✓":q.question_number}
               </div>
               <div style={{minWidth:0,flex:1}}>
-                <div style={{fontSize:10.5,fontWeight:700,color:isA?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.id}-Savol</div>
-                <div style={{fontSize:9,color:isA?"#A7F3D0":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.topic}</div>
+                <div style={{fontSize:10.5,fontWeight:700,color:isA?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.question_number}-Savol</div>
+                <div style={{fontSize:9,color:isA?"#A7F3D0":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.topic||"—"}</div>
               </div>
               {isA&&<div style={{width:6,height:6,borderRadius:"50%",background:C.mint,flexShrink:0,boxShadow:"0 0 0 3px rgba(110,231,183,0.3)"}}/>}
             </button>
@@ -380,11 +406,14 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
 }
 
 // ── TOPICS DIRECTORY ─────────────────────────────────────────────
-function TopicsDirectory({onGoVariant,teacher,setTab}) {
-  const [sel,setSel]=useState("muvozanat");
-  const cat=TOPIC_CATS.find(c=>c.id===sel); const qs=TOPIC_QS[sel]||TOPIC_QS["muvozanat"];
+function TopicsDirectory({onGoVariant,teacher,setTab,questions}) {
+  const topicMap={};
+  questions.forEach(q=>{ if(q.topic){ (topicMap[q.topic]=topicMap[q.topic]||[]).push(q); } });
+  const topicsList=Object.entries(topicMap).map(([name,qs])=>({name,qs})).sort((a,b)=>b.qs.length-a.qs.length);
+  const [sel,setSel]=useState(null);
+  const activeSel = sel && topicMap[sel] ? sel : topicsList[0]?.name;
+  const qs = topicMap[activeSel]||[];
 
-  // No teacher selected guard
   if(!teacher) return (
     <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:16,padding:48,textAlign:"center"}}>
       <div style={{fontSize:52}}>📂</div>
@@ -399,64 +428,52 @@ function TopicsDirectory({onGoVariant,teacher,setTab}) {
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{marginBottom:20}}>
-        {/* Teacher badge */}
         <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
           <div style={{width:30,height:30,borderRadius:9,background:teacher.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:900,color:"#fff",flexShrink:0}}>{teacher.initials}</div>
           <span style={{fontSize:12,fontWeight:700,color:teacher.color,textTransform:"uppercase",letterSpacing:"0.08em"}}>{teacher.name} · {teacher.subject}</span>
-          <span style={{fontSize:11,color:C.textLight}}>· {teacher.variants} ta variant</span>
         </div>
         <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>Mavzular bo'yicha Tahlil</h1>
         <p style={{color:C.textMid,fontSize:13.5}}><strong>{teacher.name}</strong> test to'plamidagi masalalarni kimyo mavzulari bo'yicha guruhlangan holda ko'ring</p>
       </div>
+      {topicsList.length===0 ? (
+        <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:16,padding:40,textAlign:"center",color:C.textMid}}>
+          Hali savollarga mavzu kiritilmagan. <a href="/admin" style={{color:C.accent,fontWeight:700}}>Admin panel</a> orqali kiriting.
+        </div>
+      ) : (<>
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:24}}>
-        {TOPIC_CATS.map(c=>{const on=sel===c.id;return(
-          <div key={c.id} onClick={()=>setSel(c.id)} style={{background:on?C.primary:"#fff",border:on?`2px solid ${C.primary}`:`1px solid ${C.border}`,borderRadius:14,padding:"16px",cursor:"pointer",transition:"all 0.18s",boxShadow:on?"0 6px 20px rgba(15,81,50,0.2)":"0 1px 4px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{if(!on){e.currentTarget.style.boxShadow="0 5px 16px rgba(0,0,0,0.1)";e.currentTarget.style.transform="translateY(-2px)";}}} onMouseLeave={e=>{if(!on){e.currentTarget.style.boxShadow="0 1px 4px rgba(0,0,0,0.04)";e.currentTarget.style.transform="translateY(0)";}}} >
-            <div style={{fontSize:26,marginBottom:8}}>{c.icon}</div>
+        {topicsList.map(c=>{const on=activeSel===c.name;return(
+          <div key={c.name} onClick={()=>setSel(c.name)} style={{background:on?C.primary:"#fff",border:on?`2px solid ${C.primary}`:`1px solid ${C.border}`,borderRadius:14,padding:"16px",cursor:"pointer",transition:"all 0.18s",boxShadow:on?"0 6px 20px rgba(15,81,50,0.2)":"0 1px 4px rgba(0,0,0,0.04)"}}>
+            <div style={{fontSize:26,marginBottom:8}}><Tag size={22} color={on?"#fff":teacher.color}/></div>
             <div style={{fontSize:12,fontWeight:800,color:on?"#fff":C.text,marginBottom:6,lineHeight:1.3}}>{c.name}</div>
-            <div style={{display:"inline-flex",background:on?"rgba(255,255,255,0.16)":C.mintBg,color:on?C.mint:C.primary,fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>{c.count} masala</div>
+            <div style={{display:"inline-flex",background:on?"rgba(255,255,255,0.16)":C.mintBg,color:on?C.mint:C.primary,fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>{c.qs.length} masala</div>
           </div>
         );})}
       </div>
-      {/* Section header with teacher context */}
       <div style={{display:"flex",alignItems:"center",gap:9,marginBottom:14}}>
         <div style={{width:4,height:25,background:teacher.color,borderRadius:2}}/>
         <h2 style={{fontSize:15.5,fontWeight:800,color:C.text}}>
-          "{cat?.name}" — <span style={{color:teacher.color}}>{teacher.name}</span> to'plamidagi masalalar
+          "{activeSel}" — <span style={{color:teacher.color}}>{teacher.name}</span> to'plamidagi masalalar
         </h2>
         <span style={{background:teacher.bgColor,color:teacher.color,border:`1px solid ${teacher.color}30`,fontSize:10.5,fontWeight:800,padding:"3px 10px",borderRadius:20}}>{qs.length} ta topildi</span>
       </div>
       <div style={{display:"flex",flexDirection:"column",gap:9}}>
-        {qs.map((q,i)=>{
-          const variantInRange = q.vId <= teacher.variants;
-          return (
-            <div key={i} style={{background:"#fff",border:`1px solid ${variantInRange?C.border:"#F1F5F9"}`,borderRadius:13,padding:"14px 17px",display:"flex",alignItems:"center",gap:13,boxShadow:"0 1px 4px rgba(0,0,0,0.04)",cursor:variantInRange?"pointer":"default",transition:"all 0.14s",opacity:variantInRange?1:0.5}}
-              onMouseEnter={e=>{if(variantInRange){e.currentTarget.style.borderColor=teacher.color;e.currentTarget.style.boxShadow=`0 5px 14px ${teacher.color}1A`;}}}
-              onMouseLeave={e=>{if(variantInRange){e.currentTarget.style.borderColor=C.border;e.currentTarget.style.boxShadow="0 1px 4px rgba(0,0,0,0.04)";}}}
-            >
-              <div style={{width:46,height:46,borderRadius:11,background:teacher.bgColor,display:"flex",alignItems:"center",justifyContent:"center",fontSize:21,flexShrink:0}}>{cat?.icon}</div>
+        {qs.map(q=>(
+            <div key={q.id} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:13,padding:"14px 17px",display:"flex",alignItems:"center",gap:13,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
+              <div style={{width:46,height:46,borderRadius:11,background:teacher.bgColor,display:"flex",alignItems:"center",justifyContent:"center",fontSize:21,flexShrink:0}}><Tag size={19} color={teacher.color}/></div>
               <div style={{flex:1}}>
                 <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:3}}>
-                  <div style={{fontSize:13.5,fontWeight:800,color:C.text}}>{q.vId}-Variant · {q.qId}-Savol</div>
-                  <div style={{display:"flex",alignItems:"center",gap:5,background:teacher.bgColor,padding:"2px 9px",borderRadius:20,border:`1px solid ${teacher.color}25`}}>
-                    <div style={{width:7,height:7,borderRadius:"50%",background:teacher.color}}/>
-                    <span style={{fontSize:10,fontWeight:700,color:teacher.color}}>{teacher.name}</span>
-                  </div>
+                  <div style={{fontSize:13.5,fontWeight:800,color:C.text}}>{q.variant_number}-Variant · {q.question_number}-Savol</div>
+                  {q.video_ready&&<div style={{display:"flex",alignItems:"center",gap:5,background:teacher.bgColor,padding:"2px 9px",borderRadius:20,border:`1px solid ${teacher.color}25`}}><CheckCircle2 size={11} color={teacher.color}/><span style={{fontSize:10,fontWeight:700,color:teacher.color}}>Video tayyor</span></div>}
                 </div>
-                <div style={{fontSize:12,color:C.textMid,marginBottom:5}}>{cat?.name}</div>
-                <div style={{fontFamily:"'Courier New',monospace",fontSize:12.5,color:teacher.color,background:teacher.bgColor,padding:"3px 10px",borderRadius:7,display:"inline-block",border:`1px solid ${teacher.color}25`}}>{q.formula}</div>
+                {q.formula&&<div style={{fontFamily:"'Courier New',monospace",fontSize:12.5,color:teacher.color,background:teacher.bgColor,padding:"3px 10px",borderRadius:7,display:"inline-block",border:`1px solid ${teacher.color}25`}}>{q.formula}</div>}
               </div>
-              <div style={{display:"flex",gap:7,flexShrink:0}}>
-                <button onClick={()=>variantInRange&&onGoVariant(q.vId)} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 13px",background:variantInRange?teacher.color:"#E2E8F0",color:variantInRange?"#fff":C.textLight,border:"none",borderRadius:9,fontSize:12,fontWeight:700,cursor:variantInRange?"pointer":"default",fontFamily:"inherit"}}>
-                  <Play size={10} fill="currentColor"/> Ko'rish
-                </button>
-                <button style={{display:"flex",alignItems:"center",gap:5,padding:"8px 11px",background:teacher.bgColor,color:teacher.color,border:`1px solid ${teacher.color}30`,borderRadius:9,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>
-                  <Eye size={11}/> Batafsil
-                </button>
-              </div>
+              <button onClick={()=>onGoVariant(q.variant_number)} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 13px",background:teacher.color,color:"#fff",border:"none",borderRadius:9,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>
+                <Play size={10} fill="currentColor"/> Ko'rish
+              </button>
             </div>
-          );
-        })}
+        ))}
       </div>
+      </>)}
     </div>
   );
 }
@@ -707,7 +724,7 @@ function TestGenerator({teacher,plan,setTab}) {
               {GEN_SRC.map((fV,i)=>{const col=vColors[(fV-1)%vColors.length];return(
                 <div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:8,background:i%2===0?"#FAFAFA":"#fff",border:`1px solid ${C.border}`}}>
                   <div style={{width:26,height:26,borderRadius:"50%",background:C.primary,color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,flexShrink:0}}>{i+1}</div>
-                  <div style={{flex:1,minWidth:0,fontSize:12,fontWeight:500,color:C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{TOPICS_43[i]}</div>
+                  <div style={{flex:1,minWidth:0,fontSize:12,fontWeight:500,color:C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{i+1}-savol</div>
                   <div style={{display:"inline-flex",background:`${col}14`,color:col,border:`1px solid ${col}28`,fontSize:10,fontWeight:800,padding:"3px 8px",borderRadius:20,flexShrink:0}}>Variant {fV}</div>
                 </div>
               );})}
@@ -789,11 +806,12 @@ function SubscriptionScreen({plan,setPlan}) {
 }
 
 // ── PROFILE SCREEN ────────────────────────────────────────────────
-function ProfileScreen({teacher,plan,setPlan}) {
-  const vList=teacher?getVariants(teacher):[];
-  const done=vList.filter(v=>v.watched===v.total).length;
-  const total=vList.reduce((s,v)=>s+v.watched,0);
-  const maxV=teacher?.variants||20;
+function ProfileScreen({teacher,plan,setPlan,variants}) {
+  const vList=teacher?variants:[];
+  const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
+  const total=vList.reduce((s,v)=>s+v.ready,0);
+  const allQ=vList.reduce((s,v)=>s+v.total,0);
+  const maxV=vList.length||1;
   const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"},premium:{name:"Premium",color:C.primary,bg:C.mintBg}};
   const pi=planInfo[plan];
   return (
@@ -812,7 +830,7 @@ function ProfileScreen({teacher,plan,setPlan}) {
           </div>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12,marginBottom:18}}>
-          {[{icon:"✅",val:`${done}/${maxV}`,label:"Bajarilgan"},{icon:"🎬",val:total,label:"Ko'rilgan Video"},{icon:"🏆",val:`${Math.round((total/(maxV*43))*100)}%`,label:"Umumiy Progress"}].map(s=>(
+          {[{icon:"✅",val:`${done}/${maxV}`,label:"Bajarilgan"},{icon:"🎬",val:total,label:"Video tayyor"},{icon:"🏆",val:`${allQ?Math.round((total/allQ)*100):0}%`,label:"Umumiy Progress"}].map(s=>(
             <div key={s.label} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"15px",textAlign:"center",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
               <div style={{fontSize:24,marginBottom:6}}>{s.icon}</div>
               <div style={{fontSize:20,fontWeight:900,color:C.primary,marginBottom:3}}>{s.val}</div>
@@ -833,9 +851,9 @@ function ProfileScreen({teacher,plan,setPlan}) {
         {teacher&&(
           <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"16px 18px"}}>
             <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13}}>Variant Progressi</div>
-            {vList.map(v=>{const pct=Math.round((v.watched/v.total)*100);return(
+            {vList.map(v=>{const pct=v.total?Math.round((v.ready/v.total)*100):0;return(
               <div key={v.id} style={{display:"flex",alignItems:"center",gap:11,marginBottom:8}}>
-                <div style={{width:72,fontSize:11,fontWeight:700,color:C.text,flexShrink:0}}>{v.id}-Variant</div>
+                <div style={{width:72,fontSize:11,fontWeight:700,color:C.text,flexShrink:0}}>{v.number}-Variant</div>
                 <div style={{flex:1,height:6,background:"#F1F5F9",borderRadius:3,overflow:"hidden"}}><div style={{width:`${pct}%`,height:"100%",borderRadius:3,background:pct===100?C.primary:C.accent}}/></div>
                 <div style={{width:34,fontSize:11,fontWeight:800,color:pct===100?C.primary:C.textMid,textAlign:"right",flexShrink:0}}>{pct}%</div>
               </div>
@@ -854,6 +872,28 @@ export default function App() {
   const [varId,setVarId]=useState(null);
   const [plan,setPlan]=useState("free");
   const [mobileOpen,setMobileOpen]=useState(false);
+  const [teachers,setTeachers]=useState([]);
+  const [variants,setVariants]=useState([]);
+  const [questions,setQuestions]=useState([]);
+  const [teacherQuestions,setTeacherQuestions]=useState([]);
+
+  const reloadTeachers = () => fetchTeachers().then(setTeachers);
+  useEffect(()=>{ reloadTeachers(); },[]);
+
+  useEffect(()=>{
+    if(!teacher){ setVariants([]); setTeacherQuestions([]); return; }
+    fetchVariants(teacher.id).then(setVariants);
+    supabase.from("questions").select("*, variants!inner(variant_number,teacher_id)").eq("variants.teacher_id",teacher.id).order("question_number")
+      .then(({data})=>setTeacherQuestions((data||[]).map(q=>({...q,variant_number:q.variants.variant_number}))));
+  },[teacher]);
+
+  useEffect(()=>{
+    if(!teacher||!varId){ setQuestions([]); return; }
+    const v = variants.find(x=>x.number===varId);
+    if(!v){ setQuestions([]); return; }
+    fetchQuestions(v.id).then(setQuestions);
+  },[teacher,varId,variants]);
+
   const pick=t=>{setTeacher(t);setTab("variants");setVarId(null);setMobileOpen(false);};
   return (
     <div style={{display:"flex",minHeight:"100vh",background:C.bgSoft,fontFamily:"'Inter',system-ui,-apple-system,sans-serif"}}>
@@ -879,9 +919,9 @@ export default function App() {
         <Menu size={19} color="#fff"/>
       </button>
       {mobileOpen&&<div className="sidebar-overlay" onClick={()=>setMobileOpen(false)}/>}
-      <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)}/>
+      <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)} variants={variants}/>
       <main className="app-main" style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column",minWidth:0}}>
-        {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan}/>}
+        {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan} teachers={teachers}/>}
         {tab==="variants"&&!teacher&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
             <div style={{fontSize:48}}>👨‍🏫</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>O'qituvchi tanlanmagan</div>
@@ -889,13 +929,13 @@ export default function App() {
             <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kolleksiyalarni ko'rish</button>
           </div>
         )}
-        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)}/>}
-        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab}/>}
-        {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab}/>}
+        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants}/>}
+        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions}/>}
+        {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
         {tab==="analytics"&&<AnalyticsScreen/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} setPlan={setPlan}/>}
-        {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} setPlan={setPlan}/>}
+        {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} setPlan={setPlan} variants={variants}/>}
       </main>
     </div>
   );
