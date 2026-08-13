@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, RefreshCw } from "lucide-react";
+import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, RefreshCw, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
@@ -52,15 +52,15 @@ async function callClaude(prompt) {
 }
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
-function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan}) {
+function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose}) {
   const TABS=[{id:"collections",label:"Kolleksiyalar",icon:BookOpen},{id:"variants",label:"Variantlar",icon:Grid3X3},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
   const vList=teacher?getVariants(teacher):[];
   const done=vList.filter(v=>v.watched===v.total).length;
   const planColors={free:"#475569",standart:"#0D9488",premium:"#0F5132"};
   const planNames={free:"Bepul",standart:"Standart ⭐",premium:"Premium 💎"};
   return (
-    <div style={{width:258,minHeight:"100vh",background:"#FAFFFE",borderRight:`1px solid ${C.border}`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,zIndex:200}}>
-      <div style={{background:C.primary,padding:"18px 18px 14px"}}>
+    <div className={`app-sidebar${mobileOpen?" open":""}`} style={{width:258,maxWidth:"82vw",minHeight:"100vh",background:"#FAFFFE",borderRight:`1px solid ${C.border}`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,zIndex:200}}>
+      <div style={{background:C.primary,padding:"18px 18px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <div style={{width:40,height:40,borderRadius:10,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><FlaskConical size={21} color={C.mint}/></div>
           <div>
@@ -68,6 +68,9 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan}) {
             <div style={{color:C.mint,fontSize:10,fontWeight:600,marginTop:1}}>Milliy Sertifikat · 2026</div>
           </div>
         </div>
+        <button onClick={onClose} className="sidebar-close-btn" style={{display:"none",background:"rgba(255,255,255,0.14)",border:"none",borderRadius:8,width:30,height:30,alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0}}>
+          <X size={16} color="#fff"/>
+        </button>
       </div>
       <div style={{margin:"10px 10px 0",padding:"7px 10px",borderRadius:9,background:planColors[plan]+"18",border:`1px solid ${planColors[plan]}30`,display:"flex",alignItems:"center",gap:7}}>
         <div style={{width:8,height:8,borderRadius:"50%",background:planColors[plan],flexShrink:0}}/>
@@ -80,10 +83,10 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan}) {
             <div style={{fontSize:11.5,fontWeight:800,color:C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{teacher.name}</div>
             <div style={{fontSize:10,color:C.textMid}}>{teacher.variants} variant</div>
           </div>
-          <button onClick={()=>{setTeacher(null);setVarId(null);setTab("collections");}} style={{background:"none",border:"none",cursor:"pointer",fontSize:10,fontWeight:700,color:C.accent,fontFamily:"inherit",padding:"3px 6px",borderRadius:5}}>O'zgartir</button>
+          <button onClick={()=>{setTeacher(null);setVarId(null);setTab("collections");onClose?.();}} style={{background:"none",border:"none",cursor:"pointer",fontSize:10,fontWeight:700,color:C.accent,fontFamily:"inherit",padding:"3px 6px",borderRadius:5}}>O'zgartir</button>
         </div>
       ):(
-        <div onClick={()=>setTab("collections")} style={{margin:"8px 10px 0",padding:"9px 12px",borderRadius:11,background:C.mintBg,border:`1px dashed ${C.borderGreen}`,cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
+        <div onClick={()=>{setTab("collections");onClose?.();}} style={{margin:"8px 10px 0",padding:"9px 12px",borderRadius:11,background:C.mintBg,border:`1px dashed ${C.borderGreen}`,cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
           <Users size={14} color={C.primary}/><span style={{fontSize:12,color:C.primary,fontWeight:600}}>O'qituvchi tanlang</span>
           <ChevronRight size={13} color={C.primary} style={{marginLeft:"auto"}}/>
         </div>
@@ -93,7 +96,7 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan}) {
         {TABS.map(t=>{
           const Ic=t.icon; const on=tab===t.id;
           return (
-            <button key={t.id} onClick={()=>{setTab(t.id);if(t.id!=="variants")setVarId(null);}}
+            <button key={t.id} onClick={()=>{setTab(t.id);if(t.id!=="variants")setVarId(null);onClose?.();}}
               style={{display:"flex",alignItems:"center",gap:10,width:"100%",padding:"9px 12px",borderRadius:10,marginBottom:2,background:on?C.primary:"transparent",color:on?"#fff":C.textMid,border:"none",cursor:"pointer",textAlign:"left",fontFamily:"inherit",fontSize:12.5,fontWeight:on?700:500,transition:"all 0.14s"}}
               onMouseEnter={e=>{if(!on){e.currentTarget.style.background=C.mintBg;e.currentTarget.style.color=C.primary;}}}
               onMouseLeave={e=>{if(!on){e.currentTarget.style.background="transparent";e.currentTarget.style.color=C.textMid;}}}>
@@ -131,7 +134,7 @@ function TeachersGrid({onSelect,plan}) {
         <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>O'qituvchi Kolleksiyalarini Tanlang</h1>
         <p style={{color:C.textMid,fontSize:13.5}}>Har bir o'qituvchining milliy sertifikat variant tahlillari bilan ishlang</p>
       </div>
-      <div style={{display:"flex",gap:12,marginBottom:22}}>
+      <div className="stat-row" style={{display:"flex",gap:12,marginBottom:22}}>
         {[{icon:"👨‍🏫",val:"6",label:"O'qituvchi"},{icon:"📚",val:"83",label:"Jami variant"},{icon:"🎬",val:"3,568",label:"Video dars"},{icon:"👥",val:"3,870+",label:"O'quvchi"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"13px 14px",display:"flex",alignItems:"center",gap:9,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:22}}>{s.icon}</span>
@@ -183,7 +186,7 @@ function VariantsGrid({teacher,onOpen}) {
         <h1 style={{fontSize:23,fontWeight:900,color:C.text,marginBottom:6}}>{teacher.name} — Variantlar Tahlili</h1>
         <p style={{color:C.textMid,fontSize:13.5}}>Har bir variantda <strong>43 ta masala</strong> to'liq video tahlili — milliy sertifikat qolipida</p>
       </div>
-      <div style={{display:"flex",gap:12,marginBottom:20}}>
+      <div className="stat-row" style={{display:"flex",gap:12,marginBottom:20}}>
         {[{icon:"📚",val:teacher.variants,label:"Jami variantlar"},{icon:"📝",val:"43",label:"Har variantda"},{icon:"🎬",val:teacher.variants*43,label:"Jami video"},{icon:"✅",val:done,label:"Tugatilgan"},{icon:"👁",val:total,label:"Ko'rilgan"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 13px",display:"flex",alignItems:"center",gap:8,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:20}}>{s.icon}</span>
@@ -240,7 +243,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
 
   const allowed = canUse(plan,"analog");
   return (
-    <div style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
+    <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
       <div style={{flex:1,minWidth:0,overflowY:"auto",padding:"20px 22px 24px 26px"}}>
         <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:13,fontSize:12.5,color:C.textMid}}>
           <button onClick={onBack} style={{background:"none",border:"none",cursor:"pointer",color:C.accent,fontWeight:600,fontFamily:"inherit",fontSize:12.5,padding:0}}>Variantlar</button>
@@ -352,7 +355,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab}) {
         )}
       </div>
 
-      <div style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
+      <div className="video-sidebar" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
         <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>{variantId}-Variant · Savollar</div>
         <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{v.watched}/{v.total} ko'rildi</div>
         {questions.map(q=>{
@@ -850,12 +853,34 @@ export default function App() {
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
   const [plan,setPlan]=useState("free");
-  const pick=t=>{setTeacher(t);setTab("variants");setVarId(null);};
+  const [mobileOpen,setMobileOpen]=useState(false);
+  const pick=t=>{setTeacher(t);setTab("variants");setVarId(null);setMobileOpen(false);};
   return (
     <div style={{display:"flex",minHeight:"100vh",background:C.bgSoft,fontFamily:"'Inter',system-ui,-apple-system,sans-serif"}}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');*{box-sizing:border-box;margin:0;padding:0;}::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:#F1F5F9;}::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px;}@keyframes spin{to{transform:rotate(360deg);}}button:focus-visible{outline:2px solid #0F5132;outline-offset:2px;}`}</style>
-      <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan}/>
-      <main style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column"}}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');*{box-sizing:border-box;margin:0;padding:0;}html,body,#root{overflow-x:hidden;}::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:#F1F5F9;}::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px;}@keyframes spin{to{transform:rotate(360deg);}}button:focus-visible{outline:2px solid #0F5132;outline-offset:2px;}
+        .hamburger-btn{display:none;position:fixed;top:14px;left:14px;z-index:300;width:40px;height:40px;border-radius:10px;background:${C.primary};border:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.18);}
+        .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.45);z-index:150;}
+        @media (max-width:900px){
+          .app-sidebar{transform:translateX(-100%);transition:transform 0.25s ease;}
+          .app-sidebar.open{transform:translateX(0);}
+          .app-main{margin-left:0 !important;padding-top:58px;}
+          .hamburger-btn{display:flex;}
+          .sidebar-close-btn{display:flex !important;}
+          .sidebar-overlay{display:block;}
+          .video-layout{flex-direction:column !important;height:auto !important;overflow:visible !important;}
+          .video-sidebar{width:100% !important;border-left:none !important;border-top:1px solid ${C.border};max-height:none !important;}
+          [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+        }
+        @media (max-width:640px){
+          .stat-row{flex-wrap:wrap;}
+          .stat-row>div{min-width:calc(50% - 6px);}
+        }`}</style>
+      <button className="hamburger-btn" onClick={()=>setMobileOpen(true)} aria-label="Menyu">
+        <Menu size={19} color="#fff"/>
+      </button>
+      {mobileOpen&&<div className="sidebar-overlay" onClick={()=>setMobileOpen(false)}/>}
+      <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)}/>
+      <main className="app-main" style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column",minWidth:0}}>
         {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan}/>}
         {tab==="variants"&&!teacher&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
