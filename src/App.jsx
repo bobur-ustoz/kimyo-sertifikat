@@ -737,8 +737,14 @@ function TestGenerator({teacher,plan,setTab}) {
 }
 
 // ── SUBSCRIPTION SCREEN ───────────────────────────────────────────
-function SubscriptionScreen({plan,setPlan}) {
+function SubscriptionScreen({plan,session,setTab}) {
   const [hover,setHover]=useState(null);
+  const [notice,setNotice]=useState("");
+  const handleClick = p => {
+    if(p.id==="free") return;
+    if(!session){ setTab("profile"); return; }
+    setNotice(`${p.name} rejasi uchun to'lov tizimi tez orada ulanadi. Hozircha administrator bilan bog'laning.`);
+  };
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{textAlign:"center",marginBottom:30}}>
@@ -748,6 +754,12 @@ function SubscriptionScreen({plan,setPlan}) {
         <h1 style={{fontSize:26,fontWeight:900,color:C.text,marginBottom:8}}>O'zingizga mos rejani tanlang</h1>
         <p style={{color:C.textMid,fontSize:14,maxWidth:500,margin:"0 auto"}}>Milliy sertifikat imtihoniga tayyorlanishni yangi bosqichga olib chiqing. AI vositalar va premium kontent bilan.</p>
       </div>
+      {notice&&(
+        <div style={{background:C.warningBg,border:`1px solid #FDE68A`,borderRadius:12,padding:"12px 16px",marginBottom:20,display:"flex",alignItems:"center",gap:10,maxWidth:640,marginLeft:"auto",marginRight:"auto"}}>
+          <Info size={15} color={C.warning}/><span style={{fontSize:12.5,color:"#92400E",flex:1}}>{notice}</span>
+          <button onClick={()=>setNotice("")} style={{background:"none",border:"none",cursor:"pointer",color:"#92400E"}}><X size={14}/></button>
+        </div>
+      )}
 
       <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18,marginBottom:30}}>
         {PLANS.map(p=>{
@@ -776,8 +788,8 @@ function SubscriptionScreen({plan,setPlan}) {
                     </div>
                   ))}
                 </div>
-                <button onClick={()=>setPlan(p.id)} style={{width:"100%",padding:"12px",borderRadius:11,background:current?"#F1F5F9":p.btnBg,color:current?C.textMid:p.btnColor,border:current?`1px solid ${C.border}`:"none",fontSize:13.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",transition:"all 0.15s",opacity:current?0.7:1}}>
-                  {current?"Joriy rejangiz":p.price==="0"?"Bepul boshlash":"Obuna bo'lish"}
+                <button onClick={()=>handleClick(p)} disabled={current} style={{width:"100%",padding:"12px",borderRadius:11,background:current?"#F1F5F9":p.btnBg,color:current?C.textMid:p.btnColor,border:current?`1px solid ${C.border}`:"none",fontSize:13.5,fontWeight:800,cursor:current?"default":"pointer",fontFamily:"inherit",transition:"all 0.15s",opacity:current?0.7:1}}>
+                  {current?"Joriy rejangiz":p.price==="0"?"Bepul boshlash":!session?"Kirish va obuna bo'lish":"Obuna bo'lish"}
                 </button>
               </div>
             </div>
@@ -806,7 +818,49 @@ function SubscriptionScreen({plan,setPlan}) {
 }
 
 // ── PROFILE SCREEN ────────────────────────────────────────────────
-function ProfileScreen({teacher,plan,setPlan,variants}) {
+function AuthPanel(){
+  const [mode,setMode]=useState("login");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const [error,setError]=useState("");
+  const [info,setInfo]=useState("");
+  const [loading,setLoading]=useState(false);
+  const submit = async e => {
+    e.preventDefault();
+    setLoading(true); setError(""); setInfo("");
+    if(mode==="login"){
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if(error) setError("Email yoki parol noto'g'ri");
+    } else {
+      const { error } = await supabase.auth.signUp({ email, password });
+      if(error) setError(error.message);
+      else setInfo("Ro'yxatdan o'tildi! Endi kirishingiz mumkin.");
+    }
+    setLoading(false);
+  };
+  return (
+    <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:16,padding:28,maxWidth:380,width:"100%"}}>
+      <div style={{display:"flex",gap:6,marginBottom:20,background:C.bgSoft,borderRadius:10,padding:4}}>
+        {[["login","Kirish"],["signup","Ro'yxatdan o'tish"]].map(([m,l])=>(
+          <button key={m} type="button" onClick={()=>{setMode(m);setError("");setInfo("");}} style={{flex:1,padding:"8px",borderRadius:8,border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:12.5,fontWeight:700,background:mode===m?"#fff":"transparent",color:mode===m?C.primary:C.textMid,boxShadow:mode===m?"0 1px 3px rgba(0,0,0,0.08)":"none"}}>{l}</button>
+        ))}
+      </div>
+      <form onSubmit={submit}>
+        <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Email</label>
+        <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:12}}/>
+        <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Parol</label>
+        <input type="password" required minLength={6} value={password} onChange={e=>setPassword(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:14}}/>
+        {error&&<div style={{color:C.danger,fontSize:12,marginBottom:12}}>{error}</div>}
+        {info&&<div style={{color:C.primary,fontSize:12,marginBottom:12}}>{info}</div>}
+        <button type="submit" disabled={loading} style={{width:"100%",padding:"11px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
+          {loading?"Yuklanmoqda...":mode==="login"?"Kirish":"Ro'yxatdan o'tish"}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function ProfileScreen({teacher,plan,session,setTab,variants}) {
   const vList=teacher?variants:[];
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
   const total=vList.reduce((s,v)=>s+v.ready,0);
@@ -814,20 +868,33 @@ function ProfileScreen({teacher,plan,setPlan,variants}) {
   const maxV=vList.length||1;
   const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"},premium:{name:"Premium",color:C.primary,bg:C.mintBg}};
   const pi=planInfo[plan];
+
+  if(!session) return (
+    <div style={{padding:"26px 30px",display:"flex",flexDirection:"column",alignItems:"center",gap:20}}>
+      <div style={{textAlign:"center",maxWidth:400}}>
+        <div style={{fontSize:40,marginBottom:10}}>👤</div>
+        <h1 style={{fontSize:20,fontWeight:900,color:C.text,marginBottom:6}}>Hisobingizga kiring</h1>
+        <p style={{fontSize:13,color:C.textMid}}>Progressingizni saqlash va obuna bo'lish uchun ro'yxatdan o'ting yoki kiring.</p>
+      </div>
+      <AuthPanel/>
+    </div>
+  );
+
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{maxWidth:640}}>
         <div style={{background:`linear-gradient(130deg,${C.primary} 0%,${C.accent} 100%)`,borderRadius:16,padding:"24px",marginBottom:20,color:"#fff",display:"flex",gap:18,alignItems:"center"}}>
           <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0}}>👨‍🎓</div>
-          <div>
+          <div style={{flex:1,minWidth:0}}>
             <div style={{fontSize:10,color:C.mint,fontWeight:800,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.09em"}}>Kimyo Platform · 2026</div>
-            <div style={{fontSize:20,fontWeight:900,marginBottom:3}}>Talaba Profili</div>
+            <div style={{fontSize:16,fontWeight:900,marginBottom:3,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{session.user.email}</div>
             <div style={{fontSize:12.5,color:"#D1FAE5"}}>{teacher?`${teacher.name} kursi`:"O'qituvchi tanlanmagan"}</div>
             <div style={{display:"inline-flex",alignItems:"center",gap:5,marginTop:6,background:"rgba(255,255,255,0.15)",padding:"4px 12px",borderRadius:20}}>
               <div style={{width:7,height:7,borderRadius:"50%",background:pi.color==="#475569"?"#CBD5E1":C.mint}}/>
               <span style={{fontSize:11,fontWeight:700}}>{pi.name} reja</span>
             </div>
           </div>
+          <button onClick={()=>supabase.auth.signOut()} style={{background:"rgba(255,255,255,0.14)",border:"none",color:"#fff",padding:"8px 14px",borderRadius:9,fontSize:11.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Chiqish</button>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12,marginBottom:18}}>
           {[{icon:"✅",val:`${done}/${maxV}`,label:"Bajarilgan"},{icon:"🎬",val:total,label:"Video tayyor"},{icon:"🏆",val:`${allQ?Math.round((total/allQ)*100):0}%`,label:"Umumiy Progress"}].map(s=>(
@@ -845,7 +912,7 @@ function ProfileScreen({teacher,plan,setPlan,variants}) {
               <div style={{fontSize:15,fontWeight:900,color:pi.color,marginBottom:2}}>{pi.name} reja</div>
               <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":plan==="standart"?"49,900 so'm/oy · AI Analog Generator":"99,900 so'm/oy · Barcha imkoniyatlar"}</div>
             </div>
-            {plan!=="premium"&&<button onClick={()=>setPlan(plan==="free"?"standart":"premium")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
+            {plan!=="premium"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
         </div>
         {teacher&&(
@@ -870,15 +937,28 @@ export default function App() {
   const [tab,setTab]=useState("collections");
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
-  const [plan,setPlan]=useState("free");
   const [mobileOpen,setMobileOpen]=useState(false);
   const [teachers,setTeachers]=useState([]);
   const [variants,setVariants]=useState([]);
   const [questions,setQuestions]=useState([]);
   const [teacherQuestions,setTeacherQuestions]=useState([]);
+  const [session,setSession]=useState(undefined);
+  const [profile,setProfile]=useState(null);
+  const plan = profile?.plan || "free";
 
   const reloadTeachers = () => fetchTeachers().then(setTeachers);
   useEffect(()=>{ reloadTeachers(); },[]);
+
+  useEffect(()=>{
+    supabase.auth.getSession().then(({data})=>setSession(data.session));
+    const { data:sub } = supabase.auth.onAuthStateChange((_e,s)=>setSession(s));
+    return ()=>sub.subscription.unsubscribe();
+  },[]);
+
+  useEffect(()=>{
+    if(!session){ setProfile(null); return; }
+    supabase.from("profiles").select("*").eq("id",session.user.id).single().then(({data})=>setProfile(data));
+  },[session]);
 
   useEffect(()=>{
     if(!teacher){ setVariants([]); setTeacherQuestions([]); return; }
@@ -934,8 +1014,8 @@ export default function App() {
         {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
         {tab==="analytics"&&<AnalyticsScreen/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab}/>}
-        {tab==="obuna"&&<SubscriptionScreen plan={plan} setPlan={setPlan}/>}
-        {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} setPlan={setPlan} variants={variants}/>}
+        {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
+        {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>
     </div>
   );
