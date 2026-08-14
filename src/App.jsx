@@ -786,8 +786,7 @@ function TestGenerator({teacher,plan,setTab,session}) {
   const [idx,setIdx]=useState(0);
   const [error,setError]=useState("");
   const [pdfLoading,setPdfLoading]=useState(false);
-  const maxV=teacher?.variants||20;
-  const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%",appearance:"none",WebkitAppearance:"none"};
+  const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%"};
   const allowed=canUse(plan,"adaptive");
 
   const buildTest = async () => {
@@ -886,10 +885,7 @@ function TestGenerator({teacher,plan,setTab,session}) {
             {[["Variant boshlanishi",from,setFrom],["Variant tugashi",to,setTo]].map(([l,v,fn])=>(
               <div key={l}>
                 <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>{l}</label>
-                <div style={{position:"relative"}}>
-                  <select value={v} onChange={e=>fn(Number(e.target.value))} style={sel}>{Array.from({length:maxV},(_,i)=>i+1).map(n=><option key={n} value={n}>{n}-Variant</option>)}</select>
-                  <ChevronDown size={13} style={{position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",pointerEvents:"none",color:C.textMid}}/>
-                </div>
+                <input type="number" min={1} value={v} onChange={e=>fn(Math.max(1,Number(e.target.value)||1))} style={sel}/>
               </div>
             ))}
           </div>
