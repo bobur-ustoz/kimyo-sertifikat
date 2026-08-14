@@ -6,7 +6,6 @@ import { supabase } from "./lib/supabaseClient";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
-const GEN_SRC = [2,1,3,4,2,1,3,4,2,3,1,4,2,3,1,4,2,1,3,4,2,3,4,1,2,3,4,1,2,3,1,4,2,3,1,4,2,1,3,4,2,3,1];
 const PLANS = [
   { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"3 ta variant ko'rish",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"AI Adaptive Test Generator",ok:false},{t:"Barcha o'qituvchilar",ok:false},{t:"PDF yuklab olish",ok:false},{t:"Cheksiz test generatsiya",ok:false}] },
   { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"Mashhur",features:[{t:"Barcha variantlar (20 ta)",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"AI Adaptive Test Generator",ok:false},{t:"2 ta o'qituvchi kursi",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Cheksiz test generatsiya",ok:false}] },
@@ -41,7 +40,7 @@ async function fetchQuestions(variantId) {
 }
 
 async function fetchAnalytics(studentId) {
-  const { data } = await supabase.from("answers").select("is_correct, questions(topic, variants(variant_number))").eq("student_id",studentId);
+  const { data } = await supabase.from("answers").select("is_correct, questions(topic, variants(variant_number))").eq("student_id",studentId).eq("source","test");
   const byTopic = {};
   (data||[]).forEach(a=>{
     const topic = a.questions?.topic || "Boshqa";
@@ -55,6 +54,33 @@ async function fetchAnalytics(studentId) {
     return { topic:t.topic, short:t.topic.length>9?t.topic.slice(0,8)+"…":t.topic, score, attempted:t.attempted, correct:t.correct,
       status: score>=75?"good":score>=60?"medium":"weak", variants:[...t.variants].slice(0,3) };
   }).sort((a,b)=>a.score-b.score);
+}
+
+async function fetchVariantRangeQuestions(teacherId, fromNum, toNum) {
+  const { data: variants } = await supabase.from("variants").select("id, variant_number").eq("teacher_id",teacherId).gte("variant_number",fromNum).lte("variant_number",toNum);
+  const ids = (variants||[]).map(v=>v.id);
+  if(!ids.length) return { questions:[], variantNumbers:[] };
+  const { data: questions } = await supabase.from("questions").select("*, option_groups(options)").in("variant_id",ids);
+  const vMap = Object.fromEntries((variants||[]).map(v=>[v.id,v.variant_number]));
+  return {
+    questions: (questions||[]).map(q=>({...q, variant_number:vMap[q.variant_id]})),
+    variantNumbers: (variants||[]).map(v=>v.variant_number),
+  };
+}
+
+function buildMixedTest(questions, variantNumbers) {
+  if(!variantNumbers.length) return [];
+  const byPos = {};
+  questions.forEach(q=>{ (byPos[q.question_number] ??= []).push(q); });
+  const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+  const result = [];
+  for(let n=1;n<=32;n++){ const opts=byPos[n]; if(opts?.length) result.push(pick(opts)); }
+  const groupVariant = pick(variantNumbers);
+  [33,34,35].forEach(n=>{ const q=(byPos[n]||[]).find(x=>x.variant_number===groupVariant); if(q) result.push(q); });
+  for(let n=36;n<=40;n++){ const opts=byPos[n]; if(opts?.length) result.push(pick(opts)); }
+  const writtenVariant = pick(variantNumbers);
+  [41,42,43].forEach(n=>{ const q=(byPos[n]||[]).find(x=>x.variant_number===writtenVariant); if(q) result.push(q); });
+  return result;
 }
 
 async function callClaude(prompt, maxTokens) {
@@ -252,7 +278,7 @@ function VariantsGrid({teacher,onOpen,variants}) {
 }
 
 // ── VIDEO PLAYER ──────────────────────────────────────────────────
-function QuizBlock({question,session}){
+function QuizBlock({question,session,source="practice"}){
   const [selected,setSelected]=useState(null);
   const [saving,setSaving]=useState(false);
   const [textAnswer,setTextAnswer]=useState("");
@@ -284,7 +310,7 @@ function QuizBlock({question,session}){
         const prompt = `Kimyo fanidan savolga talaba javobi to'g'riligini tekshir.\nTo'g'ri javob (namuna): "${question.correct_answer_text}"\nTalaba javobi: "${textAnswer.trim()}"\nAgar ular matematik/mazmunan bir xil qiymatni ifodalasa (turli formatda yozilgan bo'lsa ham, masalan kasr yoki o'nlik son) TO'G'RI hisoblansin. FAQAT "TRUE" yoki "FALSE" so'zini yoz, boshqa hech narsa yozma.`;
         const text = await callClaude(prompt,10);
         const is_correct = text.trim().toUpperCase().startsWith("TRUE");
-        await supabase.from("answers").upsert({student_id:session.user.id,question_id:question.id,selected_text:textAnswer.trim(),is_correct},{onConflict:"student_id,question_id"});
+        await supabase.from("answers").upsert({student_id:session.user.id,question_id:question.id,selected_text:textAnswer.trim(),is_correct,source},{onConflict:"student_id,question_id"});
         setTextResult({correct:is_correct});
       } catch(e){ setTextResult({correct:null,error:true}); }
       setChecking(false);
@@ -313,7 +339,7 @@ function QuizBlock({question,session}){
     if(!session||saving||selected) return;
     setSaving(true);
     const is_correct = opt===question.correct_option;
-    const { error } = await supabase.from("answers").upsert({ student_id:session.user.id, question_id:question.id, selected_option:opt, is_correct }, { onConflict:"student_id,question_id" });
+    const { error } = await supabase.from("answers").upsert({ student_id:session.user.id, question_id:question.id, selected_option:opt, is_correct, source }, { onConflict:"student_id,question_id" });
     if(!error) setSelected(opt);
     setSaving(false);
   };
@@ -719,116 +745,96 @@ function AnalyticsScreen({session,analytics,setTab}){
 }
 
 // ── TEST GENERATOR (with AI Adaptive) ────────────────────────────
-function TestGenerator({teacher,plan,setTab,analytics}) {
-  const [start,setStart]=useState(1); const [end,setEnd]=useState(4);
-  const [shown,setShown]=useState(true); const [loading,setLoading]=useState(false);
-  const [adaptState,setAdaptState]=useState("idle");
-  const [adaptQs,setAdaptQs]=useState([]);
+function TestGenerator({teacher,plan,setTab,session}) {
+  const [from,setFrom]=useState(1);
+  const [to,setTo]=useState(4);
+  const [step,setStep]=useState("setup"); // setup | loading | testing | done
+  const [testQs,setTestQs]=useState([]);
+  const [idx,setIdx]=useState(0);
+  const [error,setError]=useState("");
   const maxV=teacher?.variants||20;
-  const vColors=["#0F5132","#0D9488","#7C3AED","#B45309","#0369A1","#DC2626"];
   const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%",appearance:"none",WebkitAppearance:"none"};
   const allowed=canUse(plan,"adaptive");
-  const weakTopics=analytics.filter(b=>b.status==="weak").map(b=>b.topic);
 
-  const generateAdaptive = async () => {
-    setAdaptState("loading"); setAdaptQs([]);
-    try {
-      const prompt = `Quyidagi kimyo mavzularidan 9 ta mashq savoli yarat: ${weakTopics.join(", ")}. O'zbek tilida. FAQAT JSON array formatda javob ber:\n[{"id":1,"mavzu":"mavzu","savol":"savol matni","qiyinlik":"oson"},...]`;
-      const text = await callClaude(prompt);
-      const parsed = JSON.parse(text);
-      setAdaptQs(parsed); setAdaptState("done");
-    } catch(e) { setAdaptState("error"); }
+  const start = async () => {
+    setStep("loading"); setError("");
+    const { questions, variantNumbers } = await fetchVariantRangeQuestions(teacher.id, from, to);
+    const mixed = buildMixedTest(questions, variantNumbers);
+    if(!mixed.length){ setError("Tanlangan variantlar oralig'ida hali savollar kiritilmagan."); setStep("setup"); return; }
+    setTestQs(mixed); setIdx(0); setStep("testing");
   };
 
-  const qiyinlikCol={oson:"#16A34A","o'rta":C.warning,qiyin:C.danger};
+  if(!teacher) return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
+      <div style={{fontSize:48}}>👨‍🏫</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>O'qituvchi tanlanmagan</div>
+      <div style={{fontSize:14,color:C.textMid}}>Test yaratish uchun avval o'qituvchini tanlang</div>
+      <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kolleksiyalarni ko'rish</button>
+    </div>
+  );
+
+  if(!allowed) return (
+    <div style={{padding:"26px 30px"}}>
+      <div style={{maxWidth:640,background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:24,display:"flex",alignItems:"center",gap:16}}>
+        <Lock size={28} color="#94A3B8"/>
+        <div style={{flex:1}}>
+          <div style={{color:"#fff",fontWeight:800,fontSize:15}}>Test Generator Premium rejada mavjud</div>
+          <div style={{color:"#94A3B8",fontSize:12.5,marginTop:4}}>43 talik to'liq testni faqat Premium obunachilar generatsiya qila oladi</div>
+        </div>
+        <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Premium olish</button>
+      </div>
+    </div>
+  );
+
+  if(step==="testing"){
+    const q=testQs[idx]; const last=idx===testQs.length-1;
+    return (
+      <div style={{padding:"26px 30px"}}>
+        <div style={{maxWidth:720}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
+            <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length} · {q.variant_number}-Variantdan</div>
+            <div style={{fontSize:11,color:C.textLight}}>{q.topic}</div>
+          </div>
+          <div style={{background:"#F1F5F9",borderRadius:4,height:5,overflow:"hidden",marginBottom:18}}>
+            <div style={{width:`${((idx+1)/testQs.length)*100}%`,height:"100%",background:C.primary,borderRadius:4}}/>
+          </div>
+          <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"16px 18px",marginBottom:12}}>
+            <p style={{fontSize:14,color:C.text,lineHeight:1.75,marginBottom:q.formula?11:0}}>{q.question_text||"Savol matni kiritilmagan."}</p>
+            {q.formula&&<div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:9,padding:"10px 15px",fontFamily:"'Courier New',monospace",fontSize:13.5,color:C.primary}}>{q.formula}</div>}
+          </div>
+          <QuizBlock question={q} session={session} source="test"/>
+          <div style={{display:"flex",justifyContent:"space-between",marginTop:6}}>
+            <button onClick={()=>setStep("setup")} style={{padding:"10px 16px",borderRadius:9,background:"#fff",color:C.textMid,border:`1px solid ${C.border}`,fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Testni tark etish</button>
+            <button onClick={()=>last?setStep("done"):setIdx(i=>i+1)} style={{padding:"10px 20px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>{last?"Testni yakunlash":"Keyingi savol →"}</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if(step==="done") return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
+      <div style={{fontSize:52}}>🎉</div>
+      <div style={{fontSize:20,fontWeight:800,color:C.text}}>Test yakunlandi!</div>
+      <div style={{fontSize:14,color:C.textMid,maxWidth:380,textAlign:"center"}}>Javoblaringiz saqlandi. Natijalaringizni Tahlil & Grafik bo'limida ko'rishingiz mumkin.</div>
+      <div style={{display:"flex",gap:10}}>
+        <button onClick={()=>setStep("setup")} style={{padding:"12px 24px",borderRadius:10,background:"#fff",color:C.textMid,border:`1px solid ${C.border}`,fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Yangi test</button>
+        <button onClick={()=>setTab("analytics")} style={{padding:"12px 24px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Tahlilni ko'rish</button>
+      </div>
+    </div>
+  );
 
   return (
     <div style={{padding:"26px 30px"}}>
-      <div style={{maxWidth:780}}>
+      <div style={{maxWidth:640}}>
         <div style={{marginBottom:22}}>
           <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:8}}><Wand2 size={14} color={C.accent}/><span style={{fontSize:10.5,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>Test Generator · Milliy Qolip</span></div>
-          <h1 style={{fontSize:22,fontWeight:900,color:C.text,lineHeight:1.25,marginBottom:8}}>43 talik Milliy Sertifikat Qolipidagi Test Generator</h1>
-          {teacher&&<div style={{display:"flex",alignItems:"center",gap:7}}><div style={{width:22,height:22,borderRadius:6,background:teacher.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:900,color:"#fff"}}>{teacher.initials}</div><span style={{fontSize:13,color:C.textMid,fontWeight:600}}>{teacher.name} · {teacher.variants} ta variantdan generatsiya</span></div>}
+          <h1 style={{fontSize:22,fontWeight:900,color:C.text,lineHeight:1.25,marginBottom:8}}>43 talik Milliy Sertifikat Qolipidagi Test</h1>
+          <div style={{display:"flex",alignItems:"center",gap:7}}><div style={{width:22,height:22,borderRadius:6,background:teacher.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:900,color:"#fff"}}>{teacher.initials}</div><span style={{fontSize:13,color:C.textMid,fontWeight:600}}>{teacher.name} · {teacher.variants} ta variantdan generatsiya</span></div>
         </div>
-
-        {/* AI ADAPTIVE SECTION */}
-        <div style={{background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:"20px",marginBottom:16,border:"1px solid rgba(110,231,183,0.15)"}}>
-          <div style={{display:"flex",alignItems:"flex-start",gap:14,marginBottom:16}}>
-            <div style={{width:44,height:44,borderRadius:11,background:"rgba(110,231,183,0.12)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Sparkles size={20} color={C.mint}/></div>
-            <div style={{flex:1}}>
-              <div style={{color:"#fff",fontWeight:800,fontSize:14.5,marginBottom:4}}>🤖 AI Adaptive Test Generator</div>
-              <div style={{color:"#94A3B8",fontSize:12.5,lineHeight:1.6}}>Sun'iy intellekt sizning <strong style={{color:"#FCA5A5"}}>zaif mavzularingiz</strong>ni aniqlab, maxsus 9 savollik test yaratadi</div>
-            </div>
-          </div>
-          {weakTopics.length>0&&(
-          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:16}}>
-            <span style={{fontSize:11,color:"#94A3B8",fontWeight:600}}>Zaif mavzular aniqlandi:</span>
-            {weakTopics.map(t=>(<span key={t} style={{fontSize:11,fontWeight:700,background:"rgba(220,38,38,0.15)",color:"#FCA5A5",padding:"3px 10px",borderRadius:20,border:"1px solid rgba(220,38,38,0.2)"}}>{t}</span>))}
-          </div>)}
-          {weakTopics.length===0 ? (
-            <div style={{display:"flex",alignItems:"center",gap:12,background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"14px",border:"1px solid rgba(255,255,255,0.08)"}}>
-              <Info size={16} color="#94A3B8"/>
-              <div style={{flex:1}}><div style={{color:"#CBD5E1",fontSize:13,fontWeight:700}}>Hali yetarli ma'lumot yo'q</div><div style={{color:"#64748B",fontSize:11.5,marginTop:2}}>Zaif mavzularingizni aniqlash uchun avval video pleerda savollarga javob bering</div></div>
-            </div>
-          ) : !allowed ? (
-            <div style={{display:"flex",alignItems:"center",gap:12,background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"14px",border:"1px solid rgba(255,255,255,0.08)"}}>
-              <Lock size={16} color="#94A3B8"/>
-              <div style={{flex:1}}><div style={{color:"#CBD5E1",fontSize:13,fontWeight:700}}>Bu funksiya Premium rejada mavjud</div><div style={{color:"#64748B",fontSize:11.5,marginTop:2}}>AI Adaptive Test Generator faqat Premium obunachilarga</div></div>
-              <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Premium olish</button>
-            </div>
-          ) : (
-            <div>
-              {adaptState==="idle"&&(
-                <button onClick={generateAdaptive} style={{width:"100%",padding:"12px",borderRadius:10,background:C.mint,color:C.primary,border:"none",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-                  <Sparkles size={16}/> AI bilan 9 savollik Adaptive Test Yaratish
-                </button>
-              )}
-              {adaptState==="loading"&&(
-                <div style={{display:"flex",alignItems:"center",gap:10,padding:"14px",background:"rgba(255,255,255,0.05)",borderRadius:10}}>
-                  <div style={{width:18,height:18,border:"2.5px solid rgba(110,231,183,0.3)",borderTopColor:C.mint,borderRadius:"50%",animation:"spin 0.75s linear infinite",flexShrink:0}}/>
-                  <span style={{color:"#94A3B8",fontSize:13}}>Claude AI zaif mavzular uchun test yaratmoqda...</span>
-                </div>
-              )}
-              {adaptState==="error"&&(
-                <div style={{display:"flex",alignItems:"center",gap:10,padding:"12px",background:"rgba(220,38,38,0.1)",borderRadius:10,border:"1px solid rgba(220,38,38,0.2)"}}>
-                  <XCircle size={15} color={C.danger}/><span style={{color:"#FCA5A5",fontSize:13,flex:1}}>Xatolik yuz berdi.</span>
-                  <button onClick={generateAdaptive} style={{padding:"5px 10px",background:"rgba(220,38,38,0.2)",border:"none",borderRadius:7,color:"#FCA5A5",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Qayta</button>
-                </div>
-              )}
-              {adaptState==="done"&&adaptQs.length>0&&(
-                <div>
-                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
-                    <div style={{display:"flex",alignItems:"center",gap:6}}><Sparkles size={13} color={C.mint}/><span style={{color:C.mint,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em"}}>AI yaratgan {adaptQs.length} ta savol</span></div>
-                    <button onClick={()=>{setAdaptState("idle");setAdaptQs([]);}} style={{padding:"5px 10px",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:7,color:"#94A3B8",fontSize:11,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5}}><RefreshCw size={10}/> Yangi yaratish</button>
-                  </div>
-                  <div style={{display:"flex",flexDirection:"column",gap:6}}>
-                    {adaptQs.map((q,i)=>{
-                      const col=qiyinlikCol[q.qiyinlik]||C.primary;
-                      return(
-                        <div key={i} style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"12px 14px",border:"1px solid rgba(255,255,255,0.08)",display:"flex",gap:11,alignItems:"flex-start"}}>
-                          <div style={{width:28,height:28,borderRadius:"50%",background:C.mint,color:C.primary,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:900,flexShrink:0}}>{q.id}</div>
-                          <div style={{flex:1,minWidth:0}}>
-                            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:5,flexWrap:"wrap"}}>
-                              <span style={{fontSize:11,fontWeight:700,color:col,background:`${col}18`,padding:"2px 9px",borderRadius:20,border:`1px solid ${col}30`}}>{q.qiyinlik}</span>
-                              <span style={{fontSize:11,color:"#64748B"}}>{q.mavzu}</span>
-                            </div>
-                            <p style={{color:"#CBD5E1",fontSize:13,lineHeight:1.6,margin:0}}>{q.savol}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* STANDARD GENERATOR */}
-        <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,marginBottom:14,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
-          <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> Standart 43 talik Test Generator</div>
+        <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
+          <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> Variant oralig'ini tanlang</div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
-            {[["Variant boshlanishi",start,setStart],["Variant tugashi",end,setEnd]].map(([l,v,fn])=>(
+            {[["Variant boshlanishi",from,setFrom],["Variant tugashi",to,setTo]].map(([l,v,fn])=>(
               <div key={l}>
                 <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>{l}</label>
                 <div style={{position:"relative"}}>
@@ -840,33 +846,15 @@ function TestGenerator({teacher,plan,setTab,analytics}) {
           </div>
           <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
             <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
-            <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>Tizim <strong>{start}-variantdan {end}-variantgacha</strong> masalalarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> moslab yig'ib beradi.</p>
+            <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>Tizim <strong>{from}-variantdan {to}-variantgacha</strong> masalalarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos tasodifiy aralashtirib beradi: 1–32-savollar A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish — har biri bitta variantdan butunligicha olinadi.</p>
           </div>
-          <button onClick={()=>{setLoading(true);setTimeout(()=>{setLoading(false);setShown(true);},1300);}} disabled={loading}
-            style={{width:"100%",padding:"12px",borderRadius:10,background:loading?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:loading?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8,boxShadow:loading?"none":"0 5px 16px rgba(15,81,50,0.3)",transition:"all 0.2s"}}>
-            {loading?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Generatsiya qilinmoqda...</>):(<><Wand2 size={15}/> 43 talik Test Yaratish ({start}–{end})</>)}
+          {!session&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>Test natijalarini saqlash uchun avval hisobingizga kiring.</div>}
+          {error&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>{error}</div>}
+          <button onClick={start} disabled={from>to||step==="loading"}
+            style={{width:"100%",padding:"12px",borderRadius:10,background:step==="loading"?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:step==="loading"?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8,boxShadow:step==="loading"?"none":"0 5px 16px rgba(15,81,50,0.3)"}}>
+            {step==="loading"?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Yig'ilmoqda...</>):(<><Wand2 size={15}/> 43 talik Test Yaratish ({from}–{to})</>)}
           </button>
         </div>
-        {shown&&(
-          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:`1px solid ${C.border}`}}>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}}>
-              <div><div style={{fontSize:14,fontWeight:800,color:C.text}}>Generatsiya qilingan test</div><div style={{fontSize:12,color:C.textMid,marginTop:2}}>Variantlar: {start}–{end} · 43 ta savol</div></div>
-              <div style={{display:"flex",gap:7}}>
-                <button style={{display:"flex",alignItems:"center",gap:5,padding:"7px 12px",background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,borderRadius:8,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Download size={11}/> PDF</button>
-                <button style={{display:"flex",alignItems:"center",gap:5,padding:"7px 12px",background:C.primary,color:"#fff",border:"none",borderRadius:8,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Play size={10} fill="currentColor"/> Boshlash</button>
-              </div>
-            </div>
-            <div style={{display:"flex",flexDirection:"column",gap:4}}>
-              {GEN_SRC.map((fV,i)=>{const col=vColors[(fV-1)%vColors.length];return(
-                <div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderRadius:8,background:i%2===0?"#FAFAFA":"#fff",border:`1px solid ${C.border}`}}>
-                  <div style={{width:26,height:26,borderRadius:"50%",background:C.primary,color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,flexShrink:0}}>{i+1}</div>
-                  <div style={{flex:1,minWidth:0,fontSize:12,fontWeight:500,color:C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{i+1}-savol</div>
-                  <div style={{display:"inline-flex",background:`${col}14`,color:col,border:`1px solid ${col}28`,fontSize:10,fontWeight:800,padding:"3px 8px",borderRadius:20,flexShrink:0}}>Variant {fV}</div>
-                </div>
-              );})}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -1156,7 +1144,7 @@ export default function App() {
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session}/>}
         {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
-        {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} analytics={analytics}/>}
+        {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>
