@@ -83,6 +83,39 @@ function buildMixedTest(questions, variantNumbers) {
   return result;
 }
 
+async function downloadTestPDF(testQs, teacher, from, to) {
+  const { jsPDF } = await import("jspdf");
+  const doc = new jsPDF();
+  const marginX = 15; let y = 20;
+  const pageH = doc.internal.pageSize.getHeight();
+  const lineH = 6;
+  const addLine = (text,{size=11,style="normal",indent=0}={}) => {
+    doc.setFontSize(size); doc.setFont("helvetica",style);
+    const lines = doc.splitTextToSize(text, 180-indent);
+    lines.forEach(l=>{
+      if(y>pageH-15){ doc.addPage(); y=20; }
+      doc.text(l, marginX+indent, y);
+      y+=lineH;
+    });
+  };
+  addLine(`${teacher.name} — Aralash Test (${from}-${to}-Variant)`,{size:14,style:"bold"});
+  addLine(`Milliy Sertifikat qolipi · ${testQs.length} ta savol`,{size:10});
+  y+=4;
+  testQs.forEach((q,i)=>{
+    addLine(`${i+1}. ${q.question_text||"(savol matni kiritilmagan)"}`,{size:11,style:"bold"});
+    if(q.formula) addLine(q.formula,{size:10,indent:4});
+    if(q.question_type==="mcq"){
+      ["a","b","c","d"].forEach(letter=>{ const text=q[`option_${letter}`]; if(text) addLine(`${letter.toUpperCase()}) ${text}`,{size:10,indent:4}); });
+    } else if(q.question_type==="match"){
+      (q.option_groups?.options||[]).forEach(o=>addLine(`${o.letter}) ${o.text}`,{size:10,indent:4}));
+    } else {
+      addLine("Javob: ______________________",{size:10,indent:4});
+    }
+    y+=3;
+  });
+  doc.save(`${teacher.name}-test-${from}-${to}.pdf`);
+}
+
 async function callClaude(prompt, maxTokens) {
   const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
   const data = await res.json();
@@ -752,16 +785,29 @@ function TestGenerator({teacher,plan,setTab,session}) {
   const [testQs,setTestQs]=useState([]);
   const [idx,setIdx]=useState(0);
   const [error,setError]=useState("");
+  const [pdfLoading,setPdfLoading]=useState(false);
   const maxV=teacher?.variants||20;
   const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%",appearance:"none",WebkitAppearance:"none"};
   const allowed=canUse(plan,"adaptive");
 
+  const buildTest = async () => {
+    const { questions, variantNumbers } = await fetchVariantRangeQuestions(teacher.id, from, to);
+    return buildMixedTest(questions, variantNumbers);
+  };
+
   const start = async () => {
     setStep("loading"); setError("");
-    const { questions, variantNumbers } = await fetchVariantRangeQuestions(teacher.id, from, to);
-    const mixed = buildMixedTest(questions, variantNumbers);
+    const mixed = await buildTest();
     if(!mixed.length){ setError("Tanlangan variantlar oralig'ida hali savollar kiritilmagan."); setStep("setup"); return; }
     setTestQs(mixed); setIdx(0); setStep("testing");
+  };
+
+  const downloadPdf = async () => {
+    setPdfLoading(true); setError("");
+    const mixed = await buildTest();
+    if(!mixed.length){ setError("Tanlangan variantlar oralig'ida hali savollar kiritilmagan."); setPdfLoading(false); return; }
+    await downloadTestPDF(mixed, teacher, from, to);
+    setPdfLoading(false);
   };
 
   if(!teacher) return (
@@ -792,7 +838,10 @@ function TestGenerator({teacher,plan,setTab,session}) {
         <div style={{maxWidth:720}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
             <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length} · {q.variant_number}-Variantdan</div>
-            <div style={{fontSize:11,color:C.textLight}}>{q.topic}</div>
+            <div style={{display:"flex",alignItems:"center",gap:10}}>
+              <div style={{fontSize:11,color:C.textLight}}>{q.topic}</div>
+              <button onClick={()=>downloadTestPDF(testQs,teacher,from,to)} title="Testni PDF qilib yuklab olish" style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,borderRadius:7,fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Download size={11}/> PDF</button>
+            </div>
           </div>
           <div style={{background:"#F1F5F9",borderRadius:4,height:5,overflow:"hidden",marginBottom:18}}>
             <div style={{width:`${((idx+1)/testQs.length)*100}%`,height:"100%",background:C.primary,borderRadius:4}}/>
@@ -850,10 +899,16 @@ function TestGenerator({teacher,plan,setTab,session}) {
           </div>
           {!session&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>Test natijalarini saqlash uchun avval hisobingizga kiring.</div>}
           {error&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>{error}</div>}
-          <button onClick={start} disabled={from>to||step==="loading"}
-            style={{width:"100%",padding:"12px",borderRadius:10,background:step==="loading"?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:step==="loading"?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8,boxShadow:step==="loading"?"none":"0 5px 16px rgba(15,81,50,0.3)"}}>
-            {step==="loading"?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Yig'ilmoqda...</>):(<><Wand2 size={15}/> 43 talik Test Yaratish ({from}–{to})</>)}
-          </button>
+          <div style={{display:"flex",gap:8}}>
+            <button onClick={start} disabled={from>to||step==="loading"}
+              style={{flex:1,padding:"12px",borderRadius:10,background:step==="loading"?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:step==="loading"?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8,boxShadow:step==="loading"?"none":"0 5px 16px rgba(15,81,50,0.3)"}}>
+              {step==="loading"?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Yig'ilmoqda...</>):(<><Wand2 size={15}/> 43 talik Test Yaratish ({from}–{to})</>)}
+            </button>
+            <button onClick={downloadPdf} disabled={from>to||pdfLoading}
+              style={{padding:"12px 18px",borderRadius:10,background:"#fff",color:C.primary,border:`1.5px solid ${C.borderGreen}`,fontSize:13.5,fontWeight:800,cursor:pdfLoading?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:7,flexShrink:0}}>
+              {pdfLoading?(<div style={{width:15,height:15,border:`2.5px solid ${C.mintLight}`,borderTopColor:C.primary,borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/>):(<Download size={15}/>)} PDF
+            </button>
+          </div>
         </div>
       </div>
     </div>
