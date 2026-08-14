@@ -1,9 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "./lib/supabaseClient";
 import { Upload } from "tus-js-client";
-import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud } from "lucide-react";
+import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud, Sparkles, ThumbsUp } from "lucide-react";
 
-const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", bgSoft:"#F8FAFC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626" };
+const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", bgSoft:"#F8FAFC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626", warning:"#D97706", warningBg:"#FFFBEB" };
+
+async function callClaude(prompt, maxTokens) {
+  const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
+  const data = await res.json();
+  if(!res.ok) throw new Error(data.error||"AI xatosi");
+  return (data.text||"").replace(/```json\n?|\n?```/g,"").trim();
+}
 
 const inputStyle = {width:"100%",padding:"9px 11px",borderRadius:8,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",color:C.text};
 const btnPrimary = {padding:"9px 14px",borderRadius:8,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6};
@@ -329,8 +336,63 @@ function QuestionRow({q,onChanged,groups}){
               )}
             </div>
           )}
+          <AnalogReview questionId={q.id} topic={f.topic}/>
         </div>
       )}
+    </div>
+  );
+}
+
+function AnalogReview({questionId,topic}){
+  const [items,setItems]=useState([]);
+  const [generating,setGenerating]=useState(false);
+  const [err,setErr]=useState("");
+  const load = async () => {
+    const { data } = await supabase.from("analog_questions").select("*").eq("question_id",questionId).order("created_at",{ascending:false});
+    setItems(data||[]);
+  };
+  useEffect(()=>{load();},[questionId]);
+
+  const generate = async () => {
+    if(!topic){ setErr("Avval mavzuni kiriting."); return; }
+    setGenerating(true); setErr("");
+    try{
+      const prompt = `Kimyo fani bo'yicha "${topic}" mavzusida analog savol yarat. O'zbek tilida. FAQAT JSON formatda javob ber, boshqa hech narsa yozma:\n{"savol":"savol matni","formula":"asosiy formula (yoki bo'sh satr)","yechim":["1-qadam","2-qadam","3-qadam"],"javob":"yakuniy javob"}`;
+      const text = await callClaude(prompt,1200);
+      const parsed = JSON.parse(text);
+      await supabase.from("analog_questions").insert({question_id:questionId,savol:parsed.savol,formula:parsed.formula||null,yechim:parsed.yechim||[],javob:parsed.javob,is_approved:false});
+      load();
+    } catch(e){ setErr("Generatsiyada xatolik: "+e.message); }
+    setGenerating(false);
+  };
+  const approve = async id => { await supabase.from("analog_questions").update({is_approved:true}).eq("id",id); load(); };
+  const unapprove = async id => { await supabase.from("analog_questions").update({is_approved:false}).eq("id",id); load(); };
+  const del = async id => { if(confirm("O'chirilsinmi?")){ await supabase.from("analog_questions").delete().eq("id",id); load(); } };
+
+  return (
+    <div style={{borderTop:`1px solid ${C.border}`,marginTop:14,paddingTop:12}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
+        <div style={{fontSize:10.5,fontWeight:700,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.06em"}}>AI Analog savollar (tasdiqlangunicha o'quvchiga ko'rinmaydi)</div>
+        <button onClick={generate} disabled={generating} style={{...btnGhost,color:C.accent,borderColor:C.accent}}>{generating?"Yaratilmoqda...":<><Sparkles size={12}/> Yangi analog yaratish</>}</button>
+      </div>
+      {err&&<p style={{fontSize:11.5,color:C.danger,marginBottom:8}}>{err}</p>}
+      {items.length===0&&<p style={{fontSize:11.5,color:C.textLight}}>Hali analog yaratilmagan.</p>}
+      {items.map(it=>(
+        <div key={it.id} style={{background:it.is_approved?C.mintBg:C.warningBg,border:`1px solid ${it.is_approved?"#86EFAC":"#FDE68A"}`,borderRadius:9,padding:"10px 12px",marginBottom:8}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:6}}>
+            <span style={{fontSize:10.5,fontWeight:800,color:it.is_approved?C.primary:C.warning}}>{it.is_approved?"✓ Tasdiqlangan":"Kutilmoqda"}</span>
+            <div style={{display:"flex",gap:6}}>
+              {!it.is_approved&&<button onClick={()=>approve(it.id)} style={{...btnGhost,padding:"5px 9px",color:C.primary,borderColor:C.primary}}><ThumbsUp size={11}/> Tasdiqlash</button>}
+              {it.is_approved&&<button onClick={()=>unapprove(it.id)} style={{...btnGhost,padding:"5px 9px"}}>Bekor qilish</button>}
+              <button onClick={()=>del(it.id)} style={{...btnGhost,padding:"5px 9px",color:C.danger}}><Trash2 size={11}/></button>
+            </div>
+          </div>
+          <p style={{fontSize:12.5,color:C.text,marginBottom:6}}>{it.savol}</p>
+          {it.formula&&<div style={{fontFamily:"'Courier New',monospace",fontSize:12,color:C.text,background:"#fff",padding:"6px 10px",borderRadius:6,marginBottom:6}}>{it.formula}</div>}
+          <ol style={{margin:"0 0 6px 18px",padding:0}}>{(it.yechim||[]).map((s,i)=><li key={i} style={{fontSize:11.5,color:C.textMid}}>{s}</li>)}</ol>
+          <div style={{fontSize:12,fontWeight:700,color:C.text}}>Javob: {it.javob}</div>
+        </div>
+      ))}
     </div>
   );
 }

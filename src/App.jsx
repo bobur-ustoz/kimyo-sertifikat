@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, RefreshCw, Menu, X } from "lucide-react";
+import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
 
@@ -424,21 +424,18 @@ function BunnyPlayer({videoId}){
 
 function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
   const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
-  const [aiState,setAiState]=useState("idle");
-  const [aiResult,setAiResult]=useState(null);
+  const [analog,setAnalog]=useState(null);
+  const [analogLoading,setAnalogLoading]=useState(true);
   const total=questions.length; const ready=questions.filter(q=>q.video_ready).length;
   const curQ=questions.find(q=>q.question_number===activeQ);
   const curTopic=curQ?.topic||"";
 
-  const generateAnalog = async () => {
-    setAiState("loading"); setAiResult(null);
-    try {
-      const prompt = `Kimyo fani bo'yicha "${curTopic}" mavzusida analog savol yarat. O'zbek tilida. FAQAT JSON formatda javob ber, boshqa hech narsa yozma:\n{"savol":"savol matni","formula":"asosiy formula","yechim":["1-qadam","2-qadam","3-qadam"],"javob":"yakuniy javob"}`;
-      const text = await callClaude(prompt);
-      const parsed = JSON.parse(text);
-      setAiResult(parsed); setAiState("done");
-    } catch(e) { setAiState("error"); }
-  };
+  useEffect(()=>{
+    setAnalogLoading(true); setAnalog(null);
+    if(!curQ?.id) return;
+    supabase.from("analog_questions").select("*").eq("question_id",curQ.id).eq("is_approved",true).order("created_at",{ascending:false}).limit(1).maybeSingle()
+      .then(({data})=>{ setAnalog(data||null); setAnalogLoading(false); });
+  },[curQ?.id]);
 
   const allowed = canUse(plan,"analog");
   return (
@@ -498,56 +495,45 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
           </div>
         ) : (
           <div style={{background:"linear-gradient(135deg,#0F172A 0%,#1E3A5F 100%)",borderRadius:13,padding:"16px 18px"}}>
-            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:aiState!=="idle"?14:0}}>
+            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
               <div style={{width:42,height:42,borderRadius:10,background:"rgba(110,231,183,0.15)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Sparkles size={18} color={C.mint}/></div>
               <div style={{flex:1}}>
-                <div style={{color:"#fff",fontWeight:800,fontSize:13.5}}>Claude AI — Analog Savol Generator</div>
-                <div style={{color:"#94A3B8",fontSize:11.5,marginTop:2}}>Mavzu: <span style={{color:C.mint,fontWeight:600}}>{curTopic}</span></div>
+                <div style={{color:"#fff",fontWeight:800,fontSize:13.5}}>AI Analog Savol</div>
+                <div style={{color:"#94A3B8",fontSize:11.5,marginTop:2}}>Mavzu: <span style={{color:C.mint,fontWeight:600}}>{curTopic}</span> · o'qituvchi tomonidan tekshirilgan</div>
               </div>
-              {aiState==="idle"&&(
-                <button onClick={generateAnalog} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0,display:"flex",alignItems:"center",gap:6}}>
-                  <Sparkles size={12}/> Yaratish
-                </button>
-              )}
-              {aiState==="done"&&(
-                <button onClick={()=>{setAiState("idle");setAiResult(null);}} style={{padding:"7px 12px",borderRadius:9,background:"rgba(255,255,255,0.1)",color:"#94A3B8",border:"1px solid rgba(255,255,255,0.1)",fontSize:11,fontWeight:600,cursor:"pointer",fontFamily:"inherit",flexShrink:0,display:"flex",alignItems:"center",gap:5}}>
-                  <RefreshCw size={11}/> Yangi
-                </button>
-              )}
             </div>
-            {aiState==="loading"&&(
+            {analogLoading&&(
               <div style={{display:"flex",alignItems:"center",gap:10,padding:"12px",background:"rgba(255,255,255,0.05)",borderRadius:10}}>
                 <div style={{width:18,height:18,border:"2.5px solid rgba(110,231,183,0.3)",borderTopColor:C.mint,borderRadius:"50%",animation:"spin 0.75s linear infinite",flexShrink:0}}/>
-                <span style={{color:"#94A3B8",fontSize:13}}>Claude AI analog savol yaratmoqda...</span>
+                <span style={{color:"#94A3B8",fontSize:13}}>Yuklanmoqda...</span>
               </div>
             )}
-            {aiState==="error"&&(
-              <div style={{display:"flex",alignItems:"center",gap:10,padding:"12px",background:"rgba(220,38,38,0.1)",borderRadius:10,border:"1px solid rgba(220,38,38,0.2)"}}>
-                <XCircle size={16} color={C.danger}/>
-                <span style={{color:"#FCA5A5",fontSize:13}}>Xatolik yuz berdi. Qayta urinib ko'ring.</span>
-                <button onClick={generateAnalog} style={{marginLeft:"auto",padding:"5px 10px",background:"rgba(220,38,38,0.2)",border:"none",borderRadius:7,color:"#FCA5A5",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Qayta</button>
+            {!analogLoading&&!analog&&(
+              <div style={{display:"flex",alignItems:"center",gap:10,padding:"12px",background:"rgba(255,255,255,0.05)",borderRadius:10}}>
+                <Info size={16} color="#94A3B8"/>
+                <span style={{color:"#94A3B8",fontSize:13}}>Bu savol uchun analog hali tayyorlanmoqda.</span>
               </div>
             )}
-            {aiState==="done"&&aiResult&&(
+            {!analogLoading&&analog&&(
               <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"14px",border:"1px solid rgba(110,231,183,0.2)"}}>
                 <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
                   <Sparkles size={13} color={C.mint}/>
-                  <span style={{color:C.mint,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em"}}>AI tomonidan yaratilgan analog savol</span>
+                  <span style={{color:C.mint,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em"}}>Analog savol</span>
                 </div>
-                <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:10}}>{aiResult.savol}</p>
-                {aiResult.formula&&<div style={{fontFamily:"'Courier New',monospace",fontSize:13,color:C.mint,background:"rgba(110,231,183,0.08)",padding:"8px 12px",borderRadius:8,marginBottom:10,border:"1px solid rgba(110,231,183,0.15)"}}>{aiResult.formula}</div>}
+                <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:10}}>{analog.savol}</p>
+                {analog.formula&&<div style={{fontFamily:"'Courier New',monospace",fontSize:13,color:C.mint,background:"rgba(110,231,183,0.08)",padding:"8px 12px",borderRadius:8,marginBottom:10,border:"1px solid rgba(110,231,183,0.15)"}}>{analog.formula}</div>}
                 <div style={{marginBottom:8}}>
                   <div style={{fontSize:11,fontWeight:700,color:"#94A3B8",textTransform:"uppercase",letterSpacing:"0.07em",marginBottom:7}}>Yechim bosqichlari:</div>
-                  {(aiResult.yechim||[]).map((step,i)=>(
+                  {(analog.yechim||[]).map((step,i)=>(
                     <div key={i} style={{display:"flex",gap:9,marginBottom:6,alignItems:"flex-start"}}>
                       <div style={{width:20,height:20,borderRadius:"50%",background:"rgba(110,231,183,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:800,color:C.mint,flexShrink:0,marginTop:1}}>{i+1}</div>
                       <span style={{color:"#CBD5E1",fontSize:12.5,lineHeight:1.6}}>{step}</span>
                     </div>
                   ))}
                 </div>
-                {aiResult.javob&&<div style={{background:"rgba(15,81,50,0.3)",borderRadius:8,padding:"9px 12px",border:"1px solid rgba(110,231,183,0.25)"}}>
+                {analog.javob&&<div style={{background:"rgba(15,81,50,0.3)",borderRadius:8,padding:"9px 12px",border:"1px solid rgba(110,231,183,0.25)"}}>
                   <span style={{fontSize:11,fontWeight:700,color:C.mint}}>Javob: </span>
-                  <span style={{fontSize:13,color:"#E2E8F0",fontWeight:600}}>{aiResult.javob}</span>
+                  <span style={{fontSize:13,color:"#E2E8F0",fontWeight:600}}>{analog.javob}</span>
                 </div>}
               </div>
             )}
