@@ -8,6 +8,19 @@ import { C, card, inputStyle, btnPrimary, fieldLabel } from "./admin/ui";
 // enough for them to set a new password.
 export const RESET_PATH = "/parol-yangilash";
 
+// Supabase answers in English, and its most common refusal here is a rate
+// limit that reads like a failure rather than "wait a moment".
+export function resetErrorText(err) {
+  const msg = err?.message || "";
+  if (/after (\d+) seconds?/i.test(msg)) {
+    const secs = msg.match(/after (\d+) seconds?/i)[1];
+    return `Juda tez-tez so'radingiz. ${secs} soniyadan keyin qayta urinib ko'ring.`;
+  }
+  if (/rate limit/i.test(msg)) return "Bugun juda ko'p xat yuborildi. Bir soatdan keyin urinib ko'ring.";
+  if (/invalid/i.test(msg) && /email/i.test(msg)) return "Email manzil noto'g'ri yozilgan.";
+  return msg || "Xat yuborilmadi. Birozdan keyin urinib ko'ring.";
+}
+
 export default function ResetPassword() {
   const [ready, setReady] = useState(false);   // did the recovery link check out?
   const [password, setPassword] = useState("");
