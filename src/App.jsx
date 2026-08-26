@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
+import { RESET_PATH } from "./ResetPassword";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
@@ -1124,6 +1125,16 @@ function AuthPanel(){
     }
     setLoading(false);
   };
+  const sendReset = async () => {
+    if(!email){ setError("Avval emailingizni kiriting."); return; }
+    setLoading(true); setError(""); setInfo("");
+    const { error } = await supabase.auth.resetPasswordForEmail(email,{ redirectTo: window.location.origin + RESET_PATH });
+    setLoading(false);
+    // Same answer whether or not the address exists, so this can't be used to
+    // check who has an account.
+    if(error) setError(error.message);
+    else setInfo("Agar bu email ro'yxatdan o'tgan bo'lsa, tiklash havolasi yuborildi. Pochtangizni tekshiring.");
+  };
   return (
     <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:16,padding:28,maxWidth:380,width:"100%"}}>
       <div style={{display:"flex",gap:6,marginBottom:20,background:C.bgSoft,borderRadius:10,padding:4}}>
@@ -1141,6 +1152,12 @@ function AuthPanel(){
         <button type="submit" disabled={loading} style={{width:"100%",padding:"11px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
           {loading?"Yuklanmoqda...":mode==="login"?"Kirish":"Ro'yxatdan o'tish"}
         </button>
+        {mode==="login"&&(
+          <button type="button" onClick={sendReset} disabled={loading}
+            style={{width:"100%",marginTop:12,background:"none",border:"none",color:C.textMid,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>
+            Parolni unutdingizmi?
+          </button>
+        )}
       </form>
     </div>
   );
