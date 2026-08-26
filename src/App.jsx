@@ -7,13 +7,18 @@ import { supabase } from "./lib/supabaseClient";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"3 ta variant ko'rish",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"AI Adaptive Test Generator",ok:false},{t:"Barcha o'qituvchilar",ok:false},{t:"PDF yuklab olish",ok:false},{t:"Cheksiz test generatsiya",ok:false}] },
-  { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"Mashhur",features:[{t:"Barcha variantlar (20 ta)",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"AI Adaptive Test Generator",ok:false},{t:"2 ta o'qituvchi kursi",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Cheksiz test generatsiya",ok:false}] },
-  { id:"premium",name:"Premium",price:"99,900",period:"so'm / oy",color:"#0F5132",btnBg:"#0F5132",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Barcha variantlar (20 ta)",ok:true},{t:"Mavzular filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"AI Adaptive Test Generator",ok:true},{t:"Barcha o'qituvchilar",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Cheksiz test generatsiya",ok:true}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:false},{t:"Barcha variantlar ochiq",ok:false}] },
+  { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"Mashhur",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:true},{t:"Barcha variantlar ochiq",ok:false}] },
+  { id:"premium",name:"Premium",price:"99,900",period:"so'm / oy",color:"#0F5132",btnBg:"#0F5132",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Barcha variantlar ochiq — to'lovsiz",ok:true},{t:"Har bir video cheksiz",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Yangi variantlar avtomatik",ok:true}] },
 ];
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
 const canUse = (plan,feature) => { if(feature==="analog") return plan!=="free"; if(feature==="adaptive") return plan==="premium"; return true; };
+// A variant's videos are open when it is the teacher's free variant, the student
+// is on Premium, or they have paid for that variant. Mirrors api/bunny-token.js,
+// which is the real gate -- this only decides what the UI shows.
+const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || plan==="premium" || purchases?.[variant.id]==="paid");
+const fmtSum = n => Number(n||0).toLocaleString("ru-RU").replace(/\u00a0/g," ");
 
 async function fetchTeachers() {
   const { data: tRows } = await supabase.from("teachers").select("*").order("sort_order").order("created_at");
@@ -31,7 +36,7 @@ async function fetchVariants(teacherId) {
     const { data: qRows } = await supabase.from("questions").select("variant_id,video_ready").in("variant_id",ids);
     (qRows||[]).forEach(q=>{ if(q.video_ready) readyMap[q.variant_id]=(readyMap[q.variant_id]||0)+1; });
   }
-  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0 }));
+  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0, is_free:v.is_free, price:v.price }));
 }
 
 async function fetchQuestions(variantId) {
@@ -54,6 +59,11 @@ async function fetchAnalytics(studentId) {
     return { topic:t.topic, short:t.topic.length>9?t.topic.slice(0,8)+"…":t.topic, score, attempted:t.attempted, correct:t.correct,
       status: score>=75?"good":score>=60?"medium":"weak", variants:[...t.variants].slice(0,3) };
   }).sort((a,b)=>a.score-b.score);
+}
+
+async function fetchPurchases(studentId) {
+  const { data } = await supabase.from("variant_purchases").select("variant_id,status").eq("student_id",studentId);
+  return Object.fromEntries((data||[]).map(p=>[p.variant_id,p.status]));
 }
 
 async function fetchVariantRangeQuestions(teacherId, fromNum, toNum) {
@@ -121,6 +131,73 @@ async function callClaude(prompt, maxTokens) {
   const data = await res.json();
   if(!res.ok) throw new Error(data.error||"AI xatosi");
   return (data.text||"").replace(/```json\n?|\n?```/g,"").trim();
+}
+
+// ── VARIANT SOTIB OLISH ──────────────────────────────────────────
+function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTab}) {
+  const [contact,setContact]=useState("");
+  const [sending,setSending]=useState(false);
+  const [err,setErr]=useState("");
+  const price = variant.price ?? 5000;
+
+  const request = async () => {
+    if(!contact.trim()){ setErr("Telefon raqamingizni kiriting."); return; }
+    setSending(true); setErr("");
+    const { error } = await supabase.from("variant_purchases").insert({
+      student_id:session.user.id, variant_id:variant.id, amount:price, contact:contact.trim(),
+    });
+    setSending(false);
+    if(error){ setErr("So'rov yuborilmadi: "+error.message); return; }
+    onRequested();
+  };
+
+  const wrap = {position:"fixed",inset:0,background:"rgba(15,23,42,0.55)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:18};
+  const box = {background:"#fff",borderRadius:16,padding:"22px 24px",width:"100%",maxWidth:420,boxShadow:"0 20px 60px rgba(0,0,0,0.3)"};
+
+  return (
+    <div style={wrap} onClick={onClose}>
+      <div style={box} onClick={e=>e.stopPropagation()}>
+        <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",marginBottom:14}}>
+          <div>
+            <div style={{fontSize:17,fontWeight:900,color:C.text}}>{variant.number}-Variant</div>
+            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{teacher?.name} · {variant.total||43} ta video dars</div>
+          </div>
+          <button onClick={onClose} style={{background:"none",border:"none",cursor:"pointer",color:C.textLight,padding:0}}><X size={18}/></button>
+        </div>
+
+        <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"14px 16px",marginBottom:16,textAlign:"center"}}>
+          <div style={{fontSize:26,fontWeight:900,color:C.primary}}>{fmtSum(price)} so'm</div>
+          <div style={{fontSize:11.5,color:C.textMid,marginTop:2}}>bir marta to'lanadi · umrbod ochiq qoladi</div>
+        </div>
+
+        {!session ? (
+          <>
+            <p style={{fontSize:13,color:C.textMid,lineHeight:1.65,marginBottom:14}}>Variantni sotib olish uchun avval hisobingizga kiring. Ro'yxatdan o'tish bir daqiqa vaqt oladi.</p>
+            <button onClick={()=>{onClose();setTab("profile");}} style={{width:"100%",padding:"12px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Kirish / Ro'yxatdan o'tish</button>
+          </>
+        ) : status==="pending" ? (
+          <div style={{background:C.warningBg,border:"1px solid #FDE68A",borderRadius:11,padding:"13px 15px"}}>
+            <div style={{fontSize:13,fontWeight:800,color:C.warning,marginBottom:5}}>So'rovingiz qabul qilindi</div>
+            <p style={{fontSize:12.5,color:"#92400E",lineHeight:1.65,margin:0}}>To'lovni amalga oshirganingizdan so'ng administrator variantni ochib beradi. Odatda bu bir necha soat ichida bo'ladi.</p>
+          </div>
+        ) : (
+          <>
+            <p style={{fontSize:12.5,color:C.textMid,lineHeight:1.65,marginBottom:12}}>Telefon raqamingizni qoldiring — administrator siz bilan bog'lanib, to'lovni qabul qiladi va variantni ochadi. Click va Payme orqali avtomatik to'lov tez orada ulanadi.</p>
+            <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>Telefon raqam</label>
+            <input value={contact} onChange={e=>setContact(e.target.value)} placeholder="+998 90 123 45 67"
+              style={{width:"100%",padding:"11px 13px",borderRadius:10,border:`1px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",marginBottom:12}}/>
+            {err&&<div style={{fontSize:12,color:C.danger,marginBottom:10}}>{err}</div>}
+            <button onClick={request} disabled={sending} style={{width:"100%",padding:"12px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:sending?"not-allowed":"pointer",fontFamily:"inherit",opacity:sending?0.7:1}}>
+              {sending?"Yuborilmoqda...":"Sotib olish so'rovini yuborish"}
+            </button>
+            <button onClick={()=>{onClose();setTab("obuna");}} style={{width:"100%",marginTop:8,padding:"10px",borderRadius:10,background:"#fff",color:C.textMid,border:`1px solid ${C.border}`,fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>
+              Yoki Premium oling — barcha variantlar ochiq
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
@@ -225,15 +302,14 @@ function TeachersGrid({onSelect,plan,teachers}) {
       ) : (
       <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:15}}>
         {teachers.map(t=>{
-          const locked = !t.free && plan==="free";
           return (
             <div key={t.id} onClick={()=>onSelect(t)}
-              style={{background:"#fff",borderRadius:16,padding:"22px 20px",border:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:"0 1px 5px rgba(0,0,0,0.05)",position:"relative",overflow:"hidden",opacity:locked?0.7:1}}
+              style={{background:"#fff",borderRadius:16,padding:"22px 20px",border:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:"0 1px 5px rgba(0,0,0,0.05)",position:"relative",overflow:"hidden"}}
               onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 28px rgba(0,0,0,0.12)";e.currentTarget.style.borderColor=t.color;}}
               onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 1px 5px rgba(0,0,0,0.05)";e.currentTarget.style.borderColor=C.border;}}>
               {t.badge&&<div style={{position:"absolute",top:14,right:14,background:t.color,color:"#fff",fontSize:9.5,fontWeight:800,padding:"3px 9px",borderRadius:20}}>{t.badge}</div>}
-              {!t.free&&<div style={{position:"absolute",top:t.badge?38:14,right:14,background:"#FFFBEB",color:"#B45309",border:"1px solid #FDE68A",fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>💳 Premium</div>}
-              {locked&&<div style={{position:"absolute",bottom:0,left:0,right:0,background:"rgba(15,81,50,0.06)",padding:"8px",display:"flex",alignItems:"center",justifyContent:"center",gap:5,borderTop:`1px solid ${C.border}`}}><Lock size={11} color={C.primary}/><span style={{fontSize:10.5,color:C.primary,fontWeight:700}}>Obuna talab qiladi</span></div>}
+
+              <div style={{position:"absolute",bottom:0,left:0,right:0,background:C.mintBg,padding:"7px",display:"flex",alignItems:"center",justifyContent:"center",gap:5,borderTop:`1px solid ${C.borderGreen}`}}><Award size={11} color={C.primary}/><span style={{fontSize:10.5,color:C.primary,fontWeight:700}}>1 ta variant butunlay bepul</span></div>
               <div style={{width:56,height:56,borderRadius:14,background:t.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,fontWeight:900,color:"#fff",marginBottom:14}}>{t.initials}</div>
               <div style={{fontSize:16,fontWeight:800,color:C.text,marginBottom:4}}>{t.name}</div>
               <div style={{display:"inline-flex",background:t.bgColor,color:t.color,fontSize:10.5,fontWeight:700,padding:"3px 9px",borderRadius:20,marginBottom:12,border:`1px solid ${t.color}30`}}>{t.subject}</div>
@@ -243,8 +319,8 @@ function TeachersGrid({onSelect,plan,teachers}) {
                   <div key={l}><div style={{fontSize:15,fontWeight:900,color:t.color}}>{v}</div><div style={{fontSize:10,color:C.textLight}}>{l}</div></div>
                 ))}
               </div>
-              <button style={{width:"100%",padding:"9px",borderRadius:9,background:locked?"#F1F5F9":t.color,color:locked?C.textMid:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
-                {locked?<><Lock size={11}/> Obuna kerak</>:<><Play size={10} fill="currentColor"/> Ko'rish</>}
+              <button style={{width:"100%",padding:"9px",borderRadius:9,background:t.color,color:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
+                <Play size={10} fill="currentColor"/> Ko'rish
               </button>
             </div>
           );
@@ -256,8 +332,9 @@ function TeachersGrid({onSelect,plan,teachers}) {
 }
 
 // ── VARIANTS GRID ─────────────────────────────────────────────────
-function VariantsGrid({teacher,onOpen,variants}) {
-  const vList=variants; const done=vList.filter(v=>v.total>0&&v.ready===v.total).length; const totalReady=vList.reduce((s,v)=>s+v.ready,0);
+function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy}) {
+  const vList=variants; const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
+  const openCount=vList.filter(v=>variantUnlocked(v,plan,purchases)).length;
   return (
     <div style={{padding:"26px 30px"}}>
       <div style={{marginBottom:20}}>
@@ -269,7 +346,7 @@ function VariantsGrid({teacher,onOpen,variants}) {
         <p style={{color:C.textMid,fontSize:13.5}}>Har bir variantdagi masalalar to'liq video tahlili — milliy sertifikat qolipida</p>
       </div>
       <div className="stat-row" style={{display:"flex",gap:12,marginBottom:20}}>
-        {[{icon:"📚",val:vList.length,label:"Jami variantlar"},{icon:"🎬",val:vList.reduce((s,v)=>s+v.total,0),label:"Jami savol"},{icon:"✅",val:done,label:"To'liq tayyor"},{icon:"👁",val:totalReady,label:"Video tayyor"}].map(s=>(
+        {[{icon:"📚",val:vList.length,label:"Jami variantlar"},{icon:"🎬",val:vList.reduce((s,v)=>s+v.total,0),label:"Jami savol"},{icon:"✅",val:done,label:"To'liq tayyor"},{icon:"🔓",val:openCount,label:"Sizga ochiq"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 13px",display:"flex",alignItems:"center",gap:8,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:20}}>{s.icon}</span>
             <div><div style={{fontSize:17,fontWeight:900,color:C.primary}}>{s.val}</div><div style={{fontSize:10,color:C.textMid}}>{s.label}</div></div>
@@ -284,13 +361,22 @@ function VariantsGrid({teacher,onOpen,variants}) {
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14}}>
         {vList.map(v=>{
           const pct=v.total?Math.round((v.ready/v.total)*100):0; const dn=v.total>0&&v.ready===v.total; const bc=pct===100?C.primary:pct>60?C.accent:C.mint;
+          const unlocked=variantUnlocked(v,plan,purchases); const pending=purchases?.[v.id]==="pending";
           return (
-            <div key={v.id} onClick={()=>onOpen(v.number)}
+            <div key={v.id} onClick={()=>unlocked?onOpen(v.number):onBuy(v)}
               style={{background:"#fff",borderRadius:14,padding:"16px 15px",border:dn?`2px solid ${C.primary}`:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)",position:"relative"}}
               onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 26px rgba(15,81,50,0.16)";}}
               onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow=dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)";}}>
-              {dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>}
-              <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Milliy qolip</div>
+              {unlocked
+                ? dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>
+                : <div style={{position:"absolute",top:10,right:10}}><Lock size={14} color={C.textLight}/></div>}
+              {v.is_free ? (
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Bepul variant</div>
+              ) : unlocked ? (
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><CheckCircle2 size={8}/> Ochiq</div>
+              ) : (
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:"#FFFBEB",color:"#B45309",border:"1px solid #FDE68A",fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Lock size={8}/> {fmtSum(v.price)} so'm</div>
+              )}
               <div style={{fontSize:16,fontWeight:900,color:C.text,marginBottom:2}}>{v.number}-Variant</div>
               <div style={{fontSize:10.5,color:C.textMid,marginBottom:10}}>{v.total} ta masala · video tahlil</div>
               <div style={{marginBottom:10}}>
@@ -298,9 +384,15 @@ function VariantsGrid({teacher,onOpen,variants}) {
                 <div style={{background:"#F1F5F9",borderRadius:4,height:6,overflow:"hidden"}}><div style={{width:`${pct}%`,height:"100%",borderRadius:4,background:bc}}/></div>
                 <div style={{fontSize:9.5,color:C.textLight,marginTop:3}}>{pct}% bajarildi</div>
               </div>
-              <button style={{width:"100%",padding:"8px",borderRadius:8,background:dn?C.mintBg:C.primary,color:dn?C.primary:"#fff",border:dn?`1px solid ${C.borderGreen}`:"none",fontSize:11.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
-                <Play size={10} fill="currentColor"/> {dn?"Takror ko'rish":"Tahlilni ko'rish"}
-              </button>
+              {unlocked ? (
+                <button style={{width:"100%",padding:"8px",borderRadius:8,background:dn?C.mintBg:C.primary,color:dn?C.primary:"#fff",border:dn?`1px solid ${C.borderGreen}`:"none",fontSize:11.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
+                  <Play size={10} fill="currentColor"/> {dn?"Takror ko'rish":"Tahlilni ko'rish"}
+                </button>
+              ) : (
+                <button style={{width:"100%",padding:"8px",borderRadius:8,background:pending?"#FFFBEB":"#0F172A",color:pending?"#B45309":"#fff",border:pending?"1px solid #FDE68A":"none",fontSize:11.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:5}}>
+                  {pending?<>⏳ Tasdiq kutilmoqda</>:<><CreditCard size={11}/> {fmtSum(v.price)} so'mga olish</>}
+                </button>
+              )}
             </div>
           );
         })}
@@ -408,21 +500,34 @@ function QuizBlock({question,session,source="practice"}){
   );
 }
 
-function BunnyPlayer({videoId}){
+function BunnyPlayer({videoId,session,onLocked}){
   const [src,setSrc]=useState(null);
+  const [err,setErr]=useState("");
   useEffect(()=>{
     let cancelled=false;
-    setSrc(null);
-    fetch("/api/bunny-token",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({videoId})})
-      .then(r=>r.json())
-      .then(({token,expires,libraryId})=>{ if(!cancelled) setSrc(`https://iframe.mediadelivery.net/embed/${libraryId}/${videoId}?token=${token}&expires=${expires}`); });
+    setSrc(null); setErr("");
+    const headers={"Content-Type":"application/json"};
+    if(session?.access_token) headers.Authorization=`Bearer ${session.access_token}`;
+    fetch("/api/bunny-token",{method:"POST",headers,body:JSON.stringify({videoId})})
+      .then(async r=>{
+        const data=await r.json().catch(()=>({}));
+        if(cancelled) return;
+        if(!r.ok){
+          setErr(data.error||"Video ochilmadi");
+          if(data.locked) onLocked?.(data);
+          return;
+        }
+        setSrc(`https://iframe.mediadelivery.net/embed/${data.libraryId}/${videoId}?token=${data.token}&expires=${data.expires}`);
+      })
+      .catch(()=>{ if(!cancelled) setErr("Video ochilmadi"); });
     return ()=>{cancelled=true;};
-  },[videoId]);
+  },[videoId,session?.access_token]);
+  if(err) return <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,color:"#94A3B8",fontSize:12.5,padding:20,textAlign:"center"}}><Lock size={20} color="#64748B"/>{err}</div>;
   if(!src) return <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:12}}>Yuklanmoqda…</div>;
   return <iframe src={src} loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowFullScreen/>;
 }
 
-function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
+function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,variant,purchases,onBuy}) {
   const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
   const [analog,setAnalog]=useState(null);
   const [analogLoading,setAnalogLoading]=useState(true);
@@ -438,6 +543,8 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
   },[curQ?.id]);
 
   const allowed = canUse(plan,"analog");
+  const unlocked = variantUnlocked(variant,plan,purchases);
+  const pending = purchases?.[variant?.id]==="pending";
   return (
     <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
       <div style={{flex:1,minWidth:0,overflowY:"auto",padding:"20px 22px 24px 26px"}}>
@@ -447,8 +554,24 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session}) {
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{activeQ}-Savol</span>
         </div>
         <div style={{background:"#0A0F1E",borderRadius:14,overflow:"hidden",aspectRatio:"16/9",width:"100%",position:"relative",marginBottom:15,boxShadow:"0 10px 36px rgba(0,0,0,0.22)"}}>
-          {curQ?.bunny_video_id ? (
-            <BunnyPlayer key={curQ.id} videoId={curQ.bunny_video_id}/>
+          {!unlocked ? (
+            <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)"}}>
+              <div style={{width:54,height:54,borderRadius:"50%",background:"rgba(255,255,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}}><Lock size={22} color={C.mint}/></div>
+              <div style={{color:"#fff",fontSize:15,fontWeight:800}}>{variantId}-Variant videolari yopiq</div>
+              <div style={{color:"#94A3B8",fontSize:12.5,marginTop:5,maxWidth:340,lineHeight:1.6}}>
+                {pending
+                  ? "So'rovingiz yuborilgan. Administrator to'lovni tasdiqlagach video ochiladi."
+                  : `Bu variantni ${fmtSum(variant?.price)} so'mga bir marta sotib olsangiz, barcha ${total} ta video darsi umrbod ochiq qoladi.`}
+              </div>
+              {!pending&&(
+                <div style={{display:"flex",gap:9,marginTop:16,flexWrap:"wrap",justifyContent:"center"}}>
+                  <button onClick={()=>onBuy?.(variant)} style={{padding:"10px 20px",borderRadius:10,background:C.mint,color:C.primary,border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><CreditCard size={14}/> {fmtSum(variant?.price)} so'mga olish</button>
+                  <button onClick={()=>setTab("obuna")} style={{padding:"10px 18px",borderRadius:10,background:"rgba(255,255,255,0.1)",color:"#E2E8F0",border:"1px solid rgba(255,255,255,0.16)",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Premium — hammasi ochiq</button>
+                </div>
+              )}
+            </div>
+          ) : curQ?.bunny_video_id ? (
+            <BunnyPlayer key={curQ.id} videoId={curQ.bunny_video_id} session={session}/>
           ) : (
             <a href={curQ?.video_url||undefined} target="_blank" rel="noreferrer" style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",cursor:curQ?.video_url?"pointer":"default",textDecoration:"none"}}
               onClick={e=>{if(!curQ?.video_url)e.preventDefault();}}>
@@ -1105,6 +1228,8 @@ export default function App() {
   const [teacherQuestions,setTeacherQuestions]=useState([]);
   const [session,setSession]=useState(undefined);
   const [profile,setProfile]=useState(null);
+  const [purchases,setPurchases]=useState({});
+  const [buying,setBuying]=useState(null);
   const plan = profile?.plan || "free";
 
   const reloadTeachers = () => fetchTeachers().then(setTeachers);
@@ -1116,9 +1241,15 @@ export default function App() {
     return ()=>sub.subscription.unsubscribe();
   },[]);
 
+  const reloadPurchases = () => {
+    if(!session) return Promise.resolve();
+    return fetchPurchases(session.user.id).then(setPurchases);
+  };
+
   useEffect(()=>{
-    if(!session){ setProfile(null); return; }
+    if(!session){ setProfile(null); setPurchases({}); return; }
     supabase.from("profiles").select("*").eq("id",session.user.id).single().then(({data})=>setProfile(data));
+    fetchPurchases(session.user.id).then(setPurchases);
   },[session]);
 
   const [analytics,setAnalytics]=useState([]);
@@ -1177,14 +1308,19 @@ export default function App() {
             <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kolleksiyalarni ko'rish</button>
           </div>
         )}
-        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants}/>}
-        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session}/>}
+        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)}/>}
+        {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>
+      {buying&&(
+        <PurchaseModal variant={buying} teacher={teacher} session={session} status={purchases[buying.id]}
+          onClose={()=>setBuying(null)} setTab={setTab}
+          onRequested={()=>{ reloadPurchases(); }}/>
+      )}
     </div>
   );
 }

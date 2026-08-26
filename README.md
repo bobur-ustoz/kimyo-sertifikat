@@ -85,6 +85,44 @@ kimyo-sertifikat/
 
 ---
 
+## 💰 Video kirish qoidasi (pullik qism)
+
+| Kim | Nimani ko'radi |
+|-----|----------------|
+| Mehmon (login yo'q) | Har o'qituvchining **bitta bepul varianti** — to'liq, 43 ta video |
+| Ro'yxatdan o'tgan | Bepul variant + o'zi sotib olgan variantlar |
+| Premium obunachi | **Barcha variantlar**, to'lovsiz |
+
+Qolgan variantlar **variantiga 5 000 so'mdan** (narx admin panelda o'zgartiriladi) —
+bir marta to'lanadi, umrbod ochiq qoladi.
+
+Bu qoida `api/bunny-token.js` da **serverda** tekshiriladi: to'lamagan odam video
+tokenini umuman ololmaydi. Brauzerdagi qulf belgilari faqat ko'rsatma.
+
+### Sotib olish oqimi (hozircha qo'lda)
+
+1. O'quvchi variant ustiga bosadi → telefon raqamini qoldiradi → `pending` so'rov tushadi
+2. Siz `/admin` → **To'lovlar** bo'limida so'rovni ko'rasiz, pulni qabul qilasiz
+3. **"To'landi"** tugmasini bosasiz → variant o'sha zahoti ochiladi
+
+O'quvchi o'ziga o'zi variant ocholmaydi — buni RLS qat'iy taqiqlaydi
+(`status='paid'` yozish, narxni pasaytirish, boshqa nom bilan so'rov — hammasi bloklangan).
+
+### Click / Payme ulash (keyinroq)
+
+`api/grant-variant.js` — avtomatik to'lov uchun tayyor ulanish nuqtasi. Provayder
+adapteri o'z imzosini tekshirgach shu endpointga POST qiladi. Ishga tushishi uchun
+Vercel'da ikkita o'zgaruvchi kerak:
+
+```
+PAYMENT_WEBHOOK_SECRET=<uzun tasodifiy satr>
+SUPABASE_SERVICE_ROLE_KEY=<Supabase service_role kaliti>
+```
+
+Ular qo'yilmaguncha endpoint `503` qaytaradi — ya'ni tasodifan ochilib qolmaydi.
+
+---
+
 ## 🔧 Sozlamalar
 
 ### Claude API

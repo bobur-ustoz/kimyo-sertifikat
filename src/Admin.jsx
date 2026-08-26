@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "./lib/supabaseClient";
 import { Upload } from "tus-js-client";
-import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud, Sparkles, ThumbsUp } from "lucide-react";
+import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud, Sparkles, ThumbsUp, Wallet } from "lucide-react";
 
 const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", bgSoft:"#F8FAFC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626", warning:"#D97706", warningBg:"#FFFBEB" };
 
@@ -133,6 +133,9 @@ function VariantsPanel({teacher,onBack,onSelect}){
     setNewNum(""); load();
   };
   const delVariant = async id => { if(confirm("Variantni o'chirishni tasdiqlaysizmi? Barcha savollari ham o'chadi.")){ await supabase.from("variants").delete().eq("id",id); load(); } };
+  const toggleFree = async v => { await supabase.from("variants").update({is_free:!v.is_free}).eq("id",v.id); load(); };
+  const setPrice = async (v,price) => { const n=parseInt(price,10); if(!Number.isFinite(n)||n<0) return; await supabase.from("variants").update({price:n}).eq("id",v.id); load(); };
+  const freeCount = variants.filter(v=>v.is_free).length;
   return (
     <div>
       <button style={{...btnGhost,marginBottom:14}} onClick={onBack}><ChevronLeft size={14}/> O'qituvchilar</button>
@@ -142,11 +145,29 @@ function VariantsPanel({teacher,onBack,onSelect}){
         <input style={{...inputStyle,width:120}} type="number" placeholder="Variant raqami" value={newNum} onChange={e=>setNewNum(e.target.value)}/>
         <button style={btnPrimary} onClick={addVariant}><Plus size={14}/> Variant qo'shish</button>
       </div>
+      <div style={{background:freeCount?C.mintBg:C.warningBg,border:`1px solid ${freeCount?"#86EFAC":"#FDE68A"}`,borderRadius:10,padding:"10px 13px",marginBottom:14,fontSize:12,color:freeCount?C.primary:C.warning,lineHeight:1.6}}>
+        {freeCount
+          ? `Bu o'qituvchida ${freeCount} ta bepul variant bor — mehmonlar ham ko'ra oladi. Qolganlari pullik.`
+          : "Diqqat: bu o'qituvchida bepul variant yo'q. Yangi o'quvchi hech narsa ko'ra olmaydi — bittasini bepul qilib qo'ying."}
+      </div>
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:10}}>
         {variants.length===0 && <div style={{color:C.textLight,fontSize:13,padding:12}}>Hali variant qo'shilmagan</div>}
         {variants.map(v=>(
-          <div key={v.id} style={{...card,padding:14}}>
-            <div style={{fontWeight:800,fontSize:14,color:C.text,marginBottom:8}}>{v.variant_number}-Variant</div>
+          <div key={v.id} style={{...card,padding:14,borderColor:v.is_free?"#86EFAC":C.border}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
+              <div style={{fontWeight:800,fontSize:14,color:C.text}}>{v.variant_number}-Variant</div>
+              <span style={{fontSize:9.5,fontWeight:800,padding:"2px 7px",borderRadius:20,background:v.is_free?C.mintBg:"#FFFBEB",color:v.is_free?C.primary:"#B45309",border:`1px solid ${v.is_free?"#86EFAC":"#FDE68A"}`}}>{v.is_free?"BEPUL":"PULLIK"}</span>
+            </div>
+            <label style={{display:"flex",alignItems:"center",gap:6,fontSize:11.5,color:C.textMid,marginBottom:8,cursor:"pointer"}}>
+              <input type="checkbox" checked={!!v.is_free} onChange={()=>toggleFree(v)}/> Bepul ko'rsatilsin
+            </label>
+            {!v.is_free&&(
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+                <input style={{...inputStyle,padding:"6px 9px",fontSize:12}} type="number" min={0} step={1000} defaultValue={v.price ?? 5000}
+                  onBlur={e=>{ if(Number(e.target.value)!==v.price) setPrice(v,e.target.value); }}/>
+                <span style={{fontSize:11,color:C.textLight,whiteSpace:"nowrap"}}>so'm</span>
+              </div>
+            )}
             <div style={{display:"flex",gap:6}}>
               <button style={{...btnGhost,flex:1,justifyContent:"center"}} onClick={()=>onSelect(v)}>Savollar</button>
               <button style={{...btnGhost,padding:8,color:C.danger}} onClick={()=>delVariant(v.id)}><Trash2 size={13}/></button>
@@ -435,10 +456,85 @@ function QuestionsPanel({variant,teacher,onBack}){
   );
 }
 
+function PurchasesPanel({onBack}){
+  const [rows,setRows]=useState([]);
+  const [filter,setFilter]=useState("pending");
+  const [busy,setBusy]=useState(null);
+
+  const load = async () => {
+    let q = supabase.from("variant_purchases")
+      .select("*, variants(variant_number, price, teachers(name))")
+      .order("created_at",{ascending:false}).limit(200);
+    if(filter!=="all") q = q.eq("status",filter);
+    const { data } = await q;
+    setRows(data||[]);
+  };
+  useEffect(()=>{load();},[filter]);
+
+  const mark = async (row,status) => {
+    setBusy(row.id);
+    await supabase.from("variant_purchases")
+      .update({status, paid_at: status==="paid" ? new Date().toISOString() : null})
+      .eq("id",row.id);
+    setBusy(null); load();
+  };
+
+  const TABS=[["pending","Kutilmoqda"],["paid","To'langan"],["cancelled","Bekor qilingan"],["all","Hammasi"]];
+  const badge = st => st==="paid"
+    ? {bg:C.mintBg,fg:C.primary,bd:"#86EFAC",label:"To'langan"}
+    : st==="pending" ? {bg:C.warningBg,fg:C.warning,bd:"#FDE68A",label:"Kutilmoqda"}
+    : {bg:"#F1F5F9",fg:C.textMid,bd:C.border,label:"Bekor qilingan"};
+
+  return (
+    <div>
+      <button style={{...btnGhost,marginBottom:14}} onClick={onBack}><ChevronLeft size={14}/> Orqaga</button>
+      <h2 style={{fontSize:17,fontWeight:800,color:C.text,marginBottom:4}}>Variant to'lovlari</h2>
+      <p style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>O'quvchi so'rov yuboradi → siz to'lovni qabul qilasiz → "To'landi" bosasiz va variant darhol ochiladi.</p>
+
+      <div style={{display:"flex",gap:7,marginBottom:14,flexWrap:"wrap"}}>
+        {TABS.map(([id,label])=>(
+          <button key={id} onClick={()=>setFilter(id)}
+            style={{...btnGhost,background:filter===id?C.primary:"#fff",color:filter===id?"#fff":C.textMid,borderColor:filter===id?C.primary:C.border}}>{label}</button>
+        ))}
+      </div>
+
+      {rows.length===0 && <div style={{...card,color:C.textLight,fontSize:13}}>Bu bo'limda hozircha yozuv yo'q.</div>}
+
+      <div style={{display:"flex",flexDirection:"column",gap:9}}>
+        {rows.map(r=>{
+          const b=badge(r.status);
+          return (
+            <div key={r.id} style={{...card,padding:"13px 15px"}}>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
+                <div style={{minWidth:0}}>
+                  <div style={{fontSize:13.5,fontWeight:800,color:C.text}}>
+                    {r.variants?.teachers?.name || "—"} · {r.variants?.variant_number}-Variant
+                  </div>
+                  <div style={{fontSize:11.5,color:C.textMid,marginTop:3}}>
+                    {r.amount?.toLocaleString("ru-RU")} so'm · {r.contact || "telefon yo'q"} · {new Date(r.created_at).toLocaleString("uz-UZ")}
+                  </div>
+                  <div style={{fontSize:10.5,color:C.textLight,marginTop:2,fontFamily:"monospace"}}>{r.student_id}</div>
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:7}}>
+                  <span style={{fontSize:10,fontWeight:800,padding:"3px 9px",borderRadius:20,background:b.bg,color:b.fg,border:`1px solid ${b.bd}`}}>{b.label}</span>
+                  {r.status!=="paid" && <button disabled={busy===r.id} style={{...btnGhost,color:C.primary,borderColor:C.primary}} onClick={()=>mark(r,"paid")}><CheckCircle2 size={12}/> To'landi</button>}
+                  {r.status==="pending" && <button disabled={busy===r.id} style={{...btnGhost,color:C.danger}} onClick={()=>mark(r,"cancelled")}>Bekor</button>}
+                  {r.status==="paid" && <button disabled={busy===r.id} style={btnGhost} onClick={()=>mark(r,"cancelled")}>Yopish</button>}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function Admin(){
   const [session,setSession]=useState(undefined);
   const [teacher,setTeacher]=useState(null);
   const [variant,setVariant]=useState(null);
+  const [screen,setScreen]=useState("content"); // content | purchases
 
   useEffect(()=>{
     supabase.auth.getSession().then(({data})=>setSession(data.session));
@@ -456,12 +552,17 @@ export default function Admin(){
           <FlaskConical size={19} color={C.mint}/>
           <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — Admin</span>
         </div>
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+        <button onClick={()=>setScreen(screen==="purchases"?"content":"purchases")} style={{background:screen==="purchases"?C.mint:"rgba(255,255,255,0.14)",border:"none",color:screen==="purchases"?C.primary:"#fff",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><Wallet size={13}/> To'lovlar</button>
         <button onClick={()=>supabase.auth.signOut()} style={{background:"rgba(255,255,255,0.14)",border:"none",color:"#fff",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><LogOut size={13}/> Chiqish</button>
+        </div>
       </div>
       <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px"}}>
-        {!teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
-        {teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
-        {teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
+        {screen==="purchases" ? <PurchasesPanel onBack={()=>setScreen("content")}/> : (<>
+          {!teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
+          {teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
+          {teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
+        </>)}
       </div>
     </div>
   );
