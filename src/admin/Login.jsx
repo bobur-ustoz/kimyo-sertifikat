@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FlaskConical } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
-import { RESET_PATH } from "../ResetPassword";
+import { RESET_PATH, resetErrorText } from "../ResetPassword";
 import { C, card, inputStyle, btnPrimary, fieldLabel } from "./ui";
 
 export default function Login() {
@@ -31,7 +31,7 @@ export default function Login() {
     });
     setBusy(false);
     // Don't reveal whether the address exists -- same answer either way.
-    if (error) setError(error.message);
+    if (error) setError(resetErrorText(error));
     else setInfo("Agar bu email ro'yxatdan o'tgan bo'lsa, tiklash havolasi yuborildi. Pochtangizni tekshiring.");
   };
 
