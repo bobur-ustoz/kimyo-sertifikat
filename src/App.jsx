@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
-import { RESET_PATH, resetErrorText } from "./ResetPassword";
+import { RESET_PATH } from "./ResetPassword";
+import { resetErrorText, signInErrorText } from "./lib/authErrors";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
@@ -1117,7 +1118,7 @@ function AuthPanel(){
     setLoading(true); setError(""); setInfo("");
     if(mode==="login"){
       const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if(error) setError("Email yoki parol noto'g'ri");
+      if(error) setError(signInErrorText(error));
     } else {
       const { error } = await supabase.auth.signUp({ email, password });
       if(error) setError(error.message);

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FlaskConical } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
-import { RESET_PATH, resetErrorText } from "../ResetPassword";
+import { RESET_PATH } from "../ResetPassword";
+import { resetErrorText, signInErrorText } from "../lib/authErrors";
 import { C, card, inputStyle, btnPrimary, fieldLabel } from "./ui";
 
 export default function Login() {
@@ -17,7 +18,7 @@ export default function Login() {
     setError("");
     setInfo("");
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) setError("Email yoki parol noto'g'ri");
+    if (error) setError(signInErrorText(error));
     setBusy(false);
   };
 
