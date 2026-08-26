@@ -36,7 +36,9 @@ async function fetchVariants(teacherId) {
     const { data: qRows } = await supabase.from("questions").select("variant_id,video_ready").in("variant_id",ids);
     (qRows||[]).forEach(q=>{ if(q.video_ready) readyMap[q.variant_id]=(readyMap[q.variant_id]||0)+1; });
   }
-  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0, is_free:v.is_free, price:v.price }));
+  // is_free/price are absent until the paid-access migration runs; treat that
+  // state as "open", which is what the site did before variants were sellable.
+  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0, is_free:v.is_free ?? true, price:v.price ?? 5000 }));
 }
 
 async function fetchQuestions(variantId) {

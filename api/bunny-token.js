@@ -18,12 +18,17 @@ export default async function handler(req, res) {
   if (!videoId) return res.status(400).json({ error: "Missing videoId" });
 
   // Which variant does this video belong to? The client never gets to say.
-  const { data: question } = await anon
+  const { data: question, error } = await anon
     .from("questions")
     .select("variants(id, is_free, price, variant_number)")
     .eq("bunny_video_id", videoId)
     .limit(1)
     .maybeSingle();
+
+  // 42703 = undefined_column: the paid-access migration has not been applied to
+  // this database yet, so there is no paywall to enforce. Behave exactly like the
+  // previous version until it lands, rather than locking every video out.
+  if (error?.code === "42703") return res.status(200).json(signToken(videoId));
 
   const variant = question?.variants;
   if (!variant) return res.status(404).json({ error: "Video topilmadi" });
