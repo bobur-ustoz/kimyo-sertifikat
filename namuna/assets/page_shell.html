@@ -1,0 +1,189 @@
+<title>Kimyoviy Muvozanat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>__KATEX_CSS__</style>
+<style>
+:root{
+  --canvas:#DCE0D8; --paper:#F8F8F3; --paper-2:#F0F1EA;
+  --ink:#1B1F19; --muted:#535D51; --faint:#7C8578;
+  --line:#D7DACE; --line-strong:#B7BCA9;
+  --accent:#2B5C63; --accent-2:#3E7A82; --accent-soft:#E1EBEA;
+  --warn:#8C4A22; --warn-soft:#F3E7DA;
+  --good:#2F6B3E; --good-soft:#E5EEE1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --canvas:#0B0E0B; --paper:#161A16; --paper-2:#1C211C;
+    --ink:#E7EBE3; --muted:#A8B2A2; --faint:#7C8578;
+    --line:#2A2F27; --line-strong:#3A4136;
+    --accent:#6FB3B8; --accent-2:#8AC6CA; --accent-soft:#1E2C2C;
+    --warn:#D89B6C; --warn-soft:#2C2016;
+    --good:#8FC79B; --good-soft:#1B2A1E;
+  }
+}
+:root[data-theme="dark"]{
+  --canvas:#0B0E0B; --paper:#161A16; --paper-2:#1C211C;
+  --ink:#E7EBE3; --muted:#A8B2A2; --faint:#7C8578;
+  --line:#2A2F27; --line-strong:#3A4136;
+  --accent:#6FB3B8; --accent-2:#8AC6CA; --accent-soft:#1E2C2C;
+  --warn:#D89B6C; --warn-soft:#2C2016;
+  --good:#8FC79B; --good-soft:#1B2A1E;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--canvas); color:var(--ink);
+  font-family:"Lora",Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+}
+.katex{font-size:1.02em}
+
+.topbar{
+  position:sticky; top:0; z-index:30; background:var(--canvas);
+  border-bottom:1px solid var(--line-strong);
+  padding:14px max(18px,calc(50vw - 430px)) 14px;
+}
+.topbar .row{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.topbar .tag{
+  font-family:"Archivo",sans-serif; font-weight:800; font-size:11.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--paper);
+  background:var(--accent); padding:4px 9px; border-radius:2px;
+}
+.topbar h3{
+  margin:0; font-family:"Archivo",sans-serif; font-weight:700; font-size:15px;
+  color:var(--ink); flex:1; min-width:200px;
+}
+.topbar p{
+  margin:8px 0 0; font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+  color:var(--muted); line-height:1.55; max-width:900px;
+}
+.topbar code{background:var(--paper-2); padding:1px 5px; border-radius:2px}
+
+.wrap{ padding:32px max(18px,calc(50vw - 430px)) 80px; }
+
+.page{
+  background:var(--paper);
+  max-width:860px; margin:0 auto;
+  border:1px solid var(--line-strong);
+  box-shadow:0 1px 2px rgba(0,0,0,.06), 0 12px 32px -18px rgba(0,0,0,.35);
+  padding:52px 56px 60px;
+}
+@media (max-width:640px){ .page{padding:32px 20px 44px} }
+
+.page-body{ column-count:2; column-gap:40px; column-rule:1px solid var(--line); }
+.page-body > *{ break-inside:avoid; }
+.eyebrow{
+  column-span:all;
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent-2); font-weight:600;
+  border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px; margin-bottom:14px;
+}
+h1{
+  column-span:all;
+  font-family:"Archivo",sans-serif; font-weight:800; font-size:clamp(26px,3.4vw,34px);
+  letter-spacing:-.01em; text-wrap:balance; margin:0 0 8px; line-height:1.15;
+}
+h2.colspan{
+  column-span:all;
+  font-family:"Archivo",sans-serif; font-weight:700; font-size:15.5px;
+  text-transform:uppercase; letter-spacing:.05em; color:var(--accent);
+  border-top:1px solid var(--line-strong); margin:26px 0 12px; padding-top:16px;
+}
+p{ margin:0 0 10px; font-size:15px; line-height:1.62; }
+.tip-head{ background:var(--accent-soft); border-top:0; padding:8px 10px; border-radius:2px; color:var(--ink) }
+
+table.formulas{ width:100%; border-collapse:collapse; margin-bottom:14px; font-size:14px }
+table.formulas td{ padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top }
+td.fexpr{ white-space:nowrap; padding-right:14px }
+.funit{ display:block; font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint); margin-top:2px }
+
+ul.eqlist, ul.notes, ul.xotira{ margin:0 0 14px; padding-left:1.15em; font-size:14.5px; line-height:1.6 }
+ul.eqlist li, ul.notes li{ margin-bottom:8px }
+.eqnote{ color:var(--muted); font-size:13px }
+ul.xotira li{ margin-bottom:5px }
+
+table.errors{ width:100%; border-collapse:collapse; font-size:13.5px; margin-bottom:14px }
+table.errors th{
+  text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--faint); border-bottom:1px solid var(--line-strong); padding:4px 8px 6px;
+}
+table.errors td{ padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.5 }
+
+.namuna{ background:var(--paper-2); border-left:3px solid var(--accent); padding:12px 14px; margin:10px 0 16px; border-radius:0 2px 2px 0 }
+.namuna-head{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; color:var(--accent-2); font-weight:600; margin-bottom:6px }
+ol.qadamlar{ margin:8px 0; padding-left:1.2em; font-size:14px; line-height:1.65 }
+ol.qadamlar li{ margin-bottom:4px }
+.javob-line{ font-size:14.5px; color:var(--ink) }
+.diqqat{ font-size:13px; color:var(--warn); background:var(--warn-soft); padding:6px 9px; border-radius:2px; margin-top:8px }
+.tez{ font-size:13.5px; color:var(--muted) }
+
+.mashq-label{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--faint); margin:14px 0 6px; border-top:1px dotted var(--line-strong); padding-top:8px;
+}
+.mashq-label.astar{ color:var(--warn) }
+ol.mashqlar{ margin:0 0 6px; padding-left:1.3em; font-size:13.8px; line-height:1.55 }
+ol.mashqlar li{ margin-bottom:7px }
+ol.mashqlar .j{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--good); font-size:12.5px; margin-left:4px }
+ol.mashqlar.astar .j{ color:var(--warn) }
+
+.grafik{ margin-bottom:16px; font-size:14px }
+table.datatable{ border-collapse:collapse; margin:8px 0; font-family:"IBM Plex Mono",monospace; font-size:12px; font-variant-numeric:tabular-nums }
+table.datatable td{ border:1px solid var(--line-strong); padding:4px 9px; text-align:center }
+
+table.yozma{ width:100%; border-collapse:collapse; font-size:12.8px; margin:10px 0 }
+table.yozma th{ text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; color:var(--faint); border-bottom:1px solid var(--line-strong); padding:4px 6px }
+table.yozma td{ border-bottom:1px solid var(--line); padding:7px 6px; vertical-align:top; line-height:1.5 }
+td.band-q{ font-weight:600 }
+td.pt{ font-family:"IBM Plex Mono",monospace; text-align:center; font-variant-numeric:tabular-nums; width:34px }
+.jami-row td{ font-weight:700; border-top:2px solid var(--line-strong) }
+.yozma-matn{ background:var(--paper-2); padding:10px 12px; border-radius:2px; font-size:14.5px }
+.rasmiy{ font-size:13px; color:var(--muted) }
+
+ol.bank{ column-span:none; margin:0; padding-left:1.3em; font-size:13.5px; line-height:1.6 }
+ol.bank li{ margin-bottom:8px; break-inside:avoid }
+ol.bank .j{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--good); font-size:12.5px; margin-left:5px; white-space:nowrap }
+
+.test-note{ font-family:"IBM Plex Mono",monospace; font-size:11px; text-transform:none; letter-spacing:0; color:var(--faint); font-weight:400 }
+.testq{ margin-bottom:18px; font-size:14px; break-inside:avoid }
+.variantlar{ display:flex; flex-direction:column; gap:3px; margin:6px 0; font-size:13.5px }
+.opt.correct{ color:var(--good); font-weight:600 }
+ul.chalg{ margin:6px 0; padding-left:1.2em; font-size:12.5px; color:var(--muted); line-height:1.5 }
+.yechim-line{ font-size:12.5px; color:var(--muted); font-style:italic }
+
+footer{
+  max-width:860px; margin:18px auto 0; padding:0 4px;
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint);
+}
+@media (max-width:760px){ .page-body{ column-count:1; column-rule:none } }
+</style>
+
+<div class="topbar">
+  <div class="row">
+    <span class="tag">Namuna bob</span>
+    <h3>A+ Kimyo Darsligi &mdash; format sinovi</h3>
+  </div>
+  <p>__TOPBAR_NOTE__</p>
+</div>
+
+<div class="wrap">
+  <div class="page">
+    <div class="page-body">
+    __CONTENT__
+    </div>
+  </div>
+  <footer>namuna/I6-muvozanat.json &middot; ikki ustunli maket &mdash; haqiqiy kitobda Chrome --print-to-pdf orqali A4 sahifalarga bo'linadi</footer>
+</div>
+
+<script>__KATEX_JS__</script>
+<script>__MHCHEM_JS__</script>
+<script>__AUTORENDER_JS__</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderMathInElement(document.body, {
+    delimiters: [{left:"$", right:"$", display:false}],
+    trust: true,
+    throwOnError: false
+  });
+});
+</script>

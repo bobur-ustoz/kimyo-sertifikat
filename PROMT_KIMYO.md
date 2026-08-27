@@ -305,6 +305,14 @@ to'liq vaqt rejimida (masalan, umumiy kimyo: 13 Y1 + 2 O1 → 37 daqiqa).
 - Sharoit strelka ustida: `$\ce{->[\text{kat., }t^\circ]}$`.
 - Organik struktura formulalari uchun bir xil chizish uslubi tanlanadi va
   butun kitobda saqlanadi.
+- **`+` belgisi atrofida bo'shliq majburiy:** `$\ce{N2 + 3H2 <=> 2NH3}$` —
+  `$\ce{N2+3H2<=>2NH3}$` EMAS. Modda bilan bitishib yozilgan `+` (masalan
+  `(g)+`) mhchem tomonidan zaryad belgisi deb noto'g'ri o'qiladi va butunlay
+  boshqa natija chiqadi (masalan `H2(g)+I2(g)` → `H₂(g)⁺I₂(g)` bo'lib
+  qoladi — ionli zaryadga o'xshab qoladi, qo'shilish emas). Bu raqamli
+  koeffitsientdan keyin ham (`+3H2`), oddiy moddadan keyin ham (`+O2`) bir
+  xil ta'sir qiladi. Har bob yozilgach, `\ce{}` ichidagi barcha `+` belgilari
+  skript bilan tekshiriladi (`namuna/verify.py` dagi kabi).
 
 ### Javob tekshirish protokoli (majburiy)
 

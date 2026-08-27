@@ -1,0 +1,262 @@
+{
+ "n": "namuna-I6",
+ "bolim": "Umumiy kimyo",
+ "element": "I.6",
+ "mavzu": "Kimyoviy muvozanat va uning siljishi",
+ "savol_orni": ["1-13 oralig'ida (v01 kalibrlashda: 8-savol)", "36-37 oralig'ida (v01 kalibrlashda: 36-savol)"],
+ "izoh_holat": "Bu &mdash; 27 mavzudan BITTASINING to'liq namunasi, promtdagi (<code>PROMT_KIMYO.md</code>) rejaga qat'iy rioya qilib yozilgan. Barcha sonli javoblar sympy va mustaqil orqaga qo'yish usuli bilan tekshirilgan (<code>namuna/verify.py</code>). Yakuniy test bu yerda 20 ta o'rniga 7 ta bilan cheklandi (hajmni boshqarish uchun) &mdash; qolgani xuddi shu qolipda davom etadi.",
+
+ "maruza": [
+  "Ko'pgina kimyoviy reaksiyalar bir yo'nalishda oxirigacha bormaydi — ular QAYTAR (reversible) reaksiyalar deyiladi: bir vaqtning o'zida ham to'g'ri (reagentlardan mahsulot hosil bo'lish), ham teskari (mahsulotdan reagent qayta hosil bo'lish) jarayon boradi. Bunday reaksiyalar $\\ce{<=>}$ belgisi bilan yoziladi.",
+  "Yopiq idishda reaksiya boshlanganda to'g'ri reaksiya tezligi katta, teskarisiniki esa nolga teng bo'ladi. Vaqt o'tishi bilan reagentlar kamayib to'g'ri reaksiya tezligi pasayadi, mahsulotlar ko'payib teskari reaksiya tezligi oshadi. Bir payt ikkala tezlik TENGLASHADI — bu holat DINAMIK MUVOZANAT deyiladi: reaksiyalarning ikkalasi ham to'xtamaydi, lekin barcha moddalar konsentratsiyasi vaqt bo'yicha o'zgarmay qoladi.",
+  "$aA + bB \\rightleftharpoons cC + dD$ reaksiyasi uchun muvozanat konstantasi: $K_c = \\dfrac{[C]^c[D]^d}{[A]^a[B]^b}$. $K_c$ faqat HARORATGA bog'liq — boshlang'ich konsentratsiyalarga, bosimga yoki katalizatorga bog'liq emas.",
+  "Agar reaksiyada qattiq yoki sof suyuq modda ishtirok etsa, uning konsentratsiyasi doimiy hisoblanadi va $K_c$ ifodasiga KIRITILMAYDI — faqat gaz va eritmadagi (erigan) komponentlar $K_c$ ifodasiga kiradi.",
+  "Le-Shatelye prinsipi: muvozanatdagi sistemaga tashqi ta'sir ko'rsatilsa (konsentratsiya, bosim/hajm yoki harorat o'zgarishi), muvozanat shu ta'sirni KAMAYTIRADIGAN tomonga siljiydi. Konsentratsiya oshirilsa — uni sarflaydigan tomonga; bosim oshirilsa (hajm kamaysa) — kamroq mol gaz tomonga; harorat oshirilsa — issiqlik yutadigan (endotermik) tomonga siljiydi. Katalizator muvozanatni SILJITMAYDI, faqat unga tezroq erishishga yordam beradi.",
+  "Miqdoriy hisoblarda ICE jadvali (Ibtidoiy — o'zgarish (Change) — muvozanat (Equilibrium)) qo'llaniladi. Dastlabki miqdordan qancha qismi reaksiyaga kirgani PARCHALANISH (yoki AYLANISH) DARAJASI $\\alpha$ orqali ifodalanadi: $\\alpha = \\dfrac{\\text{reaksiyaga kirgan miqdor}}{\\text{dastlabki miqdor}}$, ko'pincha foizda beriladi."
+ ],
+
+ "asosiy_formulalar": [
+  {"f": "$K_c = \\dfrac{[C]^c[D]^d}{[A]^a[B]^b}$", "izoh": "aA+bB<=>cC+dD uchun umumiy ifoda", "birlik": "reaksiyaga bog'liq (Δn=0 bo'lsa birliksiz)"},
+  {"f": "$[A]_{muv} = \\dfrac{n_0(1-\\alpha)}{V}$", "izoh": "bitta reagentli parchalanish reaksiyasida muvozanat konsentratsiyasi", "birlik": "mol/l"},
+  {"f": "$\\alpha = \\dfrac{n_{reaksiyaga\\ kirgan}}{n_0}$", "izoh": "parchalanish (aylanish) darajasi, 0 dan 1 gacha (yoki 0–100%)", "birlik": "ulush yoki %"}
+ ],
+
+ "tenglamalar": [
+  {"tenglama": "$\\ce{N2O4(g) <=> 2NO2(g)}$", "sharoit": "qizdirish", "izoh": "rangsiz N2O4 ↔ jigarrang NO2, klassik dissotsiatsiya misoli"},
+  {"tenglama": "$\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$", "sharoit": "qizdirish", "izoh": "bitta reagent ikkita mahsulotga parchalanadi"},
+  {"tenglama": "$\\ce{N2(g) + 3H2(g) <=>[\\text{kat., } t^\\circ, p] 2NH3(g)}$", "sharoit": "katalizator, yuqori bosim", "izoh": "Gaber jarayoni — sanoatda ammiak olish, ekzotermik"}
+ ],
+
+ "sifat_reaksiyalari": [],
+ "sifat_reaksiyalari_izoh": "Bu bo'lim (Umumiy kimyo, I.6) uchun majburiy emas — sifat reaksiyalari jadvali faqat anorganik, organik va kimyoviy tahlil boblarida talab qilinadi.",
+
+ "eslatmalar": [
+  {"joy": "Δn=0 holati", "matn": "Reagent va mahsulot tomonidagi gaz mollari yig'indisi teng bo'lsa (masalan $\\ce{H2 + I2<=>2HI}$), $K_c$ o'lchov birligisiz bo'ladi VA bosim/hajm o'zgarishi muvozanatni siljitmaydi."},
+  {"joy": "Kc kattaligi", "matn": "$K_c \\gg 1$ bo'lsa reaksiya deyarli oxirigacha boradi (mahsulotlar ustun); $K_c \\ll 1$ bo'lsa deyarli bormaydi (reagentlar ustun)."},
+  {"joy": "Inert gaz qo'shish", "matn": "Inert gaz DOIMIY HAJMDA qo'shilsa muvozanatga ta'sir qilmaydi (konsentratsiyalar o'zgarmaydi). DOIMIY BOSIMDA qo'shilsa hajm kattalashadi va bu ko'proq mol gaz tomonga siljitadi."}
+ ],
+
+ "xatolar": [
+  {"xato": "Qattiq yoki sof suyuq moddani Kc ifodasiga qo'shish", "tuzatish": "Faqat gaz va eritmadagi komponentlar kiritiladi; qattiq/sof suyuq moddalar chiqarib tashlanadi"},
+  {"xato": "Mol sonini to'g'ridan-to'g'ri konsentratsiya sifatida ishlatish", "tuzatish": "Har doim $C=n/V$ — mol soni albatta idish hajmiga bo'linadi"},
+  {"xato": "Parchalanish darajasi $\\alpha$ ni foiz va ulush (0–1) ko'rinishlarini aralashtirib yuborish", "tuzatish": "Formulaga qo'yishdan oldin $\\alpha$ ni albatta ulush (0–1) ko'rinishiga o'tkazish, masalan 25% = 0,25"},
+  {"xato": "Kc ifodasida koeffitsientni ko'paytiruvchi deb olish", "tuzatish": "Koeffitsient DARAJA sifatida qo'yiladi: $[C]^c$, ko'paytma emas"}
+ ],
+
+ "tiplar": [
+
+  {"nom": "Muvozanat konsentratsiyalari orqali Kc ni hisoblash",
+   "qoida": "Muvozanatdagi barcha moddalar konsentratsiyasi (mol/l) ma'lum bo'lsa, ular reaksiya tenglamasi koeffitsientlariga mos darajada Kc ifodasiga qo'yiladi.",
+   "formula": "$K_c = \\dfrac{[\\text{mahsulotlar}]^{koeff}}{[\\text{reagentlar}]^{koeff}}$",
+   "topshiriq": "Kc ni toping",
+   "tez_yechish": "Avval Δn (mahsulot mollari − reagent mollari) ni tekshiring: Δn=0 bo'lsa Kc birliksiz chiqadi — bu hisobni tezda nazorat qilish usuli.",
+   "vaqt_soniya": 120,
+   "kognitiv": "quyi",
+   "namuna": {
+     "savol": "$\\ce{H2(g) + I2(g) <=> 2HI(g)}$ reaksiyasida muvozanatda $[\\ce{H2}]=0,1$ mol/l, $[\\ce{I2}]=0,1$ mol/l, $[\\ce{HI}]=0,8$ mol/l bo'lsa, Kc ni toping.",
+     "qadamlar": [
+       "Kc ifodasi yoziladi: $K_c=\\dfrac{[\\ce{HI}]^2}{[\\ce{H2}][\\ce{I2}]}$",
+       "Qiymatlar qo'yiladi: $K_c=\\dfrac{(0,8)^2}{0,1\\times 0,1}$",
+       "Hisoblanadi: $K_c=\\dfrac{0,64}{0,01}=64$"
+     ],
+     "javob": "Kc = 64",
+     "izoh": "Δn = 2−2 = 0, shuning uchun Kc o'lchov birligisiz."
+   },
+   "mashqlar": [
+    {"savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=0,8$; $[\\ce{H2}]=[\\ce{I2}]=0,1$ mol/l. Kc?", "javob": "64", "daraja": 1},
+    {"savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=1,2$; $[\\ce{H2}]=0,2$; $[\\ce{I2}]=0,3$ mol/l. Kc?", "javob": "24", "daraja": 1},
+    {"savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=0,6$; $[\\ce{H2}]=0,15$; $[\\ce{I2}]=0,2$ mol/l. Kc?", "javob": "12", "daraja": 1},
+    {"savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=0,5$; $[\\ce{H2}]=0,4$; $[\\ce{CO}]=0,1$; $[\\ce{H2O}]=0,2$ mol/l. Kc?", "javob": "10", "daraja": 1},
+    {"savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=0,9$; $[\\ce{H2}]=0,3$; $[\\ce{CO}]=0,3$; $[\\ce{H2O}]=0,1$ mol/l. Kc?", "javob": "9", "daraja": 1},
+    {"savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=0,4$; $[\\ce{H2}]=0,6$; $[\\ce{CO}]=[\\ce{H2O}]=0,2$ mol/l. Kc?", "javob": "6", "daraja": 1},
+    {"savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$: $[\\ce{NH3}]=0,4$; $[\\ce{N2}]=0,2$; $[\\ce{H2}]=0,1$ mol/l. Kc?", "javob": "800", "daraja": 2},
+    {"savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$: $[\\ce{NH3}]=0,6$; $[\\ce{N2}]=0,3$; $[\\ce{H2}]=0,2$ mol/l. Kc?", "javob": "150", "daraja": 2},
+    {"savol": "$\\ce{2SO2(g) + O2(g)<=>2SO3(g)}$: $[\\ce{SO3}]=0,8$; $[\\ce{SO2}]=0,4$; $[\\ce{O2}]=0,2$ mol/l. Kc?", "javob": "20", "daraja": 2},
+    {"savol": "$\\ce{2SO2(g) + O2(g)<=>2SO3(g)}$: $[\\ce{SO3}]=1,0$; $[\\ce{SO2}]=0,5$; $[\\ce{O2}]=0,25$ mol/l. Kc?", "javob": "16", "daraja": 2},
+    {"savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=1,6$; $[\\ce{H2}]=0,4$; $[\\ce{I2}]=0,2$ mol/l. Kc?", "javob": "32", "daraja": 1},
+    {"savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=0,7$; $[\\ce{H2}]=0,5$; $[\\ce{CO}]=0,2$; $[\\ce{H2O}]=0,25$ mol/l. Kc?", "javob": "7", "daraja": 1}
+   ],
+   "A_daraja": [
+    {"savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$, $K_c=64$. Muvozanatda $[\\ce{H2}]=[\\ce{I2}]=0,2$ mol/l bo'lsa, $[\\ce{HI}]$ ni toping.", "javob": "1,6 mol/l", "daraja": 3},
+    {"savol": "$\\ce{2SO2(g) + O2(g)<=>2SO3(g)}$, $K_c=20$. Muvozanatda $[\\ce{SO2}]=0,4$; $[\\ce{SO3}]=0,8$ mol/l bo'lsa, $[\\ce{O2}]$ ni toping.", "javob": "0,2 mol/l", "daraja": 3},
+    {"savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$, $K_c=800$. Muvozanatda $[\\ce{NH3}]=0,4$; $[\\ce{H2}]=0,1$ mol/l bo'lsa, $[\\ce{N2}]$ ni toping.", "javob": "0,2 mol/l", "daraja": 3},
+    {"savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$, $K_c=9$. Muvozanatda $[\\ce{CO}]=0,3$; $[\\ce{H2O}]=0,2$; $[\\ce{H2}]=0,9$ mol/l bo'lsa, $[\\ce{CO2}]$ ni toping.", "javob": "0,6 mol/l", "daraja": 3}
+   ]
+  },
+
+  {"nom": "Parchalanish darajasi va Kc orqali dastlabki miqdorni topish",
+   "qoida": "Bitta reagent bosqichma-bosqich parchalanadigan reaksiyada ICE jadvali tuziladi: dastlabki miqdor $n_0$, muvozanatda reagent $n_0(1-\\alpha)$, mahsulot(lar) $n_0 \\cdot koeff \\cdot \\alpha$. Konsentratsiyaga o'tish uchun hajmga bo'linadi, so'ng Kc tenglamasi $n_0$ ga nisbatan yechiladi.",
+   "formula": "$A(g)\\rightleftharpoons pP(g)(+qQ(g))$: $[A]=\\dfrac{n_0(1-\\alpha)}{V}$, $[P]=\\dfrac{p\\,n_0\\alpha}{V}$",
+   "topshiriq": "Dastlabki miqdorni (mol) toping",
+   "tez_yechish": "n0 ni umumiy ko'paytuvchi sifatida chiqarib, Kc tenglamasini n0 ga nisbatan chiziqli (yoki oddiy) tenglamaga aylantiring — kvadrat tenglama deyarli hech qachon kerak bo'lmaydi.",
+   "vaqt_soniya": 180,
+   "kognitiv": "yuqori",
+   "namuna": {
+     "savol": "$\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$, $K_c=0,20$ mol/l. 2 litrli yopiq idishda $\\ce{PCl5}$ ning 25% qismi parchalanganda muvozanat qaror topdi. $\\ce{PCl5}$ ning dastlabki miqdorini (mol) toping.",
+     "qadamlar": [
+       "ICE jadvali: dastlabki $n_0$ mol PCl5, V=2 l. Muvozanatda: PCl5 = $0,75n_0$ mol, PCl3 = $0,25n_0$ mol, Cl2 = $0,25n_0$ mol",
+       "Konsentratsiyaga o'tiladi: $[\\ce{PCl5}]=\\dfrac{0,75n_0}{2}=0,375n_0$; $[\\ce{PCl3}]=[\\ce{Cl2}]=\\dfrac{0,25n_0}{2}=0,125n_0$",
+       "Kc ga qo'yiladi: $0,20=\\dfrac{(0,125n_0)^2}{0,375n_0}=0,041\\overline{6}\\,n_0$",
+       "Yechiladi: $n_0=\\dfrac{0,20}{0,0417}=4,8$ mol"
+     ],
+     "javob": "n0 = 4,8 mol",
+     "izoh": "Konsentratsiyani hisoblashda albatta HAJMGA bo'lish kerak — mol sonini to'g'ridan-to'g'ri konsentratsiya deb olish eng ko'p uchraydigan xato."
+   },
+   "mashqlar": [
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=0,8$ mol/l, $V=1$ l. $\\alpha=20\\%$ bo'lsa, dastlabki $\\ce{N2O4}$ miqdorini (mol) toping.", "javob": "4 mol", "daraja": 1},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=1$ mol/l, $V=2$ l. $\\alpha=25\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "6 mol", "daraja": 1},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=0,4$ mol/l, $V=1$ l. $\\alpha=10\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "9 mol", "daraja": 1},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c\\approx2,67$ mol/l, $V=2$ l. $\\alpha=40\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "5 mol", "daraja": 1},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c\\approx0,33$ mol/l, $V=2$ l. $\\alpha=25\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "8 mol", "daraja": 1},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=1$ mol/l, $V=1$ l. $\\alpha=50\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "2 mol", "daraja": 1},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=0,25$ mol/l, $V=1$ l. $\\alpha=20\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "5 mol", "daraja": 1},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=4,5$ mol/l, $V=2$ l. $\\alpha=60\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "10 mol", "daraja": 1},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c\\approx10,29$ mol/l, $V=1$ l. $\\alpha=30\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "20 mol", "daraja": 2},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=8$ mol/l, $V=2$ l. $\\alpha=50\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "8 mol", "daraja": 2},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=9$ mol/l, $V=1$ l. $\\alpha=75\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "4 mol", "daraja": 2},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=4$ mol/l, $V=1$ l. $\\alpha=40\\%$ bo'lsa, dastlabki miqdorni (mol) toping.", "javob": "15 mol", "daraja": 2}
+   ],
+   "A_daraja": [
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=2$ mol/l, $V=1$ l. Dastlabki 10 mol $\\ce{N2O4}$ olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "20%", "daraja": 3},
+    {"savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=12$ mol/l, $V=2$ l. Dastlabki 12 mol $\\ce{N2O4}$ olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "50%", "daraja": 3},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=2$ mol/l, $V=2$ l. Dastlabki 8 mol $\\ce{PCl5}$ olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "50%", "daraja": 3},
+    {"savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=1,6$ mol/l, $V=1$ l. Dastlabki 6 mol $\\ce{PCl5}$ olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "40%", "daraja": 3}
+   ]
+  }
+ ],
+
+ "grafik_tahlil": [
+  {"savol": "Jadvalda $\\ce{N2O4(g)<=>2NO2(g)}$ reaksiyasining turli haroratlardagi Kc qiymatlari berilgan. Jadval asosida reaksiya ekzotermikmi yoki endotermikmi, asoslab ayting.",
+   "jadval": [["T, °C", "25", "45", "65", "85"], ["Kc, mol/l", "0,15", "0,62", "2,30", "7,10"]],
+   "javob": "Endotermik — harorat oshgani sayin Kc ortib bormoqda, ya'ni T oshishi muvozanatni mahsulot (NO2) tomonga suradi; Le-Shatelye bo'yicha bu to'g'ri reaksiya issiqlik yutishini (endotermik ekanini) bildiradi."},
+  {"savol": "Grafikda [A] va [B] konsentratsiyalari vaqt bo'yicha chizilgan: [A] pasayib boradi va $t_1$ dan keyin gorizontal chiziqqa aylanadi, [B] esa oshib boradi va xuddi shu $t_1$ vaqtda gorizontal bo'ladi. $t_1$ dan keyin sistemada nima sodir bo'ladi?",
+   "jadval": [["Vaqt", "0", "t1", ">t1"], ["[A]", "yuqori", "pasaygan", "o'zgarmas"], ["[B]", "past", "oshgan", "o'zgarmas"]],
+   "javob": "Sistema dinamik muvozanatga chiqqan: konsentratsiyalar o'zgarmay qoladi (grafik gorizontal), lekin to'g'ri va teskari reaksiyalar TO'XTAMAYDI — faqat ularning tezliklari tenglashadi."}
+ ],
+
+ "yozma_ish": {
+  "tur": "41",
+  "matn": "2,0 mol $\\ce{PCl5}$ gazi 3 litrli yopiq idishga joylashtirilib qizdirildi. Muvozanat qaror topganda idishdagi umumiy bosim dastlabki bosimning 1,4 barobariga oshgani aniqlandi.",
+  "bandlar": [
+   {"savol": "1) Parchalanish darajasini (α, %) toping.",
+    "yechim": ["Doimiy T, V da bosim mol soniga proporsional: $\\dfrac{P_{muv}}{P_0}=\\dfrac{n_{muv}}{n_0}$", "PCl5 → PCl3+Cl2 uchun $n_{muv}=n_0(1+\\alpha)$, shuning uchun $1+\\alpha=1,4$", "$\\alpha=0,4=40\\%$"],
+    "M": 6, "A": 5},
+   {"savol": "2) Muvozanatdagi har bir moddaning miqdorini (mol) toping.",
+    "yechim": ["$\\ce{PCl5}=2,0(1-0,4)=1,2$ mol", "$\\ce{PCl3}=\\ce{Cl2}=2,0\\times0,4=0,8$ mol"],
+    "M": 3, "A": 2},
+   {"savol": "3) Muvozanat konstantasi Kc ni toping.",
+    "yechim": ["$[\\ce{PCl5}]=1,2/3=0,4$; $[\\ce{PCl3}]=[\\ce{Cl2}]=0,8/3\\approx0,267$ mol/l", "$K_c=\\dfrac{(0,267)^2}{0,4}\\approx0,178$ mol/l"],
+    "M": 3, "A": 2},
+   {"savol": "4) Idishga qo'shimcha argon gazi DOIMIY HAJMDA qo'shilsa, α qanday o'zgaradi?",
+    "yechim": ["Doimiy hajmda inert gaz qo'shish reaksiyadagi moddalar konsentratsiyasini o'zgartirmaydi", "Demak muvozanat siljimaydi, α o'zgarmaydi"],
+    "M": 2, "A": 2}
+  ],
+  "jami": 25,
+  "rasmiylashtirish": "Har band uchun AVVAL usul (qanday formuladan foydalanilgani, nima uchun) yoziladi, KEYIN hisoblash ko'rsatiladi. Faqat yakuniy son yozilib, usul ko'rsatilmasa — o'sha band 0 ball."
+ },
+
+ "mashqlar_banki": [
+  {"n": 1, "savol": "$\\ce{2NO(g) + O2(g)<=>2NO2(g)}$: $[\\ce{NO2}]=0,4$; $[\\ce{NO}]=0,2$; $[\\ce{O2}]=0,1$ mol/l. Kc?", "javob": "40", "daraja": 1},
+  {"n": 2, "savol": "$\\ce{2NO(g) + O2(g)<=>2NO2(g)}$: $[\\ce{NO2}]=0,8$; $[\\ce{NO}]=0,4$; $[\\ce{O2}]=0,2$ mol/l. Kc?", "javob": "20", "daraja": 1},
+  {"n": 3, "savol": "$\\ce{2NO(g) + O2(g)<=>2NO2(g)}$: $[\\ce{NO2}]=0,9$; $[\\ce{NO}]=0,3$; $[\\ce{O2}]=0,3$ mol/l. Kc?", "javob": "30", "daraja": 1},
+  {"n": 4, "savol": "$\\ce{2HBr(g)<=>H2(g) + Br2(g)}$: $[\\ce{H2}]=0,2$; $[\\ce{Br2}]=0,3$; $[\\ce{HBr}]=0,6$ mol/l. Kc?", "javob": "1/6 (≈0,167)", "daraja": 1},
+  {"n": 5, "savol": "$\\ce{2HBr(g)<=>H2(g) + Br2(g)}$: $[\\ce{H2}]=0,4$; $[\\ce{Br2}]=0,1$; $[\\ce{HBr}]=0,4$ mol/l. Kc?", "javob": "0,25", "daraja": 1},
+  {"n": 6, "savol": "$\\ce{2HBr(g)<=>H2(g) + Br2(g)}$: $[\\ce{H2}]=0,5$; $[\\ce{Br2}]=0,2$; $[\\ce{HBr}]=1,0$ mol/l. Kc?", "javob": "0,1", "daraja": 1},
+  {"n": 7, "savol": "$\\ce{N2(g) + O2(g)<=>2NO(g)}$: $[\\ce{NO}]=0,4$; $[\\ce{N2}]=0,2$; $[\\ce{O2}]=0,4$ mol/l. Kc?", "javob": "2", "daraja": 2},
+  {"n": 8, "savol": "$\\ce{N2(g) + O2(g)<=>2NO(g)}$: $[\\ce{NO}]=0,6$; $[\\ce{N2}]=0,3$; $[\\ce{O2}]=0,6$ mol/l. Kc?", "javob": "2", "daraja": 2},
+  {"n": 9, "savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=2,0$; $[\\ce{H2}]=[\\ce{I2}]=0,5$ mol/l. Kc?", "javob": "16", "daraja": 2},
+  {"n": 10, "savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$: $[\\ce{HI}]=1,4$; $[\\ce{H2}]=0,7$; $[\\ce{I2}]=0,2$ mol/l. Kc?", "javob": "14", "daraja": 2},
+  {"n": 11, "savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=0,8$; $[\\ce{H2}]=0,2$; $[\\ce{CO}]=[\\ce{H2O}]=0,4$ mol/l. Kc?", "javob": "1", "daraja": 2},
+  {"n": 12, "savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$: $[\\ce{CO2}]=[\\ce{H2}]=0,6$; $[\\ce{CO}]=[\\ce{H2O}]=0,3$ mol/l. Kc?", "javob": "4", "daraja": 3},
+  {"n": 13, "savol": "$\\ce{2SO2(g) + O2(g)<=>2SO3(g)}$: $[\\ce{SO3}]=0,6$; $[\\ce{SO2}]=0,2$; $[\\ce{O2}]=0,15$ mol/l. Kc?", "javob": "60", "daraja": 3},
+  {"n": 14, "savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$: $[\\ce{NH3}]=0,8$; $[\\ce{N2}]=[\\ce{H2}]=0,4$ mol/l. Kc?", "javob": "25", "daraja": 3},
+  {"n": 15, "savol": "$\\ce{2NOCl(g)<=>2NO(g) + Cl2(g)}$: $[\\ce{NO}]=0,4$; $[\\ce{Cl2}]=0,2$; $[\\ce{NOCl}]=0,8$ mol/l. Kc?", "javob": "1/20 (0,05)", "daraja": 3},
+  {"n": 16, "savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=3$ mol/l, $V=1$ l, $\\alpha=20\\%$. Dastlabki miqdorni (mol) toping.", "javob": "15 mol", "daraja": 1},
+  {"n": 17, "savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c=6$ mol/l, $V=1$ l, $\\alpha=50\\%$. Dastlabki miqdorni (mol) toping.", "javob": "3 mol", "daraja": 1},
+  {"n": 18, "savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c\\approx3,73$ mol/l, $V=2$ l, $\\alpha=40\\%$. Dastlabki miqdorni (mol) toping.", "javob": "7 mol", "daraja": 1},
+  {"n": 19, "savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c\\approx0,33$ mol/l, $V=1$ l, $\\alpha=25\\%$. Dastlabki miqdorni (mol) toping.", "javob": "4 mol", "daraja": 1},
+  {"n": 20, "savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=3$ mol/l, $V=2$ l, $\\alpha=50\\%$. Dastlabki miqdorni (mol) toping.", "javob": "12 mol", "daraja": 1},
+  {"n": 21, "savol": "$\\ce{COCl2(g)<=>CO(g) + Cl2(g)}$, $K_c\\approx0,77$ mol/l, $V=1$ l, $\\alpha=30\\%$. Dastlabki miqdorni (mol) toping.", "javob": "6 mol", "daraja": 1},
+  {"n": 22, "savol": "$\\ce{COCl2(g)<=>CO(g) + Cl2(g)}$, $K_c=0,45$ mol/l, $V=1$ l, $\\alpha=20\\%$. Dastlabki miqdorni (mol) toping.", "javob": "9 mol", "daraja": 1},
+  {"n": 23, "savol": "$\\ce{SO2Cl2(g)<=>SO2(g) + Cl2(g)}$, $K_c=2,25$ mol/l, $V=2$ l, $\\alpha=60\\%$. Dastlabki miqdorni (mol) toping.", "javob": "5 mol", "daraja": 1},
+  {"n": 24, "savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c\\approx12,86$ mol/l, $V=1$ l, $\\alpha=30\\%$. Dastlabki miqdorni (mol) toping.", "javob": "25 mol", "daraja": 2},
+  {"n": 25, "savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=45$ mol/l, $V=1$ l, $\\alpha=75\\%$. Dastlabki miqdorni (mol) toping.", "javob": "20 mol", "daraja": 2},
+  {"n": 26, "savol": "$\\ce{COCl2(g)<=>CO(g) + Cl2(g)}$, $K_c=2,4$ mol/l, $V=2$ l, $\\alpha=40\\%$. Dastlabki miqdorni (mol) toping.", "javob": "18 mol", "daraja": 2},
+  {"n": 27, "savol": "$\\ce{N2O4(g)<=>2NO2(g)}$, $K_c\\approx5,33$ mol/l, $V=1$ l. Dastlabki 16 mol olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "25%", "daraja": 2},
+  {"n": 28, "savol": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=4,5$ mol/l, $V=2$ l. Dastlabki 10 mol olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "60%", "daraja": 3},
+  {"n": 29, "savol": "$\\ce{COCl2(g)<=>CO(g) + Cl2(g)}$, $K_c=7$ mol/l, $V=1$ l. Dastlabki 14 mol olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "50%", "daraja": 3},
+  {"n": 30, "savol": "$\\ce{SO2Cl2(g)<=>SO2(g) + Cl2(g)}$, $K_c=18$ mol/l, $V=1$ l. Dastlabki 8 mol olingan bo'lsa, parchalanish darajasini (%) toping.", "javob": "75%", "daraja": 3},
+  {"n": 31, "savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$, $\\Delta H<0$ (ekzotermik). Idish hajmi 2 marta kamaytirilsa (bosim oshsa), muvozanat qaysi tomonga siljiydi?", "javob": "O'ngga (NH3 tomon) — reaksiyaning kam mol gaz (2 mol) tomoniga siljib, bosimni kamaytiradi", "daraja": 2},
+  {"n": 32, "savol": "Xuddi shu reaksiyada ($\\ce{N2 + 3H2<=>2NH3}$, ekzotermik) harorat oshirilsa, muvozanat qaysi tomonga siljiydi?", "javob": "Chapga (NH3 parchalanishi kuchayadi) — harorat oshishi endotermik (teskari) yo'nalishni kuchaytiradi", "daraja": 2},
+  {"n": 33, "savol": "$\\ce{2SO2(g) + O2(g)<=>2SO3(g)}$, $\\Delta H<0$. $\\ce{SO2}$ konsentratsiyasi oshirilsa, muvozanat qaysi tomonga siljiydi?", "javob": "O'ngga (SO3 hosil bo'lish tomon) — qo'shilgan reagentni sarflash uchun", "daraja": 1},
+  {"n": 34, "savol": "Xuddi shu reaksiyada hosil bo'layotgan $\\ce{SO3}$ uzluksiz olib turilsa (masalan yutdirilsa), muvozanat holati qanday ta'sirlanadi?", "javob": "Muvozanat doimo o'ngga siljib turadi — mahsulot olib turilgani sayin uning o'rnini to'ldirish uchun reaksiya davom etadi", "daraja": 2},
+  {"n": 35, "savol": "$\\ce{CaCO3(s)<=>CaO(s) + CO2(g)}$, $\\Delta H>0$ (endotermik). Idish hajmi kattalashtirilsa (bosim kamaysa), muvozanat qaysi tomonga siljiydi?", "javob": "O'ngga (CaCO3 parchalanishi kuchayadi) — qattiq moddalar hisobga kirmaydi, gaz tomonida ko'proq mol (CO2) bor", "daraja": 2},
+  {"n": 36, "savol": "Xuddi shu reaksiyada ($\\ce{CaCO3<=>CaO + CO2}$, endotermik) harorat pasaytirilsa, muvozanat qaysi tomonga siljiydi?", "javob": "Chapga (CaCO3 hosil bo'lishi kuchayadi) — harorat pasayishi ekzotermik (teskari) yo'nalishni kuchaytiradi", "daraja": 2},
+  {"n": 37, "savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$ (Δn=0). Idish hajmi 2 marta kamaytirilsa, muvozanat siljiydimi?", "javob": "Siljimaydi — Δn=0 bo'lgani uchun bosim/hajm o'zgarishi bu muvozanatga ta'sir qilmaydi", "daraja": 1},
+  {"n": 38, "savol": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$ reaksiyasiga katalizator kiritilsa, muvozanat konsentratsiyalari o'zgaradimi?", "javob": "O'zgarmaydi — katalizator faqat muvozanatga tezroq erishishga yordam beradi, Kc yoki muvozanat konsentratsiyalarini o'zgartirmaydi", "daraja": 1},
+  {"n": 39, "savol": "$\\ce{N2(g) + O2(g)<=>2NO(g)}$ muvozanatidagi idishga argon gazi DOIMIY HAJMDA qo'shilsa, muvozanat siljiydimi?", "javob": "Siljimaydi — doimiy hajmda inert gaz reaksiyadagi moddalar konsentratsiyasini o'zgartirmaydi", "daraja": 2},
+  {"n": 40, "savol": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$ muvozanatidagi idishga argon gazi DOIMIY BOSIMDA (idish kengayib) qo'shilsa, muvozanat qaysi tomonga siljiydi?", "javob": "Chapga (NH3 kamayadi) — doimiy bosimda hajm kattalashadi, bu esa ko'proq mol gaz (reagentlar) tomonga siljitadi", "daraja": 3},
+  {"n": 41, "savol": "$\\ce{2NO2(g)<=>N2O4(g)}$ (NO2 — jigarrang, N2O4 — rangsiz). Bosim oshirilsa (hajm kamaytirilsa), muvozanat qaysi tomonga siljiydi?", "javob": "N2O4 tomon — bu tomonda kamroq gaz moli bor (1 mol N2O4 ga qarshi 2 mol NO2)", "daraja": 2},
+  {"n": 42, "savol": "$\\ce{CO(g) + H2O(g)<=>CO2(g) + H2(g)}$, $\\Delta H<0$. Idishga qo'shimcha suv bug'i ($\\ce{H2O}$) kiritilsa, muvozanat qaysi tomonga siljiydi va $\\ce{CO}$ miqdori qanday o'zgaradi?", "javob": "O'ngga siljiydi, CO miqdori kamayadi — qo'shilgan reagent (H2O) ko'proq CO ni sarflaydi", "daraja": 2},
+  {"n": 43, "savol": "$\\ce{2HI(g)<=>H2(g) + I2(g)}$ reaksiyasi uchun $K_c \\ll 1$ ekani ma'lum. Bu reaksiya haqida nima deyish mumkin?", "javob": "Muvozanat asosan chap tomonda (HI tomonida) joylashgan — HI ning juda kam qismigina H2 va I2 ga parchalanadi", "daraja": 2}
+ ],
+
+ "xotira_kartalari": [
+  "Kc faqat haroratga bog'liq — boshqa hech nimaga",
+  "Qattiq va sof suyuq moddalar Kc ifodasiga kirmaydi",
+  "Δn=0 bo'lsa: Kc birliksiz, bosim/hajm o'zgarishi ta'sir qilmaydi",
+  "Konsentratsiya oshsa → uni sarflaydigan tomonga siljiydi",
+  "Bosim oshsa (hajm kamaysa) → kamroq mol gaz tomonga siljiydi",
+  "Harorat oshsa → endotermik (issiqlik yutuvchi) tomonga siljiydi",
+  "Katalizator muvozanatni SILJITMAYDI, faqat tezroq erishtiradi",
+  "Inert gaz doimiy hajmda — ta'sir yo'q; doimiy bosimda — ko'p mol tomonga siljitadi",
+  "α (parchalanish darajasi) = reaksiyaga kirgan miqdor / dastlabki miqdor",
+  "Konsentratsiya har doim C=n/V — hajmga bo'lishni unutmang",
+  "Kc≫1 — mahsulotlar ustun; Kc≪1 — reagentlar ustun"
+ ],
+
+ "test_izoh": "To'liq bobda 20 ta (15 Y1 + 2 Y2 + 2 O1 + 1 O2, imtihon nisbatida). Namuna sifatida quyida 7 tasi berilgan.",
+ "test": [
+  {"matn": "$\\ce{H2(g) + I2(g)<=>2HI(g)}$ reaksiyasida muvozanatda $[\\ce{H2}]=0,2$; $[\\ce{I2}]=0,1$; $[\\ce{HI}]=1,2$ mol/l. Kc necha?",
+   "tur": "Y1", "variantlar": ["36", "60", "72", "144"], "javob": "C",
+   "chalgituvchilar": [
+     {"variant": "A", "xato": "HI ni kvadratga ko'tarmasdan to'g'ridan-to'g'ri ko'paytirgan: 1,2/(0,2×0,1)×... noto'g'ri amal"},
+     {"variant": "B", "xato": "H2 va I2 ni yig'ib (0,3) bo'lgan, ko'paytirish o'rniga"},
+     {"variant": "D", "xato": "0,2 va 0,1 ni almashtirib (I2 o'rniga H2 kvadratini olgan) hisoblagan"}
+   ],
+   "yechim": "Kc=(1,2)^2/(0,2×0,1)=1,44/0,02=72", "vaqt_soniya": 120},
+  {"matn": "Muvozanat holatida bo'lgan sistemaga katalizator qo'shilsa, nima o'zgaradi?",
+   "tur": "Y1", "variantlar": ["Kc ortadi", "Kc kamayadi", "Muvozanatga tezroq erishiladi, Kc o'zgarmaydi", "Muvozanat mahsulot tomonga siljiydi"], "javob": "C",
+   "chalgituvchilar": [
+     {"variant": "A", "xato": "Katalizator to'g'ri reaksiyani tezlashtiradi degan noto'g'ri xulosadan Kc ortadi deb o'ylash"},
+     {"variant": "B", "xato": "Xuddi shu xato, teskari yo'nalishda"},
+     {"variant": "D", "xato": "Katalizator muvozanatni siljitadi degan keng tarqalgan noto'g'ri tasavvur"}
+   ],
+   "yechim": "Katalizator to'g'ri va teskari reaksiya tezligini bir xil darajada oshiradi — muvozanat holatini (Kc, konsentratsiyalarni) o'zgartirmaydi, faqat unga tezroq erishiladi.", "vaqt_soniya": 60},
+  {"matn": "$\\ce{N2(g) + 3H2(g)<=>2NH3(g)}$, $\\Delta H<0$. Sanoatda NH3 unumini oshirish uchun harorat qanday tanlanishi kerak?",
+   "tur": "Y1", "variantlar": ["Iloji boricha yuqori", "Iloji boricha past", "O'rtacha, tezlik va unum o'rtasida muvozanatlangan", "Haroratning ahamiyati yo'q"], "javob": "C",
+   "chalgituvchilar": [
+     {"variant": "A", "xato": "Faqat tezlikni o'ylab, ekzotermik reaksiyada yuqori T unumni kamaytirishini unutgan"},
+     {"variant": "B", "xato": "Faqat muvozanat unumini o'ylab, past T da reaksiya tezligi juda sekinligini unutgan"},
+     {"variant": "D", "xato": "Le-Shatelye prinsipini umuman qo'llamagan"}
+   ],
+   "yechim": "Past harorat NH3 unumini oshiradi (ekzotermik), lekin reaksiya juda sekinlashadi; shuning uchun amalda o'rtacha harorat (~450°C) va katalizator birga qo'llaniladi.", "vaqt_soniya": 150},
+  {"matn": "Qaysi holatda bosim (hajm) o'zgarishi muvozanatga ta'sir QILMAYDI?",
+   "tur": "Y1", "variantlar": ["$\\ce{N2 + 3H2<=>2NH3}$", "$\\ce{2SO2 + O2<=>2SO3}$", "$\\ce{H2 + I2<=>2HI}$", "$\\ce{N2O4<=>2NO2}$"], "javob": "C",
+   "chalgituvchilar": [
+     {"variant": "A", "xato": "Δn=4-2=-2 ekanini hisoblamagan, ta'sir borligini unutgan"},
+     {"variant": "B", "xato": "Δn=3-2=-1 ekanini hisoblamagan"},
+     {"variant": "D", "xato": "Δn=1-2=+1 ekanini hisoblamagan"}
+   ],
+   "yechim": "H2+I2<=>2HI da reagent va mahsulot tomonidagi gaz mollari yig'indisi teng (2=2, Δn=0) — bosim/hajm o'zgarishi ta'sir qilmaydi.", "vaqt_soniya": 90},
+  {"matn": "33–35-topshiriqlarga o'xshash moslashtirish: reaksiyalarni Δn qiymatiga mos ravishda moslang. 1) $\\ce{H2 + I2<=>2HI}$  2) $\\ce{2SO2 + O2<=>2SO3}$  3) $\\ce{N2O4<=>2NO2}$",
+   "tur": "Y2", "variantlar": ["A) Δn=0", "B) Δn=-1", "C) Δn=+1", "D) Δn=-2"], "javob": "1-A, 2-B, 3-C",
+   "chalgituvchilar": [], "yechim": "1) 2-2=0; 2) 2-3=-1; 3) 2-1=+1.", "vaqt_soniya": 150},
+  {"matn": "$\\ce{PCl5(g)<=>PCl3(g) + Cl2(g)}$, $K_c=1$ mol/l, $V=1$ l. Dastlabki 2 mol PCl5 olingan bo'lsa, parchalanish darajasini (%) toping.",
+   "tur": "O1", "variantlar": [], "javob": "50%",
+   "chalgituvchilar": [], "yechim": "Kc=(2α)²/(2(1-α))=1 → 4α²=2(1-α) → 2α²+α-1=0 → α=0,5.", "vaqt_soniya": 150},
+  {"matn": "$\\ce{2NO(g) + O2(g)<=>2NO2(g)}$ reaksiyasida muvozanatda $[\\ce{NO2}]=0,6$; $[\\ce{NO}]=0,3$; $[\\ce{O2}]=0,1$ mol/l bo'lsa, Kc ni toping.",
+   "tur": "O1", "variantlar": [], "javob": "40",
+   "chalgituvchilar": [], "yechim": "Kc=[NO2]²/([NO]²×[O2])=(0,6)²/((0,3)²×0,1)=0,36/0,009=40. Diqqat: NO koeffitsienti 2 — u ham kvadratga ko'tariladi, faqat O2 (koeff. 1) birinchi darajada qoladi.", "vaqt_soniya": 120}
+ ]
+}
