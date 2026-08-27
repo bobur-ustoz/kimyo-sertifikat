@@ -13,8 +13,10 @@ Spetsifikatsiyadan keyin faqat uchta noma'lum qoldi:
 | Belgi | Nima kerak | Qayerdan |
 |---|---|---|
 | `[T1]` | A va A+ ning ball bo'sag'asi; 1–40 (Rash) va 41–43 (75 ball) yakuniy sertifikat balliga qanday qo'shilishi | Spetsifikatsiyada yo'q — BMBA natijalari / o'tgan yil statistikasi |
-| `[T2]` | Tayyorgarlik muddati va haftalik soat | Sizning reja |
+| `[T2]` | Kursning umumiy muddati (necha hafta) | Sizning reja |
 | `[T3]` | O'quvchilarning hozirgi darajasi | Kirish diagnostikasi |
+
+Haftalik yuklama aniq: **kuniga 6 soat, haftada 5 kun = 30 soat/hafta.**
 
 ---
 
@@ -31,9 +33,14 @@ olinadi. Bu bitta narsani anglatadi: **rasmiy spetsifikatsiyadagi 27 ta mazmun
 elementi ham to'liq yopiladi, hech biri "qiyin" degani uchun tashlab
 ketilmaydi.**
 
-Tayyorgarlik muddati: `[T2]`. O'quvchilarning boshlang'ich darajasi: `[T3]`.
-Agar `[T3]` past bo'lsa — kitob baribir A+ gacha olib chiqadigan qilib yoziladi,
-lekin ma'ruzalar noldan boshlanadi va asos boblarda mashqlar soni oshiriladi.
+**Rejim: kuniga 6 soat, haftada 5 kun — 30 soat/hafta.** Kursning umumiy
+muddati: `[T2]` hafta. O'quvchilarning boshlang'ich darajasi: `[T3]`. Agar `[T3]`
+past bo'lsa — kitob baribir A+ gacha olib chiqadigan qilib yoziladi, lekin
+ma'ruzalar noldan boshlanadi va asos boblarda mashqlar soni oshiriladi.
+
+Bu intensiv rejim, shuning uchun kitob **kunlik bloklarga** bo'linadi: har kun
+6 soat = 1 ta mazmun elementi (ma'ruza + tiplar + mashq + test), yoki og'ir
+elementlarda 1,5–2 kun. Har kunning oxirida vaqt rejimida sinov turadi.
 
 ### Imtihon faktlari (BMBA spetsifikatsiyasi — o'zgartirilmaydi)
 
@@ -120,6 +127,35 @@ holda foydalana olish.
 A+ maqsadi shuni anglatadiki, har bir mavzuda **yuqori daraja alohida
 ishlanadi**: grafik va jadval tahlili mashqlari, laboratoriya vaziyati savollari
 va murakkab, ko'p qadamli masalalar har bir bobda bo'lishi shart.
+
+### Tushgan variantlardan olingan kalibrlash (v01, tekshirilgan)
+
+Bir to'liq variant pasportlangan (`tahlil/v01.json`). Kitobga ta'sir qiladigan
+to'rt topilma:
+
+1. **Savol o'rni mazmun elementiga bog'langan.** Savollar spetsifikatsiya
+   tartibida ketadi: 1–13 → I.1…I.10 (I.3, I.4, I.7 ikkitadan), 14–19 →
+   II.1…II.5 (+1 qo'shimcha), **20–29 → III.1…III.10 roppa-rosa bittadan**,
+   30–32 → kimyoviy tahlil bloki. Organikda har element bitta savol degani —
+   bitta zaif mavzu kafolatlangan yo'qotilgan ball. Bu bitta variant asosidagi
+   kuzatish, keyingi variantlarda tasdiqlanadi.
+2. **Vaqt yetmaydi.** 1–40 ni tinch yechish uchun ~134 daqiqa kerak, rasmiy vaqt
+   esa 100 daqiqa. Ya'ni bilim yetarli o'quvchi ham vaqtdan yo'qotadi. Shu
+   sababli har tipdagi "Tez yechish" bloki majburiy va u 1–2 qadamda javobga
+   chiqish yo'lini berishi kerak.
+3. **Qiyinlik profili:** 1–40 dan 15 tasi murakkab, 18 tasi o'rta, atigi 7 tasi
+   sodda; 26 tasi yuqori kognitiv daraja. Faqat sodda savollar bilan B ga ham
+   chiqib bo'lmaydi.
+4. **Eng zich mavzu — II.4** (IIA, IIIA va d-metallar): bitta variantda 5 ta
+   asosiy savol va yozma ishning bir qismi. Undan keyin I.7 (eritmalar), IV.2
+   (sifat reaksiyalari), I.9 (OQR). Mashqlar soni shu og'irlikka moslanadi.
+
+Yozma ishlarning uch qolipi ham takrorlanadi: **41** — aralashma + kons. kislota
+bilan OQR → tuzlar massasi → plastinka massasi o'zgarishi → kristallogidrat;
+**42** — hisobsiz organik zanjir, har band bitta tenglama; **43** —
+nomerlangan idishlardagi tuzlarni sifat belgilari jadvalidan aniqlash.
+42 va 43 da arifmetika deyarli yo'q: **50 ball sof bilim va tenglama yozishdan
+iborat** — A+ ning eng ishonchli qismi.
 
 ### Kitob mavzular xaritasi — rasmiy 27 ta mazmun elementi
 
@@ -369,11 +405,11 @@ Men senga o'tgan imtihonlardagi savollarni beraman.
 
 ### Birinchi qadam
 
-Ishni boshlashdan oldin mendan so'ra: A / A+ ball bo'sag'asi (`[T1]`);
-tayyorgarlik muddati va haftalik soat (`[T2]`); o'quvchilarning diagnostika
-natijasi (`[T3]`); o'tgan imtihon savollarini qaysi shaklda beraman. Keyin 27 ta
-mazmun elementini haftalar bo'yicha taqsimlangan reja sifatida taklif qil — men
-tasdiqlaganimdan keyin bob yozishga o't.
+Ishni boshlashdan oldin mendan so'ra: A / A+ ball bo'sag'asi (`[T1]`); kursning
+umumiy muddati (`[T2]`); o'quvchilarning diagnostika natijasi (`[T3]`); yangi
+variantlar bormi. Keyin 27 ta mazmun elementini kunlik bloklarga (30 soat/hafta
+rejimida) taqsimlangan reja sifatida taklif qil — men tasdiqlaganimdan keyin bob
+yozishga o't.
 
 ---
 
