@@ -3,7 +3,8 @@ import { Save, CheckCircle2, Circle, UploadCloud } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useVideoUpload } from "./useVideoUpload";
 import AnalogReview from "./AnalogReview";
-import { C, card, inputStyle, btnPrimary, btnGhost, toggleBtn, hint, sectionLabel } from "./ui";
+import { writeErrorText } from "./writeError";
+import { C, card, inputStyle, btnPrimary, btnGhost, toggleBtn, hint, sectionLabel, errorBox } from "./ui";
 
 const TYPE_LABELS = { mcq:"A/B/C/D", open:"Ochiq javob", match:"Moslashtirish" };
 const LETTERS = ["A","B","C","D"];
@@ -13,6 +14,7 @@ export default function QuestionRow({ q, onChanged, groups }) {
   const [dirty, setDirty] = useState(false);
   const [open, setOpen] = useState(false);
   const fileRef = useRef(null);
+  const [saveErr, setSaveErr] = useState("");
 
   const set = (k, v) => { setF(p => ({ ...p, [k]: v })); setDirty(true); };
 
@@ -22,7 +24,8 @@ export default function QuestionRow({ q, onChanged, groups }) {
   });
 
   const save = async () => {
-    await supabase.from("questions").update({
+    setSaveErr("");
+    const { error } = await supabase.from("questions").update({
       topic: f.topic, formula: f.formula, question_text: f.question_text,
       video_url: f.video_url, video_ready: f.video_ready,
       question_type: f.question_type,
@@ -31,6 +34,7 @@ export default function QuestionRow({ q, onChanged, groups }) {
       correct_answer_text: f.question_type === "open" ? f.correct_answer_text : null,
       option_group_id: f.question_type === "match" ? (f.option_group_id || null) : null,
     }).eq("id", q.id);
+    if (error) { setSaveErr(writeErrorText(error)); return; }
     setDirty(false);
     onChanged();
   };
@@ -73,6 +77,7 @@ export default function QuestionRow({ q, onChanged, groups }) {
         {dirty && <button style={btnPrimary} onClick={save}><Save size={13}/> Saqlash</button>}
       </div>
       {uploadErr && <p style={{fontSize:11,color:C.danger,marginBottom: open ? 8 : 0}}>Xatolik: {uploadErr}</p>}
+      {saveErr && <div style={{ ...errorBox, marginTop:8, marginBottom: open ? 8 : 0 }}>{saveErr}</div>}
 
       {open && (
         <div style={{borderTop:`1px solid ${C.border}`,paddingTop:10,marginTop:2}}>

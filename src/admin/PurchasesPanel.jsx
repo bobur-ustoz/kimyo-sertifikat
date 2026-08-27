@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ChevronLeft, CheckCircle2 } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
-import { C, card, btnGhost, pill, toggleBtn, pageTitle, pageSub } from "./ui";
+import { writeErrorText } from "./writeError";
+import { C, card, btnGhost, pill, toggleBtn, pageTitle, pageSub, errorBox } from "./ui";
 
 const FILTERS = [["pending","Kutilmoqda"],["paid","To'langan"],["cancelled","Bekor qilingan"],["all","Hammasi"]];
 
@@ -15,6 +16,7 @@ const BADGE = {
 export default function PurchasesPanel({ onBack }) {
   const [filter, setFilter] = useState("pending");
   const [busy, setBusy] = useState(null);
+  const [err, setErr] = useState("");
 
   const [rows, reload] = useRows(() => {
     const q = supabase.from("variant_purchases")
@@ -26,10 +28,12 @@ export default function PurchasesPanel({ onBack }) {
 
   const mark = async (row, status) => {
     setBusy(row.id);
-    await supabase.from("variant_purchases")
+    setErr("");
+    const { error } = await supabase.from("variant_purchases")
       .update({ status, paid_at: status === "paid" ? new Date().toISOString() : null })
       .eq("id", row.id);
     setBusy(null);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 
@@ -46,6 +50,8 @@ export default function PurchasesPanel({ onBack }) {
           </button>
         ))}
       </div>
+
+      {err && <div style={errorBox}>{err}</div>}
 
       {rows.length === 0 && <div style={{ ...card, color:C.textLight, fontSize:13 }}>Bu bo'limda hozircha yozuv yo'q.</div>}
 
