@@ -267,10 +267,20 @@ Har bir mazmun elementi (bob) qat'iy shu tartibda:
    deb belgilagan, shuning uchun har bobda kamida 2 ta shunday savol.
 8. **Yozma ish mashqi** — bobning bo'limiga qarab 41 / 42 / 43 formatida,
    bandlarga bo'lingan, M va A ballari ko'rsatilgan namunaviy baholash bilan.
-9. **Yakuniy test — 20 ta**, imtihon nisbatida: 15 Y1 + 2 Y2 + 2 O1 + 1 O2,
-   vaqt normativi bilan.
-10. **Xotira kartalari** — yodlanishi shart minimum, 10–15 qator.
-11. **QR kod joyi** (bot keyinroq).
+9. **Mavzuviy mashqlar banki — 43 ta.** Tiplardagi 12–16 mashqdan va yakuniy
+   testdan alohida: shu bir mazmun elementi bo'yicha, imtihon uzunligidagi
+   (43 ta) original mashqlar to'plami — faqat chuqur mashq qilish uchun, aralash
+   qiyinlikda (taxminan 1/3 sodda, 1/3 o'rta, 1/3 murakkab), javob bilan, to'liq
+   yechimsiz. Ikki tipdagi mashq bir-birini takrorlamaydi.
+10. **Yakuniy test — 20 ta**, imtihon nisbatida: 15 Y1 + 2 Y2 + 2 O1 + 1 O2,
+    vaqt normativi bilan.
+11. **Xotira kartalari** — yodlanishi shart minimum, 10–15 qator.
+12. **QR kod joyi** (bot keyinroq).
+
+27 mazmun elementiga 43 tadan — jami **1161 ta qo'shimcha mashq**. Katta hajm,
+shuning uchun bu banki tiplardagi mashqlardan farqli, bitta yaxlit qatorda
+(1, 2, 3 … 43) beriladi, tiplarga bo'linmaydi — tez ko'z yugurtirib
+mashq qilish uchun.
 
 Bo'lim yakunida — **bo'lim sinovi**: shu bo'limning imtihondagi ulushi bo'yicha
 to'liq vaqt rejimida (masalan, umumiy kimyo: 13 Y1 + 2 O1 → 37 daqiqa).
@@ -355,6 +365,7 @@ ishlatmaydi.
  "yozma_ish": {"tur": "41|42|43", "matn": "...",
                "bandlar": [{"savol": "...", "yechim": ["..."], "M": 8, "A": 4}],
                "jami": 25, "rasmiylashtirish": "..."},
+ "mashqlar_banki": [{"n": 1, "savol": "...", "javob": "...", "daraja": 1}],
  "xotira_kartalari": ["..."],
  "test": [{"matn": "...", "tur": "Y1|Y2|O1|O2", "variantlar": ["","","",""],
            "javob": "A", "chalgituvchilar": [{"variant": "B", "xato": "..."}],
@@ -398,6 +409,8 @@ Men senga o'tgan imtihonlardagi savollarni beraman.
 - [ ] Xatolar bo'limi bo'sh emas;
 - [ ] Har Y1 testida chalg'ituvchi variantlar izohlangan;
 - [ ] Yozma ish mashqi bandlarga bo'lingan, M va A ballari 25 ga yig'iladi;
+- [ ] Mavzuviy mashqlar banki 43 ta, aralash qiyinlikda, tiplardagi va
+      testdagi mashqlarni takrorlamaydi;
 - [ ] Yakuniy test imtihon nisbatida (15/2/2/1);
 - [ ] Xotira kartalari bor;
 - [ ] `validate.py` xatosiz o'tgan;
