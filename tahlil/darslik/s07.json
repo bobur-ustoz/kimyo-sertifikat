@@ -1,0 +1,62 @@
+{
+  "sinf": 7,
+  "darslik": "I.R.Asqarov, N.X.To'xtaboyev, K.G'.G'opirov — Kimyo 7, Toshkent 2022, 176 bet",
+  "holat": "to'liq",
+  "boblar": [
+    {"bob": "I. Moddalar", "mavzular": [
+      {"nom": "Kimyo fani va uning vazifalari", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Modda va uning xossalari", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Kimyo xonasidagi jihozlar, mehnat xavfsizligi qoidalari", "element": "IV.1", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: shtativ, spirt lampa, gaz gorelkasi, elektr isitgich", "element": "IV.1", "chuqurlik": "tanish"},
+      {"nom": "Sof modda va aralashmalar", "element": "IV.1", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: aralashmadan sof moddani ajratish (osh tuzini tozalash)", "element": "IV.1", "chuqurlik": "tanish"},
+      {"nom": "Moddalarning agregat holati o'zgarishi", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Fizik va kimyoviy hodisalar", "element": "II.1", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: kundalik hayotdagi kimyoviy jarayonlar", "element": "IV.1", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "II. Kimyoviy element, kimyoviy belgi", "mavzular": [
+      {"nom": "Atom", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "Atom tuzilishi: proton, neytron, elektron", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "Kimyoviy element va belgisi", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Nisbiy atom massa", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Izotoplar. Izobarlar. Izotonlar", "element": "I.3", "chuqurlik": "tanish", "izoh": "Izoelektron tushunchasi yo'q"},
+      {"nom": "Kimyoviy formula. Valentlik", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Molekula. Nisbiy molekulyar massa", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Oddiy va murakkab moddalar", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Modda miqdori. Avogadro doimiysi. Molyar massa", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: valentlikni aniqlash; formulalar bo'yicha hisoblash", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "Kimyoviy reaksiya tenglamalarini tuzish", "element": "II.1", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "III. Elementlar tavsifi va davriy jadval", "mavzular": [
+      {"nom": "Kimyoviy elementlarning tavsiflanishi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "Kimyoviy elementlarning tabiiy oilalari", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "Kimyoviy elementlar davriy jadvali", "element": "I.3", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "IV. Havo. Yonish", "mavzular": [
+      {"nom": "Kislorodning umumiy tavsifi, fizik va kimyoviy xossalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "Yonish", "element": "II.1", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: alanga tuzilishi va moddalarning kislorodda yonishi", "element": "IV.1", "chuqurlik": "tanish"},
+      {"nom": "Ozon va uning ishlatilishi", "element": "I.1", "chuqurlik": "tanish", "izoh": "Allotropiya shu yerda"},
+      {"nom": "Oksidlar", "element": "II.2", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "V. Vodorod", "mavzular": [
+      {"nom": "Vodorod, olinishi, xossalari va ishlatilishi", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "Kislotalar", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "Amaliy: kislotalarning olinishi, xossalari, metallar bilan ta'siri", "element": "IV.2", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "VI. Suv", "mavzular": [
+      {"nom": "Suvning tarkibi, agregat holatlari, fizik xossalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "Suvning kimyoviy xossalari; amaliy: suvning oksidlar bilan ta'siri", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "Neytrallanish reaksiyalari", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "Suvning ifloslanishi va tozalash usullari", "element": "IV.1", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "VII. Inson organizmidagi elementlar va birikmalar", "mavzular": [
+      {"nom": "Oqsillar. Yog'lar. Uglevodlar", "element": "III.8", "chuqurlik": "yuzaki", "izoh": "Faqat tanishtiruv, tuzilish va reaksiyalar yo'q; III.7 va III.9 ham shu darajada"},
+      {"nom": "Vitaminlar, minerallarning ahamiyati", "element": "III.9", "chuqurlik": "yuzaki"},
+      {"nom": "Amaliy: olma tarkibini aniqlash", "element": "IV.1", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "VIII. Foydali qazilmalar", "mavzular": [
+      {"nom": "Geologik kimyoviy birikmalar, O'zbekistondagi konlar, ekologik aspektlar", "element": "II.5", "chuqurlik": "yuzaki", "izoh": "Spetsifikatsiyaga to'g'ridan-to'g'ri tegishli emas"}
+    ]}
+  ]
+}

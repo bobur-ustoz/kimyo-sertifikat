@@ -1,0 +1,73 @@
+{
+  "sinf": 8,
+  "darslik": "I.R.Asqarov, K.G'opirov, N.X.To'xtaboyev — Kimyo 8, Toshkent 2019, 208 bet",
+  "holat": "to'liq",
+  "boblar": [
+    {"bob": "I. 7-sinf kursini takrorlash", "mavzular": [
+      {"nom": "1-§ Dastlabki kimyoviy tushuncha va qonunlar", "element": "I.1", "chuqurlik": "tanish"},
+      {"nom": "2-§ Noorganik birikmalarning asosiy sinflari", "element": "II.1", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "II. Davriy qonun va davriy sistema. Atom tuzilishi", "mavzular": [
+      {"nom": "3-§ Elementlarning dastlabki toifalanishi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "4-§ Elementlarning tabiiy oilalari", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "5-§ Davriy qonun", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "6-§ Elementlar davriy sistemasi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "7-§ Atom yadrosi tarkibi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "8-§ Izotoplar. Izobarlar", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "9-§ Atom elektron qavatlarining tuzilishi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "10-§ Energetik pog'onachalar", "element": "I.3", "chuqurlik": "tanish", "izoh": "Kvant sonlar, Pauli, Klechkovskiy, Gund qoidalari YO'Q"},
+      {"nom": "11-12-§ Kichik va katta davr elementlarining atom tuzilishi", "element": "I.3", "chuqurlik": "tanish"},
+      {"nom": "13-§ Element o'rni va atom tuzilishiga qarab tavsiflash", "element": "I.3", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "III. Kimyoviy bog'lanishlar", "mavzular": [
+      {"nom": "14-§ Nisbiy elektromanfiylik", "element": "I.4", "chuqurlik": "tanish"},
+      {"nom": "15-§ Bog'lanish turlari. Qutbli va qutbsiz kovalent bog'lanish", "element": "I.4", "chuqurlik": "tanish", "izoh": "Donor-akseptor mexanizmi YO'Q"},
+      {"nom": "16-§ Ionli bog'lanish", "element": "I.4", "chuqurlik": "tanish"},
+      {"nom": "17-§ Kristall panjaralar", "element": "I.4", "chuqurlik": "tanish", "izoh": "Gibridlanish YO'Q"},
+      {"nom": "18-§ Oksidlanish darajasi", "element": "I.9", "chuqurlik": "tanish"},
+      {"nom": "19-§ Oksidlanish-qaytarilish reaksiyalari", "element": "I.9", "chuqurlik": "tanish"},
+      {"nom": "20-§ OQR tenglamalarini tuzish", "element": "I.9", "chuqurlik": "tanish", "izoh": "Elektron balans bor; ion-elektron (yarim reaksiya) usuli yo'q"}
+    ]},
+    {"bob": "IV. Metallmaslar. Galogenlar", "mavzular": [
+      {"nom": "21-§ Metallmaslarning umumiy xossalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "22-§ Galogenlarning davriy sistemadagi o'rni, atom tuzilishi", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "23-§ Xlor", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "24-§ Vodorod xlorid", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "25-§ Avogadro qonuni. Molyar hajm", "element": "I.2", "chuqurlik": "tanish"},
+      {"nom": "26-§ Ekvivalent qonuni", "element": "I.2", "chuqurlik": "tanish"},
+      {"nom": "27-§ Xlorid kislota", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "28-§ Ftor, brom, yod", "element": "II.5", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "V. VIA guruh: kislorod va oltingugurt", "mavzular": [
+      {"nom": "29-§ Kislorod guruhchasi elementlari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "30-§ Oltingugurtning vodorodli birikmalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "31-§ Oltingugurtning kislorodli birikmalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "32-§ Sulfat kislota", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "33-§ Kimyoviy reaksiyalarning tezligi", "element": "I.5", "chuqurlik": "yuzaki", "izoh": "Sifat darajasida; r = k[A]^m[B]^n tezlik qonuni va hisob YO'Q"},
+      {"nom": "34-§ Kimyoviy muvozanat", "element": "I.6", "chuqurlik": "yuzaki", "izoh": "Le-Shatelye sifat darajasida; Kc va hisob YO'Q"},
+      {"nom": "35-§ Sanoatda sulfat kislota ishlab chiqarish", "element": "II.5", "chuqurlik": "tanish"}
+    ]},
+    {"bob": "VI. VA guruh: azot va fosfor", "mavzular": [
+      {"nom": "36-§ Azot", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "37-§ Azotning vodorodli birikmalari (ammiak, ammoniy tuzlari)", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "38-§ Azotning kislorodli birikmalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "39-§ Nitrat kislota", "element": "II.2", "chuqurlik": "tanish"},
+      {"nom": "40-§ Fosfor", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "41-§ Fosforning kislorodli birikmalari", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "42-43-§ Mineral o'g'itlar", "element": "II.5", "chuqurlik": "tanish"},
+      {"nom": "44-§ Biogen elementlar", "element": "II.5", "chuqurlik": "yuzaki"}
+    ]}
+  ],
+  "laboratoriya": [
+    {"nom": "1. Rux gidroksid olinishi, kislota va ishqor ta'siri (amfoterlik)", "element": "IV.2"},
+    {"nom": "2. Kristall panjara modellari (KCl, S, I2)", "element": "I.4"},
+    {"nom": "3. Xlorid kislota, galogenidlar va yod uchun sifat reaksiyalari (AgNO3, kraxmal)", "element": "IV.2"},
+    {"nom": "4. Tuproq eritmasida xloridlarni aniqlash", "element": "IV.2"},
+    {"nom": "5. Galogenlarning bir-birini siqib chiqarishi", "element": "II.5"},
+    {"nom": "6. Galogenlarning suvda va organik erituvchida erishi", "element": "IV.1"},
+    {"nom": "7. Oltingugurt va tabiiy birikmalari namunalari", "element": "II.5"},
+    {"nom": "8. Turli eritmalarda sulfat ionni aniqlash (BaCl2)", "element": "IV.2"},
+    {"nom": "9. Ammoniy tuzlaridan ammiak olish va xossalari (fenolftalein, HCl tutuni)", "element": "IV.2"},
+    {"nom": "10. Mineral o'g'itlar namunalari bilan tanishish", "element": "II.5"}
+  ]
+}
