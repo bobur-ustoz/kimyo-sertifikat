@@ -33,7 +33,9 @@ export default async function handler(req, res) {
   const created = await createRes.json();
   if (!createRes.ok || !created.guid) return res.status(500).json({ error: created.Message || "Failed to create video" });
 
-  const expires = Math.floor(Date.now() / 1000) + 3600;
+  // Six hours: a 500 MB video on a slow line can take longer than one, and the
+  // signature only authorises an upload to this one freshly created video id.
+  const expires = Math.floor(Date.now() / 1000) + 6 * 3600;
   const signature = crypto.createHash("sha256").update(`${libraryId}${apiKey}${expires}${created.guid}`).digest("hex");
 
   res.status(200).json({
