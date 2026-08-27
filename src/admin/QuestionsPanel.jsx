@@ -4,6 +4,7 @@ import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
 import QuestionRow from "./QuestionRow";
 import OptionGroups from "./OptionGroups";
+import BulkUpload from "./BulkUpload";
 import { writeErrorText } from "./writeError";
 import { card, btnPrimary, btnGhost, pageTitle, pageSub, C, errorBox } from "./ui";
 
@@ -49,8 +50,12 @@ export default function QuestionsPanel({ variant, teacher, onBack }) {
         </div>
       ) : (
         <div>
+          <BulkUpload teacher={teacher} variant={variant} questions={questions} onDone={reloadQuestions}/>
           <OptionGroups variantId={variant.id} groups={groups} onChanged={reloadGroups}/>
-          {questions.map(q => <QuestionRow key={q.id} q={q} onChanged={reloadQuestions} groups={groups}/>)}
+          {questions.map(q => (
+            <QuestionRow key={q.id} q={q} onChanged={reloadQuestions} groups={groups}
+              teacher={teacher} variant={variant}/>
+          ))}
         </div>
       )}
     </div>

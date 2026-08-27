@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Save, CheckCircle2, Circle, UploadCloud } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useVideoUpload } from "./useVideoUpload";
+import { videoTitle } from "./uploadVideo";
 import AnalogReview from "./AnalogReview";
 import { writeErrorText } from "./writeError";
 import { C, card, inputStyle, btnPrimary, btnGhost, toggleBtn, hint, sectionLabel, errorBox } from "./ui";
@@ -9,7 +10,7 @@ import { C, card, inputStyle, btnPrimary, btnGhost, toggleBtn, hint, sectionLabe
 const TYPE_LABELS = { mcq:"A/B/C/D", open:"Ochiq javob", match:"Moslashtirish" };
 const LETTERS = ["A","B","C","D"];
 
-export default function QuestionRow({ q, onChanged, groups }) {
+export default function QuestionRow({ q, onChanged, groups, teacher, variant }) {
   const [f, setF] = useState(() => ({ question_type:"mcq", ...q }));
   const [dirty, setDirty] = useState(false);
   const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function QuestionRow({ q, onChanged, groups }) {
 
   const set = (k, v) => { setF(p => ({ ...p, [k]: v })); setDirty(true); };
 
-  const { pct, error: uploadErr, upload } = useVideoUpload(q, (videoId) => {
+  const { pct, error: uploadErr, upload } = useVideoUpload(q, videoTitle(teacher, variant, q), (videoId) => {
     setF(p => ({ ...p, bunny_video_id: videoId, video_ready: true }));
     onChanged();
   });
