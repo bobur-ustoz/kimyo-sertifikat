@@ -1,266 +1,379 @@
 # Loyiha promti — Milliy Sertifikat KIMYO darsligi (maqsad: A / A+)
 
-Bu fayl matematika darsligi promtining kimyo va **A / A+ daraja** uchun qayta yozilgan
-varianti. Yangi suhbatda ishni boshlash yoki davom ettirish uchun pastdagi
-**PROMT** blokini to'liq nusxalab yuboring.
-
----
+Matematika darsligi promtining kimyo va **A / A+ daraja** uchun qayta yozilgan
+varianti. Barcha imtihon faktlari **BMBA rasmiy test spetsifikatsiyasidan**
+olingan ("Kimyo fanidan milliy test sinovi tizimi uchun test spetsifikatsiyasi").
+Yangi suhbatda ishni boshlash uchun pastdagi **PROMT** blokini to'liq nusxalab
+yuboring.
 
 ## Yuborishdan oldin to'ldiriladigan joylar
 
-Promt ichida `[T1]`…`[T6]` belgilari bor. Ular — men tasdiqlay olmagan, rasmiy
-manbadan olinishi shart bo'lgan raqamlar. Ularni to'ldirmasangiz ham promt
-ishlaydi (agent birinchi navbatda shularni so'raydi), lekin to'ldirilgani yaxshi.
+Spetsifikatsiyadan keyin faqat uchta noma'lum qoldi:
 
-| Belgi | Nima kerak | Qayerdan olinadi |
+| Belgi | Nima kerak | Qayerdan |
 |---|---|---|
-| `[T1]` | Imtihon davomiyligi (daqiqa) | Rasmiy imtihon reglamenti |
-| `[T2]` | Har bir savol turining ball qiymati (yopiq / moslashtirish / ochiq / yozma) | Rasmiy reglament |
-| `[T3]` | Yozma ishda qisman ball bormi, yo'qmi | Rasmiy reglament / kuzatuv |
-| `[T4]` | A va A+ ning xom ball bo'sag'asi | O'tgan yil statistikasi |
-| `[T5]` | Tayyorgarlik muddati va haftalik soat | Sizning reja |
-| `[T6]` | O'quvchilarning hozirgi darajasi (diagnostika testi natijasi) | Kirish testi |
+| `[T1]` | A va A+ ning ball bo'sag'asi; 1–40 (Rash) va 41–43 (75 ball) yakuniy sertifikat balliga qanday qo'shilishi | Spetsifikatsiyada yo'q — BMBA natijalari / o'tgan yil statistikasi |
+| `[T2]` | Tayyorgarlik muddati va haftalik soat | Sizning reja |
+| `[T3]` | O'quvchilarning hozirgi darajasi | Kirish diagnostikasi |
 
 ---
 
 ## PROMT (nusxalash uchun)
 
 Men metodistman. Milliy Sertifikat imtihoniga **kimyo** fanidan o'quvchilarni
-tayyorlayapman. Sen bilan darslik (kitob) yozamiz. Loyiha davom etadi — quyidagi
-qoidalar doirasida ishlaysan.
+tayyorlayapman. Sen bilan darslik (kitob) yozamiz. Quyidagi qoidalar doirasida
+ishlaysan.
 
 ### Maqsad
 
 **Kafolatlangan A, mo'ljal A+.** C yoki B maqsad emas — ular yo'l-yo'lakay
-olinadi. Bu bitta narsani anglatadi: **dastur to'liq yopiladi, hech bir mavzu
-"qiyin" degani uchun tashlab ketilmaydi.** A+ da xatolik byudjeti juda kichik,
-shuning uchun kitob nafaqat "tushuntirish", balki **tezlik, aniqlik va tuzoqlarni
-tanish** ustida ishlaydi.
+olinadi. Bu bitta narsani anglatadi: **rasmiy spetsifikatsiyadagi 27 ta mazmun
+elementi ham to'liq yopiladi, hech biri "qiyin" degani uchun tashlab
+ketilmaydi.**
 
-Tayyorgarlik muddati: `[T5]`. O'quvchilarning boshlang'ich darajasi: `[T6]`.
-Agar `[T6]` past bo'lsa — kitob baribir A+ gacha olib chiqadigan qilib yoziladi,
-lekin ma'ruzalar noldan boshlanadi va "asos" boblarda mashqlar soni oshiriladi.
+Tayyorgarlik muddati: `[T2]`. O'quvchilarning boshlang'ich darajasi: `[T3]`.
+Agar `[T3]` past bo'lsa — kitob baribir A+ gacha olib chiqadigan qilib yoziladi,
+lekin ma'ruzalar noldan boshlanadi va asos boblarda mashqlar soni oshiriladi.
+
+### Imtihon faktlari (BMBA spetsifikatsiyasi — o'zgartirilmaydi)
+
+Manba: 7–11-sinf materiallari. To'rt bo'lim: **Umumiy kimyo · Anorganik kimyo ·
+Organik kimyo · Kimyoviy tahlil.**
+
+Topshiriq turlari:
+- **Y1** — bitta to'g'ri javobli yopiq test;
+- **Y2** — moslashtirishni talab qiladigan yopiq test;
+- **O1** — qisqa javobli ochiq test;
+- **O2** — kengaytirilgan javobli ochiq test (yozma ish).
+
+**43 topshiriq, jami 180 daqiqa** (1–40 uchun 100 daqiqa + 41–43 uchun 80 daqiqa).
+
+| Savol | Turi | Bo'lim | Soni |
+|---|---|---|---|
+| 1–13 | Y1 | Umumiy kimyo | 13 |
+| 14–19 | Y1 | Anorganik kimyo | 6 |
+| 20–29 | Y1 | Organik kimyo | 10 |
+| 30–32 | Y1 | Kimyoviy tahlil | 3 |
+| 33–35 | Y2 | Umumiy + anorganik + organik | 3 |
+| 36–37 | O1 | Umumiy kimyo | 2 |
+| 38 | O1 | Anorganik kimyo | 1 |
+| 39–40 | O1 | Organik kimyo | 2 |
+| 41 | O2 | Umumiy kimyo | 1 |
+| 42 | O2 | Organik kimyo | 1 |
+| 43 | O2 | Anorganik kimyo **yoki** kimyoviy tahlil | 1 |
+
+**Baholash:**
+- 1–40 (Y1, Y2, O1) — **Rash modeli** orqali baholanadi. Ya'ni oddiy xom ball
+  emas: savolning qiyinligi hisobga olinadi. Amaliy xulosa — faqat oson
+  savollarni to'g'ri yechish A+ ga yetmaydi, darajani qiyin savollar ajratadi.
+- 41–43 (O2) — **har biri 25 ball, jami 75 ball.**
+- `[T1]` — ikkalasining yakuniy balliga qo'shilishi va A / A+ bo'sag'asi.
+
+**Vaqt byudjeti** (kitobdagi barcha normativlar shundan chiqadi):
+1–40 uchun 100 daqiqa = **bitta savolga o'rtacha 2,5 daqiqa** (javoblar
+varaqasiga ko'chirish ham shu ichida). 41–43 uchun 80 daqiqa = **bitta yozma
+ishga ~26 daqiqa.**
+
+### Yozma ish (41–43) baholash mezoni — eng muhim qism
+
+Yozma ish 75 ball beradi va aynan shu joyda A+ yutiladi yoki yo'qoladi.
+
+- Har bir topshiriq **bandlarga** bo'linadi (3–5 band; 42-topshiriqda 3, 4 yoki
+  7 band). Har band ikki mezon bo'yicha baholanadi:
+  **M — yechish usuli (metodika)**, **A — miqdoriy va arifmetik amallar.**
+- **41-topshiriq (umumiy kimyo)** va **43-topshiriq (anorganik kimyo)**: M jami
+  13–15 ball, A jami 10–12 ball. Ya'ni **usul arifmetikadan qimmatroq.**
+- **42-topshiriq (organik kimyo)**: **arifmetika umuman yo'q**, 25 ballning
+  hammasi M — usul, tuzilish, o'zgarishlar zanjiri, nomenklatura, xossalar.
+  7 bandli variantda har band 3–5 ball.
+- **43-topshiriq kimyoviy tahlil bo'yicha kelsa**: M 22–25 ball, A atigi 1–3
+  ball — deyarli butunlay usul va tajriba mantiqi.
+- **0 ball qo'yiladigan ikki holat:** (1) bandga yechim — metodika va
+  arifmetika — ko'rsatilmasdan faqat javob yozilgan; (2) topshiriq
+  to'liqligicha xato yechilgan.
+
+Bundan kitobga uchta qat'iy talab chiqadi:
+1. **"Rasmiylashtirish" bo'limi majburiy** — javob varaqasiga nima yoziladi,
+   qaysi qadam yozilmasa ball yo'qoladi. To'g'ri javobni bilib turib, usulni
+   yozmaslik = 0.
+2. **Yozma ish mashqlari bandlarga bo'lingan holda beriladi** (a, b, d, e...),
+   xuddi imtihondagidek — chunki ball bandlarga taqsimlanadi va bitta band
+   xato bo'lsa qolganlari saqlanadi.
+3. **42-topshiriq uchun alohida trening:** hisobsiz, faqat organik zanjirlar,
+   izomeriya, nomenklatura va xossalar. Bu tipdagi mashqlarda son yo'q.
+
+Yopiq va qisqa javobli qismda (1–40) qisman ball yo'q — javob yo to'g'ri, yo
+noto'g'ri. Spetsifikatsiyada noto'g'ri javob uchun ball ayirish ko'rsatilmagan,
+demak **bo'sh qoldirish har doim zarar** — vaqt tugayotganda ham har bir yopiq
+savolga belgi qo'yiladi.
+
+### Kognitiv darajalar (spetsifikatsiyadan)
+
+**Quyi daraja:** ma'lumotni bilish, eslab qolish, tushuntirish · yangi vaziyatda
+qo'llash · sodda masalalar yechish · nazariy bilimni grafik, jadval va rasmda
+aks ettirish.
+
+**Yuqori daraja:** murakkab masalalar yechish · ma'lumotni grafik, jadval va
+rasmda **tahlil qilish** · asbob-jihozlardan xavfsizlik qoidalariga rioya qilgan
+holda foydalana olish.
+
+A+ maqsadi shuni anglatadiki, har bir mavzuda **yuqori daraja alohida
+ishlanadi**: grafik va jadval tahlili mashqlari, laboratoriya vaziyati savollari
+va murakkab, ko'p qadamli masalalar har bir bobda bo'lishi shart.
+
+### Kitob mavzular xaritasi — rasmiy 27 ta mazmun elementi
+
+Bu ro'yxat spetsifikatsiyadan, o'zgartirilmaydi va qisqartirilmaydi. Har bir
+element — kitobning bir bobi (kerak bo'lsa ichki mavzularga bo'linadi).
+
+**I. Umumiy kimyo (13 Y1 + 2 O1 + 41-yozma ish — eng og'ir bo'lim)**
+1. Kimyoning asosiy tushunchalari. Atom, molekula, kimyoviy element, oddiy va
+   murakkab moddalar, allotropiya. Nisbiy atom va molekulyar massa. Modda
+   miqdori — mol. Valentlik.
+2. Kimyoning asosiy qonunlari. Massaning saqlanishi, tarkibning doimiyligi, gaz
+   qonunlari, Avogadro qonuni, ekvivalentlar qonuni, Avogadro doimiysi.
+3. Davriy sistema. Atomlarning davriy xossalari. Atom tuzilishi (proton,
+   elektron, neytron). Izotop, izobar, izoton, izoelektron. Elektron
+   konfiguratsiya. Pauli prinsipi, Klechkovskiy va Gund qoidalari. Kvant sonlar.
+   Yadro reaksiyalari.
+4. Kimyoviy bog'lanish turlari (kovalent, ion, metall, vodorod, donor-akseptor).
+   Struktura formulalari. Kristall panjara turlari. Gibridlanish va xillari.
+5. Kimyoviy reaksiya tezligi va unga ta'sir etuvchi omillar.
+6. Kimyoviy muvozanat va uning siljishi. Le-Shatelye prinsipi.
+7. Eritmalar. Foiz, molar, molyal, normal konsentratsiya. Oleum. Eruvchanlik
+   koeffitsiyenti. Eritma titri.
+8. Elektrolitik dissotsiatsiya. Dissotsiatsiya darajasi. Kuchli va kuchsiz
+   elektrolitlar. Ion almashinish reaksiyalari. Suvning ion ko'paytmasi, pH,
+   pOH. Tuzlar gidrolizi.
+9. Oksidlanish darajasi. Muhim oksidlovchi va qaytaruvchilar. OQR turlari,
+   jarayonlari va tenglash usullari.
+10. Metallarning elektrokimyoviy kuchlanishlar qatori. Elektroliz (eritma va
+    suyuqlanma). Faradey qonunlari.
+
+**II. Anorganik kimyo (6 Y1 + 1 O1 + 43-yozma ishning bir varianti)**
+1. Anorganik birikmalarning muhim sinflari, klassifikatsiyasi, genetik
+   bog'lanishlar. Kimyoviy reaksiya turlari.
+2. Oksidlar, asoslar, kislotalar, tuzlar: klassifikatsiya, olinishi, xossalari,
+   ishlatilishi.
+3. Metallar: davriy sistemadagi o'rni, tabiatda tarqalishi. IA guruh metallari —
+   olinishi va kimyoviy xossalari.
+4. IIA, IIIA guruh va d-guruhcha metallari: olinishi, fizik va kimyoviy
+   xossalari, ishlatilishi. Suvning qattiqligi va uni yo'qotish.
+5. Metallmaslar: IVA, VA, VIA, VIIA guruhlar. Vodorod va birikmalari. Nodir
+   gazlar. Mineral o'g'itlar.
+
+**III. Organik kimyo (10 Y1 + 2 O1 + 42-yozma ish)**
+1. Organik moddalar klassifikatsiyasi. Kimyoviy tuzilish nazariyasi. Izomeriya
+   va nomenklatura. Xos reaksiya turlari. Alkanlar. Sikloalkanlar.
+2. To'yinmagan uglevodorodlar: alkenlar, alkadiyenlar, alkinlar — tuzilishi,
+   gomologik qatori, izomeriyasi, nomenklaturasi, olinishi, xossalari.
+3. Aromatik uglevodorodlar. Neft, tabiiy gaz, toshko'mir.
+4. To'yingan bir atomli spirtlar. Ko'p atomli spirtlar. Fenollar. Aromatik
+   spirtlar.
+5. Aldegid va ketonlar.
+6. Karbon kislotalar.
+7. Oddiy va murakkab efirlar. Sovunlar. Yog'lar.
+8. Uglevodlar: mono-, di-, polisaxaridlar.
+9. Nitrobirikmalar. Aminlar va aromatik aminlar. Aminokislotalar. Oqsillar.
+10. Tabiiy va sintetik yuqori molekulyar birikmalar: polimerlanish va
+    polikondensatlanish, kauchuk va tolalar.
+
+**IV. Kimyoviy tahlil (3 Y1 + 43-yozma ishning ikkinchi varianti)**
+1. Laboratoriya jihozlari va reaktivlar bilan ishlash xavfsizligi. Jihozlar
+   turlari va foydalanish tartibi. Geterogen aralashmalarni ajratish (tindirish,
+   filtrlash, bug'latish, magnitlash, distillash). Fizik xossalari bo'yicha
+   farqlash. Turli konsentratsiyali eritmalar tayyorlash.
+2. Laboratoriya mashg'ulotlari: anorganik va organik birikmalarni olish usullari,
+   ularga xos **sifat reaksiyalari**, xossalariga oid tajribalar.
+
+**Mavzu og'irligi qoidasi:** mashqlar va testlar soni yuqoridagi savol
+taqsimotiga proporsional bo'ladi. Umumiy kimyo va organik kimyo — kitobning
+og'irlik markazi. Kimyoviy tahlil atigi 3 ta yopiq savol bersa-da, 43-topshiriq
+orqali 25 ballgacha ko'tarilishi mumkin — shuning uchun u ham to'liq yoziladi.
 
 ### Qat'iy qarorlar (muhokama qilinmaydi)
 
-1. **Dastur 100% yopiladi.** Noorganik, organik, umumiy kimyo, hisoblash
-   masalalari, amaliy/sifat qismi — hammasi. A+ da bitta tashlangan mavzu =
-   yo'qotilgan daraja. Agar biror mavzu og'ir bo'lsa, yechim uni olib tashlash
-   emas, balki unga ko'proq tip va mashq berish.
+1. **27 ta mazmun elementi 100% yopiladi.** A+ da bitta tashlangan mavzu =
+   yo'qotilgan daraja. Mavzu og'ir bo'lsa, yechim uni olib tashlash emas, unga
+   ko'proq tip va mashq berish.
 2. **Manba fayllardan birorta savol ko'chirilmaydi.** Menda Milliy Sertifikatga
    ilgari tushgan savollar bor — men ularni senga beraman. Ular **faqat mavzu,
    qiyinlik va savol tipini kalibrlash uchun** o'qiladi. Kitobdagi har bir savol
-   original: raqamlar, moddalar, kontekst — hammasi almashtirilgan. Asl savol
-   matni na kitobga, na javoblar bo'limiga, na test bazasiga tushmaydi.
-3. **Har bir javob ikki marta, ikki mustaqil usul bilan tekshiriladi.** Kimyoda
-   bu quyidagini anglatadi (batafsili "Javob tekshirish protokoli" bo'limida):
-   biri — skript orqali (sympy/Fraction bilan stexiometriya, tenglama
-   koeffitsientlari matritsa usulida), ikkinchisi — undan **mustaqil** yo'l
-   (massa va zaryad saqlanishi, teskari qo'yish, birlik tahlili, qo'lda qayta
-   hisob). Ikkalasi bir xil natija bermasa — savol kitobga kirmaydi.
+   original: raqamlar, moddalar, kontekst almashtirilgan. Asl savol matni na
+   kitobga, na javoblar bo'limiga tushmaydi.
+3. **Har bir javob ikki marta, ikki mustaqil usul bilan tekshiriladi**
+   ("Javob tekshirish protokoli" bo'limiga qarang). Ikkalasi bir xil natija
+   bermasa — savol kitobga kirmaydi.
 4. **Bot hozircha qilinmaydi** — avval kitob mukammal bo'lsin. QR kod uchun joy
    qoldiriladi.
-5. **Har bir tip va har bir testda vaqt normativi bo'ladi.** A+ ning yarmi —
-   bilim, yarmi — tezlik. Normativsiz mashq to'liq hisoblanmaydi.
+5. **Har bir tipda va testda vaqt normativi bo'ladi** (1–40 uchun 2,5 daqiqa,
+   yozma ish uchun 26 daqiqa me'yoridan kelib chiqib). Normativsiz mashq to'liq
+   hisoblanmaydi.
 6. **Yodlash va tushunish ajratiladi.** Tushuntirish — ma'ruzada; yodlanishi
-   shart bo'lgan narsa (eruvchanlik, rang, sifat reaksiyalari, nomlar,
+   shart bo'lgan narsa (eruvchanlik, ranglar, sifat reaksiyalari, nomenklatura,
    konstantalar) — alohida "Xotira kartalari" blokida, siqilgan holda.
-
-### Imtihon faktlari (kimyo)
-
-**43 topshiriq**, `[T1]` daqiqa.
-
-| Savollar | Turi | Soni |
-|---|---|---|
-| 1–32 | Yopiq test, A/B/C/D | 32 |
-| 33–35 | Moslashtirish (umumiy A–F javoblar ro'yxatidan) | 3 |
-| 36–40 | Ochiq javob (faqat yakuniy natija yoziladi) | 5 |
-| 41–43 | Yozma ish (to'liq yechim yoziladi) | 3 |
-
-Ball taqsimoti: `[T2]`. A / A+ bo'sag'asi: `[T4]`.
-
-Qat'iy tamoyillar:
-- **Yopiq va ochiq savollarda qisman ball yo'q** — yarim yechim 0 ball. Yozma
-  ishda: `[T3]`.
-- **Noto'g'ri javobga ball ayirilmaydi** — bo'sh qoldirish har doim zarar. Hatto
-  vaqt tugayotganda ham har bir yopiq savolda belgi qo'yiladi.
-- Moslashtirish savollarida javoblar umumiy ro'yxatdan olinadi — bitta javob
-  bir necha savolga to'g'ri kelishi mumkin, shuning uchun "chiqarib tashlash"
-  usuli har doim ham ishlamaydi.
-
-### A+ ball modeli (kitobning butun mantiqi shunga qurilgan)
-
-A+ olish uchun o'quvchi amalda quyidagini bajarishi kerak:
-
-- 1–32 (yopiq): **30–32 to'g'ri.** Ya'ni butun imtihon davomida yopiqda 0–2 xato.
-- 33–35 (moslashtirish): **3/3.** Bu qism eng arzon ball — tayyorgarlik bilan
-  yo'qotib bo'lmaydi.
-- 36–40 (ochiq): **4–5 to'g'ri.** Bu yerda eng ko'p ball hisoblash xatosidan
-  ketadi, bilimsizlikdan emas.
-- 41–43 (yozma): **kamida 2 tasi to'liq**, uchinchisi qisman.
-
-Bundan kelib chiqadigan kitob talablari:
-1. Har bir mavzuda **"Tipik tuzoqlar"** bloki majburiy — A+ ni yo'qotadigan
-   narsa bilmaslik emas, e'tiborsizlik.
-2. Har bir hisoblash tipida **birlik va yaxlitlash qoidasi** aniq yoziladi.
-3. **Yozma ish uchun alohida "Rasmiylashtirish" bo'limi** — javob qanday
-   yoziladi, qaysi qadam yozilmasa ball ketadi.
-4. Har bob oxirida **vaqt bo'yicha sinov** (masalan: 20 savol / 30 daqiqa).
 
 ### Kitob formati
 
-Har bir mavzu qat'iy shu tartibda yoziladi:
+Har bir mazmun elementi (bob) qat'iy shu tartibda:
 
-1. **Ma'ruza** — nazariy tushuntirish, noldan, lekin A darajagacha ko'tariladi.
+1. **Ma'ruza** — noldan, lekin yuqori kognitiv darajagacha ko'tariladi.
 2. **Asosiy formulalar va konstantalar** — bir joyda, jadval ko'rinishida.
-3. **Reaksiya tenglamalari bazasi** — mavzuga oid, yodlanishi kerak bo'lgan
-   tenglamalar (koeffitsientlari bilan, sharoiti ko'rsatilgan).
+3. **Reaksiya tenglamalari bazasi** — koeffitsientlari va sharoiti bilan.
 4. **Sifat reaksiyalari jadvali** — reagent → belgi (rang, cho'kma, gaz, hid).
-   Faqat tegishli boblarda.
-5. **Eslatmalar** va **Xatolar** bo'limi — "xato → nega bo'ladi → tuzatish".
-6. **Tiplar** — mavzu savol turlariga bo'linadi. Har bir tipda:
-   - qisqa qoida (bir-ikki jumla) + formula;
-   - bitta oxirigacha ishlangan namuna (qadamma-qadam + "Diqqat" ogohlantirishi);
-   - **"Tez yechish"** — shu tipni 30–60 soniyada yechish usuli (nisbat, ustunlik
-     qoidasi, variantlarni baholash);
-   - **12 mashq** (asos boblarda 16);
-   - **+4 ta "A daraja" mashqi** — imtihonning eng qiyin savollari darajasida,
-     yulduzcha bilan belgilanadi.
-7. **Yakuniy test — 20 ta**, imtihon formatida va nisbatida: 14 yopiq +
-   2 moslashtirish + 3 ochiq + 1 yozma. Vaqt normativi ko'rsatiladi.
-8. **Xotira kartalari** — shu mavzudan yodlanishi shart bo'lgan minimum
-   (10–15 qator, siqilgan).
-9. **QR kod joyi** (bot keyinroq).
+   Anorganik, organik va kimyoviy tahlil boblarida majburiy.
+5. **Eslatmalar** va **Xatolar** — "xato → nega bo'ladi → tuzatish".
+6. **Tiplar.** Har tipda: qisqa qoida + formula; oxirigacha ishlangan namuna
+   ("Diqqat" ogohlantirishi bilan); **"Tez yechish"** — 60–150 soniyalik usul;
+   **12 mashq** (asos boblarda 16); **+4 ta "A daraja" mashqi** — yuqori
+   kognitiv daraja, yulduzcha bilan.
+7. **Grafik va jadval tahlili bloki** — spetsifikatsiya buni alohida ko'nikma
+   deb belgilagan, shuning uchun har bobda kamida 2 ta shunday savol.
+8. **Yozma ish mashqi** — bobning bo'limiga qarab 41 / 42 / 43 formatida,
+   bandlarga bo'lingan, M va A ballari ko'rsatilgan namunaviy baholash bilan.
+9. **Yakuniy test — 20 ta**, imtihon nisbatida: 15 Y1 + 2 Y2 + 2 O1 + 1 O2,
+   vaqt normativi bilan.
+10. **Xotira kartalari** — yodlanishi shart minimum, 10–15 qator.
+11. **QR kod joyi** (bot keyinroq).
+
+Bo'lim yakunida — **bo'lim sinovi**: shu bo'limning imtihondagi ulushi bo'yicha
+to'liq vaqt rejimida (masalan, umumiy kimyo: 13 Y1 + 2 O1 → 37 daqiqa).
 
 ### Uslub qoidalari
 
-- Takrorlanadigan shart mashq oldida yozilmaydi. U MASHQLAR sarlavhasida bir
-  marta chiqadi ("MASHQLAR — Moddaning molyar massasini toping"), mashqning o'zi
-  yalang'och bo'ladi: `1.1 H2SO4`.
+- Takrorlanadigan shart mashq oldida yozilmaydi — u MASHQLAR sarlavhasida bir
+  marta chiqadi ("MASHQLAR — Molyar massani toping"), mashqning o'zi yalang'och
+  bo'ladi: `1.1 H2SO4`.
 - Ortiqcha bezak yo'q, zich bo'lsin. Mashqlar va formulalar ikki ustunda.
 - Qoida uzun tushuntirish emas — qisqa formula + ishlangan namuna yetarli.
 - Javoblar o'zbekcha, lotin alifbosida.
 
-**Kimyoviy yozuv qoidalari (qat'iy):**
-- Barcha formulalar va tenglamalar LaTeX `\ce{...}` (mhchem) ichida:
-  `$\ce{H2SO4}$`, `$\ce{2H2 + O2 -> 2H2O}$`, `$\ce{CaCO3 v}$`, `$\ce{NH3 ^}$`.
-- Matematik ifodalar `$...$` ichida. Unicode kimyoviy/matematik belgilar
-  (₂, →, ↑, ≠) **ishlatilmaydi** — Chrome PDF da buziladi.
-- O'nlik kasr `$0{,}25$` ko'rinishida (vergul bilan).
-- Birliklar: `$12{,}5\,\text{g/mol}$` — son va birlik orasida `\,`.
-- Molyar massalar yagona jadvaldan olinadi (IUPAC), hisoblarda bir xil
-  yaxlitlash: `$M(\ce{H})=1$`, `$M(\ce{O})=16$`, `$M(\ce{S})=32$` va h.k. —
-  jadval kitob oxirida ilova qilinadi.
+**Kimyoviy yozuv (qat'iy):**
+- Formulalar va tenglamalar LaTeX `\ce{...}` (mhchem) ichida:
+  `$\ce{2H2 + O2 -> 2H2O}$`, `$\ce{CaCO3 v}$`, `$\ce{NH3 ^}$`.
+- Unicode kimyoviy/matematik belgilar (₂, →, ↑, ≠) **ishlatilmaydi** — Chrome
+  PDF da buziladi.
+- O'nlik kasr `$0{,}25$`, birlik `$12{,}5\,\text{g/mol}$`.
+- Molyar massalar yagona jadvaldan (IUPAC), hamma hisobda bir xil yaxlitlash;
+  jadval kitob oxirida ilova.
 - Sharoit strelka ustida: `$\ce{->[\text{kat., }t^\circ]}$`.
+- Organik struktura formulalari uchun bir xil chizish uslubi tanlanadi va
+  butun kitobda saqlanadi.
 
 ### Javob tekshirish protokoli (majburiy)
 
-Har bir mashq, namuna va test savoli kitobga kirishdan oldin quyidagidan o'tadi.
+Har bir mashq, namuna va test savoli kitobga kirishdan oldin shundan o'tadi.
 **Ikki usul mustaqil bo'lishi shart** — bittasi ikkinchisining natijasini
 ishlatmaydi.
 
 **1-usul — skript:**
-- Molyar massa: yagona element jadvalidan avtomatik hisoblanadi (formula
-  parseri), qo'lda kiritilmaydi.
-- Tenglama koeffitsientlari: element-matritsa tuzilib, `sympy` bilan nullspace
-  orqali topiladi; natija butun va eng kichik nisbatda bo'lishi tekshiriladi.
-- Stexiometriya, eritma, gaz qonunlari, termokimyo: `Fraction` yoki `mpmath`
-  bilan hisob (float yaxlitlash xatosidan qochish uchun).
-- Redoks: oksidlanish darajalari balansi va elektronlar soni tekshiriladi.
+- Molyar massa: yagona element jadvalidan formula parseri orqali, qo'lda
+  kiritilmaydi.
+- Tenglama koeffitsientlari: element-matritsa tuzilib, `sympy` nullspace orqali;
+  natija butun va eng kichik nisbatda ekani tekshiriladi.
+- Stexiometriya, eritma, gaz qonunlari, termokimyo, elektroliz (Faradey):
+  `Fraction` yoki `mpmath` — float yaxlitlash xatosidan qochish uchun.
+- Redoks: oksidlanish darajalari balansi va elektronlar soni.
+- pH/gidroliz: dissotsiatsiya konstantasi orqali qayta hisob.
 
 **2-usul — skriptdan mustaqil:**
-- **Massa saqlanishi:** reaksiyaga kirgan massa = hosil bo'lgan massa.
+- **Massa saqlanishi:** kirgan massa = hosil bo'lgan massa.
 - **Zaryad saqlanishi:** ion tenglamalarida ikki tomon zaryadi teng.
-- **Atomlar sanog'i:** har bir element uchun chap va o'ng tomon qo'lda sanaladi.
-- **Teskari qo'yish:** topilgan javob shartga qaytarib qo'yiladi.
-- **Birlik tahlili:** javobning o'lchov birligi mantiqan to'g'rimi.
-- **Chegara tekshiruvi:** massa ulushi 0–100% oralig'ida, unum 100% dan oshmaydi,
-  molyar massa manfiy emas, eritma konsentratsiyasi eruvchanlikdan oshmaydi.
+- **Atomlar sanog'i:** har element uchun chap va o'ng tomon qo'lda sanaladi.
+- **Teskari qo'yish:** javob shartga qaytarib qo'yiladi.
+- **Birlik tahlili** va **chegara tekshiruvi:** massa ulushi 0–100%, unum 100%
+  dan oshmaydi, konsentratsiya eruvchanlikdan oshmaydi, pH 0–14 oralig'ida
+  (kuchli eritmalardan tashqari).
+- Organik zanjirlarda: har bosqichda uglerod soni va funksional guruh
+  o'zgarishi kuzatiladi.
 
 **Qo'shimcha qoidalar:**
-- Test savolining **noto'g'ri variantlari ham hisoblanadi** — har bir chalg'ituvchi
-  variant "qanday xatodan kelib chiqadi" degan izoh bilan yoziladi. Tasodifiy son
-  qo'yilmaydi.
-- Bitta savolda ikkitadan ortiq to'g'ri variant bo'lib qolmasligi tekshiriladi.
-- Har bir tekshiruv logi saqlanadi.
-- Har o'zgarishdan keyin `validate.py` (tuzilma: mashq soni, test soni, kalitlar,
-  `\ce{}` sintaksisi, javob formati) ishga tushiriladi.
+- Test savolining **noto'g'ri variantlari ham hisoblanadi** — har bir
+  chalg'ituvchi variant "qanday xatodan kelib chiqadi" degan izoh bilan
+  yoziladi. Tasodifiy son qo'yilmaydi.
+- Bitta savolda ikkitadan ortiq to'g'ri variant qolmagani tekshiriladi.
+- Y2 (moslashtirish) savollarida umumiy javoblar ro'yxati bir necha savolga
+  mos kelishi mumkinligi hisobga olinadi.
+- Yozma ish mashqining har bir bandiga M va A ballari yoziladi va yig'indisi 25
+  ekani tekshiriladi.
+- Har o'zgarishdan keyin `validate.py` ishga tushadi (mashq soni, test soni,
+  kalitlar, `\ce{}` sintaksisi, ball yig'indisi).
 
 ### Bobning JSON tuzilmasi
 
 ```json
-{"n": 12, "bolim": "...", "mavzu": "...", "savol_orni": "1-32 / 36-40 / 41-43",
+{"n": 12, "bolim": "Umumiy kimyo", "element": 7, "mavzu": "...",
+ "savol_orni": ["1-13", "36-37", "41"],
  "maruza": ["..."],
  "asosiy_formulalar": [{"f": "...", "izoh": "...", "birlik": "..."}],
- "tenglamalar": [{"tenglama": "$\\ce{...}$", "sharoit": "...", "izoh": "..."}],
+ "tenglamalar": [{"tenglama": "$\ce{...}$", "sharoit": "...", "izoh": "..."}],
  "sifat_reaksiyalari": [{"reagent": "...", "belgi": "...", "tenglama": "..."}],
  "eslatmalar": [{"joy": "...", "matn": "..."}],
  "xatolar": [{"xato": "...", "sabab": "...", "tuzatish": "..."}],
  "tiplar": [{"nom": "...", "qoida": "...", "formula": "...",
              "topshiriq": "Hisoblang",
-             "tez_yechish": "...", "vaqt_soniya": 60,
+             "tez_yechish": "...", "vaqt_soniya": 150, "kognitiv": "quyi|yuqori",
              "namuna": {"savol": "...", "qadamlar": ["..."], "javob": "...", "izoh": "..."},
              "mashqlar": [{"savol": "...", "javob": "...", "daraja": 1}]}],
+ "grafik_tahlil": [{"savol": "...", "jadval": [[]], "javob": "..."}],
+ "yozma_ish": {"tur": "41|42|43", "matn": "...",
+               "bandlar": [{"savol": "...", "yechim": ["..."], "M": 8, "A": 4}],
+               "jami": 25, "rasmiylashtirish": "..."},
  "xotira_kartalari": ["..."],
- "test": [{"matn": "...", "tur": "yopiq|moslashtirish|ochiq|yozma",
-           "variantlar": ["","","",""], "javob": "A",
-           "chalgituvchilar": [{"variant": "B", "xato": "..."}],
-           "yechim": "...", "vaqt_soniya": 90}]}
+ "test": [{"matn": "...", "tur": "Y1|Y2|O1|O2", "variantlar": ["","","",""],
+           "javob": "A", "chalgituvchilar": [{"variant": "B", "xato": "..."}],
+           "yechim": "...", "vaqt_soniya": 150}]}
 ```
 
-### Milliy Sertifikatga tushgan savollardan foydalanish tartibi
+### Tushgan savollardan foydalanish tartibi
 
-Men senga o'tgan imtihonlardagi savollarni beraman. Ular bilan ishlash tartibi:
+Men senga o'tgan imtihonlardagi savollarni beraman.
 
-1. **Pasportlash.** Har bir savol uchun: mavzu · tip · qiyinlik (1–3) · kerakli
-   qadamlar soni · taxminiy vaqt · tuzoq turi · savol o'rni (1–32 / 33–35 /
-   36–40 / 41–43).
-2. **Chastota jadvali.** Qaysi mavzudan necha marta va qaysi o'rinda kelgani
-   sanaladi. Shu jadval mavzular ustuvorligini (`tiers.json`) belgilaydi.
-3. **Analog yaratish.** Har bir asl savolga **3 ta original analog** yoziladi.
-   Analog deb hisoblanishi uchun kamida ikkita parametr o'zgarishi shart: modda,
-   son, kontekst, so'ralayotgan kattalik yoki qadamlar yo'nalishi (masalan,
-   massadan mol emas, moldan massa).
-4. **Taqiq.** Asl savol matni hech qayerga ko'chirilmaydi. Agar analog asl
-   savolga so'zma-so'z o'xshab qolsa — qayta yoziladi.
-5. **Bo'shliq tahlili.** Chastota jadvalidan chiqmagan, lekin rasmiy dasturda
-   bor mavzular alohida ro'yxatga olinadi — ular ham yoziladi (A+ da "kelmaydi"
-   degan mavzu yo'q).
+1. **Pasportlash.** Har savol uchun: bo'lim · mazmun elementi raqami (1–27) ·
+   savol turi (Y1/Y2/O1/O2) · savol o'rni · qiyinlik (1–3) · kognitiv daraja
+   (quyi/yuqori) · qadamlar soni · taxminiy vaqt · tuzoq turi.
+2. **Chastota jadvali.** Qaysi mazmun elementidan necha marta va qaysi o'rinda
+   kelgani sanaladi — shu jadval mashqlar sonini belgilaydi.
+3. **Analog yaratish.** Har asl savolga **3 ta original analog**. Analog bo'lishi
+   uchun kamida ikkita parametr o'zgaradi: modda, son, kontekst, so'ralayotgan
+   kattalik yoki qadamlar yo'nalishi (massadan mol emas, moldan massa).
+4. **Taqiq.** Asl savol matni hech qayerga ko'chirilmaydi. Analog asl savolga
+   so'zma-so'z o'xshab qolsa — qayta yoziladi.
+5. **Bo'shliq tahlili.** Chastota jadvalidan chiqmagan, lekin spetsifikatsiyada
+   bor mazmun elementlari alohida ro'yxatga olinadi — ular ham to'liq yoziladi.
+   A+ da "kelmaydi" degan mavzu yo'q.
 
 ### Ishlash uslubi
 
 - Ko'p bob ustida ishlaganda parallel agentlardan foydalan, lekin **bitta faylga
   ikki agent yozmasin** — avvalgi loyihada 8 ta bobda to'qnashuv bo'lgan.
 - Har o'zgarishdan keyin `validate.py` ishlat.
-- **Katta qarorni o'zboshimchalik bilan qabul qilma — metodist bilan kelish.**
-  Buning ichiga kiradi: mavzular ro'yxatini o'zgartirish, mashqlar sonini
-  kamaytirish, formatni o'zgartirish, tekshirish protokolini yengillashtirish.
+- **Katta qarorni o'zboshimchalik bilan qabul qilma — metodist bilan kelish:**
+  mavzular ro'yxatini o'zgartirish, mashq sonini kamaytirish, formatni
+  o'zgartirish, tekshirish protokolini yengillashtirish.
 - Ishonchsiz kimyoviy fakt (kam uchraydigan reaksiya, aniq bo'lmagan sharoit)
   uchraganda taxmin qilma — belgilab qo'y va mendan so'ra.
 
 ### Bob tayyor deb hisoblanadi, agar
 
 - [ ] Barcha mashq va testlar ikki mustaqil usuldan o'tgan;
-- [ ] Har bir tipda "Tez yechish" va vaqt normativi bor;
-- [ ] "Tipik tuzoqlar" bloki bo'sh emas;
-- [ ] Har bir yopiq testda chalg'ituvchi variantlar izohlangan;
-- [ ] Yakuniy test imtihon nisbatida (14/2/3/1);
+- [ ] Har tipda "Tez yechish" va vaqt normativi bor;
+- [ ] Yuqori kognitiv daraja (murakkab masala + grafik/jadval tahlili) qamrangan;
+- [ ] Xatolar bo'limi bo'sh emas;
+- [ ] Har Y1 testida chalg'ituvchi variantlar izohlangan;
+- [ ] Yozma ish mashqi bandlarga bo'lingan, M va A ballari 25 ga yig'iladi;
+- [ ] Yakuniy test imtihon nisbatida (15/2/2/1);
 - [ ] Xotira kartalari bor;
 - [ ] `validate.py` xatosiz o'tgan;
 - [ ] Barcha formulalar `\ce{}` ichida, Unicode belgi yo'q.
 
 ### Birinchi qadam
 
-Ishni boshlashdan oldin mendan quyidagini so'ra:
-1. `[T1]`–`[T4]` raqamlari (imtihon vaqti, ball taqsimoti, yozma ishda qisman
-   ball, A/A+ bo'sag'asi);
-2. tayyorgarlik muddati va haftalik soat;
-3. o'quvchilarning diagnostika natijasi;
-4. rasmiy dastur (mavzular ro'yxati) fayli bormi;
-5. o'tgan imtihon savollari to'plami — qaysi shaklda beraman.
-
-Keyin mavzular ro'yxati va ustuvorlik jadvalini taklif qil, men tasdiqlaganimdan
-keyin bob yozishga o't.
+Ishni boshlashdan oldin mendan so'ra: A / A+ ball bo'sag'asi (`[T1]`);
+tayyorgarlik muddati va haftalik soat (`[T2]`); o'quvchilarning diagnostika
+natijasi (`[T3]`); o'tgan imtihon savollarini qaysi shaklda beraman. Keyin 27 ta
+mazmun elementini haftalar bo'yicha taqsimlangan reja sifatida taklif qil — men
+tasdiqlaganimdan keyin bob yozishga o't.
 
 ---
 
@@ -268,13 +381,17 @@ keyin bob yozishga o't.
 
 | Matematika promti (C/B) | Kimyo promti (A/A+) |
 |---|---|
-| Geometriya olib tashlangan (32,2 ball qurbon qilingan) | Hech bir mavzu tashlanmaydi — dastur 100% yopiladi |
-| 45 topshiriq: 32 yopiq + 3 moslashtirish + 10 ochiq | 43 topshiriq: 32 yopiq + 3 moslashtirish + 5 ochiq + 3 yozma ish |
+| Geometriya olib tashlangan — 32,2 ball qurbon qilingan | Rasmiy 27 ta mazmun elementi 100% yopiladi |
+| 45 topshiriq, 150 daqiqa | 43 topshiriq, 180 daqiqa (100 + 80) |
+| 7 bo'lim | 4 bo'lim: umumiy · anorganik · organik · kimyoviy tahlil |
+| Yopiq 1,3 / 2,2 ball, ochiq 1,5 + 1,7 | 1–40 Rash modeli bilan, 41–43 har biri 25 ball (jami 75) |
 | Maqsad: C kafolat, imkon bo'lsa B | Maqsad: A kafolat, mo'ljal A+ |
-| Tekshiruv: sympy + brute-force | Tekshiruv: molyar massa parseri, matritsa balansi, `Fraction`/`mpmath` + massa/zaryad saqlanishi, teskari qo'yish, chegara tekshiruvi |
-| Har tipda: qoida + namuna + 12 mashq | Qo'shildi: "Tez yechish" usuli, vaqt normativi, +4 ta "A daraja" mashqi |
-| Yakuniy test: 20 ta aralash | Yakuniy test: 20 ta, imtihon nisbatida 14/2/3/1 + vaqt normativi |
-| — | Qo'shildi: reaksiya tenglamalari bazasi, sifat reaksiyalari jadvali, xotira kartalari, yozma ishni rasmiylashtirish |
-| — | Qo'shildi: chalg'ituvchi variantlar izohlanadi (har biri qaysi xatodan kelib chiqadi) |
-| LaTeX matematik yozuv | `\ce{}` (mhchem) kimyoviy yozuv + birlik va yaxlitlash qoidalari |
-| Manba savollari faqat qiyinlik o'lchash uchun | Qo'shildi: pasportlash → chastota jadvali → 3 ta analog → bo'shliq tahlili |
+| Qisman ball yo'q | 1–40 da yo'q; 41–43 da bandlar va M/A bo'yicha bor — lekin usulsiz javob = 0 |
+| Tekshiruv: sympy + brute-force | Molyar massa parseri, matritsa balansi, `Fraction`/`mpmath` + massa va zaryad saqlanishi, teskari qo'yish, chegara tekshiruvi |
+| Har tipda: qoida + namuna + 12 mashq | Qo'shildi: "Tez yechish", vaqt normativi, +4 ta yuqori kognitiv mashq |
+| Yakuniy test: 20 ta aralash | 20 ta, imtihon nisbatida 15/2/2/1 + bo'lim sinovi |
+| — | Reaksiya tenglamalari bazasi, sifat reaksiyalari jadvali, grafik/jadval tahlili bloki, xotira kartalari |
+| — | Yozma ish bandlarga bo'lib yoziladi, M va A ballari ko'rsatiladi, "Rasmiylashtirish" bo'limi |
+| — | 42-topshiriq uchun alohida hisobsiz organik zanjir treningi |
+| LaTeX matematik yozuv | `\ce{}` (mhchem) + birlik va yaxlitlash qoidalari |
+| Manba savollari qiyinlik o'lchash uchun | Pasportlash (mazmun elementi raqami bilan) → chastota jadvali → 3 ta analog → bo'shliq tahlili |
