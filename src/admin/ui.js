@@ -42,3 +42,9 @@ export const pageSub    = { fontSize:12.5, color:C.textMid, marginBottom:14 };
 export const fieldLabel = { fontSize:11.5, fontWeight:700, color:C.textMid, marginBottom:5, display:"block" };
 export const hint       = { fontSize:11, color:C.textLight };
 export const sectionLabel = { fontSize:10.5, fontWeight:700, color:C.textLight, textTransform:"uppercase", letterSpacing:"0.06em", marginBottom:6 };
+
+// Inline failure notice, shown where the action was taken.
+export const errorBox = {
+  background:"#FEF2F2", border:"1px solid #FECACA", color:C.danger,
+  borderRadius:9, padding:"9px 12px", fontSize:12.5, marginBottom:12, lineHeight:1.55,
+};

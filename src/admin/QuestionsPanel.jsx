@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Plus, ChevronLeft } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
 import QuestionRow from "./QuestionRow";
 import OptionGroups from "./OptionGroups";
-import { card, btnPrimary, btnGhost, pageTitle, pageSub, C } from "./ui";
+import { writeErrorText } from "./writeError";
+import { card, btnPrimary, btnGhost, pageTitle, pageSub, C, errorBox } from "./ui";
 
 export default function QuestionsPanel({ variant, teacher, onBack }) {
   const [questions, reloadQuestions] = useRows(
@@ -15,12 +17,16 @@ export default function QuestionsPanel({ variant, teacher, onBack }) {
     [variant.id]
   );
 
+  const [err, setErr] = useState("");
+
   const generateAll = async () => {
     const rows = Array.from({ length: variant.total_questions }, (_, i) => ({
       variant_id: variant.id,
       question_number: i + 1,
     }));
-    await supabase.from("questions").insert(rows);
+    setErr("");
+    const { error } = await supabase.from("questions").insert(rows);
+    if (error) { setErr(writeErrorText(error)); return; }
     reloadQuestions();
   };
 
@@ -31,6 +37,8 @@ export default function QuestionsPanel({ variant, teacher, onBack }) {
       <button style={{ ...btnGhost, marginBottom:14 }} onClick={onBack}><ChevronLeft size={14}/> Variantlar</button>
       <h2 style={pageTitle}>{teacher.name} · {variant.variant_number}-Variant — Savollar</h2>
       <p style={pageSub}>{doneCount}/{questions.length} video tayyor</p>
+
+      {err && <div style={errorBox}>{err}</div>}
 
       {questions.length === 0 ? (
         <div style={{ ...card, textAlign:"center", padding:24 }}>

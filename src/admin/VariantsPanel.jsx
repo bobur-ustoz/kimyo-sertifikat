@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Plus, Trash2, ChevronLeft } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
-import { C, card, inputStyle, btnPrimary, btnGhost, pill, pageTitle, pageSub } from "./ui";
+import { writeErrorText } from "./writeError";
+import { C, card, inputStyle, btnPrimary, btnGhost, pill, pageTitle, pageSub, errorBox } from "./ui";
 
 export default function VariantsPanel({ teacher, onBack, onSelect }) {
   const [variants, reload] = useRows(
@@ -10,23 +11,31 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
     [teacher.id]
   );
   const [newNum, setNewNum] = useState("");
+  const [err, setErr] = useState("");
 
   const addVariant = async () => {
     const num = parseInt(newNum, 10);
-    if (!num) return;
-    await supabase.from("variants").insert({ teacher_id: teacher.id, variant_number: num, total_questions: 43 });
+    if (!num) { setErr("Variant raqamini kiriting."); return; }
+    setErr("");
+    const { error } = await supabase.from("variants")
+      .insert({ teacher_id: teacher.id, variant_number: num, total_questions: 43 });
+    if (error) { setErr(writeErrorText(error)); return; }
     setNewNum("");
     reload();
   };
 
   const delVariant = async (id) => {
     if (!confirm("Variantni o'chirishni tasdiqlaysizmi? Barcha savollari ham o'chadi.")) return;
-    await supabase.from("variants").delete().eq("id", id);
+    setErr("");
+    const { error } = await supabase.from("variants").delete().eq("id", id);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 
   const update = async (v, patch) => {
-    await supabase.from("variants").update(patch).eq("id", v.id);
+    setErr("");
+    const { error } = await supabase.from("variants").update(patch).eq("id", v.id);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 
@@ -43,6 +52,8 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
           value={newNum} onChange={e => setNewNum(e.target.value)}/>
         <button style={btnPrimary} onClick={addVariant}><Plus size={14}/> Variant qo'shish</button>
       </div>
+
+      {err && <div style={errorBox}>{err}</div>}
 
       <div style={{background: freeCount ? C.mintBg : C.warningBg, border:`1px solid ${freeCount ? "#86EFAC" : "#FDE68A"}`,
         borderRadius:10, padding:"10px 13px", marginBottom:14, fontSize:12, color: freeCount ? C.primary : C.warning, lineHeight:1.6}}>

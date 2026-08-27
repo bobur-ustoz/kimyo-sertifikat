@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Trash2, Sparkles, ThumbsUp } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
+import { writeErrorText } from "./writeError";
 import { C, btnGhost, sectionLabel } from "./ui";
 
 async function callClaude(prompt, maxTokens) {
@@ -32,7 +33,7 @@ export default function AnalogReview({ questionId, topic }) {
     try {
       const prompt = `Kimyo fani bo'yicha "${topic}" mavzusida analog savol yarat. O'zbek tilida. FAQAT JSON formatda javob ber, boshqa hech narsa yozma:\n{"savol":"savol matni","formula":"asosiy formula (yoki bo'sh satr)","yechim":["1-qadam","2-qadam","3-qadam"],"javob":"yakuniy javob"}`;
       const parsed = JSON.parse(await callClaude(prompt, 1200));
-      await supabase.from("analog_questions").insert({
+      const { error } = await supabase.from("analog_questions").insert({
         question_id: questionId,
         savol: parsed.savol,
         formula: parsed.formula || null,
@@ -40,6 +41,7 @@ export default function AnalogReview({ questionId, topic }) {
         javob: parsed.javob,
         is_approved: false,
       });
+      if (error) { setErr(writeErrorText(error)); setGenerating(false); return; }
       reload();
     } catch (e) {
       setErr("Generatsiyada xatolik: " + e.message);
@@ -48,13 +50,16 @@ export default function AnalogReview({ questionId, topic }) {
   };
 
   const setApproved = async (id, is_approved) => {
-    await supabase.from("analog_questions").update({ is_approved }).eq("id", id);
+    setErr("");
+    const { error } = await supabase.from("analog_questions").update({ is_approved }).eq("id", id);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 
   const del = async (id) => {
     if (!confirm("O'chirilsinmi?")) return;
-    await supabase.from("analog_questions").delete().eq("id", id);
+    const { error } = await supabase.from("analog_questions").delete().eq("id", id);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 

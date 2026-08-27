@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Plus, Trash2, Save } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
-import { C, card, inputStyle, btnPrimary, btnGhost, pageTitle } from "./ui";
+import { writeErrorText } from "./writeError";
+import { C, card, inputStyle, btnPrimary, btnGhost, pageTitle, errorBox } from "./ui";
 
 const EMPTY = { name:"", subject:"", initials:"", color:"#0F5132", bg_color:"#F0FDF4", rating:5, students:0, badge:"", is_free:true, description:"" };
 
@@ -18,12 +19,19 @@ const FIELDS = [
 
 function TeacherForm({ editing, onSaved, onCancel }) {
   const [f, setF] = useState(editing || EMPTY);
+  const [err, setErr] = useState("");
   const set = (k, v) => setF(p => ({ ...p, [k]: v }));
 
   const save = async () => {
-    if (!f.name || !f.subject || !f.initials) return;
-    if (editing) await supabase.from("teachers").update(f).eq("id", editing.id);
-    else await supabase.from("teachers").insert(f);
+    if (!f.name || !f.subject || !f.initials) {
+      setErr("Ism, fan va inisiallar to'ldirilishi shart.");
+      return;
+    }
+    setErr("");
+    const { error } = editing
+      ? await supabase.from("teachers").update(f).eq("id", editing.id)
+      : await supabase.from("teachers").insert(f);
+    if (error) { setErr(writeErrorText(error)); return; }
     onSaved();
   };
 
@@ -47,6 +55,8 @@ function TeacherForm({ editing, onSaved, onCancel }) {
       <textarea style={{...inputStyle, marginBottom:10, minHeight:60}} value={f.description || ""}
         onChange={e => set("description", e.target.value)}/>
 
+      {err && <div style={errorBox}>{err}</div>}
+
       <div style={{display:"flex",gap:8}}>
         <button style={btnPrimary} onClick={save}><Save size={13}/> Saqlash</button>
         <button style={btnGhost} onClick={onCancel}>Bekor qilish</button>
@@ -60,10 +70,13 @@ export default function TeachersPanel({ onSelect }) {
     supabase.from("teachers").select("*").order("sort_order").order("created_at"));
   const [editing, setEditing] = useState(null);   // teacher being edited
   const [showForm, setShowForm] = useState(false);
+  const [err, setErr] = useState("");
 
   const del = async (id) => {
     if (!confirm("O'qituvchini o'chirishni tasdiqlaysizmi? Barcha variant va savollari ham o'chadi.")) return;
-    await supabase.from("teachers").delete().eq("id", id);
+    setErr("");
+    const { error } = await supabase.from("teachers").delete().eq("id", id);
+    if (error) { setErr(writeErrorText(error)); return; }
     reload();
   };
 
@@ -80,6 +93,8 @@ export default function TeachersPanel({ onSelect }) {
         <TeacherForm editing={editing} onCancel={() => setShowForm(false)}
           onSaved={() => { setShowForm(false); reload(); }}/>
       )}
+
+      {err && <div style={errorBox}>{err}</div>}
 
       <div style={{display:"flex",flexDirection:"column",gap:8}}>
         {teachers.length === 0 && (

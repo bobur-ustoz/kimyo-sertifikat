@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Plus, Trash2, Save } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
-import { C, card, inputStyle, btnPrimary, btnGhost } from "./ui";
+import { writeErrorText } from "./writeError";
+import { C, card, inputStyle, btnPrimary, btnGhost, errorBox } from "./ui";
 
 const blankOptions = () => ["A","B","C","D","E","F"].map(letter => ({ letter, text:"" }));
 
@@ -11,20 +12,24 @@ export default function OptionGroups({ variantId, groups, onChanged }) {
   const [adding, setAdding] = useState(false);
   const [label, setLabel] = useState("");
   const [opts, setOpts] = useState(blankOptions);
+  const [err, setErr] = useState("");
 
   const reset = () => { setAdding(false); setLabel(""); setOpts(blankOptions()); };
 
   const save = async () => {
     const filled = opts.filter(o => o.text.trim());
-    if (filled.length < 2) return;
-    await supabase.from("option_groups").insert({ variant_id: variantId, label, options: filled });
+    if (filled.length < 2) { setErr("Kamida ikkita javob varianti kiriting."); return; }
+    setErr("");
+    const { error } = await supabase.from("option_groups").insert({ variant_id: variantId, label, options: filled });
+    if (error) { setErr(writeErrorText(error)); return; }
     reset();
     onChanged();
   };
 
   const del = async (id) => {
     if (!confirm("Guruhni o'chirasizmi? Unga bog'langan savollar 'moslashtirish' turida qolib, guruhsiz bo'lib qoladi.")) return;
-    await supabase.from("option_groups").delete().eq("id", id);
+    const { error } = await supabase.from("option_groups").delete().eq("id", id);
+    if (error) { setErr(writeErrorText(error)); return; }
     onChanged();
   };
 
@@ -34,6 +39,8 @@ export default function OptionGroups({ variantId, groups, onChanged }) {
         <div style={{fontWeight:800,fontSize:13.5,color:C.text}}>Moslashtirish guruhlari (umumiy A–F javoblar)</div>
         {!adding && <button style={btnGhost} onClick={() => setAdding(true)}><Plus size={13}/> Guruh qo'shish</button>}
       </div>
+
+      {err && <div style={errorBox}>{err}</div>}
 
       {groups.map(g => (
         <div key={g.id} style={{background:"#fff",borderRadius:9,padding:"8px 12px",marginBottom:6,display:"flex",alignItems:"center",gap:10,border:`1px solid ${C.border}`}}>
