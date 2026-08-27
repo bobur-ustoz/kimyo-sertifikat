@@ -152,6 +152,13 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
     });
     setSending(false);
     if(error){ setErr("So'rov yuborilmadi: "+error.message); return; }
+    // Nudge the admin on Telegram. The request is already saved, so a failure
+    // here must not look to the student like the purchase did not go through.
+    fetch("/api/notify-purchase",{
+      method:"POST",
+      headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},
+      body:JSON.stringify({variantId:variant.id}),
+    }).catch(()=>{});
     onRequested();
   };
 
