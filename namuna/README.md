@@ -2,8 +2,10 @@
 
 27 mazmun elementidan **bittasining** to'liq namunasi — `PROMT_KIMYO.md`
 dagi "Kitob formati" bo'yicha yozilgan. Ma'ruza, tiplar (namunasi bilan),
-grafik tahlili, yozma ish, **43 talik mavzuviy mashqlar banki**, xotira
-kartalari va qisqartirilgan yakuniy test (7/20 ta).
+grafik tahlili, yozma ish, **43 talik mavzuviy mashqlar banki** (aralash
+1-3 daraja), **43 talik MS darajasidagi mashqlar banki** (barchasi
+variantlarning eng qiyin pozitsiyalari — Y2/O2 — darajasida, ko'p
+bosqichli), xotira kartalari va qisqartirilgan yakuniy test (7/20 ta).
 
 Mavzu tanlovi tasodifiy emas: I.6 kalibrlash (`tahlil/v01.json`) bo'yicha
 ikki marta chiqqan (8 va 36-savol) va 8-sinf darsligida faqat sifat
@@ -15,7 +17,8 @@ aniq misol (`tahlil/darslik/README.md` dagi 2-topilma).
 | Fayl | Vazifasi |
 |---|---|
 | `I6-muvozanat.json` | Bobning o'zi — promtdagi JSON sxemasi bo'yicha |
-| `verify.py` | Barcha sonli javoblarni mustaqil qayta hisoblab tekshiradi |
+| `verify.py` | Barcha sonli javoblarni mustaqil qayta hisoblab tekshiradi (mashqlar_banki, yozma_ish, test) |
+| `verify_I6_hard.py` | `ms_darajasidagi_bank`ning 43 ta savolini mustaqil (2-usul, alohida sympy sozlash) qayta tekshiradi — har bir savol "parametrlar" maydonidagi xom sonlardan tenglamani qaytadan yechadi |
 | `verify_lib.py` | Tekshiruv uchun umumiy formulalar (Kc, n0/alpha yechuvchi) |
 | `render.py` | Har qanday shu sxemadagi bob JSON'ini ikki ustunli, KaTeX+mhchem bilan to'liq render qilingan HTML sahifaga aylantiradi |
 | `assets/` | `render.py` uchun inline shrift/JS/CSS (internetga muhtoj emas) |
@@ -23,7 +26,8 @@ aniq misol (`tahlil/darslik/README.md` dagi 2-topilma).
 ## Ishlatish
 
 ```bash
-python3 namuna/verify.py          # barcha sonlarni qayta hisoblab tasdiqlaydi
+python3 namuna/verify.py            # mashqlar_banki/yozma_ish/test'ni qayta hisoblab tasdiqlaydi
+python3 namuna/verify_I6_hard.py    # MS darajasidagi 43 talik bankni mustaqil tasdiqlaydi
 python3 namuna/render.py namuna/I6-muvozanat.json
 ```
 

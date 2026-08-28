@@ -133,6 +133,18 @@ def build_content(d):
             add(f'<li>{m["savol"]} <span class="j">{m["javob"]}</span></li>')
         add('</ol>')
 
+    if d.get("ms_darajasidagi_bank"):
+        n = len(d["ms_darajasidagi_bank"])
+        add(f'<h2 class="colspan">MS darajasidagi mashqlar banki &mdash; {n} ta</h2>')
+        if d.get("ms_darajasidagi_bank_izoh"):
+            add(f'<p class="bank-izoh colspan">{e(d["ms_darajasidagi_bank_izoh"])}</p>')
+        add('<ol class="bank-hard" start="1">')
+        for m in d["ms_darajasidagi_bank"]:
+            add(f'<li><span class="hq">{m["savol"]}</span> '
+                f'<span class="j">{m["javob"]}</span>'
+                f'<div class="hy">{m["yechim"]}</div></li>')
+        add('</ol>')
+
     if d.get("xotira_kartalari"):
         add('<h2 class="colspan">Xotira kartalari</h2>')
         add('<ul class="xotira">')
