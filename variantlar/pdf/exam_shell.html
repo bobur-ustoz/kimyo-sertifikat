@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<style>__KATEX_CSS__</style>
+<style>
+@page { size: A4; margin: 16mm 14mm 18mm; }
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:"Times New Roman",Georgia,serif; font-size:11.3pt; line-height:1.38;
+  color:#111;
+}
+.katex{font-size:1.0em}
+
+.titlepage{ text-align:center; padding-top:18mm; break-after:page; page-break-after:always; }
+.titlepage .kicker{ font-size:11pt; letter-spacing:.12em; text-transform:uppercase; color:#555; margin-bottom:6mm; font-family:Arial,sans-serif; }
+.titlepage h1{ font-size:24pt; margin:0 0 4mm; font-family:Arial,sans-serif; font-weight:700; }
+.titlepage h2{ font-size:14pt; margin:0 0 14mm; font-weight:400; color:#333; font-family:Arial,sans-serif;}
+.titlepage table{ margin:0 auto; border-collapse:collapse; font-family:Arial,sans-serif; font-size:10.5pt; }
+.titlepage td{ border:1px solid #999; padding:5px 14px; text-align:left; }
+.titlepage td.k{ background:#f2f2f2; font-weight:700; width:52mm; }
+.titlepage .note{ margin-top:14mm; font-size:9.5pt; color:#666; max-width:130mm; margin-left:auto; margin-right:auto; font-family:Arial,sans-serif; line-height:1.5;}
+
+.header{
+  font-family:Arial,sans-serif; font-size:9pt; color:#555;
+  border-bottom:1px solid #999; padding-bottom:2mm; margin-bottom:5mm;
+  display:flex; justify-content:space-between;
+}
+
+.cols{ column-count:2; column-gap:9mm; column-rule:0.5pt solid #ccc; }
+.cols.single{ column-count:1; }
+
+.q{ break-inside:avoid; margin-bottom:3.6mm; }
+.qn{ font-weight:700; }
+.qtext{ white-space:pre-line; }
+.opts{ display:flex; flex-direction:column; gap:1mm; margin:1mm 0 0 5.5mm; font-size:11pt; }
+.opt{ }
+
+.y2block, .o2block{ break-inside:avoid; }
+.y2list{ margin:1.5mm 0 0 5.5mm; }
+.y2line{ margin-bottom:1mm; }
+.y2answers{ margin:1.5mm 0 0 5.5mm; font-size:10.3pt; }
+
+.blank{ margin:1.5mm 0 0 5.5mm; font-size:10.5pt; color:#333; }
+
+.o2list{ margin:1.5mm 0 0 8mm; }
+.o2list li{ margin-bottom:1mm; }
+
+.pagefoot{ position:fixed; bottom:8mm; left:0; right:0; text-align:center; font-family:Arial,sans-serif; font-size:8.5pt; color:#888; }
+
+/* --- javoblar qismi --- */
+h2{ font-family:Arial,sans-serif; font-size:15pt; border-bottom:2px solid #333; padding-bottom:2mm; margin:0 0 5mm; break-before:page; page-break-before:always; }
+
+table.keytable{ border-collapse:collapse; width:100%; font-size:10pt; margin-bottom:6mm; font-family:Arial,sans-serif;}
+table.keytable th{ background:#eee; border:1px solid #bbb; padding:3px 8px; text-align:left; }
+table.keytable td{ border:1px solid #ccc; padding:3px 8px; }
+
+.sol{ break-inside:avoid; margin-bottom:5mm; padding-bottom:3mm; border-bottom:0.5pt solid #ddd; }
+.sol-head{ font-family:Arial,sans-serif; font-weight:700; font-size:10.5pt; color:#0a4d3c; margin-bottom:1.5mm; }
+.sol-javob{ margin-bottom:1.5mm; }
+.sol-yechim{ font-size:10.5pt; margin-bottom:1.5mm; }
+.sol-chalg{ font-size:9.8pt; color:#444; }
+.sol-chalg ul{ margin:1mm 0 0; padding-left:5mm; }
+.sol-rasmiy{ font-size:9.8pt; color:#444; margin-top:1.5mm; }
+
+table.bandtable{ border-collapse:collapse; width:100%; font-size:9.8pt; margin:1.5mm 0; }
+table.bandtable th{ background:#f4f4f4; border:1px solid #ccc; padding:3px 6px; font-family:Arial,sans-serif; font-size:9pt;}
+table.bandtable td{ border:1px solid #ddd; padding:3px 6px; vertical-align:top; }
+table.bandtable tr.jami td{ font-weight:700; border-top:1.5px solid #999; }
+</style>
+</head>
+<body>
+
+<div class="titlepage">
+  <div class="kicker">Milliy Sertifikat &middot; Kimyo</div>
+  <h1>__VARIANT_NAME__</h1>
+  <h2>Original mock-imtihon &mdash; PROMT_VARIANT.md shabloni bo'yicha</h2>
+  <table>
+    <tr><td class="k">Topshiriqlar soni</td><td>43</td></tr>
+    <tr><td class="k">Ajratilgan vaqt</td><td>180 daqiqa (1&ndash;40: 100 daq. + 41&ndash;43: 80 daq.)</td></tr>
+    <tr><td class="k">Tuzilma</td><td>__STRUCT__</td></tr>
+    <tr><td class="k">Manba</td><td>__SRC__</td></tr>
+  </table>
+  <p class="note">Barcha savollar original &mdash; hech biri biror haqiqiy imtihon variantidan ko'chirilmagan. Savollarning bo'lim taqsimoti, o'rni va qiyinlik ketma-ketligi Milliy Sertifikat spetsifikatsiyasi va kalibrlash (tahlil/v01.json) asosida shakllantirilgan. Barcha sonli javoblar ikki mustaqil usulda tekshirilgan (variantlar/verify_v02.py).</p>
+</div>
+
+<div class="header"><span>Kimyo &middot; __VARIANT_NAME__</span><span>1&ndash;43</span></div>
+<div class="cols">
+__TEST_CONTENT__
+</div>
+
+__ANSWERS_CONTENT__
+
+<script>__KATEX_JS__</script>
+<script>__MHCHEM_JS__</script>
+<script>__AUTORENDER_JS__</script>
+<script>
+renderMathInElement(document.body, {
+  delimiters: [{left:"$", right:"$", display:false}],
+  trust: true,
+  throwOnError: false
+});
+</script>
+</body>
+</html>
