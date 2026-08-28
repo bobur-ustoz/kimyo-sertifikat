@@ -28,6 +28,25 @@ def e(s):
     return html.escape(str(s), quote=False)
 
 
+def split_o2_matn(matn):
+    """s['matn'] ba'zan uchta qismdan iborat: kirish matni (prose),
+    reaksiya sxemasi (bitta $\\ce{...->[n]...}$ qatori) va/yoki
+    tajriba-natija jadvali (pipe '|' bilan ajratilgan qatorlar).
+    Ularni alohida render qilish uchun ajratamiz."""
+    intro, scheme, table_rows = [], [], []
+    for raw in matn.split("\n"):
+        ls = raw.strip()
+        if not ls:
+            continue
+        if "|" in ls:
+            table_rows.append(ls)
+        elif "->[" in ls:
+            scheme.append(ls)
+        else:
+            intro.append(ls)
+    return intro, scheme, table_rows
+
+
 def build_test_html(S):
     out = []
     add = out.append
@@ -42,18 +61,34 @@ def build_test_html(S):
                 add(f'<span class="opt">{letter}) {v}</span>')
             add('</div></div>')
         elif tur == "Y2":
-            add(f'<div class="q y2block"><span class="qn">{n}–{n+2}.</span> <span class="qtext">{s["matn_umumiy"]}</span>')
-            add('<div class="y2list">')
+            last = n + len(s["savollar_ichki"]) - 1
+            add('<div class="q y2block">')
+            add(f'<div class="y2-instr">{n} &ndash; {last}-test topshiriqlariga mos keluvchi javob variantlarini (A &ndash; F) tanlang.</div>')
+            add('<table class="y2table"><tbody>')
+            opts_html = "<br>".join(s["javoblar_royxati"])
+            rowspan = 1 + len(s["savollar_ichki"])
+            add(f'<tr><td class="y2-scenario">{s["matn_umumiy"]}</td>'
+                f'<td class="y2-opts" rowspan="{rowspan}">{opts_html}</td></tr>')
             for line in s["savollar_ichki"]:
-                add(f'<div class="y2line">{line}</div>')
-            add('</div>')
-            add('<div class="y2answers"><b>Javob variantlari:</b> ' + " &nbsp; ".join(s["javoblar_royxati"]) + '</div>')
+                add(f'<tr><td class="y2-q">{line}</td></tr>')
+            add('</tbody></table>')
             add('</div>')
         elif tur == "O1":
             add(f'<div class="q"><span class="qn">{n}.</span> <span class="qtext">{s["savol"]}</span>')
             add('<div class="blank">Javob: _______________________</div></div>')
         elif tur == "O2":
-            add(f'<div class="q o2block"><span class="qn">{n}-topshiriq.</span> <span class="qtext">{s["matn"]}</span>')
+            intro, scheme, table_rows = split_o2_matn(s["matn"])
+            add(f'<div class="q o2block"><span class="qn">{n}-topshiriq.</span> '
+                f'<span class="qtext">{"<br>".join(intro)}</span>')
+            if scheme:
+                add(f'<div class="o2-scheme">{"<br>".join(scheme)}</div>')
+            if table_rows:
+                add('<table class="o2-table"><tbody>')
+                for i, row in enumerate(table_rows):
+                    cells = [c.strip() for c in row.split("|")]
+                    tag = "th" if i == 0 else "td"
+                    add('<tr>' + "".join(f'<{tag}>{c}</{tag}>' for c in cells) + '</tr>')
+                add('</tbody></table>')
             add('<ol class="o2list">')
             for b in s["bandlar"]:
                 add(f'<li>{b["savol"]}</li>')

@@ -127,17 +127,17 @@ check("29", "10000", Fr(680000, 68))
 # ---- 31: CaCl2 M ----
 check("31", "111", 40 + 2 * Fr('35.5'))
 
-# ---- Y2 (33-35) ----
-total_gas = Fr('4.48') / 22.4
-precip35 = Fr(5) / 100
+# ---- Y2 (33-35) ---- Mg + MgCO3 aralashmasi
+total_gas = Fr('5.04') / Fr('22.4')
+precip35 = Fr('7.5') / 100
 x35 = total_gas - precip35
 Asym = sp.symbols('Asym', positive=True)
-A35 = sp.solve(sp.Eq(Fr('0.2') * Asym + 3, 16), Asym)[0]
-check("33", "65", A35)
+A35 = sp.solve(sp.Eq(x35 * Asym + precip35 * (Asym + 60), Fr('9.9')), Asym)[0]
+check("33", "24", A35)
 mass_gas35 = x35 * 2 + precip35 * 44
-check("34", "12.5", mass_gas35 / total_gas)
+check("34", "16", mass_gas35 / total_gas)
 n_NO35 = (x35 * 2) / 3
-check("35", "3.36", (n_NO35 + precip35) * 22.4)
+check("35", "3.92", (n_NO35 + precip35) * Fr('22.4'))
 
 # ---- 36: 2NO2<=>N2O4, Kc=10 ----
 V36 = 10 * Fr('0.4') ** 2 / Fr('0.8')

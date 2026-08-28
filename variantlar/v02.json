@@ -1000,26 +1000,26 @@
    "tur": "Y2",
    "bolim": "II",
    "element": "II.4",
-   "matn_umumiy": "II valentli metall va uning karbonatidan iborat 16 g aralashma mo'l miqdordagi xlorid kislota eritmasida eritilganda 4,48 litr (n.sh.) gazlar aralashmasi hosil bo'ldi. Gazlar mo'l miqdordagi ohakli suvdan o'tkazilganda 5 g cho'kma ajraldi.",
+   "matn_umumiy": "Ikkivalentli metall va uning karbonatidan tashkil topgan 9,9 g aralashma ortiqcha xlorid kislota eritmasida to'liq eritildi, natijada 5,04 litr (n.sh.) gazlar aralashmasi ajralib chiqdi. Bu gazlar ortiqcha ohakli suvdan o'tkazilganda 7,5 g cho'kma tushdi.",
    "savollar_ichki": [
-    "33. Metall molyar massasini (g/mol) aniqlang.",
-    "34. Hosil bo'lgan gazlar aralashmasining molyar massasini (g/mol) aniqlang.",
-    "35. Dastlabki aralashma mo'l miqdordagi suyultirilgan nitrat kislota eritmasida eritilganda qancha (l; n.sh.) gaz hosil bo'ladi?"
+    "33. Metallning molyar massasini (g/mol) toping.",
+    "34. Ajralgan gazlar aralashmasining o'rtacha molyar massasini (g/mol) hisoblang.",
+    "35. Xuddi shu dastlabki aralashma ortiqcha suyultirilgan nitrat kislota eritmasida eritilsa, qancha (l; n.sh.) gaz ajraladi?"
    ],
    "javoblar_royxati": [
-    "A) 56",
-    "B) 65",
-    "C) 12,5",
-    "D) 3,36",
-    "E) 2,24",
-    "F) 4,48"
+    "A) 24",
+    "B) 40",
+    "C) 16",
+    "D) 12,5",
+    "E) 3,92",
+    "F) 2,24"
    ],
    "javoblar": {
-    "33": "B",
+    "33": "A",
     "34": "C",
-    "35": "D"
+    "35": "E"
    },
-   "yechim": "$y$(karbonat)$=5/100=0{,}05$mol. $x$(metall)$=0{,}2-0{,}05=0{,}15$mol. Massa: $0{,}15A+0{,}05(A+60)=16$ => $A=65$ ($\\ce{Zn}$). Gaz $M$: $(0{,}15\\times2+0{,}05\\times44)/0{,}2=12{,}5$. $\\ce{HNO3}$ (suyultirilgan) bilan: $\\ce{Zn->NO}$ (elektron balans, $\\ce{H2}$ emas!): elektron$=0{,}3$mol, $\\ce{NO}=0{,}1$mol. $\\ce{CO2}$ (karbonatdan, o'zgarmas)$=0{,}05$mol. Jami$=0{,}15$mol$=3{,}36$ l."
+   "yechim": "$y$(karbonat)$=7{,}5/100=0{,}075$mol. Jami gaz (HCl bilan)$=5{,}04/22{,}4=0{,}225$mol => $x$(metall)$=0{,}225-0{,}075=0{,}15$mol. Massa tenglamasi: $0{,}15A+0{,}075(A+60)=9{,}9$ => $0{,}225A+4{,}5=9{,}9$ => $A=24$ ($\\ce{Mg}$). Gaz o'rtacha $M$: $(0{,}15\\times2+0{,}075\\times44)/0{,}225=16$. Suyultirilgan $\\ce{HNO3}$ bilan (to'g'ridan-to'g'ri qattiq aralashmaga): $\\ce{Mg->Mg^2+}$, elektron$=0{,}15\\times2=0{,}3$mol; $\\ce{NO3- + 4H+ + 3e- -> NO + 2H2O}$ => $\\ce{NO}=0{,}3/3=0{,}1$mol. Karbonatdan $\\ce{CO2}$ (kislota kuchidan qat'i nazar o'zgarmaydi)$=0{,}075$mol. Jami gaz$=0{,}1+0{,}075=0{,}175$mol$=3{,}92$ l. (Tekshiruv-2, mustaqil: berilgan uchta ma'lumotdan — massa, hajm, cho'kma — teskari yo'l bilan $x{=}0{,}15$, $y{=}0{,}075$, $A{=}24$ topiladi, sympy bilan qayta hisoblab tasdiqlangan.)"
   },
   {
    "n": 36,
