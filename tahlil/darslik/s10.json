@@ -1,0 +1,94 @@
+{
+ "sinf": 10,
+ "darslik": "I.Sh.Ismatov, D.Azamatova, M.Mo'minjonov, M.Muratov — Kimyo 10, Toshkent 2022 (yangi nashr), 192 bet",
+ "holat": "to'liq",
+ "boblar": [
+  {
+   "bob": "I. Organik kimyoning tuzilish nazariyasi haqida dastlabki tushunchalar",
+   "mavzular": [
+    {"nom": "1.1 Organik kimyo tarixi. Organik birikmalarning o'ziga xos xususiyatlari", "element": "III.1", "chuqurlik": "yuzaki", "izoh": "Tarixiy/kirish mavzu, tuzilish emas"},
+    {"nom": "1.2 Organik birikmalar tuzilish nazariyasi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.3 Organik birikmalarda uglerodning valentligi va oksidlanish darajasi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.4 Izomeriya va uning turlari", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.5 Organik birikmalarning sinflanishi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.6 Organik birikmalarga xos reaksiya turlari", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.7 Organik birikmalar nomenklaturasi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.8 Nomenklatura va izomeriyaga oid masala va mashqlar yechish", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "1.9 Amaliy mashg'ulot. Organik birikmalarning namunalari bilan tanishish va qiyoslash", "element": "III.1", "chuqurlik": "yuzaki"},
+    {"nom": "1.10 Amaliy mashg'ulot. Organik birikmalar tarkibini tahlil qilish", "element": "III.1", "chuqurlik": "yuzaki"}
+   ]
+  },
+  {
+   "bob": "II. Uglevodorodlar",
+   "mavzular": [
+    {"nom": "2.1 Alkanlar", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "2.2 Alkanlarning izomeriyasi va nomlanishi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "2.3 Alkanlarning olinishi va fizik xossalari", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "2.4 Alkanlarning kimyoviy xossalari va ishlatilishi", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "2.5 Sikloalkanlarning tuzilishi, izomeriyasi va nomlanishi", "element": "III.1", "chuqurlik": "yuzaki", "izoh": "Sikloalkanlar spetsifikatsiyada alohida ko'rsatilmagan, alkanlar bilan bog'liq qo'shimcha mavzu sifatida"},
+    {"nom": "2.6 Sikloalkanlarning olinishi, xossalari va ishlatilishi", "element": "III.1", "chuqurlik": "yuzaki"},
+    {"nom": "2.7 Alkenlar. Nomenklaturasi. Izomeriyasi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.8 Alkenlarning olinishi, xossalari va ishlatilishi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.9 Amaliy mashg'ulot. Etilenning olinishi va xossalarini o'rganish", "element": "III.2", "chuqurlik": "yuzaki"},
+    {"nom": "2.10 Alkadiyenlar. Gomologik qatori. Izomeriyasi. Nomlanishi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.11 Alkadiyenlarning olinishi, xossalari, ishlatilishi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.12 Kauchuk. Rezina", "element": "III.10", "chuqurlik": "yuzaki", "izoh": "Polimerlanish darajasi (n) formulasi shu yerda kiritiladi, lekin mustaqil 'polimerlar' mavzusi sifatida emas — dien mavzusiga bog'liq holda"},
+    {"nom": "2.13 Alkinlar. Gomologik qatori. Izomeriyasi. Nomlanishi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.14 Alkinlarning olinishi, xossalari, ishlatilishi", "element": "III.2", "chuqurlik": "tanish"},
+    {"nom": "2.15 Aromatik uglevodorodlar. Gomologik qatori. Izomeriyasi. Nomlanishi", "element": "III.3", "chuqurlik": "tanish"},
+    {"nom": "2.16 Aromatik uglevodorodlarning olinishi, xossalari, ishlatilishi", "element": "III.3", "chuqurlik": "tanish"},
+    {"nom": "2.17 Stirol, uning olinishi, xossalari, ishlatilishi", "element": "III.3", "chuqurlik": "yuzaki"},
+    {"nom": "2.18 Uglevodorodlarning tabiiy manbalari. Tabiiy gaz", "element": "III.3", "chuqurlik": "tanish"},
+    {"nom": "2.19 Neft va neftni qayta ishlash", "element": "III.3", "chuqurlik": "tanish"},
+    {"nom": "2.20 Toshko'mir", "element": "III.3", "chuqurlik": "yuzaki"},
+    {"nom": "2.21 Amaliy mashg'ulot. Uglevodorodlarning shar-sterjenli va masshtabli modellarini yasash", "element": "III.1", "chuqurlik": "yuzaki"},
+    {"nom": "2.22 Uglevodorodlarning tabiiy manbalari, ularni qayta ishlash mahsulotlaridan samarali foydalanish", "element": "III.3", "chuqurlik": "yuzaki"},
+    {"nom": "2.23 Uglevodorodlarning asosiy sinflariga oid masala va mashqlar yechish", "element": "III.1", "chuqurlik": "tanish"},
+    {"nom": "2.24 Bob yuzasidan topshiriqlar", "element": "III.2", "chuqurlik": "tanish"}
+   ]
+  },
+  {
+   "bob": "III. Kislorodli organik birikmalar",
+   "mavzular": [
+    {"nom": "3.1 To'yingan bir atomli spirtlar. Gomologik qatori. Nomenklaturasi. Izomeriyasi", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.2 To'yingan bir atomli spirtlarning olinishi, xossalari va ishlatilishi", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.3 Ko'p atomli spirtlar", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.4 Etilenglikol. Glitserinning xossalari", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.5 Amaliy mashg'ulot. Ko'p atomli spirtlarga oid tajribalar", "element": "III.4", "chuqurlik": "yuzaki"},
+    {"nom": "3.6 Fenollar va aromatik spirtlar", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.7 Fenollar va aromatik spirtlar. Olinishi. Ishlatilishi", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.8 Oddiy efirlar. Olinishi va xossalari", "element": "III.7", "chuqurlik": "yuzaki", "izoh": "Faqat oddiy (R-O-R) efirlar; murakkab efirlar (esterlar) alohida §3.14 da"},
+    {"nom": "3.9 Oksobirikmalar. Aldegidlar. Olinishi va xossalari", "element": "III.5", "chuqurlik": "tanish"},
+    {"nom": "3.10 Amaliy mashg'ulot. Spirtlar va aldegidlarga xos bo'lgan reaksiyalar", "element": "III.5", "chuqurlik": "yuzaki"},
+    {"nom": "3.11 Ketonlar. Olinishi va xossalari", "element": "III.5", "chuqurlik": "tanish"},
+    {"nom": "3.12 Karbon kislotalar. Olinishi va xossalari", "element": "III.6", "chuqurlik": "tanish"},
+    {"nom": "3.13 Karbon kislotalar mavzusiga oid masalalar yechish", "element": "III.6", "chuqurlik": "tanish"},
+    {"nom": "3.14 Murakkab efirlar", "element": "III.7", "chuqurlik": "tanish"},
+    {"nom": "3.15 Amaliy mashg'ulot. O'simliklar tarkibidagi murakkab efirlar", "element": "III.7", "chuqurlik": "yuzaki"},
+    {"nom": "3.16 Yog'lar. Olinishi va xossalari", "element": "III.7", "chuqurlik": "tanish"},
+    {"nom": "3.17 Amaliy mashg'ulot. Yog'lardan sovun olish", "element": "III.7", "chuqurlik": "tanish"},
+    {"nom": "3.18 Uglevodlar. Monosaxaridlar", "element": "III.8", "chuqurlik": "tanish"},
+    {"nom": "3.19 Disaxaridlar. Maltoza. Saxaroza", "element": "III.8", "chuqurlik": "tanish"},
+    {"nom": "3.20 Polisaxaridlar. Kraxmal. Sellyuloza", "element": "III.8", "chuqurlik": "tanish"},
+    {"nom": "3.21 Amaliy mashg'ulot. Uglevodlarga oid tajribalar", "element": "III.8", "chuqurlik": "yuzaki"},
+    {"nom": "3.22 Tabiiy va sun'iy tolalar", "element": "III.10", "chuqurlik": "yuzaki", "izoh": "Sellyuloza asosidagi tolalar; polimer sifatida sifat jihatidan, tuzilish hisobsiz"},
+    {"nom": "3.23 Amaliy mashg'ulot. Organik birikmalarni o'ziga xos reaksiyalar asosida aniqlash", "element": "IV.2", "chuqurlik": "tanish"},
+    {"nom": "3.24 Mavzuga doir masala va mashqlar yechish (1)", "element": "III.4", "chuqurlik": "tanish"},
+    {"nom": "3.25 Mavzuga doir masala va mashqlar yechish (2)", "element": "III.6", "chuqurlik": "tanish"}
+   ]
+  },
+  {
+   "bob": "IV. Atrof-muhitni muhofaza qilish",
+   "mavzular": [
+    {"nom": "4.1 Organik moddalarni ishlab chiqarish sanoati", "element": "III.3", "chuqurlik": "yuzaki", "izoh": "Sanoat-ekologik umumlashtiruvchi mavzu, imtihon darajasidagi hisob-kitob yo'q"},
+    {"nom": "4.2 Organik chiqindilar va ularni qayta ishlash texnologiyalari", "element": "III.3", "chuqurlik": "yuzaki"},
+    {"nom": "4.3 Amaliy mashg'ulot. Qog'ozni qayta ishlash", "element": "III.8", "chuqurlik": "yuzaki"}
+   ]
+  }
+ ],
+ "eslatma": [
+  "10-sinf darsligi TO'LIQIGA organik kimyo (III bo'lim) — I, II, IV bo'lim elementlari bu darslikda yo'q.",
+  "III.9 (Aminlar, aminokislotalar, oqsillar) mavzu sifatida YO'Q — faqat §1.5 dagi funksional guruhlar jadvalida bir marta tilga olinadi (aminlar -NH2, aminokislotalar misoli). Mustaqil xossalar/reaksiyalar yo'q.",
+  "III.10 (Polimerlar) mustaqil mavzu emas — polimerlanish tushunchasi alkenlar/dienlar (kauchuk) ichida sifat darajasida beriladi, monomer/polimer darajasi formulasi (n) bor, lekin polimer turlari/tuzilishi chuqur emas."
+ ]
+}

@@ -45,7 +45,7 @@ for s in v01:
 # darslik qoplamasi
 CHUQURLIK_BALL = {"yoq": 2, "yuzaki": 1, "tanish": 0}
 qoplama = defaultdict(lambda: "yoq")
-for sinf in (7, 8):
+for sinf in (7, 8, 9, 10, 11):
     p = os.path.join(HERE, "darslik", f"s{sinf:02d}.json")
     if not os.path.exists(p):
         continue
