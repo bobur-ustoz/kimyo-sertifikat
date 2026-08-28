@@ -133,6 +133,14 @@ def build_content(d):
             add(f'<li>{m["savol"]} <span class="j">{m["javob"]}</span></li>')
         add('</ol>')
 
+    if d.get("qisqa_mavzu_takrori"):
+        add('<h2 class="colspan">Qisqa mavzu takrori</h2>')
+        add('<p class="bank-izoh colspan">MS darajasidagi misollarga o\'tishdan oldin tez eslatma:</p>')
+        add('<ul class="takror colspan">')
+        for t in d["qisqa_mavzu_takrori"]:
+            add(f'<li><span class="tf">{t["f"]}</span> <span class="ti">{e(t["izoh"])}</span></li>')
+        add('</ul>')
+
     if d.get("ms_darajasidagi_bank"):
         n = len(d["ms_darajasidagi_bank"])
         add(f'<h2 class="colspan">MS darajasidagi mashqlar banki &mdash; {n} ta</h2>')

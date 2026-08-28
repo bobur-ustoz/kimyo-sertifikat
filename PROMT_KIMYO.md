@@ -272,6 +272,28 @@ Har bir mazmun elementi (bob) qat'iy shu tartibda:
    (43 ta) original mashqlar to'plami — faqat chuqur mashq qilish uchun, aralash
    qiyinlikda (taxminan 1/3 sodda, 1/3 o'rta, 1/3 murakkab), javob bilan, to'liq
    yechimsiz. Ikki tipdagi mashq bir-birini takrorlamaydi.
+9a. **Qisqa mavzu takrori.** Mavzuviy mashqlar bankidan keyin, MS darajasidagi
+    bankdan OLDIN qo'yiladi. Maqsadi — to'liq "Ma'ruza" emas, balki o'quvchi
+    eng qiyin (BMBA/MS darajasidagi) misollarga o'tishdan oldin xotirasini
+    tezda yangilashi uchun juda qisqa (5–8 band) eslatma: shu mavzuda MS
+    darajasidagi masalalar odatda talab qiladigan formulalar/usullar
+    ro'yxati — har biri bir qatorlik formula + bir jumlalik qachon
+    qo'llanishi (masalan I.6 uchun: asosiy Kc ifodasi, ICE jadval usuli,
+    Kc↔Kp konversiyasi, Le Chatelier omillari jadvali, o'rtacha molyar
+    massa/zichlikdan Kc topish). "Asosiy formulalar" bloki bilan
+    TAKRORLANMAYDI — bu yerda faqat MS darajasidagi bank arxetiplariga
+    tayyorlovchi eslatmalar bo'ladi.
+9b. **MS darajasidagi mashqlar banki — 43 ta.** Mavzuviy mashqlar bankidan
+    (9-band) farqli: BARCHASI MS variantlarining eng qiyin pozitsiyalari —
+    33-35 (Y2) va 41-43 (O2) — darajasida, ko'p bosqichli (masalan: ICE
+    jadval bilan kvadrat tenglama yechish, Kc↔Kp konversiya, Le Chatelier
+    siljishidan keyin qayta muvozanat hisoblash, teskari yo'l bilan Kc
+    topish, konversiya foizi + keyingi bosqich hisobi). To'liq yechim
+    ko'rsatiladi (bu daraja o'z-o'zini tekshirish uchun yechimsiz bo'lishi
+    mumkin emas). Har biri ikki mustaqil usulda tekshiriladi va xom
+    generatsiya parametrlari ("parametrlar" maydonida) saqlanadi — shunda
+    mustaqil tekshiruv skripti har safar tenglamani noldan qayta yecha
+    oladi (bo'lakcha "javob" matniga ishonmasdan).
 10. **Yakuniy test — 20 ta**, imtihon nisbatida: 15 Y1 + 2 Y2 + 2 O1 + 1 O2,
     vaqt normativi bilan.
 11. **Xotira kartalari** — yodlanishi shart minimum, 10–15 qator.
@@ -374,6 +396,10 @@ ishlatmaydi.
                "bandlar": [{"savol": "...", "yechim": ["..."], "M": 8, "A": 4}],
                "jami": 25, "rasmiylashtirish": "..."},
  "mashqlar_banki": [{"n": 1, "savol": "...", "javob": "...", "daraja": 1}],
+ "qisqa_mavzu_takrori": [{"f": "...", "izoh": "qachon qo'llanishi"}],
+ "ms_darajasidagi_bank_izoh": "...",
+ "ms_darajasidagi_bank": [{"n": 1, "savol": "...", "javob": "...", "yechim": "...",
+                           "daraja": 3, "parametrlar": {"arch": "...", "...": "..."}}],
  "xotira_kartalari": ["..."],
  "test": [{"matn": "...", "tur": "Y1|Y2|O1|O2", "variantlar": ["","","",""],
            "javob": "A", "chalgituvchilar": [{"variant": "B", "xato": "..."}],

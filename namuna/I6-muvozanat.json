@@ -201,6 +201,15 @@
   {"n": 43, "savol": "$\\ce{2HI(g)<=>H2(g) + I2(g)}$ reaksiyasi uchun $K_c \\ll 1$ ekani ma'lum. Bu reaksiya haqida nima deyish mumkin?", "javob": "Muvozanat asosan chap tomonda (HI tomonida) joylashgan — HI ning juda kam qismigina H2 va I2 ga parchalanadi", "daraja": 2}
  ],
 
+ "qisqa_mavzu_takrori": [
+  {"f": "$K_c=\\dfrac{[C]^c[D]^d}{[A]^a[B]^b}$", "izoh": "Har qanday masalaning boshlanish nuqtasi — avval Kc ifodasini to'g'ri yozing (qattiq/suyuq fazalar kirmaydi)."},
+  {"f": "ICE jadval: Boshlang'ich / O'zgarish (x) / Muvozanat", "izoh": "Noma'lum x kiritib, har ustunni to'ldiring — MS darajasidagi deyarli barcha masalalar shu usulga tayanadi."},
+  {"f": "$K_p=K_c(RT)^{\\Delta n}$", "izoh": "Kc va Kp orasida o'tish kerak bo'lganda ishlatiladi; $\\Delta n$ = mahsulot gaz mol soni - reagent gaz mol soni."},
+  {"f": "Bosim/hajm o'zgarganda: yangi Kc tenglamasini QAYTA yozib yeching", "izoh": "Kc o'zgarmaydi, lekin miqdorlar o'zgaradi — 1-muvozanatdagi x ni 2-muvozanatga to'g'ridan-to'g'ri ko'chirmang."},
+  {"f": "$\\bar M=\\dfrac{massa}{umumiy\\ mol}$, $D_{H_2}=\\bar M/2$", "izoh": "O'rtacha molyar massa yoki zichlik berilsa, shu orqali muvozanatdagi umumiy mol sonini (demak x ni) toping."},
+  {"f": "Le Chatelier: T↑→endotermik tomon; P↑(V↓)→kam mol tomon; reagent↑→mahsulot tomon; katalizator/inert gaz(V=const)→siljimaydi", "izoh": "Har savolda avval qaysi omil ta'sir qilayotganini aniqlang, keyin yo'nalishni bering."}
+ ],
+
  "ms_darajasidagi_bank_izoh": "Yuqoridagi mashqlar_banki (43 ta, aralash 1-3 daraja) kundalik mashq uchun. Quyidagi 43 ta esa BARCHASI MS variantlaridagi eng qiyin pozitsiyalar (33-35 Y2 va 41-43 O2) darajasida — ko'p bosqichli, kvadrat tenglama yechish, Kc<->Kp konversiya, Le Chatelier siljishidan keyin qayta muvozanat hisoblash kabi murakkab ko'nikmalarni birlashtiradi. Har biri ikki mustaqil usulda tekshirilgan (namuna/verify_I6_hard.py).",
 
  "ms_darajasidagi_bank": [
