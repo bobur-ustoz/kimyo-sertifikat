@@ -168,6 +168,12 @@ sol41p = sp.solve(sp.Eq(p41 * (56 - 27), 29), p41)
 check("41-Al-mass", "27", sol41p[0] * 27)
 check("41-hydrate", "333", (sol41p[0] / 2) * 666)
 
+# ---- 43: texnik osh tuzi (qum+KNO3+NaCl), IV.1 ajratish/eritma masalasi ----
+check("43-sand-pct", "10", Fr(15, 150) * 100)
+check("43-KNO3-pct", "10", Fr(15, 150) * 100)
+check("43-NaCl-pct", "80", Fr(120, 150) * 100)
+check("43-final-solution-pct", "20", Fr(120, 600) * 100)
+
 print(f"Jami tekshirilgan hisob: yaqin {len(errors)} xato bilan.")
 if errors:
     print("XATOLAR:")
@@ -191,6 +197,13 @@ for s in d["savollar"]:
     else:
         v02_by_n[s["n"]] = s
 
+# PROMT_VARIANT.md: "elementlar variantlar orasida biroz aylantiriladi (bir
+# xil element har doim bir xil pozitsiyada bo'lavermaydi, lekin bo'lim va
+# taxminiy qiyinlik saqlanadi)". Shu pozitsiyalarda faqat BO'LIM (element
+# emas) qat'iy solishtiriladi -- element rasmiy ravishda o'sha bo'lim
+# ichida boshqa raqamga aylanishi mumkin.
+ELEMENT_ROTATION_ALLOWED = {43}
+
 passport_errors = []
 for n in range(1, 44):
     a = v01_by_n[n]
@@ -198,13 +211,17 @@ for n in range(1, 44):
     if b is None or "qiyinlik" not in b or b["qiyinlik"] is None:
         passport_errors.append(f"{n}: v03'da qiyinlik/kognitiv/element yo'q")
         continue
-    for key in ("element", "qiyinlik", "kognitiv"):
+    keys = ("qiyinlik", "kognitiv") if n in ELEMENT_ROTATION_ALLOWED else ("element", "qiyinlik", "kognitiv")
+    for key in keys:
         if a[key] != b[key]:
             passport_errors.append(f"{n}: {key} mos kelmadi (v01={a[key]!r}, v03={b[key]!r})")
+    if n in ELEMENT_ROTATION_ALLOWED and a["bolim"] != b["bolim"]:
+        passport_errors.append(f"{n}: bolim mos kelmadi (v01={a['bolim']!r}, v03={b['bolim']!r})")
 
 print(f"\nPasport tekshiruvi (43/43 pozitsiya): {len(passport_errors)} nomuvofiqlik.")
 if passport_errors:
     for e in passport_errors:
         print(" -", e)
 else:
-    print("Barcha 43 pozitsiyaning element/qiyinlik/kognitiv metama'lumoti v01 bilan aynan mos.")
+    print("Barcha 43 pozitsiyaning qiyinlik/kognitiv mos, element esa faqat "
+          f"{sorted(ELEMENT_ROTATION_ALLOWED)}-pozitsiyada (bo'lim saqlangan holda) qasddan aylantirilgan.")

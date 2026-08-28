@@ -1232,66 +1232,48 @@
    "n": 43,
    "tur": "O2",
    "bolim": "IV",
-   "element": "IV.2",
+   "element": "IV.1",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "matn": "Raqamlangan (1-6) idishlarda quruq holdagi kaliy xlorid, natriy sulfit, sink sulfat, mis (II) sulfat, qo'rg'oshin (II) nitrat va xrom (III) xlorid tuzlari bor. 7-idishda esa magniy karbonat bor. Idishlarga suv quyilganda faqat 7-idishdagi tuz erimadi. Tuzlarni aniqlash maqsadida bir qator tajribalar o'tkazildi:\nreaktiv | 1 | 2 | 3 | 4 | 5 | 6\n$\\ce{HCl}$ | $-$ | $\\uparrow$ | $-$ | $-$ | $\\downarrow$(oq) | $-$\n$\\ce{H2SO4}$ | $-$ | $\\uparrow$ | $-$ | $-$ | $\\downarrow$(oq) | $-$\n$\\ce{NaOH}$ | $-$ | $-$ | $\\downarrow$(oq)$\\to$eriydi | $\\downarrow$(ko'k) | $\\downarrow$(oq)$\\to$eriydi | $\\downarrow$(kulrang-yashil)$\\to$eriydi\n$\\ce{NH3*H2O}$ | $-$ | $-$ | $\\downarrow$(oq)$\\to$eriydi | $\\downarrow$(ko'k)$\\to$eriydi(to'q ko'k) | $\\downarrow$(oq, erimaydi) | $\\downarrow$(kulrang-yashil, erimaydi)",
+   "matn": "150 g texnik osh tuzi namunasi tarkibida suvda erimaydigan qum hamda kaliy nitrat aralashgan. Namuna 300 ml suvda aralashtirilib, erimagan qum filtrlab ajratildi — quritilgandan so'ng qum massasi 15 g chiqdi. Hosil bo'lgan filtrat (eritma) sovitilganda, kaliy nitratning eruvchanligi keskin pasayishi natijasida 15 g toza $\\ce{KNO3}$ kristallari cho'kmaga tushdi (natriy xlorid butunlay eritmada qoldi, chunki uning eruvchanligi sovishda deyarli o'zgarmaydi). Qolgan eritma butunlay bug'latib quritildi.",
    "bandlar": [
     {
-     "savol": "1) 1-tuzni ($\\ce{KCl}$) aniqlash reaksiyasini yozing (1 ta).",
+     "savol": "1) Aralashmani tarkibiy qismlarga ajratishda qo'llanilgan UCHTA laboratoriya usulini ketma-ketligi bilan ayting va har birining nima uchun ishlatilganini tushuntiring.",
      "yechim": [
-      "$\\ce{KCl + AgNO3 -> AgCl v + KNO3}$ (oq cho'kma, boshqa idishlar bilan taqqoslab, hech qanday reagentga javob bermasligi orqali aniqlanadi)"
+      "1) $\\bold{Filtrlash}$ — suvda erimaydigan qumni eritmadan ajratish uchun.",
+      "2) $\\bold{Sovitib\\ kristallash}$ — eruvchanligi haroratga kuchli bog'liq $\\ce{KNO3}$ ni, eruvchanligi deyarli o'zgarmas $\\ce{NaCl}$ dan ajratib olish uchun.",
+      "3) $\\bold{Bug'latish}$ — qolgan eritmadagi suvni butunlay yo'qotib, quruq $\\ce{NaCl}$ ni ajratib olish uchun."
      ],
+     "M": 3,
+     "A": 0
+    },
+    {
+     "savol": "2) Dastlabki namunadagi qumning massa ulushini (%) toping.",
+     "yechim": ["$15/150\\times100=10\\%$"],
      "M": 1,
      "A": 1
     },
     {
-     "savol": "2) 2-tuzni ($\\ce{Na2SO3}$) aniqlash reaksiyasini yozing (1 ta).",
-     "yechim": [
-      "$\\ce{Na2SO3 + 2HCl -> 2NaCl + SO2 ^ + H2O}$ (o'tkir hidli gaz)"
-     ],
+     "savol": "3) Dastlabki namunadagi kaliy nitratning massa ulushini (%) toping.",
+     "yechim": ["$15/150\\times100=10\\%$"],
      "M": 1,
      "A": 1
     },
     {
-     "savol": "3) 3-tuzni ($\\ce{ZnSO4}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{ZnSO4 + 2NaOH -> Zn(OH)2 v + Na2SO4}$",
-      "$\\ce{Zn(OH)2 + 2NaOH -> Na2[Zn(OH)4]}$ (ortiqcha ishqorda eriydi)"
-     ],
-     "M": 2,
+     "savol": "4) Dastlabki namunadagi natriy xloridning massa ulushini (%) toping.",
+     "yechim": ["$100\\%-10\\%-10\\%=80\\%$, ya'ni $0{,}8\\times150=120$g $\\ce{NaCl}$."],
+     "M": 1,
      "A": 1
     },
     {
-     "savol": "4) 4-tuzni ($\\ce{CuSO4}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{CuSO4 + 2NaOH -> Cu(OH)2 v (ko'k) + Na2SO4}$ (ortiqcha ishqorda erimaydi)",
-      "$\\ce{CuSO4 + 4NH3*H2O -> [Cu(NH3)4]SO4 (to'q ko'k) + 4H2O}$ (ortiqcha ammiakda eriydi)"
-     ],
-     "M": 2,
-     "A": 1
-    },
-    {
-     "savol": "5) 5-tuzni ($\\ce{Pb(NO3)2}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{Pb(NO3)2 + 2HCl -> PbCl2 v (oq) + 2HNO3}$",
-      "$\\ce{Pb(NO3)2 + 2NaOH -> Pb(OH)2 v + 2NaNO3}$; $\\ce{Pb(OH)2 + 2NaOH -> Na2[Pb(OH)4]}$ (ortiqchada eriydi, lekin ammiakda erimaydi)"
-     ],
-     "M": 2,
-     "A": 1
-    },
-    {
-     "savol": "6) 6-tuzni ($\\ce{CrCl3}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{CrCl3 + 3NaOH -> Cr(OH)3 v (kulrang-yashil) + 3NaCl}$",
-      "$\\ce{Cr(OH)3 + 3NaOH -> Na3[Cr(OH)6]}$ (ortiqcha ishqorda eriydi, ammiakda erimaydi)"
-     ],
-     "M": 2,
+     "savol": "5) Bug'latishdan olingan barcha natriy xlorid (120 g) 480 g suvda to'liq eritilsa, hosil bo'lgan eritmaning massa ulushini (%) toping.",
+     "yechim": ["$120/(120+480)\\times100=120/600\\times100=20\\%$"],
+     "M": 1,
      "A": 1
     }
    ],
    "jami": 25,
-   "rasmiylashtirish": "Har band uchun kamida talab qilingan sondagi tenglama to'liq yozilishi shart; faqat tuz nomini aytish (tenglamasiz) ball bermaydi."
+   "rasmiylashtirish": "1-band uchun har bir usul nomi VA vazifasi to'g'ri yozilishi shart (usul nomi yolg'iz — qisman ball). 2-5-bandlarda faqat yakuniy son yozilib, hisob-kitob ko'rsatilmasa — A ball beriladi, M ball berilmaydi."
   }
  ]
 }

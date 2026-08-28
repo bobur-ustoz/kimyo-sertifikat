@@ -1235,61 +1235,41 @@
    "element": "IV.2",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "matn": "Raqamlangan (1-6) idishlarda quruq holdagi natriy bromid, magniy sulfat, kaliy karbonat, kalsiy xlorid, mis (II) xlorid va temir (III) sulfat tuzlari bor. 7-idishda esa bariy karbonat bor. Idishlarga suv quyilganda faqat 7-idishdagi tuz erimadi. Tuzlarni aniqlash maqsadida bir qator tajribalar o'tkazildi:\nreaktiv | 1 | 2 | 3 | 4 | 5 | 6\n$\\ce{HCl}$ | $-$ | $-$ | $\\uparrow$ | $-$ | $-$ | $-$\n$\\ce{H2SO4}$ | $-$ | $-$ | $\\uparrow$ | $\\downarrow$(oq) | $-$ | $-$\n$\\ce{NaOH}$ | $-$ | $\\downarrow$(oq, erimaydi) | $-$ | $-$ | $\\downarrow$(ko'k) | $\\downarrow$(jigarrang)\n$\\ce{NH3*H2O}$ | $-$ | $\\downarrow$(oq, erimaydi) | $-$ | $-$ | $\\downarrow\\to$eriydi(to'q ko'k) | $\\downarrow$(jigarrang, erimaydi)",
+   "matn": "Faqat mis (II) sulfat, temir, natriy gidroksid va suvdan foydalanib, quyidagi moddalarni ketma-ket olish yo'lini (xarakterli sifat reaksiyalaridan foydalangan holda) ko'rsating.",
    "bandlar": [
     {
-     "savol": "1) 1-tuzni ($\\ce{NaBr}$) aniqlash reaksiyasini yozing (1 ta).",
-     "yechim": [
-      "$\\ce{NaBr + AgNO3 -> AgBr v (och sariq) + NaNO3}$"
-     ],
-     "M": 1,
-     "A": 1
-    },
-    {
-     "savol": "2) 2-tuzni ($\\ce{MgSO4}$) aniqlash reaksiyasini yozing (1 ta).",
-     "yechim": [
-      "$\\ce{MgSO4 + 2NaOH -> Mg(OH)2 v (oq) + Na2SO4}$ (ortiqcha ishqorda ham erimaydi)"
-     ],
-     "M": 1,
-     "A": 1
-    },
-    {
-     "savol": "3) 3-tuzni ($\\ce{K2CO3}$) aniqlash reaksiyasini yozing (1 ta).",
-     "yechim": [
-      "$\\ce{K2CO3 + 2HCl -> 2KCl + CO2 ^ + H2O}$"
-     ],
-     "M": 1,
-     "A": 1
-    },
-    {
-     "savol": "4) 4-tuzni ($\\ce{CaCl2}$) aniqlash reaksiyasini yozing (1 ta).",
-     "yechim": [
-      "$\\ce{CaCl2 + H2SO4 -> CaSO4 v (oq) + 2HCl}$"
-     ],
-     "M": 1,
-     "A": 1
-    },
-    {
-     "savol": "5) 5-tuzni ($\\ce{CuCl2}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{CuCl2 + 2NaOH -> Cu(OH)2 v (ko'k) + 2NaCl}$",
-      "$\\ce{CuCl2 + 4NH3*H2O -> [Cu(NH3)4]Cl2 (to'q ko'k) + 4H2O}$ (ortiqcha ammiakda eriydi)"
-     ],
+     "savol": "1) $\\ce{CuSO4}$ dan mis (II) gidroksid olish reaksiyasini yozing.",
+     "yechim": ["$\\ce{CuSO4 + 2NaOH -> Cu(OH)2 v (ko'k cho'kma) + Na2SO4}$"],
      "M": 2,
-     "A": 1
+     "A": 0
     },
     {
-     "savol": "6) 6-tuzni ($\\ce{Fe2(SO4)3}$) aniqlash reaksiyasini yozing (2 ta).",
-     "yechim": [
-      "$\\ce{Fe2(SO4)3 + 6NaOH -> 2Fe(OH)3 v (jigarrang) + 3Na2SO4}$",
-      "$\\ce{Fe2(SO4)3 + 6NH3*H2O -> 2Fe(OH)3 v (jigarrang) + 3(NH4)2SO4}$ (ortiqcha ammiakda ham erimaydi)"
-     ],
+     "savol": "2) Hosil bo'lgan mis (II) gidroksidni qizdirib mis (II) oksid olish reaksiyasini yozing.",
+     "yechim": ["$\\ce{Cu(OH)2 ->[t] CuO (qora) + H2O}$"],
      "M": 2,
+     "A": 0
+    },
+    {
+     "savol": "3) $\\ce{CuSO4}$ eritmasiga mo'l miqdor temir botirilganda toza mis va temir (II) sulfat hosil bo'lish reaksiyasini yozing.",
+     "yechim": ["$\\ce{CuSO4 + Fe -> FeSO4 + Cu v (qizil-jigarrang)}$ (Fe mis'dan faolroq, uni eritmadan siqib chiqaradi)"],
+     "M": 2,
+     "A": 0
+    },
+    {
+     "savol": "4) Hosil bo'lgan $\\ce{FeSO4}$ ni sifat reaksiyasi bilan aniqlash usulini ko'rsating.",
+     "yechim": ["$\\ce{FeSO4 + 2NaOH -> Fe(OH)2 v (oq-yashil) + Na2SO4}$; havoda tez orada $\\ce{4Fe(OH)2 + O2 + 2H2O -> 4Fe(OH)3}$ (jigarrangga aylanadi) — bu $\\ce{Fe^2+}$ ionini tasdiqlaydi."],
+     "M": 3,
+     "A": 0
+    },
+    {
+     "savol": "5) Agar 32 g $\\ce{CuSO4}$ mo'l miqdordagi temir bilan to'liq reaksiyaga kirishsa, necha gramm toza mis metall ajralib chiqadi?",
+     "yechim": ["$n(\\ce{CuSO4})=32/160=0{,}2$mol.", "$n(\\ce{Cu})=n(\\ce{CuSO4})=0{,}2$mol (1:1 nisbat).", "massa$(\\ce{Cu})=0{,}2\\times64=12{,}8$g."],
+     "M": 1,
      "A": 1
     }
    ],
    "jami": 25,
-   "rasmiylashtirish": "Har band uchun kamida talab qilingan sondagi tenglama to'liq yozilishi shart; faqat tuz nomini aytish (tenglamasiz) ball bermaydi."
+   "rasmiylashtirish": "1-4-bandlarda reaksiya tenglamasi to'g'ri yozilishi (moddalar va sharoit ko'rsatilib) shart — faqat mahsulot nomini aytish ball bermaydi. 5-band uchun hisob-kitob (usul) ko'rsatilishi shart."
   }
  ]
 }

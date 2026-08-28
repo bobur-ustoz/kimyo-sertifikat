@@ -93,6 +93,22 @@ Har yangi variant uchun:
    17-pozitsiya — II.4); agar bir nechta variant to'plansa, elementlar
    variantlar orasida biroz aylantiriladi (bir xil element har doim bir xil
    pozitsiyada bo'lavermaydi, lekin bo'lim va taxminiy qiyinlik saqlanadi).
+   **Bu faqat elementning raqamiga emas — savolning FORMATIGA ham tegishli.**
+   Bizda faqat BITTA haqiqiy variant (v01) bor, shuning uchun ba'zi
+   pozitsiyalarning haqiqiy formati (masalan 43-topshiriq — v01'da "raqamlangan
+   idishlardagi tuzlarni sifat reaksiyalari jadvali orqali aniqlash" ko'rinishida
+   kelgan) faqat BITTA namunaviy ko'rinish, umumiy qonun emas: rasmiy
+   spetsifikatsiyada IV bo'lim ikki elementdan iborat — IV.1 (laboratoriya
+   jihozlari/xavfsizlik, aralashmalarni ajratish, eritma tayyorlash) va IV.2
+   (moddalarni olish usullari, shu jumladan sifat reaksiyalari) — va IV.2'ning
+   o'zi ham "jadval orqali tuz aniqlash"dan tashqari boshqa ko'rinishlarda
+   (masalan modda olish zanjiri/sintez yo'li) kelishi mumkin. **Bir nechta
+   variant yaratilganda, bir xil pozitsiyaning FORMATI ham har safar aynan
+   takrorlanmasligi kerak** — aks holda haqiqiy MSning xilma-xilligi noto'g'ri
+   toraytiriladi (v02/v03/v04'da 43-topshiriq uchtasida ham bir xil "jadval"
+   formatida yozilgan edi — bu xato aniqlanib, v03 IV.1 (ajratish/eritma
+   tayyorlash hisobi) ga, v04 esa IV.2'ning boshqa ko'rinishi — modda olish
+   zanjiriga — o'tkazildi; v02 jadval formatida qoldirildi).
 3. Shu element va qiyinlik darajasiga mos **original savol** yoziladi —
    modda, sonlar, kontekst butunlay yangi.
 4. Savol ikki mustaqil usul bilan tekshiriladi (pastga qarang).
