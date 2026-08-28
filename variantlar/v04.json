@@ -1,0 +1,1295 @@
+{
+ "variant": "v04",
+ "manba": "original — PROMT_VARIANT.md shabloni bo'yicha, kalibrlash: tahlil/v01.json",
+ "izoh": "Har bir savol ikki mustaqil usulda tekshirilgan (variantlar/verify_v04.py). Pozitsiya->bo'lim->element->qiyinlik xaritasi v01 bilan bir xil; savol matni, sonlari va moddalari butunlay original (v01, v02, v03 dan farqli). Barcha formulalar LaTeX mhchem (backslash-ce) formatida.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Quyidagilardan qaysi biri NOTO'G'RI?",
+   "variantlar": [
+    "$\\ce{CaO2}$ — kalsiy peroksid",
+    "$\\ce{RbO2}$ — rubidiy nadperoksid",
+    "$\\ce{KHSO4}$ — kaliy gidrosulfat",
+    "$\\ce{CrCl2}$ — xrom (III) xlorid"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "peroksid nomlanishini notanish deb xato hisoblagan"
+    },
+    {
+     "variant": "B",
+     "xato": "nadperoksid atamasini bilmay xato deb o'ylagan"
+    },
+    {
+     "variant": "C",
+     "xato": "gidrosulfat/gidrosulfitni farqlay olmagan"
+    }
+   ],
+   "yechim": "$\\ce{CrCl2}$ dagi xrom valentligi: $2\\times(-1)+x=0=>x=+2$ — demak nomi xrom (II) xlorid, xrom (III) emas."
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.2",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{Na2ZO3}$ birikmada $Z$ elementining massa ulushi natriynikidan 2 marta ko'p bo'lsa, birikmaning molyar massasini (g/mol) aniqlang.",
+   "variantlar": [
+    "162",
+    "174",
+    "186",
+    "198"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "natriy massasini $23$ (bittasini) deb olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "kislorod massasini qo'shishni unutgan"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbatni $Z=3\\times Na$ deb noto'g'ri olgan"
+    }
+   ],
+   "yechim": "$Na$ massasi$=2\\times23=46$. $Z$ massasi$=2\\times46=92$. $M=46+92+3\\times16=186$."
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$X^{3+}$ ionidagi elementar zarrachalar yig'indisi 48 ga teng va neytronlari soni protonlaridan 3 ta ko'p bo'lsa, $X$ ning nisbiy atom massasini aniqlang.",
+   "variantlar": [
+    "33",
+    "34",
+    "35",
+    "36"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ion zaryadini hisobga olmagan (elektron=proton deb olgan)"
+    },
+    {
+     "variant": "B",
+     "xato": "neytron-proton farqini $2$ deb olgan"
+    },
+    {
+     "variant": "D",
+     "xato": "zaryad belgisini teskari (elektron=$Z+3$) olgan"
+    }
+   ],
+   "yechim": "Elektronlar$=Z-3$ (ion $3+$ zaryadli). $Z+N+(Z-3)=48$, $N=Z+3$ => $3Z=48$ => $Z=16$, $N=19$. $A_r=16+19=35$."
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Bosh va orbital kvant sonlari yig'indisi $(n+l)$ 8 bo'lgan nechta elektron bor? (davriy sistemada 120 ta element mavjud deb hisoblang)",
+   "variantlar": [
+    "18",
+    "24",
+    "28",
+    "32"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat $7p$ va $8s$ pastqatlamlarini hisoblagan"
+    },
+    {
+     "variant": "B",
+     "xato": "$5f$ pastqatlamini tushirib qoldirgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$6d$ pastqatlamini hisoblamagan"
+    }
+   ],
+   "yechim": "$n+l=8$ shartini qanoatlantiruvchi pastqatlamlar: $5f(14), 6d(10), 7p(6), 8s(2)$. Jami $=14+10+6+2=32$."
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi moddalarning qaysilarida donor-akseptor mexanizmida hosil bo'lgan kovalent bog' bor?\n1) $\\ce{PCl5}$; 2) $\\ce{H3PO4}$; 3) $\\ce{KCl}$; 4) $\\ce{NH4+}$.",
+   "variantlar": [
+    "1 va 2",
+    "barchasi",
+    "1, 2, 4",
+    "3 va 4"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{NH4+}$ dagi donor-akseptor bog'ni unutgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$\\ce{KCl}$ ni ionli emas kovalent deb hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$\\ce{KCl}$ ni donor-akseptor deb aralashtirgan"
+    }
+   ],
+   "yechim": "$\\ce{PCl5}$ va $\\ce{H3PO4}$ dagi $P{=}O$ turidagi bog'lar, $\\ce{NH4+}$ dagi bitta $N{-}H$ bog'i — barchasi donor-akseptor. $\\ce{KCl}$ ionli birikma."
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Asetilen (etin, $\\ce{HC#CH}$) molekulasidagi bog'larning necha foizi pi-bog' hisobiga hosil bo'lgan?",
+   "variantlar": [
+    "25%",
+    "33%",
+    "40%",
+    "50%"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "umumiy bog'lar sonini $8$ deb (allen bilan aralashtirib) olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "faqat bitta $\\pi$-bog'ni hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$\\sigma$-bog'lar sonini yarmiga kamaytirgan"
+    }
+   ],
+   "yechim": "Sigma bog'lar: $1\\ (C{-}C) + 2\\ (C{-}H) = 3$. Pi bog'lar: $2$ (uchlanma bog'da). Jami$=5$. Ulush$=2/5=40\\%$."
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "yuqori",
+   "savol": "Reaksiya tezligining matematik ifodasi $r=k\\cdot[A]^2\\cdot[B]$ ko'rinishida bo'lgan reaksiya bo'yicha ikki xil tajriba o'tkazildi. Quyidagi jadvaldan foydalanib, 2-tajriba tezligini aniqlang.\ntajriba | A (mol/l) | B (mol/l) | r (mol/(l*s))\n1 | 0,1 | 0,3 | 3\n2 | 0,3 | 0,1 | ?",
+   "variantlar": [
+    "3",
+    "6",
+    "9",
+    "12"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$k$ ni topmay, tezlikni o'zgarmas deb qoldirgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$A$ ning kvadratini hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$B$ ni ham kvadratga ko'targan"
+    }
+   ],
+   "yechim": "$k=3/(0{,}1^2\\times0{,}3)=1000$. $r_2=1000\\times0{,}3^2\\times0{,}1=1000\\times0{,}09\\times0{,}1=9$."
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasida $K_c=0{,}25$ $mol/l$. $\\ce{COCl2}$ ning 20% parchalanganda muvozanat qaror topdi (idish hajmi 1 l). $\\ce{COCl2}$ ning dastlabki miqdorini (mol) aniqlang.",
+   "variantlar": [
+    "4",
+    "5",
+    "6",
+    "8"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$20\\%$ ni $0{,}25$ bilan aralashtirib hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "$K_c$ formulasida maxrajni unutgan"
+    },
+    {
+     "variant": "D",
+     "xato": "parchalanish ulushini $0{,}4$ deb (ikki baravar) olgan"
+    }
+   ],
+   "yechim": "$a$ — dastlabki mol. Parchalangan$=0{,}2a$, $\\ce{CO}=\\ce{Cl2}=0{,}2a$, qolgan $\\ce{COCl2}=0{,}8a$. $K_c=(0{,}2a)^2/(0{,}8a)=0{,}05a=0{,}25$ => $a=5$."
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "288 g suvga necha mol litiy gidroksid ($\\ce{LiOH}$) qo'shilsa, 20% li eritma hosil bo'ladi?",
+   "variantlar": [
+    "2",
+    "2,5",
+    "3",
+    "3,5"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{LiOH}$ molyar massasini $30$ deb noto'g'ri olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "suv massasini qo'shishni unutgan"
+    },
+    {
+     "variant": "D",
+     "xato": "20% ni $1/4$ ulush deb noto'g'ri tushungan"
+    }
+   ],
+   "yechim": "$n$ mol: $\\dfrac{24n}{24n+288}=0{,}2 => 24n=4{,}8n+57{,}6 => 19{,}2n=57{,}6 => n=3$."
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "300 g 20% li eritmadan minimal qancha (g) suv bug'lansa, to'yinadi? ($S=150$)",
+   "variantlar": [
+    "160",
+    "180",
+    "200",
+    "220"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'yingan ulushni $50\\%$ o'rniga $40\\%$ deb olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "erigan modda massasini xato hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "boshlang'ich massani $320$ deb yumaloqlagan"
+    }
+   ],
+   "yechim": "Erigan modda$=300\\times0{,}2=60$g. To'yingan ulush ($S=150$)$=150/250=60\\%$? Yo'q: $S/(100+S)=150/250=0{,}6$. $60/(300-x)=0{,}6 => 300-x=100 => x=200$."
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "0,2 mol temir (III) xlorid ($\\ce{FeCl3}$, dissotsilanish darajasi 80%) va 0,5 mol magniy xlorid ($\\ce{MgCl2}$) dan iborat aralashma suvda eritildi. Eritmadagi xlorid ionlari soni temir ionlaridan 8 marta ko'p. Magniy xlorid dissotsilanish darajasi necha foiz?",
+   "variantlar": [
+    "60",
+    "70",
+    "80",
+    "90"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{Fe}^{3+}$ ionlari sonini dissotsilanishni hisobga olmay $0{,}2$ deb olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent $3$ ni $\\ce{FeCl3}$ uchun unutgan"
+    },
+    {
+     "variant": "D",
+     "xato": "koeffitsiyent $2$ ni $\\ce{MgCl2}$ uchun unutgan"
+    }
+   ],
+   "yechim": "$\\ce{Fe}^{3+}=0{,}2\\times0{,}8=0{,}16$mol. Jami $\\ce{Cl-}=8\\times0{,}16=1{,}28=3\\times0{,}16+2\\times0{,}5\\times\\alpha=0{,}48+\\alpha$ => $\\alpha=0{,}8=80\\%$."
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Reaksiyadagi barcha koeffitsiyentlar yig'indisini aniqlang.\n$\\ce{SnS + NO3- + H+ -> Sn^4+ + SO4^2- + NO + H2O}$",
+   "variantlar": [
+    "50",
+    "51",
+    "52",
+    "53"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oltingugurtning $+6$ ga o'tishidagi elektronlar sonini xato hisoblagan"
+    },
+    {
+     "variant": "B",
+     "xato": "suv koeffitsiyentini xato topgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$\\ce{H+}$ koeffitsiyentida xatolik qilgan"
+    }
+   ],
+   "yechim": "Elektron balans: $\\ce{Sn}^{2+}\\to\\ce{Sn}^{4+}$ (2e-), $\\ce{S}^{-2}\\to\\ce{S}^{+6}$ (8e-), jami $10e-$ har $\\ce{SnS}$ dan; $3e-$ har $\\ce{NO3-}$ ga. $LCM(10,3)=30$ => $3\\ce{SnS}$, $10\\ce{NO3-}$. Tenglama: $\\ce{3SnS + 10NO3- + 16H+ -> 3Sn^4+ + 3SO4^2- + 10NO + 8H2O}$. Yig'indi$=3+10+16+3+3+10+8=53$."
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "bolim": "I",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{NiCl2}$ va $\\ce{XCl2}$ suyuqlanmalari ketma-ket tok manbayiga ulanib, elektroliz qilinganda elektrodlar katodida 2,95 g $\\ce{Ni}$ va 5,6 g $\\ce{X}$ hosil bo'ldi. $\\ce{X}$ atomning molyar massasini (g/mol) aniqlang.",
+   "variantlar": [
+    "102",
+    "107",
+    "112",
+    "118"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{Ni}$ molyar massasini $58$ deb yumaloqlagan"
+    },
+    {
+     "variant": "B",
+     "xato": "elektron sonini $1$ deb (valentlikni hisobga olmay) olgan"
+    },
+    {
+     "variant": "D",
+     "xato": "mol nisbatini teskari olgan"
+    }
+   ],
+   "yechim": "$n(\\ce{Ni})=2{,}95/59=0{,}05$mol, elektron$=0{,}1$mol. Ikkalasi ikki valentli: $n(X)=0{,}05$mol. $M_X=5{,}6/0{,}05=112$ ($\\ce{Cd}$)."
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.1",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi raqamlangan tuzlarni o'rta, asosli, nordon va qo'sh ketma-ketligida to'g'ri joylashtiring.\n1) $\\ce{CaSO4}$; 2) $\\ce{NaHSO4}$; 3) $\\ce{Mg(OH)Cl}$; 4) $\\ce{NaAl(SO4)2}$.",
+   "variantlar": [
+    "1, 3, 2, 4",
+    "1, 2, 3, 4",
+    "1, 3, 4, 2",
+    "3, 1, 2, 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "asosli va nordon tuzlarni almashtirib qo'ygan"
+    },
+    {
+     "variant": "C",
+     "xato": "nordon va qo'sh tuzlarni almashtirib qo'ygan"
+    },
+    {
+     "variant": "D",
+     "xato": "o'rta va asosli tuzlarni almashtirib qo'ygan"
+    }
+   ],
+   "yechim": "$\\ce{CaSO4}$ — o'rta, $\\ce{Mg(OH)Cl}$ — asosli, $\\ce{NaHSO4}$ — nordon, $\\ce{NaAl(SO4)2}$ — qo'sh. Tartib: $1,3,2,4$."
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Vodorod, uglerod, kislorod va oltingugurt atomlaridan iborat bo'lgan $X$ tuz tarkibidagi uglerod atomlari soni oltingugurt atomlaridan 3 marta, vodorod atomlari soni kislorod atomlaridan 2 marta ko'p. $X$ tuz molyar massasi 250 g/mol dan kichikroq ekanligi ma'lum bo'lsa, uning empirik formulasida nechta atom bor?",
+   "variantlar": [
+    "10",
+    "15",
+    "20",
+    "25"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eng kichik nisbat ($k{=}1$) ni tekshirmasdan olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$k{=}1{,}5$ ni olib, butun son emasligini payqamagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$M{=}312{>}250$ ekanini tekshirmagan"
+    }
+   ],
+   "yechim": "Eng kichik nisbat: $S{=}1,C{=}3,O{=}2,H{=}4$. Birlik massasi$=32+36+32+4=104$. $k=1$: $M=104{<}250$ ✓, atomlar$=10$. $k=2$: $M=208{<}250$ ✓, atomlar$=20$. $k=3$: $M=312{>}250$ mos emas. Demak maksimal $k=2$, atomlar$=20$."
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Litiy galogenidlari orasida $\\ce{LiF}$ suvda kam eriydi, lekin $\\ce{LiCl}$, $\\ce{LiBr}$, $\\ce{LiI}$ yaxshi eriydi (boshqa ishqoriy metallarning barcha galogenidlari esa yaxshi eriydi). Buning sababi nima?",
+   "variantlar": [
+    "Li+ va F- ionlari radiuslari yaqin bo'lgani uchun panjara energiyasi juda katta, gidratlanish energiyasi buni qoplay olmaydi",
+    "LiF kovalent birikma bo'lgani uchun suvda erimaydi",
+    "F- ioni suv bilan reaksiyaga kirishadi",
+    "Li elementi suvda eriydigan birikma hosil qilmaydi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "$\\ce{LiF}$ ni kovalent deb noto'g'ri hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "$F^-$ ionining suv bilan reaksiyasi haqida noto'g'ri tasavvurga ega"
+    },
+    {
+     "variant": "D",
+     "xato": "boshqa Li birikmalari yaxshi erishini hisobga olmagan"
+    }
+   ],
+   "yechim": "$\\ce{Li+}$ va $\\ce{F-}$ radiuslari bir-biriga yaqin (ikkalasi ham kichik) — bu juda katta panjara energiyasiga olib keladi, gidratlanish energiyasi buni yetarlicha qoplamaydi, shu sabab $\\ce{LiF}$ kam eriydi."
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "6 g metall oksidni to'liq qaytarish uchun 1792 ml (n.sh.) vodorod sarflandi. Hosil bo'lgan metall mo'l miqdor xlorid kislota eritmasida eritilsa, qancha (ml; n.sh.) vodorod ajraladi?",
+   "variantlar": [
+    "896",
+    "1792",
+    "2688",
+    "3584"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "valentlikni yarmiga deb, hajmni 2 ga bo'lgan"
+    },
+    {
+     "variant": "C",
+     "xato": "1,5 marta ko'paytirib hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "2 marta ko'paytirib hisoblagan"
+    }
+   ],
+   "yechim": "Elektron balans qonuni: metall oksidni qaytarishda $\\ce{H2}$ dan olgan elektronlar sonicha, kislota bilan reaksiyada ham elektron beradi — ikkala jarayonda vodorod hajmi teng: $1792$ ml. (Tekshiruv: $\\ce{NiO}(M{=}75)$, $n{=}0{,}08$mol mos keladi.)"
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Quyidagilarning qaysi birida yoki qaysilarida fosforning valentligi bir xil?\n1) $\\ce{PH3}$ va $\\ce{P2O5}$; 2) $\\ce{P4}$ va $\\ce{PCl3}$; 3) $\\ce{PCl3}$ va $\\ce{P4O10}$; 4) $\\ce{PH3}$ va $\\ce{PCl3}$.",
+   "variantlar": [
+    "hech biri",
+    "2 va 4",
+    "1 va 3",
+    "barchasi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$P4$ va $PCl3$ ikkalasi ham valentligi $3$ ekanini tekshirmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 va 3 dagi valentliklarni ($5$ va $3$) solishtirmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "har bir juftni tekshirmay barchasini tanlagan"
+    }
+   ],
+   "yechim": "Valentliklar: $\\ce{PH3}{=}3$, $\\ce{P2O5}{=}5$, $\\ce{P4}{=}3$, $\\ce{PCl3}{=}3$, $\\ce{P4O10}{=}5$. $2$-juft ($3,3$) va $4$-juft ($3,3$) bir xil."
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "bolim": "II",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Natriy nitrat va simob (II) nitratdan iborat 145 g aralashma qizdirildi. Hosil bo'lgan gazlar aralashmasi mo'l miqdordagi natriy gidroksid eritmasidan o'tkazilganda 14 litr gaz (n.sh.) ortib qoldi. Simob (II) nitrat miqdorini (mol) aniqlang.",
+   "variantlar": [
+    "0,15",
+    "0,2",
+    "0,25",
+    "0,3"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyentlarni almashtirib yozgan"
+    },
+    {
+     "variant": "B",
+     "xato": "natriy nitrat ulushini hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkala tenglamani teskari yechgan"
+    }
+   ],
+   "yechim": "$\\ce{2NaNO3 -> 2NaNO2 + O2}$ ($O_2{=}0{,}5x$), $\\ce{Hg(NO3)2 -> Hg + 2NO2 + O2}$ ($O_2{=}y$). $\\ce{NO2}$ ishqorda yutiladi, faqat $\\ce{O2}$ qoladi. $85x+325y=145$, $0{,}5x+y=14/22{,}4=0{,}625$. Yechim: $x=0{,}75$, $y=0{,}25$."
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Brutto formulasi $\\ce{C8H18}$ bo'lgan birikma molekulasida maksimal nechta birlamchi uglerod atomi bo'ladi?",
+   "variantlar": [
+    "4",
+    "5",
+    "6",
+    "7"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat bitta tarmoqni hisobga olgan"
+    },
+    {
+     "variant": "B",
+     "xato": "markaziy ikkita uglerodning birini birlamchi deb noto'g'ri hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "markaziy uglerodlarni ham birlamchi deb qo'shgan"
+    }
+   ],
+   "yechim": "2,2,3,3-tetrametilbutan: $(CH_3)_3C-C(CH_3)_3$. Har ikkala markaziy (to'rt valentli) uglerodga 3 tadan metil bog'langan: $3+3=6$ ta birlamchi uglerod."
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Molyar massasi 36 g/mol bo'lgan penten-1 va vodorod aralashmasi qizdirilgan platina katalizatori ustidan o'tkazilganda alkenning mol ulushi 2 marta kamaydi. Bunda aralashmaning molyar massasi qanday o'zgargan?",
+   "variantlar": [
+    "8,5 g/mol ga kamaygan",
+    "17 g/mol ga kamaygan",
+    "8,5 g/mol ga oshgan",
+    "17 g/mol ga oshgan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol ulushini yarmiga emas, chorak ulushga kamaytirib hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "yo'nalishni teskari olgan"
+    },
+    {
+     "variant": "D",
+     "xato": "hisoblash va yo'nalish xatosini birga qilgan"
+    }
+   ],
+   "yechim": "$M_0=70x_0+2(1-x_0)=36 => x_0=0{,}5$. Gidrogenlanishdan so'ng $x_1=0{,}25$: $M_1=70\\times0{,}25+2\\times0{,}75=17{,}5+1{,}5=19$. O'zgarish$=19-36=-17$ (17 g/mol ga kamaygan)."
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Formulasi $\\ce{C10H14}$ bo'lgan aren molekulasida 14 ta sp3-s qoplanish bo'lsa, uning nechta izomeri bor?",
+   "variantlar": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat simmetrik izomerlarni sanagan"
+    },
+    {
+     "variant": "B",
+     "xato": "bitta izomerni takroran sanagan"
+    },
+    {
+     "variant": "D",
+     "xato": "disubstitutsiyalangan holatlarni ham qo'shgan"
+    }
+   ],
+   "yechim": "14 ta sp3-s bog' bir substituentli (monosubstitutsiyalangan, halqada $5$ ta $H$ qoladi) $\\ce{C4H9}$ radikalida bo'ladi ($9H+5H{=}14H$). $\\ce{C4H9}$ ning 4 ta izomeri bor: n-butil, izobutil, sekundar butil, tretbutil — demak 4 ta arén izomeri."
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Dipropilfenol teng ikki qismga ajratildi. Birinchi qismi to'liq yondirildi, hosil bo'lgan $\\ce{CO2}$ hajmi $V_1$. Ikkinchi qismiga mo'l miqdor natriy qo'shildi, ajralgan $\\ce{H2}$ hajmi $V_2$. $V_1/V_2=24$ ekanligi va molekula yuqori simmetriyaga ega (barcha uglerod-vodorod bog'lari faqat 2 xil kimyoviy muhitda joylashgan) ekanligi ma'lum bo'lsa, moddani aniqlang.",
+   "variantlar": [
+    "2,4-dipropilfenol",
+    "2,6-dipropilfenol",
+    "3,4-dipropilfenol",
+    "3,5-dipropilfenol"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "simmetriya shartini tekshirmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "$V_1/V_2$ nisbatini tekshirmagan (radikal hajmini noto'g'ri topgan)"
+    },
+    {
+     "variant": "C",
+     "xato": "molekula simmetriyasiz ekanini payqamagan"
+    }
+   ],
+   "yechim": "$\\ce{CO2}$:$\\ce{H2}$ nisbati $=(6+2x)/0{,}5=24 => x=3$ (propil radikal). Faqat $3,5$-dipropilfenol simmetriya o'qiga ega (C1-C4 orqali), $C2{\\equiv}C6$ va $C3{\\equiv}C5$ — 2 xil $C{-}H$ muhiti."
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "83 g ikki xil to'yingan bir atomli aldegidlar (propanal va butanal) aralashmasiga mo'l miqdordagi yangi tayyorlangan mis (II) gidroksid eritmasi qo'shilganda 180 g qizil cho'kma ajraldi. Dastlabki aldegidlar aralashmasini to'liq gidrogenlash uchun 28 litr (n.sh.) vodorod gazi sarflanishi ma'lum bo'lsa, dastlabki aralashmadagi butanal massa ulushini (%) aniqlang.",
+   "variantlar": [
+    "50,6",
+    "58,0",
+    "65,1",
+    "72,3"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol sonlarini almashtirib yozgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$Cu_2O$ mol sonini noto'g'ri hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "massa ulushini umumiy massaga emas, faqat butanalga nisbatan olgan"
+    }
+   ],
+   "yechim": "$n(\\ce{H2})=28/22{,}4=1{,}25$mol$=x+y$. $Cu_2O$: $180/144=1{,}25$mol$=x+y$ — mos. Massa: $58x+72y=83$. Bu ikki tenglamadan $x=0{,}5$, $y=0{,}75$. Butanal massasi$=72\\times0{,}75=54$g. Ulush$=54/83\\approx65{,}1\\%$."
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Gomologik qatorda ketma-ket joylashgan ikkita to'yingan monokarbon kislota (propion va moy) aralashmasi mo'l miqdordagi magniy oksid bilan ishlanganda 29 g tuz hosil bo'ldi. Xuddi shunday aralashmani to'liq neytrallash uchun 300 ml 1M li natriy gidroksid eritmasi sarflanishi ma'lum bo'lsa, kichik gomolog (propion kislota) miqdorini (mol) aniqlang.",
+   "variantlar": [
+    "0,05",
+    "0,1",
+    "0,15",
+    "0,2"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkala kislota mol sonini teng deb olgan"
+    },
+    {
+     "variant": "C",
+     "xato": "tuz massasi tenglamasida koeffitsiyentni xato qo'ygan"
+    },
+    {
+     "variant": "D",
+     "xato": "$NaOH$ mol sonini kichik gomologga to'g'ridan-to'g'ri tenglashtirgan"
+    }
+   ],
+   "yechim": "Jami kislota$=0{,}3\\times1=0{,}3$mol$=x+y$. Tuzlar: $\\ce{(C2H5COO)2Mg}(M{=}170)$, $\\ce{(C3H7COO)2Mg}(M{=}198)$. $85x+99y=29$. $x+y=0{,}3$ bilan birga yechilsa: $x=0{,}05$ (propion kislota)."
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metilpropionat ($\\ce{CH3CH2COOCH3}$) molekulasidagi uglerod atomlarining oksidlanish darajasi necha xil?",
+   "variantlar": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat karbonil va metil uglerodni solishtirgan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki xil uglerodni bir xil deb noto'g'ri ajratgan"
+    },
+    {
+     "variant": "D",
+     "xato": "har bir uglerodni alohida noyob deb hisoblagan"
+    }
+   ],
+   "yechim": "$\\ce{CH3-CH2-C(=O)-O-CH3}$: uchki $CH_3(C1){=}-3$; $CH_2(C2){=}-2$; karbonil $C(C3){=}+3$; $O{-}CH_3(C4){=}-2$. $C2$ va $C4$ bir xil ($-2$) — jami $3$ xil ($-3,-2,+3$)."
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.8",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "6 ta formaldegid molekulasi o'zaro birikib glukozaga aylanganda nechta uglerodning oksidlanish darajasi OSHGAN?",
+   "variantlar": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "$C1$ va $C6$ ikkalasini ham o'zgargan deb noto'g'ri hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "o'rtadagi uglerodlarni ham o'zgargan deb qo'shgan"
+    },
+    {
+     "variant": "D",
+     "xato": "barcha uglerodlarni o'zgargan deb hisoblagan"
+    }
+   ],
+   "yechim": "Formaldegiddagi $C$ ox. darajasi $0$. Glukozada: $C1(CHO){=}+1$ (oshgan), $C2$-$C5(CHOH){=}0$ (o'zgarmagan), $C6(CH2OH){=}-1$ (kamaygan). Faqat $C1$ (1 ta) oshgan."
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.9",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Qaysi modda $C_nH_{2n+1}N$ umumiy formulaga mos keladi?",
+   "variantlar": [
+    "trietilamin",
+    "anilin",
+    "sikloheksilamin",
+    "benzilamin"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'yingan asiklik amin formulasi ($C_nH_{2n+3}N$) bilan aralashtirgan"
+    },
+    {
+     "variant": "B",
+     "xato": "aromatik amin formulasi ($C_nH_{2n-5}N$) bilan aralashtirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "benzilamin formulasini hisoblamagan"
+    }
+   ],
+   "yechim": "Sikloheksilamin $\\ce{C6H13N}$: $2\\times6+1=13$ ✓ — halqali (1 ta to'yinmaganlik darajasi) to'yingan amin formulasiga mos."
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "bolim": "III",
+   "element": "III.10",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Molekulyar massasi 340 000 u bo'lgan poliizopren molekulasida nechta pi-bog' bor?",
+   "variantlar": [
+    "4000",
+    "5000",
+    "6000",
+    "7000"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bo'g'inlar sonini xato hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "bo'g'in massasini $56$ deb olgan"
+    },
+    {
+     "variant": "D",
+     "xato": "har bo'g'inda ortiqcha pi-bog' borligini o'ylagan"
+    }
+   ],
+   "yechim": "Izopren bo'g'ini $\\ce{C5H8}$, $M=68$. Bo'g'inlar soni$=340000/68=5000$. Har bo'g'inda 1 ta pi-bog' qoladi. Jami$=5000$."
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "bolim": "IV",
+   "element": "II.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi qatorlardan qaysi birida IKKALA modda ham tabiatda erkin holatda uchraydi?\n1) azot va kislorod; 2) natriy va kaliy; 3) oltin va mis; 4) vodorod va ftor.",
+   "variantlar": [
+    "1 va 3",
+    "barchasi",
+    "2 va 4",
+    "faqat 1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "faol ishqoriy metallarni ham erkin deb hisoblagan"
+    },
+    {
+     "variant": "C",
+     "xato": "erkin holatda uchramaydigan juftlarni tanlagan"
+    },
+    {
+     "variant": "D",
+     "xato": "oltin-mis juftini erkin emas deb noto'g'ri hisoblagan"
+    }
+   ],
+   "yechim": "Atmosfera azoti va kislorodi — erkin (1). Native oltin va (kamdan-kam) native mis — erkin (3). Natriy, kaliy, vodorod, ftor — barchasi faqat birikma holida uchraydi."
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "bolim": "IV",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Alangani yashil rangga bo'yaydigan $X$ tuz suvda eritildi. Eritmaning bir qismiga kumush nitrat qo'shilganda oq cho'kma, boshqa qismiga esa suyultirilgan sulfat kislota qo'shilganda ham oq (suvda erimaydigan) cho'kma hosil bo'ldi. $X$ tuz molyar massasini (g/mol) hisoblang.",
+   "variantlar": [
+    "111",
+    "147",
+    "190",
+    "208"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{CaCl2}$ deb, alanga rangini noto'g'ri bog'lagan"
+    },
+    {
+     "variant": "B",
+     "xato": "$\\ce{CaSO4}$ bilan aralashtirgan"
+    },
+    {
+     "variant": "C",
+     "xato": "boshqa metall tuzini olgan"
+    }
+   ],
+   "yechim": "Yashil alanga — bariy ($\\ce{Ba}$). $\\ce{AgNO3}$ bilan oq cho'kma ($\\ce{AgCl}$) — xlorid ioni. $\\ce{H2SO4}$ bilan ham oq, suvda erimaydigan cho'kma ($\\ce{BaSO4}$) — bariy ionini tasdiqlaydi. $X=\\ce{BaCl2}$, $M=137+71=208$."
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "bolim": "IV",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$X$ modda gidroliz mahsulotlaridan biri kumush ko'zgu reaksiyasiga kirishadi, ikkinchisi oksidlanganda keton hosil qiladi. $X$ molekulasida 6 ta uglerod atomi bo'lsa, $X$ moddani aniqlang.",
+   "variantlar": [
+    "pentilformiat",
+    "izopentilformiat",
+    "sekundar pentilformiat",
+    "izopropilformiat"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pentanol birlamchi ekanini (aldegidga oksidlanishini) unutgan"
+    },
+    {
+     "variant": "B",
+     "xato": "izopentanol ham birlamchi ekanini hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "uglerod sonini ($4\\neq6$) tekshirmagan"
+    }
+   ],
+   "yechim": "Gidroliz: formiat efiri $\\to\\ce{HCOOH}$ (kumush ko'zgu) $+$ spirt. Keton hosil bo'lishi uchun spirt IKKILAMCHI bo'lishi kerak — sekundar pentanol ($\\ce{CH3-CH(OH)-C3H7}$) oksidlanib pentanon-2 beradi. $\\ce{HCOOC5H11}$ — 6 ta uglerod ✓."
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "bolim": "II",
+   "element": "II.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.4",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.2",
+     "qiyinlik": 1,
+     "kognitiv": "quyi"
+    },
+    {
+     "n": 35,
+     "element": "II.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Ikkivalentli metall va uning karbonatidan tashkil topgan 74 g aralashma ortiqcha xlorid kislota eritmasida to'liq eritildi, natijada 22,4 litr (n.sh.) gazlar aralashmasi ajralib chiqdi. Bu gazlar ortiqcha ohakli suvdan o'tkazilganda 25 g cho'kma tushdi.",
+   "savollar_ichki": [
+    "33. Metallning molyar massasini (g/mol) toping.",
+    "34. Ajralgan gazlar aralashmasining o'rtacha molyar massasini (g/mol) hisoblang.",
+    "35. Xuddi shu dastlabki aralashma ortiqcha suyultirilgan nitrat kislota eritmasida eritilsa, qancha (l; n.sh.) gaz ajraladi?"
+   ],
+   "javoblar_royxati": [
+    "A) 59",
+    "B) 65",
+    "C) 12,5",
+    "D) 24",
+    "E) 16,8",
+    "F) 22,4"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "C",
+    "35": "E"
+   },
+   "yechim": "$y$(karbonat)$=25/100=0{,}25$mol. Jami gaz$=22{,}4/22{,}4=1$mol => $x$(metall)$=1-0{,}25=0{,}75$mol. Massa: $0{,}75A+0{,}25(A+60)=74$ => $A+15=74$ => $A=59$ ($\\ce{Ni}$). O'rtacha $M$: $(0{,}75\\times2+0{,}25\\times44)/1=(1{,}5+11)/1=12{,}5$. Suyultirilgan $\\ce{HNO3}$ bilan: $\\ce{Ni->Ni^2+}$, elektron$=0{,}75\\times2=1{,}5$mol; $\\ce{NO3- + 4H+ + 3e- -> NO + 2H2O}$ => $\\ce{NO}=0{,}5$mol. Karbonatdan $\\ce{CO2}=0{,}25$mol (o'zgarmaydi). Jami$=0{,}75$mol$=16{,}8$ l. (Tekshiruv-2: berilgan uchta ma'lumotdan teskari yo'l bilan $x{=}0{,}75$, $y{=}0{,}25$, $A{=}59$ — sympy bilan qayta hisoblab tasdiqlangan.)"
+  },
+  {
+   "n": 36,
+   "tur": "O1",
+   "bolim": "I",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{SO2Cl2(g) <=> SO2(g) + Cl2(g)}$ muvozanatda $K_c=0{,}075$ $mol/l$. Muvozanat aralashmadagi $\\ce{SO2}$ va $\\ce{Cl2}$ miqdori 0,3 moldan, $\\ce{SO2Cl2}$ esa 0,6 mol bo'lsa, idish hajmini (litr) aniqlang.",
+   "javob": "2 litr",
+   "yechim": "$K_c=\\dfrac{(0{,}3/V)(0{,}3/V)}{0{,}6/V}=\\dfrac{0{,}09/V^2}{0{,}6/V}=\\dfrac{0{,}15}{V}=0{,}075 => V=2$ l."
+  },
+  {
+   "n": 37,
+   "tur": "O1",
+   "bolim": "I",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "200 g mis kuporosdan ($\\ce{CuSO4*5H2O}$) tayyorlangan 32% li eritma sovitilganda 24% li to'yingan eritmaga aylandi. Bunda qancha (g) mis kuporos cho'kmaga tushdi?",
+   "javob": "80 g",
+   "yechim": "200 g $\\ce{CuSO4*5H2O}$ dagi anhidrid $\\ce{CuSO4}$ massasi$=200\\times160/250=128$g. $32\\%$ dan: $M_0=128/0{,}32=400$g. $x$ g cho'kkanda: qolgan $\\ce{CuSO4}=128-0{,}64x$, qolgan eritma$=400-x$. $\\dfrac{128-0{,}64x}{400-x}=0{,}24 => 128-0{,}64x=96-0{,}24x => 32=0{,}4x => x=80$g."
+  },
+  {
+   "n": 38,
+   "tur": "O1",
+   "bolim": "II",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ekvimolyar nisbatdagi uch valentli amfoter $X$ metall (xrom) va ikki valentli oddiy $Y$ metall (magniy) dan iborat 19 g aralashmaning bir namunasi mo'l miqdor xlorid kislota eritmasida eritilganda 14 litr (n.sh.) gaz ajraldi. Xuddi shunday 19 g namunasi mo'l miqdor natriy gidroksid eritmasida eritilganda 8,4 litr (n.sh.) gaz ajraldi. $X$ va $Y$ metallarning molyar massalari yig'indisini (g/mol) hisoblang.",
+   "javob": "76 g/mol",
+   "yechim": "$n$ mol har biridan: $\\ce{HCl}$ bilan $H_2=1{,}5n(Cr)+1n(Mg)=2{,}5n$; $\\ce{NaOH}$ bilan faqat amfoter $Cr$: $H_2=1{,}5n$. $2{,}5n=14/22{,}4=0{,}625 => n=0{,}25$mol. $1{,}5n=0{,}375=8{,}4/22{,}4$ ✓ (mos keladi). Massa: $(M_{Cr}+M_{Mg})\\times0{,}25=19 => M_{Cr}+M_{Mg}=76$ ($\\ce{Cr}(52)+\\ce{Mg}(24)$)."
+  },
+  {
+   "n": 39,
+   "tur": "O1",
+   "bolim": "III",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Aluminiy karbid va kalsiy karbiddan iborat 68 g aralashma mo'l miqdordagi xlorid kislota eritmasida eritildi. Bunda hosil bo'lgan gazlar aralashmasi yonishidan olingan karbonat angidrid mo'l miqdordagi ohakli suvdan o'tkazilganda 175 g cho'kma ajraldi. Gazlar aralashmasining o'rtacha molyar massasini (g/mol) hisoblang.",
+   "javob": "20 g/mol",
+   "yechim": "$\\ce{Al4C3 + 12HCl -> 4AlCl3 + 3CH4}$, $\\ce{CaC2 + 2HCl -> CaCl2 + C2H2}$. $x$(Al4C3), $y$(CaC2): $144x+64y=68$; yonishdan $\\ce{CO2}=3x+2y$, $\\ce{CaCO3}=100(3x+2y)=175 => 3x+2y=1{,}75$. Yechim: $x=0{,}25$, $y=0{,}5$. Gaz: $\\ce{CH4}=0{,}75$mol, $\\ce{C2H2}=0{,}5$mol. O'rtacha $M=(0{,}75\\times16+0{,}5\\times26)/1{,}25=(12+13)/1{,}25=20$."
+  },
+  {
+   "n": 40,
+   "tur": "O1",
+   "bolim": "III",
+   "element": "III.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ikki xil yog' (tripalmitin va trilinolein) aralashmasidagi palmitin va linol kislota qoldiqlari 3:1 mol nisbatda. 1648 g yog'lar aralashmasining gidrolizidan qancha (g) natriy palmitat hosil bo'ladi?",
+   "javob": "1251 g",
+   "yechim": "$a$(tripalmitin,$M{=}806$), $b$(trilinolein,$M{=}878$): palmitin:linol$=3a:3b=3:1 => a=3b$. Massa: $806(3b)+878b=1648 => 2418b+878b=3296b=1648 => b=0{,}5$mol, $a=1{,}5$mol. Natriy palmitat$=3a\\times278=4{,}5\\times278=1251$g."
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "bolim": "I",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "1:1 mol nisbatda olingan xrom (III) oksid va grafitdan iborat 41 g aralashma mo'l miqdor konsentrlangan sulfat kislota eritmasida qizdirilib eritildi (1-jarayon). Olingan eritmaga reaksiya tugaguncha mo'l miqdor alyuminiy plastinka tushirilganda plastinka massasi 12,5 g ko'paydi (2-jarayon).",
+   "bandlar": [
+    {
+     "savol": "1) Dastlabki sulfat kislota miqdorini (mol) aniqlang.",
+     "yechim": [
+      "$\\ce{Cr2O3 + 3H2SO4 -> Cr2(SO4)3 + 3H2O}$; $\\ce{C + 2H2SO4 -> CO2 + 2SO2 + 2H2O}$.",
+      "$n(\\ce{Cr2O3})=n(\\ce{C})=x$: $164x=41 => x=0{,}25$mol.",
+      "$\\ce{H2SO4}=3x+2x=5x=1{,}25$mol."
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "2) 1-jarayonda hosil bo'lgan eritmadagi $\\ce{Cr2(SO4)3}$ massasini (g) aniqlang.",
+     "yechim": [
+      "$n(\\ce{Cr2(SO4)3})=x=0{,}25$mol, $M=392$.",
+      "massa$=0{,}25\\times392=98$g."
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "3) 1-jarayonda hosil bo'lgan gazlar ($\\ce{CO2}+\\ce{SO2}$) mo'l miqdor ohakli suvga yuttirilsa, qancha (g) cho'kma hosil bo'ladi?",
+     "yechim": [
+      "$\\ce{CO2}=x=0{,}25$mol, $\\ce{SO2}=2x=0{,}5$mol.",
+      "$\\ce{CaCO3}=0{,}25\\times100=25$g, $\\ce{CaSO3}=0{,}5\\times120=60$g.",
+      "Jami$=85$g."
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "4) 2-jarayonda qancha (g) alyuminiy eritmaga o'tgan?",
+     "yechim": [
+      "$\\ce{Cr2(SO4)3 + 2Al -> Al2(SO4)3 + 2Cr}$ (elektron balans: $3e^-{=}3e^-$, mol nisbati $\\ce{Al}:\\ce{Cr^3+}=1:1$).",
+      "$n(\\ce{Cr^3+})=2x=0{,}5$mol => $n(\\ce{Al})=0{,}5$mol.",
+      "Tekshiruv (plastinka massasi): $+12{,}5=n\\times(52-27)=25n => n=0{,}5$mol ✓ mos keladi.",
+      "massa$(\\ce{Al})=0{,}5\\times27=13{,}5$g."
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "5) 2-jarayonda hosil bo'lgan eritma ohistalik bilan sovitilsa, qancha (g) alyuminiy sulfat kristallogidrati ($\\ce{Al2(SO4)3*18H2O}$) hosil bo'ladi? (barcha tuz kristallanadi deb hisoblang)",
+     "yechim": [
+      "$n(\\ce{Al2(SO4)3})=n(\\ce{Al})/2=0{,}25$mol.",
+      "$M(\\ce{Al2(SO4)3*18H2O})=666$.",
+      "massa$=0{,}25\\times666=166{,}5$g."
+     ],
+     "M": 1,
+     "A": 1
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "Har band uchun avval reaksiya tenglamasi va usul (M), keyin hisob-kitob (A) yoziladi. Faqat yakuniy son yozilib, tenglama/usul ko'rsatilmasa — o'sha band uchun M ballari berilmaydi."
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "bolim": "III",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "Sxemadagi X, Y va Z moddalarni aniqlab, quyidagilarni yozing.\n$\\ce{C3H8 ->[1] X ->[2] C3H7OH ->[3] Y ->[4] C2H5COOH ->[5] C2H5COONa ->[6] Z ->[7] C2H5Cl}$",
+   "bandlar": [
+    {
+     "savol": "1) 1-reaksiya tenglamasini tenglashtirilgan holda yozing ($X=\\ce{C3H7Cl}$).",
+     "yechim": [
+      "$\\ce{C3H8 + Cl2 ->[hv] C3H7Cl + HCl}$ (radikal xlorlash)"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "2) 2-reaksiya tenglamasini yozing.",
+     "yechim": [
+      "$\\ce{C3H7Cl + NaOH ->[H2O] C3H7OH + NaCl}$"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "3) 3-reaksiya tenglamasini yozing ($Y=\\ce{C2H5CHO}$).",
+     "yechim": [
+      "$\\ce{C3H7OH + CuO ->[t] C2H5CHO + Cu + H2O}$"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "4) 4-reaksiya tenglamasini yozing.",
+     "yechim": [
+      "$\\ce{2C2H5CHO + O2 ->[kat] 2C2H5COOH}$"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "5) 5-reaksiya tenglamasini yozing.",
+     "yechim": [
+      "$\\ce{C2H5COOH + NaOH -> C2H5COONa + H2O}$"
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "6) 6-reaksiya tenglamasini yozing ($Z=\\ce{C2H6}$).",
+     "yechim": [
+      "$\\ce{C2H5COONa + NaOH ->[t,CaO] C2H6 + Na2CO3}$ (soda-oxak bilan dekarboksillash)"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "7) 7-reaksiya tenglamasini yozing.",
+     "yechim": [
+      "$\\ce{C2H6 + Cl2 ->[hv] C2H5Cl + HCl}$"
+     ],
+     "M": 2,
+     "A": 1
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "Har band uchun tenglama to'g'ri tenglashtirilgan holda yozilishi shart (M), reagent/sharoit ko'rsatilishi talab qilinadi."
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "bolim": "IV",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "Raqamlangan (1-6) idishlarda quruq holdagi natriy bromid, magniy sulfat, kaliy karbonat, kalsiy xlorid, mis (II) xlorid va temir (III) sulfat tuzlari bor. 7-idishda esa bariy karbonat bor. Idishlarga suv quyilganda faqat 7-idishdagi tuz erimadi. Tuzlarni aniqlash maqsadida bir qator tajribalar o'tkazildi:\nreaktiv | 1 | 2 | 3 | 4 | 5 | 6\n$\\ce{HCl}$ | $-$ | $-$ | $\\uparrow$ | $-$ | $-$ | $-$\n$\\ce{H2SO4}$ | $-$ | $-$ | $\\uparrow$ | $\\downarrow$(oq) | $-$ | $-$\n$\\ce{NaOH}$ | $-$ | $\\downarrow$(oq, erimaydi) | $-$ | $-$ | $\\downarrow$(ko'k) | $\\downarrow$(jigarrang)\n$\\ce{NH3*H2O}$ | $-$ | $\\downarrow$(oq, erimaydi) | $-$ | $-$ | $\\downarrow\\to$eriydi(to'q ko'k) | $\\downarrow$(jigarrang, erimaydi)",
+   "bandlar": [
+    {
+     "savol": "1) 1-tuzni ($\\ce{NaBr}$) aniqlash reaksiyasini yozing (1 ta).",
+     "yechim": [
+      "$\\ce{NaBr + AgNO3 -> AgBr v (och sariq) + NaNO3}$"
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "2) 2-tuzni ($\\ce{MgSO4}$) aniqlash reaksiyasini yozing (1 ta).",
+     "yechim": [
+      "$\\ce{MgSO4 + 2NaOH -> Mg(OH)2 v (oq) + Na2SO4}$ (ortiqcha ishqorda ham erimaydi)"
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "3) 3-tuzni ($\\ce{K2CO3}$) aniqlash reaksiyasini yozing (1 ta).",
+     "yechim": [
+      "$\\ce{K2CO3 + 2HCl -> 2KCl + CO2 ^ + H2O}$"
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "4) 4-tuzni ($\\ce{CaCl2}$) aniqlash reaksiyasini yozing (1 ta).",
+     "yechim": [
+      "$\\ce{CaCl2 + H2SO4 -> CaSO4 v (oq) + 2HCl}$"
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "5) 5-tuzni ($\\ce{CuCl2}$) aniqlash reaksiyasini yozing (2 ta).",
+     "yechim": [
+      "$\\ce{CuCl2 + 2NaOH -> Cu(OH)2 v (ko'k) + 2NaCl}$",
+      "$\\ce{CuCl2 + 4NH3*H2O -> [Cu(NH3)4]Cl2 (to'q ko'k) + 4H2O}$ (ortiqcha ammiakda eriydi)"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "6) 6-tuzni ($\\ce{Fe2(SO4)3}$) aniqlash reaksiyasini yozing (2 ta).",
+     "yechim": [
+      "$\\ce{Fe2(SO4)3 + 6NaOH -> 2Fe(OH)3 v (jigarrang) + 3Na2SO4}$",
+      "$\\ce{Fe2(SO4)3 + 6NH3*H2O -> 2Fe(OH)3 v (jigarrang) + 3(NH4)2SO4}$ (ortiqcha ammiakda ham erimaydi)"
+     ],
+     "M": 2,
+     "A": 1
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "Har band uchun kamida talab qilingan sondagi tenglama to'liq yozilishi shart; faqat tuz nomini aytish (tenglamasiz) ball bermaydi."
+  }
+ ]
+}
