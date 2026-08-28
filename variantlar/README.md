@@ -18,15 +18,17 @@ tenglama yechimi bilan). Ishga tushirish:
 python3 variantlar/verify_v02.py
 ```
 
-## Muhim eslatma: kimyoviy yozuv formati
+## Kimyoviy yozuv formati
 
-Bu faylda formulalar **oddiy matn** ko'rinishida (`CuO+H2SO4`), `PROMT_KIMYO.md`
-va `PROMT_VARIANT.md` talab qilgan `\ce{...}` LaTeX (mhchem) formatida EMAS.
-Bu — 43 ta savolni hisoblash va tekshirishga vaqt ajratish uchun ataylab
-qilingan soddalashtirish, qat'iy qoidadan chekinish emas. Kitob yoki chop
-etish uchun tayyorlashda har bir formula `\ce{}` ichiga o'tkaziladi va
-`+` atrofidagi bo'shliq qoidasiga rioya qilinadi (`namuna/` papkasidagi
-mhchem xatosi shu yerga ham tegishli).
+Barcha formulalar va tenglamalar `$\ce{...}$` (LaTeX mhchem) ko'rinishida —
+`PROMT_KIMYO.md` va `PROMT_VARIANT.md` talabiga mos. `+` belgisi har doim
+moddalardan bo'shliq bilan ajratilgan (`namuna/` papkasidagi mhchem xatosiga
+qarang). Barcha 654 ta matn maydoni KaTeX+mhchem orqali render qilinib,
+0 parse xatosi bilan tekshirilgan — `namuna/assets/` dagi bir xil asboblar
+bilan (`python3 namuna/render.py variantlar/v02.json` ishlatib ko'rish
+mumkin, chunki JSON sxemasi bob va variant fayllari uchun bir xil emas —
+`render.py` bevosita ishlamaydi, lekin xuddi shu KaTeX/mhchem inline
+asboblaridan foydalanib mahalliy render/tekshiruv o'tkazilgan).
 
 ## Pozitsiya→element xaritasi (v01 bilan bir xil)
 
