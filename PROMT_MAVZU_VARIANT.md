@@ -11,8 +11,12 @@ qiynalayotganda).
 ## PROMT (nusxalash uchun)
 
 Men metodistman. **Bitta mavzu bo'yicha, lekin Milliy Sertifikatning to'liq
-43-savolli strukturasida** original mashq-variant kerak — imtihondagi kabi
-savol turlari va joylashuvi, lekin mazmuni bitta mavzuga qaratilgan.
+43-savolli strukturasida** mashq-variant kerak — imtihondagi kabi savol
+turlari va joylashuvi, mazmuni bitta mavzuga qaratilgan. **Manba ikki xil:
+hisobiy/amaliy savollar `tahlil/manba/`dagi haqiqiy DTM/MS bankidan olinadi
+(mavjud bo'lsa), nazariy/tushunchaviy savollar esa darslik matniga
+(`tahlil/darslik/`, `namuna/`) asoslanib yoziladi** — pastdagi "Manba
+tanlash" bandiga qarang.
 
 ### Maqsad
 
@@ -84,10 +88,58 @@ mazmuni majburiy emas. Amaliy qoida (sinalgan):
   "N ta turli ta'sir — har biri uchun siljish yo'nalishi va sababini
   aniqlang").
 
-### Original savol yaratish — qat'iy taqiq (PROMT_VARIANT.md bilan bir xil)
+### Manba tanlash — savol turiga qarab
 
-Manba sifatida faqat pozitsiya→tur→qiyinlik→format naqshi olinadi. Savol
-matni, sonlari, moddalari original bo'ladi.
+Bu band PROMT_VARIANT.mdning "faqat naqsh olinadi, hammasi original"
+qoidasini **almashtiradi** — endi ikkita haqiqiy manba bor va ular savol
+turiga qarab ishlatiladi.
+
+**Hisobiy/amaliy savollar** (formulaga asoslangan, sonli javobli, ko'p
+bosqichli hisob — odatda MSning "yuqori" kognitiv qismi, ko'pincha
+Y2/O1/O2) → `tahlil/manba/<element>.json` dan olinadi, mavjud bo'lsa:
+
+| Element | Fayl |
+|---|---|
+| I.4 | `boglanish.json` |
+| I.5 | `tezlik.json` |
+| I.7, I.8 | `eritma.json` (ikkalasi aralash — savolni o'qib qaysi elementga tegishli ekanini aniqlang) |
+| I.9 | `ok_qay.json` |
+| I.10 | `elektroliz.json` |
+
+Qoidalar:
+- Savol matni va sonlari **bankdagidek** olinadi — qayta o'ylab original
+  yozish shart emas, bular haqiqatan MS/DTM imtihonlarida (2019–2021)
+  chiqqan savollar.
+- **Javob bankda YO'Q** (manba jadvalining javob ustuni bo'sh). Har savol
+  pastdagi "Javob tekshirish protokoli" bo'yicha ikki mustaqil usulda
+  noldan yechiladi, natija `"javob"` va `"parametrlar"` maydonlariga
+  yoziladi — bank matniga hech qanday ishonch bilan qaralmaydi.
+- Bankda bitta arxetipning ko'p sonli-nusxasi bor (masalan bir xil savol
+  matni, faqat sonlari boshqa — `ok_qay.json`da alkan-yonish savoli 9 marta
+  takrorlangan). Bulardan **1–2 tasi** olinadi, qolgani xuddi shu arxetipning
+  dublikati sifatida o'tkazib yuboriladi — 32 pozitsiyani sun'iy ravishda
+  bitta arxetip bilan to'ldirmaslik uchun.
+- Element uchun bank yo'q (I.1, I.2, I.3, I.6 va boshqa 21 ta element) yoki
+  bank kerakli pozitsiyalar sonidan kam bo'lsa — qolgan qism uchun
+  PROMT_VARIANT.mdning original-yozish qoidasiga qaytiladi (faqat
+  pozitsiya→qiyinlik naqshi olinadi, matn original).
+
+**Nazariy/tushunchaviy savollar** (ta'rif, tasniflash, "qaysi javobda ...
+to'g'ri" kabi tushunish darajasidagi — odatda MSning "quyi" kognitiv qismi)
+→ darslik matniga asoslanadi: `tahlil/darslik/sNN.json` (element qaysi
+sinfda, qaysi chuqurlikda o'tilgani) va mavjud bo'lsa `namuna/*.json` (bob
+matni, ta'riflar, formulalar). Qoidalar:
+- Faqat darslikda **haqiqatan o'tilgan** daraja va terminologiya
+  ishlatiladi. Darslikda "yo'q"/"yuzaki" qolgan tushunchalar (masalan I.4
+  uchun donor-akseptor mexanizmi, gibridlanish — `s08.json`da aniq "YO'Q"
+  deb belgilangan) savol asosiga qo'yilmaydi, agar element imtihon
+  darajasida chiqqani `tahlil/v01.json` orqali alohida tasdiqlanmasa.
+- Savol matni **original yoziladi** (darslikdan so'zma-so'z ko'chirilmaydi),
+  lekin mazmun va chuqurlik darajasi darslikka mos bo'ladi — o'quvchi
+  darslikda ko'rmagan faktni "bilishi kerak" degan noto'g'ri taassurot
+  berilmaydi.
+- Bank ham, darslik ham yo'q holatlarda (masalan I.6 — muvozanat, allaqachon
+  original yozilgan) PROMT_VARIANT.mdning odatiy original qoidasi ishlaydi.
 
 ### Y1 javob-harfi taqsimoti — MAJBURIY tekshiruv
 
@@ -163,9 +215,15 @@ chrome --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
 1. Mavzu (mazmun elementi, masalan I.6) tanlanadi.
 2. `tahlil/v01.json`dan shu pozitsiyalarning qiyinlik/kognitiv qiymatlari
    olinadi (1–32, 33–35, 36–40 uchun).
-3. 32 ta Y1 savoli yoziladi — mavzu ichida, lekin xilma-xil arxetiplarda
-   (oddiy formuladan tortib ko'p bosqichli kvadrat tenglamagacha), qiyinlik
-   pozitsiyaga mos.
+2a. `tahlil/manba/<element>.json` mavjudligi tekshiriladi (bank) va
+    `tahlil/darslik/*.json` dan shu elementning qaysi sinfda, qaysi
+    chuqurlikda o'tilgani o'qiladi (darslik chegarasi) — "Manba tanlash"
+    bandiga ko'ra qaysi pozitsiya bankdan, qaysisi darslik asosida
+    yoziladi shu yerda rejalashtiriladi.
+3. 32 ta Y1 savoli yoziladi — hisobiy pozitsiyalar bankdan (mavjud bo'lsa),
+   nazariy pozitsiyalar darslik chegarasiga mos original matn bilan;
+   xilma-xil arxetiplarda (oddiy formuladan tortib ko'p bosqichli kvadrat
+   tenglamagacha), qiyinlik pozitsiyaga mos.
 4. Javob harflari A/B/C/D bo'yicha teng taqsimlanadi (yuqoridagi band).
 5. Y2 guruhi (33–35) — bitta ssenariy, 3 bog'liq savol, ABCDEF javob
    ro'yxati.
