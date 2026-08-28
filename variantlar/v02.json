@@ -1000,6 +1000,11 @@
    "tur": "Y2",
    "bolim": "II",
    "element": "II.4",
+   "ichki_pasport": [
+    {"n": 33, "element": "II.4", "qiyinlik": 2, "kognitiv": "yuqori"},
+    {"n": 34, "element": "I.2", "qiyinlik": 1, "kognitiv": "quyi"},
+    {"n": 35, "element": "II.4", "qiyinlik": 3, "kognitiv": "yuqori"}
+   ],
    "matn_umumiy": "Ikkivalentli metall va uning karbonatidan tashkil topgan 9,9 g aralashma ortiqcha xlorid kislota eritmasida to'liq eritildi, natijada 5,04 litr (n.sh.) gazlar aralashmasi ajralib chiqdi. Bu gazlar ortiqcha ohakli suvdan o'tkazilganda 7,5 g cho'kma tushdi.",
    "savollar_ichki": [
     "33. Metallning molyar massasini (g/mol) toping.",
@@ -1080,6 +1085,9 @@
    "n": 41,
    "tur": "O2",
    "bolim": "I",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
    "matn": "1:1 mol nisbatda olingan mis (II) oksid va grafitdan iborat 9,2 g aralashma mo'l miqdor konsentrlangan sulfat kislota eritmasida qizdirilib eritildi (1-jarayon). Olingan eritmaga reaksiya tugaguncha mo'l miqdor rux plastinka tushirildi (2-jarayon).",
    "bandlar": [
     {
@@ -1130,6 +1138,9 @@
    "n": 42,
    "tur": "O2",
    "bolim": "III",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
    "matn": "Sxemadagi X, Y va Z moddalarni aniqlab, quyidagilarni yozing.\n$\\ce{C2H6 ->[1] X ->[2] C2H5OH ->[3] Y ->[4] CH3COOH ->[5] CH3COONa ->[6] Z ->[7] CH3Cl}$",
    "bandlar": [
     {
@@ -1196,6 +1207,9 @@
    "n": 43,
    "tur": "O2",
    "bolim": "IV",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
    "matn": "Raqamlangan (1–6) idishlarda quruq holdagi natriy xlorid, magniy xlorid, kaliy karbonat, bariy xlorid, kumush nitrat va temir (III) xlorid tuzlari bor. 7-idishda esa kalsiy karbonat bor. Idishlarga suv quyilganda faqat 7-idishdagi tuz erimadi. Tuzlarni aniqlash maqsadida bir qator tajribalar o'tkazildi:\nreaktiv | 1 | 2 | 3 | 4 | 5 | 6\n$\\ce{HCl}$ | $-$ | $-$ | $\\uparrow$ | $-$ | $\\downarrow$(oq) | $-$\n$\\ce{H2SO4}$ | $-$ | $-$ | $\\uparrow$ | $\\downarrow$(oq) | $-$ | $-$\n$\\ce{NaOH}$ | $-$ | $\\downarrow$(oq) | $-$ | $-$ | $\\downarrow$(jigarrang) | $\\downarrow$(qizil-jigar)\n$\\ce{NH3*H2O}$ | $-$ | $\\downarrow$(oq) | $-$ | $-$ | $\\downarrow\\to$eriydi | $\\downarrow$(qizil-jigar, erimaydi)",
    "bandlar": [
     {

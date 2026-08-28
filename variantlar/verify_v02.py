@@ -6,11 +6,13 @@ kimyoviy mantiq bilan qo'lda tekshiriladi, skriptga kiritilmagan.
 Ishlatish:  python3 variantlar/verify_v02.py
 """
 import json
+import os
 import re
 from fractions import Fraction as Fr
 import sympy as sp
 
-d = json.load(open("v02.json" if __name__ == "__main__" else "variantlar/v02.json", encoding="utf-8"))
+HERE = os.path.dirname(os.path.abspath(__file__))
+d = json.load(open(os.path.join(HERE, "v02.json"), encoding="utf-8"))
 errors = []
 
 
@@ -179,3 +181,38 @@ if errors:
         print(" -", e)
 else:
     print("Barcha sonli javoblar mustaqil qayta hisoblash bilan mos keldi.")
+
+# ---------------------------------------------------------------
+# Pozitsiya->bo'lim->element->qiyinlik->kognitiv pasporti v01 (haqiqiy
+# imtihon, faqat metama'lumot) bilan barcha 43 pozitsiya bo'yicha
+# dasturiy solishtiriladi.
+v01_path = os.path.join(HERE, "..", "tahlil", "v01.json")
+v01 = json.load(open(v01_path, encoding="utf-8"))["savollar"]
+v01_by_n = {s["n"]: s for s in v01}
+
+# v02 pasportini pozitsiya bo'yicha yig'amiz (Y2 ichki_pasport orqali yoyiladi)
+v02_by_n = {}
+for s in d["savollar"]:
+    if s["tur"] == "Y2":
+        for p in s["ichki_pasport"]:
+            v02_by_n[p["n"]] = p
+    else:
+        v02_by_n[s["n"]] = s
+
+passport_errors = []
+for n in range(1, 44):
+    a = v01_by_n[n]
+    b = v02_by_n.get(n)
+    if b is None or "qiyinlik" not in b or b["qiyinlik"] is None:
+        passport_errors.append(f"{n}: v02'da qiyinlik/kognitiv/element yo'q")
+        continue
+    for key in ("element", "qiyinlik", "kognitiv"):
+        if a[key] != b[key]:
+            passport_errors.append(f"{n}: {key} mos kelmadi (v01={a[key]!r}, v02={b[key]!r})")
+
+print(f"\nPasport tekshiruvi (43/43 pozitsiya): {len(passport_errors)} nomuvofiqlik.")
+if passport_errors:
+    for e in passport_errors:
+        print(" -", e)
+else:
+    print("Barcha 43 pozitsiyaning element/qiyinlik/kognitiv metama'lumoti v01 bilan aynan mos.")
