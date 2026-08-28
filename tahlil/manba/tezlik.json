@@ -1,0 +1,656 @@
+{
+ "manba": "DTM/MS 2019-2021 mavzu bo'yicha savollar banki (javobsiz) — tezlik",
+ "element": "I.5",
+ "izoh": "Foydalanuvchi yuklagan xom manba. Javob kaliti YO'Q (docx da faqat savol+variantlar ustuni to'ldirilgan, javob ustuni bo'sh). Har savol keyinchalik qo'lda/mustaqil yechilib tasdiqlanishi kerak, tayyor javob sifatida ISHLATILMASIN.",
+ "soni": 162,
+ "savollar": [
+  {
+   "savol": "Kimyoviy reaksiya tezligi 9 mol/(l•min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti uchga teng. Shu reaksiyaning temperaturasi 20°C ga tushirilsa, keyingi reaksiya tezligi boshlang'ich tezlikdan necha marta katta bo'ladi?",
+   "variantlar": "A) 9 B) 1 C) 81 D) 1/9"
+  },
+  {
+   "savol": "Kimyoviy reaksiya tezligi 9 mol/(l•min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti uchga teng. Shu reaksiyaning temperaturasi 20°C ga tushirilsa, keyingi reaksiya tezligi (mol/(l•min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 1 B) 81 C) 9 D) 1/9"
+  },
+  {
+   "savol": "Kimyoviy reaksiya tezligi 8 mol/(l•min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti ikkiga teng. Shu reaksiyaning temperaturasi 40°C ga tushirilsa, keyingi reaksiya tezligi (mol/(l•min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 16 B) 0,5 C) 32 D) 1/16"
+  },
+  {
+   "savol": "Kimyoviy reaksiya tezligi 8 mol/(l•min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti ikkiga teng. Shu reaksiyaning temperaturasi 40°C ga oshirilsa, keyingi reaksiya tezligi (mol/(l•min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 8 B) 64 C) 128 D) 16"
+  },
+  {
+   "savol": "Kimyoviy reaksiya tezligi 3 mol/(l•min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti uchga teng. Shu reaksiyaning temperaturasi 20°C ga oshirilsa, keyingi reaksiya tezligi (mol/(l•min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 3 B) 81 C) 9 D) 27"
+  },
+  {
+   "savol": "Reaksiyaning temperaturasi 20°C dan 40°C gacha oshirildi. Agar 40°C dagi reaksiyaning tezligi (mol/(l•min) 20°C dagi reaksiyaning tezligidan (mol/(l•min) 72 birlikka ko'p bo'lsa, 40°C dagi tezlikni (mol/(l•min) toping (γ = 2).",
+   "variantlar": "A) 48 B) 96 C) 12 D) 24"
+  },
+  {
+   "savol": "Tezligi 0,03 mol/(l•s) ga teng bo'lgan reaksiyada 0,5 minut davomida modda konsentratsiyasi to'rt marta kamaysa, reaksiya uchun olingan modda miqdorini (mol) aniqlang (V = 1 litr).",
+   "variantlar": "A) 2,66 B) 0,9 C) 1,2 D) 0,3"
+  },
+  {
+   "savol": "Tezligi 0,03 mol/(l•s) ga teng bo'lgan reaksiyada 10 sekund davomida modda konsentratsiyasi to'rt marta kamaysa, reaksiya uchun olingan modda miqdorini (mol) aniqlang (V = 1 litr).",
+   "variantlar": "A) 0,4 B) 0,9 C) 0,3 D) 2,66"
+  },
+  {
+   "savol": "Tezligi 0,03 mol/(l•s) ga teng bo'lgan reaksiyada bir minut davomida modda konsentratsiyasi uch marta kamaysa, reaksiya uchun olingan modda miqdorini (mol) aniqlang (V = 1 litr).",
+   "variantlar": "A) 1,8 B) 7,2 C) 0,9 D) 2,7"
+  },
+  {
+   "savol": "Tezligi 0,05 mol/(l•s)ga teng bo'lgan reaksiyada 0,5 minut davomida modda konsentratsiyasi to'rt marta kamaysa, reaksiya uchun olingan modda miqdorini (mol) aniqlang (V = 1 litr).",
+   "variantlar": "A) 1,5 B) 2 C) 3 D) 0,5"
+  },
+  {
+   "savol": "Tezligi 0,05 mol/(l•s) ga teng bo'lgan reaksiyada 20 sekund davomida modda konsentratsiyasi ikki marta kamaysa, reaksiya uchun olingan modda miqdorini (mol) aniqlang (V = 1 litr).",
+   "variantlar": "A) 4 B) 1 C) 2 D) 0,5"
+  },
+  {
+   "savol": "O'rtacha tezligi 0,2 mol/(l•s) ni tashkil etuvchi reaksiyada 0,25 minutdan keyin modda konsentratsiyasi 1,5 mol/l ga teng bo'lib qoldi. Moddaning boshlang'ich konsentratsiyasini (mol/l) aniqlang (V = 1 litr).",
+   "variantlar": "A) 2,5 B) 6,5 C) 9 D) 4,5"
+  },
+  {
+   "savol": "O'rtacha tezligi 0,2 mol/(l•s) ni tashkil etuvchi reaksiyada 20 sekunddan keyin modda konsentratsiyasi 2 mol/l ga teng bo'lib qoldi. Moddaning boshlang'ich konsentratsiyasini (mol/l) aniqlang (V = 1 litr).",
+   "variantlar": "A) 4 B) 8 C) 12 D) 6"
+  },
+  {
+   "savol": "O'rtacha tezligi 0,2 mol/(l•s) ni tashkil etuvchi reaksiyada 10 sekunddan keyin modda konsentratsiyasi 1 mol/l ga teng bo'lib qoldi. Moddaning boshlang'ich konsentratsiyasini (mol/l) aniqlang (V = 1 litr).",
+   "variantlar": "A) 9 B) 3 C) 6 D) 5"
+  },
+  {
+   "savol": "O'rtacha tezligi 0,1 mol/(l•s) ni tashkil etuvchi reaksiyada 20 sekunddan keyin modda konsentratsiyasi 0,5 mol/l ga teng bo'lib qoldi. Moddaning boshlang'ich konsentratsiyasini (mol/l) aniqlang (V = 1 litr).",
+   "variantlar": "A) 9 B) 2,5 C) 4,5 D) 6,5"
+  },
+  {
+   "savol": "O'rtacha tezligi 0,1 mol/(l•s) ni tashkil etuvchi reaksiyada 0,5 minutdan keyin modda konsentratsiyasi 2 mol/l ga teng bo'lib qoldi. Moddaning boshlang'ich konsentratsiyasini (mol/l) aniqlang (V = 1 litr).",
+   "variantlar": "A) 5 B) 9 C) 3 D) 10"
+  },
+  {
+   "savol": "Hajmi 2 litr bo'lgan idishda o'tkazilgan reaksiyada 5 minut davomida 6 mol modda sarflandi. Reaksiyaning o'rtacha tezligini (mol/(l•s) aniqlang.",
+   "variantlar": "A) 0,05 B) 0,01 C) 0,1 D) 0,02"
+  },
+  {
+   "savol": "Hajmi 0,5 litr bo'lgan idishda o'tkazilgan reaksiyada 5 minut davomida 3 mol modda sarflandi. Reaksiyaning o'rtacha tezligini (mol/(l•s) aniqlang.",
+   "variantlar": "A) 0,05 B) 0,02 C) 0,01 D) 0,1"
+  },
+  {
+   "savol": "Hajmi 5 litr bo'lgan idishda o'tkazilgan reaksiyada 120 sekund davomida 6 mol modda sarflandi. Reaksiyaning o'rtacha tezligini (mol/(l•s) aniqlang.",
+   "variantlar": "A) 0,02 B) 0,01 C) 0,1 D) 0,05"
+  },
+  {
+   "savol": "Hajmi 5 litr bo'lgan idishda o'tkazilgan reaksiyada 120 sekund davomida 12 mol modda sarflandi. Reaksiyaning o'rtacha tezligini (mol/(l•s) aniqlang.",
+   "variantlar": "A) 0,05 B) 0,01 C) 0,02 D) 0,1"
+  },
+  {
+   "savol": "Hajmi 2,5 litr bo'lgan idishda o'tkazilgan reaksiyada 120 sekund davomida 3 mol modda sarflandi. Reaksiyaning o'rtacha tezligini (mol/(l•s) aniqlang.",
+   "variantlar": "A) 0,02 B) 0,1 C) 0,05 D) 0,01"
+  },
+  {
+   "savol": "20°C da 2 sekundda tugaydigan reaksiya temperatura -20°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 2)",
+   "variantlar": "A) 8 B) 16 C) 32 D) 64"
+  },
+  {
+   "savol": "20°C da 3 sekundda tugaydigan reaksiya temperatura -20°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 3)",
+   "variantlar": "A) 81 B) 243 C) 9 D) 27"
+  },
+  {
+   "savol": "-20°C da 243 sekundda tugaydigan reaksiya temperatura 20°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 3)",
+   "variantlar": "A) 9 B) 3 C) 27 D) 81"
+  },
+  {
+   "savol": "10°C da 32 sekundda tugaydigan reaksiya temperatura -10°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 2)",
+   "variantlar": "A) 128 B) 32 C) 256 D) 64"
+  },
+  {
+   "savol": "10°C da 2 sekundda tugaydigan reaksiya temperatura -10°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 4)",
+   "variantlar": "A) 8 B) 32 C) 16 D) 64"
+  },
+  {
+   "savol": "-10°C da 64 sekundda tugaydigan reaksiya temperatura 10°C gacha o'zgartirilganda necha sekundda tugaydi? (γ = 4)",
+   "variantlar": "A) 32 B) 4 C) 16 D) 2"
+  },
+  {
+   "savol": "X(g) ↔ Y(g) + Z(g) reaksiya tenglamasi bo'yicha muvozanat holatidagi X moddaning konsentratsiyasi 4 mol/l bo'lsa, X moddaning dastlabki konsentratsiyasini (mol/l) aniqlang (Kм = 1).",
+   "variantlar": "A) 5 B) 10 C) 6 D) 8"
+  },
+  {
+   "savol": "NH₃(g) + Cl₂(g) ↔ N₂(g) + HCl(g) Kimyoviy muvozanat qaror topganda (Kм = 1) moddalar konsentratsiyalari [NH₃] = 0,3 mol/l; [Cl₂] = 0,7 mol/l; [HCl] = 0,6 mol/l bo'lsa, boshlang'ich moddalar miqdorlarini (mol) hisoblang (V = 2 litr).",
+   "variantlar": "A) 1; 2 B) 1; 1,5 C) 2,5; 5 D) 0,2; 0,3"
+  },
+  {
+   "savol": "SO₂ + O₂ ⇆ SO₃ reaksiyada SO₃ ning konsentratsiyasi 2 mol/l bo'lganda kimyoviy muvozanat qaror topdi. SO₂ ning boshlang'ich konsentratsiyasi 3 mol/l bo'lsa, kislorodning dastlabki konsentratsiyasini (mol/l) hisoblang. (Kм = 1).",
+   "variantlar": "A) 4 B) 1 C) 2 D) 5"
+  },
+  {
+   "savol": "SO₂ + O₂ ⇆ SO₃ reaksiyada SO₃ ning konsentratsiyasi 2 mol/l bo'lganda kimyoviy muvozanat qaror topdi. SO₂ ning boshlang'ich konsentratsiyasi 3 mol/l bo'lsa, kislorodning muvozanat holatidagi konsentratsiyasini (mol/l) hisoblang (Kм = 1).",
+   "variantlar": "A) 4 B) 2 C) 5 D) 1"
+  },
+  {
+   "savol": "SO₂ + O₂ ⇆ SO₃ reaksiyada SO₃ ning konsentratsiyasi 4 mol/l bo'lganda kimyoviy muvozanat qaror topdi. SO₂ ning boshlang'ich konsentratsiyasi 6 mol/l bo'lsa, kislorodning muvozanat holatidagi konsentratsiyasini (mol/l) hisoblang (Kм = 1).",
+   "variantlar": "A) 2 B) 8 C) 4 D) 6"
+  },
+  {
+   "savol": "xA(g) + B(g) ↔ 2C(g) reaksiya muvozanat holatiga kelganda moddalarning konsentratsiyalari [A] = 2 mol/l, [B] = 4 mol/l, [C] = 2 mol/l ga teng bo'lsa, x ni aniqlang (Kм = 1/4).",
+   "variantlar": "A) 3 B) 4 C) 5 D) 2"
+  },
+  {
+   "savol": "1. Kimyoviy reaksiya tezligi 2 mol/(l·min)ga teng bo'lgan reaksiyaning temperatura koeffitsiyenti ikkiga teng. Shu reaksiyaning temperaturasi 30°C ga oshirilsa, keyingi reaksiya tezligi (mol/(l·min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 8 B) 16 C) 0,25 D) 0,125"
+  },
+  {
+   "savol": "2. SO₂ + O₂ ⇌ SO₃ reaksiyada SO₃ ning konsentratsiyasi 1 mol/l bo'lganda kimyoviy muvozanat qaror topdi. SO₂ ning boshlang'ich konsentratsiyasi 2 mol/l bo'lsa, kislorodning dastlabki konsentratsiyasini (mol/l) toping (Kₘ = 1).",
+   "variantlar": "A) 2 B) 1,5 C) 1 D) 0,5"
+  },
+  {
+   "savol": "3. 2 mol A₂ va 1 mol B₂ gazlar aralashtirilib A₂ + B₂ ⇌ 2AB reaksiya o'tkazildi. Muvozanat yuzaga kelgan vaqtda AB modda molekulalarining soni A₂ va B₂ moddalar molekulalari soni yig'indisiga teng bo'ldi. A₂ va B₂ gazlarning muvozanat konsentratsiyalari (mol/l) yig'indisini toping (V = 1 litr).",
+   "variantlar": "A) 3 B) 0,75 C) 1,5 D) 2,25"
+  },
+  {
+   "savol": "4. -10 °C da 64 sekundda tugaydigan reaksiya temperatura 10 °C gacha o'zgartirilganda necha sekundda tugaydi (γ = 2)?",
+   "variantlar": "A) 16 B) 4 C) 2 D) 8"
+  },
+  {
+   "savol": "5. Qaysi reaksiyada bosimning ortishi muvozanatni o'ng tomonga siljitadi?",
+   "variantlar": "A) NO + O₂ = NO₂ - Q B) SO₂ + NO₂ = SO₃ + NO + Q C) NO₂ = N₂O₄ + Q D) N₂ + H₂ = NH₃ - Q"
+  },
+  {
+   "savol": "6. A + 2B = 3C reaksiyada A va B ning miqdori 1:2 mol nisbatda olingan. 4 sekunddan keyin barcha moddalarning umumiy miqdori 1,2 molga teng bo'ldi (idish hajmi 1 l), v = 5·10⁻² mol·l⁻¹·sek⁻¹. A ning boshlang'ich konsentratsiyasini toping.",
+   "variantlar": "A) 0,4 B) 0,2 C) 0,6 D) 0,5"
+  },
+  {
+   "savol": "7. SO₂ + O₂ = SO₃ dastlabki moddalar konsentratsiyalari 2:1 mol nisbatda. Reaksiyaning boshlang'ich va 50% unum bilan muvozanatga kelgandan keyin to'g'ri reaksiya tezliklarining nisbatini (K = 0,02) hisoblang.",
+   "variantlar": "A) 4:1 B) 8:1 C) 1:4 D) 1:3"
+  },
+  {
+   "savol": "8. 2A + xB → 2C bo'lgan reaksiyada 4 mol A moddaning 50% i sarflangan, B ning 50% i ortib qolgan. Jarayon 1 litrli idishda olib borilgan bo'lsa, B ning boshlang'ich konsentratsiyasini toping. (Kₘ = 1).",
+   "variantlar": "A) 4 B) 1 C) 2 D) 5"
+  },
+  {
+   "savol": "9. SO₂ + O₂ = SO₃ sistema muvozanatga kelganda barcha moddalarning konsentratsiyalari teng bo'lsa, boshlang'ich moddalarning konsentratsiyalari (mol) yig'indisini aniqlang. (Kₘ = 2, V = 2 l)",
+   "variantlar": "A) 1,5 B) 3 C) 3,5 D) 4"
+  },
+  {
+   "savol": "10. Qaysi reaksiyada bosim va temperaturaning ortishi kimyoviy muvozanatni bir tomonga siljitadi?",
+   "variantlar": "A) N₂ + O₂ = NO + Q B) CO + O₂ = CO₂ + Q C) N₂ + H₂ = NH₃ - Q D) NO₂ = N₂O₄ + Q"
+  },
+  {
+   "savol": "11. Grafikka asoslanib 2SO₂(g) + O₂(g) = 2SO₃(g) reaksiyasining dastlabki tezligini (mol/l·sek) aniqlang. (k = 0,8)",
+   "variantlar": "A) 125 B) 100 C) 150 D) 75"
+  },
+  {
+   "savol": "12. Ma'lum bir sharoitda 19,2 g SO₂ 0,4 minutda hosil bo'ladi, boshqa sharoitda 19,2 g ozon 80 sekundda hosil bo'lsa, shu ikki reaksiyaning tezliklari nisbatini aniqlang.",
+   "variantlar": "A) 150:1 B) 5:2 C) 1:4 D) 6:1"
+  },
+  {
+   "savol": "13. X va Y birikmalaridan Z birikma olinishiga doir massa-vaqt grafigi berilgan. Bunga ko'ra, I - 36 g Z birikma olingan; II - X ning 8 grami sarflangan; III - Z birikmada massalar nisbati (1:2) dir. Berilganlardan qaysilari to'g'ri?",
+   "variantlar": "A) faqat I B) faqat II C) I va III D) II va III"
+  },
+  {
+   "savol": "14. NO ning 18 grammini hosil qilish uchun 2 minut vaqt sarflandi. Shu tezlik bilan X gazning 18 grammini hosil qilish uchun 75 sekund vaqt sarflansa, X gazni aniqlang.",
+   "variantlar": "A) CO₂ B) C₃H₆ C) C₂H₆ D) O₃"
+  },
+  {
+   "savol": "15. Grafikka asoslanib S(q) + O₂(g) = SO₂(g) reaksiyasining o'rtacha tezligini (mol/l·min) aniqlang.",
+   "variantlar": "A) 0,2/60 B) 0,3/60 C) 0,4/60 D) 0,5/60"
+  },
+  {
+   "savol": "16. A + B = 2C + D; ushbu reaksiyada dastlabki A va B moddalarning konsentratsiyalari mos ravishda 4 mol va 6 mol. Agar reaksiya 75% unum bilan muvozanatga kelgan bo'lsa, idishning hajmini (l) aniqlang. (Kₘ = 7,2)",
+   "variantlar": "A) 5 B) 10 C) 15 D) 20"
+  },
+  {
+   "savol": "17. Hajmi 5 l bo'lgan idishda (NO₂ = NO + O₂) NO₂ ning yarmi parchalanganda NO ning konsentratsiyasi 60% ga, O₂ ning konsentratsiyasi 50% ga ortdi va muvozanat qaror topdi. Parchalanishdan oldingi barcha moddalarning modda miqdorlari (mol) yig'indisini aniqlang. (Kₘ = 3,2)",
+   "variantlar": "A) 3,5 B) 3 C) 6,5 D) 7"
+  },
+  {
+   "savol": "18. Temperatura koeffitsiyenti 2 va 3 bo'lgan ikkita reaksiyaning boshlang'ich temperaturalari tegishli ravishda 20 °C va 30 °C ga teng. Qanday temperaturada (°C) ikkinchi reaksiyaning tezligi birinchisinikidan 1,125 marta katta bo'ladi?",
+   "variantlar": "A) 30 B) 40 C) 60 D) 50"
+  },
+  {
+   "savol": "19. SO₂ + O₂ = SO₃ ushbu reaksiyada muvozanat qaror topgandan keyin barcha moddalarning konsentratsiyalari teng bo'lsa, reaksiya unumini (%) hisoblang. (Kₘ = 5/3)",
+   "variantlar": "A) 50 B) 33,3 C) 25 D) 60"
+  },
+  {
+   "savol": "20. A va B moddalarning parchalanish tezliklari 20 °C da teng. (Temperatura koeffitsientlari 2 va 3.) Agar A moddaning 4 mol/l miqdori 40 °C da 25 sekundda parchalansa, B moddaning 12,96 mol/l miqdori 60 °C da necha sekundda parchalanishini toping.",
+   "variantlar": "A) 6 B) 4 C) 3 D) 2"
+  },
+  {
+   "savol": "21. SO₂ + O₂ = SO₃; 93 °C da reaksiyada dastlabki gazlarning bosimlari (atm) teng. Agar reaksiya 75% unum bilan muvozanatga kelgan bo'lsa, sarflangan kislorod molekulalar sonini aniqlang. (V = 15 l; Kp = 18)",
+   "variantlar": "A) 18,02·10²² B) 9,03·10²² C) 24,08·10²² D) 48,16·10²²"
+  },
+  {
+   "savol": "22. 20 °C dagi tezligi 2:1 bo'lgan reaksiyalar harorat necha °C ga ko'tarilgandan so'ng tezliklar nisbati 1:2 ni tashkil etadi? (temperatura koeffitsiyenti mos ravishda 2 va 4)",
+   "variantlar": "A) 30 B) 40 C) 20 D) 50"
+  },
+  {
+   "savol": "23. 10 g CaCO₃ parchalanishi uchun 17,8 kJ issiqlik yutildi. CaCO₃ ning CaO va CO₂ ga parchalanish reaksiyasining termokimyoviy tenglamasini ko'rsating.",
+   "variantlar": "A) CaCO₃ → CaO + CO₂ - 178 kJ B) CaCO₃ → CaO + CO₂ + 178 kJ C) CaCO₃ → CaO + CO₂ H = -178 kJ D) CaCO₃ → CaO + CO₂ H = +17,8 kJ"
+  },
+  {
+   "savol": "24. Idishda Cl₂ va H₂ aralashmasi bor. Aralashma qizdirildi. 5 sekunddan keyin idishda HCl ning konsentratsiyasi 0,05 mol/l ga teng bo'ldi. Vodorod xloridning o'rtacha hosil bo'lish tezligini (mol/l·sek) toping.",
+   "variantlar": "A) 0,01 B) 0,04 C) 0,03 D) 0,02"
+  },
+  {
+   "savol": "25. Muvozanatdagi sistemada temperatura pasaytirilganda (a) va boshqa holatda katalizator kiritilganda (b) sistema muvozanati qanday o'zgaradi: H₂ + I₂ ⇌ 2HI - Q?",
+   "variantlar": "A) a - o'ngga; b - chapga B) a - chapga; b - o'zgarmaydi C) a - o'zgarmaydi; b - chapga D) a - o'ngga; b - o'zgarmaydi"
+  },
+  {
+   "savol": "26. 2CO + O₂ → 2CO₂ muvozanat holatida 1,2 mol CO, 0,6 mol O₂, 2,4 mol CO₂ bo'lib, idishdagi umumiy bosim 1,4 atm ga teng. Kp qiymatini toping. V = 1 litr.",
+   "variantlar": "A) 10 B) 20 C) 40/6 D) 8"
+  },
+  {
+   "savol": "27. Yopiq idishda gazsimon fosgen quyidagi reaksiya tenglamasi bo'yicha parchalanadi: COCl₂ → CO + Cl₂. Fosgenning dastlabki konsentratsiyasi 0,1 mol/l bo'lib, 8 sekunddan keyin uning konsentratsiyasi 0,02 mol/l ga teng bo'ldi. Fosgenning o'rtacha parchalanish tezligini (mol/l·sek) toping.",
+   "variantlar": "A) 0,02 B) 0,005 C) 0,01 D) 0,03"
+  },
+  {
+   "savol": "28. 2CO + O₂ ⇌ 2CO₂ muvozanat holatida CO, O₂ va CO₂ miqdorlari mos ravishda 1; 2 va 3 mol. CO va O₂ ning dastlabki miqdorlarini toping.",
+   "variantlar": "A) 5 mol CO; 4,5 mol O₂ B) 4 mol CO; 3,5 mol O₂ C) 3 mol CO; 4 mol O₂ D) 2 mol CO; 1,5 mol O₂"
+  },
+  {
+   "savol": "29. Muvozanatdagi sistemada NO konsentratsiyasining oshirilishi (a) va boshqa holatda katalizator kiritilishi (b) sistema muvozanatini qanday o'zgartiradi: 2NO + O₂ ⇌ 2NO₂?",
+   "variantlar": "A) a - chapga; b - o'ngga B) a - chapga; b - chapga C) a - o'ngga; b - chapga D) a - o'ngga; b - o'zgartirmaydi"
+  },
+  {
+   "savol": "30. A + B ⇌ C + D sistemada boshlang'ich moddalar konsentratsiyalari 0,2 M dan bo'lib, 50° da muvozanat qaror topishi uchun 15 sekund vaqt sarflandi. Shu reaksiyaning 30 °C dagi tezligi 0,1 mol/l·min bo'lsa, reaksiya uchun harorat koeffitsiyentini aniqlang. (K = 1)",
+   "variantlar": "A) 2 B) 2,5 C) 3 D) 4"
+  },
+  {
+   "savol": "31. Agar NH₃, NO va H₂O larning hosil bo'lish issiqligi mos ravishda 74,2, 1203,5 va 285,8 kJ/mol ga teng bo'lsa, qanday hajmdagi (n.sh.) ammiak gazi yoqilganda 3116 kJ issiqlik ajraladi.",
+   "variantlar": "A) 44,8 B) 33,6 C) 67,2 D) 22,4"
+  },
+  {
+   "savol": "32. Vodorod xloridning yonish reaksiyasida (HCl + O₂ → Cl₂ + H₂O) ma'lum vaqtdan so'ng muvozanat qaror topdi. Muvozanat holatida (Kₘ = 1) moddalarning konsentratsiyalari [HCl] = 2 mol/l va [H₂O] = 2 mol/l bo'lsa, kislorodning dastlabki konsentratsiyasini aniqlang. (V = 1 litr)",
+   "variantlar": "A) 1 B) 2 C) 3 D) 1,5"
+  },
+  {
+   "savol": "33. 3A + 2B → C + 3D kimyoviy reaksiyaning A modda bo'yicha tezligi 0,06 mol/l·sek ni tashkil etadi. Agar reaksiya 1,5 minut davom etgan bo'lsa, reaksiya uchun sarflangan B modda miqdorini (mol) hisoblang. Reaksiya 2 litr hajmli idishda olib borilgan.",
+   "variantlar": "A) 16,2 B) 5,4 C) 8,1 D) 7,2"
+  },
+  {
+   "savol": "34. 20 °C da reaksiyaning tezligi 0,5 mol/(l·s) ga teng. Temperatura 50 °C ga oshirilsa, reaksiya tezligi mol/(l·s) qanday bo'ladi? (γ = 2)",
+   "variantlar": "A) 16 B) 8 C) 4 D) 32"
+  },
+  {
+   "savol": "35. 127 °C da reaksiyaning tezligi 0,8 mol/(l·s) ga teng. Temperatura 20 °C ga oshirilsa, reaksiya tezligi mol/(l·s) qanday bo'ladi? (γ = 2)",
+   "variantlar": "A) 5 B) 0,2 C) 1,6 D) 3,2"
+  },
+  {
+   "savol": "36. Kimyoviy reaksiya tezligi 2 mol/(l·min) ga teng bo'lgan endotermik reaksiyaning temperatura koeffitsiyenti 2 ga teng. Shu reaksiyaning temperaturasi 30 °C ga oshirilsa, reaksiya tezligi (mol/(l·min)) nechaga teng bo'ladi?",
+   "variantlar": "A) 0,25 B) 0,125 C) 8 D) 16"
+  },
+  {
+   "savol": "37. Quyidagi grafik jadvaldan foydalanib xlorning ammiak bilan reaksiyasi tezligini (mol/l·sek) aniqlang. 2NH₃ + 3Cl₂ = N₂ + 6HCl",
+   "variantlar": "A) 0,45 B) 0,2 C) 0,3 D) 0,15"
+  },
+  {
+   "savol": "38. A + xB → 2C reaksiyada 0,05·10² mol A moddaning 20% i sarflangan, B ning 25% i ortib qolgan. Jarayon 1 litrli idishda olib borilgan bo'lsa, B ning necha moli ortib qolgan? (Kₘ = 1)",
+   "variantlar": "A) 4 B) 2 C) 1 D) 3"
+  },
+  {
+   "savol": "39. A → B + C ushbu reaksiyada A ning konsentratsiyasi 4 marta kamaygan holda ketgan vaqt 2 marta kamayishi uchun ketgan vaqtga nisbatan 5 sekund ko'p bo'lsa, konsentratsiyasi 5 marta kamayishi uchun qancha vaqt ketadi?",
+   "variantlar": "A) 15 B) 16 C) 50 D) 32"
+  },
+  {
+   "savol": "40. 8,7 g qo'ng'ir rangli modda olish uchun qancha (kJ) energiya sarflanadi? Kaliy permanganat, kaliy manganat va marganets (IV) oksidining hosil bo'lish issiqligi mos ravishda 829 kJ/mol, 1184 kJ/mol va 521 kJ/mol.",
+   "variantlar": "A) 189 B) 4,7 C) 9,4 D) 252"
+  },
+  {
+   "savol": "41. 2A + nB = 4C reaksiyada A va B moddalarning dastlabki konsentratsiyalari 4 mol/l va 6 mol/l. A moddaning 60% i reaksiyaga kirishgandan keyingi reaksiya tezligi 7,078 mol/l·min ga teng. k₁ = 0,2 ga teng bo'lsa, n ning qiymatini aniqlang.",
+   "variantlar": "A) 2 B) 3 C) 4 D) 5"
+  },
+  {
+   "savol": "42. Grafikka asoslanib S(q) + O₂(g) = SO₂(g) reaksiyasining muvozanat konstantasini (Kₘ) aniqlang.",
+   "variantlar": "A) 1 B) 1,5 C) 2,5 D) 3"
+  },
+  {
+   "savol": "43. A + B = C + D sistemada moddalarning konsentratsiyalari mos ravishda 2, 3, 4, 3 bo'lsa, 40 sekunddan so'ng (20 °C da) C moddaning miqdori 25% ga ortganda muvozanat qaror topdi. Shu reaksiyaning Kₘ sining vₒʀᴛᴀ (l/min) ga nisbatini toping.",
+   "variantlar": "A) 6 B) 4,5 C) 3 D) 1,5"
+  },
+  {
+   "savol": "44. N₂ + 3H₂ ⇌ 2NH₃ reaksiyasi muvozanat holga kelgandan so'ng hajmiy ulushlari teng bo'lgan 6 mol gazlar aralashmasi hosil bo'ldi. Azotning (mol/l) necha foizi sarflanganini toping. (Reaksiya 2 l idishda olib borilgan.)",
+   "variantlar": "A) 33,33% B) 66,67% C) 60% D) 40%"
+  },
+  {
+   "savol": "45. A + xB → 2C bo'lgan reaksiyada 5 mol A moddaning 20% i sarflangan, B ning 25% i ortib qolgan. Jarayon 1 litrli idishda olib borilgan bo'lsa, B ning necha moli sarflangan. (Kₘ = 1)",
+   "variantlar": "A) 4 B) 3 C) 2 D) 1"
+  },
+  {
+   "savol": "46. Vodorod bo'yicha 15,5 zichlikka ega 4 mol azot (II) oksidi va kislorod aralashmasi 2 l hajmli reaktorga joylashtirildi. Agar reaksiya muvozanati 40% azot (II) oksidi reaksiyaga kirishgandan keyin o'rnatilsa, muvozanat konstantasini aniqlang.",
+   "variantlar": "A) 0,56 B) 1,11 C) 0,28 D) 1,25"
+  },
+  {
+   "savol": "47. A + 2B → C reaksiyada A va B ning dastlabki konsentratsiyalari 4 M va 5 M bo'lib, boshlang'ich tezlik 15 mol/l·min. A moddaning ¼ qismi sarflangandan keyin tezlik (mol/l·min) qanday bo'ladi?",
+   "variantlar": "A) 4,05 B) 8,1 C) 6 D) 9"
+  },
+  {
+   "savol": "48. A(g) ⇌ B(g) + C(g) reaksiya tenglamasi bo'yicha muvozanat holatidagi A moddaning konsentratsiyasi 2 mol/l bo'lsa, A moddaning dastlabki konsentratsiyasini (mol/l) aniqlang. Kₘ = 8",
+   "variantlar": "A) 6 B) 4 C) 3 D) 5"
+  },
+  {
+   "savol": "49. Har qanday murakkab moddaning oddiy moddalarga qadar parchalash issiqligi uning hosil bo'lish issiqligiga teng bo'lib, ...",
+   "variantlar": "A) ularning nisbatlari kichik butun sonlar nisbatida bo'ladi B) ishorasi qarama-qarshi tarzda ifodalanadi C) bu energiyaning yarmi reaksiya issiqlik effektini beradi D) bu moddaning hosil bo'lish issiqlik miqdori deb ataladi"
+  },
+  {
+   "savol": "50. 5 l hajmli idishda A(g) + B(g) = C(g) + D(g) reaksiyada 20 °C da 40 sekund davom etdi va 4 mol D modda hosil bo'ldi. 50 °C da 5 sekundda 4 mol C modda hosil bo'lsa, shu reaksiyaning 10 °C dagi tezligini (mol/l·min) aniqlang.",
+   "variantlar": "A) 0,6 B) 0,16 C) 960·10⁻² D) 0,01"
+  },
+  {
+   "savol": "51. A(g) + B(g) + C(q) ⇌ A₄B₂C₃(g) sistemaning bosimi ikki marta oshirilsa, to'g'ri reaksiya tezligi necha marta ortadi?",
+   "variantlar": "A) 512 B) 32 C) 64 D) 256"
+  },
+  {
+   "savol": "1. A(g) + B(g) ↔ 2C(g) reaksiyada A va C moddalarning konsentratsiyalari 4M va 7M. Reaksiyaning o'rtacha tezligi 0,6 mol/(l·min). 300 sekund avval shu moddalar konsentratsiyasi (mol/l) qanday bo'lgan?",
+   "variantlar": "A) 1 va 10 B) 7 va 1 C) 1 va 13 D) 7 va 4"
+  },
+  {
+   "savol": "2. 4NH₃(g) + 7O₂(g) ↔ 4NO₂(g) + 6H₂O(g) reaksiyada NH₃ ning boshlang'ich konsentratsiyasi 0,8 M. 150 sekunddan so'ng 3,4 g/l gacha kamaygan bo'lsa, H₂O ning hosil bo'lish tezligini (mol/l•s) aniqlang.",
+   "variantlar": "A) 5•10⁻³ B) 6•10⁻³ C) 3•10⁻³ D) 4•10⁻³"
+  },
+  {
+   "savol": "3. SO₂(g) + O₂(g) ↔ SO₃(g) + Q reaksiya uchun quyidagilardan qaysi biri to'g'ri? a) qizdirilganda to'g'ri reaksiya tezligi ortadi, teskari reaksiya tezligi kamayadi; b) qizdirilganda mahsulot unumi ortadi; c) bosim ortganda to'g'ri reaksiya tezligi ortadi; d) qizdirilganda ham to'g'ri ham teskari reaksiya tezligi ortadi.",
+   "variantlar": "A) c, d B) a, c C) b, c D) a, b"
+  },
+  {
+   "savol": "4. A(g) + 2B(g) ↔ C(g) ; reaksiyada A va B ning dastlabki konsentratsiyalari 3M va 4M bo'lib, boshlang'ich tezlik 12 mol/l•min. A moddaning 1/3 qismi sarflangandan keyin tezlik (mol/l•min) qanday bo'ladi?",
+   "variantlar": "A) 8 B) 4 C) 6 D) 2"
+  },
+  {
+   "savol": "5. A(g) + 3B(g) ↔ 3C(g) + D(g). Reaktorda B moddaning boshlang'ich konsentratsiyasi 2 mol/l, D moddaning hosil bo'lish tezligi 0,02 (mol/l•s) bo'lsa, qancha sekunddan so'ng B va D moddalarning konsentratsiyalari tenglashadi?",
+   "variantlar": "A) 76 B) 25 C) 38 D) 50"
+  },
+  {
+   "savol": "6. X(g) + 2Y(g) ↔ Z(g) ushbu reaksiya tenglamasi bo'yicha dastlabki moddalar konsentratsiyasi turlicha olinib, 2 xil tajriba o'tkazildi. Quyidagi jadvaldan foydalanib 2–reaksiya tezligini hisoblang. tajriba o‘tkazildi. Quyidagi jadvaldan foydalanib 2–reaksiya tezligini hisoblang.Tajriba[ X ]  (mol/l)[ Y ]  (mol/l)Tezlik  (mol/l⦁s)",
+   "variantlar": "A) 64•10⁻³ B) 96•10⁻³ C) 48•10⁻³ D) 32•10⁻³"
+  },
+  {
+   "savol": "7. A(g) + nB(g) → Mahsulot. 383 K dagi ushbu sistemada bosim 3 marta orttirilib, harorat 80°C gacha pasaytirilganda reaksiya tezligi o'zgarmagan bo'lsa, n ning qiymatini aniqlang. (γ = 3)",
+   "variantlar": "A) 4 B) 1 C) 2 D) 3"
+  },
+  {
+   "savol": "8. Quyidagi jadvaldan foydalanib x/y ni hisoblang. Tajribaυ (80oC)   mol/l⦁sγυ (60oC)   mol/l⦁s12x0,5212y",
+   "variantlar": "A) 6 B) 8 C) 4 D) 10"
+  },
+  {
+   "savol": "9. O'rtacha tezligi 2,5 mol/(l•min) bo'lgan reaksiya (X(g) ↔ Y(g)) uchun 5 mol X modda olindi. Agar 24 sekunddan keyin 12,04•10²³ dona X sarflanmay qolgan bo'lsa, reaktor hajmi qancha (litr) bo'lganligini toping.",
+   "variantlar": "A) 2 B) 1 C) 4 D) 3"
+  },
+  {
+   "savol": "10. A + 2B ↔ 3C sistemada 20 sekund davomida B moddaning 0,4 moli sarflandi. Yana 5 sekunddan keyin C modda miqdori 0,9 mol bo'lib qoldi. B moddaning o'rtacha sarflanish tezligini (mol/l•s) toping. (V = 1 litr)",
+   "variantlar": "A) 0,036 B) 0,04 C) 0,02 D) 0,024"
+  },
+  {
+   "savol": "11. X(g) + nY(g) ↔ XY₂(g) reaksiyada X va Y ning dastlabki konsentratsiyalari 0,2 M va 0,1 M bo'lib, boshlang'ich tezlik 2•10⁻² M/s. Reaksiyaning tezlik konstantasi qiymatini hisoblang.",
+   "variantlar": "A) 5 B) 0,2 C) 0,1 D) 10"
+  },
+  {
+   "savol": "12. 2A + B ↔ 2C jarayonda reaksiya boshlanib ma'lum muddat o'tgach A, B, C moddalarning konsentratsiyalari 6; 5; 4 mol/l bo'ldi. Reaksiyaning o'rtacha tezligi 0,4 mol/l•min bo'lsa, 300 sekunddan so'ng A va C moddalar konsentratsiyalari qanday bo'ladi?",
+   "variantlar": "A) 4; 6 B) 10; 8 C) 2; 0 D) 2; 8"
+  },
+  {
+   "savol": "13. T2 va T1 temperaturalardagi reaksiya tezliklarining nisbati   ( υT2 / υT1 )reaksiya tezligining temperatura koeffitsiyenti (γ )Temperatura o’zgarishi(T2 – T1 )8xy",
+   "variantlar": "A) 3; 30 B) 3; 20 C) 2; 30 D) 2; 20"
+  },
+  {
+   "savol": "14. T2 va T1 temperaturalardagi reaksiya vaqtlarining nisbati  ( tT2 / tT1 )Reaksiya tezligining temperatura koeffitsiyenti (γ )Temperatura o’zgarishi( T2 – T1 )8xyJadvaldan foydalanib x va y ni aniqlang.",
+   "variantlar": "A) 4; 30 B) 2; 40 C) 2; 30 D) 3; 20"
+  },
+  {
+   "savol": "15. A(g) + xB(g) ↔ 2C(g) reaksiyadagi A va B larning konsentratsiyalari 2 marta oshirilganda to'g'ri reaksiya tezligi 16 marta tezlashishi ma'lum bo'lsa, x ni toping.",
+   "variantlar": "A) 3 B) 2 C) 4 D) 1"
+  },
+  {
+   "savol": "16. A(g) + xB(g) ↔ 2C(g) reaksiyadagi A va B larning konsentratsiyalari 3 marta oshirilganda to'g'ri reaksiya tezligi 9 marta tezlashishi ma'lum bo'lsa, x ni toping.",
+   "variantlar": "A) 4 B) 3 C) 2 D) 1"
+  },
+  {
+   "savol": "17. Reaksiya 50°C da 40°C dagiga qaraganda 2 sekund oldin, 60°C dagiga qaraganda 1 sekund keyin tugaydi. Ushbu reaksiya 20°C da necha sekundda tugaydi?",
+   "variantlar": "A) 8 B) 32 C) 64 D) 16"
+  },
+  {
+   "savol": "18. A(g) + 2B(g) ↔ 2C(g) ushbu reaksiya tenglamasiga ko'ra 80°C da 0,2 mol A va 0,4 mol B bilan boshlangan reaksiya tezligi 2•10⁻⁴ mol/(l•s) va tezlik konstantasi 5•10⁻² l²/(mol²•s) bo'lsa, reaktor hajmini (litr) aniqlang.",
+   "variantlar": "A) 4 B) 2 C) 3 D) 1"
+  },
+  {
+   "savol": "19. Teng massadagi azot va vodorod reaksiyasi natijasida 27,6 kJ issiqlik ajralib chiqdi va 6,6 g vodorod ortib qoldi. Ammiakning hosil bo'lish entalpiyasi (kJ•mol⁻¹) nechaga teng?",
+   "variantlar": "A) +46 B) +92 C) -46 D) -92"
+  },
+  {
+   "savol": "20. Teng massadagi metanol va kislorodning yonish reaksiyasi natijasida 324 kJ issiqlik ajralib chiqdi va 12 g metanol ortib qoldi. Metanolning yonish entalpiyasini (kJ·mol⁻¹) hisoblang.",
+   "variantlar": "A) −864 B) −432 C) +864 D) +432"
+  },
+  {
+   "savol": "21. 1 mol CuSO₄ ning suvda eritilishidan 66 kJ issiqlik ajralib chiqadi. 1 mol CuSO₄•5H₂O suvda eritilishida esa 12 kJ issiqlik yutiladi. CuSO₄ dan CuSO₄•5H₂O hosil bo'lish jarayoni uchun issiqlik effektini aniqlang.",
+   "variantlar": "A) Q = −54 kJ/mol B) Q = −78 kJ/mol C) Q = +78 kJ/mol D) Q = +54 kJ/mol"
+  },
+  {
+   "savol": "22. 2X₂(g) + 3Y₂(g) ↔ 2X₂Y₃(g) reaksiya tenglamasi bo'yicha moddalar konsentratsiyalari turlicha olinib, 2 xil tajriba o'tkazildi. Quyidagi jadvaldan foydalanib 2 – reaksiya tezligini aniqlangTajriba[ X ]   (mol/l)[ Y ]   (mol/l)Tezlik   (mol/l⦁s)10,50,28⦁10–320,20,1υ2 =",
+   "variantlar": "A) 4•10⁻³ B) 3,2•10⁻⁵ C) 1,6•10⁻⁴ D) 2,4•10⁻³"
+  },
+  {
+   "savol": "23. 2A(g) + B(g) ↔ 3C(g) sistemada to'g'ri reaksiya tezligi v = 3,6 mol/(l•min). Agar tezlik konstantasi k₁ = 0,2 l²/(mol²•min) va B moddaning konsentratsiyasi 2 mol/l bo'lsa, A modda konsentratsiyasini (mol/l) hisoblang.",
+   "variantlar": "A) 3 B) 9 C) 4 D) 2"
+  },
+  {
+   "savol": "24. N₂(g) + 3H₂(g) ↔ 2NH₃(g) reaksiyaning 290 K dagi tezligi 4 mol/(l•min). Vodorodning konsentratsiyasi 2 marta oshirilib, temperatura necha °C ga qadar o'zgartirilganda tezlik 1 mol/(l•min) bo'lib qoladi? (γ = 2)",
+   "variantlar": "A) −33 B) −50 C) 33 D) 50"
+  },
+  {
+   "savol": "25. Reaksiyaning o'rtacha tezligi 4,5 mol/(l•min) ni tashkil etadi. Moddaning dastlabki konsentratsiyasi (mol/l) qanday qiymatga ega bo'lganda, 3 marta kamayishi uchun 4 sekund vaqt sarflanadi?",
+   "variantlar": "A) 0,30 B) 0,75 C) 0,45 D) 0,60"
+  },
+  {
+   "savol": "26. Reaksiyaning o'rtacha tezligi 3,0 mol/(l•min) ni tashkil etadi. Moddaning dastlabki konsentratsiyasi 0,6 mol/l bo'lsa, konsentratsiya necha marta kamayishi uchun 9 sekund vaqt sarflanadi?",
+   "variantlar": "A) 4 B) 5 C) 3 D) 2"
+  },
+  {
+   "savol": "27. A moddaning dastlabki miqdori 3 mol. 20 sekunddan keyin uning miqdori 3 marta kamaydi. Agar reaksiya tezligi 1,2 mol/(l•min) bo'lsa, idish hajmi qancha (litr) bo'lganligini toping.",
+   "variantlar": "A) 4 B) 3 C) 2 D) 5"
+  },
+  {
+   "savol": "28. 5 litr hajmli idishda A + B → C + D reaksiyaning 10°C dagi tezligi 0,6 mol/(l•min). 50°C da esa 4 mol D modda 5 sekundda hosil bo'lsa, reaksiyaning temperatura koeffitsiyentini (γ) aniqlang.",
+   "variantlar": "A) 1,5 B) 2 C) 3 D) 2,5"
+  },
+  {
+   "savol": "29. Hajmi 5 litr bo'lgan reaktorga 1,4 g etilen va 5,475 g vodorod xlorid joylandi. Oradan 25 sekund vaqt o'tgach 1,29 g xloretan hosil bo'ldi. Ushbu vaqt intervalidagi reaksiyaning o'rtacha tezligini (mol/(l•s)) aniqlang.",
+   "variantlar": "A) 3,2 • 10⁻⁴ B) 4 • 10⁻⁴ C) 1,6 • 10⁻⁴ D) 8 • 10⁻⁴"
+  },
+  {
+   "savol": "30. A₂(g) + B₂(g) → 2AB(g) reaksiya bo'yicha A₂ moddaning sarflanish tezligi 0,03 mol/(l•s). 30 sekunddan keyin AB ning konsentratsiyasi 2 mol/l ga teng bo'lsa, uning boshlang'ich konsentratsiyasini (mol/l) toping.",
+   "variantlar": "A) 0,3 B) 0,25 C) 0,2 D) 0,1"
+  },
+  {
+   "savol": "31. A(g) + 3B(g) = C(g) + 2D(g) reaksiyada A va B moddaning boshlang'ich konsentratsiyalari mos ravishda 5 va 9 mol/l ga teng. 20 sekunddan so'ng ularning konsentratsiyalari tenglashgan bo'lsa, D moddaning hosil bo'lish tezligini (mol/(l•s)) hisoblang.",
+   "variantlar": "A) 0,1 B) 0,2 C) 0,6 D) 1,2"
+  },
+  {
+   "savol": "32. 4HCl(g) + O₂(g) → 2Cl₂(g) + 2H₂O(g) to'g'ri reaksiyaning 120°C dagi tezligi 1,6 mol/(l•s) ga teng. Ushbu sistema bosimi 2 marta oshirilib, harorat 40°C gacha tushirilgandagi reaksiya tezligini (mol/(l•s)) aniqlang. (γ = 2)",
+   "variantlar": "A) 0,4 B) 0,6 C) 0,2 D) 0,8"
+  },
+  {
+   "savol": "33. N₂ + 3H₂ → 2NH₃ jarayonda moddalarning dastlabki konsentratsiyalari mos ravishda 0,4 va 0,5 M ga teng. Agar azotning 25% qismi sarflangandan keyingi tezlik 0,096 mol/(l•s) bo'lsa, reaksiya avvalidagi tezlikni (mol/(l•s)) aniqlang.",
+   "variantlar": "A) 0,5 B) 2,0 C) 2,5 D) 1,25"
+  },
+  {
+   "savol": "34. N₂ + 3H₂ → 2NH₃ reaksiyaning 40°C da tezligi 1,6 mol/(l•s) ga teng. Reaktor hajmi 2 marta oshirilib, harorat 20°C gacha tushirilganda tezlik qiymati (mol/(l•s)) qanchaga teng bo'ladi? (γ = 2)",
+   "variantlar": "A) 1,6 B) 0,05 C) 0,025 D) 0,4"
+  },
+  {
+   "savol": "35. CH₄ + 2O₂ → CO₂ + 2H₂O reaksiya tenglamasi bo'yicha kislorod hajmiga teng hajmda xN₂ + O₂ aralashmasi ishlatilsa, reaksiya tezligi 64 marta sekinlashadi, x ning qiymatini aniqlang.",
+   "variantlar": "A) 6 B) 8 C) 5 D) 7"
+  },
+  {
+   "savol": "36. A(g) + 2B(g) → C(g) reaksiya tenglamasi bo'yicha moddalarning boshlang'ich konsentratsiyalari [A] = 0,2 mol/l, [B] = 0,2 mol/l va [C] = 0,1 mol/l. Reaksiyaning o'rtacha tezligi 0,02 mol/(l•min) bo'lsa, 2 minutdan keyingi moddalarning konsentratsiyalarini (mol/l) hisoblang.",
+   "variantlar": "A) 0,24; 0,28; 0,14 B) 0,16; 0,16; 0,14 C) 0,16; 0,12; 0,06 D) 0,16; 0,12; 0,14"
+  },
+  {
+   "savol": "37. X(g) + 2Y(g) → 3Z(g) sistemada reaksiya tezligi 0,6 mol/(l•min). Agar tezlik konstantasi k₁ = 0,05 l²/(mol²•min) va X moddaning konsentratsiyasi 3M bo'lsa, Y modda konsentratsiyasini (M) hisoblang.",
+   "variantlar": "A) 4 B) 3 C) 2 D) 9"
+  },
+  {
+   "savol": "38. CO(g) + SO₃(g) → CO₂(g) + SO₂(g) sistemada muvozanat holatdagi moddalarning miqdorlari mos ravishda 3 mol, 3 mol, 4 mol va 9 molga teng. Muvozanat holatidagi sistemadan 5 mol SO₂ chiqarilib yuborilsa, yangi muvozanatdagi CO ning konsentratsiyasini (mol/l) hisoblang. (V = 1 litr, T = const.)",
+   "variantlar": "A) 2 B) 7/3 C) 2/3 D) 5/2"
+  },
+  {
+   "savol": "39. H₂ + Cl₂ = 2HCl sistemada muvozanat holatdagi moddalarning miqdorlari mos ravishda 2 mol, 2 mol va 4 molga teng. Sistemaga qancha (mol) H₂ qo'shilsa, yangi muvozanat qaror topgandan keyin HCl ning miqdori 5 mol bo'ladi? (V = 2 litr, T = const.)",
+   "variantlar": "A) 16/3 B) 3/18 C) 8/3 D) 7/3"
+  },
+  {
+   "savol": "40. A(g) + B(g) = C(g) + D(g) muvozanatda turgan sistemada moddalarning konsentratsiyalari mos ravishda 9, 1, 6, 6 mol/l. Sistemaga B moddadan 8 mol/l qo'shilganda sistemada hosil bo'ladigan yangi muvozanat holatidagi D moddaning konsentratsiyasini (mol/l) aniqlang.",
+   "variantlar": "A) 9,5 B) 10,5 C) 10 D) 11"
+  },
+  {
+   "savol": "41. 2NO(g) + O₂(g) = 2NO₂(g) sistemadagi NO va O₂ ning boshlang'ich konsentratsiyalari mos ravishda 5 mol/l va x mol/l. NO ning 60% i NO₂ ga qadar oksidlanib, muvozanat yuzaga keldi. O₂ ning dastlabki miqdorini (mol) toping. (V = 2 litr, Kₘ = 2,25)",
+   "variantlar": "A) 4 B) 5 C) 3 D) 2"
+  },
+  {
+   "savol": "42. Butan → izobutan izomerlanish reaksiyasining tezlik konstantasi 80 min⁻¹, izobutan → butan reaksiyasining tezlik konstantasi 20 min⁻¹ ga teng bo'lsa, 29 g butandan hosil bo'lgan aralashmada nechta birlamchi uglerodga bog'langan vodorod atomi bo'ladi?",
+   "variantlar": "A) 5,1 • Nₐ B) 3,6 • Nₐ C) 4,2 • Nₐ D) 2,7 • Nₐ"
+  },
+  {
+   "savol": "43. 2SO₃(g) ↔ 2SO₂(g) + O₂(g) reaksiya tenglamasi bo'yicha sulfat angidridning dastlabki konsentratsiyasi 6 mol/l bo'lib, uning 1/3 qismi parchalanganda sistemada muvozanat qaror topdi. Agar to'g'ri reaksiya tezlik konstantasi k₁ = 1,6 • 10⁻⁴ l/(mol•s) bo'lsa, teskari reaksiya tezlik konstantasini (k₂) va uning birligini aniqlang.",
+   "variantlar": "A) 6,4 • 10⁻⁴ l²/(mol²•s) B) 3,2 • 10⁻⁴ l²/(mol²•s) C) 3,2 • 10⁻⁴ l²/(mol•s) D) 6,4 • 10⁻⁴ l/(mol•s)"
+  },
+  {
+   "savol": "44. X(g) + 3Y(g) ↔ 2Z(g) reaksiya tenglamasi bo'yicha dastlabki moddalarning konsentratsiyalari 5 mol/l dan bo'lib, Y moddaning 60 % i sarflangan bo'lsa, muvozanat konstantasini (Kₘ) va uning birligini aniqlang.",
+   "variantlar": "A) 1/4 l²/mol² B) 1/8 mol²/l² C) 1/4 mol²/l² D) 1/8 l²/mol²"
+  },
+  {
+   "savol": "45. X₂(g) + Y₂(g) ↔ 2XY(g) muvozanat sistemasida 0,4 mol X₂, 0,1 mol Y₂ va 0,4 mol XY gazlari mavjud. Sistemaga 0,3 mol Y₂ qo'shilganda yuzaga keladigan yangi muvozanat sistemasida necha mol XY gazi bo'ladi? (V = 1 litr)",
+   "variantlar": "A) 0,4 B) 0,5 C) 0,8 D) 0,6"
+  },
+  {
+   "savol": "46. 10 litrli reaktorda ekvimolar nisbatda olingan X₂ va Y₂ gazlari reaksiyaga kirishdi. Muvozanat holatdagi sistemada 0,2 mol XY bo'lsa, dastlab reaktorda necha mol moddalar bo'lgan? (X₂(g) + Y₂(g) ↔ 2XY(g), Kₘ = 4)",
+   "variantlar": "A) 0,5 B) 0,3 C) 0,4 D) 0,2"
+  },
+  {
+   "savol": "47. X(g) ↔ 2Y(g) reaksiya tenglamasi bo'yicha to'g'ri reaksiya tezlik konstantasi k₁ = 0,04 s⁻¹ va teskari reaksiya tezlik konstantasi k₂ = 0,1 litr/(mol•s). Muvozanat holatidagi sistemada 0,1 mol/l X modda bo'lsa, uning dastlabki miqdorini (mol) aniqlang. (V = 4 litr)",
+   "variantlar": "A) 1,2 B) 0,8 C) 0,6 D) 0,4"
+  },
+  {
+   "savol": "48. 2X(g) ↔ Y(g) reaksiya tenglamasi bo'yicha to'g'ri reaksiya tezlik konstantasi k₁ = 0,1 litr/(mol•s) va teskari reaksiya tezlik konstantasi k₂ = 0,04 s⁻¹. Muvozanat holatidagi sistemada 0,1 mol/l Y modda bo'lsa, X ning dastlabki miqdorini (mol) aniqlang. (V = 4 litr)",
+   "variantlar": "A) 0,8 B) 0,2 C) 1,6 D) 0,4"
+  },
+  {
+   "savol": "49. 1 litrli reaktorda 0,2 mol X₂ va 0,2 mol Y₂ gazlari reaksiyaga kirishdi (X₂(g) + Y₂(g) ↔ 2XY(g)) va muvozanat qaror topdi. Muvozanat holatidagi sistemada necha mol X₂ gazi bo'ladi? (Kₘ = 36)",
+   "variantlar": "A) 0,05 B) 0,08 C) 0,04 D) 0,02"
+  },
+  {
+   "savol": "50. 89,6 litrli reaktorda 2 mol A gaz 0,8 atm bosimda parchalandi (A(g) ↔ B(g) + C(g)). Muvozanat qaror topgan sistemada bosim 1,2 atm bo'lsa, muvozanat konstantasini (Kₘ) aniqlang. (T = const)",
+   "variantlar": "A) 1/44,8 B) 44,8 C) 89,6 D) 1/89,6"
+  },
+  {
+   "savol": "51. 1 litrli idishda A(g) + B(g) ↔ C(g) + D(g) reaksiyada muvozanat qaror topganda 8 moldan A va B, 4 moldan C va D gazlari mavjud. Idishdan necha mol A gazi chiqarib yuborilganda yuzaga kelgan yangi muvozanatda 3 mol C gazi bo'ladi?",
+   "variantlar": "A) 2 B) 3 C) 5 D) 4"
+  },
+  {
+   "savol": "52. 2AB₂(g) + B₂(g) ↔ 2AB₃(g) sistemada moddalarning muvozanat holatidagi konsentratsiyalari (mol/l) mos ravishda 4, 1 va 2 ga teng. Sistemaga ma'lum miqdor B₂ qo'shilgandan so'ng AB₂ va AB₃ ning yangi muvozanat konsentratsiyalari o'zaro teng bo'ldi. Agar reaksiya 1 litr hajmli idishda olib borilgan bo'lsa, B₂ va AB₃ larning yangi muvozanat konsentratsiyalari yig'indisini aniqlang.",
+   "variantlar": "A) 5 B) 4 C) 6 D) 7"
+  },
+  {
+   "savol": "53. Quyidagi grafikda moddalarning miqdorlari (mol) va vaqt o'rtasidagi bog'liqlik ifodalangan. H₂(g) + J₂(g) ↔ 2HI(g) reaksiya tenglamasidan foydalanib muvozanat konstantasi va uning birligini aniqlang. (V = 4 litr)",
+   "variantlar": "A) 32; mol/litr B) 32; birliksiz C) 64; mol/litr D) 64; birliksiz"
+  },
+  {
+   "savol": "54. 2SO₂(g) + O₂(g) ↔ 2SO₃(g) jarayon borishi uchun geliyda nisbatan zichligi 12 ga teng bo'lgan gazlar aralashmasidan 9 mol ishlatildi. Sistemada muvozanat yuzaga kelganida, umumiy molekulalar soni 7,5•Nₐ donani tashkil etsa, muvozanat doimiysining qiymatini toping. (V = 3 litr)",
+   "variantlar": "A) 4 B) 2 C) 0,5 D) 0,25"
+  },
+  {
+   "savol": "55. 2XY(g) + Y₂(g) ↔ 2XY₂(g) reaksiya tenglamasi bo'yicha to'g'ri va teskari reaksiya tezliklari tenglashgan sistemaga 4 mol XY gazi qo'shilganda to'g'ri reaksiya tezligi 9 marta ortdi. Dastlabki muvozanat holatida necha mol XY gazi bo'lgan? (V = 1 litr)",
+   "variantlar": "A) 2 B) 3 C) 4 D) 1"
+  },
+  {
+   "savol": "56. Tezligi 0,04 mol/(l•s) bo'lgan reaksiya (SO₂ + NO₂ ↔ SO₃ + NO) 50 s davom etdi va NO₂ ning muvozanat konsentratsiyasi 2,5 mol/l ni tashkil qildi. Muvozanat doimiysi (Kₘ) ning qiymati 0,8 ga teng bo'lsa, SO₂ ning dastlabki konsentratsiyasini (mol/l) aniqlang. Reaktor hajmi 2 litr.",
+   "variantlar": "A) 4 B) 2 C) 2,25 D) 4,5"
+  },
+  {
+   "savol": "57. X ↔ 2Y reaksiyada X va Y gazlarining muvozanat konsentratsiyalari yig'indisi 6M ga teng. Kₘ = 8 bo'lsa, X ning muvozanat konsentratsiyasini (mol/l) aniqlang.",
+   "variantlar": "A) 2 B) 6 C) 4 D) 8"
+  },
+  {
+   "savol": "58. A(g) + 2B(g) ↔ C(g); ΔH = −75 kJ/mol. Muvozanatda turgan sistemaning temperaturasi oshirilganda muvozanat qaysi tomonga siljiydi, muvozanat konstantasining son qiymati qanday o'zgaradi?",
+   "variantlar": "A) o'ngga; kamayadi B) o'ngga; ortadi C) chapga; ortadi D) chapga; kamayadi"
+  },
+  {
+   "savol": "59. 50 litrli reaktorda 70 g is gazi va 5 g vodorod bor. Ushbu reaktorga necha gramm suv bug'lari qo'shilganda is gazining 60% i karbonat angidridga (CO(g) + H₂O(g) ↔ CO₂(g) + H₂(g)) aylanadi? (Kₘ = 2)",
+   "variantlar": "A) 54 B) 72 C) 81 D) 45"
+  },
+  {
+   "savol": "60. 5,6 g sis–buten–2 izomerlanishi natijasida 168 J issiqlik yutildi. Ushbu jarayonning muvozanat konstantasini aniqlang. BirikmaMolar  entalpiyasis–buten–27,0  kJ ⦁ mol–1trans–buten–211,2 kj ⦁ mol–1",
+   "variantlar": "A) 3/2 B) 4/1 C) 1/4 D) 2/3"
+  },
+  {
+   "savol": "61. Quyidagi grafikda moddalarning miqdorlari (mol) va vaqt o'rtasidagi bog'liqlik ifodalangan. X₂(g) + 3Y₂(g) ↔ 2XY₃(g) reaksiya tenglamasidan foydalanib muvozanat konstantasi va uning birligini aniqlang. (V = 8 litr)",
+   "variantlar": "A) 256 litr/mol B) 128 litr²/mol² C) 32 mol/litr D) 64 mol²/litr²"
+  },
+  {
+   "savol": "62. A(g) + B(g) ↔ 2C(g). Muvozanat holatida moddalarning konsentratsiyasi mos ravishda 2; 2 va 4 mol/l ga teng. Agar harorat oshirilganda muvozanat konstantasi qiymati 4 marta kamayishi ma'lum bo'lsa, yangi muvozanatdagi C moddaning molar konsentratsiyasini (mol/l) aniqlang.",
+   "variantlar": "A) 1,5 B) 2/3 C) 8/3 D) 2,5"
+  },
+  {
+   "savol": "63. Vodorod va metanning yonishi quyidagi termokimyoviy reaksiyasi asosida sodir bo'ladi: 2H₂(g) + O₂(g) = 2H₂O(s) + 560 kJ; CH₄(g) + 2O₂(g) = CO₂(g) + 2H₂O(s) + 880 kJ. 4:1 mol nisbatda olingan vodorod va metan aralashmasining 6 grammi yondirilganda qancha issiqlik (kJ) ajralib chiqadi?",
+   "variantlar": "A) 250 B) 500 C) 400 D) 750"
+  },
+  {
+   "savol": "64. CO + N₂O = CO₂ + N₂ sistemada moddalarning muvozanat holatidagi konsentratsiyalari (mol/l) mos ravishda 1, 4, 4 va 1 ga teng. Sistemaga ma'lum miqdor is gazi qo'shilgandan keyin, N₂O va N₂ larning yangi muvozanat konsentratsiyalari o'zaro teng bo'ldi. Agar reaksiya 1 litr hajmli idishda olib borilgan bo'lsa, hosil bo'lgan yangi sistemadagi gazlar aralashmasining geliyda nisbatan zichligini aniqlang.",
+   "variantlar": "A) 10 B) 8 C) 7 D) 9"
+  },
+  {
+   "savol": "65. 2SO₂ + O₂ = 2SO₃ sistemada moddalarning muvozanat holatidagi konsentratsiyalari (mol/l) mos ravishda 4, 1 va 2 ga teng. Sistemaga ma'lum miqdor kislorod qo'shilgandan keyin, oltingugurt oksidlarining yangi muvozanat konsentratsiyalari o'zaro teng bo'ldi. Agar reaksiya 1 litr hajmli idishda olib borilgan bo'lsa, SO₃ va O₂ larning yangi muvozanat konsentratsiyalari yig'indisini toping.",
+   "variantlar": "A) 4 B) 7 C) 5 D) 6"
+  },
+  {
+   "savol": "66. CO(g) + H₂O(g) = CO₂(g) + H₂(g) sistemada is gazining muvozanat holatidagi konsentratsiyasi 0,2 mol/l. Suv bug'larining dastlabki konsentratsiyasi 1,2 mol/l bo'lsa, muvozanat holatdagi vodorodning konsentratsiyasini (mol/l) aniqlang. (Kₘ = 1)",
+   "variantlar": "A) 0,2 B) 0,6 C) 0,4 D) 0,8"
+  },
+  {
+   "savol": "67. NO va O₂ dan iborat aralashma molar massasi 31 g/mol. Bosim 20% ga kamayganda sistemada muvozanat qaror topgan bo'lsa, kislorodning qancha qismi (%) sarflangan?",
+   "variantlar": "A) 20 B) 80 C) 40 D) 10"
+  },
+  {
+   "savol": "68. NO va O₂ dan iborat aralashma molar massasi 30,8 g/mol. Muvozanat holatida bosim 20% ga kamayib, gazlarning umumiy miqdori 1,6 molni tashkil etsa, sarflangan kislorod miqdorini (g) aniqlang.",
+   "variantlar": "A) 12,8 B) 16,0 C) 6,4 D) 9,6"
+  },
+  {
+   "savol": "69. A(g) + B(g) = C(g) + D(g) sistemada boshlang'ich moddalar konsentratsiyalari 2M dan bo'lib, 50°C da muvozanat qaror topishi uchun 15 sekund vaqt sarflansa, shu reaksiyaning 30°C dagi tezligini (mol/(l•min)) aniqlang. (γ = 2, Kₘ = 1)",
+   "variantlar": "A) 0,8 B) 1,2 C) 1,0 D) 0,5"
+  },
+  {
+   "savol": "70. 2HJ = J₂(g) + H₂(g) reaksiyaning 600 K dagi muvozanat konstantasi 4 ga teng. 1 litrli idishga 6 mol HJ solinsa, yuzaga kelgan muvozanatda J₂ ning miqdorini (mol) aniqlang.",
+   "variantlar": "A) 3,2 B) 2,4 C) 0,8 D) 1,6"
+  },
+  {
+   "savol": "71. Quyida N₂ va H₂ dan NH₃ hosil bo'lishining T va P ga bog'liqlik grafigi tasvirlangan. Ushbu ma'lumotlardan foydalanib bosim oshganda (a) va temperatura kamayganda (b) reaksiya unumi qanday o'zgarishini aniqlang.",
+   "variantlar": "A) a – ortadi; b – ortadi B) a – kamayadi; b – ortadi C) a – kamayadi; b – kamayadi D) a – ortadi; b – kamayadi"
+  },
+  {
+   "savol": "72. Quyida N₂ va H₂ dan NH₃ hosil bo'lishining T va P ga bog'liqlik grafigi tasvirlangan. Ushbu ma'lumotlardan foydalanib reaksiya unumini kamaytirish uchun bosim (a) va temperatura (b) ni qanday o'zgartirish kerak?",
+   "variantlar": "A) a – kamaytirish; b – kamaytirish B) a – orttirish; b – orttirish C) a – orttirish; b – kamaytirish D) a – kamaytirish; b – orttirish"
+  },
+  {
+   "savol": "73. 2CO + O₂ = 2CO₂ reaksiyada CO₂ ning konsentratsiyasi 0,2 mol/l bo'lganda kimyoviy muvozanat qaror topdi (Kₘ = 1). CO ning boshlang'ich konsentratsiyasi 0,6 mol/l bo'lsa, kislorodning dastlabki konsentratsiyasini (mol/l) hisoblang.",
+   "variantlar": "A) 0,25 B) 0,30 C) 0,45 D) 0,35"
+  },
+  {
+   "savol": "74. CH₄(g) + H₂O(g) = CO(g) + H₂(g) reaksiyada CH₄ ning 50 % i, H₂O ning 40 % i sarflanganda muvozanat qaror topdi. Reaksiya mahsulotlarining muvozanat konsentratsiyalari yig'indisi 13 mol/l bo'lsa, CH₄ va H₂O ning boshlang'ich konsentratsiyalari (mol/l) yig'indisini aniqlang.",
+   "variantlar": "A) 7 B) 8 C) 9 D) 6"
+  },
+  {
+   "savol": "75. A(g) + B(g) = AB(g) reaksiyada A ning boshlang'ich konsentratsiyasi 1,2 mol/l bo'lib, AB dan 0,4 mol/l hosil bo'lganda muvozanat qaror topdi (Kₘ = 2). Barcha moddalarning muvozanat holatdagi konsentratsiyalari (mol/l) yig'indisini hisoblang.",
+   "variantlar": "A) 1,45 B) 1,55 C) 1,35 D) 1,25"
+  },
+  {
+   "savol": "76. Geliyga nisbatan zichligi 7,75 bo'lgan azot (II)–oksidi va kisloroddan iborat 6 mol aralashma hajmi 10 litrli idishda reaksiyaga kirishdi. Kislorodning 1/3 qismi reaksiyaga kirishganda muvozanat qaror topsa, muvozanat konstantasini hisoblang.",
+   "variantlar": "A) 8 B) 16 C) 20 D) 10"
+  },
+  {
+   "savol": "77. CO₂(g) + H₂(g) = CO(g) + H₂O(g) reaksiya hajmi 0,005 m³ bo'lgan idishda olib borildi. Reaksiya uchun CO₂ va H₂ dan mos ravishda 3 va 5 mol olingan bo'lsa, CO₂ ning muvozanat konsentratsiyasini (mol/l) aniqlang (Kₘ = 1).",
+   "variantlar": "A) 0,225 B) 0,375 C) 0,275 D) 0,325"
+  },
+  {
+   "savol": "78. CO(g) + H₂O(g) = CO₂(g) + H₂(g) sistemada moddalarning muvozanat holatdagi konsentratsiyalari (mol/dm³) mos ravishda 8, 6, 4 va 12 ga teng. Sistemaga 36 g suv bug'lari qo'shilgandan keyin yangi muvozanat holatidagi is gazining massasini (g) hisoblang. (V = 1 dm³)",
+   "variantlar": "A) 210 B) 224 C) 168 D) 196"
+  }
+ ]
+}

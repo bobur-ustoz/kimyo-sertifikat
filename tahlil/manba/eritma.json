@@ -1,0 +1,880 @@
+{
+ "manba": "DTM/MS 2019-2021 mavzu bo'yicha savollar banki (javobsiz) — eritma",
+ "element": "I.7/I.8",
+ "izoh": "Foydalanuvchi yuklagan xom manba. Javob kaliti YO'Q (docx da faqat savol+variantlar ustuni to'ldirilgan, javob ustuni bo'sh). Har savol keyinchalik qo'lda/mustaqil yechilib tasdiqlanishi kerak, tayyor javob sifatida ISHLATILMASIN.",
+ "soni": 218,
+ "savollar": [
+  {
+   "savol": "Distillangan suvga kaliy metali tashlanganda idishda qaysi sinf vakillari uchrashi mumkin? 1) oksidlar; 2) kislotalar; 3) tuzlar; 4) asoslar; 5) gidridlar.",
+   "variantlar": "A) 3,5 B) 2,4 C) 1,4 D) 2,3"
+  },
+  {
+   "savol": "Qizdirilgan temir suv bug'i bilan reaksiyaga kirishganda hosil bo'ladigan qattiq moddani toping.",
+   "variantlar": "A) reaksiya ketmaydi B) temir (II)-gidrid C) temir kuyundisi D) pirit"
+  },
+  {
+   "savol": "Erigan modda miqdori (mol)ning eritma hajmiga nisbati qanday ataladi?",
+   "variantlar": "A) mol ulush B) zichlik C) molar konsentratsiya D) normal konsentratsiya"
+  },
+  {
+   "savol": "NaNO₃ ning 25°C dagi eruvchanlik koeffitsiyenti 90 ga teng. Shu temperaturada 200 g suvga necha gramm NaNO₃ qo'shilsa, to'yingan eritma hosil bo'ladi?",
+   "variantlar": "A) 135 B) 90 C) 150 D) 180"
+  },
+  {
+   "savol": "20 g natriy gidroksid 60 g suvda to'liq eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) toping.",
+   "variantlar": "A) 25 B) 80 C) 50 D) 40"
+  },
+  {
+   "savol": "20 g natriy gidroksid 30 g suvda to'liq eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) toping.",
+   "variantlar": "A) 20 B) 80 C) 60 D) 40"
+  },
+  {
+   "savol": "10 g kaliy gidroksid 40 g suvda to'liq eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) toping.",
+   "variantlar": "A) 10 B) 40 C) 20 D) 30"
+  },
+  {
+   "savol": "25 g natriy bromid 100 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) toping.",
+   "variantlar": "A) 15 B) 35 C) 20 D) 25"
+  },
+  {
+   "savol": "40 g kaliy nitrat 360 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) toping.",
+   "variantlar": "A) 10 B) 15 C) 5 D) 20"
+  },
+  {
+   "savol": "31 g natriy oksidi 69 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 31 B) 15,5 C) 20 D) 40"
+  },
+  {
+   "savol": "62 g natriy oksidi 138 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 31 B) 20 C) 15,5 D) 40"
+  },
+  {
+   "savol": "31 g natriy oksidi 169 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 15 B) 30 C) 20 D) 25"
+  },
+  {
+   "savol": "47 g kaliy oksidi 153 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 42 B) 56 C) 28 D) 47"
+  },
+  {
+   "savol": "47 g kaliy oksidi 513 g suvda eritilganda hosil bo'lgan eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 18 B) 16 C) 8 D) 10"
+  },
+  {
+   "savol": "60 g kaliy nitrat necha gramm suvda eritilganda 30% li eritma hosil bo'ladi?",
+   "variantlar": "A) 140 B) 210 C) 70 D) 105"
+  },
+  {
+   "savol": "80 g kaliy nitrat necha gramm suvda eritilganda 20% li eritma hosil bo'ladi?",
+   "variantlar": "A) 240 B) 320 C) 480 D) 160"
+  },
+  {
+   "savol": "70 g bariy nitrat necha gramm suvda eritilganda 70% li eritma hosil bo'ladi?",
+   "variantlar": "A) 70 B) 130 C) 100 D) 30"
+  },
+  {
+   "savol": "40 g natriy sulfat necha gramm suvda eritilganda 25% li eritma hosil bo'ladi?",
+   "variantlar": "A) 160 B) 120 C) 80 D) 200"
+  },
+  {
+   "savol": "12 g litiy xlorid necha gramm suvda eritilganda 12% li eritma hosil bo'ladi?",
+   "variantlar": "A) 88 B) 112 C) 76 D) 100"
+  },
+  {
+   "savol": "2020 g kaliy nitrat eritmasida 2 mol tuz bo'lsa, eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 15 B) 10 C) 20 D) 5"
+  },
+  {
+   "savol": "2020 g kaliy nitrat eritmasida 404 g tuz bo'lsa, eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 15 B) 10 C) 20 D) 30"
+  },
+  {
+   "savol": "2020 g kaliy nitrat eritmasida 202 g tuz bo'lsa, eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 15 B) 10 C) 20 D) 5"
+  },
+  {
+   "savol": "2020 g kaliy nitrat eritmasida 10 mol tuz bo'lsa, eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 50 B) 80 C) 40 D) 60"
+  },
+  {
+   "savol": "2020 g kaliy nitrat eritmasida 4 mol tuz bo'lsa, eritmaning foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 20 B) 15 C) 10 D) 25"
+  },
+  {
+   "savol": "Erigan moddaning ekvivalent miqdorini shu eritmaning hajmiga (litr) bo'lganda qanday konsentratsiya kelib chiqadi?",
+   "variantlar": "A) molar konsentratsiya B) eruvchanlik koeffitsiyenti C) foiz konsentratsiya D) normal konsentratsiya"
+  },
+  {
+   "savol": "Normal konsentratsiya (Cn) qanday aniqlanadi?",
+   "variantlar": "A) erigan moddaning miqdori shu eritmaning hajmiga (ml) bo'linadi B) eritmaning massasi shu eritmaning hajmiga (l) bo'linadi C) erigan moddaning massasi shu eritmaning massasiga bo'linadi D) erigan moddaning ekvivalent miqdori shu eritmaning hajmiga (l) bo'linadi"
+  },
+  {
+   "savol": "Erigan moddaning ekvivalent miqdori qanday aniqlanadi?",
+   "variantlar": "A) erigan moddaning ekvivalent miqdori (n_ekv) erituvchi massasiga (kg) bo'linadi B) eritmaning molar konsentratsiyasi shu eritmaning hajmiga ko'paytiriladi C) erigan moddaning massasi erigan moddaning ekvivalent massasiga bo'linadi D) erigan moddaning miqdori (mol) shu eritmaning hajmiga bo'linadi"
+  },
+  {
+   "savol": "Erigan moddaning massasini ayni erigan moddaning ekvivalent massasiga bo'lish orqali nima aniqlanadi?",
+   "variantlar": "A) erituvchining massasi B) normal konsentratsiya C) erigan moddaning ekvivalent miqdori D) molar konsentratsiya"
+  },
+  {
+   "savol": "Eritmaning hajmi qanday aniqlanadi?",
+   "variantlar": "A) erigan moddaning miqdori shu eritmaning massasiga ko'paytiriladi B) erigan moddaning gramm ekvivalent miqdori (n_ekv) shu eritmaning normal konsentratsiyasiga (Cn) bo'linadi C) erigan moddaning massasi ayni erigan moddaning ekvivalent massasiga bo'linadi D) erigan moddaning ekvivalent miqdori (n_ekv) shu eritmaning zichligiga (g/ml) bo'linadi"
+  },
+  {
+   "savol": "Qaysi tuz eritmasi inert elektrodlar yordamida elektroliz qilinganda katodda vodorod, anodda kislorod ajralib chiqadi?",
+   "variantlar": "A) natriy nitrat B) mis (II) bromid C) mis (II) sulfat D) kumush nitrat"
+  },
+  {
+   "savol": "Tarkibida 40% NaOH bo'lgan eritmaga 0,1 kg suv qo'shilganda eritma konsentratsiyasi 10% ga kamaydi. Boshlang'ich eritmaning massasini (g) aniqlang.",
+   "variantlar": "A) 400 B) 300 C) 200 D) 500"
+  },
+  {
+   "savol": "30°C da to'yingan eritmada suvning massasi tuzning massasidan ikki marta ko'p bo'lsa, tuzning shu haroratdagi eruvchanligini aniqlang.",
+   "variantlar": "A) 25 B) 50 C) 60 D) 40"
+  },
+  {
+   "savol": "30°C da to'yingan eritmadagi tuzning massa ulushi suvning massa ulushidan 40% ga kam bo'lsa, tuzning shu haroratdagi eruvchanligini aniqlang.",
+   "variantlar": "A) 300/7 B) 200/3 C) 20 D) 25"
+  },
+  {
+   "savol": "30°C da to'yingan eritmadagi tuzning massa ulushi suvning massa ulushidan 20% ga kam bo'lsa, tuzning shu haroratdagi eruvchanligini aniqlang.",
+   "variantlar": "A) 25 B) 200/3 C) 20 D) 100/6"
+  },
+  {
+   "savol": "30°C da to'yingan eritmadagi tuzning massa ulushi suvning massa ulushidan 50% ga kam bo'lsa, tuzning shu haroratdagi eruvchanligini aniqlang.",
+   "variantlar": "A) 20 B) 100/6 C) 25 D) 100/3"
+  },
+  {
+   "savol": "30°C da to'yingan eritmadagi tuzning massa ulushi suvning massa ulushidan 60% ga kam bo'lsa, tuzning shu haroratdagi eruvchanligini aniqlang.",
+   "variantlar": "A) 20 B) 60 C) 25 D) 35"
+  },
+  {
+   "savol": "Suvsiz sulfat kislota tayyorlash uchun 0,16 kg SO₃ necha gramm 82% li sulfat kislota eritmasida eritilishi kerak?",
+   "variantlar": "A) 200 B) 150 C) 300 D) 400"
+  },
+  {
+   "savol": "Suvsiz sulfat kislota tayyorlash uchun 80 g SO₃ necha gramm 94% li sulfat kislota eritmasida eritilishi kerak?",
+   "variantlar": "A) 400 B) 200 C) 300 D) 150"
+  },
+  {
+   "savol": "Suvsiz sulfat kislota tayyorlash uchun 0,15 kg 94% li sulfat kislota eritmasida necha gramm SO₃ eritish kerak?",
+   "variantlar": "A) 40 B) 160 C) 120 D) 80"
+  },
+  {
+   "savol": "Suvsiz sulfat kislota tayyorlash uchun 40 g SO₃ necha gramm 94% li sulfat kislota eritmasida eritilishi kerak?",
+   "variantlar": "A) 300 B) 200 C) 150 D) 400"
+  },
+  {
+   "savol": "Suvsiz sulfat kislota tayyorlash uchun 0,3 kg 91% li sulfat kislota eritmasida necha gramm SO₃ eritish kerak?",
+   "variantlar": "A) 40 B) 120 C) 80 D) 160"
+  },
+  {
+   "savol": "20% li Na₂SO₄ eritmasi bug'latilib 32,2 g glauber tuzi (Na₂SO₄•10H₂O) olingan bo'lsa, dastlabki eritmadagi suvning massasini (g) aniqlang.",
+   "variantlar": "A) 25 B) 18 C) 56,8 D) 38,8"
+  },
+  {
+   "savol": "20% li Na₂SO₄ eritmasi bug'latilib 32,2 g glauber tuzi (Na₂SO₄•10H₂O) olingan bo'lsa, bug'latilgan suv massasini (g) aniqlang.",
+   "variantlar": "A) 25 B) 56,8 C) 18 D) 38,8"
+  },
+  {
+   "savol": "0,2 kg 10% li o'yuvchi natriy eritmasidagi kislorodning protonlar sonini toping.",
+   "variantlar": "A) 4•N_A B) 0,8•N_A C) 84•N_A D) 80•N_A"
+  },
+  {
+   "savol": "4,5 N li Al₂(SO₄)₃ eritmasining (ρ = 1,5 g/ml) foiz konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 40 B) 34,2 C) 17,1 D) 20"
+  },
+  {
+   "savol": "9 N li Al₂(SO₄)₃ eritmasining foiz konsentratsiyasi 34,2% bo'lsa, eritmaning zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,75 B) 1,5 C) 1,6 D) 1,25"
+  },
+  {
+   "savol": "4,5 N li Al₂(SO₄)₃ eritmasining foiz konsentratsiyasi 17,1% bo'lsa, eritmaning zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,75 B) 1,25 C) 1,6 D) 1,5"
+  },
+  {
+   "savol": "5 M li va 2 M li eritmalar aralashtirilganda 3 M li eritmadan 0,9 litr hosil bo'ldi. Dastlabki eritmalarning hajmlarini (ml; berilgan tartibda) aniqlang.",
+   "variantlar": "A) 300; 600 B) 350; 550 C) 400; 500 D) 200; 700"
+  },
+  {
+   "savol": "5 M li va 2 M li eritmalar aralashtirilganda 4 M li eritmadan 0,6 litr hosil bo'ldi. Dastlabki eritmalarning hajmlarini (ml; berilgan tartibda) aniqlang.",
+   "variantlar": "A) 300; 300 B) 500; 100 C) 400; 200 D) 150; 450"
+  },
+  {
+   "savol": "4 M li va 1 M li eritmalar aralashtirilganda 2 M li eritmadan 0,6 litr hosil bo'ldi. Dastlabki eritmalarning hajmlarini (ml; berilgan tartibda) aniqlang.",
+   "variantlar": "A) 300; 300 B) 200; 400 C) 100; 500 D) 150; 450"
+  },
+  {
+   "savol": "4 M li va 1 M li eritmalar aralashtirilganda 3 M li eritmadan 0,3 litr hosil bo'ldi. Dastlabki eritmalarning hajmlarini (ml; berilgan tartibda) aniqlang.",
+   "variantlar": "A) 180; 120 B) 200; 100 C) 150; 150 D) 240; 60"
+  },
+  {
+   "savol": "4 M li va 1 M li eritmalar aralashtirilganda 3 M li eritmadan 1,2 litr hosil bo'ldi. Dastlabki eritmalarning hajmlarini (ml; berilgan tartibda) aniqlang.",
+   "variantlar": "A) 900; 300 B) 600; 600 C) 500; 700 D) 800; 400"
+  },
+  {
+   "savol": "0,4 N li kalsiy bromid eritmasidagi brom ionlarining molar konsentratsiyasini (mol/l) aniqlang (α = 100%).",
+   "variantlar": "A) 0,2 B) 0,4 C) 0,1 D) 0,8"
+  },
+  {
+   "savol": "50 g eritmaga qanday massadagi suv qo'shilganda eritma konsentratsiyasi uch marta kamayadi?",
+   "variantlar": "A) 150 B) 100 C) 120 D) 75"
+  },
+  {
+   "savol": "154 g 10% li NaOH eritmasi 6 F tok bilan elektroliz qilinganda necha foizli eritma hosil bo'ladi?",
+   "variantlar": "A) 21,8 B) 17,6 C) 28,4 D) 15,4"
+  },
+  {
+   "savol": "163 g 10% li NaOH eritmasi 7 F tok bilan elektroliz qilinganda necha foizli eritma hosil bo'ladi?",
+   "variantlar": "A) 47,6 B) 21,8 C) 16,3 D) 33,6"
+  },
+  {
+   "savol": "0,3 kg 20% li NaOH eritmasi 2 F tok bilan elektroliz qilinganda anodda necha litr (n.sh.) gaz ajralib chiqadi?",
+   "variantlar": "A) 22,4 B) 16,8 C) 11,2 D) 5,6"
+  },
+  {
+   "savol": "172 g 10% li KOH eritmasi 8 F tok bilan elektroliz qilinganda necha foizli eritma hosil bo'ladi?",
+   "variantlar": "A) 15,8 B) 16,4 C) 17,2 D) 28,4"
+  },
+  {
+   "savol": "136 g 10% li KOH eritmasi 4 F tok bilan elektroliz qilinganda necha foizli eritma hosil bo'ladi?",
+   "variantlar": "A) 13,6 B) 16,8 C) 18,6 D) 11,8"
+  },
+  {
+   "savol": "X°C da to'yingan MeSO₄ tuzining 0,32 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 15/19 mol tuz qo'shildi. Noma'lum tuzning molar massasini (g/mol) aniqlang (S_(x°C) = 60; S_(y°C) = 120).",
+   "variantlar": "A) 160 B) 161 C) 152 D) 120"
+  },
+  {
+   "savol": "X°C da to'yingan MeSO₄ tuzining 0,32 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 15/19 mol tuz qo'shildi. Noma'lum tuzni aniqlang (S_(X°C) = 60; S_(Y°C) = 120).",
+   "variantlar": "A) MgSO₄ B) ZnSO₄ C) CuSO₄ D) FeSO₄"
+  },
+  {
+   "savol": "X°C da to'yingan MeSO₄ tuzining 0,28 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 5/6 mol tuz qo'shildi. Noma'lum tuzning molar massasini (g/mol) aniqlang (S_(X°C) = 40; S_(Y°C) = 90).",
+   "variantlar": "A) 161 B) 152 C) 120 D) 160"
+  },
+  {
+   "savol": "X°C da to'yingan MeSO₄ tuzining 0,28 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 5/6 mol tuz qo'shildi. Noma'lum tuzni aniqlang (S_(X°C) = 40; S_(Y°C) = 90).",
+   "variantlar": "A) ZnSO₄ B) CuSO₄ C) MgSO₄ D) FeSO₄"
+  },
+  {
+   "savol": "X°C da to'yingan Me₂(SO₄)₃ tuzining 0,26 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 7/57 mol tuz qo'shildi. Noma'lum tuzni aniqlang (S_(X°C) = 30; S_(Y°C) = 51).",
+   "variantlar": "A) Cr₂(SO₄)₃ B) Fe₂(SO₄)₃ C) Ni₂(SO₄)₃ D) Al₂(SO₄)₃"
+  },
+  {
+   "savol": "Noma'lum II valentli metall sulfatning suvli eritmasida tuzning massa ulushi 8/17 ga teng. Agar eritma tarkibidagi kislorod atomlari sonining vodorod atomlari soniga nisbati 0,7:1 ga teng bo'lsa, noma'lum tuzni aniqlang (tuzning gidrolizlanishini hisobga olmang).",
+   "variantlar": "A) FeSO₄ B) CuSO₄ C) ZnSO₄ D) MgSO₄"
+  },
+  {
+   "savol": "Noma'lum II valentli metall sulfatning suvli eritmasida tuzning massa ulushi 30/57 ga teng. Agar eritma tarkibidagi kislorod atomlari sonining vodorod atomlari soniga nisbati 5:6 ga teng bo'lsa, noma'lum tuzni aniqlang (tuzning gidrolizlanishini hisobga olmang).",
+   "variantlar": "A) MgSO₄ B) ZnSO₄ C) CuSO₄ D) FeSO₄"
+  },
+  {
+   "savol": "Noma'lum II valentli metall sulfatning suvli eritmasida tuzning massa ulushi 6/15 ga teng. Agar eritma tarkibidagi kislorod atomlari sonining vodorod atomlari soniga nisbati 0,7:1 ga teng bo'lsa, noma'lum tuzni aniqlang (tuzning gidrolizlanishini hisobga olmang).",
+   "variantlar": "A) FeSO₄ B) ZnSO₄ C) MgSO₄ D) CuSO₄"
+  },
+  {
+   "savol": "Noma'lum II valentli metall sulfatning suvli eritmasida tuzning massa ulushi 19/55 ga teng. Agar eritma tarkibidagi kislorod atomlari sonining vodorod atomlari soniga nisbati 5:8 ga teng bo'lsa, noma'lum tuzni aniqlang (tuzning gidrolizlanishini hisobga olmang).",
+   "variantlar": "A) CuSO₄ B) ZnSO₄ C) FeSO₄ D) MgSO₄"
+  },
+  {
+   "savol": "Noma'lum II valentli metall sulfatning suvli eritmasida tuzning massa ulushi 40/67 ga teng. Agar eritma tarkibidagi kislorod atomlari sonining vodorod atomlari soniga nisbati 5:6 ga teng bo'lsa, noma'lum tuzni aniqlang (tuzning gidrolizlanishini hisobga olmang).",
+   "variantlar": "A) MgSO₄ B) CuSO₄ C) ZnSO₄ D) FeSO₄"
+  },
+  {
+   "savol": "Zichliklari 0,5 g/ml va 1,5 g/ml bo'lgan eritmalar aralashtirilganda 0,7 kg (ρ = 0,7 g/ml) bo'lgan eritma olindi. Dastlabki eritmalar hajmini (litr) aniqlang (zichlik nisbiy olingan).",
+   "variantlar": "A) 0,6; 0,4 B) 0,8; 0,2 C) 0,5; 0,5 D) 0,3; 0,7"
+  },
+  {
+   "savol": "Zichliklari 0,5 g/ml va 1,5 g/ml bo'lgan eritmalar aralashtirilganda 0,7 kg (ρ = 0,7 g/ml) bo'lgan eritma olindi. Dastlabki eritmalar massasini (g) aniqlang (zichlik nisbiy olingan).",
+   "variantlar": "A) 100; 600 B) 350; 350 C) 400; 300 D) 200; 500"
+  },
+  {
+   "savol": "Zichliklari 1,25 g/ml va 1,5 g/ml bo'lgan eritmalar aralashtirilganda 0,7 kg (ρ = 1,4 g/ml) bo'lgan eritma olindi. Dastlabki eritmalar massasini (g) aniqlang (zichlik nisbiy olingan).",
+   "variantlar": "A) 350; 350 B) 250; 450 C) 600; 100 D) 400; 300"
+  },
+  {
+   "savol": "Zichliklari 0,8 g/ml va 0,2 g/ml bo'lgan eritmalar aralashtirilganda 1,2 kg (ρ = 0,4 g/ml) bo'lgan eritma olindi. Dastlabki eritmalar hajmini (litr) aniqlang (zichlik nisbiy olingan).",
+   "variantlar": "A) 1,5; 1,5 B) 1; 2 C) 0,5; 2,5 D) 0,8; 1,2"
+  },
+  {
+   "savol": "Zichliklari 0,8 g/ml va 0,2 g/ml bo'lgan eritmalar aralashtirilganda 1,2 kg (ρ = 0,4 g/ml) bo'lgan eritma olindi. Dastlabki eritmalar massasini (g) aniqlang (zichlik nisbiy olingan).",
+   "variantlar": "A) 600; 600 B) 800; 400 C) 450; 750 D) 500; 700"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 28 litr. Agar ikkala eritmada bir xil miqdorda erigan modda bo'lsa, konsentratsiyasi katta eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 16 B) 24 C) 4 D) 12"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 28 litr. Agar ikkala eritmada bir xil miqdorda erigan modda bo'lsa, konsentratsiyasi kichik eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 16 B) 14 C) 12 D) 24"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 35 litr. Agar ikkala eritmada bir xil miqdorda erigan modda bo'lsa, konsentratsiyasi kichik eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 14 B) 16 C) 24 D) 20"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 42 litr. Agar ikkala eritmada bir xil miqdorda erigan modda bo'lsa, konsentratsiyasi katta eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 12 B) 24 C) 18 D) 30"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 28 litr. Agar ikkala eritmadagi erigan modda miqdori nisbati mos ravishda 4:3 bo'lsa, konsentratsiyasi katta eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 24 B) 14 C) 16 D) 4"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 28 litr. Agar ikkala eritmadagi erigan modda miqdori nisbati mos ravishda 4:3 bo'lsa, konsentratsiyasi kichik eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 18 B) 14 C) 12 D) 24"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 35 litr. Agar ikkala eritmadagi erigan modda miqdori nisbati mos ravishda 4:3 bo'lsa, konsentratsiyasi katta eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 17,5 B) 20,5 C) 16,5 D) 18,5"
+  },
+  {
+   "savol": "Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 42 litr. Agar ikkala eritmadagi erigan modda miqdori nisbati mos ravishda 4:3 bo'lsa, konsentratsiyasi kichik eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 21 B) 22 C) 16 D) 18"
+  },
+  {
+   "savol": "Mis (II)-sulfat eritmasidan elektr toki o'tkazilganda hosil bo'lgan kislotani neytrallash uchun 0,2 litr 1 N li kaliy gidroksid eritmasi sarf bo'ldi. Katodda ajralgan misning massasini (g) aniqlang.",
+   "variantlar": "A) 6,4 B) 0,32 C) 0,96 D) 25,6"
+  },
+  {
+   "savol": "25 ml 4 M li aluminiy sulfat eritmasiga 2 M li natriy sulfid eritmasidan qanday hajmda (ml) qo'shilganda, eritmadagi sulfat va sulfid ionlari miqdori teng bo'ladi? (Faqat to'liq boradigan Al₂S₃ gidrolizi jarayoni hisobga olinsin, α = 1)",
+   "variantlar": "A) 300 B) 100 C) 150 D) 400"
+  },
+  {
+   "savol": "200 g 7,4% li kalsiy gidroksid eritmasiga necha litr (n.sh.) karbonat angidrid o'tkazilganda kalsiy ionlarining yarmi cho'kmaga tushib, gidrokarbonat ioni saqlagan eritma hosil bo'ladi?",
+   "variantlar": "A) 2,24 B) 8,96 C) 4,48 D) 6,72"
+  },
+  {
+   "savol": "80 g mis kuporosi eritmasiga (ω(CuSO₄) = 0,1) ma'lum miqdor natriy sulfid to'yingan eritmasi (S = 25) qo'shildi. Cho'kma ajratib olingach eritmada Na⁺ ionlarining konsentratsiyasi S²⁻ ionlarining konsentratsiyasidan 4 marta ko'p ekanligi ma'lum bo'lsa, natriy sulfid to'yingan eritmasining massasini (g) aniqlang (α = 1, gidroliz hisobga olinmasin).",
+   "variantlar": "A) 19,5 B) 39,0 C) 31,2 D) 15,6"
+  },
+  {
+   "savol": "Mg(H₂PO₄)₂ ning 218 g 30% li eritmasiga necha gramm 20% li NaOH eritmasi qo'shilganda Mg²⁺ ionlarining barchasi Mg₃(PO₄)₂ ko'rinishida cho'kmaga tushadi? (α = 100%)",
+   "variantlar": "A) 180 B) 120 C) 240 D) 60"
+  },
+  {
+   "savol": "160 g 5% li MeOH eritmasiga Me₂O qo'shilganda eritmaning massasi 2,5 marta, massa ulushi 19,6 marta ortgan bo'lsa, metallni aniqlang.",
+   "variantlar": "A) kaliy B) natriy C) litiy D) seziy"
+  },
+  {
+   "savol": "10% li tuz eritmasi bug'lanishi natijasida to'yingan eritma (S = 25) hosil bo'ldi. Bunda 1 g tuz cho'kmaga tushdi va eritma massasi 4 marta kamaydi. Bug'langan suv massasini (g) aniqlang.",
+   "variantlar": "A) 5 B) 6 C) 14 D) 15"
+  },
+  {
+   "savol": "15% li tuz eritmasidan 9 g suv bug'lanishi natijasida to'yingan eritma (S = 25) hosil bo'ldi. Bunda eritma massasi 2 marta kamaydi. Cho'kmaga tushgan tuz massasini (g) aniqlang.",
+   "variantlar": "A) 3 B) 4 C) 2 D) 1"
+  },
+  {
+   "savol": "1. Ma'lum temperaturada NaOH ning eruvchanligi 20 ga teng. 327 g suvda qancha (g) Na eritilsa to'yingan eritma hosil bo'ladi?",
+   "variantlar": "A) 28,75 B) 40,25 C) 23 D) 34,5"
+  },
+  {
+   "savol": "2. 20°C dagi eruvchanligi 42 g bo'lgan tuzning 568 g to'yingan eritmasi 40°C gacha isitilganda yana qancha (g) tuz erib, to'yingan eritma hosil qiladi? S(40°C) = 57",
+   "variantlar": "A) 33 B) 66 C) 45 D) 60"
+  },
+  {
+   "savol": "3. Zichligi 1,2 g/ml bo'lgan 600 g eritmada 147 g ortofosfat kislota mavjud. Eritma konsentratsiyasini (mol/l) hisoblang. (Zichlik nisbiy olingan)",
+   "variantlar": "A) 2 B) 3 C) 4 D) 5"
+  },
+  {
+   "savol": "4. Kaliy oksidi ma'lum massadagi suvda to'liq eritildi. Olingan asos massasi eritilgan oksid massasidan 36 g ga ko'p bo'lsa, necha gramm 40 % li eritma hosil bo'lgan?",
+   "variantlar": "A) 420 B) 480 C) 540 D) 560"
+  },
+  {
+   "savol": "5. 57,5 g natriy 15•Nₐ dona atom tutgan suvda to'liq eritildi. Olingan eritma massasini (g) hisoblang.",
+   "variantlar": "A) 147,5 B) 145 C) 327,5 D) 325"
+  },
+  {
+   "savol": "6. 40 % li (ρ = 1,2 g/ml) 500 ml suvli eritmaga qanday massali (g) suv qo'shilganda 12 % li eritma hosil bo'ladi?",
+   "variantlar": "A) 1640 B) 1760 C) 1400 D) 1040"
+  },
+  {
+   "savol": "7. 720 g (ρ = 1,2 g/ml) 0,3 M li sulfat kislota eritmasi bilan 200 ml 0,6 M li X eritmasi to'liq reaksiyaga kirishdi. X ni toping.",
+   "variantlar": "A) KOH B) Ca(OH)₂ C) NH₃ D) Al(OH)₃"
+  },
+  {
+   "savol": "8. 8 g NaOH dan foydalanib qanday massali (g) 4 molyalli eritma tayyorlash mumkin? (Molyallik – 1 kg erituvchiga mos keluvchi erigan modda miqdori)",
+   "variantlar": "A) 46 B) 58 C) 40 D) 50"
+  },
+  {
+   "savol": "9. Kalsiy xlorid eritmasiga tegishli miqdorda Na₂CO₃ qo'shilganda 100 g cho'kma tushdi va 4 molyalli eritma hosil bo'ldi. Dastlabki kalsiy xlorid eritmasining massasini (g) aniqlang.",
+   "variantlar": "A) 617 B) 500 C) 622 D) 611"
+  },
+  {
+   "savol": "10. Natriy nitrat tuzining to'yingan eritmasi (S = 17) 2 M li bo'lsa, 100 ml eritma massasini (g) toping. (S – eruvchanlik)",
+   "variantlar": "A) 340 B) 234 C) 170 D) 117"
+  },
+  {
+   "savol": "11. 240 g to'yingan eritma 30°C dan 50°C gacha qizdirildi. Ushbu jarayon uchun to'g'ri bo'lgan javobni belgilang. S(30°C) = 20; S(50°C) = 60",
+   "variantlar": "A) to'yinmagan eritmaga aylanadi va 80 g eruvchi qo'shilsa to'yinadi B) to'yingan eritmaga aylanadi va 80 g eruvchi ajraladi C) to'yingan eritmaga aylanadi va 60 g eruvchi ajraladi D) to'yinmagan eritmaga aylanadi va 60 g eruvchi qo'shilsa to'yinadi"
+  },
+  {
+   "savol": "12. 300 ml 15 % li NaOH eritmasiga (ρ = 1,2 g/ml) 13,8 g Na bo'lakchasi solindi. Olingan eritmadagi ishqorning massasini (g) hisoblang.",
+   "variantlar": "A) 80 B) 84 C) 82 D) 78"
+  },
+  {
+   "savol": "13. Kumush nitrat eritmasiga ikki marta ko'p hajmdagi kalsiy xlorid eritmasi qo'shildi. Hosil bo'lgan eritmada kalsiy va xlorid ionlari 3:2 mol nisbatda bo'lsa, dastlabki eritmalarning molar konsentratsiyalari qanday nisbatda (berilgan tartibda) bo'lgan?",
+   "variantlar": "A) 3:5 B) 8:3 C) 3:8 D) 5:3"
+  },
+  {
+   "savol": "14. 200 g 10 % li natriy gidroksid eritmasidan ma'lum miqdor suv bug'latilganda eritmadagi umumiy atomlar soni 3 marta kamaydi. Bug'latilgan suv massasini (g) hisoblang.",
+   "variantlar": "A) 72 B) 108 C) 90 D) 126"
+  },
+  {
+   "savol": "15. X°C da A modda to'yingan eritmasining molyal konsentratsiyasi 2 mol/kg bo'lsa, A moddaning molar massasini (g/mol) aniqlang. S(X°C) = 80 (Molyal konsentratsiya – erigan modda miqdorining erituvchi massasiga nisbati.)",
+   "variantlar": "A) 400 B) 80 C) 40 D) 200"
+  },
+  {
+   "savol": "16. Kislorod atomlari soni 5,8•Nₐ ta bo'lgan 10 % li kaliy gidroksid eritmasi massasini (g) hisoblang.",
+   "variantlar": "A) 180 B) 112 C) 168 D) 120"
+  },
+  {
+   "savol": "17. 40 g 30 % li natriy gidroksid eritmasida qanday massadagi (g) fosfat angidrid eritilganda ekvimolar nisbatdagi nordon tuzlar aralashmasi hosil bo'ladi?",
+   "variantlar": "A) 56,8 B) 14,2 C) 28,4 D) 42,6"
+  },
+  {
+   "savol": "18. 40 g natriy gidroksid eritmasida 14,2 g fosfat angidrid eritilganda ekvimolar nisbatdagi nordon tuzlar aralashmasi hosil bo'ldi. Ishqor eritmasining konsentratsiyasini (%) hisoblang.",
+   "variantlar": "A) 10 B) 40 C) 30 D) 20"
+  },
+  {
+   "savol": "19. 30 % li natriy gidroksid eritmasida 14,2 g fosfat angidrid eritilganda ekvimolar nisbatdagi nordon tuzlar aralashmasi hosil bo'ldi. Ishqor eritmasining massasini (g) hisoblang.",
+   "variantlar": "A) 40 B) 60 C) 80 D) 100"
+  },
+  {
+   "savol": "20. Ma'lum massadagi eritma bug'latilganda eritma massasi 20 % ga, erituvchi massasi 25 % ga kamaydi. Dastlabki eritma konsentratsiyasini (%) hisoblang.",
+   "variantlar": "A) 25 B) 50 C) 40 D) 20"
+  },
+  {
+   "savol": "21. 44,1 g ortofosfat kislotaning suvli eritmasiga 180 ml 5 M li ammiak eritmasi qo'shildi. Natijada konsentratsiyasi 2 mol/l bo'lgan eritma olindi. Hosil bo'lgan eritma hajmini (ml) aniqlang.",
+   "variantlar": "A) 250 B) 275 C) 225 D) 200"
+  },
+  {
+   "savol": "22. 32,1 g uch valentli metall asosi bilan 900 ml 0,5 mol/l sulfat kislota eritmasi to'liq reaksiyaga kirishdi. Metallni aniqlang.",
+   "variantlar": "A) Al B) Fe C) Mn D) Cr"
+  },
+  {
+   "savol": "23. 250 g 20 % li natriy gidroksid eritmasida 10 g NaOH eritilganda hosil bo'lgan eritmaning konsentratsiyasini (mol/kg) aniqlang. (Molyal konsentratsiya – 1 kg erituvchiga to'g'ri keladigan erigan moddaning mol miqdori.)",
+   "variantlar": "A) 5,25 B) 7,5 C) 4,5 D) 6,25"
+  },
+  {
+   "savol": "24. 250 g 20 % li natriy gidroksid eritmasida necha gramm NaOH eritilsa, hosil bo'lgan eritmaning molyal konsentratsiyasi 7,5 mol/kg ni tashkil etadi? (Molyal konsentratsiya – 1 kg erituvchiga to'g'ri keladigan erigan moddaning mol miqdori.)",
+   "variantlar": "A) 16 B) 20 C) 8 D) 10"
+  },
+  {
+   "savol": "25. 180 g NaOH eritmasining (ω(NaOH) = 0,2) molar konsentratsiyasi 6 mol/l bo'lsa, eritma hajmini (ml) aniqlang.",
+   "variantlar": "A) 140 B) 150 C) 100 D) 120"
+  },
+  {
+   "savol": "26. 40 g eritmaga suv qo'shib, 50 g 14,4 % li eritma olindi. Dastlabki eritma konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 17 B) 16 C) 18 D) 19"
+  },
+  {
+   "savol": "27. 600 ml AgNO₃ (C = 0,05 mol/l) va 400 ml NaCl (C = 0,1 mol/l) eritmalari aralashtirildi. Eritmadan cho'kma ajratib olingach, barcha ionlar konsentratsiyasini (mol/l) hisoblang. 1) Ag⁺; 2) NO₃⁻; 3) Na⁺; 4) Cl⁻; a) 0,02; b) 0,03; c) 0,04; d) 0,01.",
+   "variantlar": "A) 3-c; 4-b; 2-b B) 3-c; 4-d; 2-b C) 3-c; 4-d; 2-b; 1-b D) 3-c; 4-d; 2-b; 1-a"
+  },
+  {
+   "savol": "28. Metall bromidni kislotali muhitda bromgacha to'liq oksidlash uchun 0,2 mol/l li kaliy permanganat eritmasidan 300 ml sarflandi. Xuddi shunday miqdordagi metall bromidni kislotali muhitda, bromgacha to'liq oksidlash uchun 0,2 mol/l li kaliy dixromat eritmasidan qancha (ml) talab etiladi?",
+   "variantlar": "A) 500 B) 250 C) 1000 D) 125"
+  },
+  {
+   "savol": "29. 0,7 mol natriy bromid va kalsiy bromid aralashmasidagi bromid ionlarini to'liq cho'ktirish uchun 670 g 2 molyalli AgNO₃ eritmasi sarflandi. Boshlang'ich aralashmadagi natriy bromid massasini (g) hisoblang. (Molyal konsentratsiya – 1 kg erituvchiga to'g'ri keladigan erigan moddaning mol miqdori.)",
+   "variantlar": "A) 41,2 B) 30,9 C) 51,5 D) 20,6"
+  },
+  {
+   "savol": "30. 150 g 8 % li mis (II)–sulfat eritmasida qanday massadagi (g) CuSO₄•5H₂O eritilganda eritmaning foiz konsentratsiyasi 2 marta ortadi?",
+   "variantlar": "A) 100 B) 25 C) 75 D) 50"
+  },
+  {
+   "savol": "31. Normal konsentratsiyasi 3 N bo'lgan mis (II)–sulfat eritmasi (ω = 0,2) ning zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,8 B) 1,6 C) 1,2 D) 1,4"
+  },
+  {
+   "savol": "32. 0,05 M li 500 g Na₂SO₄ eritmasida 2,84 g erigan modda bo'lsa, eritma zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,42 B) 1,5 C) 1,3 D) 1,25"
+  },
+  {
+   "savol": "33. 300 g 10 % li eritmadan ma'lum miqdor suv bug'latilganda tuz cho'kmaga tushdi va eritma massasi 100 g ga kamaydi. Natijada 12 % li eritma olingan bo'lsa, cho'kmaga tushgan tuz massasini (g) hisoblang.",
+   "variantlar": "A) 6 B) 5 C) 7 D) 8"
+  },
+  {
+   "savol": "34. Sulfat kislota eritmasining molar va foiz konsentratsiyalari nisbati 1:7 bo'lsa, uning zichligi (g/ml) qandayligini toping.",
+   "variantlar": "A) 1,2 B) 1,5 C) 1,4 D) 1,6"
+  },
+  {
+   "savol": "35. 125 g NaCl eritmasiga 20 % li 75 g shu tuz eritmasidan qo'shilganda 40 % li eritma hosil bo'ldi. Dastlabki eritma konsentratsiyasini (%) toping.",
+   "variantlar": "A) 48 B) 46 C) 50 D) 52"
+  },
+  {
+   "savol": "36. Ma'lum temperaturada KOH ning eruvchanligi 56 ga teng. 58,5 g K necha gramm suvda eritilsa to'yingan eritma hosil bo'ladi?",
+   "variantlar": "A) 177 B) 227 C) 277 D) 327"
+  },
+  {
+   "savol": "37. 15°C dagi eruvchanligi 44 g bo'lgan tuzning to'yingan eritmasi 35°C gacha isitilganda 80 g tuz erib, to'yingan eritma hosil qiladi. 15°C dagi to'yingan eritmaning massasini (g) hisoblang. S(35°C) = 60",
+   "variantlar": "A) 720 B) 725 C) 715 D) 710"
+  },
+  {
+   "savol": "38. Tarkibida aluminiy xlorid va xlorid kislota saqlagan 200 ml eritmaga cho'kma hosil bo'lishi tugaguncha 1,5 mol/l ammiak eritmasidan 200 ml quyildi. Hosil bo'lgan eritma bug'latildi va cho'kma massasi o'zgarmay qolguncha qizdirilishi natijasida 4,08 g qoldiq qoldi. Dastlabki eritma tarkibidagi moddalarning konsentratsiyalarini hisoblang.",
+   "variantlar": "A) c(AlCl₃) = 0,3 mol/l; c(HCl) = 0,1 mol/l B) c(AlCl₃) = 0,4 mol/l; c(HCl) = 0,2 mol/l C) c(AlCl₃) = 0,4 mol/l; c(HCl) = 0,3 mol/l D) c(AlCl₃) = 0,3 mol/l; c(HCl) = 0,2 mol/l"
+  },
+  {
+   "savol": "39. 19,2 g misning konsentrlangan nitrat kislotada erishidan olingan gaz yetarli kislorod ishtirokida 67,6 g suvda eritilishidan hosil bo'lgan moddaning eritmadagi massa ulushini (%) aniqlang.",
+   "variantlar": "A) 39,7 B) 27,6 C) 37,8 D) 25,2"
+  },
+  {
+   "savol": "40. To'yingan eritmadan 400 g suv bug'lanishi natijasida 160 g kristallogidrat cho'kmaga tushdi. Kristallogidrat tarkibidagi tuzning massa ulushini (%) hisoblang. (S = 25)",
+   "variantlar": "A) 64 B) 56 C) 70 D) 60"
+  },
+  {
+   "savol": "41. 63,6 g mis (II)–yodid 360 ml natriy gidroksid eritmasida eritildi. Hosil bo'lgan eritmadagi ishqor massasi tuz massasidan 3 marta kam bo'lsa, dastlabki ishqor eritmasining konsentratsiyasini (mol/l) hisoblang.",
+   "variantlar": "A) 4 B) 1,5 C) 2 D) 2,5"
+  },
+  {
+   "savol": "42. 500 ml 0,8 mol/l temir (III)–sulfat eritmasiga necha mol sulfit angidrid yuttirilganda eritmadagi temir ionlarining molar konsentratsiyalari tenglashadi? Fe₂(SO₄)₃ + SO₂ + H₂O → FeSO₄ + H₂SO₄",
+   "variantlar": "A) 0,3 B) 0,1 C) 0,2 D) 0,4"
+  },
+  {
+   "savol": "43. 1,25 mol/l temir (III)–sulfat eritmasiga 0,25 mol sulfit angidrid yuttirilganda eritmadagi temir ionlarining molar konsentratsiyalari tenglashdi. Temir (III)–sulfat eritmasining hajmini (ml) hisoblang. Fe₂(SO₄)₃ + SO₂ + H₂O → FeSO₄ + H₂SO₄",
+   "variantlar": "A) 1600 B) 400 C) 200 D) 800"
+  },
+  {
+   "savol": "44. 25 ml 4M li aluminiy sulfat eritmasiga 2M li natriy sulfid eritmasidan qanday hajmda (ml) qo'shilganda eritmadagi sulfat va sulfid ionlari miqdori teng bo'ladi? (Faqat to'liq boradigan gidroliz jarayoni hisobga olinsin, α = 1)",
+   "variantlar": "A) 400 B) 150 C) 300 D) 100"
+  },
+  {
+   "savol": "45. 252 g 25 % li HNO₃ eritmasiga ekvivalent miqdorda Na₂CO₃•xH₂O qo'shildi. Hosil bo'lgan eritmada 48,5 mol atom bo'lsa, x ning qiymatini aniqlang.",
+   "variantlar": "A) 8 B) 9 C) 7 D) 6"
+  },
+  {
+   "savol": "46. Si, Cu va (NH₄)₂SO₄•xH₂O dan iborat 38,1 g aralashma 100 g 20 % li natriy gidroksid eritmasida eritilganda o'rtacha molar massasi 11 g/mol bo'lgan gazlar aralashmasi va 12,8 g cho'kma hosil bo'ldi. x ning qiymatini aniqlang.",
+   "variantlar": "A) 1 B) 3 C) 4 D) 2"
+  },
+  {
+   "savol": "47. Sof nitrat kislotaning zichligi 1,26 g/ml. Zichligi 1,052 g/ml bo'lgan nitrat kislota eritmasining molyal konsentratsiyasini (mol/kg) hisoblang. (Molyal konsentratsiya – erigan modda miqdorining erituvchi massasiga nisbati.)",
+   "variantlar": "A) 1,2 B) 10 C) 5 D) 2,4"
+  },
+  {
+   "savol": "48. 200 g 7,4 % li kalsiy gidroksid eritmasiga qanday hajmdagi (l, n.sh.) karbonat angidrid yuttirilganda 10 g cho'kma tushib, gidrokarbonat ioni saqlagan eritma hosil bo'ladi?",
+   "variantlar": "A) 8,96 B) 2,24 C) 4,48 D) 6,72"
+  },
+  {
+   "savol": "49. 200 g 7,4 % li kalsiy gidroksid eritmasiga necha litr (n.sh.) karbonat angidrid yuttirilganda kalsiy ionlarining yarmi cho'kmaga tushib, gidrokarbonat ioni saqlagan eritma hosil bo'ladi?",
+   "variantlar": "A) 4,48 B) 2,24 C) 8,96 D) 6,72"
+  },
+  {
+   "savol": "50. 20 % li HF va 10 % li NaOH eritmalari aralashtirilishidan olingan neytral eritmaga qanday massada (g) suv qo'shilganda 42 g 5 % li NaF eritmasi hosil bo'ladi?",
+   "variantlar": "A) 44 B) 17 C) 22 D) 34"
+  },
+  {
+   "savol": "51. 160 g sulfat kislota eritmasiga bariy nitrat va qo'rg'oshin (II)–nitrat aralashmasi qo'shildi. Reaksiyadan so'ng eritma massasi 5,6 g ga ortdi va eritmada kislotalarning massa ulushi tenglashdi. Dastlabki eritmadagi sulfat kislotaning massa ulushini (%) hisoblang.",
+   "variantlar": "A) 24,5 B) 30 C) 28 D) 49"
+  },
+  {
+   "savol": "52. 100 ml (ρ = 1,006 g/ml) 2M li sulfat kislota suvli eritmasi necha gramm kaliy gidrid bilan to'liq reaksiyaga kirishadi? (Zichlik nisbiy olingan)",
+   "variantlar": "A) 16 B) 196 C) 32 D) 98"
+  },
+  {
+   "savol": "53. 100 ml (ρ = 1,006 g/ml) 2M li sulfat kislota suvli eritmasi 196 g noma'lum ishqoriy metall gidridi bilan to'liq reaksiyaga kirishgan bo'lsa, metallni aniqlang. (Zichlik nisbiy olingan)",
+   "variantlar": "A) litiy B) rubidiy C) kaliy D) natriy"
+  },
+  {
+   "savol": "54. NaI va CaBr₂ ning massa ulushlari teng bo'lgan eritmasi mavjud. Bu eritma mo'l miqdordagi Na₂CO₃ bilan ta'sirlashib 15 g cho'kma berishi ma'lum bo'lsa, xuddi shunday tarkibli eritmadagi galogenlarni to'liq cho'ktirish uchun 17 % li AgNO₃ eritmasidan qancha (g) kerak bo'ladi?",
+   "variantlar": "A) 400 B) 200 C) 250 D) 500"
+  },
+  {
+   "savol": "55. 80 g mis kuporosi eritmasiga (ω(CuSO₄) = 0,1) ma'lum miqdor natriy sulfid to'yingan eritmasi (S = 25) qo'shildi. Cho'kma ajratib olingach eritmada Na⁺ ionlarining konsentratsiyasi S²⁻ ionlarining konsentratsiyasidan 4 marta ko'p ekanligi ma'lum bo'lsa, natriy sulfid to'yingan eritmasining massasini (g) aniqlang. (α = 1, gidroliz hisobga olinmasin)",
+   "variantlar": "A) 39,0 B) 31,2 C) 19,5 D) 15,6"
+  },
+  {
+   "savol": "56. Mg(H₂PO₄)₂ ning 218 g 30 % li eritmasiga necha gramm 20 % li NaOH eritmasi qo'shilganda Mg²⁺ ionlarining barchasi Mg₃(PO₄)₂ ko'rinishida cho'kmaga tushadi?",
+   "variantlar": "A) 240 B) 60 C) 120 D) 180"
+  },
+  {
+   "savol": "57. 160 g 5 % li MeOH eritmasiga Me₂O qo'shilganda eritmaning massasi 2,5 marta, massa ulushi 19,6 marta ortgan bo'lsa, metallni aniqlang.",
+   "variantlar": "A) seziy B) kaliy C) litiy D) natriy"
+  },
+  {
+   "savol": "58. 10 % li tuz eritmasi bug'lanishi natijasida to'yingan eritma (S = 25) hosil bo'ldi. Bunda 1 g tuz cho'kmaga tushdi va eritma massasi 4 marta kamaydi. Bug'langan suv massasini (g) aniqlang.",
+   "variantlar": "A) 5 B) 14 C) 6 D) 15"
+  },
+  {
+   "savol": "59. 15 % li tuz eritmasidan 9 g suv bug'lanishi natijasida to'yingan eritma (S = 25) hosil bo'ldi. Bunda eritma massasi 2 marta kamaydi. Cho'kmaga tushgan tuz massasini (g) aniqlang.",
+   "variantlar": "A) 4 B) 3 C) 2 D) 1"
+  },
+  {
+   "savol": "60. NaOH eritmasining molyal va foiz konsentratsiyalari nisbati 1:3,2 bo'lsa, eritmaning foiz konsentratsiyasini hisoblang. (Molyal konsentratsiya – 1 kg erituvchiga to'g'ri keladigan erigan moddaning mol miqdori.)",
+   "variantlar": "A) 10 B) 6,4 C) 20 D) 3,2"
+  },
+  {
+   "savol": "61. Bariy gidroksid eritmasiga vodorod bromid yuttirildi. Bunda ionlarning konsentratsiyalari: c(H⁺) = 0,05 mol/l va c(Br⁻) = 0,07 mol/l bo'lsa, eritmadagi 3 tuzning titrini (mg/sm³) hisoblang. (Titr – eritmada erigan modda og'irligining eritma hajmiga nisbati, α = 1)",
+   "variantlar": "A) 2970 B) 2,97 C) 5,94 D) 5940"
+  },
+  {
+   "savol": "62. 300 g eritmadan ma'lum miqdor suv bug'latilganda tuzning massa ulushi 1,5 marta ortdi. Olingan eritmada 12,5 g shu tuzdan to'liq eritilganda 20 % li eritma hosil bo'ldi. Dastlabki eritma konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 6 B) 10 C) 12 D) 8"
+  },
+  {
+   "savol": "63. Natriy gidroksid va natriy karbonatlarning konsentratsiyasi tegishli ravishda 0,2 mol/l va 0,3 mol/l bo'lgan 250 ml eritmaga 5,88 g natriy gidrokarbonat qo'shildi. Hosil bo'lgan eritmadagi gidrokarbonat va karbonat anionlarining molarligini hisoblang. (jarayonda hajm o'zgarmagan deb hisoblang)",
+   "variantlar": "A) 0,02; 0,125 B) 0,08; 0,5 C) 0,02; 0,03 D) 0,07; 0,075"
+  },
+  {
+   "savol": "64. 400 ml 1,5 molyarli kaliy gidrosulfit va 200 ml kaliy sulfit eritmalari aralashtirildi. Ushbu eritmaga 200 ml kaliy gidroksid eritmasi qo'shilganda, eritmadagi kaliy gidrosulfit konsentratsiyasi 0,5 mol/l gacha kamaydi. Eritmaga qo'shilgan kaliy gidroksid eritmasining konsentratsiyasini (mol/l) hisoblang.",
+   "variantlar": "A) 0,4 B) 0,8 C) 1,0 D) 0,6"
+  },
+  {
+   "savol": "65. Temir (III)–sulfat eritmasi ma'lum miqdordagi suv bilan aralashtirilganda Fe³⁺ ionlarining konsentratsiyasi 11,2 g/l bo'lgan (ρ = 1,03 g/ml) eritma olindi. Ushbu eritmadagi erigan modda va erituvchining mol nisbatini hisoblang.",
+   "variantlar": "A) 1:500 B) 1:550 C) 1:400 D) 1:450"
+  },
+  {
+   "savol": "66. CuSO₄ ning 80 g 20 % li to'yingan eritmasiga shu tuzdan 2,75 g qo'shildi va qizdirildi. So'ngra eritma boshlang'ich haroratga qadar sovutilganda qancha (g) CuSO₄•5H₂O cho'kmaga tushadi?",
+   "variantlar": "A) 8 B) 5 C) 10 D) 4"
+  },
+  {
+   "savol": "67. X g 25 % li eritmaga 140 g Y % li eritma qo'shildi. Bunda 32 % li eritma hosil bo'ldi. Agar X ning qiymati Y ning qiymatidan 4 marta katta bo'lsa, Y ning qiymatini aniqlang.",
+   "variantlar": "A) 36 B) 44 C) 40 D) 50"
+  },
+  {
+   "savol": "68. Mol nisbati 1:2 bo'lgan Cu va Zn aralashmasining 194 grammi 36,5 % li HCl bilan ta'sirlashgandan keyin hosil bo'lgan qotishmadagi metallarning mol nisbati mos ravishda 5:9 bo'lsa, sarflangan eritma massasini (g) aniqlang.",
+   "variantlar": "A) 40 B) 20 C) 30 D) 50"
+  },
+  {
+   "savol": "69. 160 g 5 % li MeOH eritmasiga Me₂O qo'shilganda eritmaning massasi 2,5 marta, massa ulushi 19,6 marta ortgan bo'lsa, dastlabki eritmadagi metall ionlari miqdorini (mol) hisoblang.",
+   "variantlar": "A) 1/3 B) 1/5 C) 1/4 D) 1/2"
+  },
+  {
+   "savol": "70. 11,2 litr is gazi va asetilen (D(H₂) = 13,5) to'liq yondirilganda olingan karbonat angidrid 300 g 12 % li NaOH eritmasiga yuttirildi. Hosil bo'lgan tuzlar va ularning miqdorini (g) aniqlang.",
+   "variantlar": "A) 63 g NaHCO₃, 10,6 g Na₂CO₃ B) 50,4 g NaHCO₃; 15,9 g Na₂CO₃ C) 50,4 g NaHCO₃; 10,6 g Na₂CO₃ D) 63 g NaHCO₃; 15,9 g Na₂CO₃"
+  },
+  {
+   "savol": "71. Mis va mis (II)–oksiddan iborat 40 g aralashma 472 g 80 % li sulfat kislota eritmasida eritilganda eritmadagi tuzning massa ulushi 20% ga teng bo'ldi. Olingan eritma massasini (g) aniqlang.",
+   "variantlar": "A) 490 B) 480 C) 502 D) 512"
+  },
+  {
+   "savol": "72. Mis plastinka kumush nitrat eritmasiga tushirilganda massasi 3,04 g ga ortdi. Ushbu plastinkani eritish uchun 8 ml (ρ = 1,25 g/ml) 63 % li nitrat kislota eritmasi sarflanadi. Mis plastinkaning boshlang'ich massasini (g) hisoblang.",
+   "variantlar": "A) 1,6 B) 6,4 C) 3,2 D) 4,8"
+  },
+  {
+   "savol": "73. 13,44 litr (n.sh.) H₂S mo'l kislorodda yondirilib, olingan gaz 200 g NaOH eritmasidan o'tkazildi. Hosil bo'lgan eritmada nordon tuz massasi o'rta tuzdan 16,4 g ga ko'p bo'lsa, sarflangan ishqor eritmasining foiz konsentratsiyasini hisoblang.",
+   "variantlar": "A) 32 B) 20 C) 16 D) 40"
+  },
+  {
+   "savol": "74. Kumush nitrat eritmasiga noma'lum massali mis plastinka tushirildi. Kumush plastinkaga batamom o'tirgandan so'ng olingan plastinka massasi 118 g keldi. Agar olingan plastinkani to'liq eritish uchun 350 g 70 % li sulfat kislota eritmasi sarflansa, dastlabki plastinkaning necha foizi kumush nitrat bilan reaksiyaga kirishganligini aniqlang.",
+   "variantlar": "A) 40 B) 20 C) 30 D) 25"
+  },
+  {
+   "savol": "75. Nitrat kislota eritmasiga mo'l miqdorda mis metali qo'shilishidan olingan 13,44 litr (n.sh.) gazlar aralashmasi 2 litr 0,2 molyarli bariy gidroksid eritmasidan o'tkazilganda bariy gidroksidning konsentratsiyasi ikki marta kamaygan bo'lsa, reaksiyada ishtirok etgan nitrat kislotaning massasini (g) hisoblang.",
+   "variantlar": "A) 113,4 B) 94,5 C) 88,2 D) 100,8"
+  },
+  {
+   "savol": "76. 120 g MgSO₄ ning to'yingan eritmasiga 2,4 g quruq tuz qo'shib, qizdirildi. Boshlang'ich haroratgacha sovutilganda 4,8 gramm MgSO₄•4H₂O cho'kmaga tushdi. Dastlabki eritma konsentratsiyasi qanday bo'lgan?",
+   "variantlar": "A) 10 B) 40 C) 25 D) 30"
+  },
+  {
+   "savol": "77. 40 g aluminiy va xrom (III)–gidroksidlardan iborat aralashmaning 48% i kisloroddan iborat bo'lsa, ushbu aralashmani to'la eritish uchun (reaksiyada Na[Me(OH)₄] hosil bo'ladi) 5 molyalli natriy gidroksid eritmasidan qancha (g) zarur bo'ladi? (Molyal konsentratsiya – 1 kg erituvchiga to'g'ri keladigan erigan moddaning mol miqdori.)",
+   "variantlar": "A) 96 B) 80 C) 120 D) 112"
+  },
+  {
+   "savol": "1. 4,5 N li Fe₂(SO₄)₃ eritmasining foiz konsentratsiyasi 20% bo'lsa, eritmaning zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,25 B) 1,6 C) 1,75 D) 1,5"
+  },
+  {
+   "savol": "2. 2 M li 0,3 l kalsiy nitrat va 3 M li 0,2 l kaliy fosfat eritmalari aralashtirildi. Hosil bo'lgan eritmadagi fosfat ionlarining konsentratsiyasini (mol/l) aniqlang. (α = 100%, eritma hajmining o'zgarishi hisobga olinmasin.)",
+   "variantlar": "A) 0,5 B) 0,4 C) 0,2 D) 0,25"
+  },
+  {
+   "savol": "3. 9 N li Fe₂(SO₄)₃ eritmasining foiz konsentratsiyasi 40% bo'lsa, eritmaning zichligini (g/ml) aniqlang.",
+   "variantlar": "A) 1,5 B) 1,75 C) 1,6 D) 1,25"
+  },
+  {
+   "savol": "4. Molar konsentratsiyalari nisbati 4:3 bo'lgan ikki eritmaning umumiy hajmi 21 litr. Agar ikkala eritmada bir xil miqdorda erigan modda bo'lsa, konsentratsiyasi katta eritma hajmini (litr) aniqlang.",
+   "variantlar": "A) 16 B) 24 C) 14 D) 9"
+  },
+  {
+   "savol": "5. 2,5 M li 0,3 l kalsiy nitrat va 2 M li 0,2 l natriy fosfat eritmalari aralashtirildi. Hosil bo'lgan eritmadagi kalsiy ionlarining konsentratsiyasini (mol/l) aniqlang. (α = 100%, eritma hajmining o'zgarishi hisobga olinmasin.)",
+   "variantlar": "A) 0,15 B) 0,3 C) 0,4 D) 0,2"
+  },
+  {
+   "savol": "6. 2,5 M li 0,3 l bariy nitrat va 2 M li 0,2 l kaliy fosfat eritmalari aralashtirildi. Hosil bo'lgan eritmadagi bariy ionlarining konsentratsiyasini (mol/l) aniqlang. (α = 100%, eritma hajmining o'zgarishi hisobga olinmasin.)",
+   "variantlar": "A) 0,2 B) 0,4 C) 0,3 D) 0,15"
+  },
+  {
+   "savol": "7. 3 M li 0,3 l bariy nitrat va 2 M li 0,2 l natriy fosfat eritmalari aralashtirildi. Hosil bo'lgan eritmadagi bariy ionlarining konsentratsiyasini (mol/l) aniqlang. (α = 100%, eritma hajmining o'zgarishi hisobga olinmasin.)",
+   "variantlar": "A) 0,8 B) 0,6 C) 0,3 D) 0,4"
+  },
+  {
+   "savol": "8. 2 M li 0,3 l kalsiy nitrat va 2,5 M li 0,2 l kaliy fosfat eritmalari aralashtirildi. Hosil bo'lgan eritmadagi fosfat ionlarining konsentratsiyasini (mol/l) aniqlang. (α = 100%, eritma hajmining o'zgarishi hisobga olinmasin.)",
+   "variantlar": "A) 0,25 B) 0,05 C) 0,1 D) 0,2"
+  },
+  {
+   "savol": "9. X°C da to'yingan Me₂(SO₄)₃ tuzining 0,24 kg eritmasi Y°C gacha qizdirildi. Hosil bo'lgan eritmani to'yintirish uchun 0,4 mol tuz qo'shildi. Noma'lum tuzni aniqlang (S(X°C) = 20; S(Y°C) = 100).",
+   "variantlar": "A) Ni₂(SO₄)₃ B) Al₂(SO₄)₃ C) Fe₂(SO₄)₃ D) Cr₂(SO₄)₃"
+  },
+  {
+   "savol": "10. Mis kuporosi suvda eritilib cho'kma hosil bo'lishi tugaguncha ishqor qo'shildi. Olingan cho'kma 0,05 mol maltozaning gidroliz mahsulotini oksidlash uchun yetarli bo'lsa, dastlabki kristallogidrat massasini (g) hisoblang.",
+   "variantlar": "A) 75 B) 150 C) 50 D) 25"
+  },
+  {
+   "savol": "11. Al, Cu va Ag dan iborat aralashma mo'l konsentrlangan nitrat kislotada eritilganda 11,2 litr (n.sh.) gaz ajraldi. Xuddi shunday aralashma o'yuvchi natriy eritmasida ishlanganda esa 13,44 litr (n.sh.) gaz ajraldi. Agar dastlabki aralashmada aluminiy va kumush tegishlicha 1:1 massa nisbatda bo'lsa, aralashmaning mol nisbatini aniqlang.",
+   "variantlar": "A) 2:1:3 B) 4:2:1 C) 1:2:2 D) 3:1:4"
+  },
+  {
+   "savol": "12. Erigan modda massasining eritma massasiga nisbati nima deyiladi?",
+   "variantlar": "A) mol nisbat B) mol ulush C) hajmiy ulush D) massa ulush"
+  },
+  {
+   "savol": "13. Eritmadagi bariy ionlarini fosfat tarzida to'liq cho'ktirish uchun kaliy fosfat tuzi bariy xloriddan 4 g kam sarflangan bo'lsa, reaksiyaga kirishgan kaliy fosfat miqdorini (mol) aniqlang.",
+   "variantlar": "A) 0,04 B) 0,03 C) 0,01 D) 0,02"
+  },
+  {
+   "savol": "14. K₂SO₄ va Al₂(SO₄)₃ aralashmasini suvda eritib tayyorlangan eritmada 10 mol turli kationlar va 7 mol SO₄²⁻ anionlari mavjud. Shu eritmaga necha mol K₃PO₄ solinganda eritmadagi kationning modda miqdori 23 mol ga, anionlarning modda miqdorlari yig'indisi esa 10 mol ga tenglashadi (suvda eriydigan barcha tuzlar uchun α = 100%; suv uchun α = 0% deb hisoblansin)?",
+   "variantlar": "A) 4 B) 6 C) 3 D) 5"
+  },
+  {
+   "savol": "15. NaCl ning 10 °C dagi eruvchanlik koeffitsiyenti 40 ga teng. Shu temperaturada 300 g suvga necha gramm NaCl qo'shilsa, to'yingan eritma hosil bo'ladi?",
+   "variantlar": "A) 150 B) 120 C) 40 D) 90"
+  },
+  {
+   "savol": "16. Si, Cu va (NH₄)₂SO₄·xH₂O dan iborat 57 g aralashma 1 mol NaOH tutgan eritmada eritilganda o'rtacha molar massasi 11 g/mol bo'lgan gazlar aralashmasi va 6,4 g cho'kma hosil bo'ldi. x ning qiymatini aniqlang.",
+   "variantlar": "A) 3 B) 1 C) 4 D) 2"
+  },
+  {
+   "savol": "17. Natriy gidrokarbonat namunasi qizdirilganda uning bir qismi parchalandi. Bunda 5,6 l (n.sh.) karbonat angidrid va 68,5 g suvsiz qattiq qoldiq hosil bo'ldi. Qoldiq kerakli miqdorda olingan 20% li xlorid kislota eritmasida eritildi. Oxirgi eritmadagi natriy xloridning massasini (g) toping.",
+   "variantlar": "A) 29,25 B) 58,5 C) 14,625 D) 52,65"
+  },
+  {
+   "savol": "18. Mg₂Si va Mg aralashmasi xlorid kislota eritmasi bilan ta'sirlashganda D(H₂) = 11 bo'lgan 6,72 l (n.sh.) gazlar aralashmasi hosil bo'ldi. Dastlabki aralashmaning massasini (g) toping.",
+   "variantlar": "A) 12,4 B) 35,4 C) 17,6 D) 8,8"
+  },
+  {
+   "savol": "19. Suvsiz sulfat kislota tayyorlash uchun 0,16 kg SO₃ necha gramm 82% li sulfat kislota eritmasida eritilishi kerak?",
+   "variantlar": "A) 400 B) 300 C) 150 D) 200"
+  },
+  {
+   "savol": "20. Kaliy nitrat va rubidiy nitrat tuzlari suvda eruvchanligining haroratga bog'liqlik grafigi keltirilgan. Har bir tuzdan 110 grammdan olinib kerakli massadagi suvda eritildi. 60 °C haroratda tuzning to'yingan eritmalari tayyorlandi. Chizmadan foydalanib keltirilgan fikrlarni analiz qiling va to'g'ri fikr(lar)ni toping. Kaliy nitrat eritmasining massasi rubidiy nitrat eritmasining massasidan katta. Kaliy nitratning massa ulushi rubidiy nitratning massa ulushidan katta.",
+   "variantlar": "A) I va II fikrlar to'g'ri B) II fikr to'g'ri C) I va II fikrlar noto'g'ri D) I fikr to'g'ri"
+  },
+  {
+   "savol": "21. CuCl₂·2H₂O kristallogidrati 5556 g AgNO₃ eritmasiga solinganida 8 mol cho'kma tushdi. Hosil bo'lgan eritmadagi metall nitratlari quruq holda ajratib olinib, qizdirib parchalanganda 10 mol NO₂ va 3 mol O₂ hosil bo'ldi. Mis tuzining kristallogidrati kumush nitrat eritmasiga solinganda hosil bo'lgan eritmadagi suv massasini (g) toping.",
+   "variantlar": "A) 4196 B) 4340 C) 4000 D) 3856"
+  },
+  {
+   "savol": "22. Kalsiy karbonat va magniy karbonatdan iborat aralashma massasi o'zgarmay qolguncha qizdirilganda 2,32 g qattiq qoldiq olindi. Ajralib chiqqan gaz mo'l miqdordagi bariy gidroksid eritmasidan o'tkazilganda 0,05 mol cho'kma hosil bo'ldi. Dastlabki aralashmadagi kalsiy karbonat massasini (g) aniqlang.",
+   "variantlar": "A) 2,52 B) 2 C) 1 D) 3"
+  },
+  {
+   "savol": "23. Massasi 45,5 g bo'lgan CaCO₃ va NaNO₃ aralashmasi hamda 574,5 g suvdan foydalanib hajmi 500 ml (ρ = 1,2 g/ml) bo'lgan eritma tayyorlandi. Eritmadagi Na⁺ kationining molar konsentratsiyasini aniqlang (α(NaNO₃) = 100%).",
+   "variantlar": "A) 1,0 B) 0,3 C) 0,6 D) 0,5"
+  },
+  {
+   "savol": "24. Molyalligi 5 ga teng bo'lgan Na₂SO₄ eritmasining molyar konsentratsiyasi 3,655 ga teng bo'lsa, eritmaning zichligini aniqlang.",
+   "variantlar": "A) 1,368 B) 1,25 C) 1,44 D) 1,125"
+  },
+  {
+   "savol": "25. 30 g tuz bor eritmaga 300 g suv qo'shilganda eritmaning foiz konsentratsiyasi 16,8% ga kamaysa, dastlabki eritmaning massasini aniqlang.",
+   "variantlar": "A) 128 B) 126 C) 142 D) 108"
+  },
+  {
+   "savol": "26. 12 g NaH necha g suv bilan ta'sirlashib 20% li eritma hosil qiladi?",
+   "variantlar": "A) 89 B) 88 C) 87 D) 80"
+  },
+  {
+   "savol": "27. Tarkibida 12,04·10²⁴ ta atomi bo'lgan SO₃ suvda eritilganda tarkibida 138,46·10²³ ta atom tutgan oleum eritmasi hosil bo'ladi. Oleum tarkibini aniqlang.",
+   "variantlar": "A) H₂SO₄·2SO₃ B) H₂SO₄·4SO₃ C) H₂SO₄·3SO₃ D) H₂SO₄·6SO₃"
+  },
+  {
+   "savol": "28. Laboratoriyada HNO₃ olish uchun ishlatiladigan kislotaning 15 g eritmasi tarkibida 42,1·10²² dona kislorod atomi bo'lsa, eritmadagi kislotaning massasini aniqlang.",
+   "variantlar": "A) 15 B) 9 C) 6 D) 12"
+  },
+  {
+   "savol": "29. H₂SO₄ ning molyar konsentratsiyasi 2:1 nisbatda bo'lgan eritmalari aralashtirilishi natijasida 24 l eritma olindi. Konsentratsiyasi kichik bo'lgan eritmaning hajmini aniqlang. (eritmalardagi H₂SO₄ ning massasi bir xil)",
+   "variantlar": "A) 16 B) 8 C) 12 D) 10"
+  },
+  {
+   "savol": "30. Kristallogidratda 1 molekula moddaga qancha molekula suv to'g'ri keladi, agar ushbu moddaning 400 g 24% eritmasini (molekulaning haqiqiy massasi 3,322·10⁻²² g) 50 °C dan 20 °C gacha sovutilganda 46,8 g kristallogidrat cho'kmaga tushadi. Moddaning 20 °C da eruvchanligi 22,1 ga teng.",
+   "variantlar": "A) 5 B) 3 C) 4,5 D) 6"
+  },
+  {
+   "savol": "31. 260 g 30% li to'yingan MgSO₄ eritmasiga 65 g MgSO₄ qo'shildi va to'liq eritildi. Eritmaning haroratini tushirganda MgSO₄·5H₂O tarkibli cho'kma cho'kmaga tushdi. Cho'kmaning massasini aniqlang.",
+   "variantlar": "A) 185 B) 133 C) 192 D) 140"
+  },
+  {
+   "savol": "32. Ba(OH)₂ va 0,3 M li HCl ning eritmalaridan 4:1 dan olib aralashtirilganda hosil bo'lgan eritmaning pOH qiymati 13 ga teng bo'ldi. Dastlabki Ba(OH)₂ eritmasidagi erigan modda massasini (g) hisoblang.",
+   "variantlar": "A) 68,4 B) 34,2 C) 17,1 D) 51,3"
+  },
+  {
+   "savol": "33. 200 g 17,5% li eritmaga necha grammdan 60% li va 70% li eritmalardan qo'shilganda 450 gramm 50% li eritma olinadi?",
+   "variantlar": "A) 50, 200 B) 100, 150 C) 150, 100 D) bunday eritma tayyorlab bo'lmaydi"
+  },
+  {
+   "savol": "34. 32 g HJ eritmasini titrlashda 40 ml LiOH (T = 0,015 g/ml) yetarli bo'ldi. HJ eritmasining konsentratsiyasini (%) aniqlang.",
+   "variantlar": "A) 25% B) 3,2% C) 6,4% D) 10%"
+  },
+  {
+   "savol": "35. 80% li temir (III) sulfat eritmasining molyal konsentratsiyasini (mol/kg) hisoblang.",
+   "variantlar": "A) 5 B) 8 C) 10 D) 12,5"
+  },
+  {
+   "savol": "36. 300 g 25,9% li Ba(HCO₃)₂ eritmasini hosil qilish uchun 17,92 l (n.sh.) CO₂ sarflangan bo'lsa, dastlabki Ba(OH)₂ eritmasining massa ulushini (%) hisoblang.",
+   "variantlar": "A) 53 B) 28 C) 42 D) 34,2"
+  },
+  {
+   "savol": "37. Suvda yaxshi eriydigan molekulyar massasi 100 g ga teng. Shu tuzning molyal va molyar konsentratsiyalari 5:3 nisbatda bo'lgan eritmasining zichligi 1,2 g/ml bo'lsa, eritmaning molyar konsentratsiyasini aniqlang.",
+   "variantlar": "A) 3 B) 4,5 C) 6 D) 9"
+  },
+  {
+   "savol": "38. 300 g K₂CO₃ eritmasiga H₂SO₄·2SO₃ qo'shilganda massa 37,8 g ga ortgan bo'lsa, hosil bo'lgan eritmadagi tuzning massa ulushini (%) aniqlang.",
+   "variantlar": "A) 36,76 B) 46,35 C) 42 D) 63"
+  },
+  {
+   "savol": "39. 173 g suvda 27 g mis tuzi eritilganda hosil bo'lgan eritmadagi misning massa ulushi 6,4% bo'ldi. Misning qaysi tuzi eritilganligini aniqlang.",
+   "variantlar": "A) sulfat B) nitrat C) bromid D) xlorid"
+  },
+  {
+   "savol": "40. Mol ulushi massa ulushidan 1,825 marta kichik bo'lgan NaOH eritmasidagi suvning massa ulushini (%) aniqlang.",
+   "variantlar": "A) 75 B) 25 C) 80 D) 67,5"
+  },
+  {
+   "savol": "41. NiSO₄·7H₂O kristallogidrati suvda eritildi va 800 g eritma hosil bo'ldi. Agar shu eritmaning 100 g dan Ni metallni ajratib olish uchun 1,072 A tok, 2 soat elektroliz qilish kerak bo'lsa, 800 g eritmadagi kristallogidrat va suvning massalarini hisoblang.",
+   "variantlar": "A) 89,92; 710,08 B) 18,88; 781,12 C) 710,08; 89,92 D) 781,12; 18,88"
+  },
+  {
+   "savol": "42. 45 g K₂CO₃·xH₂O kristallogidratiga suvsiz HCl ta'sir ettirilganda 27 g suv saqlagan eritma hosil bo'ldi. x ning qiymatini aniqlang.",
+   "variantlar": "A) 10 B) 9 C) 8 D) 6"
+  },
+  {
+   "savol": "43. 200 g 20% li natriy gidroksid eritmasiga 30 g 10% li oleum qo'shildi. Hosil bo'lgan moddalar va ularning (%) konsentratsiyalarini aniqlang. a) Na₂SO₄; b) NaHSO₄; c) NaOH; 1) 6,5; 2) 19,3; 3) 21.",
+   "variantlar": "A) a-2; c-1 B) a-1; b-2 C) a-2; b-1; c-3 D) a-2"
+  },
+  {
+   "savol": "44. H₂SO₄ eritmasiga o'zining hajmidan 4 marta ko'p suv quyilganda vodorod ionlarining konsentratsiyasi 4·10⁻³ mol/l ga kamaydi. Dastlabki eritmaning pOH qiymatini aniqlang.",
+   "variantlar": "A) 11 B) 13 C) 12 D) 3"
+  },
+  {
+   "savol": "45. 280 g 20% li va 200 g 12% li bir xil modda erigan eritmalar aralashtirilishi natijasida molyal konsentratsiyasi 2,5 ga, zichligi 1,5 g/ml ga teng bo'lgan eritma olindi. Shu eritmaning molyar (mol/l) konsentratsiyasini aniqlang.",
+   "variantlar": "A) 3 B) 4 C) 1 D) 2"
+  },
+  {
+   "savol": "46. 80 g to'yingan kalsiy bromid eritmasida 20 g kalsiy bromid tuzi eritildi, eritma sovitilgandan keyin 41,5 g kristallogidrat cho'kmaga tushdi. To'yingan eritmada tuzning konsentratsiyasi 58,7% ga teng. Kristallogidrat tarkibini aniqlang.",
+   "variantlar": "A) CaBr₂·3H₂O B) CaBr₂·6H₂O C) CaBr₂·5H₂O D) CaBr₂·2H₂O"
+  },
+  {
+   "savol": "47. Erituvchining massa ulushi 60% bo'lgan spirtning suvdagi eritmasi mavjud. Shu eritmaning titr konsentratsiyasi va zichligi qanday nisbatda bo'ladi? (ρ(spirt) = 0,6154 g/ml)",
+   "variantlar": "A) 1:5 B) 5:1 C) 2:5 D) 1:3"
+  },
+  {
+   "savol": "48. Sulfat kislota eritmasining hajmi 2,5 marta ortdi va titr konsentratsiyasi 1,96·10⁻⁴ ga teng bo'ldi. Dastlabki kislota eritmasining pOH qiymatini aniqlang.",
+   "variantlar": "A) 12 B) 11 C) 13 D) 10"
+  },
+  {
+   "savol": "49. Tuzlarning umumiy massa ulushi 50% bo'lgan AgNO₃ va Fe(NO₃)₂ eritmasiga 63,32% li natriy fosfat eritmasi qo'shilganda eritma massasi o'zgarmadi. Hosil bo'lgan eritmaning foiz konsentratsiyasini toping.",
+   "variantlar": "A) 36,4 B) 42,5 C) 34 D) 43,8"
+  },
+  {
+   "savol": "50. Noma'lum oleumga 26,88 l SO₃ qo'shilganda 346,8 g 18,6·Nₐ atom tutgan yangi oleum hosil bo'ldi. Dastlabki oleum tarkibini aniqlang.",
+   "variantlar": "A) H₂SO₄·4SO₃ B) H₂SO₄·2SO₃ C) H₂SO₄·3SO₃ D) H₂SO₄·6SO₃"
+  },
+  {
+   "savol": "51. Na₂SO₄·nH₂O kristallogidratining ma'lum miqdoriga 100 g suv qo'shilsa, 34,08% li eritma olinadi. Agar shuncha miqdor kristallogidratga 100 g tuz qo'shilganda hosil bo'lgan aralashma tarkibida 74,08% tuz bo'lsa, n ning qiymatini aniqlang.",
+   "variantlar": "A) 5 B) 6 C) 7 D) 10"
+  }
+ ]
+}

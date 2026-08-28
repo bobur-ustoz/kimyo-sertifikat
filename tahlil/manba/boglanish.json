@@ -1,0 +1,528 @@
+{
+ "manba": "DTM/MS 2019-2021 mavzu bo'yicha savollar banki (javobsiz) — boglanish",
+ "element": "I.4",
+ "izoh": "Foydalanuvchi yuklagan xom manba. Javob kaliti YO'Q (docx da faqat savol+variantlar ustuni to'ldirilgan, javob ustuni bo'sh). Har savol keyinchalik qo'lda/mustaqil yechilib tasdiqlanishi kerak, tayyor javob sifatida ISHLATILMASIN.",
+ "soni": 130,
+ "savollar": [
+  {
+   "savol": "1. Qaysi javobda keltirilgan barcha modda (yoki ion) larda kovalent bog' mavjud?",
+   "variantlar": "A) Mg, HNO₃ B) NH₄⁺, H₂O C) NaJ, SO₃ D) PO₄³⁻, CsF"
+  },
+  {
+   "savol": "2. Qaysi javobdagi barcha moddalar qutbli kovalent bog'lanishga ega?",
+   "variantlar": "A) CO₂, Cl₂, H₂S B) NO₂, O₂, HF C) NH₃, PCl₃, H₂O D) O₃, S₈, P₄"
+  },
+  {
+   "savol": "3. Qaysi birikmalardagi kimyoviy bog'lar to'yinuvchanlik va yo'naluvchanlik xossasiga ega? 1) NH₃; 2) LiH; 3) CaH₂; 4) C₂H₄; 5) CrCl₃; 6) SiH₄.",
+   "variantlar": "A) 2,4,6 B) 2,3,5 C) 1,4,6 D) 1,3,5"
+  },
+  {
+   "savol": "4. Qaysi moddalar jufti qattiq holatda molekular kristall panjaraga ega?",
+   "variantlar": "A) Cl₂, NaCl B) H₂O, SiO₂ C) KI, NaJ D) CO₂, NH₃"
+  },
+  {
+   "savol": "5. Qaysi molekula tarkibida π – bog' uchraydi?",
+   "variantlar": "A) Cl₂ B) NH₃ C) CO₂ D) SiO₂"
+  },
+  {
+   "savol": "6. Quyidagi moddalarni bog' energiyasi ortish tartibida joylashtiring. 1) HCl; 2) HF; 3) HJ; 4) HBr.",
+   "variantlar": "A) 2,1,3,4 B) 2,1,4,3 C) 3,4,1,2 D) 4,3,1,2"
+  },
+  {
+   "savol": "7. Metall, kovalent va ion bog'lanishli moddalar ketma-ketligini toping.",
+   "variantlar": "A) Be, SO₃, CaF₂ B) Sn, N₂, H₃PO₄ C) Ag₂S, O₃, NaCl D) Cu, HCl, PH₃"
+  },
+  {
+   "savol": "8. Metall, kovalent va ion bog'lanishli moddalar ketma-ketligini toping.",
+   "variantlar": "A) O₃, N₂O₅, Li₃PO₄ B) Na, K₂O, MgSO₄ C) Cu, SiH₄, CsF D) K₂S, P₄, CaCl₂"
+  },
+  {
+   "savol": "9. Metall, kovalent va ion bog'lanishli moddalar ketma-ketligini toping.",
+   "variantlar": "A) Zn, HF, NH₃ B) Ag, NO₂, SrF₂ C) Ag₂S, S₈, KI D) Pb, F₂, H₃AsO₄"
+  },
+  {
+   "savol": "10. Metall, kovalent va ion bog'lanishli moddalar ketma-ketligini toping.",
+   "variantlar": "A) N₂, BaF₂, BaSO₄ B) Li, Na₃N, MgS C) Au, CH₄, NaCl D) O₃, N₂O₅, Li₃PO₄"
+  },
+  {
+   "savol": "11. Ozon (1) va olmos (2) ning kristall panjaralarini aniqlang. a) atom; b) molekular.",
+   "variantlar": "A) 1–b; 2–b B) 1–b; 2–a C) 1–a; 2–b D) 1–a; 2–a"
+  },
+  {
+   "savol": "12. Qaysi javobdagi barcha moddalar ion bog'lanishga ega?",
+   "variantlar": "A) Ca₃P₂, Li₃N, CCl₄ B) MgF₂, Ba(NO₃)₂, KOH C) H₃BO₃, H₂S, FeO D) NH₄Cl, K, Na₂O"
+  },
+  {
+   "savol": "13. Al₂(SO₄)₃ molekulasi tarkibidagi ion va kovalent bog'lar sonini aniqlang.",
+   "variantlar": "A) 6 va 12 B) 9 va 15 C) 6 va 18 D) 8 va 16"
+  },
+  {
+   "savol": "14. Quyidagi qatorda bog' uzunligi qanday o'zgaradi? a) ortadi; b) kamayadi. CCl₄ → CF₄ → CBr₄",
+   "variantlar": "A) 1–b; 2–a; 3–b B) 1–b; 2–b; 3–a C) 1–a; 2–b; 3–a D) 1–a; 2–a; 3–b"
+  },
+  {
+   "savol": "15. Quyidagi qatorda bog' qutbliligi qanday o'zgaradi? a) ortadi; b) kamayadi. CBr₄ → CCl₄ → CF₄",
+   "variantlar": "A) 1–b; 2–b; 3–a B) 1–b; 2–a; 3–b C) 1–a; 2–a; 3–b D) 1–a; 2–b; 3–a"
+  },
+  {
+   "savol": "16. NH₃ va AsH₃ molekulalaridagi bog' uzunliklari mos ravishda 0,101 nm va 0,151 nm bo'lsa, PH₃ va SbH₃ molekulalari tarkibidagi bog' uzunliklari (nm) qanday bo'lishi mumkin?",
+   "variantlar": "A) 0,170 va 0,161 B) 0,126 va 0,141 C) 0,142 va 0,170 D) 0,074 va 0,161"
+  },
+  {
+   "savol": "17. Brom molekulasining bog' energiyasi 193 kJ/mol bo'lsa, yod va vodorod molekulalarining bog' energiyalari qanday (kJ/mol) bo'lishi mumkin?",
+   "variantlar": "A) 297 va 436 B) 151 va 436 C) 151 va 136 D) 156 va 171"
+  },
+  {
+   "savol": "18. HC ≡ C – CH = CH₂ molekulasidagi uglerod – uglerod bog' uzunligi o'ngdan chapga tomon qanday o'zgaradi?",
+   "variantlar": "A) ortadi; kamayadi B) kamayadi; kamayadi C) kamayadi; ortadi D) ortadi; ortadi"
+  },
+  {
+   "savol": "19. Bog' karraliligi (bir xil atomlar o'rtasida) ortishi bilan bog' uzunligi va bog' energiyasi qanday o'zgaradi?",
+   "variantlar": "A) kamayadi; kamayadi B) ortadi; kamayadi C) ortadi; ortadi D) kamayadi; ortadi"
+  },
+  {
+   "savol": "20. F₂ → O₂ → N₂ qatorida bog' energiyasi va bog' karraliligi qanday o'zgaradi?",
+   "variantlar": "A) ortadi; ortadi B) kamayadi; ortadi C) ortadi; kamayadi D) kamayadi; kamayadi"
+  },
+  {
+   "savol": "21. N₂ → O₂ → F₂ qatorida bog' karraliligi va bog' energiyasi qanday o'zgaradi?",
+   "variantlar": "A) kamayadi; kamayadi B) ortadi; kamayadi C) ortadi; ortadi D) kamayadi; ortadi"
+  },
+  {
+   "savol": "22. SCl₄ va SCl₂ molekulalari tarkibidagi markaziy atomlarning gibridlanish turini aniqlang.",
+   "variantlar": "A) sp²d va sp³ B) sp³ va sp³d C) sp³ va sp D) sp³d va sp²"
+  },
+  {
+   "savol": "23. Brom atomining kovalent radiusi 114 pm ga teng. Agar vodorod atomining kovalent radiusi 30 pm ga teng bo'lsa, brom molekulasi va vodorod bromiddagi yadrolararo masofalarni (pm) aniqlang.",
+   "variantlar": "A) 228; 144 B) 60; 288 C) 228; 60 D) 144; 228"
+  },
+  {
+   "savol": "24. NH₃ + H⁺ → NH₄⁺ jarayonda quyidagilardan qaysi biri o'zgaradi?",
+   "variantlar": "A) markaziy atomning oksidlanish darajasi B) markaziy atomning gibridlanishi C) umumiy elektronlar soni D) markaziy atomning valentligi"
+  },
+  {
+   "savol": "25. H₂O + H⁺ → H₃O⁺ jarayonda quyidagilardan qaysi biri o'zgarmaydi?",
+   "variantlar": "A) markaziy atomning valentligi B) umumiy protonlar soni C) zarrachaning fazoviy shakli D) markaziy atomning gibridlanishi"
+  },
+  {
+   "savol": "26. Al₂O₃ molekulasidagi kimyoviy bog'lar soni va uning kristall panjara turini aniqlang.",
+   "variantlar": "A) ion bogʻ; ion panjara B) kovalent bogʻ; atom panjara C) kovalent bogʻ; molekular panjara D) metall bogʻ; metall panjara"
+  },
+  {
+   "savol": "27. SiO₂ molekulasidagi kimyoviy bog'lar soni va uning kristall panjara turini aniqlang.",
+   "variantlar": "A) ion bogʻ; ion panjara B) kovalent bogʻ; atom panjara C) kovalent bogʻ; molekular panjara D) metall bogʻ; metall panjara"
+  },
+  {
+   "savol": "28. Quyidagi moddalarni qutbli bog'lanish energiyasining ortish tartibida joylashtiring. 1) HF; 2) HCl; 3) HBr; 4) HJ.",
+   "variantlar": "A) 1,2,3,4 B) 4,3,2,1 C) 2,3,4,1 D) 3,2,1,4"
+  },
+  {
+   "savol": "29. Quyidagi moddalarni qutbsiz bog'lanish energiyasining ortish tartibida joylashtiring. 1) F₂; 2) Cl₂; 3) Br₂; 4) J₂.",
+   "variantlar": "A) 1,2,3,4 B) 4,3,2,1 C) 2,3,4,1 D) 3,2,1,4"
+  },
+  {
+   "savol": "30. Qaysi moddada vodorod bog'lanish mavjud?",
+   "variantlar": "A) CH₄ B) H₂S C) H₂O D) HCl"
+  },
+  {
+   "savol": "31. Qaysi moddada vodorod bog'lanish mavjud emas?",
+   "variantlar": "A) HF B) H₂O C) NH₃ D) CH₄"
+  },
+  {
+   "savol": "32. Qaysi moddada molekulalararo vodorod bog'lanish mavjud?",
+   "variantlar": "A) H₂O B) CH₄ C) CO₂ D) NaCl"
+  },
+  {
+   "savol": "33. Qaysi moddada faqat kovalent qutbsiz bog'lanish mavjud?",
+   "variantlar": "A) O₂ B) HCl C) H₂O D) NaCl"
+  },
+  {
+   "savol": "34. Qaysi moddada faqat kovalent qutbli bog'lanish mavjud?",
+   "variantlar": "A) Cl₂ B) HCl C) O₂ D) N₂"
+  },
+  {
+   "savol": "35. Qaysi moddada ion bog'lanish mavjud?",
+   "variantlar": "A) Cl₂ B) HCl C) NaCl D) H₂O"
+  },
+  {
+   "savol": "36. Qaysi moddada metall bog'lanish mavjud?",
+   "variantlar": "A) Cl₂ B) HCl C) NaCl D) Fe"
+  },
+  {
+   "savol": "37. Qaysi moddada donor-akseptor bog'lanish mavjud?",
+   "variantlar": "A) NH₃ B) NH₄⁺ C) H₂O D) CH₄"
+  },
+  {
+   "savol": "38. Qaysi moddada σ- va π-bog'lar mavjud?",
+   "variantlar": "A) H₂ B) O₂ C) N₂ D) Cl₂"
+  },
+  {
+   "savol": "39. Qaysi moddada faqat σ-bog'lar mavjud?",
+   "variantlar": "A) H₂ B) O₂ C) N₂ D) C₂H₂"
+  },
+  {
+   "savol": "40. Perxlorat kislota molekulasidagi σ – bog'lar sonini ko'rsating.",
+   "variantlar": "A) 5 B) 3 C) 4 D) 6"
+  },
+  {
+   "savol": "41. Quyidagi molekulalarni ularning tarkibidagi qutbsiz kovalent bog'lar soni kamayib borish tartibida joylashtiring. 1) H₃PO₂; 2) (CN)₂; 3) C₄H₁₀; 4) Na₂SO₃.",
+   "variantlar": "A) 4,2,1,3 B) 4,2,3,1 C) 2,3,1,4 D) 3,1,2,4"
+  },
+  {
+   "savol": "42. Kristall panjaralari bir xil bo'lgan moddalar keltirilgan qatorni ko'rsating.",
+   "variantlar": "A) natriy sulfat, vodorod, vodorod sulfid B) ammiak, kaliy sulfid, vodorod C) natriy fosfat, vodorod, kislorod D) litiy ftorid, natriy fosfat, sariq qon tuzi"
+  },
+  {
+   "savol": "43. Noma'lum alkanning yonish reaksiyasida reagentlarning uzilgan qutbli va qutbsiz kovalent bog'lari soni 1:1 nisbatda bo'lsa, alkanni aniqlang.",
+   "variantlar": "A) propan B) metan C) etan D) butan"
+  },
+  {
+   "savol": "44. Molekulasi tarkibida 6 ta σ – bog' (kovalent bog'lanish) mavjud moddalarni tanlang. 1) natriy sulfat; 2) selenat kislota; 3) natriy gidrofosfit; 4) mis (II) – gidroksosulfat; 5) natriy asetat; 6) azot (III) – oksid.",
+   "variantlar": "A) 1,3,5 B) 3,4,6 C) 2,4,5 D) 1,3,6"
+  },
+  {
+   "savol": "45. Quyidagi jadvaldan foydalanib, y/x ni toping. (Jadval: Modda, Massasi (g), Qutbsiz kovalent bog'lar soni: Kislorod, x, n; Oq fosfor, y, 24n)",
+   "variantlar": "A) 30 B) 31 C) 32 D) 20"
+  },
+  {
+   "savol": "46. Quyidagi jadvaldan foydalanib, oddiy efir molekulasidagi qutbli bog'lar sonini toping. (Jadval: Oddiy efir, C–H bog'lar soni, C–C bog'lar soni: X, A+7, a-2)",
+   "variantlar": "A) a+8 B) a+5 C) a+9 D) a+10"
+  },
+  {
+   "savol": "47. Noma'lum alken molekulasidagi protonlar soni 24 ta bo'lsa, molekuladagi qutbli kovalent bog'lar sonini aniqlang.",
+   "variantlar": "A) 8 B) 6 C) 4 D) 2"
+  },
+  {
+   "savol": "48. Massasi 15 g bo'lgan alkandagi uglerodning massasi 12 g bo'lsa, alkan molekulasidagi qutbli kovalent bog'lar sonini aniqlang.",
+   "variantlar": "A) 12 B) 10 C) 8 D) 6"
+  },
+  {
+   "savol": "49. Brom molekulasidagi bog' uzunligi 0,17 nm, HBr dagi bog' uzunligi esa 0,135 nm. Ushbu ma'lumotlardan foydalanib vodorod molekulasidagi bog' uzunligini (nm) hisoblang.",
+   "variantlar": "A) 0,85 B) 0,05 C) 0,10 D) 0,114"
+  },
+  {
+   "savol": "50. Vodorod molekulasidagi bog' uzunligi 0,1 nm, xlor molekulasining bog' uzunligi esa 0,16 nm. Ushbu ma'lumotlardan foydalanib vodorod xloriddagi bog' uzunligini (nm) hisoblang.",
+   "variantlar": "A) 0,18 B) 0,26 C) 0,13 D) 0,2"
+  },
+  {
+   "savol": "51. 2,5 mol CO₂ va 5 mol CO gazlar aralashmasida jami bog'larning necha foizini σ – bog'lar tashkil qiladi?",
+   "variantlar": "A) 50 B) 40 C) 70 D) 60"
+  },
+  {
+   "savol": "52. 5 mol CO₂ va 10 mol CO gazlar aralashmasida jami bog'larning necha foizini σ – bog'lar tashkil qiladi?",
+   "variantlar": "A) 70 B) 50 C) 40 D) 60"
+  },
+  {
+   "savol": "53. Qanday hajmdagi (l, n.sh.) fosgen gazi tarkibidagi barcha bog'lar soni 4,9 g sulfat kislotadagi π – bog'lar soniga teng?",
+   "variantlar": "A) 0,56 B) 2,24 C) 1,12 D) 3,36"
+  },
+  {
+   "savol": "54. Bittadan olingan HClO₄ va H₂SO₄ molekulalari tarkibida π – bog'lar soni teng. Qo'sh bog'lar soni oddiy bog'lar sonidan 1,5 marta kam bo'lsa, ulardagi umumiy bog'lar sonini hisoblang.",
+   "variantlar": "A) 10 B) 14 C) 12 D) 16"
+  },
+  {
+   "savol": "55. Sulfat kislota molekulasidagi sp³ – orbitallarida nechta elektron harakatlanishi mumkin?",
+   "variantlar": "A) 14 B) 16 C) 12 D) 20"
+  },
+  {
+   "savol": "56. Nitrit kislota molekulasidagi sp² – orbitallarida nechta elektron harakatlanishi mumkin?",
+   "variantlar": "A) 10 B) 6 C) 9 D) 3"
+  },
+  {
+   "savol": "57. Sulfit kislota molekulasidagi σ – bog'larni hosil qilishda qatnashgan s, p, sp² va sp³ – orbitallar sonini aniqlang.",
+   "variantlar": "A) 2,0,2,7 B) 2,4,3,12 C) 2,4,1,7 D) 2,0,1,7"
+  },
+  {
+   "savol": "58. ClO₄⁻ ioni tarkibida 50 ta elektron bo'lsa, undagi sp² – orbitallar sonini aniqlang.",
+   "variantlar": "A) 3 B) 6 C) 0 D) 9"
+  },
+  {
+   "savol": "59. Quyida berilgan bog' uzunliklaridan foydalanib C – P bog' uzunligini (nm) hisoblang. P – P = 0,22 nm; P – J = 0,243 nm; C – J = 0,21 nm.",
+   "variantlar": "A) 0,178 B) 0,187 C) 0,162 D) 0,126"
+  },
+  {
+   "savol": "60. C₃Hₓ(OH)₂ molekulasida qutbli kovalent bog'lar soni 8 ta bo'lsa, x ning qiymatini aniqlang.",
+   "variantlar": "A) 3 B) 2 C) 1 D) 4"
+  },
+  {
+   "savol": "61. Quyidagi moddalarni ularning molekulasidagi σ – bog'lar soni ortib borish tartibida joylashtiring. 1) temir (II) – gidrosulfat; 2) temir (III) – gidroksosulfat; 3) temir (III) – sulfat; 4) temir (II) – gidroksosulfat.",
+   "variantlar": "A) 3,2,1,4 B) 4,1,2,3 C) 3,1,4,2 D) 2,4,1,3"
+  },
+  {
+   "savol": "62. Quyida berilgan tartibda E – C bog' qutbliligi qanday o'zgaradi? (sxemada elementlarning tartib raqamlari keltirilgan) 1 2 3 4 5 6 7 a) ortadi; b) kamayadi; c) o'zgarmaydi.",
+   "variantlar": "A) 1–b; 2–a; 3–b B) 1–a; 2–b; 3–a C) 1–b; 2–c; 3–b D) 1–b; 2–c; 3–a"
+  },
+  {
+   "savol": "63. Mol nisbati 1:1 bo'lgan KₓXO₄ va (NH₄)₂CO₃ aralashmasida kislorod atomlarining soni jami atomlar sonidan 3 marta kam bo'lsa, KₓXO₄ molekulasidagi σ – bog'lar sonini toping.",
+   "variantlar": "A) 5 B) 8 C) 7 D) 6"
+  },
+  {
+   "savol": "64. Mol nisbati 1:1 bo'lgan NaClO₄ va (NH₄)₂SO₃ aralashmasida vodorod atomlari jami atomlarning 4/9 qismini tashkil etsa, NaClO₄ molekulasidagi π – bog'lar sonini toping.",
+   "variantlar": "A) 0 B) 2 C) 1 D) 3"
+  },
+  {
+   "savol": "65. Quyidagi ma'lumotlardan foydalanib H – Cl bog' energiyasini (kJ/mol) toping. 2HBr + Cl₂ → 2HCl + Br₂; ΔH = –90 kJ; E(Br–Br) = 190 kJ/mol; E(Cl–Cl) = 240 kJ/mol; E(H–Br) = 360 kJ/mol.",
+   "variantlar": "A) 410 B) 430 C) 420 D) 425"
+  },
+  {
+   "savol": "66. Quyidagi ma'lumotlardan foydalanib C ≡ C bog' energiyasini (kJ/mol) toping. HC ≡ CH + 2H₂ → H₃C – CH₃; ΔH = –310 kJ; E(C–H) = 410 kJ/mol; E(H–H) = 430 kJ/mol; E(C–C) = 340 kJ/mol.",
+   "variantlar": "A) 790 B) 810 C) 800 D) 820"
+  },
+  {
+   "savol": "67. Quyidagi ma'lumotlardan foydalanib H – Cl bog' energiyasini (kJ/mol) toping. 4HCl + O₂ ↔ 2Cl₂ + 2H₂O; ΔH = –110 kJ; E(O=O) = 490 kJ/mol; E(Cl–Cl) = 240 kJ/mol; E(H–O) = 460 kJ/mol.",
+   "variantlar": "A) 410 B) 430 C) 440 D) 420"
+  },
+  {
+   "savol": "68. Sulfat kislota, natriy dixromat va kalsiy formiat molekulalari tarkibidagi σ – bog'lar yig'indisini hisoblang.",
+   "variantlar": "A) 30 B) 26 C) 24 D) 32"
+  },
+  {
+   "savol": "69. Fosfit kislota, natriy pirofosfat va etilformiat tarkibidagi σ – bog'lar yig'indisini hisoblang.",
+   "variantlar": "A) 32 B) 26 C) 30 D) 28"
+  },
+  {
+   "savol": "70. Molekulalarni tarkibidagi π – va σ – bog'lar yig'indisi ortib borishi tartibida joylashtiring. 1) oltingugurt (VI) – oksid; 2) metanal; 3) vodorod peroksid; 4) chumoli kislota; 5) gipoxlorit kislota.",
+   "variantlar": "A) 5,2,4,3,1 B) 1,2,3,4,5 C) 1,4,2,3,5 D) 5,3,2,4,1"
+  },
+  {
+   "savol": "71. Molekulalardan tarkibida π – va σ – bog'lar yig'indisi 24 ga teng bo'lganlarini tanlang. 1) aluminiy sulfat; 2) aluminiy karbonat; 3) 3–fenilpropanal; 4) kalsiy fosfat.",
+   "variantlar": "A) 1,4 B) 2,4 C) 2,3 D) 1,3"
+  },
+  {
+   "savol": "72. Molekulalarni tarkibidagi π – va σ – bog'lar yig'indisi ortib borishi tartibida joylashtiring. 1) aluminiy gidroksosulfat; 2) aluminiy gidrokarbonat; 3) aluminiy sulfat; 4) aluminiy fosfat.",
+   "variantlar": "A) 4,1,2,3 B) 2,3,1,4 C) 2,4,3,1 D) 4,2,1,3"
+  },
+  {
+   "savol": "Qaysi birikmada ion bog'lanish mavjud emas?",
+   "variantlar": "A) KCl B) H₂O C) Ba(NO₃)₂ D) Na₃PO₄"
+  },
+  {
+   "savol": "Glitserin molekulalarida qanday kimyoviy bog'lanish(lar) mavjud? 1) qutbsiz kovalent bog'lanish; 2) donor-akseptor bog'lanish; 3) metall bog'lanish; 4) vodorod bog'lanish; 5) ion bog'lanish; 6) qutbli kovalent bog'lanish.",
+   "variantlar": "A) 1,5 B) faqat 6 C) 2,3,5 D) 1,4,6"
+  },
+  {
+   "savol": "Glitserin molekulalarida qanday kimyoviy bog'lanish(lar) mavjud emas? 1) qutbsiz kovalent bog'lanish; 2) donor-akseptor bog'lanish; 3) metall bog'lanish; 4) qutbli kovalent bog'lanish; 5) vodorod bog'lanish; 6) ion bog'lanish.",
+   "variantlar": "A) 2,3,6 B) faqat 4 C) 1,4,5 D) 1,6"
+  },
+  {
+   "savol": "Etilenglikol molekulalarida qanday kimyoviy bog'lanish(lar) mavjud? 1) qutbsiz kovalent bog'lanish; 2) vodorod bog'lanish; 3) metall bog'lanish; 4) ion bog'lanish; 5) donor-akseptor bog'lanish; 6) qutbli kovalent bog'lanish.",
+   "variantlar": "A) 1,2,6 B) 3,4,5 C) 1,4 D) faqat 6"
+  },
+  {
+   "savol": "Etilenglikol molekulalarida qanday kimyoviy bog'lanish(lar) mavjud emas? 1) donor-akseptor bog'lanish; 2) qutbsiz kovalent bog'lanish; 3) metall bog'lanish; 4) ion bog'lanish; 5) vodorod bog'lanish; 6) qutbli kovalent bog'lanish.",
+   "variantlar": "A) 2,4 B) faqat 6 C) 2,5,6 D) 1,3,4"
+  },
+  {
+   "savol": "Sirka kislota molekulalarida qanday kimyoviy bog'lanish(lar) mavjud? 1) qutbsiz kovalent bog'lanish; 2) vodorod bog'lanish; 3) donor-akseptor bog'lanish; 4) ion bog'lanish; 5) qutbli kovalent bog'lanish; 6) metall bog'lanish.",
+   "variantlar": "A) 1,4 B) faqat 6 C) 1,2,5 D) 3,4,6"
+  },
+  {
+   "savol": "Molekular kristall panjarali moddalar berilgan javobni belgilang.",
+   "variantlar": "A) \"quruq muz\", yod, naftalin B) ozon, olmos, karborund C) osh tuzi, kremniy, qattiq bor D) muz, galit, ohaktosh"
+  },
+  {
+   "savol": "Qaysi birikma (ion)da donor-akseptor bog'lanish mavjud emas?",
+   "variantlar": "A) NH₄NO₂ B) NH₄NO₃ C) SO₂ D) H₃O⁺"
+  },
+  {
+   "savol": "Qaysi birikma (ion)da donor-akseptor bog'lanish mavjud emas?",
+   "variantlar": "A) NaCl B) NH₄Cl C) H₃O⁺ D) NH₄⁺"
+  },
+  {
+   "savol": "Qaysi birikma (ion)da donor-akseptor bog'lanish mavjud emas?",
+   "variantlar": "A) NH₄NO₂ B) H₃O⁺ C) P₂O₅ D) NH₄OH"
+  },
+  {
+   "savol": "Qaysi birikmada ion bog'lanish mavjud emas?",
+   "variantlar": "A) H₃PO₄ B) Na₂SO₄ C) KCl D) KNO₃"
+  },
+  {
+   "savol": "Quyidagi qator bo'yicha moddalarning bog' uzunligi qanday o'zgaradi? a) kamayadi; b) ortadi. HCl → HF → HI → HBr",
+   "variantlar": "A) 1-b;2-b;3-a B) 1-a;2-a;3-b C) 1-b;2-a;3-b D) 1-a;2-b;3-a"
+  },
+  {
+   "savol": "Quyidagi qator bo'yicha moddalarning bog'lanish energiyasi qanday o'zgaradi? a) kamayadi; b) ortadi. HCl → HF → HI → HBr",
+   "variantlar": "A) 1-b;2-b;3-a B) 1-a;2-b;3-a C) 1-a;2-a;3-b D) 1-b;2-a;3-b"
+  },
+  {
+   "savol": "Quyidagi qator bo'yicha moddalarning bog' qutbliligi qanday o'zgaradi? a) kamayadi; b) ortadi. HCl → HF → HI → HBr",
+   "variantlar": "A) 1-b;2-b;3-a B) 1-b;2-a;3-b C) 1-a;2-b;3-a D) 1-a;2-a;3-b"
+  },
+  {
+   "savol": "Quyidagi qator bo'yicha moddalarning bog'lanish energiyasi qanday o'zgaradi? a) kamayadi; b) ortadi. HBr → HI → HF → HCl",
+   "variantlar": "A) 1-a;2-b;3-a B) 1-a;2-a;3-b C) 1-b;2-a;3-b D) 1-b;2-b;3-a"
+  },
+  {
+   "savol": "Quyidagi qator bo'yicha moddalarning bog' qutbliligi qanday o'zgaradi? a) kamayadi; b) ortadi. HBr → HI → HF → HCl",
+   "variantlar": "A) 1-b;2-b;3-a B) 1-a;2-a;3-b C) 1-b;2-a;3-b D) 1-a;2-b;3-a"
+  },
+  {
+   "savol": "Qaysi modda molekular kristall panjaraga ega?",
+   "variantlar": "A) xlor B) temir C) osh tuzi D) olmos"
+  },
+  {
+   "savol": "Qaysi modda metall kristall panjaraga ega?",
+   "variantlar": "A) olmos B) yod C) temir D) osh tuzi"
+  },
+  {
+   "savol": "Qaysi modda ion kristall panjaraga ega?",
+   "variantlar": "A) temir B) olmos C) yod D) osh tuzi"
+  },
+  {
+   "savol": "Qaysi modda atom kristall panjaraga ega?",
+   "variantlar": "A) grafit B) mis C) \"quruq muz\" D) Chili selitrasi"
+  },
+  {
+   "savol": "Qaysi modda metall kristall panjaraga ega?",
+   "variantlar": "A) Chili selitrasi B) mis C) \"quruq muz\" D) qattiq bor"
+  },
+  {
+   "savol": "Tarkibida umumiy bog'lar soni 16 ga teng bo'lgan birikmani aniqlang.",
+   "variantlar": "A) Ca₃(PO₄)₂ B) Al₂(SO₄)₃ C) K₂CO₃ D) Al(NO₂)₃"
+  },
+  {
+   "savol": "Tarkibida umumiy bog'lar soni 12 ga teng bo'lgan birikmani aniqlang.",
+   "variantlar": "A) Ca₃(PO₄)₂ B) Al₂(SO₄)₃ C) Al(NO₂)₃ D) K₂CO₃"
+  },
+  {
+   "savol": "Tarkibida umumiy bog'lar soni 10 ga teng bo'lgan birikmani aniqlang.",
+   "variantlar": "A) [Al(OH)₂]₂SO₄ B) [Al(OH)₂]₃PO₄ C) [Al(OH)]₃(PO₄)₂ D) Al(OH)SO₄"
+  },
+  {
+   "savol": "Tarkibida umumiy bog'lar soni 20 ga teng bo'lgan birikmani aniqlang.",
+   "variantlar": "A) [Al(OH)]₃(PO₄)₂ B) Al(OH)SO₄ C) [Al(OH)₂]₃PO₄ D) [Al(OH)₂]₂SO₄"
+  },
+  {
+   "savol": "Tarkibida umumiy bog'lar soni 22 ga teng bo'lgan birikmani aniqlang.",
+   "variantlar": "A) Al(OH)SO₄ B) [Al(OH)₂]₂SO₄ C) [Al(OH)]₃(PO₄)₂ D) [Al(OH)₂]₃PO₄"
+  },
+  {
+   "savol": "Na₂SO₄ tarkibida ion bog'lanish qaysi atomlar o'rtasida yuzaga keladi?",
+   "variantlar": "A) natriy va oltingugurt B) natriy va kislorod C) kislorod va kislorod D) oltingugurt va kislorod"
+  },
+  {
+   "savol": "Qaysi moddalarda σ- va π-bog'lar soni nisbati 2:1 bo'ladi? 1) C₂H₄; 2) C₂H₂; 3) Al₂S₃; 4) C₂H₆; 5) HClO₃; 6) KCN.",
+   "variantlar": "A) 2,6 B) 1,5 C) 2,4 D) 3,5"
+  },
+  {
+   "savol": "Qaysi javobda keltirilgan barcha modda (yoki ion)larda kovalent bog' mavjud?",
+   "variantlar": "A) Mg, HNO₃ B) NaJ, SO₃ C) PO₄³⁻, CsF D) NH₄⁺, H₂O"
+  },
+  {
+   "savol": "1. 27 g azot oksidi 0,25·Nₐ ta molekula saqlasa, oksid tarkibidagi azotning oksidlanish darajasini aniqlang.",
+   "variantlar": "A) +2 B) +1 C) +4 D) +5"
+  },
+  {
+   "savol": "2. Cu(NO₃)₂·3H₂O tarkibida qanday bog'lar mavjud? 1) qutbli kovalent; 2) qutbsiz kovalent; 3) donor-akseptor; 4) vodorod; 5) metall; 6) ion.",
+   "variantlar": "A) 1,3,4,6 B) 1,3,5,6 C) 2,4,6 D) 1,5,6"
+  },
+  {
+   "savol": "3. H₂O + H⁺ → H₃O⁺ jarayonda quyidagilardan qaysi biri o'zgarmaydi?",
+   "variantlar": "A) markaziy atomning valentligi B) zarrachalarning fazoviy shakli C) umumiy protonlar soni D) umumiy neytronlar soni"
+  },
+  {
+   "savol": "4. Quyidagi tasvirda berilgan suv molekulalari orasidagi qaysi bog' zaif?",
+   "variantlar": "A) 1 B) 3 C) 2 D) 1 va 3"
+  },
+  {
+   "savol": "5. Quyidagi rasmda moddalarning kristall panjaralari ko'rsatilgan. Qaysi biri atom kristall panjaraga tegishli?",
+   "variantlar": "A) a B) b C) c D) d"
+  },
+  {
+   "savol": "6. Proton bilan suv birikkanda hosil bo'lgan yangi bog' tabiati qanday?",
+   "variantlar": "A) ionli B) atomli C) donor-akseptor D) vodorod bog'"
+  },
+  {
+   "savol": "7. Perxlorat kislota molekulasini hosil qilishda nechta sp³ orbital qatnashgan?",
+   "variantlar": "A) 1 B) 8 C) 4 D) 2"
+  },
+  {
+   "savol": "8. Quyidagi berilgan birikmalarda bog' qutbliligi qanday o'zgaradi? HF → H₂O → NH₃ → CH₄",
+   "variantlar": "A) kamayadi, ortadi, ortadi B) kamayadi, kamayadi, kamayadi C) ortadi, ortadi, ortadi D) ortadi, kamayadi, kamayadi"
+  },
+  {
+   "savol": "9. Qaysi birikmalarda ion bog'lanish mavjud?",
+   "variantlar": "A) BaCl₂, K₂SO₄ B) H₂O₂, HCl C) CO₂, H₂ D) O₂, O₃"
+  },
+  {
+   "savol": "10. Qutbli kovalent bog'lanishli moddalarni aniqlang. 1) CaO; 2) H₂S; 3) F₂; 4) PCl₃; 5) K₂S; 6) I₂; 7) Cu; 8) P₄; 9) Zn.",
+   "variantlar": "A) 2;4 B) 1;5 C) 7;9 D) 3;6;8"
+  },
+  {
+   "savol": "11. Sulfat kislota molekulasida nechta sp³-gibridlangan orbital qatnashgan?",
+   "variantlar": "A) 8 B) 6 C) 4 D) 12"
+  },
+  {
+   "savol": "12. Quyidagi keltirilgan moddalar ichida koordinatsion bog'lar soni 2 ta bo'lganlarini aniqlang.",
+   "variantlar": "A) azot (V) oksid B) ammoniy nitrit C) ammiak D) is gazi"
+  },
+  {
+   "savol": "13. Qanday kristall panjara tasvirlangan?",
+   "variantlar": "A) atom B) molekula C) metall D) ion"
+  },
+  {
+   "savol": "14. Molekulyar kristall panjarali moddalar keltirilgan qatorni ko'rsating.",
+   "variantlar": "A) NaCl, Fe B) S₈, O₃ C) CO₂, Si D) Si, Ge"
+  },
+  {
+   "savol": "15. (H₂O)₂ tarkibli suv bug'ida nechta vodorod bog' bor?",
+   "variantlar": "A) 6 B) 8 C) 2 D) 4"
+  },
+  {
+   "savol": "16. Gibrid orbitallari soni atomlari sonidan 8 taga ko'p bo'lgan moddani aniqlang.",
+   "variantlar": "A) SO₃ B) SO₂ C) CO₂ D) P₂O₅"
+  },
+  {
+   "savol": "17. Atomlarning umumiy elektron juftlari vositasida bog'lanishi qanday bog'lanish deyiladi?",
+   "variantlar": "A) kovalent B) ion C) metall D) vodorod"
+  },
+  {
+   "savol": "18. Tiosulfat kislotasi molekulasidagi s (a), p (b), sp³ (c), sp² (d) orbitallari va bog' hosil qilishda qatnashgan orbitallar (e) sonini aniqlang.",
+   "variantlar": "A) a-2; b-4; c-8; d-2; e-22 B) a-2; b-2; c-8; d-6; e-16 C) a-2; b-2; c-12; d-6; e-22 D) a-2; b-2; c-12; d-6; e-16"
+  },
+  {
+   "savol": "19. Kalsit molekulasida nechta sp³-orbital bor?",
+   "variantlar": "A) 8 B) 4 C) 6 D) 12"
+  },
+  {
+   "savol": "20. Quyidagi modda tarkibida qanday bog'(lar) mavjud? CH₂(ONO₂)CH₂(ONO₂) 1) ion; 2) qutbli kovalent; 3) qutbsiz kovalent; 4) vodorod.",
+   "variantlar": "A) 2,3 B) 1,2,3 C) 2,3,4 D) 1,2"
+  },
+  {
+   "savol": "21. Turunbul ko'ki tashqi sferadagi temir atomi qanday oksidlanish darajasini namoyon qiladi?",
+   "variantlar": "A) +2 B) +3 C) 0 D) +6"
+  },
+  {
+   "savol": "22. Aluminiy pirofosfat molekulasidagi ion va kovalent bog'lar sonini aniqlang.",
+   "variantlar": "A) 30:12 B) 12:28 C) 4:38 D) 12:30"
+  },
+  {
+   "savol": "23. Quyidagilar orasidan molekulyar kristall panjara hosil qiluvchi oddiy moddalarni aniqlang. 1) grafit; 2) azot; 3) zang; 4) is gazi; 5) quruq muz; 6) oq fosfor.",
+   "variantlar": "A) 3,4 B) 2,6 C) 1,6 D) 1,5"
+  },
+  {
+   "savol": "24. sp³-gibridlangan orbitallari 3 ta bo'lgan modda(lar)ni aniqlang.",
+   "variantlar": "A) HClO₃ B) H₃PO₄ C) H₂SO₄ D) HClO₃ va H₂SO₄"
+  },
+  {
+   "savol": "25. CO₂ va CO₃²⁻ lar uchun quyidagi qaysi xususiyatlar umumiy emas? 1) markaziy atomning gibridlanishi; 2) markaziy atomning valentligi; 3) molekula(ion)ning fazoviy tuzilishi; 4) markaziy atomning oksidlanish darajasi; 5) markaziy atomning uglerod ekanligi.",
+   "variantlar": "A) 1,3 B) 1,2 C) 3,4 D) 2,4,5"
+  },
+  {
+   "savol": "26. Aluminiy digidroksoxromat molekulasida nechta σ-bog' bo'ladi?",
+   "variantlar": "A) 18 B) 12 C) 16 D) 14"
+  },
+  {
+   "savol": "27. Quyidagi moddalarni tarkibida (a) qutbsiz kovalent, (b) qutbli kovalent, (c) donor-akseptor, (d) ionli bog'lari bor bo'lganlarini aniqlang. 1) H₂; 2) H₃BO₃; 3) KF; 4) BaSO₃; 5) CO; 6) KNO₃.",
+   "variantlar": "A) a-1; b-2,4; c-5,6; d-3 B) a-1; b-2,4,6; c-5,6; d-3,4,6 C) a-1; b-2,4,5,6; c-5,6; d-3 D) a-1; b-2,4,5,6; c-5,6; d-3,4,6"
+  },
+  {
+   "savol": "28. Quyidagi rasmda moddalarning kristall panjaralari ko'rsatilgan. Qaysi biri molekulyar kristall panjaraga tegishli?",
+   "variantlar": "A) a B) b C) c D) d"
+  },
+  {
+   "savol": "29. 2 ta π va 4 ta σ bog'ga ega bo'lgan moddadagi xlorning gibridlanish turini aniqlang.",
+   "variantlar": "A) sp³ B) sp C) bunday modda mavjud emas D) sp²"
+  }
+ ]
+}

@@ -1,0 +1,432 @@
+{
+ "manba": "DTM/MS 2019-2021 mavzu bo'yicha savollar banki (javobsiz) — elektroliz",
+ "element": "I.10",
+ "izoh": "Foydalanuvchi yuklagan xom manba. Javob kaliti YO'Q (docx da faqat savol+variantlar ustuni to'ldirilgan, javob ustuni bo'sh). Har savol keyinchalik qo'lda/mustaqil yechilib tasdiqlanishi kerak, tayyor javob sifatida ISHLATILMASIN.",
+ "soni": 106,
+ "savollar": [
+  {
+   "savol": "HgSO₄ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 47 g ga, eritmadagi atomlar soni esa 1•Nₐ ga kamaydi. Eritmadan necha faradey tok o'tganini aniqlang.",
+   "variantlar": "A) 1,2 B) 1,6 C) 0,8 D) 0,4"
+  },
+  {
+   "savol": "200 ml (ρ = 1,3 g/ml) NaNO₃ eritmasiga 116 g suv qo'shib 8 A tok kuchi bilan 13,4 soat elektroliz qilinganda, 10% li eritma hosil bo'ldi. Dastlabki eritmaning molar konsentratsiyasini (M) aniqlang (elektrodlar inert).",
+   "variantlar": "A) 2 B) 4 C) 1 D) 3"
+  },
+  {
+   "savol": "0,2 kg 14,9% li kaliy xlorid eritmasi 1 F tok bilan elektroliz qilindi. Elektroliz jarayonida sarflangan suv massasini (g) aniqlang.",
+   "variantlar": "A) 5,4 B) 10,8 C) 9 D) 12,6"
+  },
+  {
+   "savol": "0,1 kg 11,7% li natriy xlorid eritmasi 1 F tok bilan elektroliz qilindi. Elektroliz jarayonida sarflangan suv massasini (g) aniqlang.",
+   "variantlar": "A) 5,4 B) 10,8 C) 12,6 D) 9"
+  },
+  {
+   "savol": "CuSO₄ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 58 g ga, atomlar soni esa 4•Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 1,5 B) 3 C) 1 D) 2"
+  },
+  {
+   "savol": "CuSO₄ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 50 g ga, atomlar soni esa 3,8•Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 2,8 B) 1,8 C) 1,5 D) 3"
+  },
+  {
+   "savol": "AgNO₃ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 0,17 kg ga, atomlar soni esa 10,5•Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 1 B) 6 C) 4 D) 7"
+  },
+  {
+   "savol": "AgNO₃ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 34 g ga, atomlar soni esa 2,1•Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 0,4 B) 1,2 C) 0,2 D) 1,4"
+  },
+  {
+   "savol": "NaCl eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 20 g ga, atomlar soni esa 1,7•Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 0,8 B) 0,6 C) 1 D) 0,2"
+  },
+  {
+   "savol": "0,1 kg X% li NaCl eritmasi elektroliz qilinganda jami 11,2 litr (n.sh.) gaz ajraldi. Agar anodda ajralib chiqqan gazlar 1:1 mol nisbatda bo'lsa, X ni aniqlang.",
+   "variantlar": "A) 5,85 B) 58,5 C) 23,4 D) 11,7"
+  },
+  {
+   "savol": "0,1 kg 35,1% li NaCl eritmasi elektroliz qilindi. Elektroliz jarayonida 18 g suv sarflangan bo'lsa, elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 1,4 B) 1,8 C) 1 D) 1,6"
+  },
+  {
+   "savol": "0,1 kg 11,7% li NaCl eritmasi elektroliz qilindi. Elektroliz jarayonida 18 g suv sarflangan bo'lsa, elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 1,8 B) 2,4 C) 1 D) 1,6"
+  },
+  {
+   "savol": "0,4 kg 11,7% li NaCl eritmasi elektroliz qilindi. Elektroliz jarayonida 18 g suv sarflangan bo'lsa, elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 1,8 B) 1,2 C) 1 D) 1,6"
+  },
+  {
+   "savol": "0,4 kg 14,9% li KCl eritmasi elektroliz qilindi. Elektroliz jarayonida 18 g suv sarflangan bo'lsa, elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 2 B) 1,2 C) 1,6 D) 1,8"
+  },
+  {
+   "savol": "0,1 kg 11,7% li NaCl eritmasi elektroliz qilindi. Elektroliz jarayonida 0,6 mol suv sarflangan bo'lsa, elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 0,8 B) 0,4 C) 1 D) 0,6"
+  },
+  {
+   "savol": "X kg 40% li CuSO₄ eritmasi orqali 4 F tok o'tkazilganda katodda 33,6 litr (n.sh.) gaz ajraldi. X ning qiymatini aniqlang (inert elektrod).",
+   "variantlar": "A) 0,4 B) 0,2 C) 0,32 D) 0,24"
+  },
+  {
+   "savol": "0,2 kg X% li CuSO₄ eritmasi orqali 4 F tok o'tkazilganda katodda 33,6 litr (n.sh.) gaz ajraldi. X ning qiymatini aniqlang (inert elektrod).",
+   "variantlar": "A) 20 B) 50 C) 60 D) 40"
+  },
+  {
+   "savol": "0,5 kg X% li CuSO₄ eritmasi orqali 5 F tok o'tkazilganda katodda 1,25 mol gaz ajraldi. X ning qiymatini aniqlang (inert elektrod).",
+   "variantlar": "A) 50 B) 40 C) 30 D) 20"
+  },
+  {
+   "savol": "0,2 kg X% li CuSO₄ eritmasi orqali 2 F tok o'tkazilganda katodda 11,2 litr (n.sh.) gaz ajraldi. X ning qiymatini aniqlang (inert elektrod).",
+   "variantlar": "A) 20 B) 40 C) 60 D) 50"
+  },
+  {
+   "savol": "0,5 kg X% li AgNO₃ eritmasi orqali 4 F tok o'tkazilganda katodda 33,6 litr (n.sh.) gaz ajraldi. X ning qiymatini aniqlang (inert elektrod).",
+   "variantlar": "A) 34 B) 17 C) 68 D) 51"
+  },
+  {
+   "savol": "0,1 kg 16% li CuSO₄ eritmasi inert elektrodlar yordamida elektroliz qilinganda elektrodlarda 17 g moddalar ajraldi. Eritmadan necha faradey tok o'tganligini aniqlang.",
+   "variantlar": "A) 1,2 B) 0,4 C) 0,2 D) 1"
+  },
+  {
+   "savol": "0,1 kg X% CuSO₄ eritmasi inert elektrodlar yordamida 1,2 F tok bilan elektroliz qilinganda elektrodlarda 17 g moddalar ajraldi. X ni aniqlang.",
+   "variantlar": "A) 32 B) 16 C) 8 D) 64"
+  },
+  {
+   "savol": "X kg 16% li CuSO₄ eritmasi inert elektrodlar yordamida 1,2 F tok bilan elektroliz qilinganda elektrodlarda 17 g moddalar ajraldi. X ni aniqlang.",
+   "variantlar": "A) 0,15 B) 0,1 C) 0,3 D) 0,2"
+  },
+  {
+   "savol": "0,2 kg X% li CuSO₄ eritmasi inert elektrodlar yordamida 2,4 F tok bilan elektroliz qilinganda elektrodlarda 34 g moddalar ajraldi. X ni aniqlang.",
+   "variantlar": "A) 16 B) 6,4 C) 8 D) 32"
+  },
+  {
+   "savol": "X kg 16% li CuSO₄ eritmasi inert elektrodlar yordamida 2,4 F tok bilan elektroliz qilinganda elektrodlarda 34 g moddalar ajraldi. X ni aniqlang.",
+   "variantlar": "A) 0,2 B) 0,1 C) 0,3 D) 0,15"
+  },
+  {
+   "savol": "Mis (II)-nitrat va kumush nitratlarning 0,2 molyarli eritmalaridan 0,2 litrdan aralashtirilib, so'ngra 0,03 faradey tok bilan elektroliz qilindi. Elektroliz tugaganidan keyin eritmada qolgan nitrat kislotaning massasini (g) hisoblang.",
+   "variantlar": "A) 3,78 B) 1,89 C) 5,04 D) 2,52"
+  },
+  {
+   "savol": "Mis (II)-nitrat va kumush nitratlarning 0,2 molarli eritmalaridan 0,2 litrdan aralashtirilib, so'ngra 0,02 faradey tok bilan elektroliz qilindi. Elektroliz tugaganidan keyin eritmadagi nitrat kislota massasini (g) hisoblang.",
+   "variantlar": "A) 5,04 B) 1,26 C) 2,52 D) 3,78"
+  },
+  {
+   "savol": "Tarkibida 0,2 mol AuCl₃ va 0,3 mol CuCl₂ bo'lgan eritma orqali 0,08 faradey tok o'tkazilganda anodda (inert elektrod) ajralib chiqqan modda massasini (g) hisoblang.",
+   "variantlar": "A) 5,68 B) 14,2 C) 7,1 D) 2,84"
+  },
+  {
+   "savol": "0,3 litr 0,1 M li rux nitrat va 0,2 litr 2 M li kumush nitrat eritmalarining aralashmasi 8 A tok kuchi bilan 965 sekund davomida elektroliz qilindi. Katodda ajralgan kumush massasini (g) toping.",
+   "variantlar": "A) 4,32 B) 1,08 C) 3,24 D) 2,16"
+  },
+  {
+   "savol": "Tarkibida 0,2 mol rux xlorid va 0,15 mol mis (II)-xlorid bo'lgan eritma orqali 0,3 faradey tok o'tkazilganda katodda (inert elektrod) ajralib chiqqan modda(lar) massasini (g) toping.",
+   "variantlar": "A) 19,4 B) 9,6 C) 9,75 D) 6,4"
+  },
+  {
+   "savol": "0,2 kg 40% li mis (II)-sulfat eritmasi massalari 30 g dan bo'lgan ko'mir elektrodlar ishtirokida to'liq elektroliz qilindi. Elektrolizdan so'ng katod ajratib olinib konsentrlangan sulfat kislota eritmasida eritilganda necha mol gaz(lar) ajraladi?",
+   "variantlar": "A) 0,5 B) 4 C) 8 D) 6"
+  },
+  {
+   "savol": "0,2 kg 40% li mis (II)-sulfat eritmasi massalari 18 g dan bo'lgan ko'mir elektrodlar ishtirokida to'liq elektroliz qilindi. Elektrolizdan so'ng katod ajratib olinib konsentrlangan sulfat kislota eritmasida eritilganda necha mol gaz(lar) ajraladi?",
+   "variantlar": "A) 2 B) 3 C) 5 D) 4"
+  },
+  {
+   "savol": "1. 145 g 10% li KOH eritmasi 5 F tok bilan elektroliz qilinganda necha % eritma hosil bo'ladi?",
+   "variantlar": "A) 14,5 B) 17,6 C) 21,8 D) 16,8"
+  },
+  {
+   "savol": "2. 0,3 kg 11,7% li natriy xlorid eritmasi elektroliz qilinganda 1,4 mol gazlar aralashmasi hosil bo'ldi. Elektroliz jarayoni uchun sarflangan faradey tok miqdorini aniqlang.",
+   "variantlar": "A) 1,8 B) 1,4 C) 1 D) 0,6"
+  },
+  {
+   "savol": "3. 0,4 kg 23,5% li mis (II) nitrat eritmasi massalari 18 g dan bo'lgan ko'mir elektrodlari ishtirokida to'liq elektroliz qilindi. Elektrolizdan so'ng katod ajratib olinib konsentrlangan sulfat kislota eritmasida eritilganda necha mol gaz(lar) ajraladi?",
+   "variantlar": "A) 5 B) 4 C) 2 D) 3"
+  },
+  {
+   "savol": "4. 0,94 kg 10% li mis (II) nitrat eritmasi massalari 30 g dan bo'lgan elektrod ishtirokida to'liq elektroliz qilindi. Elektrolizdan so'ng katod ajratib olinib konsentrlangan sulfat kislota eritmasida eritilganda necha mol gaz(lar) ajraladi?",
+   "variantlar": "A) 8 B) 6 C) 2 D) 4"
+  },
+  {
+   "savol": "5. Uch mol mis (II)-sulfat saqlagan eritma orqali 5 F tok o'tkazildi. Katodda ajralgan modda massasini (g) aniqlang.",
+   "variantlar": "A) 192 B) 160 C) 133 D) 128"
+  },
+  {
+   "savol": "6. Qaysi tuz eritmasi inert elektrodlar yordamida elektroliz qilinganda katodda vodorod, anodda kislorod ajralib chiqadi?",
+   "variantlar": "A) mis (II) xlorid B) kaliy bromid C) kumush nitrat D) litiy nitrat"
+  },
+  {
+   "savol": "7. Mis (II)-sulfat eritmasidan elektr toki o'tkazilganda hosil bo'lgan kislotani neytrallash uchun 0,1 l 2N li kaliy gidroksid eritmasi sarf bo'ldi. Katodda ajralgan misning massasini (g) aniqlang.",
+   "variantlar": "A) 6,4 B) 12,8 C) 3,2 D) 0,64"
+  },
+  {
+   "savol": "8. Qaysi tuz eritmasi inert elektrodlar yordamida elektroliz qilinganda katodda vodorod, anodda kislorod ajralib chiqadi?",
+   "variantlar": "A) kaliy bromid B) mis (II) xlorid C) kumush nitrat D) litiy nitrat"
+  },
+  {
+   "savol": "9. Tarkibida 40% CuSO₄ saqlagan 200 g eritma elektroliz qilinganda tarkibida 102 g suv saqlagan eritma hosil bo'ldi. Eritmadan necha faradey tok o'tkazilgan?",
+   "variantlar": "A) 1 B) 1,5 C) 0,5 D) 2"
+  },
+  {
+   "savol": "10. NaCl eritmasi to'liq elektroliz qilindi. Natijada idishda faqat NaOH qoldi va vodorodga nisbatan zichligi 181/22 bo'lgan 248,4 l gazlar aralashmasi hosil bo'ldi. Dastlabki eritmadagi suvning modda miqdorini aniqlang.",
+   "variantlar": "A) 4 B) 6 C) 8 D) 10"
+  },
+  {
+   "savol": "11. 100 g 8% li mis (II) sulfat eritmasi to'liq elektroliz qilinganda 8,167% li eritma olindi. Eritmadan necha faradey tok o'tganini aniqlang.",
+   "variantlar": "A) 0,1 B) 4,1 C) 8 D) 0,25"
+  },
+  {
+   "savol": "12. 27,692·10²⁴ ta atom tutgan CuSO₄ eritmasi 5A tok bilan 53,6 soat elektroliz qilinganda, 192,64·10²³ ta atom tutgan eritma olindi. Dastlabki eritmaning foiz konsentratsiyasini aniqlang.",
+   "variantlar": "A) 50 B) 25 C) 40 D) 60"
+  },
+  {
+   "savol": "13. 4 mol/kg konsentratsiyali NaOH eritmasi elektroliz qilinganda 6,25 mol/kg konsentratsiyali eritma hosil bo'ldi. Agar eritmadan 8 A tok bilan 67 soat elektroliz qilingan bo'lsa, dastlabki eritma massasini hisoblang.",
+   "variantlar": "A) 1160 B) 580 C) 1400 D) 500"
+  },
+  {
+   "savol": "14. 5M li (ρ = 1,5 g/ml) CuSO₄ eritmasi elektroliz qilinganda 8M li (ρ = 1,4 g/ml) H₂SO₄ eritmasi olindi. Agar shu jarayonda eritma massasi 62,5 g ga kamaygan bo'lsa, dastlabki eritmadagi tuz massasini (g) hisoblang.",
+   "variantlar": "A) 80 B) 40 C) 160 D) 240"
+  },
+  {
+   "savol": "15. ZnSO₄ eritmasi elektroliz qilinganda elektrodda qanday moddalar qaytarilishi mumkin? 1) rux; 2) kislorod; 3) vodorod; 4) sulfat kislota; 5) oltingugurt.",
+   "variantlar": "A) 1,3 B) 2,3,5 C) 2 D) 4,5"
+  },
+  {
+   "savol": "16. Ikkita idishdagi teng massali eritmalar tarkibida tuzi tugagunicha elektroliz qilindi. Natijada birinchi eritmadagi CuSO₄ X F tok bilan, ikkinchi eritmadagi NaCl 3X F tok bilan elektroliz qilindi. Agar elektroliz jarayonidan so'ng ikkinchi eritma 63% li bo'lsa, birinchi eritmadan necha foizli eritma hosil bo'lgan?",
+   "variantlar": "A) 44,54 B) 23,4 C) 49 D) 18,85"
+  },
+  {
+   "savol": "17. Noma'lum MeSO₄ tuzining 12,2% li eritmasi katodda metall ajralishi to'xtagunicha elektroliz qilinganda 8,4% li eritma hosil bo'ldi. Metallni aniqlang.",
+   "variantlar": "A) Cu B) Cr C) Mn D) Zn"
+  },
+  {
+   "savol": "18. FeSO₄ tuzi eritmasi elektroliz qilinganda 33,6 l (n.sh.) gazlar aralashmasi hosil bo'ldi va eritmaning massasi 97,2 g ga kamaydi. Eritmadan o'tgan tok miqdorini (F) hisoblang.",
+   "variantlar": "A) 3,6 B) 1,6 C) 0,8 D) 2,4"
+  },
+  {
+   "savol": "19. Nikel (II) sulfat eritmasi elektrolizi natijasida katod massasi 5 g ga ortdi. Nikel anod massasi necha grammga kamayganini aniqlang.",
+   "variantlar": "A) 6 B) 4 C) 3 D) 5"
+  },
+  {
+   "savol": "20. CuSO₄ eritmasi inert elektrodlar bilan elektroliz qilindi. Bunda eritma massasi 32 g ga kamaydi. Anodda ajralgan kislorod hajmini (n.sh.) toping.",
+   "variantlar": "A) 2,24 B) 3,36 C) 15,6 D) 4,48"
+  },
+  {
+   "savol": "21. Quyida berilgan elektroliz jarayonida kislota qoldig'larining tarkibi NO₃⁻ bo'lsa, X metallni aniqlang.",
+   "variantlar": "A) Mg B) Na C) Al D) Fe"
+  },
+  {
+   "savol": "22. ZnCl₂ eritmasi inert elektrodlar bilan elektroliz qilinganda anodda 2,64 litr (n.sh.) xlor ajraldi. Katodda ajralgan Zn ni mo'l miqdor xlorid kislotada eritildi. Bunda 2,24 litr (n.sh.) H₂ ajraldi. H₂ va Cl₂ ning hosil bo'lish unumlari 100% dan bo'lsa, Zn ning hosil bo'lish unumini (%) toping.",
+   "variantlar": "A) 75 B) 85 C) 90 D) 100"
+  },
+  {
+   "savol": "23. 2,6 M li AgNO₃ eritmasi (ρ = 1,03) elektroliz qilinganda 5,31 M eritma (ρ = 1,03) hosil bo'ldi va eritma 138 g kamaydi. Boshlang'ich eritma massasini aniqlang.",
+   "variantlar": "A) 480 B) 800 C) 270 D) 342"
+  },
+  {
+   "savol": "24. X g 20% mis (II) sulfat eritmasidan 2F tok o'tkazildi. Natijada katodda 16,8 l (n.sh.) gaz ajraldi. X ni aniqlang.",
+   "variantlar": "A) 300 B) 400 C) 100 D) 200"
+  },
+  {
+   "savol": "25. 200 g AgNO₃ eritmasi elektroliz qilinganda eritma massasi 17% ga kamaydi. Agar anodda 7,84 l (n.sh.) gaz hosil bo'lsa, eritmadan necha faradey tok o'tgan?",
+   "variantlar": "A) 1,4 B) 2 C) 4 D) 1,8"
+  },
+  {
+   "savol": "26. Doimiy tok manbayiga ketma-ket ulangan Hg(NO₃)₂, CuSO₄ va NaCl eritmalari orqali 10000 sekund davomida 9,65 A tok o'tkazildi. Katodlarda hosil bo'lgan metallarning massalarini (g) mos ravishda aniqlang.",
+   "variantlar": "A) 201; 32; 23 B) 10,05; 3,2; 0 C) 100,5; 32; 23 D) 100,5; 32; 0"
+  },
+  {
+   "savol": "27. 200 g 16% li mis (II) sulfat eritmasi to'liq elektroliz qilinganda 17,5% li eritma olindi. Eritmadan necha faradey tok o'tganini aniqlang.",
+   "variantlar": "A) 0,4 B) 8,4 C) 8 D) 2,4"
+  },
+  {
+   "savol": "28. Bariy nitrat eritmasi elektroliz qilinganda qanday jarayon sodir bo'ladi? 1) bariy nitrat konsentratsiyasi ortadi; 2) bariy nitrat konsentratsiyasi kamayadi; 3) bariy nitrat konsentratsiyasi o'zgarmaydi; 4) bariy nitrat miqdori ortadi; 5) bariy nitrat miqdori kamayadi; 6) bariy nitrat miqdori o'zgarmaydi.",
+   "variantlar": "A) 2,5 B) 1,4 C) 1,6 D) 5"
+  },
+  {
+   "savol": "29. 500 g 0,2% li NaOH eritmasi 2 A tok bilan 96500 sek davomida elektroliz qilindi. Eritmaning pH ini toping. (ρ = 1,928 g/ml)",
+   "variantlar": "A) 13 B) 1 C) 4 D) 12"
+  },
+  {
+   "savol": "30. Erimaydigan anodlar odatda qaysi modda(lar)dan tayyorlanadi?",
+   "variantlar": "A) Cu, Au, grafit B) Au, Pt, grafit C) Cu, Hg, Pb D) Cu, Ag, Au"
+  },
+  {
+   "savol": "31. Kaliy xlorid eritmasidan 2F tok o'tkazilganda katodda necha gramm modda ajraladi?",
+   "variantlar": "A) 78 B) 39 C) 2 D) 8"
+  },
+  {
+   "savol": "32. AgNO₃ eritmasi inert elektrodlar yordamida elektroliz qilinganda eritma massasi 50 g ga kamaydi. Eritmadagi atomlar soni esa 1,2·Nₐ taga kamaydi. Eritmadan necha faradey tok o'tganini aniqlang. (Nₐ – Avogadro soni)",
+   "variantlar": "A) 0,8 B) 0,4 C) 0,2 D) 1"
+  },
+  {
+   "savol": "33. 2,5 M li (ρ = 1,25 g/ml) Cu(NO₃)₂ eritmasini elektroliz qilinganda 56 litr (n.sh.) kislorod va 44,8 litr vodorod ajralsa, dastlabki eritma massasini (kg) toping.",
+   "variantlar": "A) 2,4 B) 3 C) 1,5 D) 1,2"
+  },
+  {
+   "savol": "34. 195 g 6% li natriy xlorid va 500 g 9% li natriy yodid eritmalar bo'lgan, parallel ulangan elektrolizerlar orqali doimiy elektr toki o'tkazilganda, ikkinchi eritmadan 38,1 g yod ajraldi. Birinchi elektrolizerdagi katod va anodda hosil bo'lgan mahsulotlar massalari yig'indisini (g) hisoblang.",
+   "variantlar": "A) 10,95 B) 8,2 C) 7,4 D) 11,25"
+  },
+  {
+   "savol": "35. 0,28% li KOH ning 200 g eritmasi 5 A tok davomida elektroliz qilinganda eritmaning pH qiymati 13 ga teng bo'ldi (ρ = 1,55 g/ml). Eritma qancha vaqt (sekund) davomida elektroliz qilinganligini toping.",
+   "variantlar": "A) 24125 B) 96500 C) 38600 D) 19300"
+  },
+  {
+   "savol": "1. 100 g 35,1 % li natriy xlorid eritmasi elektroliz qilinganda inert elektrodlarda 4,48 litr (n.sh.) gaz ajraldi. Hosil bo'lgan eritmada aluminiy eritilganda necha litr (n.sh.) gaz ajraladi?",
+   "variantlar": "A) 4,48 B) 13,44 C) 6,72 D) 20,16"
+  },
+  {
+   "savol": "2. 100 g 45 % li natriy yodid eritmasining ma'lum qismi elektroliz qilindi. Hosil bo'lgan eritmaga yetarli miqdorda kumush nitrat eritmasi quyilganda umumiy massasi 58,6 g cho'kma ajraldi. Elektroliz uchun sarflangan faradey miqdorini aniqlang.",
+   "variantlar": "A) 0,05 B) 0,1 C) 0,2 D) 0,15"
+  },
+  {
+   "savol": "3. 100 g 45 % li natriy yodid eritmasi elektroliz qilinganda katodda 1,12 litr (n.sh.) gaz ajraldi. Hosil bo'lgan eritmaga yetarli miqdorda kumush nitrat eritmasi quyilganda necha gramm cho'kma(lar) ajraladi?",
+   "variantlar": "A) 58,6 B) 53,6 C) 46,7 D) 68"
+  },
+  {
+   "savol": "4. 100 g 35,1 % li natriy xlorid eritmasi to'liq elektroliz qilindi. Anodda ajralgan gaz kaliy gidroksidning qaynoq eritmasiga yuttirildi. Bunda hosil bo'lgan tuzlarning massasini (g) aniqlang.",
+   "variantlar": "A) 44,7 B) 99 C) 73,5 D) 49,5"
+  },
+  {
+   "savol": "5. 200 g 11,7 % li natriy xlorid eritmasi elektroliz qilinganda 15,68 litr (n.sh.) gazlar aralashmasi hosil bo'ldi. Elektroliz jarayoni uchun sarflangan faraday miqdorini aniqlang.",
+   "variantlar": "A) 1 B) 0,7 C) 0,6 D) 0,8"
+  },
+  {
+   "savol": "6. 100 g 23,4 % li natriy xlorid eritmasi elektroliz qilindi. Anodda ajralgan gaz 100 g 30 % li natriy yodid eritmasiga yuttirilganda qanday massadagi (g) cho'kma ajraladi?",
+   "variantlar": "A) 12,7 B) 63,5 C) 38,1 D) 25,4"
+  },
+  {
+   "savol": "7. 200 g 5% li natriy gidroksid eritmasi elektroliz qilinishi natijasida molyal konsentratsiyasi 2,5 mol/kg bo'lgan eritma hosil bo'ldi. Elektroliz jarayoni uchun sarflangan faradey miqdorini aniqlang.",
+   "variantlar": "A) 2,5 B) 7,5 C) 5 D) 10"
+  },
+  {
+   "savol": "8. 200 g 5 % li natriy gidroksid eritmasi 10 F tok bilan elektroliz qilindi. Hosil bo'lgan eritmaning molyal konsentratsiyasini (mol/kg) hisoblang.",
+   "variantlar": "A) 2,5 B) 5 C) 0,25 D) 0,5"
+  },
+  {
+   "savol": "9. 200 g 14 % li ishqor eritmasi 8 F tok bilan elektroliz qilinishi natijasida molyal konsentratsiyasi 7 mol/kg bo'lgan eritma hosil bo'ldi. Ishqor formulasini aniqlang.",
+   "variantlar": "A) LiOH B) RbOH C) NaOH D) KOH"
+  },
+  {
+   "savol": "10. 392 g 20% li xrom (III)–sulfat eritmasi elektroliz qilinganda hosil bo'lgan eritma massasi 373,2 g ni tashkil etdi va inert elektrodlarda 10,08 litr (n.sh.) gaz ajraldi. Elektroliz jarayonida hosil bo'lgan kislota massasini (g) hisoblang.",
+   "variantlar": "A) 58,8 B) 39,2 C) 44,1 D) 29,4"
+  },
+  {
+   "savol": "11. Mis (II)–nitrat eritmasi misdan yasalgan, massalari 40 g dan bo'lgan elektrodlar yordamida ma'lum vaqt elektroliz qilindi. Katod ajratib olinib, konsentrlangan sulfat kislotada eritildi. Ushbu eritmaga natriy gidroksid eritmasi quyilganda 78,4 g cho'kma ajraldi. Elektroliz uchun necha faradey tok sarflanganligini aniqlang.",
+   "variantlar": "A) 0,5 B) 0,35 C) 1,6 D) 0,25"
+  },
+  {
+   "savol": "12. Har biri 10 g bo'lgan mis elektrodlar mis (II)–xlorid eritmasiga tushirildi va o'zgarmas tok o'tkazildi. Bir necha vaqtdan so'ng katod olindi va nitrat kislotada eritildi, keyin unga natriy ishqori qo'shildi. Shunda 19,6 g massali cho'kma ajraldi. Elektrolizdan so'ng anodning massasini (g) aniqlang.",
+   "variantlar": "A) 8,4 B) 7,2 C) 12,8 D) 8"
+  },
+  {
+   "savol": "13. Mis (II)–sulfat eritmasi bir xil massali mis elektrodlar bilan elektroliz qilindi. Agar katod va anodning massalari farqi 76,8 g ga teng bo'lsa, sarflangan faraday miqdorini toping.",
+   "variantlar": "A) 1,5 B) 2,4 C) 3 D) 1,2"
+  },
+  {
+   "savol": "14. 2 mol natriy bromid va 3 mol natriy yodid saqlagan eritmalar ketma–ket ulangan elektrolizyorlarga solinib, ular orqali o'zgarmas tok o'tkazilganda ikkinchi eritmadan 381 g yod ajraldi. Birinchi elektrolizyordagi katod va anodda hosil bo'lgan moddalar massalari yig'indisini (g) hisoblang.",
+   "variantlar": "A) 180 B) 171 C) 166,5 D) 162"
+  },
+  {
+   "savol": "15. 250 g 19,5% li simob (II)–nitrat eritmasi elektroliz qilinganda, eritma massasi 50,55 g ga kamaydi. Elektroliz jarayonida ishtirok etgan suv massasini (g) hisoblang.",
+   "variantlar": "A) 11,7 B) 12,6 C) 20,7 D) 19,8"
+  },
+  {
+   "savol": "16. 250 g mis (II)–sulfat eritmasi 0,5 F tok bilan elektroliz qilindi. Natijada anodda ajralgan moddalar massasi katodda ajralgan moddalar massasidan 1,675 marta kam bo'lsa, necha foizli eritma elektroliz jarayoniga uchragan?",
+   "variantlar": "A) 6,4 B) 9,6 C) 12,8 D) 16"
+  },
+  {
+   "savol": "17. Mis (II)–sulfat eritmasi tuz tugaguncha elektroliz qilinganda eritma massasi 2/29 qismga kamaydi. Dastlabki eritma konsentratsiyasini (mol/kg) aniqlang.",
+   "variantlar": "A) 1,5 B) 2 C) 1 D) 2,5"
+  },
+  {
+   "savol": "18. NaCl ning 30% li suvli eritmasi tuz tugaguncha elektroliz qilinib, anodda ajralgan gaz kaliy bromid eritmasiga yuttirildi. Hosil bo'lgan eritmani to'liq rangsizlantirish uchun 12,8 g sulfit angidrid sarflansa, dastlabki natriy xlorid eritmasining massasini (g) hisoblang.",
+   "variantlar": "A) 78 B) 156 C) 117 D) 58,5"
+  },
+  {
+   "savol": "19. CuSO₄ eritmasi elektroliz qilinganda 22,4 litr (n.sh.) vodorod va 16,8 litr (n.sh.) kislorod ajraldi. Hosil bo'lgan eritmaning konsentratsiyasi 2 mol/kg bo'lsa, dastlabki CuSO₄ eritmasining massasini (g) aniqlang.",
+   "variantlar": "A) 357 B) 250 C) 339 D) 290"
+  },
+  {
+   "savol": "20. 400 ml (ρ = 1,2 g/ml) 0,75 M li Na₂SO₄ eritmasiga 147 ml suv qo'shildi va 7,5 A tok kuchi bilan elektroliz qilinganda 7,1 % li eritma hosil bo'ldi. Eritma necha sekund davomida elektroliz qilingan?",
+   "variantlar": "A) 19300 B) 38600 C) 48250 D) 96500"
+  },
+  {
+   "savol": "21. KCl eritmasi elektroliz qilindi va hosil bo'lgan eritmaga 0,75 mol/l li 400 ml sulfat kislota qo'shilganda 1:1 nisbatda kaliy gidrosulfat va kaliy sulfat hosil bo'ldi. Elektroliz uchun 7,5 A tok ishlatilgan bo'lsa, sarflangan vaqtni (s) hisoblang.",
+   "variantlar": "A) 2895 B) 5790 C) 3860 D) 4825"
+  },
+  {
+   "savol": "22. 100 g 32 % li mis (II)–sulfat eritmasi massalari 15 g dan bo'lgan elektrodlar (grafit) ishtirokida 2 F tok bilan elektroliz qilindi. Anodda ajralgan gazning 50% i elektrodni oksidlashga sarflandi. Anod ajratib olinib konsentrlangan nitrat kislota eritmasida eritilganda necha litr (n.sh) gazlar ajraladi?",
+   "variantlar": "A) 5 B) 2 C) 3 D) 4"
+  },
+  {
+   "savol": "23. Cu²⁺ va Xⁿ⁺ ionlari saqlagan suyuqlanmalar solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 57,6 g mis va ikkinchi idish katodida 33,6 g X ajralgan bo'lsa, n–ning qiymatini aniqlang.",
+   "variantlar": "A) 3 B) 1 C) 2 D) 4"
+  },
+  {
+   "savol": "24. FeSO₄ eritmasi inert elektrodlar bilan elektroliz qilinganda katod massasi 14 grammga ortib, eritma massasi 27 grammga kamaygan bo'lsa, eritmadan necha farad (F) tok o'tgan?",
+   "variantlar": "A) 2 B) 1,5 C) 1 D) 0,5"
+  },
+  {
+   "savol": "25. 200 g mis (II)–sulfat eritmasi 0,8 F tok bilan elektroliz qilinganda (D(H₂) = 8,5) bo'lgan gazlar aralashmasi olindi. Dastlabki eritmaning foiz konsentratsiyasini aniqlang.",
+   "variantlar": "A) 8 B) 24 C) 32 D) 16"
+  },
+  {
+   "savol": "26. 1,5 M li mis (II)–nitrat eritmasi mo'l miqdorda tok bilan elektroliz qilinganda 4 M li eritma hosil bo'ldi. Agar dastlabki eritma massasi 40 g ga kamaygan bo'lsa, elektrolizdan so'ng qancha (g) eritma qolganligini aniqlang. (jarayonda eritma zichligi o'zgarmagan deb hisoblang)",
+   "variantlar": "A) 80 B) 160 C) 40 D) 120"
+  },
+  {
+   "savol": "27. XBr₂ va YBr₃ suyuqlanmalari solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 3,6 mol X va ikkinchi idish katodida 134,4 g Y hosil bo'ldi. Y elementning nisbiy atom massasini aniqlang.",
+   "variantlar": "A) 70 B) 84 C) 27 D) 56"
+  },
+  {
+   "savol": "28. XCl₂ va YCl₃ suyuqlanmalari solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 2,7 mol X va ikkinchi idish katodida 100,8 g Y hosil bo'ldi. Y elementning nisbiy atom massasini aniqlang.",
+   "variantlar": "A) 70 B) 27 C) 56 D) 84"
+  },
+  {
+   "savol": "29. Mis (II)–xlorid va oltin (III)–xlorid eritmalari solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 38,4 g mis ajralgan bo'lsa, ikkinchi idish katodida necha gramm oltin ajralgan?",
+   "variantlar": "A) 177,3 B) 78,8 C) 59,1 D) 118,2"
+  },
+  {
+   "savol": "30. Mis (II)–xlorid va temir (III)–xlorid suyuqlanmalari solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 19,2 g mis ajralgan bo'lsa, ikkinchi idish katodida necha gramm temir ajralgan?",
+   "variantlar": "A) 5,6 B) 11,2 C) 22,4 D) 16,8"
+  },
+  {
+   "savol": "31. Cu²⁺ va Xⁿ⁺ ionlari saqlagan eritmalar solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 38,4 g mis va ikkinchi idish katodida 129,6 g X ajralgan bo'lsa, n ning qiymatini aniqlang.",
+   "variantlar": "A) 3 B) 1 C) 2 D) 4"
+  },
+  {
+   "savol": "32. Fe³⁺ va Xⁿ⁺ ionlari saqlagan suyuqlanmalar solingan idishlar ketma–ket tok manbaiga ulangan. Birinchi idish katodida 16,8 g temir va ikkinchi idish katodida 50,4 g X ajralgan bo'lsa, n ning qiymatini aniqlang.",
+   "variantlar": "A) 1 B) 3 C) 2 D) 4"
+  },
+  {
+   "savol": "33. Mis (II)–xlorid va temir (III)–xlorid eritmalari solingan idishlar ketma–ket tok manbaiga ulangan. Anodlarda jami 1,8 mol xlor ajralib chiqqan bo'lsa, birinchi idish katodida necha gramm mis ajralgan?",
+   "variantlar": "A) 14,4 B) 57,6 C) 28,8 D) 38,4"
+  },
+  {
+   "savol": "34. 300 ml 1 M li CuSO₄ eritmasi grafit elektrodlar yordamida Cu²⁺ ionlari to'liq chiqib ketgunga qadar elektroliz qilindi. Ajratib olingan katodni to'liq eritish uchun 235,2 g sulfat kislota tutgan (konsentrlangan) eritma sarf bo'ldi. Bunda 67,2 litr (n.sh) gaz ajralgan bo'lsa, dastlabki katod massasi necha gramm bo'lgan?",
+   "variantlar": "A) 9,6 B) 12 C) 8,4 D) 10,8"
+  },
+  {
+   "savol": "35. 400 g 16% li CuSO₄ eritmasi elektroliz qilinganda anodda (inert elektrod) 17,92 litr (n.sh.) gaz ajraldi. Elektroliz uchun sarflangan tok miqdorini (F) aniqlang.",
+   "variantlar": "A) 3,2 B) 3 C) 1,6 D) 1,5"
+  },
+  {
+   "savol": "36. Tarkibida mis (II)–nitrat va kumush nitrat bo'lgan 400 ml eritma orqali 3860 Q elektr zaryadi o'tkazildi. Katodda har ikki metaldan hammasi bo'lib 2,8 g ajralib chiqdi. Boshlang'ich eritmadagi mis (II)–nitratning konsentratsiyasini (mol/l) hisoblang.",
+   "variantlar": "A) 0,01 B) 0,05 C) 0,02 D) 0,025"
+  },
+  {
+   "savol": "37. 500 ml 0,1 molyarli Cu(NO₃)₂ va 400 ml 0,2 molyarli AgNO₃ eritmalarining aralashmasi 5 A tok kuchi bilan elektroliz qilindi. Elektroliz tugagandan keyin eritmada 7,52 g tuz qolgan bo'lsa, sarflangan vaqtni (s) hisoblang.",
+   "variantlar": "A) 1930 B) 3860 C) 965 D) 2895"
+  },
+  {
+   "savol": "38. 480 g x% li CuSO₄ eritmasi elektroliz qilinganda tarkibida 20 % sulfat ionini saqlovchi eritma hosil bo'ldi. Agar hosil bo'lgan eritmada SO₄²⁻ va Cu²⁺ ionlari soni nisbati 3:1 bo'lsa, eritmadan necha faradey tok o'tganini aniqlang.",
+   "variantlar": "A) 1,6 B) 1,2 C) 0,6 D) 0,8"
+  },
+  {
+   "savol": "39. 588 g 15% li xrom (III)–sulfat eritmasi elektroliz qilinganda inert elektrodlarda 10,08 litr (n.sh.) gaz ajraldi va 569,2 g eritma olindi. Elektrolizdan so'ng eritmada necha gramm tuz mavjud?",
+   "variantlar": "A) 39,2 B) 24,5 C) 19,6 D) 49"
+  }
+ ]
+}
