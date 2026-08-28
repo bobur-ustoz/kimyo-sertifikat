@@ -164,6 +164,7 @@ def main():
     raw_name = d.get("variant", "variant")
     digits = "".join(ch for ch in raw_name if ch.isdigit())
     display_name = f"{int(digits)}-VARIANT" if digits else raw_name.upper()
+    verify_script = f"verify_{raw_name}.py" if raw_name else "verify_v02.py"
 
     counts = {"Y1": 0, "Y2": 0, "O1": 0, "O2": 0}
     for s in S:
@@ -179,6 +180,7 @@ def main():
            .replace("__VARIANT_NAME__", e(display_name))
            .replace("__STRUCT__", f'{counts["Y1"]} Y1 &middot; {counts["Y2"]} Y2 &middot; {counts["O1"]} O1 &middot; {counts["O2"]} O2')
            .replace("__SRC__", e(os.path.relpath(json_path, REPO)))
+           .replace("__VERIFY_SCRIPT__", e(verify_script))
            .replace("__TEST_CONTENT__", build_test_html(S))
            .replace("__ANSWERS_CONTENT__", build_answers_html(S))
            .replace("__KATEX_CSS__", katex_css)
