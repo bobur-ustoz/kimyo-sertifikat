@@ -17,6 +17,7 @@ Ishlatish:
 import json
 import html
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -162,9 +163,12 @@ def main():
     S = d["savollar"]
 
     raw_name = d.get("variant", "variant")
-    digits = "".join(ch for ch in raw_name if ch.isdigit())
-    display_name = f"{int(digits)}-VARIANT" if digits else raw_name.upper()
-    verify_script = f"verify_{raw_name}.py" if raw_name else "verify_v02.py"
+    m = re.fullmatch(r"v0*(\d+)", raw_name)
+    if m:
+        display_name = f"{int(m.group(1))}-VARIANT"
+    else:
+        display_name = raw_name.replace("_", " ").replace("-", " ").upper()
+    verify_script = f"verify_{raw_name.replace('-', '_')}.py" if raw_name else "verify_v02.py"
 
     counts = {"Y1": 0, "Y2": 0, "O1": 0, "O2": 0}
     for s in S:

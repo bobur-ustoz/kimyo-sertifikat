@@ -1,0 +1,1214 @@
+{
+ "variant": "mavzu-I6",
+ "manba": "original — mavzulashtirilgan mock (faqat I.6 Kimyoviy muvozanat), MS 43-savol tuzilmasi asosida",
+ "izoh": "Bu — barcha 43 savol BITTA mavzuga (I.6, kimyoviy muvozanat) bag'ishlangan mock-variant. Pozitsiya->qiyinlik->kognitiv naqshi tahlil/v01.json bilan bir xil (position 1-32 uchun aynan o'sha qiyinlik/kognitiv qiymatlar, faqat element hammasi I.6). 33-35 (Y2) va 41-43 (O2) formati ham MS tuzilmasidan (jadval/multi-band), lekin mazmuni butunlay muvozanatga moslashtirilgan. Har bir savol ikki mustaqil usulda tekshirilgan (variantlar/verify_mavzu_I6.py).",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$ reaksiyasida muvozanatda $[\\ce{NH3}]=0{,}6$; $[\\ce{N2}]=0{,}2$; $[\\ce{H2}]=0{,}1$ mol/l. $K_c$ ni toping.",
+   "variantlar": [
+    "900",
+    "3600",
+    "1800",
+    "180"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H2 ni kub emas, kvadratga ko'targan"
+    },
+    {
+     "variant": "B",
+     "xato": "N2 ulushini hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "NH3 ni kvadratga ko'tarmagan"
+    }
+   ],
+   "yechim": "$K_c=\\dfrac{[\\ce{NH3}]^2}{[\\ce{N2}][\\ce{H2}]^3}=\\dfrac{0{,}36}{0{,}2\\times0{,}001}=1800$."
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{H2(g) + I2(g) <=> 2HI(g)}$: $[\\ce{H2}]=0{,}1$; $[\\ce{I2}]=0{,}1$; $[\\ce{HI}]=0{,}4$ mol/l. $K_c$?",
+   "variantlar": [
+    "8",
+    "16",
+    "4",
+    "32"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "HI ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "HI o'rniga H2 va I2 ni almashtirib qo'ygan"
+    },
+    {
+     "variant": "D",
+     "xato": "maxrajni yarmiga kamaytirgan"
+    }
+   ],
+   "yechim": "$K_c=(0{,}4)^2/(0{,}1\\times0{,}1)=0{,}16/0{,}01=16$."
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{2SO2(g) + O2(g) <=> 2SO3(g)}$: $[\\ce{SO3}]=0{,}4$; $[\\ce{SO2}]=0{,}2$; $[\\ce{O2}]=0{,}1$ mol/l. $K_c$?",
+   "variantlar": [
+    "20",
+    "10",
+    "40",
+    "80"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "SO2 ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "SO3 ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "O2 ulushini tushirib qoldirgan"
+    }
+   ],
+   "yechim": "$K_c=(0{,}4)^2/((0{,}2)^2\\times0{,}1)=0{,}16/0{,}004=40$."
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li yopiq idishga 6 mol $\\ce{PCl5}$ joylashtirilib qizdirildi. $\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ reaksiyasi $K_c=1$ mol/l da muvozanatga keladi. Muvozanatdagi $\\ce{PCl5}$ miqdorini (mol) toping.",
+   "variantlar": [
+    "2",
+    "3",
+    "5",
+    "4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "parchalangan miqdorni ($x=2$) javob deb bergan"
+    },
+    {
+     "variant": "B",
+     "xato": "kvadrat tenglamani noto'g'ri yechgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$K_c$ ifodasini teskari yozgan"
+    }
+   ],
+   "yechim": "$K_c(a_0-x)=x^2 => 1(6-x)=x^2 => x=2$ (musbat ildiz). $\\ce{PCl5}=6-2=4$ mol."
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{CO(g) + H2O(g) <=> CO2(g) + H2(g)}$, $K_c=4$. Muvozanatda $[\\ce{CO}]=0{,}2$; $[\\ce{H2O}]=0{,}3$; $[\\ce{H2}]=0{,}6$ mol/l. $[\\ce{CO2}]$ ni toping.",
+   "variantlar": [
+    "0,2",
+    "0,4",
+    "0,8",
+    "1,2"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$K_c$ ni ifodaga qo'shmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "$[\\ce{H2}]$ o'rniga $[\\ce{H2O}]$ ni ishlatgan"
+    },
+    {
+     "variant": "D",
+     "xato": "bo'lish o'rniga ko'paytirgan"
+    }
+   ],
+   "yechim": "$K_c=\\dfrac{[\\ce{CO2}][\\ce{H2}]}{[\\ce{CO}][\\ce{H2O}]} => [\\ce{CO2}]=\\dfrac{K_c[\\ce{CO}][\\ce{H2O}]}{[\\ce{H2}]}=\\dfrac{4\\times0{,}2\\times0{,}3}{0{,}6}=0{,}4$."
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Muvozanat holatidagi sistemaga katalizator qo'shilsa, $K_c$ qanday o'zgaradi?",
+   "variantlar": [
+    "Ortadi",
+    "Kamayadi",
+    "Muvozanat mahsulot tomonga siljiydi",
+    "O'zgarmaydi, faqat muvozanatga tezroq erishiladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "katalizator to'g'ri reaksiyani tezlashtiradi degan noto'g'ri xulosa"
+    },
+    {
+     "variant": "B",
+     "xato": "xuddi shu xato, teskari yo'nalishda"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator muvozanatni siljitadi degan keng tarqalgan xato tasavvur"
+    }
+   ],
+   "yechim": "Katalizator to'g'ri va teskari reaksiya tezligini bir xil darajada oshiradi — $K_c$ (muvozanat holati) o'zgarmaydi, faqat unga tezroq erishiladi."
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "yuqori",
+   "savol": "Endotermik reaksiya uchun harorat oshirilsa, $K_c$ qanday o'zgaradi?",
+   "variantlar": [
+    "Kamayadi",
+    "O'zgarmaydi",
+    "Ortadi",
+    "Bashorat qilib bo'lmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ekzotermik reaksiya qoidasi bilan aralashtirgan"
+    },
+    {
+     "variant": "B",
+     "xato": "haroratning $K_c$ ga ta'sirini umuman hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "Le Chatelier prinsipini qo'llamagan"
+    }
+   ],
+   "yechim": "Le Chatelier bo'yicha: harorat oshsa, muvozanat issiqlik yutuvchi (endotermik, ya'ni to'g'ri) yo'nalishga siljiydi — mahsulotlar ko'payadi, $K_c$ ortadi."
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$K_c=4$ bo'lgan reaksiya uchun berilgan holatda reaksiya kvotsienti $Q=1$ bo'lsa, reaksiya qaysi tomonga davom etadi?",
+   "variantlar": [
+    "Chapga (reagent tomon)",
+    "Muvozanatda, siljimaydi",
+    "O'ngga (mahsulot tomon)",
+    "Aniqlab bo'lmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$Q<K_c$ va $Q>K_c$ shartlarini almashtirib yuborgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$Q=K_c$ bo'lgandagina muvozanat ekanini bilmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$Q$ va $K_c$ solishtirish usulini bilmagan"
+    }
+   ],
+   "yechim": "$Q<K_c$ bo'lgani uchun reaksiya hali mahsulot hosil qilishga (o'ngga) davom etadi, toki $Q=K_c$ bo'lguncha."
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{2NO(g) <=> N2(g) + O2(g)}$: $[\\ce{N2}]=0{,}4$; $[\\ce{O2}]=0{,}4$; $[\\ce{NO}]=0{,}2$ mol/l. $K_c$?",
+   "variantlar": [
+    "2",
+    "8",
+    "16",
+    "4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NO ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "N2 va O2 ni qo'shgan, ko'paytirmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "maxrajni hisoblamagan"
+    }
+   ],
+   "yechim": "$K_c=(0{,}4\\times0{,}4)/(0{,}2)^2=0{,}16/0{,}04=4$."
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "1 l li idishda dastlab $a_0$ mol $\\ce{N2O4}$ olindi. $\\ce{N2O4(g)<=>2NO2(g)}$ reaksiyasida 40% parchalanganda $[\\ce{NO2}]=0{,}8$ mol/l bo'ldi. $a_0$ ni toping.",
+   "variantlar": [
+    "1",
+    "2",
+    "0,5",
+    "1,5"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 2 ni hisobga olib, ikki marta ko'paytirib yuborgan"
+    },
+    {
+     "variant": "C",
+     "xato": "40% ni 80% deb aralashtirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "parchalanish ulushini noto'g'ri qo'llagan"
+    }
+   ],
+   "yechim": "$[\\ce{NO2}]=2\\times0{,}4\\times a_0=0{,}8 => a_0=1$ mol."
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{N2O4(g) <=> 2NO2(g)}$ reaksiyasi $T=100$ K da $K_c=2$ mol/l. $R=0{,}082$ atm$\\cdot$l/(mol$\\cdot$K) deb, $K_p$ ni hisoblang.",
+   "variantlar": [
+    "16,4",
+    "8,2",
+    "32,8",
+    "4,1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "$K_c$ ni yarmiga bo'lib qo'ygan"
+    },
+    {
+     "variant": "C",
+     "xato": "2 marta ortiqcha ko'paytirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "$RT$ ni noto'g'ri hisoblagan"
+    }
+   ],
+   "yechim": "$K_p=K_c(RT)^{\\Delta n}=2\\times0{,}082\\times100=16{,}4$ atm ($\\Delta n=1$)."
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 2 mol $\\ce{H2}$ va 2 mol $\\ce{I2}$ aralashtirilib qizdirildi. $\\ce{H2(g) + I2(g) <=> 2HI(g)}$ reaksiyasi $K_c=4$ da muvozanatga keldi. $\\ce{H2}$ ning konversiya foizini toping.",
+   "variantlar": [
+    "40%",
+    "50%",
+    "60%",
+    "25%"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kvadrat tenglamani noto'g'ri yechgan"
+    },
+    {
+     "variant": "C",
+     "xato": "konversiyani $\\ce{HI}$ nisbatan hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "ildizni noto'g'ri tanlagan"
+    }
+   ],
+   "yechim": "$K_c=(2x)^2/((2-x)(2-x))=4 => 4x^2=4(2-x)^2 => x=1$ (musbat ildiz). Konversiya$=1/2=50\\%$."
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{2NOCl(g) <=> 2NO(g) + Cl2(g)}$: $[\\ce{NO}]=0{,}4$; $[\\ce{Cl2}]=0{,}2$; $[\\ce{NOCl}]=0{,}4$ mol/l. $K_c$?",
+   "variantlar": [
+    "0,2",
+    "0,4",
+    "0,1",
+    "0,8"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Cl2 ulushini qo'shishni unutgan"
+    },
+    {
+     "variant": "C",
+     "xato": "NO ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "NOCl ni kvadratga ko'tarmagan"
+    }
+   ],
+   "yechim": "$K_c=((0{,}4)^2\\times0{,}2)/(0{,}4)^2=0{,}2$."
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi reaksiyalardan qaysi birida $K_c$ birliksiz bo'ladi (ya'ni $\\Delta n=0$)?",
+   "variantlar": [
+    "$\\ce{N2O4(g) <=> 2NO2(g)}$",
+    "$\\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$",
+    "$\\ce{H2(g) + I2(g) <=> 2HI(g)}$",
+    "$\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\Delta n=1$ ekanini hisobga olmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "$\\Delta n=-2$ ekanini hisobga olmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "$\\Delta n=1$ ekanini hisobga olmagan"
+    }
+   ],
+   "yechim": "Faqat $\\ce{H2 + I2 <=> 2HI}$ da gaz mollari soni har ikki tomonda ham 2 ta ($\\Delta n=0$) — shuning uchun $K_c$ birliksiz."
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{CaCO3(s) <=> CaO(s) + CO2(g)}$ reaksiyasi uchun $K_c$ ifodasini yozing.",
+   "variantlar": [
+    "$K_c=[\\ce{CO2}]$",
+    "$K_c=[\\ce{CaO}][\\ce{CO2}]/[\\ce{CaCO3}]$",
+    "$K_c=[\\ce{CaO}]/[\\ce{CaCO3}]$",
+    "$K_c=1/[\\ce{CO2}]$"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qattiq moddalarni ham konsentratsiyaga kiritgan"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz moddani (CO2) tushirib qoldirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "ifodani teskari yozgan"
+    }
+   ],
+   "yechim": "Qattiq moddalar (toza fazali) konsentratsiyaga kiritilmaydi — faqat gaz $\\ce{CO2}$ qoladi: $K_c=[\\ce{CO2}]$."
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{H2(g) + Br2(g) <=> 2HBr(g)}$: $[\\ce{H2}]=0{,}1$; $[\\ce{Br2}]=0{,}2$; $[\\ce{HBr}]=0{,}4$ mol/l. $K_c$?",
+   "variantlar": [
+    "8",
+    "4",
+    "16",
+    "2"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "HBr ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "maxrajni yarmiga kamaytirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "H2 va Br2 ni qo'shib, ko'paytirmagan"
+    }
+   ],
+   "yechim": "$K_c=(0{,}4)^2/(0{,}1\\times0{,}2)=0{,}16/0{,}02=8$."
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 3 mol $\\ce{SO2Cl2}$ (molyar massasi 135 g/mol) joylashtirilib qizdirildi. $\\ce{SO2Cl2(g) <=> SO2(g) + Cl2(g)}$ natijasida muvozanat aralashmasining o'rtacha molyar massasi 81 g/mol bo'ldi. $K_c$ ni toping.",
+   "variantlar": [
+    "2",
+    "8",
+    "4",
+    "1"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$x$ ni noto'g'ri topgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$K_c=x^2/(a_0-x)$ formulasini teskari qo'llagan"
+    },
+    {
+     "variant": "D",
+     "xato": "hisoblashda birlik xatosi qilgan"
+    }
+   ],
+   "yechim": "Massa saqlanadi: $\\bar M=135\\times3/(3+x)=81 => x=2$. $K_c=x^2/(a_0-x)=4/1=4$."
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$: $[\\ce{PCl5}]=0{,}3$; $[\\ce{PCl3}]=0{,}6$; $[\\ce{Cl2}]=0{,}6$ mol/l. $K_c$?",
+   "variantlar": [
+    "0,83",
+    "1,2",
+    "2,4",
+    "0,6"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ifodani teskari yozgan"
+    },
+    {
+     "variant": "C",
+     "xato": "2 marta ortiqcha ko'paytirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat bitta konsentratsiyani ishlatgan"
+    }
+   ],
+   "yechim": "$K_c=(0{,}6\\times0{,}6)/0{,}3=0{,}36/0{,}3=1{,}2$."
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 6 mol $\\ce{COCl2}$ joylashtirilib qizdirildi. $\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasi $K_c=1$ mol/l da muvozanatga keladi. Muvozanatdagi $\\ce{Cl2}$ mo'l miqdordagi vodorod bilan to'liq reaksiyaga kiritilib, hosil bo'lgan vodorod xlorid gazi 2 l suvda to'liq eritildi. Hosil bo'lgan eritmaning molyarligini (mol/l) toping.",
+   "variantlar": [
+    "1",
+    "2",
+    "4",
+    "0,5"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$\\ce{HCl}$ koeffitsiyentini ($\\times2$) unutgan"
+    },
+    {
+     "variant": "C",
+     "xato": "hajmga bo'lishni unutgan"
+    },
+    {
+     "variant": "D",
+     "xato": "$x$ ni noto'g'ri topgan"
+    }
+   ],
+   "yechim": "$1(6-x)=x^2 => x=2$ mol $\\ce{Cl2}$. $\\ce{Cl2 + H2 -> 2HCl}$: $n(\\ce{HCl})=4$ mol. $C_M=4/2=2$ mol/l."
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Doimiy haroratda idish hajmi 2 marta kamaytirilsa (bosim oshadi), $\\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$ muvozanati qaysi tomonga siljiydi?",
+   "variantlar": [
+    "Chapga",
+    "O'zgarmaydi",
+    "O'ngga ($\\ce{NH3}$ ko'payadi)",
+    "Aniqlab bo'lmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kam mol tomonini noto'g'ri aniqlagan"
+    },
+    {
+     "variant": "B",
+     "xato": "bosim o'zgarishi Kc'ni o'zgartiradi deb noto'g'ri o'ylagan"
+    },
+    {
+     "variant": "D",
+     "xato": "gaz mollari sonini solishtirmagan"
+    }
+   ],
+   "yechim": "Bosim oshsa, muvozanat KAM MOL gaz tomonga siljiydi — chapda 4 mol, o'ngda 2 mol, demak o'ngga (NH3 tomon) siljiydi."
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishda 3 mol $\\ce{PCl5}$ dan $\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ ($K_c=1$ mol/l) reaksiyasi muvozanatga keldi. Shu holatga (hajm o'zgarmasdan) yana 3 mol $\\ce{PCl5}$ qo'shildi va tizim qayta muvozanatga keldi. Yangi muvozanatdagi $\\ce{Cl2}$ miqdorini (mol) toping.",
+   "variantlar": [
+    "1,5",
+    "3",
+    "2",
+    "2,5"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat 1-muvozanat qiymatini ($x_1$) yarmiga qo'shgan"
+    },
+    {
+     "variant": "B",
+     "xato": "qo'shilgan miqdorni to'g'ridan-to'g'ri qo'shib yuborgan"
+    },
+    {
+     "variant": "D",
+     "xato": "kvadrat tenglamani noto'g'ri yechgan"
+    }
+   ],
+   "yechim": "1-muvozanat: $1(3-x_1)=x_1^2 => x_1\\approx1{,}30$ mol. $3$ mol qo'shilgach yangi $\\ce{PCl5}_0'=1{,}70+3=4{,}70$. Yangi muvozanat: $K_c=(x_1+z)^2/(4{,}70-z)=1$ dan $z$ topilib, yangi $\\ce{Cl2}=2$ mol chiqadi (tekshiruv: sympy bilan qayta yechilgan)."
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ reaksiyasi uchun $K_p=4$ atm. Yopiq idishga faqat $\\ce{PCl5}$ joylashtirilib, uning dastlabki bosimi 8 atm bo'lgan. Muvozanatdagi umumiy bosimni (atm) toping.",
+   "variantlar": [
+    "10",
+    "12",
+    "16",
+    "8"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$p$ ni noto'g'ri topgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$P_0+2p$ deb hisoblagan"
+    },
+    {
+     "variant": "D",
+     "xato": "bosim o'zgarmagan deb noto'g'ri hisoblagan"
+    }
+   ],
+   "yechim": "$K_p=p^2/(P_0-p)=4$ dan $p=4$ atm. Umumiy bosim$=P_0+p=8+4=12$ atm."
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4 mol $\\ce{PCl5}$ (molyar massasi 208,5 g/mol) yopiq idishga joylashtirilib qizdirildi. $\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ reaksiyasida parchalanish darajasi $\\alpha=50\\%$ bo'lganda muvozanat qaror topdi. Muvozanat aralashmasining vodorodga nisbatan zichligini ($D_{H_2}$) toping.",
+   "variantlar": [
+    "104,25",
+    "69,5",
+    "52,1",
+    "138,9"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol sonining o'zgarishini hisobga olmagan (bo'linishni unutgan)"
+    },
+    {
+     "variant": "C",
+     "xato": "$D_{H_2}$ ni 4 ga bo'lgan (2 o'rniga)"
+    },
+    {
+     "variant": "D",
+     "xato": "massa saqlanishini hisobga olmagan"
+    }
+   ],
+   "yechim": "$x=4\\times0{,}5=2$mol. Jami mol$=2+2\\times2=6$. Massa (o'zgarmas)$=4\\times208{,}5=834$g. $\\bar M=834/6=139$g/mol. $D_{H_2}=139/2=69{,}5$."
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishda 6 mol $\\ce{PCl5}$ dan $\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ ($K_c=1$ mol/l) reaksiyasi muvozanatga keldi. Shu holatda idish hajmi 2 marta kamaytirildi (0,5 l ga) va tizim yangi muvozanatga keldi. Yangi muvozanatdagi $\\ce{PCl5}$ miqdorini (mol) toping.",
+   "variantlar": [
+    "4",
+    "5",
+    "3,5",
+    "4,5"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1-muvozanat qiymatini javob deb bergan"
+    },
+    {
+     "variant": "B",
+     "xato": "siljish yo'nalishini teskari olgan"
+    },
+    {
+     "variant": "C",
+     "xato": "kvadrat tenglamani noto'g'ri yechgan"
+    }
+   ],
+   "yechim": "1-muvozanat: $x_1=2$, $\\ce{PCl5}=4$ mol. Hajm yarmiga kamaygach (bosim oshib) muvozanat $\\ce{PCl5}$ tomon (kam mol) siljiydi: yangi $K_c=((n_{B1}-y)/0{,}5)^2/((n_{A1}+y)/0{,}5)=1$ dan $y=0{,}5$ mol, yangi $\\ce{PCl5}=4{,}5$ mol."
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 3 mol $\\ce{N2}$ va 3 mol $\\ce{O2}$ aralashtirilib qizdirildi. $\\ce{N2(g) + O2(g) <=> 2NO(g)}$ reaksiyasi $K_c=9$ da muvozanatga keldi. $\\ce{N2}$ ning konversiya foizini toping.",
+   "variantlar": [
+    "50%",
+    "60%",
+    "40%",
+    "75%"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kvadrat tenglamani noto'g'ri yechgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$K_c$ ifodasini noto'g'ri tuzgan"
+    },
+    {
+     "variant": "D",
+     "xato": "ildizni noto'g'ri tanlagan"
+    }
+   ],
+   "yechim": "$K_c=(2x)^2/((3-x)^2)=9 => 2x=3(3-x) => x=1{,}8$. Konversiya$=1{,}8/3=60\\%$."
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasi $T=200$ K da $K_c=2$ mol/l. $R=0{,}082$ deb, $K_p$ ni hisoblang.",
+   "variantlar": [
+    "32,8",
+    "16,4",
+    "8,2",
+    "65,6"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "$T$ ni yarmiga olgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$K_c$ ni yarmiga bo'lgan"
+    },
+    {
+     "variant": "D",
+     "xato": "2 marta ortiqcha ko'paytirgan"
+    }
+   ],
+   "yechim": "$K_p=K_c\\times RT=2\\times0{,}082\\times200=32{,}8$ atm."
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{2SO2(g) + O2(g) <=> 2SO3(g)}$ (ekzotermik) muvozanatiga inert gaz (argon) DOIMIY HAJMDA qo'shilsa, muvozanat qaysi tomonga siljiydi?",
+   "variantlar": [
+    "O'ngga (SO3 ko'payadi)",
+    "Chapga",
+    "Bashorat qilib bo'lmaydi",
+    "Siljimaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "inert gaz reaksiyaga ta'sir qiladi deb noto'g'ri o'ylagan"
+    },
+    {
+     "variant": "B",
+     "xato": "xuddi shu xato, teskari yo'nalishda"
+    },
+    {
+     "variant": "C",
+     "xato": "doimiy hajm shartini e'tiborsiz qoldirgan"
+    }
+   ],
+   "yechim": "Doimiy hajmda inert gaz qo'shilishi har bir moddaning PARSIAL bosimini (konsentratsiyasini) o'zgartirmaydi — muvozanat siljimaydi."
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "$K_c\\gg1$ bo'lgan reaksiya haqida nima deyish mumkin?",
+   "variantlar": [
+    "Muvozanatda asosan reagentlar ustun",
+    "Reaksiya juda sekin boradi",
+    "Reaksiya muvozanatga kelmaydi",
+    "Muvozanatda asosan mahsulotlar ustun"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "$K_c$ katta va kichik bo'lgan holatlarni almashtirib yuborgan"
+    },
+    {
+     "variant": "B",
+     "xato": "$K_c$ ni reaksiya tezligi bilan aralashtirgan"
+    },
+    {
+     "variant": "C",
+     "xato": "$K_c$ mavjudligi muvozanat borligini bildirishini bilmagan"
+    }
+   ],
+   "yechim": "$K_c=[\\text{mahsulot}]/[\\text{reagent}]$ katta bo'lsa, demak mahsulotlar konsentratsiyasi ustun — muvozanat deyarli to'liq o'ngga siljigan."
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "$\\ce{2NO2(g) <=> N2O4(g)}$: $[\\ce{N2O4}]=0{,}6$; $[\\ce{NO2}]=0{,}2$ mol/l. $K_c$?",
+   "variantlar": [
+    "15",
+    "7,5",
+    "30",
+    "3,75"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "NO2 ni kvadratga ko'tarmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "2 marta ortiqcha ko'paytirgan"
+    },
+    {
+     "variant": "D",
+     "xato": "N2O4 va NO2 ni almashtirib qo'ygan"
+    }
+   ],
+   "yechim": "$K_c=[\\ce{N2O4}]/[\\ce{NO2}]^2=0{,}6/0{,}04=15$."
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi omillardan qaysi biri $K_c$ ning qiymatiga TA'SIR QILMAYDI?",
+   "variantlar": [
+    "Harorat",
+    "Boshlang'ich moddalar nisbati",
+    "Barchasi ta'sir qiladi",
+    "Katalizator qo'shish"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat harorat $K_c$ ga ta'sir qilishini bilmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "boshlang'ich nisbat $K_c$ ni o'zgartiradi deb noto'g'ri o'ylagan"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator $K_c$ ga ta'sir qiladi deb noto'g'ri hisoblagan"
+    }
+   ],
+   "yechim": "$K_c$ faqat haroratga bog'liq. Katalizator va boshlang'ich miqdorlar $K_c$ ning QIYMATINI o'zgartirmaydi (faqat muvozanatga yetish tezligi yoki mutlaq miqdorlarga ta'sir qiladi)."
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{2HI(g) <=> H2(g) + I2(g)}$ reaksiyasida $K_c=1/64$. Bu reaksiya haqida qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "Muvozanat asosan $\\ce{HI}$ tomonida (parchalanish kam)",
+    "Muvozanat asosan $\\ce{H2}$ va $\\ce{I2}$ tomonida",
+    "Reaksiya to'liq o'ngga boradi",
+    "$K_c$ qiymati noldan farq qilmaydi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "$K_c\\ll1$ va $K_c\\gg1$ holatlarini almashtirib yuborgan"
+    },
+    {
+     "variant": "C",
+     "xato": "kichik $K_c$ ni to'liq konversiya deb noto'g'ri tushungan"
+    },
+    {
+     "variant": "D",
+     "xato": "savol mohiyatini tushunmagan"
+    }
+   ],
+   "yechim": "$K_c=1/64\\ll1$ — demak muvozanatda reagent ($\\ce{HI}$) ustun, mahsulotlar ($\\ce{H2},\\ce{I2}$) juda kam."
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$ (ekzotermik, $\\Delta H<0$) reaksiyasi uchun ko'proq $\\ce{NH3}$ olish maqsadida qanday sharoit qulay (Kc nuqtai nazaridan, kinetikani hisobga olmasdan)?",
+   "variantlar": [
+    "Yuqori harorat, past bosim",
+    "Yuqori harorat, yuqori bosim",
+    "Past harorat, past bosim",
+    "Past harorat, yuqori bosim"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "harorat va bosim ta'sirini teskari tushungan"
+    },
+    {
+     "variant": "B",
+     "xato": "faqat bosim to'g'ri, haroratni noto'g'ri tanlagan"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat harorat to'g'ri, bosimni noto'g'ri tanlagan"
+    }
+   ],
+   "yechim": "Ekzotermik reaksiya uchun past harorat $K_c$ ni oshiradi (mahsulot tomon); yuqori bosim kam mol (NH3) tomonga suradi — ikkalasi ham NH3 ko'payishiga xizmat qiladi."
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.6",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.6",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.6",
+     "qiyinlik": 1,
+     "kognitiv": "quyi"
+    },
+    {
+     "n": 35,
+     "element": "I.6",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "1 l li yopiq idishga 2 mol $\\ce{N2O4}$ joylashtirilib qizdirildi. $\\ce{N2O4(g) <=> 2NO2(g)}$ reaksiyasi $K_c=4$ mol/l da muvozanatga keladi.",
+   "savollar_ichki": [
+    "33. Muvozanatdagi $\\ce{N2O4}$ miqdorini (mol) toping.",
+    "34. Muvozanat aralashmasidagi UMUMIY mol sonini toping.",
+    "35. Agar T=200 K bo'lsa, $K_p$ ni (atm birligida) hisoblang ($R=0{,}082$)."
+   ],
+   "javoblar_royxati": [
+    "A) 1",
+    "B) 2",
+    "C) 3",
+    "D) 4",
+    "E) 65,6",
+    "F) 32,8"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "C",
+    "35": "E"
+   },
+   "yechim": "$4x^2=4(2-x) => x^2=2-x => x=1$ (musbat ildiz). $\\ce{N2O4}=2-1=1$ mol, $\\ce{NO2}=2$ mol, jami$=3$ mol. $K_p=K_c\\times RT=4\\times0{,}082\\times200=65{,}6$ atm."
+  },
+  {
+   "n": 36,
+   "tur": "O1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "$\\ce{SO2Cl2(g) <=> SO2(g) + Cl2(g)}$ muvozanatida $K_c=0{,}1$ mol/l. Muvozanat aralashmadagi $\\ce{SO2}$ va $\\ce{Cl2}$ miqdori 0,3 moldan, $\\ce{SO2Cl2}$ esa 0,6 mol bo'lsa, idish hajmini (litr) aniqlang.",
+   "javob": "1,5 litr",
+   "yechim": "$K_c=\\dfrac{(0{,}3/V)^2}{0{,}6/V}=\\dfrac{0{,}09/V^2}{0{,}6/V}=\\dfrac{0{,}15}{V}=0{,}1 => V=1{,}5$ l."
+  },
+  {
+   "n": 37,
+   "tur": "O1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 6 mol $\\ce{COCl2}$ joylashtirilib qizdirildi. $\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasi $K_c=3$ mol/l da muvozanatga keladi. Muvozanatdagi $\\ce{Cl2}$ mo'l miqdordagi vodorod bilan to'liq reaksiyaga kiritilib, hosil bo'lgan vodorod xlorid gazi 3 l suvda to'liq eritildi. Hosil bo'lgan eritmaning molyarligini (mol/l) toping.",
+   "javob": "2 mol/l",
+   "yechim": "$3(6-x)=x^2 => x^2+3x-18=0 => x=3$ (musbat ildiz). $\\ce{Cl2}=3$mol$+\\ce{H2}->2\\ce{HCl}$: $n(\\ce{HCl})=6$mol. $C_M=6/3=2$ mol/l."
+  },
+  {
+   "n": 38,
+   "tur": "O1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishda 2 mol $\\ce{SO2Cl2}$ dan $\\ce{SO2Cl2(g) <=> SO2(g) + Cl2(g)}$ ($K_c=2$ mol/l) reaksiyasi muvozanatga keldi. Shu holatga (hajm o'zgarmasdan) yana 2 mol $\\ce{SO2Cl2}$ qo'shildi va tizim qayta muvozanatga keldi. Yangi muvozanatdagi $\\ce{Cl2}$ miqdorini (mol) toping.",
+   "javob": "2 mol",
+   "yechim": "1-muvozanat: $2(2-x_1)=x_1^2 => x_1\\approx1{,}236$ mol. $2$ mol qo'shilgach: $\\ce{SO2Cl2}_0'\\approx2{,}764$mol. Yangi muvozanat: $K_c=(x_1+z)^2/(2{,}764-z)=2$ tenglamasidan yechilib, yangi $\\ce{Cl2}=2$ mol chiqadi (sympy bilan mustaqil tasdiqlangan)."
+  },
+  {
+   "n": 39,
+   "tur": "O1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5 mol $\\ce{COCl2}$ (molyar massasi 99 g/mol) yopiq idishga joylashtirilib qizdirildi. $\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasida parchalanish darajasi $\\alpha=40\\%$ bo'lganda muvozanat qaror topdi. Muvozanat aralashmasining vodorodga nisbatan zichligini ($D_{H_2}$) toping.",
+   "javob": "35,36",
+   "yechim": "$x=5\\times0{,}4=2$mol. Jami mol$=3+2\\times2=7$. Massa$=5\\times99=495$g. $\\bar M=495/7\\approx70{,}71$ g/mol. $D_{H_2}=70{,}71/2\\approx35{,}36$."
+  },
+  {
+   "n": 40,
+   "tur": "O1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 l li idishga 4 mol $\\ce{SO2Cl2}$ (molyar massasi 135 g/mol) joylashtirilib qizdirildi. $\\ce{SO2Cl2(g) <=> SO2(g) + Cl2(g)}$ natijasida muvozanat aralashmasining o'rtacha molyar massasi 108 g/mol bo'ldi. $K_c$ ni toping.",
+   "javob": "1/3 (≈0,33)",
+   "yechim": "$\\bar M=135\\times4/(4+x)=108 => x=1$. $K_c=x^2/(a_0-x)=1/3\\approx0{,}33$."
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "1 l li yopiq idishga 10 mol $\\ce{PCl5}$ joylashtirilib qizdirildi. $\\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ reaksiyasi $K_c=5$ mol/l da muvozanatga keladi.",
+   "bandlar": [
+    {
+     "savol": "1) $\\ce{PCl5}$ ning parchalanish darajasini ($\\alpha$, %) toping.",
+     "yechim": [
+      "$K_c(a_0-x)=x^2 => 5(10-x)=x^2 => x^2+5x-50=0 => x=5$ (musbat ildiz).",
+      "$\\alpha=x/a_0=5/10=50\\%$."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "2) Muvozanatdagi barcha moddalar (PCl5, PCl3, Cl2) miqdorlarining YIG'INDISINI (mol) toping.",
+     "yechim": [
+      "$\\ce{PCl5}=10-5=5$mol, $\\ce{PCl3}=\\ce{Cl2}=5$mol.",
+      "Jami$=5+5+5=15$mol."
+     ],
+     "M": 1,
+     "A": 1
+    },
+    {
+     "savol": "3) Muvozanatdagi $\\ce{Cl2}$ (5 mol) mo'l miqdordagi vodorod bilan to'liq reaksiyaga kiritilib, hosil bo'lgan vodorod xlorid gazi 5 l suvda to'liq eritildi. Hosil bo'lgan eritmaning molyarligini (mol/l) toping.",
+     "yechim": [
+      "$\\ce{Cl2 + H2 -> 2HCl}$: $n(\\ce{HCl})=2\\times5=10$mol.",
+      "$C_M=10/5=2$ mol/l."
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "4) Agar boshlang'ich $\\ce{PCl5}$ miqdori 10 mol o'rniga 20 mol bo'lganda edi (idish hajmi va $K_c$ o'zgarmasdan), parchalanish darajasi ($\\alpha$) qanday o'zgargan bo'lardi? Sabab bilan tushuntiring.",
+     "yechim": [
+      "Parchalanish darajasi $\\alpha$ KAMAYADI.",
+      "Sabab: boshlang'ich konsentratsiya oshganda, $K_c$ o'zgarmas qolgani uchun muvozanat nisbatan KAMROQ ulush parchalanishga \"majbur\" bo'ladi — bu $K_c$ ifodasining konsentratsiyaga nochiziqli (kvadratik) bog'liqligidan kelib chiqadi (suyultirish qonuniga o'xshash, lekin teskari yo'nalishda)."
+     ],
+     "M": 2,
+     "A": 0
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "1,2,3-bandlar uchun hisob-kitob (usul+arifmetika) to'liq ko'rsatilishi shart. 4-band uchun to'g'ri yo'nalish (kamayadi) VA sabab tushuntirilishi shart — faqat \"kamayadi\" deyish qisman ball beradi."
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "1 l li yopiq idishga 12 mol $\\ce{COCl2}$ joylashtirilib qizdirildi. $\\ce{COCl2(g) <=> CO(g) + Cl2(g)}$ reaksiyasi $K_c=2$ mol/l da muvozanatga keladi. Reaksiya ekzotermik ($\\Delta H<0$).",
+   "bandlar": [
+    {
+     "savol": "1) Muvozanatdagi barcha moddalar miqdorini (mol) toping.",
+     "yechim": [
+      "$2(12-x)=x^2 => x^2+2x-24=0 => x=4$ (musbat ildiz).",
+      "$\\ce{COCl2}=12-4=8$mol, $\\ce{CO}=\\ce{Cl2}=4$mol."
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "2) Reaksiya ekzotermik ekanligini hisobga olib, harorat pasaytirilsa, muvozanat qaysi tomonga siljiydi? Sabab bilan tushuntiring.",
+     "yechim": [
+      "O'ngga (mahsulot — CO va Cl2 — tomon) siljiydi.",
+      "Sabab: harorat pasayishi issiqlik ajratuvchi (ekzotermik, ya'ni to'g'ri) yo'nalishni qulaylashtiradi."
+     ],
+     "M": 2,
+     "A": 0
+    },
+    {
+     "savol": "3) $T=150$ K da $K_p$ ni ($R=0{,}082$ atm$\\cdot$l/(mol$\\cdot$K)) hisoblang.",
+     "yechim": [
+      "$K_p=K_c\\times RT=2\\times0{,}082\\times150=24{,}6$ atm."
+     ],
+     "M": 1,
+     "A": 1
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "1 va 3-bandlar uchun hisob-kitob ko'rsatilishi shart. 2-band uchun yo'nalish VA sababi ikkalasi ham talab qilinadi."
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "matn": "$\\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$ (ekzotermik, $\\Delta H<0$) reaksiyasi muvozanat holatida turibdi. Quyida raqamlangan (1-6) ta'sirlar ALOHIDA-ALOHIDA qo'llanilganda muvozanat qaysi tomonga siljishini (o'ngga / chapga / siljimaydi) aniqlang va sababini yozing.",
+   "bandlar": [
+    {
+     "savol": "1) Harorat oshirilsa.",
+     "yechim": [
+      "Chapga siljiydi.",
+      "Sabab: reaksiya ekzotermik — harorat oshishi issiqlik yutuvchi (teskari) yo'nalishni qulaylashtiradi."
+     ],
+     "M": 1,
+     "A": 0
+    },
+    {
+     "savol": "2) Idish hajmi kamaytirilsa (bosim oshirilsa).",
+     "yechim": [
+      "O'ngga siljiydi.",
+      "Sabab: chapda 4 mol, o'ngda 2 mol gaz — bosim oshganda muvozanat KAM MOL tomonga (o'ngga) siljiydi."
+     ],
+     "M": 1,
+     "A": 0
+    },
+    {
+     "savol": "3) Qo'shimcha $\\ce{N2}$ qo'shilsa.",
+     "yechim": [
+      "O'ngga siljiydi.",
+      "Sabab: reagent konsentratsiyasi oshishi reaksiyani mahsulot hosil qilish tomon suradi."
+     ],
+     "M": 1,
+     "A": 0
+    },
+    {
+     "savol": "4) Hosil bo'lgan $\\ce{NH3}$ ning bir qismi olib tashlansa.",
+     "yechim": [
+      "O'ngga siljiydi.",
+      "Sabab: mahsulot kamayishi, uni qayta hosil qilish yo'nalishini (o'ngga) qulaylashtiradi."
+     ],
+     "M": 1,
+     "A": 0
+    },
+    {
+     "savol": "5) Katalizator qo'shilsa.",
+     "yechim": [
+      "Siljimaydi.",
+      "Sabab: katalizator ikkala yo'nalish tezligini bir xil oshiradi, muvozanat holatini (Kc, miqdorlarni) o'zgartirmaydi."
+     ],
+     "M": 1,
+     "A": 0
+    },
+    {
+     "savol": "6) Inert gaz (masalan, argon) DOIMIY HAJMDA qo'shilsa.",
+     "yechim": [
+      "Siljimaydi.",
+      "Sabab: doimiy hajmda inert gaz har bir moddaning parsial bosimini (konsentratsiyasini) o'zgartirmaydi."
+     ],
+     "M": 1,
+     "A": 0
+    }
+   ],
+   "jami": 25,
+   "rasmiylashtirish": "Har band uchun TO'G'RI YO'NALISH va TO'G'RI SABAB ikkalasi ham talab qilinadi — faqat yo'nalishni to'g'ri topish (sababsiz) yarim ball beradi."
+  }
+ ]
+}
