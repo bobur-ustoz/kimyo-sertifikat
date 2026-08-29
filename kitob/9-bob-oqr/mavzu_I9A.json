@@ -1,0 +1,1351 @@
+{
+ "variant": "mavzu-I9-A",
+ "daraja": "A",
+ "bob": 9,
+ "bob_nomi": "Oksidlanish-qaytarilish reaksiyalari",
+ "manba": "MS spetsifikatsiyasi I.9; darslik (8-9-sinf) OQR bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (olma, otashin, zang, batareyka) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq sonlar, rasmli hayotiy savollar, o'rgatuvchi chalg'ituvchilar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Oksidlanish-qaytarilish reaksiyalari deb qanday reaksiyalarga aytiladi?",
+   "variantlar": [
+    "issiqlik ajralib chiqadigan reaksiyalarga",
+    "cho'kma hosil bo'ladigan reaksiyalarga",
+    "faqat kislorod ishtirok etadigan reaksiyalarga",
+    "elementlarning oksidlanish darajalari o'zgaradigan reaksiyalarga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "issiqlik effekti OQR mezoni emas"
+    },
+    {
+     "variant": "B",
+     "xato": "cho'kma almashinishda ham hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislorodsiz OQR ham ko'p (masalan, Fe + Cl₂)"
+    }
+   ],
+   "yechim": "OQR belgisi — kamida ikkita elementning oksidlanish darajasi o'zgarishi (elektron almashinishi).",
+   "parametrlar": {
+    "arch": "oqr_tarif"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Oksidlanish jarayoni deb nimaga aytiladi?",
+   "variantlar": [
+    "zarrachaning elektron BERISHIGA",
+    "zarrachaning elektron OLISHIGA",
+    "moddaning kislorod bilan birikishiga",
+    "moddaning parchalanishiga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu qaytarilish jarayoni"
+    },
+    {
+     "variant": "C",
+     "xato": "torroq ta'rif — kislorodsiz oksidlanish ham bor"
+    },
+    {
+     "variant": "D",
+     "xato": "parchalanish alohida reaksiya turi"
+    }
+   ],
+   "yechim": "Oksidlanish — e berish (daraja ortadi); qaytarilish — e olish (daraja pasayadi).",
+   "parametrlar": {
+    "arch": "oksidlanish_tarif"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "H₂SO₄ birikmasidagi oltingugurtning oksidlanish darajasini aniqlang.",
+   "variantlar": [
+    "+4",
+    "+6",
+    "−2",
+    "+2"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "SO₂ dagi qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "H₂S dagi qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz qiymat"
+    }
+   ],
+   "yechim": "2(+1) + x + 4(−2) = 0 → x = +6.",
+   "parametrlar": {
+    "arch": "daraja_oddiy"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: kesilgan olma bir necha daqiqada qorayadi. Buning kimyoviy sababi nimada?",
+   "variantlar": [
+    "olma suvi bug'lanib ketadi",
+    "olma tarkibidagi moddalar havo kislorodi ta'sirida oksidlanadi",
+    "olma tarkibida temir zanglaydi",
+    "yorug'lik olmani kuydiradi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qurish rang o'zgarishiga bunchalik tez olib kelmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "qorayish polifenollarning oksidlanishi, temir zangi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "jarayon qorong'ida ham boradi"
+    }
+   ],
+   "yechim": "Kislorod — oksidlovchi: olma to'qimasidagi moddalarni oksidlab, qoramtir mahsulotlar hosil qiladi. Limon sharbati (vitamin C — qaytaruvchi) bu jarayonni sekinlashtiradi.",
+   "parametrlar": {
+    "arch": "olma_sahna"
+   },
+   "fig": "apple"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Reaksiyada QAYTARUVCHI vazifasini bajargan zarracha ...",
+   "variantlar": [
+    "elektron oladi va o'zi qaytariladi",
+    "elektron beradi va o'zi qaytariladi",
+    "elektron beradi va o'zi oksidlanadi",
+    "elektron olmaydi ham, bermaydi ham"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu oksidlovchining ta'rifi"
+    },
+    {
+     "variant": "B",
+     "xato": "e bergan zarracha oksidlanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "unda u OQR ishtirokchisi emas"
+    }
+   ],
+   "yechim": "Qaytaruvchi e beradi (o'zi oksidlanadi) va sherigini qaytaradi.",
+   "parametrlar": {
+    "arch": "qaytaruvchi_tarif"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "KMnO₄ birikmasidagi marganesning oksidlanish darajasini aniqlang.",
+   "variantlar": [
+    "+4",
+    "+7",
+    "+2",
+    "+6"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "MnO₂ dagi qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "MnSO₄ dagi qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "K₂MnO₄ dagi qiymat"
+    }
+   ],
+   "yechim": "+1 + x + 4(−2) = 0 → x = +7. Shu sababli KMnO₄ — kuchli oksidlovchi.",
+   "parametrlar": {
+    "arch": "daraja_kmno4"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Zn⁰ → Zn²⁺ o'zgarishi qanday jarayon?",
+   "variantlar": [
+    "oksidlanish — 2 ta elektron berildi",
+    "qaytarilish — 2 ta elektron olindi",
+    "almashinish",
+    "dissotsiatsiya"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "daraja ortdi (0 → +2), demak e berildi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu elektron almashinuvli yarim reaksiya"
+    },
+    {
+     "variant": "D",
+     "xato": "dissotsiatsiyada daraja o'zgarmaydi"
+    }
+   ],
+   "yechim": "Daraja 0 dan +2 ga ortdi → Zn 2e berdi → oksidlanish.",
+   "parametrlar": {
+    "arch": "jarayon_tanish"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda bayram otashini (bengal olovi) ko'rsatilgan: magniy kukuni yorqin oq alanga bilan yonadi (2Mg + O₂ → 2MgO). Bu reaksiyada magniy qanday vazifani bajaradi?",
+   "variantlar": [
+    "oksidlovchi — elektron oladi",
+    "qaytaruvchi — elektron berib oksidlanadi",
+    "katalizator — o'zi o'zgarmaydi",
+    "muhit hosil qiluvchi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "e oluvchi — kislorod"
+    },
+    {
+     "variant": "C",
+     "xato": "Mg reaksiyada MgO ga aylanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu tushuncha eritmalardagi reaksiyalarga oid"
+    }
+   ],
+   "yechim": "Mg⁰ − 2e → Mg⁺² (oksidlandi, ya'ni qaytaruvchi); O₂ + 4e → 2O⁻² (oksidlovchi). Yorug'lik — reaksiya energiyasi.",
+   "parametrlar": {
+    "arch": "otashin_sahna"
+   },
+   "fig": "firework"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "CuO + H₂ → Cu + H₂O reaksiyasida OKSIDLOVCHI qaysi modda?",
+   "variantlar": [
+    "H₂",
+    "Cu",
+    "CuO",
+    "H₂O"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod e berdi (0 → +1) — qaytaruvchi"
+    },
+    {
+     "variant": "B",
+     "xato": "mahsulot — qaytarilgan mis"
+    },
+    {
+     "variant": "D",
+     "xato": "mahsulot oksidlovchi bo'lmaydi"
+    }
+   ],
+   "yechim": "Cu⁺² + 2e → Cu⁰: mis oksidi e oldi — oksidlovchi. H₂ — qaytaruvchi.",
+   "parametrlar": {
+    "arch": "oksidlovchi_topish"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Al⁰ → Al³⁺ o'zgarishida bitta alyuminiy atomi nechta elektron beradi?",
+   "variantlar": [
+    "1",
+    "2",
+    "13",
+    "3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "guruh raqami emas, daraja farqi olinadi... aslida 3"
+    },
+    {
+     "variant": "B",
+     "xato": "Mg uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "tartib raqami bilan chalkashuv"
+    }
+   ],
+   "yechim": "Daraja 0 dan +3 ga ortdi → 3 e berildi.",
+   "parametrlar": {
+    "arch": "e_soni_oddiy"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi o'zgarishlarning qaysilari OKSIDLANISH hisoblanadi?\n1) S⁰ → S⁺⁴;  2) Cu⁺² → Cu⁰;  3) N⁻³ → N⁺².",
+   "variantlar": [
+    "faqat 1",
+    "2 va 3",
+    "1 va 3",
+    "1 va 2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3-o'zgarishda ham daraja ortgan (−3 → +2)"
+    },
+    {
+     "variant": "B",
+     "xato": "2 — qaytarilish (daraja pasaygan)"
+    },
+    {
+     "variant": "D",
+     "xato": "2 — qaytarilish"
+    }
+   ],
+   "yechim": "Oksidlanish — daraja ortishi: 1 (0→+4) va 3 (−3→+2). 2 — qaytarilish.",
+   "parametrlar": {
+    "arch": "tanlov_yengil"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ammiak (NH₃) tarkibidagi azotning oksidlanish darajasi qanday?",
+   "variantlar": [
+    "+3",
+    "0",
+    "+5",
+    "−3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ishora teskari olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "erkin azotdagi qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "nitratlardagi qiymat"
+    }
+   ],
+   "yechim": "x + 3(+1) = 0 → x = −3.",
+   "parametrlar": {
+    "arch": "daraja_nh3"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda zanglagan temir panjara ko'rsatilgan. Zanglash (korroziya) jarayonida temir qanday vazifani bajaradi?",
+   "variantlar": [
+    "oksidlovchi — elektron oladi",
+    "qaytaruvchi — elektron berib Fe⁺³ gacha oksidlanadi",
+    "katalizator",
+    "hech qanday — zanglash fizik jarayon"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "e oluvchi — havo kislorodi (nam ishtirokida)"
+    },
+    {
+     "variant": "C",
+     "xato": "temirning o'zi zangga aylanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "zanglash — tipik OQR"
+    }
+   ],
+   "yechim": "4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃: temir e beradi (qaytaruvchi), kislorod oladi (oksidlovchi).",
+   "parametrlar": {
+    "arch": "zang_sahna"
+   },
+   "fig": "fence"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Mg + O₂ → MgO reaksiyasi tenglashtirilganda barcha koeffitsiyentlar yig'indisini toping.",
+   "variantlar": [
+    "3",
+    "4",
+    "5",
+    "7"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tenglashtirilmagan holda"
+    },
+    {
+     "variant": "B",
+     "xato": "MgO oldida 1 qoldirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "ortiqcha ikkilantirilgan"
+    }
+   ],
+   "yechim": "2Mg + O₂ → 2MgO (Mg−2e ×2; O₂+4e ×1). Jami: 2+1+2 = 5.",
+   "parametrlar": {
+    "arch": "balans_oddiy"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,3 mol rux to'liq oksidlanib Zn²⁺ ga o'tganda necha mol elektron beradi?",
+   "variantlar": [
+    "0,3",
+    "1,2",
+    "0,15",
+    "0,6"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "valentlik unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "4 e deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "bo'lish xatosi"
+    }
+   ],
+   "yechim": "n(e) = 0,3·2 = 0,6 mol.",
+   "parametrlar": {
+    "arch": "e_mol_oddiy"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi reaksiyalardan qaysi biri DISPROPORSIYAGA (bir element ham oksidlanib, ham qaytarilishiga) misol?",
+   "variantlar": [
+    "Cl₂ + H₂O → HCl + HClO",
+    "Zn + 2HCl → ZnCl₂ + H₂",
+    "CaCO₃ → CaO + CO₂",
+    "Fe + S → FeS"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikki xil element almashinadi — molekulyararo"
+    },
+    {
+     "variant": "C",
+     "xato": "darajalar o'zgarmaydi — OQR emas"
+    },
+    {
+     "variant": "D",
+     "xato": "birikish, ikki xil element"
+    }
+   ],
+   "yechim": "Cl⁰ bir vaqtda −1 (HCl) va +1 (HClO) ga o'tadi — disproporsiya.",
+   "parametrlar": {
+    "arch": "disprop_misol"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Jadvalda reaksiya ishtirokchilarining darajalari berilgan:\n[JADVAL] Element | boshlang'ich | oxirgi ;; Mn | +7 | +2 ;; Fe | +2 | +3\nOKSIDLOVCHI qaysi element?",
+   "variantlar": [
+    "Fe — darajasi ortgan",
+    "ikkalasi ham",
+    "Mn — darajasi pasaygan",
+    "hech qaysi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "daraja ortishi qaytaruvchini bildiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "faqat e olgan zarracha oksidlovchi"
+    },
+    {
+     "variant": "D",
+     "xato": "Mn e oldi — u oksidlovchi"
+    }
+   ],
+   "yechim": "Mn: +7 → +2 (5 e oldi) — oksidlovchi. Fe: +2 → +3 (e berdi) — qaytaruvchi.",
+   "parametrlar": {
+    "arch": "jadval_yengil"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda cho'ntak batareykasi ko'rsatilgan: unda rux g'ilof asta-sekin yemiriladi va tok hosil bo'ladi. Rux qanday vazifani bajaradi?",
+   "variantlar": [
+    "oksidlovchi — elektron yig'adi",
+    "izolyator",
+    "katalizator",
+    "qaytaruvchi — elektron berib, tashqi zanjirga tok beradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "e beruvchi elektrod aynan rux"
+    },
+    {
+     "variant": "B",
+     "xato": "rux g'ilof elektrodning o'zi"
+    },
+    {
+     "variant": "C",
+     "xato": "rux sarflanadi — katalizator sarflanmaydi"
+    }
+   ],
+   "yechim": "Batareyka — OQRdan tok oladi: Zn⁰ − 2e → Zn⁺² (qaytaruvchi); elektronlar tashqi zanjir orqali oqadi.",
+   "parametrlar": {
+    "arch": "batareyka_sahna"
+   },
+   "fig": "battery"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Fe + Cl₂ → FeCl₃ reaksiyasi tenglashtirilganda barcha koeffitsiyentlar yig'indisini toping.",
+   "variantlar": [
+    "7",
+    "5",
+    "6",
+    "4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "FeCl₂ deb olingan (1+1+... xato)"
+    },
+    {
+     "variant": "C",
+     "xato": "Cl₂ oldida 2"
+    },
+    {
+     "variant": "D",
+     "xato": "tenglashtirilmagan"
+    }
+   ],
+   "yechim": "2Fe + 3Cl₂ → 2FeCl₃ (Fe−3e ×2; Cl₂+2e ×3). Jami: 2+3+2 = 7.",
+   "parametrlar": {
+    "arch": "balans_fecl3"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Erkin holdagi oddiy moddalarda (Cl₂, O₂, Fe) elementlarning oksidlanish darajasi qanday?",
+   "variantlar": [
+    "0",
+    "+1",
+    "−1",
+    "guruh raqamiga teng"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "birikmalardagi vodorod qiymati"
+    },
+    {
+     "variant": "C",
+     "xato": "galogenidlardagi qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "bu eng yuqori daraja, erkin holat emas"
+    }
+   ],
+   "yechim": "Oddiy moddada element «o'z-o'zi» bilan bog'langan — daraja 0.",
+   "parametrlar": {
+    "arch": "oddiy_modda"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Al + O₂ → Al₂O₃ reaksiyasi elektron balans bilan tenglashtirilganda QAYTARUVCHI oldida qanday koeffitsiyent turadi?",
+   "variantlar": [
+    "2",
+    "4",
+    "3",
+    "1"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Al₂O₃ dagi indeks"
+    },
+    {
+     "variant": "C",
+     "xato": "kislorod koeffitsiyenti"
+    },
+    {
+     "variant": "D",
+     "xato": "tenglashtirilmagan"
+    }
+   ],
+   "yechim": "Al−3e ×4; O₂+4e ×3 → 4Al + 3O₂ → 2Al₂O₃. Qaytaruvchi (Al) oldida 4.",
+   "parametrlar": {
+    "arch": "balans_al"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Kislotali muhitda 0,1 mol KMnO₄ (Mn⁺⁷ → Mn⁺²) qaytarilganda necha mol elektron oladi?",
+   "variantlar": [
+    "0,1",
+    "0,5",
+    "0,7",
+    "0,2"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "5 e ekani unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "daraja qiymati (+7) ko'paytirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "2 e deb olingan"
+    }
+   ],
+   "yechim": "Har bir Mn⁺⁷ 5 e oladi → 0,1·5 = 0,5 mol e.",
+   "parametrlar": {
+    "arch": "kmno4_e"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi o'zgarishlardan qaysi biri QAYTARILISH jarayoni?",
+   "variantlar": [
+    "S⁰ → S⁺⁴",
+    "Fe⁺² → Fe⁺³",
+    "Cu²⁺ → Cu⁰",
+    "Cl⁻ → Cl₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "daraja ortgan — oksidlanish"
+    },
+    {
+     "variant": "B",
+     "xato": "e berilgan — oksidlanish"
+    },
+    {
+     "variant": "D",
+     "xato": "daraja ortgan — oksidlanish"
+    }
+   ],
+   "yechim": "Qaytarilish — e olish, daraja pasayishi: +2 → 0.",
+   "parametrlar": {
+    "arch": "qaytarilish_tanish"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag. 0,1 mol mis reaksiyaga to'liq kirishganda necha gramm kumush ajralib chiqadi? (M(Ag)=108)",
+   "variantlar": [
+    "10,8",
+    "108",
+    "5,4",
+    "21,6"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1:1 nisbat olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,05 mol xato"
+    }
+   ],
+   "yechim": "Ag = 0,1·2 = 0,2 mol → 0,2·108 = 21,6 g.",
+   "parametrlar": {
+    "arch": "cu_ag_hisob"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi moddalardan qaysi birida element ENG YUQORI darajada bo'lib, u faqat OKSIDLOVCHI bo'la oladi?",
+   "variantlar": [
+    "MnO₂ (Mn⁺⁴)",
+    "MnSO₄ (Mn⁺²)",
+    "Mn (Mn⁰)",
+    "KMnO₄ (Mn⁺⁷)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oraliq daraja — ikkala vazifada"
+    },
+    {
+     "variant": "B",
+     "xato": "past daraja — asosan qaytaruvchi"
+    },
+    {
+     "variant": "C",
+     "xato": "metall — qaytaruvchi"
+    }
+   ],
+   "yechim": "Eng yuqori darajadagi element boshqa e ololmaydi berishga esa «yuqoriroq joy» yo'q — faqat oksidlovchi.",
+   "parametrlar": {
+    "arch": "eng_yuqori"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Alyuminiy mol soni ortib borganda u beradigan elektron mollari qanday o'zgaradi? To'g'ri grafikni tanlang.",
+   "variantlar": [
+    "o'zgarmaydi",
+    "ortib, keyin to'xtaydi",
+    "to'g'ri proporsional ortib boradi",
+    "avval ortib, keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "har mol Al 3 mol e beradi — bog'liqlik bor"
+    },
+    {
+     "variant": "B",
+     "xato": "chegara yo'q — nisbat doimiy 3"
+    },
+    {
+     "variant": "D",
+     "xato": "kamayishga sabab yo'q"
+    }
+   ],
+   "yechim": "n(e) = 3·n(Al) — noldan chiquvchi to'g'ri chiziq.",
+   "parametrlar": {
+    "arch": "grafik_proporsional"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "flat",
+    "d2": "rise_flat",
+    "d3": "rise_fall",
+    "xlab": "n(Al)",
+    "ylab": "n(e)"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "5,4 g alyuminiy to'liq oksidlanganda necha mol elektron beradi? (M(Al)=27)",
+   "variantlar": [
+    "0,2",
+    "1,8",
+    "0,4",
+    "0,6"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol sonining o'zi"
+    },
+    {
+     "variant": "B",
+     "xato": "27 ga bo'lmasdan xato"
+    },
+    {
+     "variant": "C",
+     "xato": "2 e deb olingan"
+    }
+   ],
+   "yechim": "n(Al) = 0,2 mol → e = 0,2·3 = 0,6 mol.",
+   "parametrlar": {
+    "arch": "massa_e"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "2KClO₃ →(t) 2KCl + 3O₂ reaksiyasi qaysi turdagi OQR?",
+   "variantlar": [
+    "ichki molekulyar",
+    "disproporsiya",
+    "molekulyararo",
+    "OQR emas"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Cl darajasi faqat pasaydi (+5→−1), ikkiga ajralmadi"
+    },
+    {
+     "variant": "C",
+     "xato": "oksidlovchi (Cl⁺⁵) va qaytaruvchi (O⁻²) bitta molekulada"
+    },
+    {
+     "variant": "D",
+     "xato": "Cl: +5→−1, O: −2→0 — darajalar o'zgardi"
+    }
+   ],
+   "yechim": "Oksidlovchi ham, qaytaruvchi ham KClO₃ ning ichida (Cl⁺⁵ va O⁻²) — ichki molekulyar OQR.",
+   "parametrlar": {
+    "arch": "ichki_misol"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "H₂S + O₂ → SO₂ + H₂O reaksiyasi tenglashtirilganda barcha koeffitsiyentlar yig'indisini toping.",
+   "variantlar": [
+    "9",
+    "7",
+    "5",
+    "11"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suv unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "tenglashtirilmagan yig'indi"
+    },
+    {
+     "variant": "D",
+     "xato": "ortiqcha koeffitsiyent"
+    }
+   ],
+   "yechim": "2H₂S + 3O₂ → 2SO₂ + 2H₂O (S⁻²−6e ×2; O₂+4e ×3). Jami: 2+3+2+2 = 9.",
+   "parametrlar": {
+    "arch": "balans_h2s"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Temir buyumni korroziyadan (zanglashdan) himoya qilishning qaysi usuli OKSIDLOVCHI bilan aloqani uzishga asoslangan?",
+   "variantlar": [
+    "sirtini bo'yoq bilan qoplash",
+    "buyumni tez-tez yuvib turish",
+    "buyumni qizdirish",
+    "kislota bilan artish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "nam — korroziyani tezlashtiradi"
+    },
+    {
+     "variant": "C",
+     "xato": "harorat oksidlanishni tezlashtiradi"
+    },
+    {
+     "variant": "D",
+     "xato": "kislota temirni yemiradi"
+    }
+   ],
+   "yechim": "Bo'yoq qatlami havo kislorodi va namlikni (oksidlovchilarni) metalldan ajratib turadi.",
+   "parametrlar": {
+    "arch": "himoya"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "8 g mis (II) oksidi vodorod bilan to'liq qaytarildi: CuO + H₂ → Cu + H₂O. Necha gramm mis hosil bo'ladi? (M(CuO)=80, M(Cu)=64)",
+   "variantlar": [
+    "8",
+    "6,4",
+    "3,2",
+    "12,8"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa o'zgarmaydi deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,05 mol xato"
+    },
+    {
+     "variant": "D",
+     "xato": "0,2 mol xato"
+    }
+   ],
+   "yechim": "n(CuO) = 0,1 mol → Cu = 0,1·64 = 6,4 g.",
+   "parametrlar": {
+    "arch": "cuo_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda metallarning aktivlik qatori berilgan. Undan foydalanib aniqlang: qaysi metall CuSO₄ eritmasidan misni siqib chiqara OLADI?",
+   "variantlar": [
+    "Ag",
+    "Au",
+    "Fe",
+    "Hg"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qatorda misdan keyin — mis ionini qaytara olmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "eng passiv metall"
+    },
+    {
+     "variant": "D",
+     "xato": "misdan keyin joylashgan"
+    }
+   ],
+   "yechim": "Qatorda misdan CHAP tomondagi (aktivroq) metallgina Cu²⁺ ni qaytaradi: Fe + CuSO₄ → FeSO₄ + Cu.",
+   "parametrlar": {
+    "arch": "aktivlik_oqish"
+   },
+   "fig": "activity"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.9",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.9",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.9",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.9",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Bayram otashinida 2,4 g magniy kukuni to'liq yondi: 2Mg + O₂ → 2MgO. (M(Mg)=24, M(MgO)=40.) 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Magniy bergan elektronlar necha mol?",
+    "34. Hosil bo'lgan magniy oksidining massasi (g) qancha?",
+    "35. Sarflangan kislorodning hajmi (l, n.sh.) qancha?"
+   ],
+   "javoblar_royxati": [
+    "A) 4",
+    "B) 0,2",
+    "C) 2,24",
+    "D) 1,12",
+    "E) 0,1",
+    "F) 2"
+   ],
+   "javoblar": {
+    "33": "B",
+    "34": "A",
+    "35": "D"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "C",
+     "xato": "0,1 mol O₂ deb olish xatosi (aslida 0,05)"
+    },
+    {
+     "variant": "E",
+     "xato": "Mg mol sonining o'zi"
+    },
+    {
+     "variant": "F",
+     "xato": "MgO ni 0,05 mol deb olish xatosi"
+    }
+   ],
+   "yechim": "n(Mg) = 0,1 mol. 33: e = 0,1·2 = 0,2 mol (B). 34: MgO = 0,1·40 = 4 g (A). 35: O₂ = 0,05 mol → 1,12 l (D).",
+   "parametrlar": {
+    "arch": "otashin_ssenariy",
+    "mg": 2.4
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Erkin azot (N₂) molekulasidagi azotning oksidlanish darajasini yozing.",
+   "javob": "0",
+   "yechim": "Oddiy modda — daraja 0.",
+   "parametrlar": {
+    "arch": "daraja_o1"
+   },
+   "tur": "O1",
+   "element": "I.9"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fe²⁺ → Fe³⁺ o'zgarishida temir ioni nechta elektron beradi?",
+   "javob": "1",
+   "yechim": "Daraja +2 dan +3 ga ortdi → 1 e.",
+   "parametrlar": {
+    "arch": "e_farq_o1"
+   },
+   "tur": "O1",
+   "element": "I.9"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Al + S → Al₂S₃ reaksiyasi tenglashtirilganda barcha koeffitsiyentlar yig'indisini toping.",
+   "javob": "6",
+   "yechim": "2Al + 3S → Al₂S₃ (Al−3e ×2; S+2e ×3). Jami: 2+3+1 = 6.",
+   "parametrlar": {
+    "arch": "balans_o1"
+   },
+   "tur": "O1",
+   "element": "I.9"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol magniy to'liq oksidlanganda beradigan elektron mollarini toping.",
+   "javob": "0,4",
+   "yechim": "0,2·2 = 0,4 mol e.",
+   "parametrlar": {
+    "arch": "e_mol_o1"
+   },
+   "tur": "O1",
+   "element": "I.9"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3,2 g mis AgNO₃ ning mo'l eritmasiga tushirildi. Ajralib chiqqan kumushning massasini (g) toping. (M(Cu)=64, M(Ag)=108)",
+   "javob": "10,8",
+   "yechim": "n(Cu) = 0,05 mol → Ag = 0,1 mol → 10,8 g.",
+   "parametrlar": {
+    "arch": "cu_ag_o1"
+   },
+   "tur": "O1",
+   "element": "I.9"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "6,5 g rux mis (II) sulfatning mo'l eritmasiga tushirildi: Zn + CuSO₄ → ZnSO₄ + Cu. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi. (M(Zn)=65, M(Cu)=64)",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiyaning elektron balansini yozing: kim e beradi, kim oladi?",
+     "yechim": [
+      "Zn⁰ − 2e → Zn⁺² (qaytaruvchi); Cu⁺² + 2e → Cu⁰ (oksidlovchi)"
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Ruxning miqdorini (mol) toping.",
+     "yechim": [
+      "n(Zn) = 6,5/65 = 0,1 mol"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Ajralib chiqqan misning massasini (g) hisoblang.",
+     "yechim": [
+      "Cu = 0,1 mol → 6,4 g"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Jarayonda necha mol elektron almashindi?",
+     "yechim": [
+      "e = 0,1·2 = 0,2 mol"
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "e) Nega bu reaksiya OQR hisoblanadi? Bir jumla bilan izohlang.",
+     "yechim": [
+      "Zn va Cu ning oksidlanish darajalari o'zgardi (0↔+2) — elektron almashindi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi zanjir: balans → mol → massa → elektron → izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "zn_cu_zanjir",
+    "zn": 6.5
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Qishloq hovlisidagi temir panjara yomg'irli mavsumda tez zanglaydi. Quyidagi savollarga MULOHAZA yuritib javob yozing (hisob talab qilinmaydi).",
+   "bandlar": [
+    {
+     "savol": "a) Zanglash jarayonining OQR mohiyatini yozing: qaytaruvchi va oksidlovchini ko'rsatib, umumiy tenglamani keltiring.",
+     "yechim": [
+      "Fe — qaytaruvchi (Fe−3e→Fe⁺³), O₂ — oksidlovchi (nam ishtirokida):",
+      "4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ (keyin quriydi — zang)."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega namlik (yomg'ir) zanglashni keskin tezlashtiradi?",
+     "yechim": [
+      "Suv elektrolit muhit yaratadi — elektron o'tishi (mikrogalvanik juftlar) osonlashadi;",
+      "quruq havoda jarayon juda sekin."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Panjarani himoya qilishning bitta usulini tavsiya qiling va sababini ayting.",
+     "yechim": [
+      "Bo'yash (yoki ruxlash): oksidlovchi (O₂, H₂O) bilan aloqa uziladi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza formati (faqat M): M13+M9+M3 = 25 (rasmiy 42-format).",
+   "parametrlar": {
+    "arch": "korroziya_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.9",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "O'quvchi uchta stakanda tajriba o'tkazdi; kuzatuvlar jadvalda:\n[JADVAL] Stakan | Metall | Eritma | Kuzatuv ;; 1 | Cu | FeSO₄ | o'zgarish yo'q ;; 2 | Fe | CuSO₄ | qizil qatlam ;; 3 | Zn | CuSO₄ | qizil qatlam\nBandlar ketma-ket yechiladi. (M(Fe)=56, M(Cu)=64)",
+   "bandlar": [
+    {
+     "savol": "a) Nega 1-stakanda reaksiya bormadi? Aktivlik qatori orqali izohlang.",
+     "yechim": [
+      "Cu aktivlik qatorida Fe dan keyin — Fe⁺² ni qaytara olmaydi."
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) 2-stakan uchun tenglama yozing va 11,2 g temirdan ajraladigan mis massasini toping.",
+     "yechim": [
+      "Fe + CuSO₄ → FeSO₄ + Cu; n(Fe) = 0,2 mol → Cu = 12,8 g"
+     ],
+     "M": 5,
+     "A": 4
+    },
+    {
+     "savol": "c) 2-stakan jarayonida almashingan elektron mollarini toping.",
+     "yechim": [
+      "e = 0,2·2 = 0,4 mol"
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "d) Uchala kuzatuvga tayanib Zn, Fe, Cu ni aktivlik tartibida joylashtiring.",
+     "yechim": [
+      "Zn > Fe > Cu (Zn va Fe misni siqib chiqardi; Cu temirni chiqara olmadi)."
+     ],
+     "M": 4,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Tajriba-jadval formati: M15+A10. B-variantdagi X/Y/Z jadvalidan farqli (aniq metallar).",
+   "parametrlar": {
+    "arch": "stakan_tajriba"
+   }
+  }
+ ]
+}
