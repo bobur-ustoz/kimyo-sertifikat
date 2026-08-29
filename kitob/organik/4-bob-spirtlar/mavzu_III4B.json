@@ -1,0 +1,1331 @@
+{
+ "variant": "mavzu-III4-B",
+ "daraja": "B",
+ "bob": 4,
+ "bob_nomi": "Spirtlar va fenollar",
+ "manba": "MS spetsifikatsiyasi III.4; Tongotarov-uslub arxetiplar — savollar yangi tuzilgan, barcha javoblar mustaqil hisoblangan",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★★ (Organik kimyo kitobi).",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Birlamchi spirtni ko'rsating.",
+   "variantlar": [
+    "propan-2-ol",
+    "2-metilpropan-2-ol",
+    "dimetil efir",
+    "propan-1-ol"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "OH ikkilamchi C da"
+    },
+    {
+     "variant": "B",
+     "xato": "OH uchlamchi C da"
+    },
+    {
+     "variant": "C",
+     "xato": "u umuman spirt emas"
+    }
+   ],
+   "yechim": "OH faqat bitta boshqa C bilan bog'langan uglerodda — CH₃CH₂CH₂OH.",
+   "parametrlar": {
+    "arch": "birlamchi_spirt_b"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₄H₉OH tarkibli bir atomli spirtning nechta izomer spirti bor?",
+   "variantlar": [
+    "4 ta",
+    "2 ta",
+    "3 ta",
+    "5 ta"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "faqat zanjir izomeriyasi sanaladi"
+    },
+    {
+     "variant": "C",
+     "xato": "uchlamchi izomer unutildi"
+    },
+    {
+     "variant": "D",
+     "xato": "efir izomerlari spirt emas"
+    }
+   ],
+   "yechim": "Butan-1-ol, butan-2-ol, 2-metilpropan-1-ol, 2-metilpropan-2-ol.",
+   "parametrlar": {
+    "arch": "c4_izomer_b"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Molekulalari O'ZARO vodorod bog' hosil qila oladigan moddalarni tanlang: 1) etanol; 2) dimetil efir; 3) suv; 4) metan.",
+   "variantlar": [
+    "1, 3",
+    "1, 2, 3",
+    "faqat 1",
+    "1, 2, 3, 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "efirda O–H bog'i yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "suv ham H-bog' ustasi"
+    },
+    {
+     "variant": "D",
+     "xato": "metanda qutbli bog' yo'q"
+    }
+   ],
+   "yechim": "H-bog' uchun O–H (yoki N–H) kerak: etanol va suvda bor, efir va metanda yo'q.",
+   "parametrlar": {
+    "arch": "hbog_tanlov_b"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi tajriba: etanol konsentrlangan H₂SO₄ bilan 170 °C dan yuqorida qizdirilmoqda. Asosiy mahsulot qaysi?",
+   "variantlar": [
+    "dietil efir",
+    "etilen C₂H₄",
+    "sirka aldegidi",
+    "vodorod"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u ~140 °C da hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "u oksidlanish mahsuloti"
+    },
+    {
+     "variant": "D",
+     "xato": "bu Na bilan reaksiya belgisi"
+    }
+   ],
+   "yechim": "Molekula ICHIDAN suv ajraladi: C₂H₅OH → C₂H₄ + H₂O (H₂SO₄, t>170 °C).",
+   "parametrlar": {
+    "arch": "degidratatsiya_b"
+   },
+   "fig": "dehydro"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenol reaksiyaga kirishadi-yu, etanol kirishMAYdigan reagent qaysi?",
+   "variantlar": [
+    "natriy metali",
+    "kislorod (yonish)",
+    "NaOH eritmasi",
+    "xlorid kislota"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkalasi ham kirishadi"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkalasi ham yonadi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkalasi ham HCl bilan tuz hosil qilmaydi"
+    }
+   ],
+   "yechim": "Fenol kuchsiz kislota: C₆H₅OH + NaOH → C₆H₅ONa + H₂O; spirtlar ishqor bilan reaksiyaga kirishmaydi.",
+   "parametrlar": {
+    "arch": "fenol_naoh_b"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Bir atomli to'yingan spirtda uglerodning massa ulushi 60 %. Spirtni aniqlang.",
+   "variantlar": [
+    "etanol",
+    "butanol",
+    "propanol C₃H₇OH",
+    "metanol"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "unda C ulushi 52,2 %"
+    },
+    {
+     "variant": "B",
+     "xato": "unda 64,9 %"
+    },
+    {
+     "variant": "D",
+     "xato": "unda 37,5 %"
+    }
+   ],
+   "yechim": "CₙH₂ₙ₊₂O: 12n/(14n+18) = 0,60 → n = 3. M = 60 g/mol.",
+   "parametrlar": {
+    "arch": "c_ulush_teskari_b"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Moslikni toping: 1) glitserin; 2) fenol; 3) etanol — a) Cu(OH)₂ bilan yorqin ko'k eritma; b) FeCl₃ bilan binafsha rang; c) qizdirilgan CuO bilan aldegid hosil qiladi.",
+   "variantlar": [
+    "1–b, 2–a, 3–c",
+    "1–a, 2–c, 3–b",
+    "1–c, 2–b, 3–a",
+    "1–a, 2–b, 3–c"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "FeCl₃ — fenolning «imzosi»"
+    },
+    {
+     "variant": "B",
+     "xato": "CuO oksidlashi — spirtga xos"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'p atomlilik sinovi — Cu(OH)₂"
+    }
+   ],
+   "yechim": "Har sinfning o'z sifat sinovi bor: glitserat ko'ki, fenolyat-Fe binafshasi, aldegid hidi.",
+   "parametrlar": {
+    "arch": "sifat_moslik_b"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Etanol bug'i qizdirilgan CuO ustidan o'tkazilganda qora sim qizil-yaltiroq bo'lib qoldi. Organik mahsulot qaysi?",
+   "variantlar": [
+    "sirka kislota",
+    "etilen",
+    "dietil efir",
+    "sirka aldegidi CH₃CHO"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u kuchli oksidlovchida hosil bo'ladi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu degidratatsiya mahsuloti"
+    },
+    {
+     "variant": "C",
+     "xato": "u H₂SO₄ ishtirokida"
+    }
+   ],
+   "yechim": "C₂H₅OH + CuO → CH₃CHO + Cu + H₂O; mis qaytariladi — sim «yangilanadi».",
+   "parametrlar": {
+    "arch": "cuo_oksidlanish_b"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Butan-1-ol (M=74) va dietil efir (M=74) izomer. Qaysinisining qaynash harorati yuqori va nima uchun?",
+   "variantlar": [
+    "efirniki — kislorodi ikki radikal orasida",
+    "butanolniki — molekulalari vodorod bog' bilan bog'langan",
+    "ikkalasiniki teng — M bir xil",
+    "butanolniki — u og'irroq"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu H-bog' bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "M emas, bog'lanish hal qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "massalari teng"
+    }
+   ],
+   "yechim": "O–H bo'lgani uchun butanol assotsiatsiyalangan: 117 °C; efir esa 35 °C da qaynaydi.",
+   "parametrlar": {
+    "arch": "izomer_bp_b"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "9,4 g fenol bromli suv bilan to'liq reaksiyaga kirishishi uchun zarur brom massasini toping. (M(C₆H₅OH)=94, M(Br₂)=160)",
+   "variantlar": [
+    "16 g",
+    "32 g",
+    "24 g",
+    "48 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 3 unutildi"
+    },
+    {
+     "variant": "B",
+     "xato": "2 mol deb olindi"
+    },
+    {
+     "variant": "C",
+     "xato": "yarim hisob xatosi"
+    }
+   ],
+   "yechim": "C₆H₅OH + 3Br₂ → C₆H₂Br₃OH↓ + 3HBr: n(fenol)=0,1 → n(Br₂)=0,3 → m = 48 g.",
+   "parametrlar": {
+    "arch": "fenol_brom_hisob_b"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenol suvda qanday eriydi?",
+   "variantlar": [
+    "har qanday nisbatda",
+    "umuman erimaydi",
+    "sovuqda cheklangan, qizdirilganda yaxshi eriydi",
+    "faqat kislotalarda"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu quyi spirtlarga xos"
+    },
+    {
+     "variant": "B",
+     "xato": "«karbol suvi» mavjud-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "u o'zi kuchsiz kislota"
+    }
+   ],
+   "yechim": "70 °C dan yuqorida fenol suv bilan istalgan nisbatda aralashadi.",
+   "parametrlar": {
+    "arch": "fenol_eruvchanlik_b"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Natriy metali bilan reaksiyaga kirishadigan moddalarni tanlang: 1) etanol; 2) fenol; 3) dietil efir; 4) suv.",
+   "variantlar": [
+    "1, 2, 3, 4",
+    "faqat 1, 4",
+    "faqat 2",
+    "1, 2, 4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "efirda harakatchan H yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "fenol OH i ham H beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "spirt va suv ham H₂ ajratadi"
+    }
+   ],
+   "yechim": "O–H bog'i borlarning hammasi Na bilan H₂ ajratadi; efirda O–H yo'q.",
+   "parametrlar": {
+    "arch": "na_tanlov_b"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "12,4 g etilenglikol ortiqcha natriy bilan reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh.) toping. (M=62)",
+   "variantlar": [
+    "2,24 L",
+    "8,96 L",
+    "4,48 L",
+    "1,12 L"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bitta OH deb olindi"
+    },
+    {
+     "variant": "B",
+     "xato": "H₂ koeffitsiyenti xato"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "Ikki OH: 1 mol glikol 1 mol H₂ beradi. n = 0,2 → V = 4,48 L.",
+   "parametrlar": {
+    "arch": "glikol_na_hisob_b"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etanolning suvdagi eritmasiga lakmus tomizilsa nima kuzatiladi?",
+   "variantlar": [
+    "qizaradi",
+    "ko'karadi",
+    "rang o'zgarmaydi — eritma neytral",
+    "rangsizlanadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "spirt eritmada dissotsiatsiyalanmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "u ishqor emas"
+    },
+    {
+     "variant": "D",
+     "xato": "lakmus oqartirilmaydi"
+    }
+   ],
+   "yechim": "Spirtlarning «kislotaliligi» suvdagidan ham kuchsiz — indikatorga ta'sir yo'q.",
+   "parametrlar": {
+    "arch": "lakmus_b"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Hajmi 23 mL, zichligi 0,8 g/mL bo'lgan etanol to'liq yondirildi. Hosil bo'lgan CO₂ hajmini (n.sh.) toping.",
+   "variantlar": [
+    "17,92 L",
+    "8,96 L",
+    "22,4 L",
+    "4,48 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 2 unutildi"
+    },
+    {
+     "variant": "C",
+     "xato": "mol miqdori xato"
+    },
+    {
+     "variant": "D",
+     "xato": "massa hisoblanmadi"
+    }
+   ],
+   "yechim": "m = 23·0,8 = 18,4 g → n = 0,4 mol → n(CO₂) = 0,8 → V = 17,92 L.",
+   "parametrlar": {
+    "arch": "zichlik_yonish_b"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Moslikni toping: 1) metanol; 2) etilenglikol; 3) glitserin — a) bir atomli; b) ikki atomli; c) uch atomli.",
+   "variantlar": [
+    "1–b, 2–a, 3–c",
+    "1–a, 2–c, 3–b",
+    "1–c, 2–b, 3–a",
+    "1–a, 2–b, 3–c"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metanolda bitta OH"
+    },
+    {
+     "variant": "B",
+     "xato": "glikolda ikkita OH"
+    },
+    {
+     "variant": "C",
+     "xato": "glitserinda uchta OH"
+    }
+   ],
+   "yechim": "OH soni: CH₃OH — 1, C₂H₄(OH)₂ — 2, C₃H₅(OH)₃ — 3.",
+   "parametrlar": {
+    "arch": "atomlilik_moslik_b"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ochiq havoda saqlangan fenol kristallari vaqt o'tishi bilan nega pushti rangga kiradi?",
+   "variantlar": [
+    "suv tortib eriydi",
+    "havo kislorodida qisman oksidlanadi",
+    "CO₂ bilan reaksiyaga kirishadi",
+    "yorug'likda izomerlanadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "namlik rang bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "fenol karbonatdan kuchsiz"
+    },
+    {
+     "variant": "D",
+     "xato": "izomerlanish rang bermaydi"
+    }
+   ],
+   "yechim": "Oksidlanish mahsulotlari (xinonlar) pushti-qo'ng'ir tus beradi — shuning uchun qorong'ida, og'zi berk idishda saqlanadi.",
+   "parametrlar": {
+    "arch": "fenol_oksidlanish_b"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Glitserin haqidagi TO'G'RI fikrlarni tanlang: 1) uch atomli spirt; 2) qovushqoq, shirin suyuqlik; 3) suvda erimaydi; 4) nitroglitserin olishda xomashyo.",
+   "variantlar": [
+    "1, 2, 3, 4",
+    "1, 2, 4",
+    "faqat 1, 4",
+    "1, 3"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "glitserin suvda cheksiz eriydi"
+    },
+    {
+     "variant": "C",
+     "xato": "fizik xossasi ham to'g'ri"
+    },
+    {
+     "variant": "D",
+     "xato": "eruvchanligi noto'g'ri aytilgan"
+    }
+   ],
+   "yechim": "Uchta OH suv bilan «do'st» — cheksiz eriydi; 3-fikr xato.",
+   "parametrlar": {
+    "arch": "glitserin_tanlov_b"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "13,8 g etanol to'liq degidratatsiyalanganda hosil bo'lgan etilen hajmini (n.sh.) toping.",
+   "variantlar": [
+    "6,72 L",
+    "13,44 L",
+    "3,36 L",
+    "22,4 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 mol deb olindi"
+    },
+    {
+     "variant": "C",
+     "xato": "yarim mol xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "mol hisoblanmadi"
+    }
+   ],
+   "yechim": "n = 13,8/46 = 0,3 mol → n(C₂H₄) = 0,3 → V = 6,72 L.",
+   "parametrlar": {
+    "arch": "degidratatsiya_hisob_b"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etanol bilan sinflararo izomer bo'lgan modda qaysi?",
+   "variantlar": [
+    "metanol",
+    "sirka aldegidi",
+    "dimetil efir CH₃–O–CH₃",
+    "etilenglikol"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tarkibi boshqa: CH₄O"
+    },
+    {
+     "variant": "B",
+     "xato": "C₂H₄O — vodorodi kam"
+    },
+    {
+     "variant": "D",
+     "xato": "C₂H₆O₂ — kislorodi ko'p"
+    }
+   ],
+   "yechim": "Ikkalasi ham C₂H₆O, lekin funksional guruhlari har xil.",
+   "parametrlar": {
+    "arch": "sinflararo_izomer_b"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Tibbiy spirt — 96 % li eritma. 200 g shunday eritmada necha gramm sof etanol bor?",
+   "variantlar": [
+    "96 g",
+    "192 g",
+    "8 g",
+    "184 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "100 g uchun hisob"
+    },
+    {
+     "variant": "C",
+     "xato": "bu suv massasi"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m = 200·0,96 = 192 g.",
+   "parametrlar": {
+    "arch": "ulush_hisob_b"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Natriy fenolyat eritmasidan CO₂ o'tkazilganda fenol ajralib chiqadi. Bundan qanday xulosa kelib chiqadi?",
+   "variantlar": [
+    "fenol karbonat kislotadan kuchsiz kislota",
+    "fenol karbonat kislotadan kuchli",
+    "fenol umuman kislota emas",
+    "CO₂ fenol bilan birikadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kuchli kislota kuchsizni siqib chiqaradi, aksincha emas"
+    },
+    {
+     "variant": "C",
+     "xato": "NaOH bilan tuz hosil qiladi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "reaksiya fenolyat bilan boradi"
+    }
+   ],
+   "yechim": "C₆H₅ONa + CO₂ + H₂O → C₆H₅OH + NaHCO₃: kuchliroq H₂CO₃ kuchsiz fenolni siqib chiqaradi.",
+   "parametrlar": {
+    "arch": "fenolyat_co2_b"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "6,4 g metanol to'liq yonganda hosil bo'lgan CO₂ hajmini (n.sh.) toping. (CH₃OH + 1,5O₂ → CO₂ + 2H₂O)",
+   "variantlar": [
+    "4,48 L",
+    "8,96 L",
+    "2,24 L",
+    "6,72 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 mol CO₂ deb olindi"
+    },
+    {
+     "variant": "C",
+     "xato": "mol xato"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 6,4/32 = 0,2 mol → n(CO₂) = 0,2 → V = 4,48 L.",
+   "parametrlar": {
+    "arch": "metanol_yonish_hisob_b"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "IUPAC nomenklaturasida uglerod zanjiri qaysi tomondan raqamlanadi?",
+   "variantlar": [
+    "OH guruhiga eng kichik raqam tegadigan tomondan",
+    "har doim chapdan",
+    "eng uzun radikal tomondan",
+    "istalgan tomondan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yo'nalishni guruh belgilaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "lokant qoidasi ustun"
+    },
+    {
+     "variant": "D",
+     "xato": "nom bir xil chiqmaydi"
+    }
+   ],
+   "yechim": "Masalan CH₃–CH(OH)–CH₃ — propan-2-ol (propan-2-ol, 2 kichik lokant).",
+   "parametrlar": {
+    "arch": "nomenklatura_b"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Etanolning ishlatilishi haqidagi TO'G'RI fikrlarni tanlang: 1) tibbiyotda antiseptik; 2) sirka kislota olishda xomashyo; 3) motor yoqilg'isiga qo'shimcha; 4) miqdoridan qat'i nazar organizm uchun zararsiz.",
+   "variantlar": [
+    "1, 2, 3, 4",
+    "faqat 1",
+    "2, 4",
+    "1, 2, 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etanol — narkotik ta'sirli zahar"
+    },
+    {
+     "variant": "B",
+     "xato": "sanoat ishlatilishi ham bor"
+    },
+    {
+     "variant": "C",
+     "xato": "antiseptiklik ham to'g'ri"
+    }
+   ],
+   "yechim": "Etanol keng ishlatiladi, ammo ichilganda organizmga kuchli zarar yetkazadi — 4-fikr xato.",
+   "parametrlar": {
+    "arch": "etanol_qollash_tanlov_b"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "8,8 g noma'lum bir atomli to'yingan spirt natriy bilan reaksiyaga kirishganda 1,12 L (n.sh.) vodorod ajraldi. Spirtni aniqlang.",
+   "variantlar": [
+    "butanol",
+    "pentanol C₅H₁₁OH",
+    "propanol",
+    "geksanol"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 74 chiqishi kerak edi"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 60"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 102"
+    }
+   ],
+   "yechim": "n(H₂) = 0,05 → n(spirt) = 0,1 mol → M = 8,8/0,1 = 88 g/mol → C₅H₁₂O.",
+   "parametrlar": {
+    "arch": "m_teskari_b"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Bijg'igan eritmadan etanolni ajratib olishning asosiy laboratoriya-sanoat usuli qaysi?",
+   "variantlar": [
+    "filtrlash",
+    "bug'latib qoldirish",
+    "haydash (rektifikatsiya)",
+    "magnit bilan ajratish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "spirt eritmada, cho'kmada emas"
+    },
+    {
+     "variant": "B",
+     "xato": "spirtning o'zi uchib ketadi"
+    },
+    {
+     "variant": "D",
+     "xato": "magnit xossasi yo'q"
+    }
+   ],
+   "yechim": "Qaynash haroratlari farqi (78 °C va 100 °C) asosida kolonnalarda haydaladi.",
+   "parametrlar": {
+    "arch": "rektifikatsiya_b"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "9,2 g etanolni sirka aldegidigacha oksidlash uchun zarur mis(II) oksid massasini toping. (M(CuO)=80)",
+   "variantlar": [
+    "8 g",
+    "16 g",
+    "32 g",
+    "80 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,1 mol deb olindi"
+    },
+    {
+     "variant": "C",
+     "xato": "2 mol CuO xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "1 mol uchun"
+    }
+   ],
+   "yechim": "C₂H₅OH + CuO → CH₃CHO + Cu + H₂O: n = 0,2 → m(CuO) = 0,2·80 = 16 g.",
+   "parametrlar": {
+    "arch": "cuo_hisob_b"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,05 mol fenol bromli suv bilan to'liq reaksiyaga kirishganda hosil bo'lgan oq cho'kma massasini toping. (M(C₆H₂Br₃OH)=331)",
+   "variantlar": [
+    "33,1 g",
+    "16,55 g",
+    "4,7 g",
+    "9,4 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,1 mol deb olindi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu fenol massasi"
+    },
+    {
+     "variant": "D",
+     "xato": "cho'kma emas, fenol M i ishlatildi"
+    }
+   ],
+   "yechim": "n(cho'kma) = n(fenol) = 0,05 → m = 0,05·331 = 16,55 g.",
+   "parametrlar": {
+    "arch": "chokma_massa_b"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fenol haqidagi TO'G'RI fikrlarni tanlang: 1) OH bevosita benzol halqasida; 2) suvli eritmasi kuchsiz kislota; 3) FeCl₃ bilan binafsha rang beradi; 4) natriy bilan reaksiyaga kirishmaydi.",
+   "variantlar": [
+    "1, 2, 3, 4",
+    "faqat 1, 3",
+    "2, 4",
+    "1, 2, 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Na bilan fenolyat hosil qiladi"
+    },
+    {
+     "variant": "B",
+     "xato": "kislotaliligi ham bor"
+    },
+    {
+     "variant": "C",
+     "xato": "tuzilishi ham to'g'ri aytilgan"
+    }
+   ],
+   "yechim": "Fenol Na bilan ham, NaOH bilan ham reaksiyaga kirishadi — 4-fikr xato.",
+   "parametrlar": {
+    "arch": "fenol_tanlov_b"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4,6 g etanol va 3,2 g metanol aralashmasi ortiqcha natriy bilan reaksiyaga kirishdi. Ajralgan vodorod hajmini (n.sh.) toping.",
+   "variantlar": [
+    "2,24 L",
+    "4,48 L",
+    "1,12 L",
+    "2,99 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "H₂ koeffitsiyenti xato"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat bittasi hisoblandi"
+    },
+    {
+     "variant": "D",
+     "xato": "mollar xato qo'shildi"
+    }
+   ],
+   "yechim": "n = 0,1 + 0,1 = 0,2 mol spirt → n(H₂) = 0,1 → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "aralashma_na_b"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Glyukozani bijg'itib 92 g etanol olish uchun necha gramm glyukoza kerak? (C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, M(C₆H₁₂O₆)=180)",
+   "variantlar": [
+    "360 g",
+    "90 g",
+    "180 g",
+    "46 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent teskari olindi"
+    },
+    {
+     "variant": "B",
+     "xato": "2 unutildi"
+    },
+    {
+     "variant": "D",
+     "xato": "etanol M i yozildi"
+    }
+   ],
+   "yechim": "n(etanol) = 2 mol → n(glyukoza) = 1 mol → m = 180 g.",
+   "parametrlar": {
+    "arch": "bijgish_teskari_b"
+   }
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "III.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "III.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uchta raqamlanmagan probirkada etanol, glitserin va fenolning suvdagi eritmasi bor. Ularni faqat kimyoviy sinovlar bilan farqlash kerak. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Glitserinni bir qadamda taniydigan sinov qaysi?",
+    "34. Fenolni taniydigan eng qulay sinov qaysi?",
+    "35. Qolgan probirkadagi etanolni tasdiqlovchi sinov qaysi?"
+   ],
+   "javoblar_royxati": [
+    "A) Cu(OH)₂ qo'shish — yorqin ko'k eritma",
+    "B) FeCl₃ tomizish — binafsha rang",
+    "C) qizdirilgan CuO sim tushirish — o'tkir hidli aldegid, sim yaltiraydi",
+    "D) lakmus tomizish — qizil rang",
+    "E) natriy tashlash — gaz ajralishi",
+    "F) AgNO₃ qo'shish — oq cho'kma"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "fenol shunchalik kuchsizki, lakmusni qizartira olmaydi"
+    },
+    {
+     "variant": "E",
+     "xato": "Na uchchala eritma (suv!) bilan gaz beradi — farqlamaydi"
+    },
+    {
+     "variant": "F",
+     "xato": "bu galogenidlar sinovi, spirtlarga aloqasi yo'q"
+    }
+   ],
+   "yechim": "Glitserin — ko'p atomli: Cu(OH)₂ ko'k glitserat (A). Fenol — FeCl₃ binafsha kompleks (B). Etanol — CuO da aldegidgacha oksidlanadi (C). Na va lakmus farqlamaydi.",
+   "parametrlar": {
+    "arch": "lab_identifikatsiya_b"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,25 mol fenolning massasini (g) toping. (M=94)",
+   "javob": "23,5",
+   "yechim": "m = 0,25·94 = 23,5 g.",
+   "parametrlar": {
+    "arch": "fenol_massa_o1_b"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "92 g etanol to'liq yonganda hosil bo'lgan CO₂ hajmini (n.sh., L) toping.",
+   "javob": "89,6",
+   "yechim": "n = 2 mol → n(CO₂) = 4 mol → V = 89,6 L.",
+   "parametrlar": {
+    "arch": "etanol_yonish_o1_b"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi jarayon bo'yicha: 9,2 g etanol konsentrlangan H₂SO₄ bilan qizdirilganda (t>170 °C) hosil bo'ladigan etilen hajmini (n.sh., L) toping.",
+   "javob": "4,48",
+   "yechim": "n = 0,2 mol → n(C₂H₄) = 0,2 → V = 4,48 L.",
+   "parametrlar": {
+    "arch": "sxema_degidratatsiya_b"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "18,8 g fenol ortiqcha bromli suv bilan reaksiyaga kirishganda hosil bo'lgan 2,4,6-tribromfenol massasini (g) toping. (M=331)",
+   "javob": "66,2",
+   "yechim": "n = 0,2 mol → m = 0,2·331 = 66,2 g.",
+   "parametrlar": {
+    "arch": "tribromfenol_o1_b"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,3 mol glitserin ortiqcha natriy bilan to'liq reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh., L) toping.",
+   "javob": "10,08",
+   "yechim": "Uch OH: n(H₂) = 0,3·3/2 = 0,45 mol → V = 10,08 L.",
+   "parametrlar": {
+    "arch": "glitserin_na_o1_b"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. 90 g glyukoza spirtli bijg'ishga uchradi (chiqish 100 % deb olinadi).",
+   "bandlar": [
+    {
+     "savol": "a) Bijg'ish tenglamasini yozing.",
+     "yechim": [
+      "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Glyukoza mol miqdorini toping.",
+     "yechim": [
+      "n = 90/180 = 0,5 mol."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "c) Hosil bo'lgan etanol massasini hisoblang.",
+     "yechim": [
+      "n(C₂H₅OH) = 1 mol → m = 46 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Ajralgan CO₂ hajmini (n.sh.) toping.",
+     "yechim": [
+      "n(CO₂) = 1 mol → V = 22,4 L."
+     ],
+     "M": 3,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Bijg'ish zanjiri: tenglama → mol → massa → hajm; M15+A10.",
+   "parametrlar": {
+    "arch": "bijgish_zanjir_o2_b"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Fenol va etanol — ikkalasida ham OH guruhi bor, lekin xossalari keskin farq qiladi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega fenol NaOH bilan reaksiyaga kirishadi, etanol esa kirishmaydi? Halqaning OH guruhiga ta'sirini tushuntiring.",
+     "yechim": [
+      "Benzol halqasi O–H bog'idagi elektron zichlikni o'ziga tortadi —",
+      "H oson ajraladi, fenol kuchsiz kislota bo'lib qoladi; alkil radikal esa,",
+      "aksincha, zichlikni itaradi va spirtda kislotalilik deyarli yo'qoladi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) OH guruhining halqaga qanday «javob ta'siri» bor? Buni brom bilan reaksiyada ko'rsating.",
+     "yechim": [
+      "OH halqani faollashtiradi: fenol katalizatorsiz, xona haroratida 3 ta H ni",
+      "bromga almashtiradi (benzol esa faqat katalizator bilan, bitta H)."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Nima uchun bu ikki modda bitta sinfga kiritilmaydi?",
+     "yechim": [
+      "Funksional guruh bir xil, lekin bog'langan radikal tabiati (aromatik/alkil) xossani tubdan o'zgartiradi — alohida sinflar."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Fenol-etanol qiyosiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "fenol_etanol_mulohaza_b"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. 14,8 g noma'lum bir atomli to'yingan spirt ortiqcha natriy bilan reaksiyaga kirishganda 2,24 L (n.sh.) vodorod ajraldi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiyaning umumiy tenglamasini yozing.",
+     "yechim": [
+      "2R–OH + 2Na → 2R–ONa + H₂↑."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Spirt mol miqdorini toping.",
+     "yechim": [
+      "n(H₂) = 0,1 → n(spirt) = 0,2 mol."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Spirtning molyar massasini va formulasini aniqlang.",
+     "yechim": [
+      "M = 14,8/0,2 = 74 g/mol → C₄H₉OH (butanol)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Shu tarkibga mos nechta izomer spirt borligini ko'rsating.",
+     "yechim": [
+      "4 ta: butan-1-ol, butan-2-ol, 2-metilpropan-1-ol, 2-metilpropan-2-ol."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Teskari masala: tenglama → mol → M → izomerlar; M15+A10.",
+   "parametrlar": {
+    "arch": "nomalum_spirt_o2_b"
+   }
+  }
+ ]
+}

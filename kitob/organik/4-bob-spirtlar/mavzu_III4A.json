@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-III4-A",
+ "daraja": "A",
+ "bob": 4,
+ "bob_nomi": "Spirtlar va fenollar",
+ "manba": "MS spetsifikatsiyasi III.4; 10-sinf darslik — savollar yangi tuzilgan, hayotiy sahnalar (antiseptik, antifriz, krem, metanol xavfi) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★ (Organik kimyo kitobi).",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Spirtlarning funksional guruhi qaysi?",
+   "variantlar": [
+    "–OH (gidroksil)",
+    "–COOH",
+    "–CHO",
+    "–NH₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u karbon kislotalarda"
+    },
+    {
+     "variant": "C",
+     "xato": "u aldegidlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "u aminlarda"
+    }
+   ],
+   "yechim": "Uglevodorod radikali + OH: R–OH.",
+   "parametrlar": {
+    "arch": "oh_guruh"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Bir atomli to'yingan spirtlarning umumiy formulasi qaysi?",
+   "variantlar": [
+    "CₙH₂ₙOH",
+    "CₙH₂ₙ₋₁OH",
+    "CₙH₂ₙ₊₁OH",
+    "CₙH₂ₙ₊₂O₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod balansi noto'g'ri"
+    },
+    {
+     "variant": "B",
+     "xato": "bu to'yinmagan radikal"
+    },
+    {
+     "variant": "D",
+     "xato": "kislorod bitta"
+    }
+   ],
+   "yechim": "Metanol CH₃OH, etanol C₂H₅OH...",
+   "parametrlar": {
+    "arch": "spirt_formula"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etil spirtining kimyoviy formulasi qaysi?",
+   "variantlar": [
+    "CH₃OH",
+    "C₂H₅OH",
+    "C₃H₇OH",
+    "C₂H₄(OH)₂"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u metanol"
+    },
+    {
+     "variant": "C",
+     "xato": "u propanol"
+    },
+    {
+     "variant": "D",
+     "xato": "u etilenglikol"
+    }
+   ],
+   "yechim": "«Vino spirti» — ikki uglerodli.",
+   "parametrlar": {
+    "arch": "etanol_formula"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qo'l antiseptigi: tarkibida ~70 % etanol. Spirt mikroblarni qanday «yengadi»?",
+   "variantlar": [
+    "hujayra oqsillarini ivitib (denaturatsiya qilib) nobud qiladi",
+    "mikroblarni muzlatadi",
+    "faqat yuvib tashlaydi",
+    "kislota hosil qiladi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "harorat pasaymaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kimyoviy ta'sir bor"
+    },
+    {
+     "variant": "D",
+     "xato": "etanol kislotaga aylanmaydi qo'lda"
+    }
+   ],
+   "yechim": "Oqsil «pishib» qoladi — mikrob nobud bo'ladi; 70 % li eritma eng samarali.",
+   "parametrlar": {
+    "arch": "antiseptik_sahna"
+   },
+   "fig": "sanitizer"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyi spirtlar (metanol, etanol) suvda qanday eriydi?",
+   "variantlar": [
+    "umuman erimaydi",
+    "faqat qizdirilganda",
+    "cho'kma beradi",
+    "cheksiz (har qanday nisbatda) eriydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "OH suv bilan «do'stlashadi»"
+    },
+    {
+     "variant": "B",
+     "xato": "sovuqda ham cheksiz"
+    },
+    {
+     "variant": "C",
+     "xato": "eritma bir jinsli"
+    }
+   ],
+   "yechim": "OH guruhi suv bilan vodorod bog'lari hosil qiladi.",
+   "parametrlar": {
+    "arch": "spirt_eruvchanlik"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etanol natriy bilan reaksiyaga kirishganda qaysi gaz ajraladi?",
+   "variantlar": [
+    "kislorod",
+    "vodorod",
+    "etilen",
+    "uglerod oksidi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "OH dagi H o'rin almashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "degidratatsiya boshqa sharoitda"
+    },
+    {
+     "variant": "D",
+     "xato": "yonish emas"
+    }
+   ],
+   "yechim": "2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂↑ — spirtning «kislotaliligi» juda kuchsiz bo'lsa-da bor.",
+   "parametrlar": {
+    "arch": "na_spirt"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etanol sanoatda qanday olinadi?",
+   "variantlar": [
+    "metanni xlorlash orqali",
+    "etilenni gidratlash yoki uglevodlarni bijg'itish orqali",
+    "benzolni nitrolash orqali",
+    "suvni elektroliz qilish orqali"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u galogenalkan beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "u nitrobenzol"
+    },
+    {
+     "variant": "D",
+     "xato": "u H₂ va O₂"
+    }
+   ],
+   "yechim": "C₂H₄ + H₂O → C₂H₅OH; yoki C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+   "parametrlar": {
+    "arch": "etanol_olinish"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda avtomobil antifrizi: asosi — etilenglikol. Nega u qishda muzlamaydi?",
+   "variantlar": [
+    "u umuman suyuqlik emas",
+    "motorni isitib turadi",
+    "glikol-suv aralashmasining muzlash harorati juda past",
+    "muzlasa ham zarar yo'q"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suyuqlik"
+    },
+    {
+     "variant": "B",
+     "xato": "issiqlikni faqat TASHIYDI"
+    },
+    {
+     "variant": "D",
+     "xato": "muzlash blokni yorib yuboradi"
+    }
+   ],
+   "yechim": "C₂H₄(OH)₂ + suv: −40 °C gachayam suyuq — sovutish tizimi himoyada. Ehtiyot: shirin ta'mli, zaharli!",
+   "parametrlar": {
+    "arch": "antifriz_sahna"
+   },
+   "fig": "antifreeze"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Uch atomli spirt vakili qaysi?",
+   "variantlar": [
+    "etanol",
+    "etilenglikol",
+    "fenol",
+    "glitserin C₃H₅(OH)₃"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bir atomli"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki atomli"
+    },
+    {
+     "variant": "C",
+     "xato": "u spirt emas — alohida sinf"
+    }
+   ],
+   "yechim": "Uchta OH: qovushqoq, shirin, teri uchun «namlovchi».",
+   "parametrlar": {
+    "arch": "glitserin"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O. 9,2 g etanol yonganda hosil bo'lgan CO₂ hajmini (n.sh.) toping. (M(C₂H₅OH)=46)",
+   "variantlar": [
+    "8,96 L",
+    "4,48 L",
+    "22,4 L",
+    "2,24 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 2"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,2 → n(CO₂) = 0,4 mol → V = 8,96 L.",
+   "parametrlar": {
+    "arch": "etanol_yonish"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenol molekulasida OH guruhi qayerga birikkan?",
+   "variantlar": [
+    "alkil zanjirga",
+    "bevosita benzol halqasiga",
+    "kislota qoldig'iga",
+    "azot atomiga"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u holda aromatik spirt bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "fenol tuz emas"
+    },
+    {
+     "variant": "D",
+     "xato": "fenolda azot yo'q"
+    }
+   ],
+   "yechim": "C₆H₅–OH: halqa OH xossalarini keskin o'zgartiradi.",
+   "parametrlar": {
+    "arch": "fenol_tuzilish"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Molyar massasi 46 g/mol bo'lgan bir atomli spirtni aniqlang.",
+   "variantlar": [
+    "metanol",
+    "etanol",
+    "propanol",
+    "glitserin"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 32"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 60"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 92"
+    }
+   ],
+   "yechim": "14n + 18 = 46 → n = 2.",
+   "parametrlar": {
+    "arch": "m46"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qo'l kremi: tarkibida glitserin. U teriga qanday foyda beradi?",
+   "variantlar": [
+    "namlikni tortib, terini yumshoq saqlaydi",
+    "terini oqartiradi",
+    "mikroblarni o'ldiradi kuchli",
+    "terini qizdiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "asosiy ishi — namlash"
+    },
+    {
+     "variant": "C",
+     "xato": "u antiseptik emas — namlovchi"
+    },
+    {
+     "variant": "D",
+     "xato": "isitish xossasi yo'q"
+    }
+   ],
+   "yechim": "Uch OH guruhi suvni «magnitday» tortadi — gigroskopik namlovchi.",
+   "parametrlar": {
+    "arch": "krem_sahna"
+   },
+   "fig": "cream"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Spirtlar nomlarida qaysi qo'shimcha ishlatiladi?",
+   "variantlar": [
+    "-al",
+    "-ol",
+    "-en",
+    "-in"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aldegidlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "alkenlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "alkinlarda"
+    }
+   ],
+   "yechim": "Metan → metanol; etan → etanol.",
+   "parametrlar": {
+    "arch": "ol_qoshimcha"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ko'p atomli spirtlarga SIFAT reaksiyasi qaysi?",
+   "variantlar": [
+    "bromli suvni rangsizlantirish",
+    "lakmusni qizartirish",
+    "yangi cho'ktirilgan Cu(OH)₂ bilan yorqin ko'k eritma berishi",
+    "«pop» tovushi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u to'yinmaganlar sinovi"
+    },
+    {
+     "variant": "B",
+     "xato": "spirtlar neytral"
+    },
+    {
+     "variant": "D",
+     "xato": "u vodorod sinovi"
+    }
+   ],
+   "yechim": "Glitserin + Cu(OH)₂ → zangori-ko'k glitserat — «ko'p OH» belgisi.",
+   "parametrlar": {
+    "arch": "cuoh2_sinov"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Spirt | OH soni ;; etanol | ? ;; etilenglikol | ? ;; glitserin | ?",
+   "variantlar": [
+    "1; 2; 3",
+    "1; 3; 2",
+    "2; 2; 3",
+    "1; 2; 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "glikol — «ikki», glitserin — «uch»"
+    },
+    {
+     "variant": "C",
+     "xato": "etanol bir atomli"
+    },
+    {
+     "variant": "D",
+     "xato": "glitserinda uchta"
+    }
+   ],
+   "yechim": "Atomlilik = OH guruhlar soni.",
+   "parametrlar": {
+    "arch": "oh_soni_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Metanol iste'mol qilinsa nima bo'ladi?",
+   "variantlar": [
+    "oddiy spirtdek ta'sir qiladi",
+    "hech narsa bo'lmaydi",
+    "og'ir zaharlanish: ko'rlik va o'limga olib keladi",
+    "faqat bosh og'riydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "8-10 mL ham ko'r qilishi mumkin"
+    },
+    {
+     "variant": "B",
+     "xato": "o'ta xavfli!"
+    },
+    {
+     "variant": "D",
+     "xato": "oqibati fojiali"
+    }
+   ],
+   "yechim": "CH₃OH organizmda chumoli aldegidi/kislotasiga aylanadi — «yolg'on ichimliklar» fojialarining sababi.",
+   "parametrlar": {
+    "arch": "metanol_xavf"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda «Texnik spirt — ichish MUMKIN EMAS» yorlig'i. Metanolni etanoldan uy sharoitida ajratib bo'lmasligining sababi nimada?",
+   "variantlar": [
+    "metanol qora rangda",
+    "rangi, hidi va ta'mi deyarli bir xil",
+    "metanol hidsiz",
+    "farqi shishasida"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkalasi rangsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "hidi o'xshash"
+    },
+    {
+     "variant": "D",
+     "xato": "idish emas, modda muhim"
+    }
+   ],
+   "yechim": "Faqat laboratoriya aniqlaydi — shu bois nomalum spirtli suyuqlik ichilmaydi.",
+   "parametrlar": {
+    "arch": "metanol_yorliq_sahna"
+   },
+   "fig": "warning"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂. 9,2 g etanol natriy bilan to'liq reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh.) toping.",
+   "variantlar": [
+    "4,48 L",
+    "22,4 L",
+    "2,24 L",
+    "1,12 L"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂ koeffitsiyenti ikki barobar kam"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,2 → n(H₂) = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "na_spirt_hisob"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenolning eski texnik nomi qanday?",
+   "variantlar": [
+    "sirka kislota",
+    "nashatir",
+    "tuz kislotasi",
+    "karbol kislota"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u CH₃COOH"
+    },
+    {
+     "variant": "B",
+     "xato": "u NH₃ eritmasi"
+    },
+    {
+     "variant": "C",
+     "xato": "u HCl"
+    }
+   ],
+   "yechim": "Birinchi antiseptiklardan: jarrohlikda asboblarni zararsizlantirgan.",
+   "parametrlar": {
+    "arch": "karbol"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Spirtlarning alkanlardan yuqori haroratda qaynashining sababi nimada?",
+   "variantlar": [
+    "massasi kattaligi",
+    "rangi",
+    "tasodif",
+    "molekulalar orasidagi vodorod bog'lari"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etan (30) va metanol (32) yaqin, lekin farq katta"
+    },
+    {
+     "variant": "B",
+     "xato": "rang xossaga ta'sir qilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "qonuniy sabab bor"
+    }
+   ],
+   "yechim": "OH...O «ko'priklari» molekulalarni ushlab turadi — bug'lanish qiyin.",
+   "parametrlar": {
+    "arch": "vodorod_bog"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Tibbiyotda yod eritmasi qanday erituvchida tayyorlanadi?",
+   "variantlar": [
+    "suvda",
+    "benzinda",
+    "etil spirtida",
+    "kislotada"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yod suvda yomon eriydi"
+    },
+    {
+     "variant": "B",
+     "xato": "teri uchun yaroqsiz"
+    },
+    {
+     "variant": "D",
+     "xato": "teriga kislota surtilmaydi"
+    }
+   ],
+   "yechim": "«Yod nastoykasi» — 5 % li spirtli eritma.",
+   "parametrlar": {
+    "arch": "yod_nastoyka"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol glitserinning massasini toping. (M(C₃H₈O₃)=92)",
+   "variantlar": [
+    "92 g",
+    "9,2 g",
+    "36,8 g",
+    "18,4 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,2·92 = 18,4 g.",
+   "parametrlar": {
+    "arch": "glitserin_massa"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Spirt lampalarda yoqilg'i sifatida etanol ishlatilishining sababi qaysi?",
+   "variantlar": [
+    "juda arzonligi",
+    "yonmasligi",
+    "toza, qurumsiz alanga bilan yonadi",
+    "rangli alangasi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy sabab — toza yonish"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha, yaxshi yonadi"
+    },
+    {
+     "variant": "D",
+     "xato": "alanga xira-ko'kish"
+    }
+   ],
+   "yechim": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O: idish tagini qoraytirmaydi.",
+   "parametrlar": {
+    "arch": "spirt_lampa_a"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Zanjirdagi X moddani aniqlang: C₂H₄ → X → C₂H₅ONa.",
+   "variantlar": [
+    "C₂H₆",
+    "CH₃CHO",
+    "C₂H₅Cl",
+    "C₂H₅OH"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etan natriy bilan kirishmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "aldegid alkogolyat bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "xlorid boshqa yo'l"
+    }
+   ],
+   "yechim": "Gidratlanish → spirt; spirt + Na → alkogolyat.",
+   "parametrlar": {
+    "arch": "zanjir_x_4"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada turli konsentratsiyali spirtning mikroblarga ta'siri berilgan. Nega 96 % li spirt 70 % lidan SAMARASIZROQ?",
+   "variantlar": [
+    "96 % li spirt mikrobni oziqlantiradi",
+    "diagramma xato",
+    "70 % li arzonroq bo'lgani uchun",
+    "juda kuchli spirt mikrob «qobig'ini» tez ivitib, ichiga kirolmaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bunday emas"
+    },
+    {
+     "variant": "B",
+     "xato": "bu tasdiqlangan fakt"
+    },
+    {
+     "variant": "C",
+     "xato": "gap narxda emas — mexanizmda"
+    }
+   ],
+   "yechim": "Sirt oqsili zich ivib «zirh» bo'ladi; 70 % li esa asta kirib to'liq ta'sir qiladi.",
+   "parametrlar": {
+    "arch": "bar_antiseptik_oqish"
+   },
+   "fig": "bar_antiseptic"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Molyar massasi 32 g/mol bo'lgan spirtni aniqlang.",
+   "variantlar": [
+    "metanol (CH₃OH)",
+    "etanol",
+    "propanol",
+    "suv (H₂O)"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "M = 46"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 60"
+    },
+    {
+     "variant": "D",
+     "xato": "spirt emas, lekin M = 18 chalg'itadi"
+    }
+   ],
+   "yechim": "12 + 4 + 16 = 32.",
+   "parametrlar": {
+    "arch": "m32"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Grafikda spirtlar qaynash haroratlari: metanol 65°, etanol 78°, propanol 97 °C. Qator bo'ylab qaynash qanday o'zgaradi?",
+   "variantlar": [
+    "kamayadi",
+    "ortib boradi",
+    "o'zgarmaydi",
+    "tartibsiz"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molekula kattalashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "grafik ko'tarilyapti"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton o'sish"
+    }
+   ],
+   "yechim": "Zanjir uzaygani sari molekulalararo tortishuv kuchayadi.",
+   "parametrlar": {
+    "arch": "spirt_bp_oqish"
+   },
+   "fig": "bp_spirt"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Etanol suvda eritilmoqda. Eritmadagi spirt ulushi qo'shilgan suv miqdoriga qarab qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "ortadi",
+    "o'zgarmaydi",
+    "kamayib boradi",
+    "avval ortib keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suyultirish kamaytiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "nisbat o'zgaradi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "boshidanoq kamayadi"
+    }
+   ],
+   "yechim": "Spirt massasi o'zgarmay, eritma massasi o'sadi.",
+   "parametrlar": {
+    "arch": "suyultirish_grafik_4"
+   },
+   "svg": {
+    "correct": "fall",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "suv",
+    "ylab": "ω(spirt)"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenol eritmasi teriga tegsa nima qilinadi?",
+   "variantlar": [
+    "hech narsa qilinmaydi",
+    "kislota bilan yuviladi",
+    "bint bilan yopiladi faqat",
+    "ko'p suv bilan, so'ng spirt bilan yuviladi — fenol kuydiradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kimyoviy kuyish beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "yana zarar"
+    },
+    {
+     "variant": "C",
+     "xato": "avval yuvish shart"
+    }
+   ],
+   "yechim": "Fenol — zaharli va kuydiruvchi: rezina qo'lqop bilan ishlanadi.",
+   "parametrlar": {
+    "arch": "fenol_xavf"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "13,8 g etanol necha mol bo'ladi? (M=46)",
+   "variantlar": [
+    "0,3",
+    "3",
+    "0,15",
+    "0,6"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "gramm-mol adashuvi"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 13,8/46 = 0,3 mol.",
+   "parametrlar": {
+    "arch": "etanol_mol"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol ma'lumotidan: 250 mL 70 % li antiseptikda necha mL sof spirt bor (hajmiy ulush deb hisoblang)?",
+   "variantlar": [
+    "175 mL",
+    "70 mL",
+    "75 mL",
+    "245 mL"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "250 ning 70 %i"
+    },
+    {
+     "variant": "C",
+     "xato": "bu suv emas"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "V = 250·0,7 = 175 mL.",
+   "parametrlar": {
+    "arch": "bar_antiseptik_hisob"
+   },
+   "fig": "bar_antiseptic"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "III.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "III.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch maishiy suyuqlik bor: X — qo'l antiseptigi asosi; Y — avtomobil antifrizi asosi; Z — qo'l kremidagi qovushqoq, shirin modda. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X modda qaysi?",
+    "34. Y modda qaysi?",
+    "35. Z moddaga Cu(OH)₂ qo'shilsa nima kuzatiladi?"
+   ],
+   "javoblar_royxati": [
+    "A) etanol",
+    "B) etilenglikol",
+    "C) yorqin ko'k eritma",
+    "D) metanol",
+    "E) glitserin",
+    "F) oq cho'kma"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "metanol antiseptikka qo'shilmaydi — zaharli"
+    },
+    {
+     "variant": "E",
+     "xato": "savol Z ning REAKSIYASI haqida"
+    },
+    {
+     "variant": "F",
+     "xato": "ko'p atomli spirt cho'kma emas, ko'k eritma beradi"
+    }
+   ],
+   "yechim": "X — etanol (A). Y — etilenglikol (B). Z — glitserin: Cu(OH)₂ bilan yorqin ko'k glitserat (C).",
+   "parametrlar": {
+    "arch": "maishiy_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol etanolning massasini (g) toping. (M=46)",
+   "javob": "9,2",
+   "yechim": "m = 0,2·46 = 9,2 g.",
+   "parametrlar": {
+    "arch": "etanol_massa_o1"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "6,4 g metanol necha mol bo'ladi? (M=32)",
+   "javob": "0,2",
+   "yechim": "n = 6,4/32 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "metanol_mol_o1"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O. 0,5 mol etanol yonishi uchun zarur kislorod hajmini (n.sh., L) toping.",
+   "javob": "33,6",
+   "yechim": "n(O₂) = 1,5 mol → V = 33,6 L.",
+   "parametrlar": {
+    "arch": "etanol_o2_o1"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "4,6 g etanol natriy bilan to'liq reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh., L) toping.",
+   "javob": "1,12",
+   "yechim": "n = 0,1 → n(H₂) = 0,05 mol → V = 1,12 L.",
+   "parametrlar": {
+    "arch": "na_h2_o1_4"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,1 mol glitserinning massasini (g) toping. (M=92)",
+   "javob": "9,2",
+   "yechim": "m = 0,1·92 = 9,2 g.",
+   "parametrlar": {
+    "arch": "glitserin_o1"
+   },
+   "tur": "O1",
+   "element": "III.4"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Spirt lampada 23 g etanol yoqildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Yonish tenglamasini yozing.",
+     "yechim": [
+      "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Etanol mol miqdorini toping.",
+     "yechim": [
+      "n = 23/46 = 0,5 mol."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Hosil bo'lgan CO₂ hajmini (n.sh.) hisoblang.",
+     "yechim": [
+      "n(CO₂) = 1 mol → V = 22,4 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega spirt alangasi qurumsiz? Izohlang.",
+     "yechim": [
+      "Molekulada kislorod «ichida» bor — yonish to'liq boradi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Etanol-yonish: tenglama → mol → hajm → izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "etanol_yonish_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Spirtlardagi vodorod bog'i hodisasi tahlil qilinadi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega etanol (M=46) gaz emas, suyuqlik, vaholanki og'irroq butan (M=58) gaz? Batafsil tushuntiring.",
+     "yechim": [
+      "Spirt molekulalari OH orqali vodorod bog'lari bilan «tikilgan» —",
+      "ularni uzishga qo'shimcha energiya ketadi, qaynash harorati keskin yuqori."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Xuddi shu sabab spirtlarning suvda erishini qanday tushuntiradi?",
+     "yechim": [
+      "OH guruhi suv molekulalari bilan ham vodorod bog' hosil qiladi — cheksiz aralashish."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Zanjir uzayganda (C₅ va undan yuqori) eruvchanlik nega kamayadi?",
+     "yechim": [
+      "Katta uglevodorod «dumi» suvni «yoqtirmaydi» — gidrofob qism ustun keladi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Vodorod-bog' mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "vodorod_bog_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch suyuqlik jadvalda berilgan:\n[JADVAL] № | Modda ;; 1 | etanol ;; 2 | glitserin ;; 3 | fenol eritmasi\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har birining sinfini aniqlang.",
+     "yechim": [
+      "Etanol — bir atomli spirt; glitserin — uch atomli spirt; fenol — aromatik gidroksid (fenollar sinfi)."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Qaysi biri Cu(OH)₂ bilan yorqin ko'k eritma beradi?",
+     "yechim": [
+      "Glitserin (ko'p atomlilik sinovi)."
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "c) Qaysi biri bromli suv bilan OQ CHO'KMA beradi? Tenglama yozing.",
+     "yechim": [
+      "Fenol: C₆H₅OH + 3Br₂ → C₆H₂Br₃OH↓ + 3HBr."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "d) Uchchalasi uchun umumiy bo'lgan reaksiyani ayting.",
+     "yechim": [
+      "Natriy bilan H₂ ajratish (OH guruhi bor)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "OH-uchlik: sinf → Cu(OH)₂ → Br₂ → umumiylik; M15+A10.",
+   "parametrlar": {
+    "arch": "oh_uchlik_o2"
+   }
+  }
+ ]
+}
