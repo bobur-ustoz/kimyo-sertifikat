@@ -1,0 +1,1350 @@
+{
+ "variant": "mavzu-I8-A",
+ "daraja": "A",
+ "bob": 8,
+ "bob_nomi": "Elektrolitik dissotsiatsiya va pH",
+ "manba": "MS spetsifikatsiyasi I.8; darslik bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (sovun, gidrangeya, oshqozon, basseyn, choy-limon) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Elektrolitlar deb qanday moddalarga aytiladi?",
+   "variantlar": [
+    "faqat metallarga",
+    "barcha suyuq moddalarga",
+    "faqat kislotalarga",
+    "eritmasi (yoki suyuqlanmasi) elektr tokini o'tkazadigan moddalarga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metallar eritma emas, o'zi o'tkazadi"
+    },
+    {
+     "variant": "B",
+     "xato": "spirt, benzin o'tkazmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "tuzlar va ishqorlar ham elektrolit"
+    }
+   ],
+   "yechim": "Elektrolitlar: kislotalar, ishqorlar, tuzlar — suvda ionlarga ajraladi.",
+   "parametrlar": {
+    "arch": "elektrolit_tarif"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Elektrolitik dissotsiatsiya nima?",
+   "variantlar": [
+    "moddaning bug'lanishi",
+    "cho'kma hosil bo'lishi",
+    "moddaning yonishi",
+    "elektrolitning suvda ionlarga ajralishi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu fizik jarayon"
+    },
+    {
+     "variant": "B",
+     "xato": "bu reaksiya natijasi"
+    },
+    {
+     "variant": "C",
+     "xato": "yonish — oksidlanish"
+    }
+   ],
+   "yechim": "Erish jarayonida qutbli suv molekulalari ta'sirida elektrolit ionlarga ajraladi.",
+   "parametrlar": {
+    "arch": "dissotsiatsiya_tarif"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "NaCl ning suvdagi dissotsiatsiya tenglamasi qaysi javobda TO'G'RI yozilgan?",
+   "variantlar": [
+    "NaCl → Na⁻ + Cl⁺",
+    "NaCl → Na + Cl",
+    "NaCl → Na⁺ + Cl⁻",
+    "NaCl → NaCl⁺ + e"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "zaryadlar teskari: metall kation bo'ladi"
+    },
+    {
+     "variant": "B",
+     "xato": "zaryadsiz atomlar hosil bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "elektron ajralishi — bu dissotsiatsiya emas"
+    }
+   ],
+   "yechim": "Metall — musbat (kation), kislota qoldig'i — manfiy (anion).",
+   "parametrlar": {
+    "arch": "dissots_tenglama"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: sovun ko'pigi qo'lda «sirg'anchiq» seziladi va uni universal indikator ko'kartiradi. Sovun eritmasining muhiti qanday?",
+   "variantlar": [
+    "kislotali — pH < 7",
+    "neytral — pH = 7",
+    "muhiti bo'lmaydi",
+    "ishqoriy — pH > 7"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislotalar indikatorni qizartiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "neytralda indikator rangi o'zgarmasdi"
+    },
+    {
+     "variant": "C",
+     "xato": "har qanday suvli eritmaning pH i bor"
+    }
+   ],
+   "yechim": "Sovun — kuchsiz kislota va kuchli asos «tuzi»: eritmasi ishqoriy (pH ≈ 9–10), shu bois teri yog'ini eritib «sirg'anadi».",
+   "parametrlar": {
+    "arch": "sovun_sahna"
+   },
+   "fig": "soap"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Barcha kislotalar eritmalari uchun UMUMIY bo'lgan ion qaysi?",
+   "variantlar": [
+    "OH⁻",
+    "H⁺",
+    "Na⁺",
+    "Cl⁻"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu ishqorlarning umumiy ioni"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat natriyli birikmalarda"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat xloridlarda"
+    }
+   ],
+   "yechim": "Kislotalarning nordon ta'mi va indikatorga ta'siri — H⁺ ionlaridan.",
+   "parametrlar": {
+    "arch": "h_umumiy"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Barcha ishqorlar eritmalari uchun UMUMIY ion qaysi?",
+   "variantlar": [
+    "H⁺",
+    "OH⁻",
+    "K⁺",
+    "O²⁻"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislotalarning ioni"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat kaliyli ishqorda"
+    },
+    {
+     "variant": "D",
+     "xato": "eritmada bo'lmaydi"
+    }
+   ],
+   "yechim": "Ishqoriy muhit belgilari (sirg'anish, indikator ranglari) — OH⁻ dan.",
+   "parametrlar": {
+    "arch": "oh_umumiy"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Lakmus ISHQORIY muhitda qanday rangga kiradi?",
+   "variantlar": [
+    "qizil",
+    "rangsiz",
+    "ko'k",
+    "qora"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislota rangi"
+    },
+    {
+     "variant": "B",
+     "xato": "lakmus rangsizlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "bunday rang yo'q"
+    }
+   ],
+   "yechim": "Lakmus: kislotada qizil, ishqorda ko'k, neytralda binafsha.",
+   "parametrlar": {
+    "arch": "lakmus_ishqor"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda gidrangeya (vodosbor) guli: KISLOTALI tuproqda KO'K, ishqoriy tuproqda PUSHTI gullaydi. Bog'bon ko'k gul olmoqchi. Tuproq qanday bo'lishi kerak?",
+   "variantlar": [
+    "kislotali (pH < 7)",
+    "ishqoriy (pH > 7)",
+    "faqat neytral",
+    "muhit ahamiyatsiz"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ishqoriyda pushti gullaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "neytralda oraliq rang bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "rang aynan tuproq pH iga bog'liq"
+    }
+   ],
+   "yechim": "Gul rangi tuproq pH ining tabiiy «indikatori»: kislotali muhit → ko'k gul.",
+   "parametrlar": {
+    "arch": "gul_sahna"
+   },
+   "fig": "flower"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "pH = 7 bo'lgan eritma qanday muhitga ega?",
+   "variantlar": [
+    "kislotali",
+    "ishqoriy",
+    "neytral",
+    "aniqlab bo'lmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pH < 7 bo'lardi"
+    },
+    {
+     "variant": "B",
+     "xato": "pH > 7 bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "pH aynan muhit o'lchovi"
+    }
+   ],
+   "yechim": "pH = 7: [H⁺] = [OH⁻] = 10⁻⁷ — toza suv, neytral tuz eritmalari.",
+   "parametrlar": {
+    "arch": "ph7"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada [H⁺] = 10⁻⁴ mol/l. Eritmaning pH ini toping.",
+   "variantlar": [
+    "10",
+    "4",
+    "−4",
+    "7"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pOH hisoblangan"
+    },
+    {
+     "variant": "C",
+     "xato": "ishora xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "neytral deb olingan"
+    }
+   ],
+   "yechim": "pH = −lg10⁻⁴ = 4 — kislotali muhit.",
+   "parametrlar": {
+    "arch": "ph_oddiy"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi modda KUCHLI elektrolit?",
+   "variantlar": [
+    "HNO₃",
+    "CH₃COOH",
+    "H₂S",
+    "NH₄OH"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kuchsiz kislota"
+    },
+    {
+     "variant": "C",
+     "xato": "kuchsiz kislota"
+    },
+    {
+     "variant": "D",
+     "xato": "kuchsiz asos"
+    }
+   ],
+   "yechim": "Nitrat kislota suvda to'liq dissotsiatsiyalanadi.",
+   "parametrlar": {
+    "arch": "kuchli_oddiy"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi moddaning eritmasi elektr tokini O'TKAZMAYDI?",
+   "variantlar": [
+    "osh tuzi",
+    "xlorid kislota",
+    "kaliy nitrat",
+    "shakar"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ionlarga ajraladi"
+    },
+    {
+     "variant": "B",
+     "xato": "kuchli elektrolit"
+    },
+    {
+     "variant": "C",
+     "xato": "eruvchan tuz — elektrolit"
+    }
+   ],
+   "yechim": "Shakar molekulalar holida eriydi — ion yo'q, tok yo'q.",
+   "parametrlar": {
+    "arch": "noelektrolit_oddiy"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: jig'ildon qaynaganda (oshqozonda kislota ortib ketganda) antatsid dori (masalan, Mg(OH)₂) ichiladi. Dori qanday ta'sir qiladi?",
+   "variantlar": [
+    "kislotani yanada oshiradi",
+    "oshqozonni sovutadi",
+    "ovqatni tez hazm qiladi",
+    "ortiqcha xlorid kislotani neytrallaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asos kislotani kamaytiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "ta'sir kimyoviy, harorat emas"
+    },
+    {
+     "variant": "C",
+     "xato": "antatsid ferment emas"
+    }
+   ],
+   "yechim": "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O — neytrallanish: pH me'yorga qaytadi.",
+   "parametrlar": {
+    "arch": "oshqozon_sahna"
+   },
+   "fig": "stomach"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "MgCl₂ to'liq dissotsiatsiyalanganda bitta formula birligidan nechta ion hosil bo'ladi?",
+   "variantlar": [
+    "3",
+    "2",
+    "4",
+    "1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 ta xlor unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "ortiqcha ion"
+    },
+    {
+     "variant": "D",
+     "xato": "ajralmaydi deb olingan"
+    }
+   ],
+   "yechim": "MgCl₂ → Mg²⁺ + 2Cl⁻ — jami 3 ta ion.",
+   "parametrlar": {
+    "arch": "ion_sanash_oddiy"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "AgNO₃ va NaCl eritmalari aralashtirilganda nima kuzatiladi?",
+   "variantlar": [
+    "gaz ajraladi",
+    "hech narsa o'zgarmaydi",
+    "oq cho'kma (AgCl) tushadi",
+    "eritma qizib ketadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gaz hosil qiluvchi ionlar yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "Ag⁺ + Cl⁻ → AgCl↓ boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiy belgi — cho'kma"
+    }
+   ],
+   "yechim": "Ag⁺ + Cl⁻ → AgCl↓ — ion almashinish cho'kma bilan tugaydi.",
+   "parametrlar": {
+    "arch": "agcl"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "pH = 9 bo'lgan eritma qanday muhitga ega?",
+   "variantlar": [
+    "kuchli kislotali",
+    "neytral",
+    "kuchli ishqoriy",
+    "kuchsiz ishqoriy"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pH < 3 bo'lardi"
+    },
+    {
+     "variant": "B",
+     "xato": "pH = 7 bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "kuchli ishqoriylik pH ≈ 12–14"
+    }
+   ],
+   "yechim": "7 < pH < 10 — kuchsiz ishqoriy oraliq.",
+   "parametrlar": {
+    "arch": "ph9"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Indikatorlar jadvalidagi «?» katakni to'ldiring:\n[JADVAL] Muhit | lakmus | fenolftalein ;; kislotali | qizil | rangsiz ;; ishqoriy | ko'k | ?",
+   "variantlar": [
+    "rangsiz",
+    "qizil",
+    "yashil",
+    "pushti"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ishqorda fenolftalein rang beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu lakmusning kislota rangi"
+    },
+    {
+     "variant": "C",
+     "xato": "fenolftaleinda bunday rang yo'q"
+    }
+   ],
+   "yechim": "Fenolftalein faqat ishqoriy muhitda to'q pushti bo'ladi.",
+   "parametrlar": {
+    "arch": "indikator_jadval"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda basseyn ko'rsatilgan: suvining pH i doim 7,2–7,6 oralig'ida ushlab turiladi. Buning sababi nima?",
+   "variantlar": [
+    "suv shu pH da chiroyliroq ko'rinadi",
+    "bu oraliq ko'z-teri uchun bezarar va dezinfeksiya samarali ishlaydi",
+    "pH suzish tezligiga ta'sir qiladi",
+    "shunchaki an'ana"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang emas, xavfsizlik va samaradorlik muhim"
+    },
+    {
+     "variant": "C",
+     "xato": "tezlikka aloqasi yo'q"
+    },
+    {
+     "variant": "D",
+     "xato": "aniq gigiyenik-kimyoviy asos bor"
+    }
+   ],
+   "yechim": "Juda past pH ko'zni achitadi, yuqori pH da xlorli dezinfeksiya kuchsizlanadi — shuning uchun doimiy nazorat.",
+   "parametrlar": {
+    "arch": "basseyn_sahna"
+   },
+   "fig": "pool"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,1 mol NaOH to'liq dissotsiatsiyalanganda necha mol gidroksid-ion hosil bo'ladi?",
+   "variantlar": [
+    "0,1",
+    "0,2",
+    "0,05",
+    "1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "NaOH da bitta OH bor"
+    },
+    {
+     "variant": "C",
+     "xato": "bo'lish xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "o'n barobar xato"
+    }
+   ],
+   "yechim": "NaOH → Na⁺ + OH⁻: 0,1 mol → 0,1 mol OH⁻.",
+   "parametrlar": {
+    "arch": "oh_oddiy"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Toza suv nima uchun elektr tokini juda YOMON o'tkazadi?",
+   "variantlar": [
+    "suv juda oz miqdorda ionlarga ajraladi",
+    "suvda umuman ion yo'q",
+    "suv molekulasi og'ir",
+    "suv rangsiz"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "10⁻⁷ mol/l H⁺ va OH⁻ bor"
+    },
+    {
+     "variant": "C",
+     "xato": "massa sabab emas"
+    },
+    {
+     "variant": "D",
+     "xato": "rang o'tkazuvchanlikka aloqasiz"
+    }
+   ],
+   "yechim": "Suv — juda kuchsiz elektrolit: ionlari o'ta kam, tok deyarli o'tmaydi.",
+   "parametrlar": {
+    "arch": "suv_kuchsiz"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "pH bir birlikka kamaysa, eritmadagi [H⁺] necha marta o'zgaradi?",
+   "variantlar": [
+    "2 marta ortadi",
+    "10 marta kamayadi",
+    "10 marta ortadi",
+    "o'zgarmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "shkala logarifmik — 10 lik"
+    },
+    {
+     "variant": "B",
+     "xato": "pH kamayishi H⁺ ortishi demak"
+    },
+    {
+     "variant": "D",
+     "xato": "pH aynan [H⁺] o'lchovi"
+    }
+   ],
+   "yechim": "pH — o'nli logarifm: har birlik = 10 barobar.",
+   "parametrlar": {
+    "arch": "log_shkala"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "HCl + NaOH → NaCl + H₂O reaksiyasining QISQA ion tenglamasini ko'rsating.",
+   "variantlar": [
+    "Na⁺ + Cl⁻ → NaCl",
+    "H⁺ + OH⁻ → H₂O",
+    "HCl + OH⁻ → Cl⁻ + H₂O",
+    "H⁺ + NaOH → Na⁺ + H₂O"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu ionlar reaksiyada qatnashmaydi (tomoshabin)"
+    },
+    {
+     "variant": "C",
+     "xato": "HCl kuchli — ion holida yoziladi"
+    },
+    {
+     "variant": "D",
+     "xato": "NaOH ham ion holida yoziladi"
+    }
+   ],
+   "yechim": "Kuchli elektrolitlar ionlarga yoziladi; mohiyat — suv hosil bo'lishi.",
+   "parametrlar": {
+    "arch": "qisqa_ion_oddiy"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Na₂CO₃ eritmasiga HCl qo'shilganda «vishillab» chiqayotgan gaz qaysi?",
+   "variantlar": [
+    "H₂",
+    "CO₂",
+    "Cl₂",
+    "O₂"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod bunday reaksiyada ajralmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "xlor hosil bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "kislorod manbai yo'q"
+    }
+   ],
+   "yechim": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑ — karbonatlarning tanish reaksiyasi.",
+   "parametrlar": {
+    "arch": "co2_gaz"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,05 mol CaCl₂ to'liq dissotsiatsiyalanganda necha mol xlorid-ion hosil bo'ladi?",
+   "variantlar": [
+    "0,05",
+    "0,1",
+    "0,15",
+    "0,2"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2 ta Cl unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "3 ion jami — Cl⁻ emas"
+    },
+    {
+     "variant": "D",
+     "xato": "4 ta xato"
+    }
+   ],
+   "yechim": "CaCl₂ → Ca²⁺ + 2Cl⁻ → 0,05·2 = 0,1 mol Cl⁻.",
+   "parametrlar": {
+    "arch": "cl_mol"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fenolftalein KISLOTALI muhitda qanday bo'ladi?",
+   "variantlar": [
+    "pushti",
+    "ko'k",
+    "qizil",
+    "rangsiz"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu ishqordagi rangi"
+    },
+    {
+     "variant": "B",
+     "xato": "lakmus rangi"
+    },
+    {
+     "variant": "C",
+     "xato": "lakmus kislota rangi"
+    }
+   ],
+   "yechim": "Fenolftalein kislota va neytral muhitda rangsiz.",
+   "parametrlar": {
+    "arch": "fenolftalein_oddiy"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada kundalik moddalarning pH qiymatlari berilgan. Qaysi modda ENG KISLOTALI?",
+   "variantlar": [
+    "limon sharbati",
+    "sirka",
+    "sut",
+    "sovun eritmasi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "pH 3 — limonnikidan (2) yuqori"
+    },
+    {
+     "variant": "C",
+     "xato": "pH ≈ 6,5 — deyarli neytral"
+    },
+    {
+     "variant": "D",
+     "xato": "pH ≈ 10 — ishqoriy"
+    }
+   ],
+   "yechim": "pH qancha KICHIK bo'lsa, muhit shuncha kislotali: limon (pH ≈ 2) ro'yxatda eng nordoni.",
+   "parametrlar": {
+    "arch": "ph_bars_oqish"
+   },
+   "fig": "ph_bars"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "pH = 3 bo'lgan eritmadagi vodorod ionlari konsentratsiyasi qancha (mol/l)?",
+   "variantlar": [
+    "10⁻³",
+    "3",
+    "10⁻¹¹",
+    "10³"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "pH ning o'zi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu [OH⁻]"
+    },
+    {
+     "variant": "D",
+     "xato": "manfiy daraja unutilgan"
+    }
+   ],
+   "yechim": "[H⁺] = 10⁻pH = 10⁻³ mol/l.",
+   "parametrlar": {
+    "arch": "h_teskari"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Nega quruq osh tuzi tok o'tkazmaydi-yu, eritmasi o'tkazadi?",
+   "variantlar": [
+    "eritmada elektronlar paydo bo'ladi",
+    "suvning o'zi tok o'tkazadi",
+    "eritmada ionlar erkin harakatlanadi, kristallda esa mahkam turadi",
+    "kristall juda qattiq"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'tkazuvchanlik ionli"
+    },
+    {
+     "variant": "B",
+     "xato": "toza suv deyarli o'tkazmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "qattiqlik emas, ionlar harakati muhim"
+    }
+   ],
+   "yechim": "Tok tashuvchilar — erkin ionlar: ular faqat eritma/suyuqlanmada harakatchan.",
+   "parametrlar": {
+    "arch": "kristall_eritma"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Kislotali eritma suv bilan suyultirib borilganda uning pH i qanday o'zgaradi? To'g'ri grafikni tanlang.",
+   "variantlar": [
+    "kamayib boradi",
+    "ortib, 7 ga yaqinlashadi",
+    "o'zgarmaydi",
+    "ortib, keyin kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suyultirish [H⁺] ni kamaytiradi — pH ortadi"
+    },
+    {
+     "variant": "C",
+     "xato": "[H⁺] kamaygach pH ham o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton 7 ga intiladi"
+    }
+   ],
+   "yechim": "[H⁺] kamayadi → pH ortadi, lekin 7 dan oshmaydi (kislota baribir kislota).",
+   "parametrlar": {
+    "arch": "suyultirish_ph"
+   },
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "suyultirish",
+    "ylab": "pH"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "pH haqidagi fikrlardan XATOSINI toping.",
+   "variantlar": [
+    "pH 0 dan 14 gacha o'zgaradi",
+    "pH = 7 — neytral muhit",
+    "pH faqat kislotalarda bo'ladi",
+    "pH kichik bo'lsa, kislotalilik kuchli"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'g'ri (odatdagi eritmalarda)"
+    },
+    {
+     "variant": "B",
+     "xato": "to'g'ri fikr"
+    },
+    {
+     "variant": "D",
+     "xato": "to'g'ri fikr"
+    }
+   ],
+   "yechim": "pH har qanday suvli eritmada bor: ishqorda ham (7 dan katta), suvda ham (7).",
+   "parametrlar": {
+    "arch": "xato_fikr"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,001 M li xlorid kislota eritmasining pH ini toping (to'liq dissotsiatsiya).",
+   "variantlar": [
+    "3",
+    "1",
+    "11",
+    "0,001"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "0,1 M uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "pOH hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "kontsentratsiyaning o'zi"
+    }
+   ],
+   "yechim": "[H⁺] = 10⁻³ → pH = 3.",
+   "parametrlar": {
+    "arch": "hcl_ph"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi pH shkalasidan foydalaning: qora qahva pH ≈ 5 ga ega. U qanday muhitli ichimlik?",
+   "variantlar": [
+    "kuchli kislotali",
+    "ishqoriy",
+    "kuchsiz kislotali",
+    "neytral"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pH 5 — 7 ga ancha yaqin"
+    },
+    {
+     "variant": "B",
+     "xato": "pH < 7 — kislotali tomon"
+    },
+    {
+     "variant": "D",
+     "xato": "neytral aynan 7"
+    }
+   ],
+   "yechim": "5 < 7, ammo 7 ga yaqin — kuchsiz kislotali (shkala chap-o'rta qismi).",
+   "parametrlar": {
+    "arch": "shkala_qahva"
+   },
+   "fig": "ph_scale"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.8",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.8",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.8",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.8",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Achchiq choy — tabiiy indikator: muhitga qarab rangini o'zgartiradi. Bir piyola choyga limon bo'lagi solinganda rang keskin OCHILDI. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Limon qo'shilgach choy muhiti qanday bo'ldi?",
+    "34. Bunda choyning pH qiymati qanday o'zgardi?",
+    "35. Endi shu choyga oz-oz ichimlik sodasi qo'shib borilsa, muhit qaysi tomonga o'zgaradi?"
+   ],
+   "javoblar_royxati": [
+    "A) kislotali",
+    "B) ishqoriy tomonga",
+    "C) kamaydi",
+    "D) ortdi",
+    "E) o'zgarmadi",
+    "F) neytral bo'ldi"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "C",
+    "35": "B"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "kislota qo'shilishi pH ni KAMAYTIRADI"
+    },
+    {
+     "variant": "E",
+     "xato": "rang o'zgardi — muhit ham o'zgargan"
+    },
+    {
+     "variant": "F",
+     "xato": "soda ortiqcha qo'shilsa neytraldan ham o'tib ketadi"
+    }
+   ],
+   "yechim": "Limon kislotasi → muhit kislotali (A), pH kamaydi (C). Soda (NaHCO₃) kislotani neytrallab, muhitni ishqoriy tomonga suradi (B).",
+   "parametrlar": {
+    "arch": "choy_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "HNO₃ dissotsiatsiyalanganda bitta molekuladan nechta vodorod ioni hosil bo'ladi?",
+   "javob": "1",
+   "yechim": "HNO₃ → H⁺ + NO₃⁻ — bitta H⁺.",
+   "parametrlar": {
+    "arch": "h_soni_o1"
+   },
+   "tur": "O1",
+   "element": "I.8"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "pH = 6 bo'lgan eritma muhitini yozing (kislotali/neytral/ishqoriy).",
+   "javob": "kislotali",
+   "yechim": "6 < 7 — kuchsiz bo'lsa-da kislotali.",
+   "parametrlar": {
+    "arch": "muhit_o1"
+   },
+   "tur": "O1",
+   "element": "I.8"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada [H⁺] = 10⁻⁸ mol/l. pH ni toping.",
+   "javob": "8",
+   "yechim": "pH = −lg10⁻⁸ = 8 (kuchsiz ishqoriy).",
+   "parametrlar": {
+    "arch": "ph_o1"
+   },
+   "tur": "O1",
+   "element": "I.8"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol Na₂SO₄ dissotsiatsiyalanganda hosil bo'ladigan natriy ionlari mol sonini toping.",
+   "javob": "0,4",
+   "yechim": "Na₂SO₄ → 2Na⁺ + SO₄²⁻ → 0,2·2 = 0,4 mol Na⁺.",
+   "parametrlar": {
+    "arch": "na_o1"
+   },
+   "tur": "O1",
+   "element": "I.8"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,01 M li NaOH eritmasining pH ini toping.",
+   "javob": "12",
+   "yechim": "[OH⁻] = 10⁻² → pOH = 2 → pH = 12.",
+   "parametrlar": {
+    "arch": "naoh_o1"
+   },
+   "tur": "O1",
+   "element": "I.8"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "3,65 g HCl suvda eritilib, 1 l eritma tayyorlandi. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi. (M(HCl)=36,5)",
+   "bandlar": [
+    {
+     "savol": "a) Eritmaning molyar konsentratsiyasini toping.",
+     "yechim": [
+      "n = 0,1 mol → c = 0,1 M"
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Vodorod ionlari konsentratsiyasini yozing.",
+     "yechim": [
+      "HCl kuchli → [H⁺] = 0,1 mol/l"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Eritmaning pH ini toping.",
+     "yechim": [
+      "pH = −lg0,1 = 1"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Eritmadan 100 ml olib, suv bilan 1 l gacha suyultirildi. Yangi pH ni toping.",
+     "yechim": [
+      "c = 0,01 M → pH = 2"
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "e) Bu eritmaga lakmus va fenolftalein tomizilsa qanday ranglar kuzatiladi?",
+     "yechim": [
+      "Lakmus — qizil; fenolftalein — rangsiz (kislotali muhit)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi pH zanjiri: c → [H⁺] → pH → suyultirish → indikatorlar; M15+A10.",
+   "parametrlar": {
+    "arch": "hcl_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Kechki ovqatdan so'ng odamning jig'ildoni qaynadi (oshqozonda HCl me'yordan oshib ketdi). Quyidagi savollarga MULOHAZA yuritib javob yozing (hisob talab qilinmaydi).",
+   "bandlar": [
+    {
+     "savol": "a) «Jig'ildon qaynashi»ning kimyoviy sababini va antatsid dorining (Mg(OH)₂ asosli) ta'sir mexanizmini tenglama bilan tushuntiring.",
+     "yechim": [
+      "Ortiqcha H⁺ qizilo'ngach devorini ta'sirlaydi. Antatsid — kuchsiz asos:",
+      "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O — neytrallanish, pH me'yorlashadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega bu maqsadda NaOH kabi kuchli ishqor ishlatilmaydi?",
+     "yechim": [
+      "Kuchli ishqor to'qimani kuydiradi va pH ni keskin ishqoriy tomonga o'tkazib yuboradi;",
+      "kam eruvchan Mg(OH)₂ faqat ortiqcha kislota bilan reaksiyaga kirishadi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Nega ichimlik sodasini tez-tez ichish tavsiya etilmaydi?",
+     "yechim": [
+      "NaHCO₃ + HCl → CO₂↑: gaz oshqozonni kengaytiradi, muhit buzilib kislota qayta ko'payadi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "antatsid_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uy sharoitidagi uch suyuqlikning pH lari o'lchandi; natijalar jadvalda:\n[JADVAL] Suyuqlik | sirka | choynak suvi | sovun eritmasi ;; pH | 3 | 7 | 10\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir suyuqlikning muhitini aniqlang.",
+     "yechim": [
+      "Sirka — kislotali; suv — neytral; sovun — ishqoriy."
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Har birida [H⁺] ni yozing.",
+     "yechim": [
+      "10⁻³; 10⁻⁷; 10⁻¹⁰ mol/l"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Sirka va sovun eritmalarida [H⁺] necha marta farq qilishini toping.",
+     "yechim": [
+      "10⁽¹⁰⁻³⁾ = 10⁷ marta (sirkada ko'p)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Uchala suyuqlikka universal indikator tomizilsa qanday ranglar kuzatiladi?",
+     "yechim": [
+      "Sirka — qizg'ish-sariq; suv — yashil; sovun — ko'k-binafsha."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Uy-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "uy_jadval"
+   }
+  }
+ ]
+}
