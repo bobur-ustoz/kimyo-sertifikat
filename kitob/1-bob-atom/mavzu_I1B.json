@@ -277,31 +277,31 @@
    "element": "I.1",
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "Elementar zarralar haqidagi TO'G'RI fikrni tanlang.",
+   "savol": "Bosh kvant soni (n) elektronning qaysi xususiyatini belgilaydi?",
    "variantlar": [
-    "elektron protondan og'ir",
-    "neytron musbat zaryadli",
-    "proton zaryadsiz",
-    "proton va neytron massalari deyarli teng, elektron ~1840 marta yengil"
+    "orbital shaklini",
+    "orbitalning fazodagi yo'nalishini",
+    "elektronning o'z aylanishini",
+    "energetik daraja (qavat) va orbital o'lchamini"
    ],
    "javob": "D",
    "chalgituvchilar": [
     {
      "variant": "A",
-     "xato": "elektron eng yengil zarra"
+     "xato": "shaklni orbital (yonaki) kvant soni l belgilaydi"
     },
     {
      "variant": "B",
-     "xato": "neytron zaryadsiz"
+     "xato": "buni magnit kvant soni m belgilaydi"
     },
     {
      "variant": "C",
-     "xato": "protonning zaryadi +1"
+     "xato": "buni spin kvant soni s belgilaydi"
     }
    ],
-   "yechim": "m(p) ≈ m(n) ≈ 1 m.a.b.; m(e) ≈ 1/1840 m.a.b.",
+   "yechim": "n = 1, 2, 3... — qavat raqami: n qancha katta bo'lsa, elektron yadrodan uzoq va energiyasi yuqori.",
    "parametrlar": {
-    "arch": "zarra_massa"
+    "arch": "bosh_kvant"
    }
   },
   {
@@ -508,31 +508,31 @@
    "element": "I.1",
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "p-pog'onachaga eng ko'pi bilan nechta elektron joylashadi?",
+   "savol": "Orbital kvant soni l = 1 (p-pog'onacha) uchun magnit kvant soni (m) qanday qiymatlar oladi?",
    "variantlar": [
-    "2",
-    "10",
-    "8",
-    "6"
+    "0, 1",
+    "faqat 0",
+    "−2, −1, 0, +1, +2",
+    "−1, 0, +1"
    ],
    "javob": "D",
    "chalgituvchilar": [
     {
      "variant": "A",
-     "xato": "s-pog'onacha sig'imi"
+     "xato": "m manfiy qiymatlar ham oladi"
     },
     {
      "variant": "B",
-     "xato": "d-pog'onacha sig'imi"
+     "xato": "bu l = 0 (s) uchun"
     },
     {
      "variant": "C",
-     "xato": "qavat emas, pog'onacha so'raldi"
+     "xato": "bu l = 2 (d) uchun"
     }
    ],
-   "yechim": "p: 3 orbital × 2 e = 6 e.",
+   "yechim": "m = −l ... 0 ... +l: l=1 da 3 qiymat — shu bois p-pog'onachada 3 ta orbital bor.",
    "parametrlar": {
-    "arch": "p_sigim"
+    "arch": "magnit_kvant"
    }
   },
   {
@@ -939,31 +939,31 @@
    "element": "I.1",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "X elementida massa soni protonlar sonidan ikki marta katta (A = 2Z), Z = 16. Atomdagi neytronlar sonini toping.",
+   "savol": "3p, 3d, 4s, 4p pog'onachalarini elektron bilan TO'LISH tartibida joylashtiring.",
    "variantlar": [
-    "32",
-    "16",
-    "8",
-    "48"
+    "3p → 3d → 4s → 4p",
+    "3p → 4s → 3d → 4p",
+    "4s → 3p → 3d → 4p",
+    "3p → 4s → 4p → 3d"
    ],
    "javob": "B",
    "chalgituvchilar": [
     {
      "variant": "A",
-     "xato": "A ning o'zi"
+     "xato": "n+l: 4s(4) 3d(5) dan oldin to'ladi"
     },
     {
      "variant": "C",
-     "xato": "yarmi xato olingan"
+     "xato": "3p(4... aniqrog'i n+l=4, n kichik) birinchi"
     },
     {
      "variant": "D",
-     "xato": "yig'indi olingan"
+     "xato": "4p(5) va 3d(5): n kichigi (3d) oldin"
     }
    ],
-   "yechim": "n = A − Z = 32 − 16 = 16 (p = n bo'lgan holat).",
+   "yechim": "Klechkovskiy qoidasi: n+l kichigi oldin; teng bo'lsa n kichigi. 3p(4) → 4s(4) → 3d(5) → 4p(5).",
    "parametrlar": {
-    "arch": "a2z"
+    "arch": "klechkovskiy"
    }
   },
   {

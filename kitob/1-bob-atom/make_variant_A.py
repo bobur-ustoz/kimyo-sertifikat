@@ -186,13 +186,13 @@ q(3, "o'rta",
 
 # 20 (2)
 q(2, "o'rta",
-  "Davriy jadvalda element qaysi kattaligi bo'yicha joylashtirilgan?",
-  "yadro zaryadi (Z) ortib borishi bo'yicha",
-  [("atom massasi bo'yicha qat'iy", "Ar–K, Co–Ni juftlarida massa tartibi buziladi"),
-   ("alifbo tartibida", "kimyoviy mantiq yo'q bo'lardi"),
-   ("kashf etilgan yili bo'yicha", "tarix emas, tuzilish asos")],
-  "Zamonaviy ta'rif: xossalar Z ga davriy bog'liq.",
-  dict(arch="jadval_asos"))
+  "Atomdagi elektronning holatini TO'LIQ tavsiflash uchun nechta kvant soni ishlatiladi?",
+  "4 ta (n, l, m, s)",
+  [("2 ta", "qavat va pog'onachadan tashqari yo'nalish va spin ham bor"),
+   ("3 ta", "spin kvant soni (s) ham hisobga olinadi"),
+   ("8 ta", "kvant sonlari to'rtta — 8 bu qavat sig'imi")],
+  "n — qavat, l — pog'onacha (shakl), m — yo'nalish, s — spin: to'rttasi elektron «manzili».",
+  dict(arch="kvant_soni_oddiy"))
 
 # 21 (3)
 check("q21", 19, 19)

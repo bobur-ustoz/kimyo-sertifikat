@@ -86,15 +86,15 @@ q(2, "yuqori",
   "Yadro zaryadi +Z — davriy sistemadagi tartib raqami.",
   dict(arch="yadro_zaryad"))
 
-# 9 (2) — zarralar massasi
+# 9 (2) — bosh kvant soni
 q(2, "yuqori",
-  "Elementar zarralar haqidagi TO'G'RI fikrni tanlang.",
-  "proton va neytron massalari deyarli teng, elektron ~1840 marta yengil",
-  [("elektron protondan og'ir", "elektron eng yengil zarra"),
-   ("neytron musbat zaryadli", "neytron zaryadsiz"),
-   ("proton zaryadsiz", "protonning zaryadi +1")],
-  "m(p) ≈ m(n) ≈ 1 m.a.b.; m(e) ≈ 1/1840 m.a.b.",
-  dict(arch="zarra_massa"))
+  "Bosh kvant soni (n) elektronning qaysi xususiyatini belgilaydi?",
+  "energetik daraja (qavat) va orbital o'lchamini",
+  [("orbital shaklini", "shaklni orbital (yonaki) kvant soni l belgilaydi"),
+   ("orbitalning fazodagi yo'nalishini", "buni magnit kvant soni m belgilaydi"),
+   ("elektronning o'z aylanishini", "buni spin kvant soni s belgilaydi")],
+  "n = 1, 2, 3... — qavat raqami: n qancha katta bo'lsa, elektron yadrodan uzoq va energiyasi yuqori.",
+  dict(arch="bosh_kvant"))
 
 # 10 (3) — ion konfiguratsiyasi
 q(3, "yuqori",
@@ -153,12 +153,14 @@ q(3, "yuqori",
   "63x + 65(1−x) = 63,54 → 2x = 1,46 → x = 0,73 → 73 %.",
   dict(arch="izotop_teskari"))
 
-# 16 (2) — pog'onacha sig'imi
+# 16 (2) — magnit kvant soni
 q(2, "yuqori",
-  "p-pog'onachaga eng ko'pi bilan nechta elektron joylashadi?",
-  "6", [("2", "s-pog'onacha sig'imi"), ("10", "d-pog'onacha sig'imi"), ("8", "qavat emas, pog'onacha so'raldi")],
-  "p: 3 orbital × 2 e = 6 e.",
-  dict(arch="p_sigim"))
+  "Orbital kvant soni l = 1 (p-pog'onacha) uchun magnit kvant soni (m) qanday qiymatlar oladi?",
+  "−1, 0, +1",
+  [("0, 1", "m manfiy qiymatlar ham oladi"), ("faqat 0", "bu l = 0 (s) uchun"),
+   ("−2, −1, 0, +1, +2", "bu l = 2 (d) uchun")],
+  "m = −l ... 0 ... +l: l=1 da 3 qiymat — shu bois p-pog'onachada 3 ta orbital bor.",
+  dict(arch="magnit_kvant"))
 
 # 17 (3) — JADVALLI: davr/guruhdan konfiguratsiya
 q(3, "yuqori",
@@ -269,14 +271,15 @@ q(2, "yuqori",
   "Yadro: p + n (nuklonlar); elektronlar — atrofdagi qavatlarda.",
   dict(arch="model_oqish"), fig="atom_model")
 
-# 29 (3) — A = 2Z sharti
-check("q29", 32-16, 16)
+# 29 (3) — Klechkovskiy (n+l) tartibi
 q(3, "yuqori",
-  "X elementida massa soni protonlar sonidan ikki marta katta (A = 2Z), Z = 16. "
-  "Atomdagi neytronlar sonini toping.",
-  "16", [("32", "A ning o'zi"), ("8", "yarmi xato olingan"), ("48", "yig'indi olingan")],
-  "n = A − Z = 32 − 16 = 16 (p = n bo'lgan holat).",
-  dict(arch="a2z"))
+  "3p, 3d, 4s, 4p pog'onachalarini elektron bilan TO'LISH tartibida joylashtiring.",
+  "3p → 4s → 3d → 4p",
+  [("3p → 3d → 4s → 4p", "n+l: 4s(4) 3d(5) dan oldin to'ladi"),
+   ("4s → 3p → 3d → 4p", "3p(4... aniqrog'i n+l=4, n kichik) birinchi"),
+   ("3p → 4s → 4p → 3d", "4p(5) va 3d(5): n kichigi (3d) oldin")],
+  "Klechkovskiy qoidasi: n+l kichigi oldin; teng bo'lsa n kichigi. 3p(4) → 4s(4) → 3d(5) → 4p(5).",
+  dict(arch="klechkovskiy"))
 
 # 30 (2) — qo'zg'algan holat ta'rifi
 q(2, "yuqori",

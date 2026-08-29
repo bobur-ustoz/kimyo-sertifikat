@@ -643,31 +643,31 @@
    "element": "I.1",
    "qiyinlik": 2,
    "kognitiv": "o'rta",
-   "savol": "Davriy jadvalda element qaysi kattaligi bo'yicha joylashtirilgan?",
+   "savol": "Atomdagi elektronning holatini TO'LIQ tavsiflash uchun nechta kvant soni ishlatiladi?",
    "variantlar": [
-    "yadro zaryadi (Z) ortib borishi bo'yicha",
-    "atom massasi bo'yicha qat'iy",
-    "alifbo tartibida",
-    "kashf etilgan yili bo'yicha"
+    "4 ta (n, l, m, s)",
+    "2 ta",
+    "3 ta",
+    "8 ta"
    ],
    "javob": "A",
    "chalgituvchilar": [
     {
      "variant": "B",
-     "xato": "Ar–K, Co–Ni juftlarida massa tartibi buziladi"
+     "xato": "qavat va pog'onachadan tashqari yo'nalish va spin ham bor"
     },
     {
      "variant": "C",
-     "xato": "kimyoviy mantiq yo'q bo'lardi"
+     "xato": "spin kvant soni (s) ham hisobga olinadi"
     },
     {
      "variant": "D",
-     "xato": "tarix emas, tuzilish asos"
+     "xato": "kvant sonlari to'rtta — 8 bu qavat sig'imi"
     }
    ],
-   "yechim": "Zamonaviy ta'rif: xossalar Z ga davriy bog'liq.",
+   "yechim": "n — qavat, l — pog'onacha (shakl), m — yo'nalish, s — spin: to'rttasi elektron «manzili».",
    "parametrlar": {
-    "arch": "jadval_asos"
+    "arch": "kvant_soni_oddiy"
    }
   },
   {
