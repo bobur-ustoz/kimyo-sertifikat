@@ -50,7 +50,7 @@
    "element": "I.6",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "2SO₂ + O₂ ⇌ 2SO₃ reaksiyasida boshlang'ich konsentratsiyalar: [SO₂]=0,8 M, [O₂]=0,5 M. Muvozanatda [SO₃]=0,6 M bo'ldi. Muvozanat konstantasini toping.",
+   "savol": "2SO₂ + O₂ ⇌ 2SO₃ reaksiyasi bo'yicha ma'lumotlar jadvalda berilgan:\n[JADVAL] Holat | [SO₂], M | [O₂], M | [SO₃], M ;; boshlang'ich | 0,8 | 0,5 | 0 ;; muvozanat | ? | ? | 0,6\nMuvozanat konstantasini toping.",
    "variantlar": [
     "11,25",
     "45",
@@ -477,31 +477,31 @@
    "element": "I.6",
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "«Muvozanat — dinamik holat» degani nimani anglatadi?",
+   "savol": "Muvozanat haqidagi fikrlardan qaysilari TO'G'RI?\n1) muvozanatda to'g'ri va teskari reaksiyalar davom etadi;\n2) muvozanatda barcha moddalar konsentratsiyalari o'zaro teng bo'ladi;\n3) katalizator kiritilganda Kc qiymati o'zgarmaydi.",
    "variantlar": [
-    "barcha reaksiyalar to'xtaydi",
-    "faqat to'g'ri reaksiya davom etadi",
-    "konsentratsiyalar davriy tebranadi",
-    "ikkala reaksiya ham davom etadi, ammo tezliklari teng"
+    "1 va 2",
+    "faqat 1",
+    "2 va 3",
+    "1 va 3"
    ],
    "javob": "D",
    "chalgituvchilar": [
     {
      "variant": "A",
-     "xato": "reaksiyalar to'xtamaydi — tezliklar tenglashadi"
+     "xato": "2-fikr xato: konsentratsiyalar o'zgarmas, lekin teng emas"
     },
     {
      "variant": "B",
-     "xato": "teskari ham xuddi shu tezlikda boradi"
+     "xato": "3-fikr ham to'g'ri — Kc faqat haroratga bog'liq"
     },
     {
      "variant": "C",
-     "xato": "konsentratsiyalar o'zgarmas qoladi"
+     "xato": "2-fikr xato, 1-fikr esa to'g'ri (dinamiklik)"
     }
    ],
-   "yechim": "Muvozanatda mikrodarajada ikkala jarayon davom etadi; makrodarajada o'zgarish sezilmaydi.",
+   "yechim": "1 — dinamiklik, 3 — Kc faqat T ga bog'liq: to'g'ri. 2 — keng tarqalgan xato tasavvur.",
    "parametrlar": {
-    "arch": "tarif"
+    "arch": "fikrlar_tanlovi"
    }
   },
   {
@@ -813,31 +813,31 @@
    "element": "I.6",
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "Quyidagi reaksiyalardan qaysi biri QAYTAR reaksiyaga misol bo'ladi?",
+   "savol": "N₂ + 3H₂ ⇌ 2NH₃ + Q muvozanatida NH₃ unumini qaysi choralar OSHIRADI?\n1) bosimni oshirish;  2) haroratni oshirish;\n3) NH₃ ni doimiy chiqarib turish;  4) o'zgarmas hajmda inert gaz qo'shish.",
    "variantlar": [
-    "N₂ + 3H₂ ⇌ 2NH₃",
-    "NaOH + HCl → NaCl + H₂O",
-    "BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl",
-    "2KClO₃ → 2KCl + 3O₂↑"
+    "1 va 3",
+    "1 va 2",
+    "faqat 1",
+    "1, 3 va 4"
    ],
    "javob": "A",
    "chalgituvchilar": [
     {
      "variant": "B",
-     "xato": "neytrallanish — amalda qaytmas (suv hosil bo'ladi)"
+     "xato": "T↑ ekzotermik reaksiyada unumni kamaytiradi"
     },
     {
      "variant": "C",
-     "xato": "cho'kma hosil bo'lishi — qaytmaslik belgisi"
+     "xato": "3-chora ham ishlaydi — mahsulot kamayishi o'ngga siljitadi"
     },
     {
      "variant": "D",
-     "xato": "gaz chiqib ketadi — qaytmas parchalanish"
+     "xato": "inert gaz (V=const) konsentratsiyalarni o'zgartirmaydi"
     }
    ],
-   "yechim": "Cho'kma, gaz yoki kam dissotsiyalanuvchi modda hosil bo'lsa reaksiya qaytmas; NH₃ sintezi qaytar.",
+   "yechim": "Bosim↑ mol kam tomonga (1 ✓); T↑ chapga (2 ✗); mahsulotni chiqarish o'ngga (3 ✓); inert gaz ta'sirsiz (4 ✗).",
    "parametrlar": {
-    "arch": "qaytar"
+    "arch": "choralar_tanlovi"
    }
   },
   {
@@ -946,32 +946,33 @@
    "element": "I.6",
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "Qaysi muvozanatga BOSIM o'zgarishi ta'sir ETMAYDI?",
+   "savol": "Rasmdagi porshenli idishda 2NO₂(qo'ng'ir) ⇌ N₂O₄(rangsiz) muvozanati bor. Porshen TEZ pastga bosilib, hajm 2 marta kamaytirildi (T = const). Gaz rangi qanday o'zgaradi?",
    "variantlar": [
-    "H₂(g) + Br₂(g) ⇌ 2HBr(g)",
-    "N₂ + 3H₂ ⇌ 2NH₃",
-    "2SO₂ + O₂ ⇌ 2SO₃",
-    "N₂O₄ ⇌ 2NO₂"
+    "avval keskin to'qlashadi, so'ng asta-sekin biroz ochiladi",
+    "darhol ochiladi",
+    "faqat to'qlashib boradi",
+    "o'zgarmaydi"
    ],
    "javob": "A",
    "chalgituvchilar": [
     {
      "variant": "B",
-     "xato": "mol soni kamayadi (4→2) — bosim ta'sir qiladi"
+     "xato": "siqilish avval [NO₂] ni oshiradi — rang avval to'qlashadi"
     },
     {
      "variant": "C",
-     "xato": "mol soni kamayadi (3→2)"
+     "xato": "keyin muvozanat N₂O₄ (mol kam) tomonga siljib rangni ochadi"
     },
     {
      "variant": "D",
-     "xato": "mol soni ortadi (1→2)"
+     "xato": "ham siqilish, ham siljish rangga ta'sir qiladi"
     }
    ],
-   "yechim": "Gaz mollari soni teng (Δn = 0) bo'lgan muvozanatnigina bosim siljitmaydi: 2 = 2.",
+   "yechim": "Siqilish oniy: [NO₂] 2 marta ortadi — to'q. So'ng muvozanat mol kam (N₂O₄) tomonga siljiydi — rang qisman ochiladi.",
    "parametrlar": {
-    "arch": "dn0_tuzoq"
-   }
+    "arch": "porshen_dinamika"
+   },
+   "fig": "piston"
   },
   {
    "n": 29,
@@ -1176,11 +1177,11 @@
    "n": 36,
    "qiyinlik": 2,
    "kognitiv": "yuqori",
-   "savol": "A + B ⇌ C reaksiyasida 2 mol A va 2 mol B dan muvozanatda 1,5 mol C hosil bo'ldi. Muvozanatda necha mol A qolgan?",
-   "javob": "0,5",
-   "yechim": "A sarfi = C = 1,5 mol → qoldi 2 − 1,5 = 0,5 mol.",
+   "savol": "Yopiq idishda 1 mol N₂ va 3 mol H₂ aralashmasi muvozanatga keldi; bunda umumiy bosim boshlang'ichning 0,8 qismini tashkil etdi (T, V = const). Necha mol NH₃ hosil bo'lgan?",
+   "javob": "0,8",
+   "yechim": "Jami 4 mol → 4·0,8 = 3,2 mol. Kamayish 0,8 mol = 2x (Δn) → x = 0,4 → NH₃ = 2x = 0,8 mol.",
    "parametrlar": {
-    "arch": "ice_oddiy"
+    "arch": "bosim_teskari"
    },
    "tur": "O1",
    "element": "I.6"

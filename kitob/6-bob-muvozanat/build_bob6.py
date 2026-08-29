@@ -177,7 +177,29 @@ def fig_no2():
             + tube(152, "#d9b38c", "muzda", "och rangli")
             + '</svg>')
 
-FIGS = dict(ct_eq=fig_ct_eq, vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2)
+def fig_piston():
+    """Porshenli idish: siqilishdan oldin va keyin (NO2/N2O4 rangi)."""
+    def vessel(x, ph, color, label):
+        # ph — porshen balandligi (gaz ustuni)
+        top = 96 - ph
+        return (f'<g><rect x="{x}" y="{top}" width="54" height="{ph}" fill="{color}"/>'
+                f'<rect x="{x}" y="{top-9}" width="54" height="9" fill="#7f8c8d" stroke="#4d5656" stroke-width="1.2"/>'
+                f'<line x1="{x+27}" y1="{top-9}" x2="{x+27}" y2="{top-30}" stroke="#4d5656" stroke-width="3.5"/>'
+                f'<line x1="{x+17}" y1="{top-30}" x2="{x+37}" y2="{top-30}" stroke="#4d5656" stroke-width="3.5"/>'
+                f'<path d="M{x},{top-9} V96 h54 V{top-9}" fill="none" stroke="#556" stroke-width="1.8"/>'
+                f'<line x1="{x}" y1="96" x2="{x+54}" y2="96" stroke="#556" stroke-width="1.8"/>'
+                f'<text x="{x+27}" y="112" text-anchor="middle" class="lb" font-weight="bold">{label}</text></g>')
+    return ('<svg width="240" height="120" viewBox="0 0 240 120">'
+            '<style>.lb{font-size:9px;font-family:Georgia,serif;fill:#333}</style>'
+            + vessel(28, 58, "#c9884a", "V · och qo'ng'ir")
+            + '<line x1="104" y1="66" x2="132" y2="66" stroke="#556" stroke-width="1.6"/>'
+            + '<polygon points="136,66 128,62 128,70" fill="#556"/>'
+            + '<text x="102" y="58" class="lb">siqildi</text>'
+            + vessel(150, 29, "#8a5a28", "V/2 · rang?")
+            + '</svg>')
+
+FIGS = dict(ct_eq=fig_ct_eq, vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2,
+            piston=fig_piston)
 
 def table_from_markup(text):
     if "[JADVAL]" not in text:

@@ -30,8 +30,9 @@ q(3, "yuqori",
 # 2 (3) — ICE dan Kc
 check("q2", 0.6**2/(0.2**2*0.2), 45)
 q(3, "yuqori",
-  "2SO₂ + O₂ ⇌ 2SO₃ reaksiyasida boshlang'ich konsentratsiyalar: [SO₂]=0,8 M, [O₂]=0,5 M. Muvozanatda "
-  "[SO₃]=0,6 M bo'ldi. Muvozanat konstantasini toping.",
+  "2SO₂ + O₂ ⇌ 2SO₃ reaksiyasi bo'yicha ma'lumotlar jadvalda berilgan:\n"
+  "[JADVAL] Holat | [SO₂], M | [O₂], M | [SO₃], M ;; boshlang'ich | 0,8 | 0,5 | 0 ;; muvozanat | ? | ? | 0,6\n"
+  "Muvozanat konstantasini toping.",
   "45", [("11,25", "sarflanish hisobga olinmagan (boshlang'ich qiymatlar bilan)"), ("22,5", "O₂ sarfi 0,6 deb olingan"),
           ("5,6", "SO₃ kvadratga ko'tarilmagan")],
   "Sarflandi: SO₂ 0,6; O₂ 0,3 → muvozanatda [SO₂]=0,2, [O₂]=0,2. Kc = 0,36/(0,04·0,2) = 45.",
@@ -147,15 +148,18 @@ q(3, "yuqori",
   "O'ng tomonda mol kam (2 < 3) → bosim↑ o'ngga; reaksiya ekzotermik → T↓ o'ngga.",
   dict(arch="kombinatsiya"))
 
-# 14 (2) — dinamik muvozanat ta'rifi
+# 14 (2) — fikrlar tanlovi (1-2-3 format)
 q(2, "yuqori",
-  "«Muvozanat — dinamik holat» degani nimani anglatadi?",
-  "ikkala reaksiya ham davom etadi, ammo tezliklari teng",
-  [("barcha reaksiyalar to'xtaydi", "reaksiyalar to'xtamaydi — tezliklar tenglashadi"),
-   ("faqat to'g'ri reaksiya davom etadi", "teskari ham xuddi shu tezlikda boradi"),
-   ("konsentratsiyalar davriy tebranadi", "konsentratsiyalar o'zgarmas qoladi")],
-  "Muvozanatda mikrodarajada ikkala jarayon davom etadi; makrodarajada o'zgarish sezilmaydi.",
-  dict(arch="tarif"))
+  "Muvozanat haqidagi fikrlardan qaysilari TO'G'RI?\n"
+  "1) muvozanatda to'g'ri va teskari reaksiyalar davom etadi;\n"
+  "2) muvozanatda barcha moddalar konsentratsiyalari o'zaro teng bo'ladi;\n"
+  "3) katalizator kiritilganda Kc qiymati o'zgarmaydi.",
+  "1 va 3",
+  [("1 va 2", "2-fikr xato: konsentratsiyalar o'zgarmas, lekin teng emas"),
+   ("faqat 1", "3-fikr ham to'g'ri — Kc faqat haroratga bog'liq"),
+   ("2 va 3", "2-fikr xato, 1-fikr esa to'g'ri (dinamiklik)")],
+  "1 — dinamiklik, 3 — Kc faqat T ga bog'liq: to'g'ri. 2 — keng tarqalgan xato tasavvur.",
+  dict(arch="fikrlar_tanlovi"))
 
 # 15 (3) — heterogen Kc
 check("q15", 0.01/0.05, 0.2)
@@ -246,15 +250,17 @@ q(3, "yuqori",
   "Mollar: N₂O₄ 0,75 + NO₂ 0,5 = 1,25 mol → bosim 1,25 marta ortadi.",
   dict(arch="mol_ortish", alfa=0.25))
 
-# 24 (2) — qaytar reaksiyani tanlash
+# 24 (2) — choralar tanlovi (1-2-3-4 format)
 q(2, "yuqori",
-  "Quyidagi reaksiyalardan qaysi biri QAYTAR reaksiyaga misol bo'ladi?",
-  "N₂ + 3H₂ ⇌ 2NH₃",
-  [("NaOH + HCl → NaCl + H₂O", "neytrallanish — amalda qaytmas (suv hosil bo'ladi)"),
-   ("BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl", "cho'kma hosil bo'lishi — qaytmaslik belgisi"),
-   ("2KClO₃ → 2KCl + 3O₂↑", "gaz chiqib ketadi — qaytmas parchalanish")],
-  "Cho'kma, gaz yoki kam dissotsiyalanuvchi modda hosil bo'lsa reaksiya qaytmas; NH₃ sintezi qaytar.",
-  dict(arch="qaytar"))
+  "N₂ + 3H₂ ⇌ 2NH₃ + Q muvozanatida NH₃ unumini qaysi choralar OSHIRADI?\n"
+  "1) bosimni oshirish;  2) haroratni oshirish;\n"
+  "3) NH₃ ni doimiy chiqarib turish;  4) o'zgarmas hajmda inert gaz qo'shish.",
+  "1 va 3",
+  [("1 va 2", "T↑ ekzotermik reaksiyada unumni kamaytiradi"),
+   ("faqat 1", "3-chora ham ishlaydi — mahsulot kamayishi o'ngga siljitadi"),
+   ("1, 3 va 4", "inert gaz (V=const) konsentratsiyalarni o'zgartirmaydi")],
+  "Bosim↑ mol kam tomonga (1 ✓); T↑ chapga (2 ✗); mahsulotni chiqarish o'ngga (3 ✓); inert gaz ta'sirsiz (4 ✗).",
+  dict(arch="choralar_tanlovi"))
 
 # 25 (3) — Kc va harorat: termik xarakter
 q(3, "yuqori",
@@ -285,15 +291,16 @@ q(3, "yuqori",
   "SO₃ = 1,6; SO₂ qoldiq = 0,4; O₂ = 1 − 0,8 = 0,2 → jami 2,2 mol.",
   dict(arch="unum_mol", unum=0.8))
 
-# 28 (2) — Δn=0: bosim ta'sir etmaydi
+# 28 (2) — RASMLI: porshenli idish (rang dinamikasi)
 q(2, "yuqori",
-  "Qaysi muvozanatga BOSIM o'zgarishi ta'sir ETMAYDI?",
-  "H₂(g) + Br₂(g) ⇌ 2HBr(g)",
-  [("N₂ + 3H₂ ⇌ 2NH₃", "mol soni kamayadi (4→2) — bosim ta'sir qiladi"),
-   ("2SO₂ + O₂ ⇌ 2SO₃", "mol soni kamayadi (3→2)"),
-   ("N₂O₄ ⇌ 2NO₂", "mol soni ortadi (1→2)")],
-  "Gaz mollari soni teng (Δn = 0) bo'lgan muvozanatnigina bosim siljitmaydi: 2 = 2.",
-  dict(arch="dn0_tuzoq"))
+  "Rasmdagi porshenli idishda 2NO₂(qo'ng'ir) ⇌ N₂O₄(rangsiz) muvozanati bor. Porshen TEZ pastga "
+  "bosilib, hajm 2 marta kamaytirildi (T = const). Gaz rangi qanday o'zgaradi?",
+  "avval keskin to'qlashadi, so'ng asta-sekin biroz ochiladi",
+  [("darhol ochiladi", "siqilish avval [NO₂] ni oshiradi — rang avval to'qlashadi"),
+   ("faqat to'qlashib boradi", "keyin muvozanat N₂O₄ (mol kam) tomonga siljib rangni ochadi"),
+   ("o'zgarmaydi", "ham siqilish, ham siljish rangga ta'sir qiladi")],
+  "Siqilish oniy: [NO₂] 2 marta ortadi — to'q. So'ng muvozanat mol kam (N₂O₄) tomonga siljiydi — rang qisman ochiladi.",
+  dict(arch="porshen_dinamika"), fig="piston")
 
 # 29 (3) — parametrli Kc formulasi
 q(3, "yuqori",
@@ -360,17 +367,17 @@ Y2 = dict(
   parametrlar=dict(arch="kontakt_ssenariy", so2=8, o2=5, so3=6))
 
 # ---------- O1 ----------
-check("o36", 2-1.5, 0.5)
+check("o36", (4-3.2)/2*2, 0.8)
 check("o37", 0.4**2/(0.1*0.2**3), 200)
 check("o38", 100*0.1/0.5, 20)
 check("o39", 2**2, 4)
 check("o40", 1/8, 0.125)
 O1 = [
  dict(n=36, qiyinlik=2, kognitiv="yuqori",
-      savol="A + B ⇌ C reaksiyasida 2 mol A va 2 mol B dan muvozanatda 1,5 mol C hosil bo'ldi. "
-            "Muvozanatda necha mol A qolgan?",
-      javob="0,5", yechim="A sarfi = C = 1,5 mol → qoldi 2 − 1,5 = 0,5 mol.",
-      parametrlar=dict(arch="ice_oddiy")),
+      savol="Yopiq idishda 1 mol N₂ va 3 mol H₂ aralashmasi muvozanatga keldi; bunda umumiy bosim "
+            "boshlang'ichning 0,8 qismini tashkil etdi (T, V = const). Necha mol NH₃ hosil bo'lgan?",
+      javob="0,8", yechim="Jami 4 mol → 4·0,8 = 3,2 mol. Kamayish 0,8 mol = 2x (Δn) → x = 0,4 → NH₃ = 2x = 0,8 mol.",
+      parametrlar=dict(arch="bosim_teskari")),
  dict(n=37, qiyinlik=3, kognitiv="yuqori",
       savol="N₂ + 3H₂ ⇌ 2NH₃ muvozanatida [NH₃]=0,4 M, [N₂]=0,1 M, [H₂]=0,2 M. Muvozanat konstantasini toping.",
       javob="200", yechim="Kc = 0,4²/(0,1·0,2³) = 0,16/0,0008 = 200.",
