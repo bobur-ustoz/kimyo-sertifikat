@@ -1,0 +1,1351 @@
+{
+ "variant": "mavzu-I1-A",
+ "daraja": "A",
+ "bob": 1,
+ "bob_nomi": "Atom tuzilishi",
+ "manba": "MS spetsifikatsiyasi I.1; darslik atom tuzilishi bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (alanga testi, neon, rentgen, banan-K40) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Atom qanday zarralardan tashkil topgan?",
+   "variantlar": [
+    "yadro (proton + neytron) va elektronlardan",
+    "faqat elektronlardan",
+    "faqat proton va elektronlardan",
+    "molekulalardan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yadro ham bor"
+    },
+    {
+     "variant": "C",
+     "xato": "yadroda neytron ham bor"
+    },
+    {
+     "variant": "D",
+     "xato": "molekula atomlardan tuziladi, aksincha emas"
+    }
+   ],
+   "yechim": "Markazda zich yadro (p, n), atrofida yengil elektronlar.",
+   "parametrlar": {
+    "arch": "atom_tarkib_oddiy"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Qaysi zarra MANFIY zaryadga ega?",
+   "variantlar": [
+    "elektron",
+    "proton",
+    "neytron",
+    "yadro"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "zaryadi +1"
+    },
+    {
+     "variant": "C",
+     "xato": "zaryadsiz"
+    },
+    {
+     "variant": "D",
+     "xato": "yadro musbat"
+    }
+   ],
+   "yechim": "e⁻: zaryadi −1, massasi eng kichik.",
+   "parametrlar": {
+    "arch": "zaryad_oddiy"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Elementning tartib raqami (Z) nimani bildiradi?",
+   "variantlar": [
+    "neytronlar sonini",
+    "massa sonini",
+    "qavatlar sonini",
+    "yadrodagi protonlar sonini"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "n = A − Z dan topiladi"
+    },
+    {
+     "variant": "B",
+     "xato": "massa soni — A"
+    },
+    {
+     "variant": "C",
+     "xato": "qavatlar soni — davr raqami"
+    }
+   ],
+   "yechim": "Z = p = (neytral atomda) e soni.",
+   "parametrlar": {
+    "arch": "z_oddiy"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: osh tuzi alangaga tutilsa, alanga SARIQ rangga bo'yaladi. Buning sababi nimada?",
+   "variantlar": [
+    "natriy atomlarida elektronlar sakrab, energiyani sariq yorug'lik sifatida chiqaradi",
+    "tuz yonib ketadi",
+    "alanga tuzni eritadi",
+    "xlor sariq rang beradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "NaCl yonmaydi — rang elektron o'tishlaridan"
+    },
+    {
+     "variant": "C",
+     "xato": "erish rang bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "rang metallga (Na ga) xos"
+    }
+   ],
+   "yechim": "Qizdirilganda elektron yuqori pog'onaga ko'chadi, qaytishida Na ga xos sariq nur chiqaradi — alanga testi shu hodisaga asoslangan.",
+   "parametrlar": {
+    "arch": "alanga_sahna"
+   },
+   "fig": "flame"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Massa soni (A) qanday topiladi?",
+   "variantlar": [
+    "A = protonlar + elektronlar",
+    "A = neytronlar − protonlar",
+    "A = protonlar + neytronlar",
+    "A = 2·Z har doim"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "elektron massasi hisobga olinmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu farq, massa soni emas"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat ba'zi yengil elementlarda"
+    }
+   ],
+   "yechim": "A — yadrodagi nuklonlar (p + n) soni.",
+   "parametrlar": {
+    "arch": "massa_son_oddiy"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "²³Na atomidagi neytronlar sonini toping.",
+   "variantlar": [
+    "12",
+    "11",
+    "23",
+    "34"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "protonlar soni"
+    },
+    {
+     "variant": "C",
+     "xato": "massa soni"
+    },
+    {
+     "variant": "D",
+     "xato": "yig'indi olingan"
+    }
+   ],
+   "yechim": "n = A − Z = 23 − 11 = 12.",
+   "parametrlar": {
+    "arch": "n_hisob_oddiy"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Neytral atomda elektronlar soni nimaga teng?",
+   "variantlar": [
+    "neytronlar soniga",
+    "massa soniga",
+    "qavatlar soniga",
+    "protonlar soniga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "n soni farq qilishi mumkin"
+    },
+    {
+     "variant": "B",
+     "xato": "A ≫ e soni"
+    },
+    {
+     "variant": "C",
+     "xato": "qavatlar ancha kam"
+    }
+   ],
+   "yechim": "Zaryadlar tengligi: e = p = Z.",
+   "parametrlar": {
+    "arch": "e_teng_oddiy"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda tungi shahar — rangli neon reklamalar. Naychalardagi gaz nega yorug'lik taratadi?",
+   "variantlar": [
+    "gaz yonadi",
+    "naycha qizib ketadi",
+    "bo'yalgan shisha",
+    "tok ta'sirida qo'zg'algan elektronlar qaytishida yorug'lik chiqaradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "naycha ichida yonish yo'q — kislorod kiritilmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "neon «sovuq» yorug'lik beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "rang gazning o'ziga (Ne — qizil, Ar — ko'k...) bog'liq"
+    }
+   ],
+   "yechim": "Elektr toki elektronlarni qo'zg'atadi; ular asosiy holatga qaytishda gazga xos rangli nur taratadi.",
+   "parametrlar": {
+    "arch": "neon_sahna"
+   },
+   "fig": "neon"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Birinchi (K) elektron qavatga eng ko'pi bilan nechta elektron sig'adi?",
+   "variantlar": [
+    "2",
+    "8",
+    "18",
+    "1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "L qavat sig'imi"
+    },
+    {
+     "variant": "C",
+     "xato": "M qavat sig'imi"
+    },
+    {
+     "variant": "D",
+     "xato": "vodorodda 1 e bor, sig'im 2"
+    }
+   ],
+   "yechim": "2n²: n=1 → 2 e.",
+   "parametrlar": {
+    "arch": "k_qavat"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Natriy (Z=11) atomining elektron qavatlari bo'yicha taqsimoti qaysi javobda to'g'ri?",
+   "variantlar": [
+    "2, 9",
+    "8, 2, 1",
+    "2, 8, 1",
+    "2, 8, 8"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "L qavatga 8 tadan ortiq sig'maydi"
+    },
+    {
+     "variant": "B",
+     "xato": "ichkaridan boshlanadi: K=2"
+    },
+    {
+     "variant": "D",
+     "xato": "jami 18 bo'lardi (argon)"
+    }
+   ],
+   "yechim": "11 e: K—2, L—8, M—1. Tashqi 1 e — natriyning «faol» elektroni.",
+   "parametrlar": {
+    "arch": "na_taqsimot"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Izotoplar deb nimaga aytiladi?",
+   "variantlar": [
+    "elektronlari har xil atomlarga",
+    "protonlari bir xil, neytronlari har xil atomlarga",
+    "har qanday ikki elementga",
+    "zaryadlari har xil zarralarga"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "neytral atomda e = p — u ham bir xil"
+    },
+    {
+     "variant": "C",
+     "xato": "izotoplar BITTA elementning turlari"
+    },
+    {
+     "variant": "D",
+     "xato": "zaryad (Z) bir xil bo'ladi"
+    }
+   ],
+   "yechim": "Masalan: ¹H, ²H, ³H — vodorod izotoplari.",
+   "parametrlar": {
+    "arch": "izotop_oddiy"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Uglerod asosan ¹²C (99 %) va ¹³C (1 %) dan iborat. O'rtacha atom massasi taxminan qancha?",
+   "variantlar": [
+    "12,5",
+    "12,01",
+    "13",
+    "25"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy o'rta olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "kam uchraydigan izotop olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "yig'indi olingan"
+    }
+   ],
+   "yechim": "12·0,99 + 13·0,01 = 11,88 + 0,13 ≈ 12,01.",
+   "parametrlar": {
+    "arch": "ortacha_oddiy"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda tibbiy rentgen surati. Rentgen nurlari qayerda «to'xtab» suratda oq soya beradi?",
+   "variantlar": [
+    "faqat teri ushlab qoladi",
+    "nur hech narsadan o'tmaydi",
+    "og'ir atomli to'qimalarda (suyak — kalsiy) yutiladi",
+    "suyak nur chiqaradi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teri yengil atomlardan — nur o'tib ketadi"
+    },
+    {
+     "variant": "B",
+     "xato": "yumshoq to'qimalardan bemalol o'tadi"
+    },
+    {
+     "variant": "D",
+     "xato": "suyak nurni YUTADI, chiqarmaydi"
+    }
+   ],
+   "yechim": "Atom qancha og'ir (Z katta) bo'lsa, rentgen nurini shuncha kuchli yutadi — suyaklar oq ko'rinadi.",
+   "parametrlar": {
+    "arch": "rentgen_sahna"
+   },
+   "fig": "xray"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Uchinchi (M) qavatning maksimal sig'imini toping.",
+   "variantlar": [
+    "8",
+    "32",
+    "9",
+    "18"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat 3s+3p hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "N qavat sig'imi"
+    },
+    {
+     "variant": "C",
+     "xato": "2 ga ko'paytirilmagan"
+    }
+   ],
+   "yechim": "2n² = 2·3² = 18 e (3s² 3p⁶ 3d¹⁰).",
+   "parametrlar": {
+    "arch": "m_sigim"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi yozuv KISLOROD atomining to'g'ri elektron konfiguratsiyasi? (Z=8)",
+   "variantlar": [
+    "1s²2s²2p⁴",
+    "1s²2s²2p⁶",
+    "1s²2s⁴2p²",
+    "1s⁴2s⁴"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu neon (10 e)"
+    },
+    {
+     "variant": "C",
+     "xato": "s ga 2 tadan ortiq sig'maydi"
+    },
+    {
+     "variant": "D",
+     "xato": "s-orbital sig'imi 2"
+    }
+   ],
+   "yechim": "8 e: 2 + 2 + 4.",
+   "parametrlar": {
+    "arch": "o_konfig"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Element 2-davr, VII A guruhda joylashgan. Bu qaysi element?",
+   "variantlar": [
+    "Cl",
+    "O",
+    "F",
+    "N"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3-davrda"
+    },
+    {
+     "variant": "B",
+     "xato": "VI A guruhda"
+    },
+    {
+     "variant": "D",
+     "xato": "V A guruhda"
+    }
+   ],
+   "yechim": "2-davr, 7 valent e → ftor (2s²2p⁵).",
+   "parametrlar": {
+    "arch": "davr_guruh_oddiy"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» katakni to'ldiring:\n[JADVAL] Zarra | p | e ;; Mg atomi | 12 | 12 ;; Mg²⁺ ioni | 12 | ?",
+   "variantlar": [
+    "12",
+    "14",
+    "10",
+    "2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ion 2 e YO'QOTGAN"
+    },
+    {
+     "variant": "B",
+     "xato": "kation e yo'qotadi, olmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "qolgan e so'raldi"
+    }
+   ],
+   "yechim": "Mg²⁺: 12 − 2 = 10 e.",
+   "parametrlar": {
+    "arch": "ion_jadval_oddiy"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda banan tasvirlangan. Banan tarkibidagi kaliyning oz qismi tabiiy radioaktiv ⁴⁰K izotopidir. ⁴⁰K va oddiy ³⁹K atomlari bir-biridan nimasi bilan farq qiladi?",
+   "variantlar": [
+    "protonlar soni bilan",
+    "elektronlar soni bilan",
+    "neytronlar soni bilan (21 va 20)",
+    "umuman farq qilmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkalasida ham 19 p — ikkalasi ham kaliy"
+    },
+    {
+     "variant": "B",
+     "xato": "neytral atomlarda 19 tadan"
+    },
+    {
+     "variant": "D",
+     "xato": "massa (neytron) farqi bor"
+    }
+   ],
+   "yechim": "Izotoplar: Z=19 bir xil; n = 40−19 = 21 va 39−19 = 20. ⁴⁰K juda oz — banan mutlaqo xavfsiz!",
+   "parametrlar": {
+    "arch": "banan_sahna"
+   },
+   "fig": "banana"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "⁴⁰Ca atomida nechta neytron bor? (Z=20)",
+   "variantlar": [
+    "40",
+    "20",
+    "60",
+    "10"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa soni"
+    },
+    {
+     "variant": "C",
+     "xato": "yig'indi"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi olingan"
+    }
+   ],
+   "yechim": "n = 40 − 20 = 20 (p = n).",
+   "parametrlar": {
+    "arch": "ca_neytron"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Davriy jadvalda element qaysi kattaligi bo'yicha joylashtirilgan?",
+   "variantlar": [
+    "yadro zaryadi (Z) ortib borishi bo'yicha",
+    "atom massasi bo'yicha qat'iy",
+    "alifbo tartibida",
+    "kashf etilgan yili bo'yicha"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Ar–K, Co–Ni juftlarida massa tartibi buziladi"
+    },
+    {
+     "variant": "C",
+     "xato": "kimyoviy mantiq yo'q bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "tarix emas, tuzilish asos"
+    }
+   ],
+   "yechim": "Zamonaviy ta'rif: xossalar Z ga davriy bog'liq.",
+   "parametrlar": {
+    "arch": "jadval_asos"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "X⁺ ionida 18 ta elektron bor. X elementini aniqlang.",
+   "variantlar": [
+    "Ar",
+    "Cl",
+    "K",
+    "Ca"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u ion hosil qilmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "Cl⁻ da 18 e — u anion"
+    },
+    {
+     "variant": "D",
+     "xato": "Ca²⁺ da 18 e"
+    }
+   ],
+   "yechim": "Atomda e = 18 + 1 = 19 → kaliy.",
+   "parametrlar": {
+    "arch": "ion_element_oddiy"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "s-orbital qanday shaklga ega?",
+   "variantlar": [
+    "gantel",
+    "halqa",
+    "shar (sfera)",
+    "kub"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu p-orbital"
+    },
+    {
+     "variant": "B",
+     "xato": "orbital halqa emas"
+    },
+    {
+     "variant": "D",
+     "xato": "bunday orbital yo'q"
+    }
+   ],
+   "yechim": "s — sferik simmetrik; p — gantelsimon.",
+   "parametrlar": {
+    "arch": "s_shakl"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elektron qavatlari 2, 8, 5 bo'lgan element qaysi?",
+   "variantlar": [
+    "N",
+    "P",
+    "As",
+    "Al"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2, 5 bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "4 qavatli"
+    },
+    {
+     "variant": "D",
+     "xato": "2, 8, 3"
+    }
+   ],
+   "yechim": "Jami 15 e → fosfor (3-davr, V A).",
+   "parametrlar": {
+    "arch": "qavat_element"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Kation qanday hosil bo'ladi?",
+   "variantlar": [
+    "atom elektron olib",
+    "atom proton berib",
+    "atom neytron olib",
+    "atom elektron BERIB, musbat zaryadlanadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu anion hosil bo'lishi"
+    },
+    {
+     "variant": "B",
+     "xato": "protonlar yadrodan chiqmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "neytron zaryadga ta'sir qilmaydi"
+    }
+   ],
+   "yechim": "Me − ne⁻ → Meⁿ⁺ (masalan, Na⁺, Mg²⁺).",
+   "parametrlar": {
+    "arch": "kation_oddiy"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi zarralar juftligi IZOELEKTRON (elektronlari teng)?",
+   "variantlar": [
+    "Na⁺ va K⁺",
+    "F⁻ va Ne",
+    "Cl⁻ va F⁻",
+    "O²⁻ va S²⁻"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "10 va 18 e"
+    },
+    {
+     "variant": "C",
+     "xato": "18 va 10 e"
+    },
+    {
+     "variant": "D",
+     "xato": "10 va 18 e"
+    }
+   ],
+   "yechim": "F⁻: 9+1 = 10 e; Ne: 10 e — teng.",
+   "parametrlar": {
+    "arch": "izoelektron_oddiy"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada magniy izotoplarining tabiiy ulushlari berilgan. Qaysi izotop tabiatda ENG KO'P uchraydi?",
+   "variantlar": [
+    "²⁵Mg",
+    "²⁴Mg",
+    "²⁶Mg",
+    "hammasi teng"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ulushi ~10 %"
+    },
+    {
+     "variant": "C",
+     "xato": "ulushi ~11 %"
+    },
+    {
+     "variant": "D",
+     "xato": "ustunlar farqli"
+    }
+   ],
+   "yechim": "Diagrammadan: ²⁴Mg ≈ 79 % — eng baland ustun.",
+   "parametrlar": {
+    "arch": "izotop_bars_oddiy"
+   },
+   "fig": "isotope_bars"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,5 mol uglerodda (¹²C) necha mol proton bor? (Z=6)",
+   "variantlar": [
+    "3",
+    "6",
+    "0,5",
+    "12"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "atom mollari"
+    },
+    {
+     "variant": "D",
+     "xato": "massa soni bilan chalkashuv"
+    }
+   ],
+   "yechim": "0,5 · 6 = 3 mol proton.",
+   "parametrlar": {
+    "arch": "proton_mol_oddiy"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi Bor modelida elektronlar qayerda joylashgan?",
+   "variantlar": [
+    "yadro ichida",
+    "atomdan tashqarida",
+    "qavatlar orasida tartibsiz",
+    "yadro atrofidagi qavatlarda (orbitalarda)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yadroda p va n"
+    },
+    {
+     "variant": "B",
+     "xato": "elektron atomga tegishli"
+    },
+    {
+     "variant": "C",
+     "xato": "har e o'z qavatida"
+    }
+   ],
+   "yechim": "Bor modeli: e lar aniq energiyali qavatlarda aylanadi.",
+   "parametrlar": {
+    "arch": "model_oddiy"
+   },
+   "fig": "atom_model"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "I A guruhda yuqoridan pastga (Li → Na → K → ...) atom radiusi qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "kamayadi",
+    "o'zgarmaydi",
+    "avval ortib, keyin kamayadi",
+    "ortib boradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qavatlar soni ortadi — radius kattalashadi"
+    },
+    {
+     "variant": "B",
+     "xato": "har davrda yangi qavat qo'shiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Har qadam yangi elektron qavat → radius ortadi.",
+   "parametrlar": {
+    "arch": "radius_grafik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "u",
+    "xlab": "Li→Cs",
+    "ylab": "r"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Atom tuzilishi haqidagi fikrlardan XATOSINI toping.",
+   "variantlar": [
+    "atom massasining asosiy qismi yadroda",
+    "yadro atomga nisbatan juda kichik",
+    "elektronlar qavatlarda joylashadi",
+    "elektronlar yadro ichida joylashgan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'g'ri — e juda yengil"
+    },
+    {
+     "variant": "B",
+     "xato": "to'g'ri fikr"
+    },
+    {
+     "variant": "C",
+     "xato": "to'g'ri fikr"
+    }
+   ],
+   "yechim": "Elektronlar yadro ATROFIDA; yadroda faqat p va n.",
+   "parametrlar": {
+    "arch": "xato_fikr"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "27 g alyuminiyda nechta atom bor? (M(Al)=27)",
+   "variantlar": [
+    "27·10²³",
+    "6,02·10²³",
+    "3,01·10²³",
+    "13·10²³"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol tushunchasi qo'llanmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,5 mol xato"
+    },
+    {
+     "variant": "D",
+     "xato": "Z bilan chalkashuv"
+    }
+   ],
+   "yechim": "n = 1 mol → Nₐ = 6,02·10²³ ta atom.",
+   "parametrlar": {
+    "arch": "atom_soni_oddiy"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "28-savoldagi modelda qavatlar 2, 8, 1 elektronli. Bu qaysi element va u qanday ion hosil qiladi?",
+   "variantlar": [
+    "Li; Li⁺",
+    "Na; Na⁺",
+    "K; K⁺",
+    "Mg; Mg²⁺"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Li: 2, 1 — ikki qavat"
+    },
+    {
+     "variant": "C",
+     "xato": "K: 2, 8, 8, 1 — to'rt qavat"
+    },
+    {
+     "variant": "D",
+     "xato": "Mg: 2, 8, 2"
+    }
+   ],
+   "yechim": "2+8+1 = 11 e → natriy; tashqi 1 e ni berib Na⁺ bo'ladi.",
+   "parametrlar": {
+    "arch": "model_element"
+   },
+   "fig": "atom_model"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.1",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.1",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.1",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Laboratoriyada uch idishdagi oq tuzlar alanga testi bilan tekshirildi: X tuz alangani SARIQ, Y tuz BINAFSHA rangga bo'yadi, Z tuz esa rang bermadi. Tuzlar NaCl, KCl va MgCl₂ ekani ma'lum. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X tuz tarkibidagi metall qaysi?",
+    "34. Y tuz qaysi modda?",
+    "35. Z tuz metallining ionida nechta elektron bor?"
+   ],
+   "javoblar_royxati": [
+    "A) Na",
+    "B) KCl",
+    "C) 10",
+    "D) K",
+    "E) NaCl",
+    "F) 12"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "binafsha — kaliy; sariq esa natriy"
+    },
+    {
+     "variant": "E",
+     "xato": "X ning o'zi NaCl, lekin savol metall haqida"
+    },
+    {
+     "variant": "F",
+     "xato": "Mg²⁺ ATOMdagi emas, iondagi e: 12−2=10"
+    }
+   ],
+   "yechim": "Sariq — Na (A); binafsha — K → KCl (B). Z — MgCl₂: Mg²⁺ da 12−2 = 10 e (C).",
+   "parametrlar": {
+    "arch": "alanga_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Kaliy (Z=19) atomining elektron qavatlari bo'yicha taqsimotini yozing.",
+   "javob": "2, 8, 8, 1",
+   "yechim": "19 e: K—2, L—8, M—8, N—1.",
+   "parametrlar": {
+    "arch": "taqsimot_o1"
+   },
+   "tur": "O1",
+   "element": "I.1"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Yadrosida 16 proton va 16 neytron bo'lgan atomning massa sonini toping.",
+   "javob": "32",
+   "yechim": "A = 16 + 16 = 32 (³²S).",
+   "parametrlar": {
+    "arch": "a_o1"
+   },
+   "tur": "O1",
+   "element": "I.1"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elektron qavatlari 2, 8, 7 bo'lgan elementning tartib raqamini toping.",
+   "javob": "17",
+   "yechim": "2+8+7 = 17 — xlor.",
+   "parametrlar": {
+    "arch": "z_o1"
+   },
+   "tur": "O1",
+   "element": "I.1"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,5 mol neonda (Z=10) necha mol elektron bor?",
+   "javob": "5",
+   "yechim": "0,5·10 = 5 mol e.",
+   "parametrlar": {
+    "arch": "e_mol_o1"
+   },
+   "tur": "O1",
+   "element": "I.1"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "12,04·10²³ ta atomi 32 g keladigan elementning molyar massasini toping.",
+   "javob": "16",
+   "yechim": "n = 2 mol → M = 32/2 = 16 g/mol (kislorod).",
+   "parametrlar": {
+    "arch": "m_topish_o1"
+   },
+   "tur": "O1",
+   "element": "I.1"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "²³Na atomi haqida bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Atomdagi p, n, e sonlarini aniqlang.",
+     "yechim": [
+      "Z=11 → p=e=11; n = 23−11 = 12"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Elektron qavatlar bo'yicha taqsimotini va to'liq konfiguratsiyasini yozing.",
+     "yechim": [
+      "2, 8, 1; 1s²2s²2p⁶3s¹"
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "c) Natriy qanday ion hosil qiladi? Ion konfiguratsiyasini yozing.",
+     "yechim": [
+      "Na⁺ (3s¹ e ketadi): 1s²2s²2p⁶ — neonga izoelektron"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Nega natriy aynan +1 zaryadli ion hosil qiladi? Izohlang.",
+     "yechim": [
+      "Bitta e berish 8 e li barqaror qavatga olib keladi; 2-e ni ichki qavatdan olish juda qiyin."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "e) Na va Na⁺ ning o'lchamlarini solishtiring va sababini yozing.",
+     "yechim": [
+      "Na⁺ kichikroq: tashqi qavat butunlay yo'qoldi (3 qavat → 2 qavat)."
+     ],
+     "M": 2,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi atom-zanjiri: tarkib → konfiguratsiya → ion → izohlar; M15+A10.",
+   "parametrlar": {
+    "arch": "na_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Bayram otashinlari turli ranglarda porlaydi: stronsiy tuzlari — qizil, mis tuzlari — yashil-ko'k, natriy — sariq. Quyidagi savollarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Otashin ranglarining paydo bo'lish mexanizmini atom tuzilishi asosida tushuntiring.",
+     "yechim": [
+      "Qizdirilganda elektronlar yuqori pog'onachalarga qo'zg'aladi; qaytishida har element",
+      "o'ziga xos energiyali (rangli) yorug'lik kvantini chiqaradi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega har bir element o'ziga xos rang beradi (masalan, Na doim sariq)?",
+     "yechim": [
+      "Pog'onachalar energiyalari har elementda har xil (Z ga bog'liq) — chiqayotgan kvant",
+      "energiyasi (rangi) elementga «imzo» bo'ladi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Bu hodisaga asoslangan analitik usulni ayting.",
+     "yechim": [
+      "Alanga testi (spektral analiz) — metallarni rang orqali aniqlash."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "otashin_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch elementning elektron qavatlari jadvalda berilgan:\n[JADVAL] Element | Qavatlar ;; X | 2, 8, 1 ;; Y | 2, 8, 7 ;; Z | 2, 8\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) X, Y, Z elementlarni aniqlang va tabiatini ayting (metall/metallmas/inert).",
+     "yechim": [
+      "X — Na (metall); Y — Cl (metallmas); Z — Ne (inert gaz)."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) X va Y qanday ionlar hosil qiladi? Ikkala ionning elektron sonlarini yozing.",
+     "yechim": [
+      "Na⁺ (10 e) va Cl⁻ (18 e)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) X va Y hosil qiladigan birikma formulasini va bog' turini yozing.",
+     "yechim": [
+      "NaCl — ion bog'lanish."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega Z ion hosil qilmaydi?",
+     "yechim": [
+      "Tashqi qavati to'la (8 e) — energetik jihatdan barqaror, e olish-berishga moyil emas."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Qavat-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "qavat_jadval_o2"
+   }
+  }
+ ]
+}
