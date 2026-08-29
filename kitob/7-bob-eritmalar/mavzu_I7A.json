@@ -1,0 +1,1450 @@
+{
+ "variant": "mavzu-I7-A",
+ "daraja": "A",
+ "bob": 7,
+ "bob_nomi": "Eritmalar",
+ "manba": "aralash: hisobiy arxetiplar MS/DTM Eritma bankidan (2019–2021) va Ismoilov variantlaridan; grafik/jadval/munosabat formatlari Ozarbayjon DIM 2023 'Məhlullar' blokidan ilhomlangan; nazariy savollar 9-sinf darsligi (Asqarov) chegarasida original",
+ "izoh": "Barcha 43 savol I.7 (Eritmalar: eruvchanlik, konsentratsiya) elementiga bag'ishlangan; MS 43-pozitsion strukturasi, qiyinlik/kognitiv xaritasi PROMT_MAVZU_VARIANT.md dagi sinalgan qiymatlar bo'yicha. 180 daqiqa: 1–40 → 100 daq, 41–43 → 80 daq.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "40 g osh tuzi 360 g suvda eritildi. Hosil bo'lgan eritmadagi tuzning massa ulushini (%) aniqlang.",
+   "variantlar": [
+    "11,1",
+    "9",
+    "12,5",
+    "10"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tuz massasi suv massasiga bo'lingan (40/360)"
+    },
+    {
+     "variant": "B",
+     "xato": "eritma massasi 440 g deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "40/320 — suv massasidan 40 ni ayirib yuborilgan"
+    }
+   ],
+   "yechim": "m(eritma) = 40 + 360 = 400 g; ω = 40/400 · 100% = 10%.",
+   "parametrlar": {
+    "arch": "oddiy_foiz",
+    "tuz": 40,
+    "suv": 360
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Erigan modda massasining eritma massasiga nisbati qanday ataladi?",
+   "variantlar": [
+    "molyar konsentratsiya",
+    "eruvchanlik koeffitsiyenti",
+    "zichlik",
+    "massa ulushi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol/l birligidagi kattalik bilan adashtirilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "100 g suvda erigan massa bilan adashtirilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "massa/hajm nisbati bilan adashtirilgan"
+    }
+   ],
+   "yechim": "Ta'rif bo'yicha ω = m(modda)/m(eritma) — massa ulushi (foiz konsentratsiya).",
+   "parametrlar": {}
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "20 % li 300 g eritmada necha gramm erigan modda bor?",
+   "variantlar": [
+    "40",
+    "60",
+    "75",
+    "15"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "20 ni 2 ga ko'paytirmasdan xato hisob"
+    },
+    {
+     "variant": "C",
+     "xato": "eritmani 25% deb olgan"
+    },
+    {
+     "variant": "D",
+     "xato": "300/20 — nisbat teskari olingan"
+    }
+   ],
+   "yechim": "m(modda) = 300 · 0,20 = 60 g.",
+   "parametrlar": {
+    "arch": "foizdan_massa",
+    "eritma": 300,
+    "w": 20
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "To'yinmagan eritmaga o'sha tuzdan oz-ozdan qo'shib borilmoqda (harorat o'zgarmas). Eritmadagi tuzning massa ulushi (ω, %) qo'shilgan tuz massasiga bog'liq holda qanday o'zgaradi? To'g'ri grafikni tanlang.",
+   "variantlar": [
+    "chiziqli ravishda uzluksiz ortib boradi",
+    "o'zgarmaydi",
+    "avval ortadi, to'yinishga yetgach o'zgarmay qoladi",
+    "avval ortadi, so'ng kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'yinish chegarasi hisobga olinmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "to'yingan eritma bilan adashtirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "cho'kma massani kamaytirmasligi tushunilmagan"
+    }
+   ],
+   "yechim": "Tuz to'liq erigan bosqichda ω ortadi; eritma to'yingach ortiqcha tuz cho'kmaga tushadi va ω o'zgarmaydi (grafik: o'sish + gorizontal plato).",
+   "parametrlar": {},
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Rasmda KNO₃ va NaCl ning eruvchanlik egri chiziqlari berilgan. Grafikdan foydalanib, 40 °C da KNO₃ ning 100 g suvdagi eruvchanligini (g) aniqlang.",
+   "variantlar": [
+    "36",
+    "32",
+    "110",
+    "64"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NaCl egri chizig'idan o'qilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "20 °C dagi qiymat olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "60 °C dagi qiymat olingan"
+    }
+   ],
+   "yechim": "Grafikda 40 °C vertikali KNO₃ egri chizig'ini ≈64 g nuqtada kesadi. (NaCl niki deyarli o'zgarmas ≈36 g.)",
+   "parametrlar": {
+    "arch": "grafik_oqish",
+    "tuz": "KNO3",
+    "t": 40,
+    "s": 64
+   },
+   "fig": "solubility_curve"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Bir xil massali 10 % li va 40 % li eritmalar aralashtirildi. Hosil bo'lgan eritmada erigan moddaning massa ulushini (%) hisoblang.",
+   "variantlar": [
+    "25",
+    "30",
+    "20",
+    "50"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "o'rtacha o'rniga 40-10 ayirmasi ishlatilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat kichik konsentratsiyaga yaqin xato baho"
+    },
+    {
+     "variant": "D",
+     "xato": "konsentratsiyalar yig'indisi olingan"
+    }
+   ],
+   "yechim": "Teng massalar (m) uchun: ω = (0,10m + 0,40m)/2m = 0,25 → 25%.",
+   "parametrlar": {
+    "arch": "teng_massa_aralash",
+    "w1": 10,
+    "w2": 40
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "yuqori",
+   "savol": "Rasmga qarang: uzoq turgan murabbo (yoki asal) bankasida shakar kristallari paydo bo'ladi. Buning kimyoviy sababi nimada?",
+   "variantlar": [
+    "sovutilganda o'ta to'yingan holatga o'tgan eritmadan ortiqcha shakar kristallanadi",
+    "shakar vaqt o'tishi bilan boshqa moddaga aylanadi",
+    "suv shakar bilan reaksiyaga kirishadi",
+    "banka ichiga havo kirib, shakarni qotiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kristallar — o'sha shakarning o'zi"
+    },
+    {
+     "variant": "C",
+     "xato": "erish — fizik-kimyoviy jarayon, yangi modda hosil bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "havo emas, eruvchanlikning haroratga bog'liqligi sabab"
+    }
+   ],
+   "yechim": "Murabbo issiq holda juda konsentrlangan tayyorlanadi. Soviganda shakar eruvchanligi kamayadi — eritma o'ta to'yingan bo'lib qoladi va ortiqcha shakar asta-sekin kristall holida ajraladi.",
+   "parametrlar": {},
+   "fig": "jam"
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "200 g 10 % li eritma ustiga 50 g suv quyildi. Hosil bo'lgan eritmada erigan moddaning massa ulushini (%) hisoblang.",
+   "variantlar": [
+    "8",
+    "10",
+    "6",
+    "12,5"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suyultirish hisobga olinmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "eritma massasi 300 g deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari — 250/20"
+    }
+   ],
+   "yechim": "Tuz massasi o'zgarmaydi: 20 g. Yangi eritma 250 g; ω = 20/250 · 100% = 8%.",
+   "parametrlar": {
+    "arch": "suyultirish",
+    "m1": 200,
+    "w1": 10,
+    "suv": 50
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Rasmda yozgi jazirama paytidagi sho'r ko'l qirg'og'i ko'rsatilgan: suv chekkasida oq tuz qatlami hosil bo'lgan. Bu qatlam qanday hosil bo'ladi?",
+   "variantlar": [
+    "quyosh nuri tuzni suvdan ajratib chiqaradi",
+    "suv bug'langani sari eritma to'yinib, ortiqcha tuz kristallanadi",
+    "tuz suv bilan reaksiyaga kirishib, cho'kadi",
+    "ko'l tubidan yangi tuz ko'tariladi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yorug'lik emas, bug'lanish sabab"
+    },
+    {
+     "variant": "C",
+     "xato": "erish-kristallanish fizik-kimyoviy jarayon, reaksiya emas"
+    },
+    {
+     "variant": "D",
+     "xato": "tuz eritmaning o'zidan ajraladi"
+    }
+   ],
+   "yechim": "Issiqda suv jadal bug'lanadi, tuz esa uchmaydi: eritma quyuqlashib to'yinish chegarasiga yetadi va ortiqcha tuz qirg'oqda kristall qatlam hosil qiladi. Tuz konlarida tuz aynan shu usulda olinadi.",
+   "parametrlar": {},
+   "fig": "saltlake"
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "400 g 30 % li eritmaga 100 g suv qo'shildi. Olingan eritmaning konsentratsiyasini (%) hisoblang.",
+   "variantlar": [
+    "24",
+    "25",
+    "27",
+    "20"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yaxlitlashda 500 o'rniga 480 olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "suvning yarmi hisobga olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "eritma 600 g deb olingan"
+    }
+   ],
+   "yechim": "Tuz: 400 · 0,3 = 120 g; eritma: 500 g; ω = 120/500 · 100% = 24%.",
+   "parametrlar": {
+    "arch": "suyultirish",
+    "m1": 400,
+    "w1": 30,
+    "suv": 100
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "a gramm tuz b gramm suvda eritildi. Hosil bo'lgan eritmada tuzning massa ulushi (%) qaysi formula bilan topiladi?",
+   "variantlar": [
+    "a·100/b",
+    "a·100/(a+b)",
+    "b·100/(a+b)",
+    "(a+b)·100/a"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritma o'rniga erituvchi massasi olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "suvning massa ulushi formulasi"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari yozilgan"
+    }
+   ],
+   "yechim": "ω = m(tuz)/m(eritma) · 100% = a/(a+b) · 100%.",
+   "parametrlar": {}
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaNO₃ ning 25 °C dagi eruvchanlik koeffitsiyenti 90 ga teng. Shu haroratda 200 g suvga necha gramm NaNO₃ qo'shilsa, to'yingan eritma hosil bo'ladi?",
+   "variantlar": [
+    "90",
+    "180",
+    "200",
+    "45"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 200 g suvga to'g'ridan-to'g'ri olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "suv massasiga tenglashtirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari — ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "100 g suvga 90 g → 200 g suvga 2 · 90 = 180 g.",
+   "parametrlar": {
+    "arch": "eruvchanlik_masshtab",
+    "s": 90,
+    "suv": 200,
+    "manba": "Eritma banki (MS/DTM 2019–2021)"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Erigan modda miqdorining (mol) eritma hajmiga (l) nisbati qanday ataladi?",
+   "variantlar": [
+    "massa ulushi",
+    "normal konsentratsiya",
+    "molyar konsentratsiya",
+    "eruvchanlik"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "foiz konsentratsiya massa nisbatidir"
+    },
+    {
+     "variant": "B",
+     "xato": "ekvivalent miqdorga asoslangan kattalik"
+    },
+    {
+     "variant": "D",
+     "xato": "to'yinish chegarasini bildiradi"
+    }
+   ],
+   "yechim": "c = n/V (mol/l) — molyar konsentratsiya.",
+   "parametrlar": {
+    "manba": "Eritma banki"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Rasmdagi idishda tuz eritilgach, aralashtirishga qaramay tuzning bir qismi erimay tubida qoldi (harorat o'zgarmas). Idishdagi eritma qanday eritma?",
+   "variantlar": [
+    "to'yinmagan eritma",
+    "to'yingan eritma",
+    "o'ta to'yingan eritma",
+    "suyultirilgan eritma"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'yinmagan eritmada cho'kma qolmasdi — hammasi erirdi"
+    },
+    {
+     "variant": "C",
+     "xato": "beqaror holat; cho'kma ustidagi muvozanatli eritma emas"
+    },
+    {
+     "variant": "D",
+     "xato": "konsentratsiya darajasini bildiradi, to'yinishni emas"
+    }
+   ],
+   "yechim": "Cho'kma bilan muvozanatda turgan eritma shu haroratda to'yingan bo'ladi — boshqa tuz erita olmaydi.",
+   "parametrlar": {},
+   "fig": "beaker_sat"
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "2 M li 500 ml NaOH eritmasini tayyorlash uchun necha gramm NaOH kerak? (M(NaOH) = 40 g/mol)",
+   "variantlar": [
+    "80",
+    "40",
+    "20",
+    "10"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "hajm litrga aylantirilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 M deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "500 ml → 0,5 l, lekin c ham 0,5 deb xato olingan"
+    }
+   ],
+   "yechim": "n = c · V = 2 · 0,5 = 1 mol; m = 1 · 40 = 40 g.",
+   "parametrlar": {
+    "arch": "molyar_massa",
+    "c": 2,
+    "V": 0.5,
+    "M": 40
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "500 g suvda 0,5 mol glyukoza eritildi. Eritmaning molyal konsentratsiyasini (mol/kg) toping.",
+   "variantlar": [
+    "0,5",
+    "2",
+    "0,25",
+    "1"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "erituvchi kg ga aylantirilmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "nisbat teskari olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "eritma massasiga bo'lingan deb xato baho"
+    }
+   ],
+   "yechim": "Molyal konsentratsiya — 1 kg ERITUVCHIdagi modda miqdori: 0,5 mol / 0,5 kg = 1 mol/kg.",
+   "parametrlar": {
+    "arch": "molyal",
+    "n": 0.5,
+    "suv": 500,
+    "manba": "11-sinf, molyar/normal banki"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvalda uchta tuzning 20 °C dagi eruvchanlik koeffitsiyentlari berilgan:\n[JADVAL] Tuz | Eruvchanligi, g/100 g suv ;; KNO₃ | 32 ;; NaCl | 36 ;; KCl | 34\nHar bir tuzdan 70 g olinib, alohida idishlardagi 200 g suvga solindi va aralashtirildi. Qaysi tuz(lar) TO'LIQ eriydi?",
+   "variantlar": [
+    "faqat KNO₃",
+    "NaCl va KCl",
+    "uchchala tuz ham",
+    "faqat NaCl"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "64 g chegara 70 g dan kichik — to'liq erimaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "KCl chegarasi 68 g < 70 g"
+    },
+    {
+     "variant": "C",
+     "xato": "chegaralar 200 g suvga 2 barobar qilinishi kerak"
+    }
+   ],
+   "yechim": "200 g suvdagi chegaralar: KNO₃ — 64 g, NaCl — 72 g, KCl — 68 g. 70 g faqat NaCl chegarasidan kichik → faqat NaCl to'liq eriydi.",
+   "parametrlar": {
+    "arch": "jadval_eruvchanlik",
+    "s": {
+     "KNO3": 32,
+     "NaCl": 36,
+     "KCl": 34
+    },
+    "tuz": 70,
+    "suv": 200
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "5 % li 200 g eritma tayyorlash uchun necha gramm tuz va necha gramm suv kerak?",
+   "variantlar": [
+    "5 g tuz va 195 g suv",
+    "10 g tuz va 200 g suv",
+    "10 g tuz va 190 g suv",
+    "20 g tuz va 180 g suv"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "foiz eritma massasiga emas, 100 g ga olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "tuz massasi eritmaga kirishi unutilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "10% deb olingan"
+    }
+   ],
+   "yechim": "m(tuz) = 200 · 0,05 = 10 g; m(suv) = 200 − 10 = 190 g.",
+   "parametrlar": {
+    "arch": "tayyorlash",
+    "m": 200,
+    "w": 5
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "25 g mis kuporosi CuSO₄·5H₂O suvda eritilib, 200 g eritma tayyorlandi. Eritmadagi CuSO₄ ning massa ulushini (%) hisoblang. (M(CuSO₄)=160, M(CuSO₄·5H₂O)=250 g/mol)",
+   "variantlar": [
+    "12,5",
+    "10",
+    "8",
+    "16"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kristallogidrat massasi to'g'ridan-to'g'ri olingan (25/200)"
+    },
+    {
+     "variant": "B",
+     "xato": "suvsiz tuz 20 g deb xato hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "eritma massasi 100 g deb olingan"
+    }
+   ],
+   "yechim": "CuSO₄: 25 · 160/250 = 16 g; ω = 16/200 · 100% = 8%.",
+   "parametrlar": {
+    "arch": "kristallogidrat_foiz",
+    "gidrat": 25,
+    "M1": 250,
+    "M2": 160,
+    "eritma": 200
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "To'yinmagan eritmadan bir qism suv bug'latildi (tuz cho'kmaga tushmadi). Dastlabki (m₁, ω₁) va keyingi (m₂, ω₂) eritmalar orasidagi TO'G'RI munosabatni ko'rsating.",
+   "variantlar": [
+    "m₁·ω₁ = m₂·ω₂",
+    "m₁·ω₂ = m₂·ω₁",
+    "m₁ = m₂·ω₂",
+    "ω₁ = ω₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "indekslar o'rni almashib ketgan"
+    },
+    {
+     "variant": "C",
+     "xato": "o'lchov birliklari mos emas"
+    },
+    {
+     "variant": "D",
+     "xato": "bug'lanishda konsentratsiya o'zgaradi"
+    }
+   ],
+   "yechim": "Erigan tuz massasi saqlanadi: m(tuz) = m₁ω₁ = m₂ω₂ (ω — ulush ko'rinishida).",
+   "parametrlar": {
+    "arch": "munosabat",
+    "manba": "DIM formati, mazmun mos"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "90 g suvga 785 g SO₃ qo'shildi. Hosil bo'lgan oleumdagi erkin SO₃ ning massa ulushini (%) aniqlang.",
+   "variantlar": [
+    "49",
+    "51",
+    "44",
+    "56"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv bilan reaksiyaga kirgan SO₃ ayirilmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "hosil bo'lgan H₂SO₄ ulushi olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "umumiy massa o'rniga faqat SO₃ massasi ishlatilgan"
+    }
+   ],
+   "yechim": "H₂O (5 mol) SO₃ ning 5 mol (400 g) ini H₂SO₄ ga bog'laydi. Erkin SO₃: 785 − 400 = 385 g; umumiy massa: 875 g; ω(SO₃) = 385/875 · 100% = 44%.",
+   "parametrlar": {
+    "arch": "oleum_foiz",
+    "suv": 90,
+    "so3": 785,
+    "manba": "Oleum banki (11-sinf), savol qolipida"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2 l eritmada 19,6 g sulfat kislota erigan. Eritmaning normal konsentratsiyasini (mol-ekv/l) toping. (M(H₂SO₄)=98 g/mol; E(H₂SO₄)=49 g/mol)",
+   "variantlar": [
+    "0,1",
+    "0,4",
+    "0,05",
+    "0,2"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molyar konsentratsiya hisoblangan (ekvivalent olinmagan)"
+    },
+    {
+     "variant": "B",
+     "xato": "hajmga bo'lish unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "ekvivalent 196 deb xato olingan"
+    }
+   ],
+   "yechim": "n(ekv) = 19,6/49 = 0,4 mol-ekv; N = 0,4/2 = 0,2 mol-ekv/l. (Tekshiruv: c = 0,1 M; H₂SO₄ uchun N = 2c ✓)",
+   "parametrlar": {
+    "arch": "normal_konts",
+    "m": 19.6,
+    "E": 49,
+    "V": 2,
+    "manba": "11-sinf molyar/normal banki, savol qolipida"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "20 % li NaOH eritmasining zichligi 1,2 g/ml. Eritmaning molyar konsentratsiyasini (mol/l) hisoblang. (M(NaOH)=40 g/mol)",
+   "variantlar": [
+    "5",
+    "2,4",
+    "6",
+    "12"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "zichlik hisobga olinmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "10 ko'paytuvchisi tushib qolgan"
+    },
+    {
+     "variant": "D",
+     "xato": "M o'rniga 20 ga bo'lingan"
+    }
+   ],
+   "yechim": "1 l eritma: 1200 g; NaOH: 240 g → n = 6 mol → c = 6 mol/l. (Formula: c = 10ρω/M.)",
+   "parametrlar": {
+    "arch": "foizdan_molyar",
+    "w": 20,
+    "rho": 1.2,
+    "M": 40
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmga qarang: issiq yoz kunida akvarium suvi qizib ketganda baliqlar suv yuzasiga ko'tarilib, «havo yutayotgandek» harakat qiladi. Buning sababi va yechimini ko'rsating.",
+   "variantlar": [
+    "iliq suvda O₂ ning eruvchanligi kamaygan; suvni salqinlatish yoki havo purkash kerak",
+    "iliq suvda kislorod ko'payib, baliqlar «mast» bo'ladi",
+    "baliqlar iliq suvni yoqtirib, yuzaga o'ynagani chiqadi",
+    "suvdagi tuzlar kislorodni siqib chiqaradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "aksincha — gaz eruvchanligi haroratda KAMAYADI"
+    },
+    {
+     "variant": "C",
+     "xato": "bu xatti-harakat kislorod tanqisligi belgisi"
+    },
+    {
+     "variant": "D",
+     "xato": "hal qiluvchi omil harorat, tuzlar emas"
+    }
+   ],
+   "yechim": "Gazlar eruvchanligi harorat ortishi bilan kamayadi: iliq suvda erigan O₂ kam — baliqlar kislorod yetishmasligidan yuzaga intiladi. Yechim: suvni salqinlatish yoki kompressor bilan havo purkash (bosim/aralashish).",
+   "parametrlar": {},
+   "fig": "aquarium"
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "40 % li va 10 % li eritmalardan 300 g 20 % li eritma tayyorlash uchun har biridan necha grammdan olish kerak?",
+   "variantlar": [
+    "100 g (40 %) va 200 g (10 %)",
+    "150 g va 150 g",
+    "200 g (40 %) va 100 g (10 %)",
+    "120 g va 180 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "o'rtacha 25% bo'lib qoladi"
+    },
+    {
+     "variant": "C",
+     "xato": "nisbat teskari — 30% chiqadi"
+    },
+    {
+     "variant": "D",
+     "xato": "krest qoidasi xato qo'llangan"
+    }
+   ],
+   "yechim": "x + y = 300; 0,4x + 0,1y = 60 → 0,3x = 30 → x = 100 g, y = 200 g. (Krest qoidasi: 10 : 20 = 1 : 2.)",
+   "parametrlar": {
+    "arch": "krest",
+    "w1": 40,
+    "w2": 10,
+    "w": 20,
+    "m": 300
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "10 °C da 1020 g to'yingan ammiak eritmasi 50 °C gacha qizdirildi. Ajralib chiqqan ammiakning hajmini (l, n.sh.) hisoblang. (S₁₀=70 g, S₅₀=36 g / 100 g suvda)",
+   "variantlar": [
+    "336",
+    "268,8",
+    "224",
+    "134,4"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "boshlang'ich barcha NH₃ ajraladi deb olingan (15 mol emas, aslida jami 420 g)"
+    },
+    {
+     "variant": "C",
+     "xato": "ajralgan massa 170 g deb xato hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "yarim miqdor — eritma massasi 510 g deb olingan"
+    }
+   ],
+   "yechim": "1020 g = 6 · 170 g → NH₃ 420 g, suv 600 g. 50 °C da erigan holda qoladi: 6·36 = 216 g. Ajraladi: 420 − 216 = 204 g = 12 mol → V = 12 · 22,4 = 268,8 l.",
+   "parametrlar": {
+    "arch": "gaz_eruvchanlik",
+    "s1": 70,
+    "s2": 36,
+    "m": 1020,
+    "manba": "ERUVCHANLIK banki (11-sinf), javob mustaqil tekshirildi"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Bir xil moddaning 20 % li va 40 % li eritmalarini o'zaro aralashtirib QAYSI konsentratsiyali eritma tayyorlab BO'LMAYDI?",
+   "variantlar": [
+    "25 %",
+    "30 %",
+    "45 %",
+    "38 %"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "20–40% oralig'ida — mumkin"
+    },
+    {
+     "variant": "B",
+     "xato": "teng massalarda hosil bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "40% ga yaqin nisbatda mumkin"
+    }
+   ],
+   "yechim": "Aralashma konsentratsiyasi doim ikki qiymat orasida bo'ladi: 20% < ω < 40%. 45% bu oraliqdan tashqarida.",
+   "parametrlar": {
+    "arch": "oraliq",
+    "w1": 20,
+    "w2": 40,
+    "manba": "DIM formati (olmaz-savol)"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Shakar eritmasiga suv qo'shilganda qaysi kattalik O'ZGARMAYDI?",
+   "variantlar": [
+    "eritma massasi",
+    "shakarning massa ulushi",
+    "erigan shakar massasi",
+    "eritma hajmi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv qo'shilganda ortadi"
+    },
+    {
+     "variant": "B",
+     "xato": "suyultirishda kamayadi"
+    },
+    {
+     "variant": "D",
+     "xato": "suv qo'shilganda ortadi"
+    }
+   ],
+   "yechim": "Suyultirishda erigan modda miqdori (massasi) o'zgarmaydi — faqat eritma massasi/hajmi ortib, ω kamayadi.",
+   "parametrlar": {}
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Rasmda 20 °C dagi tajriba ko'rsatilgan: uchala idishdagi 100 g suvga mos ravishda 20 g, 36 g va 50 g dan bir xil tuz solinib aralashtirildi (tuzning eruvchanligi 36 g/100 g suv). Qaysi idish(lar)da tuzning bir qismi erimay, cho'kma holida qoladi?",
+   "variantlar": [
+    "2- va 3-idishlarda",
+    "faqat 2-idishda",
+    "hech birida",
+    "faqat 3-idishda"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "36 g aynan chegaraga teng — hammasi eriydi"
+    },
+    {
+     "variant": "B",
+     "xato": "50 g > 36 g bo'lgani uchun aynan 3-idishda cho'kma qoladi"
+    },
+    {
+     "variant": "C",
+     "xato": "3-idishda 14 g tuz erimay qoladi"
+    }
+   ],
+   "yechim": "Chegara: 36 g/100 g suv. 1-idish (20 g) — to'yinmagan; 2-idish (36 g) — aynan to'yingan, cho'kmasiz; 3-idish (50 g) — 36 g eriydi, 14 g cho'kmada qoladi.",
+   "parametrlar": {
+    "arch": "uch_idish",
+    "s": 36,
+    "tuzlar": [
+     20,
+     36,
+     50
+    ]
+   },
+   "fig": "beakers3"
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "«Oleum»ga berilgan to'g'ri ta'rifni ko'rsating.",
+   "variantlar": [
+    "SO₃ ning suvsiz (100 % li) sulfat kislotadagi eritmasi",
+    "sulfat kislotaning konsentrlangan suvdagi eritmasi",
+    "SO₃ ning suvdagi to'yingan eritmasi",
+    "100 % li sulfat kislotaning o'zi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "oleumda erituvchi suv emas, H₂SO₄"
+    },
+    {
+     "variant": "C",
+     "xato": "SO₃ suv bilan reaksiyaga kirib H₂SO₄ hosil qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "oleumda qo'shimcha erkin SO₃ bo'ladi"
+    }
+   ],
+   "yechim": "Oleum — H₂SO₄·nSO₃: ortiqcha SO₃ ning 100 % li sulfat kislotadagi eritmasi; erituvchi vazifasini H₂SO₄ bajaradi.",
+   "parametrlar": {
+    "manba": "Oleum banki (11-sinf)"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "2 M li NaOH eritmasining titrini (g/ml) toping. (M(NaOH)=40 g/mol)",
+   "variantlar": [
+    "80",
+    "0,04",
+    "0,8",
+    "0,08"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "g/l birligida qoldirilgan (ml ga aylantirilmagan)"
+    },
+    {
+     "variant": "B",
+     "xato": "1 M uchun hisoblangan"
+    },
+    {
+     "variant": "C",
+     "xato": "o'nlik xatosi — 100 ml ga hisoblangan"
+    }
+   ],
+   "yechim": "Titr — 1 ml eritmadagi modda massasi: T = c·M/1000 = 2·40/1000 = 0,08 g/ml.",
+   "parametrlar": {
+    "arch": "titr",
+    "c": 2,
+    "M": 40
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.7",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "To'yingan eritmadan harorat o'zgarmagan holda suv asta-sekin bug'latilmoqda (ortiqcha tuz cho'kmaga tushib boradi). Eritmadagi tuzning massa ulushi (ω, %) bug'latilgan suv massasiga bog'liq holda qanday o'zgaradi?",
+   "variantlar": [
+    "uzluksiz ortib boradi",
+    "o'zgarmaydi (gorizontal chiziq)",
+    "kamayadi",
+    "avval kamayib, so'ng ortadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritma allaqachon to'yingan — ω chegarada qoladi"
+    },
+    {
+     "variant": "C",
+     "xato": "suv kamayishi ω ni kamaytirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz kombinatsiya"
+    }
+   ],
+   "yechim": "To'yingan eritmada har bir haroratga bitta ω mos keladi. Suv bug'langanda ortiqcha tuz cho'kadi, eritma esa to'yinganligicha qoladi → ω = const.",
+   "parametrlar": {},
+   "svg": {
+    "correct": "flat",
+    "d1": "rise",
+    "d2": "fall",
+    "d3": "u"
+   }
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.7",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.7",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.8",
+     "qiyinlik": 1,
+     "kognitiv": "quyi"
+    },
+    {
+     "n": 35,
+     "element": "I.7",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "X tuzining eruvchanlik koeffitsiyenti 60 °C da 150 g, 20 °C da 50 g (100 g suvda). 60 °C da 200 g suvda X tuzining to'yingan eritmasi tayyorlandi, so'ngra u 20 °C gacha sovutildi. 33–35-savollarga A–F ro'yxatidan javob tanlang (har bir savolga bittadan).",
+   "savollar_ichki": [
+    "33. 60 °C dagi to'yingan eritmadagi X tuzining massasi (g) qancha?",
+    "34. 60 °C dagi to'yingan eritmada X tuzining massa ulushi (%) qancha?",
+    "35. Eritma 20 °C gacha sovutilganda necha gramm tuz cho'kmaga tushadi?"
+   ],
+   "javoblar_royxati": [
+    "A) 300",
+    "B) 60",
+    "C) 200",
+    "D) 150",
+    "E) 100",
+    "F) 40"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "eruvchanlik koeffitsiyentining o'zi (100 g suv uchun)"
+    },
+    {
+     "variant": "E",
+     "xato": "20 °C da erigan holda qolgan tuz massasi — cho'kma bilan adashtiriladi"
+    },
+    {
+     "variant": "F",
+     "xato": "ω ni suv massasiga nisbatan hisoblash xatosi (300/500 o'rniga boshqa nisbat)"
+    }
+   ],
+   "yechim": "60 °C: 200 g suvda 2·150 = 300 g tuz (33 → A). Eritma 500 g; ω = 300/500 = 60% (34 → B). 20 °C da erigan bo'lib qoladi: 2·50 = 100 g; cho'kma: 300 − 100 = 200 g (35 → C).",
+   "parametrlar": {
+    "arch": "sovutish_ssenariy",
+    "s60": 150,
+    "s20": 50,
+    "suv": 200
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "400 g 10 % li eritmaga 100 g suv qo'shildi. Hosil bo'lgan eritmaning konsentratsiyasini (%) toping.",
+   "javob": "8",
+   "yechim": "Tuz 40 g; eritma 500 g; ω = 8%.",
+   "parametrlar": {
+    "arch": "suyultirish",
+    "m": 400,
+    "w": 10,
+    "suv": 100
+   },
+   "tur": "O1",
+   "element": "I.7"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "300 g 20 % li eritmadan 100 g suv bug'latildi (tuz cho'kmadi). Qolgan eritmaning konsentratsiyasini (%) toping.",
+   "javob": "30",
+   "yechim": "Tuz 60 g; eritma 200 g; ω = 30%.",
+   "parametrlar": {
+    "arch": "buglatish",
+    "m": 300,
+    "w": 20,
+    "suv": 100
+   },
+   "tur": "O1",
+   "element": "I.7"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "250 ml 2 M li KOH eritmasiga 28 g KOH qo'shib eritildi (hajm o'zgarmadi deb hisoblang). Olingan eritmaning molyar konsentratsiyasini (mol/l) toping. (M(KOH)=56 g/mol)",
+   "javob": "4",
+   "yechim": "Boshlang'ich: 0,25·2 = 0,5 mol; qo'shildi: 28/56 = 0,5 mol; jami 1 mol / 0,25 l = 4 M.",
+   "parametrlar": {
+    "arch": "molyar_qoshish",
+    "V": 0.25,
+    "c": 2,
+    "m": 28,
+    "M": 56
+   },
+   "tur": "O1",
+   "element": "I.7"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "50 g mis kuporosi CuSO₄·5H₂O 350 g suvda eritildi. Eritmadagi CuSO₄ ning massa ulushini (%) toping. (M(CuSO₄)=160, M(CuSO₄·5H₂O)=250 g/mol)",
+   "javob": "8",
+   "yechim": "CuSO₄: 50·160/250 = 32 g; eritma 400 g; ω = 8%.",
+   "parametrlar": {
+    "arch": "kristallogidrat_foiz",
+    "gidrat": 50,
+    "M1": 250,
+    "M2": 160,
+    "suv": 350
+   },
+   "tur": "O1",
+   "element": "I.7"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "80 °C da CuSO₄ ning 330 g to'yingan eritmasi 20 °C gacha sovutilganda necha gramm CuSO₄·5H₂O kristall holda cho'kadi? (S₈₀=50 g, S₂₀=25 g / 100 g suvda; M(CuSO₄)=160, M(CuSO₄·5H₂O)=250 g/mol)",
+   "javob": "100",
+   "yechim": "330 g = 2,2·150 g → CuSO₄ 110 g, suv 220 g. x g gidrat cho'ksin: unda CuSO₄ 0,64x, H₂O 0,36x. Qolgan eritma to'yingan: (110 − 0,64x)/(220 − 0,36x) = 25/100 → 110 − 0,64x = 55 − 0,09x → 0,55x = 55 → x = 100 g.",
+   "parametrlar": {
+    "arch": "kristallogidrat_chokish",
+    "s1": 50,
+    "s2": 25,
+    "m": 330,
+    "gidrat": "CuSO4·5H2O",
+    "manba": "ERUVCHANLIK banki, javob mustaqil tekshirildi"
+   },
+   "tur": "O1",
+   "element": "I.7"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "NaNO₃ ning eruvchanligi (g/100 g suvda):\n[JADVAL] t, °C | 10 | 20 | 40 | 60 | 80 ;; s, g | 80 | 88 | 105 | 124 | 148\n60 °C da 250 g suvda NaNO₃ ning to'yingan eritmasi tayyorlandi, so'ngra 20 °C gacha sovutildi.",
+   "bandlar": [
+    {
+     "savol": "a) 60 °C dagi to'yingan eritmaning massasini (g) hisoblang.",
+     "yechim": [
+      "250 g suvga: 2,5 · 124 = 310 g NaNO₃",
+      "m(eritma) = 250 + 310 = 560 g"
+     ],
+     "M": 2,
+     "A": 1
+    },
+    {
+     "savol": "b) 20 °C gacha sovutilganda necha gramm NaNO₃ cho'kmaga tushishini hisoblang.",
+     "yechim": [
+      "20 °C da erigan holda qoladi: 2,5 · 88 = 220 g",
+      "cho'kma: 310 − 220 = 90 g"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Sovutilgandan keyin qolgan eritmadagi NaNO₃ ning massa ulushini (%) hisoblang.",
+     "yechim": [
+      "qolgan eritma: 560 − 90 = 470 g",
+      "ω = 220/470 · 100% ≈ 46,8%"
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "d) Dastlabki erigan tuzning necha foizi kristallanganini hisoblang.",
+     "yechim": [
+      "90/310 · 100% ≈ 29%"
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "e) Xuddi shu tajriba CO₂ ning suvdagi eritmasi bilan o'tkazilsa (sovutish), gaz eritmadan ajralib chiqadimi? Javobingizni eruvchanlikning haroratga bog'liqligi asosida tushuntiring.",
+     "yechim": [
+      "Yo'q, ajralmaydi: gazlarning eruvchanligi sovutilganda ORTADI —",
+      "sovutish gaz uchun eritmani to'yinmagan holatga o'tkazadi.",
+      "Qattiq tuzlarda esa (NaNO₃) eruvchanlik kamayadi va ortiqchasi kristallanadi."
+     ],
+     "M": 5,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "DTM spetsifikatsiyasi (5 bandlik 41-topshiriq): M jami 15, A jami 10; oxirgi band — sifat/sabab bandi.",
+   "parametrlar": {
+    "arch": "eruvchanlik_jadval_sikl",
+    "s": {
+     "t10": 80,
+     "t20": 88,
+     "t40": 105,
+     "t60": 124,
+     "t80": 148
+    },
+    "suv": 250
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.8",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "20 g mis kuporosi CuSO₄·5H₂O 180 g suvda eritildi. (M(CuSO₄)=160, M(CuSO₄·5H₂O)=250 g/mol)",
+   "bandlar": [
+    {
+     "savol": "a) Eritmadagi suvsiz CuSO₄ ning massa ulushini (%) aniqlash yo'lini yozing va hisoblang.",
+     "yechim": [
+      "CuSO₄: 20 · 160/250 = 12,8 g",
+      "eritma: 200 g",
+      "ω = 12,8/200 · 100% = 6,4%"
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Shu eritmadan necha gramm suv bug'latilsa, CuSO₄ ning massa ulushi 12,8 % ga yetadi? (Tuz cho'kmaydi deb hisoblang.)",
+     "yechim": [
+      "kerakli eritma massasi: 12,8/0,128 = 100 g",
+      "bug'latiladigan suv: 200 − 100 = 100 g"
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Nega hisobda kristallogidrat (CuSO₄·5H₂O) emas, suvsiz tuz (CuSO₄) massasi ishlatiladi? Qisqacha tushuntiring.",
+     "yechim": [
+      "Kristallanish suvi eritmada erituvchi (suv) tarkibiga o'tadi;",
+      "erigan modda sifatida faqat suvsiz CuSO₄ qoladi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "DTM spetsifikatsiyasi: 42-topshiriq faqat usul (M) bilan baholanadi (A yo'q), 3 band: M13+M9+M3=25. Promt qoidasi bo'yicha ataylab soddaroq.",
+   "parametrlar": {
+    "arch": "kristallogidrat_buglatish",
+    "gidrat": 20,
+    "suv": 180
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.7",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Quyidagi jadvalda tuz eritmasi ustida bajarilgan 5 ta amal berilgan. Har bir holat uchun eritmadagi erigan moddaning massa ulushi (ω) qanday o'zgarishini (ortadi / kamayadi / o'zgarmaydi) aniqlang va sababini yozing.\n[JADVAL] № | Holat ;; 1 | To'yinmagan eritmaga o'sha tuzdan qo'shib eritildi ;; 2 | To'yingan eritmaga o'sha tuzdan yana qo'shildi (harorat o'zgarmas) ;; 3 | Eritmaga suv qo'shildi ;; 4 | To'yinmagan eritmadan ochiq idishda suvning bir qismi bug'landi (tuz cho'kmadi) ;; 5 | Eruvchanligi harorat pasayishi bilan kamayadigan tuzning to'yingan eritmasi sovutildi",
+   "bandlar": [
+    {
+     "savol": "1-holat",
+     "yechim": [
+      "ORTADI — erigan tuz massasi ortadi, eritma massasi undan sekinroq o'sadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "2-holat",
+     "yechim": [
+      "O'ZGARMAYDI — qo'shilgan tuz erimaydi, cho'kma holida qoladi; eritma tarkibi o'zgarmaydi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "3-holat",
+     "yechim": [
+      "KAMAYADI — tuz massasi o'zgarmay, eritma massasi ortadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "4-holat",
+     "yechim": [
+      "ORTADI — tuz massasi saqlanib, eritma massasi kamayadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "5-holat",
+     "yechim": [
+      "O'ZGARMAYDI deyish XATO bo'lardi: to'g'ri javob — KAMAYADI: ortiqcha tuz kristallanadi va eritma yangi (pastroq) haroratdagi to'yinish chegarasiga tushadi; ω = s₂/(100+s₂) < s₁/(100+s₁)"
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "MS 43-savolining jadval ruhi: har holat uchun yo'nalish + sabab (DIM 'Məhlullar' blokidagi sifat-savollar formatidan moslashtirilgan).",
+   "parametrlar": {
+    "arch": "jadval_sabab"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1395 @@
+{
+ "variant": "mavzu-I5-A",
+ "daraja": "A",
+ "bob": 5,
+ "bob_nomi": "Kimyoviy reaksiya tezligi",
+ "manba": "Tongotarov 11-bob va MS/DTM tezlik banki arxetiplari (yangi sonlar bilan), nazariy savollar darslik chegarasida original",
+ "izoh": "A-varianti — IMTIHON DARAJASI ★★: rasmiy MS qiyinlik xaritasi (5 oson, 15 o'rta, 12 qiyin). Sonlar B-variantdan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Hajmi 4 l bo'lgan idishdagi gaz miqdori 10 sekundda 8 moldan 3 molgacha kamaydi. Reaksiyaning o'rtacha tezligini [mol/(l·s)] aniqlang.",
+   "variantlar": [
+    "0,5",
+    "0,125",
+    "0,05",
+    "0,25"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "hajmga bo'lish unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "qolgan miqdor bilan hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "Δn = 10 deb olingan"
+    }
+   ],
+   "yechim": "Δc = (8 − 3)/4 = 1,25 mol/l; v = 1,25/10 = 0,125 mol/(l·s).",
+   "parametrlar": {
+    "arch": "ortacha_tezlik",
+    "V": 4,
+    "n1": 8,
+    "n2": 3,
+    "t": 10
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Kimyoviy reaksiya tezligi deb nimaga aytiladi?",
+   "variantlar": [
+    "vaqt birligi ichida modda konsentratsiyasining o'zgarishiga",
+    "reaksiya to'liq tugashi uchun ketgan vaqtga",
+    "hosil bo'lgan mahsulotning umumiy massasiga",
+    "reaksiyada ajralgan issiqlik miqdoriga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu davomiylik, tezlik emas"
+    },
+    {
+     "variant": "C",
+     "xato": "miqdor, tezlik emas"
+    },
+    {
+     "variant": "D",
+     "xato": "bu issiqlik effekti"
+    }
+   ],
+   "yechim": "v = ±Δc/Δt; birligi mol/(l·s) yoki mol/(l·min).",
+   "parametrlar": {}
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Reagent konsentratsiyasi 6 sekund ichida 2,4 mol/l dan 1,2 mol/l gacha kamaydi. O'rtacha tezlikni [mol/(l·s)] toping.",
+   "variantlar": [
+    "0,4",
+    "0,2",
+    "0,1",
+    "1,2"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkilantirish xatosi"
+    },
+    {
+     "variant": "C",
+     "xato": "Δc = 0,6 deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "vaqtga bo'lish unutilgan"
+    }
+   ],
+   "yechim": "v = (2,4 − 1,2)/6 = 0,2 mol/(l·s).",
+   "parametrlar": {
+    "arch": "ortacha_tezlik_c",
+    "c1": 2.4,
+    "c2": 1.2,
+    "t": 6
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Reaksiya davomida MAHSULOT konsentratsiyasining vaqtga bog'liq o'zgarishini qaysi grafik to'g'ri ifodalaydi?",
+   "variantlar": [
+    "kamayib boruvchi egri chiziq",
+    "o'zgarmas gorizontal chiziq",
+    "avval ortib, so'ng kamayuvchi egri",
+    "ortib boruvchi, asta-sekin sekinlashuvchi egri chiziq"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu reagent grafigi"
+    },
+    {
+     "variant": "B",
+     "xato": "mahsulot to'planib boradi"
+    },
+    {
+     "variant": "C",
+     "xato": "mahsulot qaytib sarflanmaydi"
+    }
+   ],
+   "yechim": "Mahsulot to'planadi: boshida tez, reagentlar kamaygani sari sekinroq — egri chiziq yassilanib boradi.",
+   "parametrlar": {},
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "t, s",
+    "ylab": "c"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Rasmga qarang: bir xil sut va olma muzlatgichda (+4 °C) xona haroratidagiga (+25 °C) qaraganda ancha uzoq saqlanadi. Buning kimyoviy sababi nimada?",
+   "variantlar": [
+    "past haroratda buzilish reaksiyalarining tezligi keskin kichik bo'ladi",
+    "muzlatgich ichida mikroblar umuman bo'lmaydi",
+    "muzlatgichda yorug'lik yo'qligi buzilishni to'xtatadi",
+    "sovuq havo mahsulotni qattiq qilib qo'yadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "mikroblar bor, faqat past haroratda biokimyoviy jarayonlari sekin"
+    },
+    {
+     "variant": "C",
+     "xato": "asosiy omil yorug'lik emas, harorat"
+    },
+    {
+     "variant": "D",
+     "xato": "qotish tezlikni belgilamaydi"
+    }
+   ],
+   "yechim": "Vant-Goff qoidasi teskarisiga ham ishlaydi: harorat ~20 °C past bo'lsa, buzilish (oksidlanish, mikrob biokimyosi) reaksiyalari tezligi taxminan γ² marta kamayadi — mahsulot uzoq saqlanadi.",
+   "parametrlar": {},
+   "fig": "fridge"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Temperatura koeffitsiyenti 2 bo'lgan reaksiyaning harorati 30 °C ga ko'tarildi. Tezlik necha marta ortadi?",
+   "variantlar": [
+    "6",
+    "16",
+    "2",
+    "8"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2·3 — daraja o'rniga ko'paytma"
+    },
+    {
+     "variant": "B",
+     "xato": "4 qadam deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "bitta qadam hisoblangan"
+    }
+   ],
+   "yechim": "v₂/v₁ = 2^(30/10) = 2³ = 8 marta.",
+   "parametrlar": {
+    "arch": "vant_goff",
+    "g": 2,
+    "dt": 30
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda bir xil massadagi marmar (CaCO₃) bir xil xlorid kislotaga ikki ko'rinishda solingan: 1-idishda kukun, 2-idishda yaxlit bo'lak. Nega 1-idishda CO₂ jadalroq ajralmoqda?",
+   "variantlar": [
+    "kukun kislota konsentratsiyasini oshiradi",
+    "kukunning harorati yuqori",
+    "bo'lak kislotani sekin shimadi",
+    "kukunning to'qnashuv sirti katta"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kukun konsentratsiyani o'zgartirmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "harorat bir xil"
+    },
+    {
+     "variant": "C",
+     "xato": "gap shimishda emas, sirt yuzasida"
+    }
+   ],
+   "yechim": "Geterogen reaksiya tezligi fazalar chegarasi yuzasiga bog'liq — kukunda sirt ancha katta, CO₂ jadal ajraladi.",
+   "parametrlar": {},
+   "fig": "beakers2_m"
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Temperatura koeffitsiyenti 3 bo'lgan reaksiyaning harorati 20 °C ga pasaytirildi. Tezlik qanday o'zgaradi?",
+   "variantlar": [
+    "9 marta ortadi",
+    "9 marta kamayadi",
+    "6 marta kamayadi",
+    "3 marta kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pasayishda tezlik KAMAYADI"
+    },
+    {
+     "variant": "C",
+     "xato": "3·2 ko'paytma xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "bitta qadam hisoblangan"
+    }
+   ],
+   "yechim": "v kamayadi: 3^(20/10) = 9 marta.",
+   "parametrlar": {
+    "arch": "vant_goff_pasayish",
+    "g": 3,
+    "dt": 20
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Rasmda avtomobilning katalitik neytralizatori ko'rsatilgan: undagi platina-rodiy qatlami zararli CO va NOₓ gazlarini zararsiz CO₂ va N₂ ga aylantiradi. Bu qatlamning kimyoviy vazifasi nima?",
+   "variantlar": [
+    "zararli gazlarni g'ovaklarida filtrlab ushlab qolish",
+    "zararsizlantirish reaksiyalarini tezlashtirish — o'zi esa sarflanmaydi",
+    "chiqindi gazlar haroratini pasaytirish",
+    "reaksiyada o'zi sarflanib, gazlar bilan birikish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u filtr emas — gazlar reaksiyaga KIRIB chiqadi"
+    },
+    {
+     "variant": "C",
+     "xato": "sovutish emas, katalizatorlik vazifasi"
+    },
+    {
+     "variant": "D",
+     "xato": "katalizator sarflanmaydi — shu bois yillab xizmat qiladi"
+    }
+   ],
+   "yechim": "Pt–Rh qatlami tipik katalizator: CO va NOₓ ning zararsiz moddalarga aylanish reaksiyalari faollanish energiyasini pasaytirib, ularni ming marta tezlashtiradi; o'zi jarayonda sarflanmaydi.",
+   "parametrlar": {},
+   "fig": "car_cat"
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "A + B → C gomogen reaksiyada A ning konsentratsiyasi 3 marta oshirilsa (qolganlari o'zgarmas), tezlik qanday o'zgaradi?",
+   "variantlar": [
+    "3 marta ortadi",
+    "9 marta ortadi",
+    "o'zgarmaydi",
+    "3 marta kamayadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 1 — kvadrat kerak emas"
+    },
+    {
+     "variant": "C",
+     "xato": "ta'sir etuvchi massalar qonuniga zid"
+    },
+    {
+     "variant": "D",
+     "xato": "ortish o'rniga kamayish deb olingan"
+    }
+   ],
+   "yechim": "v = k[A][B] → 3 marta ortadi.",
+   "parametrlar": {
+    "arch": "konsentratsiya",
+    "kA": 3
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Katalizator reaksiya tezligini qanday yo'l bilan oshiradi?",
+   "variantlar": [
+    "moddalar konsentratsiyasini oshirib",
+    "sistema haroratini ko'tarib",
+    "faollanish energiyasini pasaytirib, reaksiyani yangi yo'ldan olib boradi",
+    "muvozanatni mahsulot tomonga siljitib"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "konsentratsiyani o'zgartirmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "issiqlik manbai emas"
+    },
+    {
+     "variant": "D",
+     "xato": "muvozanatni siljitmaydi"
+    }
+   ],
+   "yechim": "Katalizator Ea pastroq yangi yo'l ochadi — faol to'qnashuvlar ulushi ortadi.",
+   "parametrlar": {}
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3 l idishdagi gomogen reaksiyaning o'rtacha tezligi 0,02 mol/(l·s). 25 sekund davomida necha mol reagent sarflanadi?",
+   "variantlar": [
+    "0,5",
+    "0,17",
+    "1,5",
+    "2,5"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "idish hajmiga ko'paytirish unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "bo'lish-ko'paytirish almashgan"
+    },
+    {
+     "variant": "D",
+     "xato": "hajm o'rniga vaqtga yana ko'paytirilgan"
+    }
+   ],
+   "yechim": "Δc = v·t = 0,02·25 = 0,5 mol/l; Δn = 0,5·3 = 1,5 mol.",
+   "parametrlar": {
+    "arch": "miqdor_topish",
+    "v": 0.02,
+    "t": 25,
+    "V": 3
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Rasmda dengiz kemasining suv ostidagi qismi maxsus — tarkibida INGIBITOR bo'lgan bo'yoq bilan qoplangani ko'rsatilgan. Ingibitorning vazifasi nima?",
+   "variantlar": [
+    "korroziya reaksiyasini tezlashtirish",
+    "temirning sho'r suvdagi korroziya reaksiyasi tezligini keskin sekinlashtirish",
+    "kema korpusini og'irlashtirib, muvozanat berish",
+    "suvning sho'rligini kamaytirish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu katalizator ta'siri bo'lardi — aksincha kerak"
+    },
+    {
+     "variant": "C",
+     "xato": "bo'yoq massasi ahamiyatsiz"
+    },
+    {
+     "variant": "D",
+     "xato": "bo'yoq dengiz tarkibini o'zgartira olmaydi"
+    }
+   ],
+   "yechim": "Sho'r suv — elektrolit, temir korroziyasi unda juda tez boradi. Ingibitor qo'shilgan qoplama shu reaksiyaning tezligini minglab marta kamaytiradi — kema 20–30 yil xizmat qiladi.",
+   "parametrlar": {},
+   "fig": "ship"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Gomogen reaksiya tezligining o'lchov birligini ko'rsating.",
+   "variantlar": [
+    "mol/l",
+    "l/mol",
+    "g/ml",
+    "mol/(l·s)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "konsentratsiya birligi"
+    },
+    {
+     "variant": "B",
+     "xato": "teskari kattalik"
+    },
+    {
+     "variant": "C",
+     "xato": "zichlik birligi"
+    }
+   ],
+   "yechim": "Tezlik = konsentratsiya o'zgarishi / vaqt: mol/(l·s).",
+   "parametrlar": {}
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Bir xil o'lchamdagi rux bo'laklari 0,1 M li va 0,3 M li xlorid kislota eritmalariga solindi (harorat bir xil, reaksiya H⁺ bo'yicha birinchi tartibli). Boshlang'ich tezliklar nisbatini (konsentrlangan : suyultirilgan) toping.",
+   "variantlar": [
+    "3 : 1",
+    "9 : 1",
+    "1 : 1",
+    "1 : 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kvadratga ko'tarilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "geterogen deb konsentratsiya ta'sirsiz deyilgan — H⁺ eritmada"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari"
+    }
+   ],
+   "yechim": "v ∝ [H⁺] → 0,3/0,1 = 3 marta tez.",
+   "parametrlar": {
+    "arch": "ikki_idish_taqqos",
+    "c1": 0.1,
+    "c2": 0.3
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Vant-Goff qoidasiga ko'ra, harorat har 10 °C ga ko'tarilganda ko'pchilik reaksiyalarning tezligi qanday o'zgaradi?",
+   "variantlar": [
+    "10 marta ortadi",
+    "o'zgarmaydi",
+    "2–4 marta ortadi",
+    "2–4 marta kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gradusga tenglashtirish xatosi"
+    },
+    {
+     "variant": "B",
+     "xato": "harorat asosiy omil"
+    },
+    {
+     "variant": "D",
+     "xato": "ko'tarilishda ORTADI"
+    }
+   ],
+   "yechim": "γ odatda 2–4: har +10 °C da tezlik γ marta ortadi.",
+   "parametrlar": {}
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvalda reagent konsentratsiyasining vaqt bo'yicha o'lchangan qiymatlari berilgan:\n[JADVAL] t, s | 0 | 10 | 20 ;; [A], mol/l | 1,8 | 1,2 | 0,9\n0–10 s va 10–20 s oraliqlardagi o'rtacha tezliklar nisbatini (v₁ : v₂) toping.",
+   "variantlar": [
+    "2 : 1",
+    "3 : 2",
+    "1 : 2",
+    "4 : 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "konsentratsiyalar nisbati olingan (1,8:1,2)"
+    },
+    {
+     "variant": "C",
+     "xato": "nisbat teskari yozilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz baho"
+    }
+   ],
+   "yechim": "v₁ = (1,8−1,2)/10 = 0,06; v₂ = (1,2−0,9)/10 = 0,03 → v₁:v₂ = 2:1.",
+   "parametrlar": {
+    "arch": "jadval_vaqt_oqish",
+    "data": [
+     [
+      0,
+      1.8
+     ],
+     [
+      10,
+      1.2
+     ],
+     [
+      20,
+      0.9
+     ]
+    ]
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Rasmga qarang: gulxan yoqishda avval mayda cho'plar tutashtiriladi (2), yaxlit g'o'la (1) esa juda qiyin yonib ketadi. Buning sababi nimada?",
+   "variantlar": [
+    "mayda cho'plarning umumiy sirt yuzasi katta — kislorod bilan to'qnashuv ko'p",
+    "mayda cho'plarning namligi kam bo'ladi",
+    "g'o'laning zichligi olov o'tkazmaydi",
+    "mayda cho'plarda uglerod ko'proq"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "namlik teng deb olinadi — gap sirt yuzasida"
+    },
+    {
+     "variant": "C",
+     "xato": "zichlik emas, sirt yuzasi hal qiluvchi"
+    },
+    {
+     "variant": "D",
+     "xato": "kimyoviy tarkib bir xil — yog'och"
+    }
+   ],
+   "yechim": "Yonish — geterogen reaksiya (qattiq yog'och + havo kislorodi): tezlik fazalar chegarasi yuzasiga bog'liq. Teng massada mayda cho'plarning sirti g'o'lanikidan yuzlab marta katta.",
+   "parametrlar": {},
+   "fig": "campfire"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Temperatura koeffitsiyenti 2 bo'lgan reaksiya tezligini 32 marta oshirish uchun haroratni necha gradusga ko'tarish kerak?",
+   "variantlar": [
+    "50",
+    "32",
+    "40",
+    "25"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "marta bilan gradus almashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "2⁴ = 16 bilan chalkashuv"
+    },
+    {
+     "variant": "D",
+     "xato": "yarim qiymat"
+    }
+   ],
+   "yechim": "2^(Δt/10) = 32 = 2⁵ → Δt = 50 °C.",
+   "parametrlar": {
+    "arch": "harorat_topish",
+    "g": 2,
+    "marta": 32
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "A(g) + 2B(g) → C(g) reaksiyada sistemaning bosimi 3 marta oshirilsa, tezlik necha marta ortadi?",
+   "variantlar": [
+    "9",
+    "6",
+    "27",
+    "81"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "A ning ulushi hisobga olinmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "darajalar qo'shilmagan (3+3)"
+    },
+    {
+     "variant": "D",
+     "xato": "to'rtinchi daraja olingan"
+    }
+   ],
+   "yechim": "Barcha konsentratsiyalar 3× → v = k[A][B]² → 3·3² = 27 marta.",
+   "parametrlar": {
+    "arch": "bosim",
+    "stex": "A+2B",
+    "p": 3
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Harorat 30 °C dan 60 °C gacha ko'tarilganda reaksiya tezligi 8 marta oshdi. Har 10 °C ga necha marta ortadi (γ)?",
+   "variantlar": [
+    "8",
+    "2,7",
+    "4",
+    "2"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "butun oraliq qiymati olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "8/3 chiziqli xato"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki qadam deb olingan"
+    }
+   ],
+   "yechim": "30° = 3 qadam; γ³ = 8 → γ = 2.",
+   "parametrlar": {
+    "arch": "gamma_topish",
+    "dt": 30,
+    "marta": 8
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Tezligi 6 mol/(l·min) bo'lgan reaksiyaning temperatura koeffitsiyenti 2 ga teng. Harorat 30 °C ga tushirilsa, yangi tezlik [mol/(l·min)] qancha bo'ladi?",
+   "variantlar": [
+    "48",
+    "0,75",
+    "2",
+    "1,5"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "harorat ko'tarilgandagi hisob"
+    },
+    {
+     "variant": "C",
+     "xato": "6/3 chiziqli xato"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki qadamgina olingan"
+    }
+   ],
+   "yechim": "v₂ = 6/2³ = 0,75 mol/(l·min).",
+   "parametrlar": {
+    "arch": "vant_goff_qiymat",
+    "v1": 6,
+    "g": 2,
+    "dt": -30
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Harorat 30 °C ga ko'tarilganda reaksiya tezligi 27 marta ortdi. Temperatura koeffitsiyentini toping.",
+   "variantlar": [
+    "9",
+    "2",
+    "3",
+    "27"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kvadrat ildiz olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "asossiz baho"
+    },
+    {
+     "variant": "D",
+     "xato": "marta bilan γ almashgan"
+    }
+   ],
+   "yechim": "γ³ = 27 → γ = 3.",
+   "parametrlar": {
+    "arch": "gamma_topish",
+    "dt": 30,
+    "marta": 27
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "N₂(g) + 3H₂(g) → 2NH₃(g) reaksiyasining tezligini qaysi tadbirlar oshiradi?\nI. Bosimni oshirish. II. Haroratni ko'tarish. III. Katalizator qo'shish.",
+   "variantlar": [
+    "faqat I va II",
+    "faqat II va III",
+    "I, II va III",
+    "faqat II"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "katalizator ham oshiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "gaz reaksiyasida bosim ishlaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "uchalasi ham ishlaydi"
+    }
+   ],
+   "yechim": "Bosim (gazlar uchun), harorat va katalizator — uchalasi tezlikni oshiradi.",
+   "parametrlar": {}
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2SO₂ + O₂ → 2SO₃ reaksiyasida SO₂ ning sarflanish tezligi 0,3 mol/(l·min). Kislorodning sarflanish tezligini toping.",
+   "variantlar": [
+    "0,3",
+    "0,6",
+    "0,15",
+    "0,075"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent e'tiborsiz"
+    },
+    {
+     "variant": "B",
+     "xato": "nisbat teskari"
+    },
+    {
+     "variant": "D",
+     "xato": "to'rtga bo'lingan"
+    }
+   ],
+   "yechim": "v(O₂) = v(SO₂)/2 = 0,15 mol/(l·min).",
+   "parametrlar": {
+    "arch": "stexiometrik",
+    "vSO2": 0.3
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "A + B → C (A bo'yicha birinchi tartibli) reaksiyada harorat 20 °C ga oshirildi (γ = 2) va A ning konsentratsiyasi 3 marta oshirildi. Tezlik jami necha marta ortadi?",
+   "variantlar": [
+    "7",
+    "6",
+    "4",
+    "12"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ta'sirlar qo'shilgan (4+3)"
+    },
+    {
+     "variant": "B",
+     "xato": "γ darajaga ko'tarilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "konsentratsiya unutilgan"
+    }
+   ],
+   "yechim": "Harorat: 2² = 4; konsentratsiya: 3. Jami: 12 marta.",
+   "parametrlar": {
+    "arch": "kombinatsiya",
+    "g": 2,
+    "dt": 20,
+    "ck": 3
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "N₂ + 3H₂ → 2NH₃ reaksiyasida azotning sarflanish tezligi 0,2 mol/(l·min). Vodorodning sarflanish tezligini [mol/(l·min)] toping.",
+   "variantlar": [
+    "0,6",
+    "0,2",
+    "0,4",
+    "0,067"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent hisobga olinmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "NH₃ koeffitsiyenti ishlatilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari"
+    }
+   ],
+   "yechim": "v(H₂) = 3·v(N₂) = 0,6 mol/(l·min).",
+   "parametrlar": {
+    "arch": "stexiometrik",
+    "vN2": 0.2
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Reaksiya tezligini sekinlashtiradigan modda qanday ataladi?",
+   "variantlar": [
+    "katalizator",
+    "promotor",
+    "indikator",
+    "ingibitor"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u tezlashtiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "katalizator faolligini oshiradi"
+    },
+    {
+     "variant": "C",
+     "xato": "muhitni ko'rsatadi"
+    }
+   ],
+   "yechim": "Ingibitor — reaksiyani sekinlashtiruvchi modda.",
+   "parametrlar": {}
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Tirik organizmlardagi kimyoviy jarayonlarni tezlashtiruvchi biologik katalizatorlar qanday ataladi?",
+   "variantlar": [
+    "gormonlar",
+    "vitaminlar",
+    "fermentlar",
+    "ingibitorlar"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "signal moddalar"
+    },
+    {
+     "variant": "B",
+     "xato": "ko'pincha ferment tarkibida, o'zi katalizator emas"
+    },
+    {
+     "variant": "D",
+     "xato": "sekinlashtiradi"
+    }
+   ],
+   "yechim": "Fermentlar (enzimlar) — oqsil tabiatli biologik katalizatorlar.",
+   "parametrlar": {}
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 1,
+   "kognitiv": "quyi",
+   "savol": "Cho'g'lanib turgan ko'mir toza kislorodda havodagiga qaraganda tezroq yonadi. Sababi nimada?",
+   "variantlar": [
+    "kislorod haroratining yuqoriligida",
+    "kislorod konsentratsiyasi yuqoriligida",
+    "azotning katalizatorlik ta'sirida",
+    "bosimning pastligida"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "harorat bir xil"
+    },
+    {
+     "variant": "C",
+     "xato": "azot suyultiruvchi, xolos"
+    },
+    {
+     "variant": "D",
+     "xato": "bosim asosiy omil emas"
+    }
+   ],
+   "yechim": "Toza kislorodda konsentratsiya ~5 marta yuqori — tezlik mos ravishda ortadi.",
+   "parametrlar": {}
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "N₂ + 3H₂ → 2NH₃ reaksiyasida ammiakning hosil bo'lish tezligi 0,3 mol/(l·min). Azotning sarflanish tezligini toping.",
+   "variantlar": [
+    "0,3",
+    "0,15",
+    "0,6",
+    "0,45"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent e'tiborsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "nisbat teskari"
+    },
+    {
+     "variant": "D",
+     "xato": "3/2 nisbat ishlatilgan (vodorod)"
+    }
+   ],
+   "yechim": "v(N₂) = v(NH₃)/2 = 0,15 mol/(l·min).",
+   "parametrlar": {
+    "arch": "stexiometrik",
+    "vNH3": 0.3
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda teng massadagi marmar bilan ikki tajribaning V(CO₂)–t grafiklari berilgan. Qaysi egri chiziq marmar KUKUNI bilan o'tkazilgan tajribaga mos?",
+   "variantlar": [
+    "2-egri — kukun sekinroq eriydi",
+    "ikkalasi ham bir xil moddaga mos, farqlab bo'lmaydi",
+    "1-egri, chunki u ko'proq gaz bergan",
+    "1-egri — u tikroq ko'tarilib, platoga erta chiqadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kukun sirt katta — TEZROQ eriydi; 2-egri sekin"
+    },
+    {
+     "variant": "B",
+     "xato": "tezliklar farqi grafikda aniq ko'rinadi"
+    },
+    {
+     "variant": "C",
+     "xato": "plato bir xil — gaz miqdori teng, farq faqat tezlikda"
+    }
+   ],
+   "yechim": "Kukun (1) sirt yuzasi katta — tezlik yuqori, egri tik; yakuniy hajm (plato) ikkalasida bir xil.",
+   "parametrlar": {},
+   "fig": "vt_two_a"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.5",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.5",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.5",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "I.5",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Gomogen reaksiyaning 20 °C dagi tezligi 0,2 mol/(l·min), temperatura koeffitsiyenti γ = 2. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. 40 °C da reaksiya tezligi [mol/(l·min)] qancha bo'ladi?",
+    "34. 50 °C da reaksiya tezligi [mol/(l·min)] qancha bo'ladi?",
+    "35. Qanday haroratda (°C) tezlik 6,4 mol/(l·min) ga yetadi?"
+   ],
+   "javoblar_royxati": [
+    "A) 1,6",
+    "B) 70",
+    "C) 0,8",
+    "D) 3,2",
+    "E) 0,4",
+    "F) 60"
+   ],
+   "javoblar": {
+    "33": "C",
+    "34": "A",
+    "35": "B"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "60 °C dagi tezlik (bitta qadam ortiqcha)"
+    },
+    {
+     "variant": "E",
+     "xato": "30 °C dagi qiymat — bitta qadam kam"
+    },
+    {
+     "variant": "F",
+     "xato": "6,4 uchun harorat xato: 2⁴ = 16 deb olib 60 °C chiqarish"
+    }
+   ],
+   "yechim": "40 °C: 0,2·2² = 0,8 (33 → C). 50 °C: 0,2·2³ = 1,6 (34 → A). 6,4/0,2 = 32 = 2⁵ → Δt = 50 → 70 °C (35 → B).",
+   "parametrlar": {
+    "arch": "vant_goff_ssenariy",
+    "v20": 0.2,
+    "g": 2
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Temperatura koeffitsiyenti 2 bo'lgan reaksiyaning harorati 20 °C ga ko'tarildi. Tezlik necha marta ortadi?",
+   "javob": "4",
+   "yechim": "2² = 4 marta.",
+   "parametrlar": {
+    "arch": "vant_goff",
+    "g": 2,
+    "dt": 20
+   },
+   "tur": "O1",
+   "element": "I.5"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2 l idishdagi gomogen reaksiyaning o'rtacha tezligi 0,04 mol/(l·s). 30 sekund davomida necha mol reagent sarflanadi?",
+   "javob": "2,4",
+   "yechim": "Δc = 0,04·30 = 1,2 mol/l; Δn = 1,2·2 = 2,4 mol.",
+   "parametrlar": {
+    "arch": "miqdor_topish",
+    "v": 0.04,
+    "t": 30,
+    "V": 2
+   },
+   "tur": "O1",
+   "element": "I.5"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Harorat 25 °C dan 65 °C gacha ko'tarilganda reaksiya tezligi 81 marta ortdi. Temperatura koeffitsiyentini toping.",
+   "javob": "3",
+   "yechim": "Δt = 40 °C = 4 qadam; γ⁴ = 81 → γ = 3.",
+   "parametrlar": {
+    "arch": "gamma_topish",
+    "dt": 40,
+    "marta": 81
+   },
+   "tur": "O1",
+   "element": "I.5"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CH₄ + 2O₂ → CO₂ + 2H₂O reaksiyasida metanning sarflanish tezligi 0,05 mol/(l·s). Kislorodning sarflanish tezligini toping.",
+   "javob": "0,1",
+   "yechim": "v(O₂) = 2·v(CH₄) = 0,1 mol/(l·s).",
+   "parametrlar": {
+    "arch": "stexiometrik",
+    "vCH4": 0.05
+   },
+   "tur": "O1",
+   "element": "I.5"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Reaksiya 50 °C da 64 sekundda tugaydi (γ = 2). 80 °C da reaksiya necha sekundda tugaydi?",
+   "javob": "8",
+   "yechim": "Δt = 30 °C → tezlik 2³ = 8 marta ortadi → vaqt: 64/8 = 8 s.",
+   "parametrlar": {
+    "arch": "vant_goff_vaqt",
+    "t1": 64,
+    "g": 2,
+    "dt": 30
+   },
+   "tur": "O1",
+   "element": "I.5"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Bir reaksiya ikki haroratda o'rganildi: 20 °C da tezlik 0,04 mol/(l·min), 40 °C da esa 0,36 mol/(l·min) bo'ldi. Bandlar ketma-ket yechiladi — har biri oldingi natijaga tayanadi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiyaning temperatura koeffitsiyentini (γ) toping.",
+     "yechim": [
+      "0,36/0,04 = 9 = γ² (Δt = 20 °C) → γ = 3"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) 60 °C dagi tezlikni hisoblang.",
+     "yechim": [
+      "v(60°) = 0,36·3² = 3,24 mol/(l·min)"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Qanday haroratda tezlik boshlang'ichidan (20 °C) 243 marta katta bo'ladi?",
+     "yechim": [
+      "243 = 3⁵ → Δt = 50 °C → t = 70 °C"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) 20 °C da reaksiya 90 sekundda tugasa, 40 °C da necha sekundda tugaydi?",
+     "yechim": [
+      "Tezlik 9 marta katta → vaqt 9 marta kichik: 90/9 = 10 s"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "e) γ ning fizik ma'nosini va bu hisoblar qaysi farazga asoslanganini yozing.",
+     "yechim": [
+      "γ — harorat 10 °C ga ortganda tezlik necha marta ortishini ko'rsatadi;",
+      "hisoblar γ butun oraliqda o'zgarmas degan farazga asoslangan."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Tajriba-ma'lumotidan γ topish zanjiri: M15+A10. (B-variantdagi tezlik-qonuni zanjiridan farqli format.)",
+   "parametrlar": {
+    "arch": "gamma_zanjir",
+    "v20": 0.04,
+    "v40": 0.36
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "N₂ + 3H₂ → 2NH₃ reaksiyasida vodorodning sarflanish tezligi 0,09 mol/(l·min).",
+   "bandlar": [
+    {
+     "savol": "a) Azotning sarflanish va ammiakning hosil bo'lish tezliklarini aniqlash yo'lini yozing va hisoblang.",
+     "yechim": [
+      "v(N₂) = v(H₂)/3 = 0,03 mol/(l·min)",
+      "v(NH₃) = 2·v(N₂) = 0,06 mol/(l·min)"
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) 20 minut davomida ammiak konsentratsiyasi qanchaga ortadi?",
+     "yechim": [
+      "Δc(NH₃) = 0,06·20 = 1,2 mol/l"
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Nega bitta reaksiyada moddalarning tezliklari har xil? Qisqacha tushuntiring.",
+     "yechim": [
+      "Tezliklar stexiometrik koeffitsiyentlarga proporsional — moddalar turli",
+      "nisbatda sarflanadi/hosil bo'ladi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "42-topshiriq: faqat M, 3 band: M13+M9+M3 = 25. (B-variantdagi Vant-Goff formatidan farqli.)",
+   "parametrlar": {
+    "arch": "stexiometrik_zanjir",
+    "vH2": 0.09,
+    "t": 20
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Zn + 2HCl → ZnCl₂ + H₂ reaksiyasi ustida 5 ta amal bajarildi. Har bir holat uchun reaksiya tezligi qanday o'zgarishini (ortadi / kamayadi / o'zgarmaydi) aniqlang va sababini yozing.\n[JADVAL] № | Holat ;; 1 | Kislota konsentratsiyasi oshirildi ;; 2 | Eritma muzdek suvda sovutildi ;; 3 | Rux bo'lagi kukun holiga keltirildi ;; 4 | Eritmaga suv qo'shildi ;; 5 | Idish ustidagi havo bo'shlig'i kattalashtirildi",
+   "bandlar": [
+    {
+     "savol": "1-holat",
+     "yechim": [
+      "ORTADI — H⁺ konsentratsiyasi ortadi, to'qnashuvlar ko'payadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "2-holat",
+     "yechim": [
+      "KAMAYADI — faol to'qnashuvlar ulushi kamayadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "3-holat",
+     "yechim": [
+      "ORTADI — fazalar chegarasi yuzasi keskin ortadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "4-holat",
+     "yechim": [
+      "KAMAYADI — HCl suyuladi, [H⁺] kamayadi"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "5-holat",
+     "yechim": [
+      "O'ZGARMAYDI — reaksiya eritmada boradi; ustidagi gaz bo'shlig'i unga ta'sir qilmaydi"
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Omillar-jadval formati: M15+A10. (B-variantdagi o'lchov-jadval formatidan farqli.)",
+   "parametrlar": {
+    "arch": "omillar_jadval",
+    "reaksiya": "Zn+2HCl"
+   }
+  }
+ ]
+}
