@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-IV1-B",
+ "daraja": "B",
+ "bob": 16,
+ "bob_nomi": "Laboratoriya amaliyoti",
+ "manba": "Laboratoriya banki arxetiplari (usul tanlash tuzoqlari, ko'p bosqichli ajratish, gaz yig'ish) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi IV.1",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: aralashtirish/suyultirish hisoblari, qizdirish egri chiziqlari, uch komponentli ajratish.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi aralashmalarni FILTRLASH bilan ajratib BO'LMAYDI?\n1) osh tuzi eritmasi;  2) bo'r + suv;  3) spirt + suv;  4) qum + suv.",
+   "variantlar": [
+    "2 va 4",
+    "faqat 1",
+    "hammasi",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aynan ular filtrlanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "spirt-suv ham filtrdan birga o'tadi"
+    },
+    {
+     "variant": "C",
+     "xato": "erimaydigan zarrachali 2 va 4 filtrlanadi"
+    }
+   ],
+   "yechim": "Filtr faqat erimaydigan zarrachalarni ushlaydi; eritma va aralashuvchi suyuqliklar o'tib ketadi.",
+   "parametrlar": {
+    "arch": "filtr_tuzoq_tanlov"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "150 g 10 % li eritma 250 g 26 % li eritma bilan aralashtirildi. Hosil bo'lgan eritmaning konsentratsiyasini toping.",
+   "variantlar": [
+    "18 %",
+    "36 %",
+    "20 %",
+    "16 %"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "(15+65)/400 = 20 %"
+    },
+    {
+     "variant": "B",
+     "xato": "foizlar shunchaki qo'shilmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m(tuz) = 15 + 65 = 80 g; m(eritma) = 400 g → ω = 20 %.",
+   "parametrlar": {
+    "arch": "aralashtirish_hisob"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Yod va qum aralashmasidan yodni qanday ajratib olish MAQBUL?",
+   "variantlar": [
+    "qizdirib sublimatlash — yod bug'i sovuq yuzada kristallanadi",
+    "suvda eritib filtrlash",
+    "magnit bilan",
+    "ajratuvchi voronkada"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yod suvda deyarli erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "hech biri magnitlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "quruq aralashma uchun emas"
+    }
+   ],
+   "yechim": "I₂ sublimatlanadi (qum emas): eng nozik ajratish usullaridan biri.",
+   "parametrlar": {
+    "arch": "yod_sublimat"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "25 g mis kuporosi (CuSO₄·5H₂O) 175 g suvda eritildi. Eritmadagi CuSO₄ ning massa ulushini toping. (M: CuSO₄·5H₂O=250, CuSO₄=160)",
+   "variantlar": [
+    "12,5 %",
+    "8 %",
+    "16 %",
+    "10 %"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kuporos massasi emas, suvsiz tuz olinadi"
+    },
+    {
+     "variant": "C",
+     "xato": "eritma 200 g"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m(CuSO₄) = 16 g; m(eritma) = 25 + 175 = 200 g → ω = 8 %.",
+   "parametrlar": {
+    "arch": "kuporos_eritma"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda ikki suyuqlikning qizdirish egri chiziqlari berilgan: birida aniq plato bor, ikkinchisida harorat uzluksiz ko'tariladi. Qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "platoli — aralashma",
+    "ikkalasi ham toza",
+    "platoli — toza modda; platosiz — aralashma",
+    "grafikdan xulosa chiqarib bo'lmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "toza modda aynan bir haroratda qaynaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "aralashmada qaynash oralig'i «suziladi»"
+    },
+    {
+     "variant": "D",
+     "xato": "qaynash platosi — toza modda belgisi"
+    }
+   ],
+   "yechim": "Toza modda o'zgarmas t da qaynaydi; aralashma tarkibi o'zgargani sari t ham o'zgaradi.",
+   "parametrlar": {
+    "arch": "heat_curve_aralashma"
+   },
+   "fig": "heat_curve"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Spirt (t_qayn = 78 °C) va suv aralashmasini haydashda QABUL kolbasiga avval nima yig'iladi?",
+   "variantlar": [
+    "toza suv",
+    "teng aralashma",
+    "hech narsa",
+    "spirtga boy fraksiya — u pastroq haroratda qaynaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv keyin keladi (100 °C)"
+    },
+    {
+     "variant": "B",
+     "xato": "haydash aynan boyitib ajratadi"
+    },
+    {
+     "variant": "C",
+     "xato": "78 °C dan boshlab bug' keladi"
+    }
+   ],
+   "yechim": "Past t(qayn.)li komponent birinchi haydaladi — fraksiyalab yig'iladi.",
+   "parametrlar": {
+    "arch": "haydash_fraksiya"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi gazlarni SUV USTIDA yig'ish mumkin?\n1) H₂;  2) NH₃;  3) O₂;  4) HCl.",
+   "variantlar": [
+    "1 va 3",
+    "2 va 4",
+    "hammasi",
+    "faqat 1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ular suvda juda yaxshi eriydi — yig'ib bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "NH₃ va HCl suvga «singib» ketadi"
+    },
+    {
+     "variant": "D",
+     "xato": "O₂ ham suvda deyarli erimaydi"
+    }
+   ],
+   "yechim": "Suv ustida faqat suvda erimaydigan gazlar yig'iladi.",
+   "parametrlar": {
+    "arch": "gaz_yigish_tanlov"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Gazlarni QURITISH uchun ular qaysi modda orqali o'tkaziladi?",
+   "variantlar": [
+    "suv orqali",
+    "spirt orqali",
+    "konsentrlangan H₂SO₄ yoki suvsiz CaCl₂ orqali",
+    "kir soda eritmasi orqali"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv aksincha namlaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "spirt bug'i qo'shiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "eritma ham nam beradi"
+    }
+   ],
+   "yechim": "Gigroskopik moddalar suv bug'ini yutadi (NH₃ uchun H₂SO₄ ishlatilmaydi — reaksiyaga kirishadi!).",
+   "parametrlar": {
+    "arch": "gaz_quritish"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi aralashmalarni ajratish usullari bilan TO'G'RI moslang:\n[JADVAL] Aralashma | Usul ;; a) benzin + suv | 1) haydash ;; b) spirt + suv | 2) ajratuvchi voronka ;; c) yod + qum | 3) sublimatlash",
+   "variantlar": [
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—2, b—1, c—3",
+    "a—3, b—1, c—2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "benzin-suv qatlamlanadi — voronka"
+    },
+    {
+     "variant": "B",
+     "xato": "spirt sublimatlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "moslashuvlar chalkash"
+    }
+   ],
+   "yechim": "Qatlamlanadiganlar — voronka; aralashuvchilar — haydash; uchuvchan qattiq — sublimatlash.",
+   "parametrlar": {
+    "arch": "ajratish_moslash_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "300 g 8 % li eritmadan 100 g suv bug'latildi. Yangi konsentratsiyani toping.",
+   "variantlar": [
+    "8 %",
+    "12 %",
+    "24 %",
+    "10 %"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritma massasi kamaydi — foiz ortadi"
+    },
+    {
+     "variant": "C",
+     "xato": "uch barobar emas"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "Tuz 24 g o'zgarmadi; eritma 200 g → ω = 12 %.",
+   "parametrlar": {
+    "arch": "buglatish_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qum va osh tuzidan iborat 20 g aralashma suvda eritildi; filtrlab, quritilgan qum massasi 12 g chiqdi. Aralashmadagi tuzning massa ulushini toping.",
+   "variantlar": [
+    "60 %",
+    "12 %",
+    "40 %",
+    "8 %"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu qum ulushi"
+    },
+    {
+     "variant": "B",
+     "xato": "gramm emas, foiz so'ralyapti"
+    },
+    {
+     "variant": "D",
+     "xato": "8 g — massa, ulush 40 %"
+    }
+   ],
+   "yechim": "m(tuz) = 20 − 12 = 8 g → ω = 8/20 = 40 %.",
+   "parametrlar": {
+    "arch": "aralashma_tarkib_hisob"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "O'lchov silindri (menzurka) va tomizg'ich (pipetka)dan qaysi biri hajmni ANIQROQ o'lchaydi?",
+   "variantlar": [
+    "menzurka",
+    "pipetka (va byuretka) — aniq hajm uchun mo'ljallangan",
+    "ikkalasi bir xil",
+    "stakan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u taxminiy o'lchov uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "aniqlik sinflari farq qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "stakan belgilari eng taxminiy"
+    }
+   ],
+   "yechim": "Aniqlik: byuretka/pipetka > o'lchov kolbasi > menzurka > stakan.",
+   "parametrlar": {
+    "arch": "aniqlik_tartibi"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Nima uchun laboratoriya shkafidagi reaktiv idishlarining yorlig'i (etiketkasi) doim toza va o'qiladigan bo'lishi kerak?",
+   "variantlar": [
+    "moddani adashtirish o'ta xavfli oqibatlarga olib keladi",
+    "chiroyli ko'rinish uchun",
+    "tekshiruvchilar uchun",
+    "shart emas"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "gap estetikada emas — xavfsizlikda"
+    },
+    {
+     "variant": "C",
+     "xato": "asosiy sabab — adashmaslik"
+    },
+    {
+     "variant": "D",
+     "xato": "yorliqsiz reaktiv ishlatilmaydi — utilizatsiya qilinadi"
+    }
+   ],
+   "yechim": "Qoida: yorliqsiz yoki o'qib bo'lmaydigan idishdagi modda ISHLATILMAYDI.",
+   "parametrlar": {
+    "arch": "yorliq_qoida"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Gaz | Havoga nisbatan | Yig'ish usuli ;; H₂ | yengil | ? ;; CO₂ | og'ir | ?",
+   "variantlar": [
+    "og'zi yuqoriga; og'zi pastga",
+    "ikkalasi pastga",
+    "og'zi pastga; og'zi yuqoriga",
+    "ikkalasi yuqoriga"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "og'ir gaz to'kilib ketadi"
+    },
+    {
+     "variant": "D",
+     "xato": "yengil gaz uchib chiqadi"
+    }
+   ],
+   "yechim": "Yengil gaz teskari idishda, og'ir gaz tik idishda yig'iladi.",
+   "parametrlar": {
+    "arch": "gaz_yigish_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "400 g 15 % li eritmaga necha gramm tuz qo'shilsa, konsentratsiya 32 % ga yetadi?",
+   "variantlar": [
+    "100 g",
+    "68 g",
+    "128 g",
+    "60 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "(60+x)/(400+x) = 0,32 dan x = 100"
+    },
+    {
+     "variant": "C",
+     "xato": "tenglama noto'g'ri yechilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "bu boshlang'ich tuz massasi"
+    }
+   ],
+   "yechim": "60 + x = 0,32(400 + x) → 0,68x = 68 → x = 100 g.",
+   "parametrlar": {
+    "arch": "tuz_qoshish_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qattiq ishqor (NaOH) donachalarini tortishda qaysi qoidaga amal qilinadi?",
+   "variantlar": [
+    "to'g'ridan-to'g'ri tarozi pallasiga emas, soat oynasi/stakanchada tortiladi",
+    "qog'ozga solib tortiladi",
+    "qo'lda ushlab tortiladi",
+    "farqi yo'q"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "gigroskopik ishqor qog'ozni ho'llab teshadi"
+    },
+    {
+     "variant": "C",
+     "xato": "kuydiradi!"
+    },
+    {
+     "variant": "D",
+     "xato": "pallani yemiradi va namlanadi"
+    }
+   ],
+   "yechim": "NaOH nam tortadi va yemiradi — faqat shisha idishchada, tez tortiladi.",
+   "parametrlar": {
+    "arch": "ishqor_tortish"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Zichligi 1,1 g/mL bo'lgan 20 % li eritmaning 200 mL hajmida necha gramm tuz bor?",
+   "variantlar": [
+    "44 g",
+    "40 g",
+    "22 g",
+    "220 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "avval massa: 200·1,1 = 220 g"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "bu eritma massasi"
+    }
+   ],
+   "yechim": "m(eritma) = 220 g → m(tuz) = 220·0,2 = 44 g.",
+   "parametrlar": {
+    "arch": "zichlik_foiz_hisob"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Nima uchun qizdirilayotgan probirka OLDIN butunlay, keyin bir joyda qizdiriladi?",
+   "variantlar": [
+    "tezroq qaynashi uchun",
+    "rang chiroyli chiqishi uchun",
+    "shart emas",
+    "notekis qizishda shisha yorilib ketishi mumkin"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gap tezlikda emas, xavfsizlikda"
+    },
+    {
+     "variant": "B",
+     "xato": "estetikaga aloqasi yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "sovuq shishaga to'satdan olov — yorilish"
+    }
+   ],
+   "yechim": "Bir tekis dastlabki qizdirish termik zarbani oldini oladi.",
+   "parametrlar": {
+    "arch": "tekis_qizdirish"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi ajratuvchi voronkada benzin-suv aralashmasi turibdi. Suvni ajratib olish uchun nima qilinadi?",
+   "variantlar": [
+    "ustki qatlam avval quyib olinadi",
+    "voronka chayqatiladi va birga quyiladi",
+    "suv bug'latiladi",
+    "jo'mrak ochilib, PASTKI (suv) qatlam alohida idishga chiqariladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ustidan quyishda aralashib ketadi"
+    },
+    {
+     "variant": "B",
+     "xato": "qatlamlar yana aralashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "voronkaning vazifasi — jo'mrakli ajratish"
+    }
+   ],
+   "yechim": "Zichligi katta suv pastda: jo'mrakdan chegaragacha oqiziladi, benzin voronkada qoladi.",
+   "parametrlar": {
+    "arch": "voronka_oqish"
+   },
+   "fig": "separator"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Kimyoviy idishlarni yuvishda ular TOZA deb qachon hisoblanadi?",
+   "variantlar": [
+    "ko'zga toza ko'rinsa",
+    "suv devorlardan tomchilanmasdan, tekis parda bo'lib oqsa",
+    "bir marta chayilsa",
+    "quruq artilsa"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yog' pardasi ko'rinmasligi mumkin"
+    },
+    {
+     "variant": "C",
+     "xato": "qoldiq reaktiv qolishi mumkin"
+    },
+    {
+     "variant": "D",
+     "xato": "latta tola qoldiradi"
+    }
+   ],
+   "yechim": "Tomchilar qolsa — yuzada yog'li ifloslik bor: yana yuviladi.",
+   "parametrlar": {
+    "arch": "idish_yuvish"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5 % li va 25 % li eritmalardan qanday massalarda olib aralashtirilsa, 300 g 15 % li eritma hosil bo'ladi?",
+   "variantlar": [
+    "150 g dan har biridan",
+    "100 g va 200 g",
+    "200 g va 100 g",
+    "250 g va 50 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u holda ω = 18,3 % bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "u holda ω = 11,7 % bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "ω ≈ 8,3 % bo'lardi"
+    }
+   ],
+   "yechim": "15 % — o'rtada (5 va 25 ning o'rtachasi) → teng massalar: 150 va 150 g.",
+   "parametrlar": {
+    "arch": "ikki_eritma_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Nima uchun konsentrlangan kislotalar shkafda PASTKI tokchada saqlanadi?",
+   "variantlar": [
+    "og'ir bo'lgani uchun ko'tarish qiyin",
+    "yiqilib sinsa, yuqoridan boshqa moddalar ustiga to'kilmasligi uchun",
+    "pastda sovuqroq",
+    "tasodifiy tartib"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy sabab — xavfsizlik"
+    },
+    {
+     "variant": "C",
+     "xato": "harorat hal qiluvchi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "saqlash qoidalari qat'iy"
+    }
+   ],
+   "yechim": "Xavfli suyuqliklar past va barqaror joyda — «yiqilish balandligi» minimal.",
+   "parametrlar": {
+    "arch": "kislota_saqlash_qoida"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Temir qirindilari, qum va osh tuzidan iborat 20 g aralashmadan magnit bilan 5 g temir ajratildi; qolgani suvda eritilib filtrlanganda eritmadan 8 g tuz olindi. Qum massasini toping.",
+   "variantlar": [
+    "12 g",
+    "15 g",
+    "7 g",
+    "13 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "temir ham ayiriladi"
+    },
+    {
+     "variant": "B",
+     "xato": "tuz ham ayiriladi"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m(qum) = 20 − 5 − 8 = 7 g.",
+   "parametrlar": {
+    "arch": "uch_komponent_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "XROMATOGRAFIYA usuli nimaga asoslangan?",
+   "variantlar": [
+    "qaynash haroratlari farqiga",
+    "zichlik farqiga",
+    "moddalarning shimuvchi yuza bo'ylab har xil tezlikda harakatlanishiga",
+    "magnit xossalarga"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu haydash"
+    },
+    {
+     "variant": "B",
+     "xato": "bu voronka/tindirish"
+    },
+    {
+     "variant": "D",
+     "xato": "bu magnitli ajratish"
+    }
+   ],
+   "yechim": "Siyoh dog'i filtr qog'ozda ranglarga «tarqaladi» — flomaster tajribasi.",
+   "parametrlar": {
+    "arch": "xromatografiya"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Eritmani filtrlashda suyuqlik sathi filtr qog'oz chetidan QUYI bo'lishi shart. Aks holda nima bo'ladi?",
+   "variantlar": [
+    "filtr tezroq ishlaydi",
+    "hech nima o'zgarmaydi",
+    "qog'oz mustahkamlanadi",
+    "aralashma qog'oz chetidan filtrlanmasdan oqib o'tadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — ajratish buziladi"
+    },
+    {
+     "variant": "B",
+     "xato": "cho'kma filtratga o'tib ketadi"
+    },
+    {
+     "variant": "C",
+     "xato": "qog'oz namlanib yirtilishi ham mumkin"
+    }
+   ],
+   "yechim": "Suyuqlik faqat qog'oz ORQALI o'tishi kerak — chetlab o'tsa filtrat loyqa chiqadi.",
+   "parametrlar": {
+    "arch": "filtr_qoida"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol grafigidagi toza suyuqlikning qaynash platosi 78 °C da joylashgan. Bu qaysi modda bo'lishi mumkin?",
+   "variantlar": [
+    "suv",
+    "etil spirti",
+    "simob",
+    "kislota eritmasi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv 100 °C da qaynaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "357 °C"
+    },
+    {
+     "variant": "D",
+     "xato": "eritma «suzuvchi» oraliqda qaynaydi"
+    }
+   ],
+   "yechim": "78 °C — etanolning qaynash harorati; plato aynan shu sathda.",
+   "parametrlar": {
+    "arch": "heat_curve_hisob"
+   },
+   "fig": "heat_curve"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "100 g 20 % li eritmani 4 % li qilish uchun necha gramm suv qo'shish kerak?",
+   "variantlar": [
+    "100 g",
+    "500 g",
+    "80 g",
+    "400 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "20/(100+x) = 0,04 → x = 400"
+    },
+    {
+     "variant": "B",
+     "xato": "bu yakuniy eritma massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "20 = 0,04(100+x) → 100+x = 500 → x = 400 g.",
+   "parametrlar": {
+    "arch": "suyultirish_teskari"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "19-savol rasmidagi voronkada qaysi qatlam USTIDA joylashgan?",
+   "variantlar": [
+    "suv",
+    "qatlamlar bo'lmaydi",
+    "aralash qatlam",
+    "benzin — zichligi suvdan kichik"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv og'irroq — pastda"
+    },
+    {
+     "variant": "B",
+     "xato": "aralashmaydigan suyuqliklar qatlamlanadi"
+    },
+    {
+     "variant": "C",
+     "xato": "chegara aniq ko'rinadi"
+    }
+   ],
+   "yechim": "ρ(benzin) ≈ 0,7 g/mL < 1 → ustki qatlam.",
+   "parametrlar": {
+    "arch": "voronka_qatlam"
+   },
+   "fig": "separator"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "500 g 4 % li eritmadan 300 g suv bug'latildi. Yangi konsentratsiyani toping.",
+   "variantlar": [
+    "4 %",
+    "10 %",
+    "6,7 %",
+    "20 %"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritma massasi kamaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ortiq"
+    }
+   ],
+   "yechim": "Tuz 20 g; eritma 200 g → ω = 10 %.",
+   "parametrlar": {
+    "arch": "buglatish_katta_hisob"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Termometrni haydash kolbasiga o'rnatishda uning rezervuari qayerda bo'lishi kerak?",
+   "variantlar": [
+    "bug' chiqish nayi ro'parasida (suyuqlik ichida emas)",
+    "suyuqlik tubida",
+    "kolba og'zida ochiq havoda",
+    "sovutgich ichida"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suyuqlik harorati emas, BUG' harorati o'lchanadi"
+    },
+    {
+     "variant": "C",
+     "xato": "bug'dan tashqarida noto'g'ri ko'rsatadi"
+    },
+    {
+     "variant": "D",
+     "xato": "u yerda bug' allaqachon soviydi"
+    }
+   ],
+   "yechim": "Haydashda aynan bug'ning harorati fraksiya tozaligini ko'rsatadi.",
+   "parametrlar": {
+    "arch": "termometr_orni"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "100 g 30 % li eritma 200 g 6 % li eritma bilan aralashtirildi. Yakuniy konsentratsiyani toping.",
+   "variantlar": [
+    "18 %",
+    "14 %",
+    "36 %",
+    "12 %"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "(30+12)/300 = 14 %"
+    },
+    {
+     "variant": "C",
+     "xato": "foizlar qo'shilmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m(tuz) = 30 + 12 = 42 g; m = 300 g → ω = 14 %.",
+   "parametrlar": {
+    "arch": "aralashtirish_hisob2"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol grafigidan: aralashma egri chizig'i uchun qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "aralashma umuman qaynamaydi",
+    "aralashma pastroq haroratda muzlaydi",
+    "aralashma toza moddadan tez qaynaydi",
+    "qaynash bir haroratda emas, harorat oralig'ida boradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qaynaydi, lekin «suzuvchi» haroratda"
+    },
+    {
+     "variant": "B",
+     "xato": "grafik qizdirish haqida"
+    },
+    {
+     "variant": "C",
+     "xato": "tezlik emas, plato yo'qligi muhim"
+    }
+   ],
+   "yechim": "Tarkib o'zgargani sari qaynash harorati ham o'zgaradi — plato hosil bo'lmaydi.",
+   "parametrlar": {
+    "arch": "heat_curve_xulosa"
+   },
+   "fig": "heat_curve"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "IV.1",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "IV.1",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "IV.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "IV.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uchta ajratish vazifasi berilgan: X — yod va osh tuzi aralashmasi; Y — spirt va suv aralashmasi; Z — o'simlik yog'i va suv aralashmasi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X uchun eng mos usul qaysi?",
+    "34. Y uchun qaysi usul va nima sababdan?",
+    "35. Z da suv qatlami voronkaning qayeridan olinadi?"
+   ],
+   "javoblar_royxati": [
+    "A) sublimatlash",
+    "B) haydash — t(qayn.) farqi",
+    "C) pastdan (jo'mrakdan)",
+    "D) filtrlash",
+    "E) bug'latish — eruvchanlik farqi",
+    "F) ustidan quyib"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "ikkala qattiq modda filtrda birga qoladi"
+    },
+    {
+     "variant": "E",
+     "xato": "spirt ham suv bilan birga bug'lanadi — haydash kerak"
+    },
+    {
+     "variant": "F",
+     "xato": "ustidan quyishda qatlamlar aralashadi"
+    }
+   ],
+   "yechim": "X: yod sublimatlanadi (A). Y: aralashuvchi suyuqliklar — haydash (B). Z: og'ir suv pastda — jo'mrakdan (C).",
+   "parametrlar": {
+    "arch": "texnika_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Temir, qum va tuzdan iborat 30 g aralashmadan magnit bilan 6 g temir ajratildi; suvda eritib filtrlangach, 9 g quruq qum qoldi. Aralashmadagi tuzning massa ulushini (%) toping.",
+   "javob": "50",
+   "yechim": "m(tuz) = 30 − 6 − 9 = 15 g → ω = 15/30 = 50 %.",
+   "parametrlar": {
+    "arch": "uch_komponent_zanjir"
+   },
+   "tur": "O1",
+   "element": "IV.1"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Necha gramm 40 % li eritma 160 g suvga qo'shilsa, 8 % li eritma hosil bo'ladi?",
+   "javob": "40",
+   "yechim": "0,4x = 0,08(x + 160) → 0,32x = 12,8 → x = 40 g.",
+   "parametrlar": {
+    "arch": "aralashtirish_teskari_zanjir"
+   },
+   "tur": "O1",
+   "element": "IV.1"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi ketma-ketlik bo'yicha 30 g aralashma (temir + qum + tuz) ajratildi: magnit 6 g temirni oldi, filtrda 9 g qum qoldi. Bug'latishdan olinadigan tuz massasini (g) toping.",
+   "javob": "15",
+   "yechim": "m(tuz) = 30 − 6 − 9 = 15 g.",
+   "parametrlar": {
+    "arch": "sxema_ajratish_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "IV.1"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "50 g mis kuporosi (CuSO₄·5H₂O) 270 g suvda eritildi. Eritmadagi suvsiz tuzning massa ulushini (%) toping. (M: kuporos=250, CuSO₄=160)",
+   "javob": "10",
+   "yechim": "m(CuSO₄) = 32 g; m(eritma) = 320 g → ω = 10 %.",
+   "parametrlar": {
+    "arch": "kuporos_zanjir"
+   },
+   "tur": "O1",
+   "element": "IV.1"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "500 g 4 % li eritmadan 300 g suv bug'latildi. Yakuniy eritma konsentratsiyasini (%) toping.",
+   "javob": "10",
+   "yechim": "Tuz 20 g; eritma 200 g → 10 %.",
+   "parametrlar": {
+    "arch": "buglatish_zanjir"
+   },
+   "tur": "O1",
+   "element": "IV.1"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Laborantga 250 g 10 % li eritmadan 20 % li eritma tayyorlash topshirildi (suvni bug'latish orqali). Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Boshlang'ich eritmadagi tuz massasini toping.",
+     "yechim": [
+      "m(tuz) = 250·0,1 = 25 g."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Bug'latishda tuz massasi o'zgaradimi? Asoslang.",
+     "yechim": [
+      "Yo'q — faqat suv uchadi, tuz eritmada qoladi."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 20 % li bo'lishi uchun yakuniy eritma massasi qancha bo'lishi kerak?",
+     "yechim": [
+      "m = 25/0,2 = 125 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Necha gramm suv bug'latish kerakligini toping.",
+     "yechim": [
+      "Δm = 250 − 125 = 125 g."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Konsentrlash-zanjir: tuz → tamoyil → yakuniy massa → suv; M15+A10.",
+   "parametrlar": {
+    "arch": "konsentrlash_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Ajratish usullarining chegaralari tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega tuz eritmasini filtrlash bilan ajratib bo'lmaydi, lekin bo'r-suv aralashmasini bo'ladi? Zarrachalar darajasida tushuntiring.",
+     "yechim": [
+      "Erigan tuz ion/molekulalargacha maydalangan — ular filtr g'ovaklaridan bemalol o'tadi.",
+      "Bo'r zarrachalari millionlab marta yirik — qog'oz ularni ushlab qoladi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega haydash «eng universal» tozalash usullaridan hisoblanadi?",
+     "yechim": [
+      "Har bir moddaning o'z qaynash harorati bor — deyarli istalgan suyuq aralashmani fraksiyalarga bo'lish mumkin."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Sublimatlanadigan bitta moddaga misol yozing.",
+     "yechim": [
+      "Yod (yoki naftalin, «quruq muz» — CO₂)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Usul-chegaralari (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "usul_chegara_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "IV.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Ikki eritma jadvalda berilgan:\n[JADVAL] Eritma | Massa, g | ω, % ;; 1-eritma | 100 | 30 ;; 2-eritma | 200 | 15\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir eritmadagi tuz massasini toping.",
+     "yechim": [
+      "1-eritma: 30 g; 2-eritma: 30 g."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Ikkala eritma aralashtirilsa, yangi konsentratsiya qancha bo'ladi?",
+     "yechim": [
+      "m(tuz) = 60 g; m = 300 g → ω = 20 %."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Bu eritmadan 5 % li eritma olish uchun unga necha gramm suv qo'shish kerak?",
+     "yechim": [
+      "60 = 0,05(300 + x) → x = 900 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Aralashtirish va suyultirishda qaysi kattalik O'ZGARMAY qoladi?",
+     "yechim": [
+      "Erigan tuzning umumiy massasi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Eritmalar-jadvali: tuzlar → aralashtirish → suyultirish → tamoyil; M15+A10.",
+   "parametrlar": {
+    "arch": "eritmalar_jadval_o2"
+   }
+  }
+ ]
+}
