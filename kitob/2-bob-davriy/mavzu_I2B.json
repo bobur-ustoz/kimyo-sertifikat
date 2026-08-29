@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-I2-B",
+ "daraja": "B",
+ "bob": 2,
+ "bob_nomi": "Davriy qonun va davriy sistema",
+ "manba": "Tongotarov/Spectrum variantlari arxetiplari (xossa qatorlari, %-dan element, fragment) — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi I.2",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: teskari (%-dan element) masalalar, xossa qatorlari, jadval fragmenti, ko'p bosqichli 36–40.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi qatorda atom radiusi ORTIB borishi to'g'ri ko'rsatilgan?",
+   "variantlar": [
+    "Te → Se → S → O",
+    "Na → Mg → Al → Si",
+    "O → S → Se → Te",
+    "I → Br → Cl → F"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu kamayish tartibi"
+    },
+    {
+     "variant": "B",
+     "xato": "davrda radius kamayadi"
+    },
+    {
+     "variant": "D",
+     "xato": "guruhda yuqoriga kamayadi"
+    }
+   ],
+   "yechim": "Guruhda pastga qavatlar soni ortadi → radius kattalashadi.",
+   "parametrlar": {
+    "arch": "radius_qator"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Quyidagi elementlardan qaysi birida METALLIK xossalari eng kuchli namoyon bo'ladi?",
+   "variantlar": [
+    "Li",
+    "Al",
+    "Cs",
+    "Mg"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "guruhning tepasida — kuchsizroq"
+    },
+    {
+     "variant": "B",
+     "xato": "III A — metallik ancha past"
+    },
+    {
+     "variant": "D",
+     "xato": "II A, 3-davr — Cs dan kuchsiz"
+    }
+   ],
+   "yechim": "Metallik chapga va pastga kuchayadi: I A guruhning eng pastki barqaror vakili — Cs.",
+   "parametrlar": {
+    "arch": "metallik_eng"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Davriy qonunning ZAMONAVIY ta'rifida elementlar xossalari nimaga davriy bog'liq deb qaraladi?",
+   "variantlar": [
+    "atom massasiga",
+    "yadro zaryadiga (tartib raqamiga)",
+    "neytronlar soniga",
+    "elektronlar umumiy soniga emas, faqat massaga"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Mendeleev davridagi ta'rif; Ar–K juftida buziladi"
+    },
+    {
+     "variant": "C",
+     "xato": "izotoplar xossani o'zgartirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "aynan Z (va u orqali e tuzilishi) asos"
+    }
+   ],
+   "yechim": "Zamonaviy ta'rif: xossalar Z ortib borishiga davriy ravishda bog'liq.",
+   "parametrlar": {
+    "arch": "qonun_tarif"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3-davrda chapdan o'ngga (Na → Cl) qaysi kattaliklar ORTIB boradi?\n1) elektromanfiylik;  2) atom radiusi;  3) oksidlovchilik;  4) metallik xossasi.",
+   "variantlar": [
+    "2 va 4",
+    "1, 2 va 3",
+    "faqat 1",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bular davrda KAMAYADI"
+    },
+    {
+     "variant": "B",
+     "xato": "radius davrda kichrayadi"
+    },
+    {
+     "variant": "C",
+     "xato": "oksidlovchilik ham kuchayadi (Cl — kuchli oksidlovchi)"
+    }
+   ],
+   "yechim": "Davrda: EM ↑, oksidlovchilik ↑; radius ↓, metallik ↓.",
+   "parametrlar": {
+    "arch": "davr_tanlov"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda 3-davr elementlari atom radiuslarining o'zgarishi berilgan. Grafikdan foydalanib, radiusi 118 pm bo'lgan elementni aniqlang.",
+   "variantlar": [
+    "Al",
+    "P",
+    "S",
+    "Si"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "grafikda 143 pm"
+    },
+    {
+     "variant": "B",
+     "xato": "grafikda 110 pm"
+    },
+    {
+     "variant": "C",
+     "xato": "grafikda 104 pm"
+    }
+   ],
+   "yechim": "Grafikdan: 118 pm nuqtasi kremniyga to'g'ri keladi.",
+   "parametrlar": {
+    "arch": "radius_grafik_oqish"
+   },
+   "fig": "radius_line"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "VI A guruh elementining OLIY oksidi qaysi umumiy formulaga ega?",
+   "variantlar": [
+    "RO₃",
+    "RO₂",
+    "R₂O₅",
+    "R₂O₇"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "IV A uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "V A uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "VII A uchun"
+    }
+   ],
+   "yechim": "Oliy oksidda valentlik = guruh raqami: VI → RO₃ (masalan, SO₃).",
+   "parametrlar": {
+    "arch": "oliy_oksid"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Elementning uchuvchan vodorodli birikmasi RH₃ ko'rinishga ega. Uning OLIY oksidi formulasini toping.",
+   "variantlar": [
+    "R₂O₅",
+    "RO₃",
+    "R₂O₃",
+    "RO₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "RH₂ bo'lganda"
+    },
+    {
+     "variant": "C",
+     "xato": "oliy valentlik 8−3=5 emas, 3 deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "RH₄ bo'lganda"
+    }
+   ],
+   "yechim": "RH₃ → guruh = 8 − 3 = 5 → V A → oliy oksid R₂O₅ (N₂O₅, P₂O₅).",
+   "parametrlar": {
+    "arch": "rh_oksid"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Asosiy guruhcha elementlarida guruh raqami nimani ko'rsatadi?",
+   "variantlar": [
+    "qavatlar sonini",
+    "tashqi qavatdagi (valent) elektronlar sonini",
+    "neytronlar sonini",
+    "izotoplar sonini"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "buni davr raqami ko'rsatadi"
+    },
+    {
+     "variant": "C",
+     "xato": "jadval n bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "bog'liq emas"
+    }
+   ],
+   "yechim": "Masalan, VI A → tashqi qavatda 6 e (ns²np⁴).",
+   "parametrlar": {
+    "arch": "guruh_raqam"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "VIII A guruh (inert gazlar) elementlarining kimyoviy passivligi sababi nimada?",
+   "variantlar": [
+    "atomlari juda kichik",
+    "ular gaz holatda",
+    "tashqi qavati tugallangan (8 e, He da 2 e)",
+    "elektronlari yo'q"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'lcham emas, qavat to'laligi sabab"
+    },
+    {
+     "variant": "B",
+     "xato": "agregat holat sabab emas"
+    },
+    {
+     "variant": "D",
+     "xato": "elektronlari bor, lekin barqaror joylashgan"
+    }
+   ],
+   "yechim": "To'la qavat — energetik barqaror: e olish ham, berish ham foydasiz.",
+   "parametrlar": {
+    "arch": "inert_sabab"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi oksid AMFOTER xossaga ega (ham kislota, ham ishqor bilan reaksiyaga kirishadi)?",
+   "variantlar": [
+    "Na₂O",
+    "Al₂O₃",
+    "SO₃",
+    "CaO"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tipik asosli oksid"
+    },
+    {
+     "variant": "C",
+     "xato": "tipik kislotali oksid"
+    },
+    {
+     "variant": "D",
+     "xato": "asosli oksid"
+    }
+   ],
+   "yechim": "Al₂O₃ (shuningdek ZnO, BeO): HCl bilan ham, NaOH bilan ham reaksiyaga kirishadi.",
+   "parametrlar": {
+    "arch": "amfoter"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi qatorda kislotalarning KUCHI ortib borishi to'g'ri ko'rsatilgan?",
+   "variantlar": [
+    "H₂SiO₃ → H₃PO₄ → H₂SO₄ → HClO₄",
+    "HClO₄ → H₂SO₄ → H₃PO₄ → H₂SiO₃",
+    "H₂SO₄ → H₃PO₄ → H₂SiO₃ → HClO₄",
+    "H₃PO₄ → H₂SiO₃ → HClO₄ → H₂SO₄"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu kamayish tartibi"
+    },
+    {
+     "variant": "C",
+     "xato": "tartib buzilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "tartib aralash"
+    }
+   ],
+   "yechim": "Davrda o'ngga markaziy atom EM i ortadi → kislorodli kislotalar kuchayadi; HClO₄ — eng kuchlilaridan.",
+   "parametrlar": {
+    "arch": "kislota_qator"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "4-davr elementining atomida nechta elektron qavat bor?",
+   "variantlar": [
+    "3",
+    "4",
+    "8",
+    "18"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "davr raqami qavatlar soniga teng"
+    },
+    {
+     "variant": "C",
+     "xato": "guruh bilan chalkashuv"
+    },
+    {
+     "variant": "D",
+     "xato": "davrdagi elementlar soni"
+    }
+   ],
+   "yechim": "Davr raqami = qavatlar soni.",
+   "parametrlar": {
+    "arch": "davr_qavat"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi qatorlarda elementlarning METALLIK xossasi KUCHAYIB boradi?\n1) Li → Na → K;  2) Al → Mg → Na;  3) Be → Mg → Ca;  4) Cl → S → P.",
+   "variantlar": [
+    "faqat 1",
+    "1 va 4",
+    "2 va 4",
+    "1, 2 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2 va 3 da ham metallik kuchayadi (chapga va pastga)"
+    },
+    {
+     "variant": "B",
+     "xato": "4-qator — metallmaslar faolligi, metallik emas"
+    },
+    {
+     "variant": "C",
+     "xato": "1 va 3 ham to'g'ri"
+    }
+   ],
+   "yechim": "Guruhda pastga (1, 3) va davrda chapga (2) metallik kuchayadi.",
+   "parametrlar": {
+    "arch": "metallik_tanlov"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda davriy jadval fragmenti berilgan: X elementining ustida N, chap yonida Si, o'ng yonida S turibdi. X ning OLIY oksidi formulasini aniqlang.",
+   "variantlar": [
+    "XO₂",
+    "XO₃",
+    "X₂O₅ (P₂O₅)",
+    "X₂O₃"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu Si ning oksidi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu S ning oliy oksidi"
+    },
+    {
+     "variant": "D",
+     "xato": "V A da oliy valentlik 5"
+    }
+   ],
+   "yechim": "N ostida, Si va S orasida — fosfor (V A, 3-davr) → oliy oksid P₂O₅.",
+   "parametrlar": {
+    "arch": "fragment_oqish"
+   },
+   "fig": "pt_fragment"
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Elementning oliy oksidi R₂O₅ tarkibida 56,3 % kislorod bor. Elementni aniqlang.",
+   "variantlar": [
+    "P",
+    "N",
+    "As",
+    "V"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "N₂O₅ da O — 74 %"
+    },
+    {
+     "variant": "C",
+     "xato": "As₂O₅ da O — 34,8 %"
+    },
+    {
+     "variant": "D",
+     "xato": "V₂O₅ da O — 44 %"
+    }
+   ],
+   "yechim": "80/(2M+80) = 0,563 → 2M + 80 = 142 → M = 31 — fosfor.",
+   "parametrlar": {
+    "arch": "foizdan_element"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Barcha elementlar ichida ELEKTROMANFIYLIGI eng katta element qaysi?",
+   "variantlar": [
+    "O",
+    "F",
+    "Cl",
+    "Cs"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkinchi o'rinda"
+    },
+    {
+     "variant": "C",
+     "xato": "ftordan past"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — eng kichiklaridan"
+    }
+   ],
+   "yechim": "Ftor (EM = 4,0) — jadvalning yuqori-o'ng burchagi.",
+   "parametrlar": {
+    "arch": "eng_em"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni mos ravishda aniqlang:\n[JADVAL] Element | davr | guruh | oliy oksid ;; Se | 4 | VI A | ? ;; Br | 4 | ? | Br₂O₇",
+   "variantlar": [
+    "SeO₃ va VII A",
+    "SeO₂ va VII A",
+    "SeO₃ va VI A",
+    "Se₂O₅ va V A"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "oliy oksidda valentlik guruhga teng: VI → SeO₃"
+    },
+    {
+     "variant": "C",
+     "xato": "Br₂O₇ dan guruh VII ekani ko'rinadi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkala katak ham xato"
+    }
+   ],
+   "yechim": "Se: VI A → SeO₃. Br: oksidi R₂O₇ → VII A.",
+   "parametrlar": {
+    "arch": "pasport_jadval"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi qatorda METALLMASLIK xossasi kuchayib boradi?",
+   "variantlar": [
+    "Cl → S → P → Si",
+    "Si → P → S → Cl",
+    "F → Cl → Br → I",
+    "Na → K → Rb → Cs"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu kamayish"
+    },
+    {
+     "variant": "C",
+     "xato": "guruhda pastga kuchsizlanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "bular metallar — metallik kuchaymoqda"
+    }
+   ],
+   "yechim": "Davrda o'ngga metallmaslik (EM, oksidlovchilik) kuchayadi.",
+   "parametrlar": {
+    "arch": "metallmas_qator"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaOH → Mg(OH)₂ → Al(OH)₃ qatorida gidroksidlarning xarakteri qanday o'zgaradi?",
+   "variantlar": [
+    "kislotalik kuchsizlanadi",
+    "asoslik kuchayadi",
+    "o'zgarish yo'q",
+    "kuchli asosdan amfoterlikka tomon (asoslik kuchsizlanadi)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bular kislota emas — asoslik haqida gap"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha: Al(OH)₃ amfoter"
+    },
+    {
+     "variant": "C",
+     "xato": "davrda xarakter muntazam o'zgaradi"
+    }
+   ],
+   "yechim": "Davrda o'ngga: kuchli ishqor → kuchsiz asos → amfoter gidroksid.",
+   "parametrlar": {
+    "arch": "gidroksid_qator"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Asosiy guruhchada YUQORIDAN PASTGA metallik xossasi qanday o'zgaradi?",
+   "variantlar": [
+    "kuchayadi — tashqi elektron oson beriladi",
+    "kuchsizlanadi",
+    "o'zgarmaydi",
+    "avval kuchayib, keyin kuchsizlanadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "radius ortgani sari e berish osonlashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "radius va tortishish o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton kuchayadi"
+    }
+   ],
+   "yechim": "Radius ↑ → yadro tortishi tashqi e ga kuchsizroq → metallik ↑.",
+   "parametrlar": {
+    "arch": "guruh_metallik"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "VI A guruh elementining vodorodli birikmasida (H₂R) 5,88 % vodorod bor. Elementni aniqlang.",
+   "variantlar": [
+    "O",
+    "Se",
+    "S",
+    "Te"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂O da H — 11,1 %"
+    },
+    {
+     "variant": "B",
+     "xato": "H₂Se da H — 2,47 %"
+    },
+    {
+     "variant": "D",
+     "xato": "H₂Te da H — 1,55 %"
+    }
+   ],
+   "yechim": "2/(2+M) = 0,0588 → M = 32 — oltingugurt (H₂S).",
+   "parametrlar": {
+    "arch": "h_foizdan"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi elementlarning oksidi va gidroksidi AMFOTER xossaga ega?\n1) Be;  2) Na;  3) Al;  4) Zn;  5) Ca.",
+   "variantlar": [
+    "2 va 5",
+    "1, 3 va 4",
+    "1, 2 va 3",
+    "faqat 3"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Na va Ca — tipik asosli birikmalar beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "Na amfoter emas"
+    },
+    {
+     "variant": "D",
+     "xato": "Be(OH)₂ va Zn(OH)₂ ham amfoter"
+    }
+   ],
+   "yechim": "Amfoter «uchlik»: Be, Al, Zn (yana Cr³⁺, Sn, Pb).",
+   "parametrlar": {
+    "arch": "amfoter_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Zarralarni radiusi ORTIB borishi tartibida joylashtiring: Na⁺, Na, Cl, Cl⁻.",
+   "variantlar": [
+    "Na⁺ < Na < Cl < Cl⁻",
+    "Cl⁻ < Cl < Na < Na⁺",
+    "Na⁺ < Cl < Na < Cl⁻",
+    "Na < Na⁺ < Cl⁻ < Cl"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cl atomi Na atomidan kichik (bir davr, o'ngda)"
+    },
+    {
+     "variant": "B",
+     "xato": "teskari tartib"
+    },
+    {
+     "variant": "D",
+     "xato": "kation atomdan kichik, anion katta"
+    }
+   ],
+   "yechim": "Na⁺ (10 e, 2 qavat) eng kichik; Cl (99 pm) < Na (190 pm); Cl⁻ e biriktirgan — eng katta.",
+   "parametrlar": {
+    "arch": "ion_radius"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi javobda faqat B (yonaki) guruhcha elementlari berilgan?",
+   "variantlar": [
+    "Na, K, Li",
+    "Cl, Br, I",
+    "C, Si, Ge",
+    "Fe, Cu, Zn"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "I A — asosiy guruhcha"
+    },
+    {
+     "variant": "B",
+     "xato": "VII A"
+    },
+    {
+     "variant": "C",
+     "xato": "IV A"
+    }
+   ],
+   "yechim": "d-elementlar (Fe, Cu, Zn, Cr...) yonaki guruhchalarda joylashadi.",
+   "parametrlar": {
+    "arch": "b_guruh"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3-davr oliy oksidlari Na₂O → Al₂O₃ → SO₃ qatorida xarakter qanday o'zgaradi?",
+   "variantlar": [
+    "kislotali → amfoter → asosli",
+    "hammasi asosli",
+    "hammasi amfoter",
+    "asosli → amfoter → kislotali"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari tartib"
+    },
+    {
+     "variant": "B",
+     "xato": "SO₃ — tipik kislotali oksid"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat Al₂O₃ amfoter"
+    }
+   ],
+   "yechim": "Davrda o'ngga oksidlar asoslidan kislotaliga o'tadi; o'rtada amfoterlar.",
+   "parametrlar": {
+    "arch": "oksid_qator"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Diagrammada 2-davr elementlarining elektromanfiyliklari berilgan. Qaysi ikki element orasidagi bog' ENG qutbli (ΔEM eng katta) bo'ladi?",
+   "variantlar": [
+    "C va N",
+    "B va C",
+    "Li va F",
+    "N va O"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ΔEM ≈ 0,5 — kichik"
+    },
+    {
+     "variant": "B",
+     "xato": "ΔEM ≈ 0,5"
+    },
+    {
+     "variant": "D",
+     "xato": "ΔEM ≈ 0,5"
+    }
+   ],
+   "yechim": "Diagrammadan: Li (1,0) va F (4,0) — ΔEM = 3,0, eng katta (LiF — ion birikma).",
+   "parametrlar": {
+    "arch": "em_bars_oqish"
+   },
+   "fig": "em_bars"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Elementning oliy oksidi R₂O₇ tarkibida element 38,8 % ni tashkil etadi. Elementni aniqlang.",
+   "variantlar": [
+    "Mn",
+    "Br",
+    "I",
+    "Cl"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Mn₂O₇ da Mn — 49,5 %"
+    },
+    {
+     "variant": "B",
+     "xato": "Br₂O₇ da Br — 58,8 %"
+    },
+    {
+     "variant": "C",
+     "xato": "I₂O₇ da I — 69 %"
+    }
+   ],
+   "yechim": "2M/(2M+112) = 0,388 → 2M = 71 → M = 35,5 — xlor.",
+   "parametrlar": {
+    "arch": "r2o7_teskari"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "14-savoldagi jadval fragmentidan foydalaning: ko'rsatilgan elementlar ichida atom radiusi ENG KATTA bo'lgani qaysi?",
+   "variantlar": [
+    "N (yuqori qator)",
+    "S",
+    "As (pastki qator)",
+    "X (P)"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "guruhda yuqorida — eng kichik"
+    },
+    {
+     "variant": "B",
+     "xato": "o'ng tomonda — kichikroq"
+    },
+    {
+     "variant": "D",
+     "xato": "As dan yuqorida"
+    }
+   ],
+   "yechim": "Radius pastga va chapga ortadi: fragmentda eng pastdagi As eng katta.",
+   "parametrlar": {
+    "arch": "fragment_radius"
+   },
+   "fig": "pt_fragment"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3-davr elementining oliy oksidi RO₂ ko'rinishga ega. Uning gidroksidi haqida to'g'ri xulosa qaysi?",
+   "variantlar": [
+    "NaOH — kuchli ishqor",
+    "H₂SiO₃ — kuchsiz, suvda erimaydigan kislota",
+    "H₂SO₄ — kuchli kislota",
+    "Al(OH)₃ — amfoter"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "RO₂ → IV A → Si, natriy emas"
+    },
+    {
+     "variant": "C",
+     "xato": "S ning oliy oksidi SO₃ bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "Al ning oksidi Al₂O₃"
+    }
+   ],
+   "yechim": "RO₂, 3-davr → Si → gidroksidi H₂SiO₃ (kremniy kislota) — kuchsiz.",
+   "parametrlar": {
+    "arch": "ro2_element"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Hozirgi davriy sistemada nechta davr bor?",
+   "variantlar": [
+    "7",
+    "8",
+    "10",
+    "18"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "8-davr hali to'ldirilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "guruhlar ham 8 A + 8 B"
+    },
+    {
+     "variant": "D",
+     "xato": "bu ustunlar soni (IUPAC)"
+    }
+   ],
+   "yechim": "7 davr: 1–3 kichik, 4–7 katta davrlar.",
+   "parametrlar": {
+    "arch": "davr_soni"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Elementning gidroksidi H₃RO₄, vodorodli birikmasida esa 8,82 % vodorod bor. Elementni aniqlang.",
+   "variantlar": [
+    "P",
+    "N",
+    "As",
+    "Sb"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "NH₃ da H — 17,6 %"
+    },
+    {
+     "variant": "C",
+     "xato": "AsH₃ da H — 3,85 %"
+    },
+    {
+     "variant": "D",
+     "xato": "SbH₃ da H — 2,4 %"
+    }
+   ],
+   "yechim": "H₃RO₄ → V A → RH₃: 3/(3+M) = 0,0882 → M = 31 — fosfor.",
+   "parametrlar": {
+    "arch": "h3ro4_teskari"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savoldagi grafikdan foydalaning: Na va Cl atom radiuslarining nisbatini taxminan toping.",
+   "variantlar": [
+    "≈1,2",
+    "≈3",
+    "≈0,5",
+    "≈1,9"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qiymatlar 190 va 99 pm"
+    },
+    {
+     "variant": "B",
+     "xato": "juda katta olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "teskari nisbat"
+    }
+   ],
+   "yechim": "r(Na)/r(Cl) = 190/99 ≈ 1,9.",
+   "parametrlar": {
+    "arch": "radius_nisbat"
+   },
+   "fig": "radius_line"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.2",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "I.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "X elementi 3-davrda joylashgan; uning uchuvchan vodorodli birikmasi XH₃, oliy oksidida esa massa jihatdan 43,7 % element bor. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X elementini aniqlang.",
+    "34. X ning oliy oksidi molyar massasini (g/mol) toping.",
+    "35. X ning gidroksidi (oliy) qaysi modda?"
+   ],
+   "javoblar_royxati": [
+    "A) P",
+    "B) 142",
+    "C) H₃PO₄",
+    "D) N",
+    "E) 110",
+    "F) HPO₃ emas — H₃PO₃"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "azot 2-davrda; shart 3-davr deydi"
+    },
+    {
+     "variant": "E",
+     "xato": "P₂O₃ massasi — oliy oksid P₂O₅ (142)"
+    },
+    {
+     "variant": "F",
+     "xato": "oliy gidroksid — H₃PO₄ (ortofosfat kislota)"
+    }
+   ],
+   "yechim": "XH₃ → V A; 3-davr → P (tekshiruv: P₂O₅ da 62/142 = 43,7 % ✓) (A). M(P₂O₅) = 142 (B). Oliy gidroksidi — H₃PO₄ (C).",
+   "parametrlar": {
+    "arch": "detektiv_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "X elementining oliy oksidi RO₃ tarkibida 40 % element bor. X ning VODORODLI birikmasi molyar massasini (g/mol) toping.",
+   "javob": "34",
+   "yechim": "M/(M+48) = 0,4 → M = 32 → S. Vodorodli birikma H₂S: M = 34 g/mol.",
+   "parametrlar": {
+    "arch": "oksiddan_vodorodli"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Elementning konfiguratsiyasi ...3s²3p³ bilan tugaydi. Uning oliy oksididan 14,2 g olinganda undagi JAMI atomlar mol sonini toping.",
+   "javob": "0,7",
+   "yechim": "P (V A) → P₂O₅ (M=142): n = 0,1 mol → atomlar 0,1·(2+5) = 0,7 mol.",
+   "parametrlar": {
+    "arch": "konfig_oksid_atom"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi X — 3-davr, I A guruh elementi. U suv bilan reaksiyaga kirishganda 3,36 l (n.sh.) gaz ajraldi. Reaksiyaga kirishgan X ning massasini (g) toping.",
+   "javob": "6,9",
+   "yechim": "X = Na. 2Na + 2H₂O → 2NaOH + H₂: H₂ = 0,15 mol → Na = 0,3 mol → 6,9 g.",
+   "parametrlar": {
+    "arch": "sxema_metall"
+   },
+   "fig": "scheme2",
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "VII A guruh elementining oliy oksididan 0,05 mol olindi. Undagi kislorodning massasini (g) toping.",
+   "javob": "5,6",
+   "yechim": "R₂O₇: har mol oksidda 7 mol O → 0,05·7·16 = 5,6 g.",
+   "parametrlar": {
+    "arch": "r2o7_kislorod"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Teng mol miqdorda olingan Na₂O va K₂O dan iborat 15,6 g aralashmadagi metall atomlarining umumiy mol sonini toping.",
+   "javob": "0,4",
+   "yechim": "62x + 94x = 15,6 → x = 0,1 mol har biridan → metall: 0,2 + 0,2 = 0,4 mol.",
+   "parametrlar": {
+    "arch": "aralash_oksid"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. X elementining oliy oksidi RO₃ bo'lib, unda 60 % kislorod bor. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) X elementini hisob orqali aniqlang.",
+     "yechim": [
+      "48/(M+48) = 0,6 → M = 32 → oltingugurt (S)."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) X ning davriy sistemadagi o'rnini (davr, guruh) va konfiguratsiyasini yozing.",
+     "yechim": [
+      "3-davr, VI A; 1s²2s²2p⁶3s²3p⁴."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Oliy oksidiga mos gidroksidning 0,2 molini to'liq neytrallash uchun necha gramm NaOH kerak? (M(NaOH)=40)",
+     "yechim": [
+      "H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O: 0,4 mol → 16 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) X ning vodorodli birikmasini yozing va uning suvdagi eritmasi muhitini ayting.",
+     "yechim": [
+      "H₂S; eritmasi kuchsiz kislotali."
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "e) Davr bo'yicha qo'shnisi P bilan solishtirganda X ning metallmasligi qanday? Sababini yozing.",
+     "yechim": [
+      "Kuchliroq: davrda o'ngga EM va oksidlovchilik ortadi."
+     ],
+     "M": 2,
+     "A": 1
+    }
+   ],
+   "rasmiylashtirish": "Element-aniqlash zanjiri: hisob → o'rin → neytrallash → xossalar; M15+A10.",
+   "parametrlar": {
+    "arch": "element_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Davriy qonun tarixi va mohiyati haqida MULOHAZA yuritib javob yozing (hisob talab qilinmaydi).",
+   "bandlar": [
+    {
+     "savol": "a) Mendeleev jadvalida Ar (Ar=40) K (Ar=39) dan OLDIN turadi — massa tartibi buzilgan. Zamonaviy davriy qonun buni qanday hal qiladi? Asoslab yozing.",
+     "yechim": [
+      "Asos — atom massasi emas, yadro zaryadi: Z(Ar)=18 < Z(K)=19.",
+      "Xossalar Z ga (elektron tuzilishga) bog'liq — tartib to'g'ri."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Mendeleev hali ochilmagan elementlar (masalan, galliy) xossalarini oldindan aytib bergan. Bu qanday qilib mumkin bo'lgan?",
+     "yechim": [
+      "Davriylik tufayli bo'sh katak xossalari qo'shnilari (yuqori-quyi, chap-o'ng)",
+      "xossalaridan oraliq qiymat sifatida bashorat qilinadi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Davriylikning sababi nimada? Bir jumla bilan yozing.",
+     "yechim": [
+      "Tashqi elektron qavat tuzilishining davriy takrorlanishi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Tarix-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "mendeleev_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha hisoblarni uzviy ketma-ketlikda yozing. 3-davr uch elementining oliy oksidlari jadvalda berilgan:\n[JADVAL] Element | Na | Al | S ;; Oliy oksid | Na₂O | Al₂O₃ | SO₃ ;; Xarakteri | ? | ? | ?\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Jadvaldagi «?» kataklarni to'ldiring va har birini bir jumla bilan asoslang.",
+     "yechim": [
+      "Na₂O — asosli (ishqoriy metall); Al₂O₃ — amfoter; SO₃ — kislotali (metallmas oliy oksidi)."
+     ],
+     "M": 5,
+     "A": 2
+    },
+    {
+     "savol": "b) Al₂O₃ ning amfoterligini ikkita reaksiya tenglamasi bilan isbotlang.",
+     "yechim": [
+      "Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O; Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 0,1 mol SO₃ ga mos kislotani to'liq neytrallash uchun necha gramm NaOH kerak?",
+     "yechim": [
+      "H₂SO₄ 0,1 mol → NaOH 0,2 mol → 8 g."
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "d) Ushbu qatordan davr bo'yicha qanday umumiy qonuniyat kelib chiqadi?",
+     "yechim": [
+      "Davrda chapdan o'ngga oksid/gidroksidlar asoslidan amfoter orqali kislotaliga o'tadi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Oksid-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "oksid_jadval_o2"
+   }
+  }
+ ]
+}

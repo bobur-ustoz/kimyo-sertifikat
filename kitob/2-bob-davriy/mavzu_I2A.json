@@ -1,0 +1,1348 @@
+{
+ "variant": "mavzu-I2-A",
+ "daraja": "A",
+ "bob": 2,
+ "bob_nomi": "Davriy qonun va davriy sistema",
+ "manba": "MS spetsifikatsiyasi I.2; darslik davriy qonun bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (yod, geliy, folga, sut) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Davriy sistemada elementlar qanday tartibda joylashtirilgan?",
+   "variantlar": [
+    "yadro zaryadi (tartib raqami) ortib borishi bo'yicha",
+    "alifbo bo'yicha",
+    "zichligi bo'yicha",
+    "kashf etilgan sanasi bo'yicha"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kimyoviy asos yo'q bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "zichlik davriy emas"
+    },
+    {
+     "variant": "D",
+     "xato": "tarixiy tartib emas"
+    }
+   ],
+   "yechim": "Z = 1 (H) dan boshlab ketma-ket.",
+   "parametrlar": {
+    "arch": "tartib_oddiy"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Davriy jadvaldagi GORIZONTAL qator nima deb ataladi?",
+   "variantlar": [
+    "guruh",
+    "oila",
+    "davr",
+    "qavat"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "guruh — vertikal ustun"
+    },
+    {
+     "variant": "B",
+     "xato": "alohida tushuncha"
+    },
+    {
+     "variant": "D",
+     "xato": "atom tuzilishiga oid"
+    }
+   ],
+   "yechim": "Gorizontal — davr; vertikal — guruh.",
+   "parametrlar": {
+    "arch": "davr_guruh_tarif"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Bir GURUHDAGI elementlar nimasi bilan o'xshash?",
+   "variantlar": [
+    "tashqi qavatdagi elektronlar soni (valentligi) bilan",
+    "qavatlar soni bilan",
+    "atom massalari bilan",
+    "izotoplar soni bilan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu davrga xos"
+    },
+    {
+     "variant": "C",
+     "xato": "massalar keskin farq qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "bog'liq emas"
+    }
+   ],
+   "yechim": "I A: hammada tashqi 1 e → xossalari o'xshash (ishqoriy metallar).",
+   "parametrlar": {
+    "arch": "guruh_oxshash"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda dorixona yodi (jarohatga surtiladigan qo'ng'ir eritma). Yod elementi davriy jadvalning qaysi guruhida joylashgan?",
+   "variantlar": [
+    "I A — ishqoriy metallar",
+    "VII A — galogenlar",
+    "VIII A — inert gazlar",
+    "II A"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yod metall emas"
+    },
+    {
+     "variant": "C",
+     "xato": "yod faol metallmas"
+    },
+    {
+     "variant": "D",
+     "xato": "kalsiy guruhi"
+    }
+   ],
+   "yechim": "I — galogen (F, Cl, Br, I qatori); antiseptik xossasi oksidlovchiligidan.",
+   "parametrlar": {
+    "arch": "yod_sahna"
+   },
+   "fig": "iodine"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Metallar davriy jadvalning qaysi qismida ko'proq joylashgan?",
+   "variantlar": [
+    "o'ng yuqori burchagida",
+    "faqat o'rtasida",
+    "chap va pastki qismida",
+    "faqat 1-davrda"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u yerda metallmaslar"
+    },
+    {
+     "variant": "B",
+     "xato": "chap-past asosiy hudud"
+    },
+    {
+     "variant": "D",
+     "xato": "1-davrda H va He"
+    }
+   ],
+   "yechim": "Chap-past — metallar; o'ng-yuqori — metallmaslar; chegarada — yarim metallar.",
+   "parametrlar": {
+    "arch": "metall_joy"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Natriy (3-davr, I A) atomining qavatlari va tashqi elektronlari soni qancha?",
+   "variantlar": [
+    "1 qavat, 3 e",
+    "3 qavat, 8 e",
+    "11 qavat, 1 e",
+    "3 qavat, 1 e"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "I A — 1 valent e"
+    },
+    {
+     "variant": "C",
+     "xato": "11 — jami e, qavat emas"
+    }
+   ],
+   "yechim": "Davr = 3 qavat; guruh I A = tashqi 1 e.",
+   "parametrlar": {
+    "arch": "orin_oqish"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ishqoriy metallar (I A) suv bilan reaksiyada qaysi gaz ajratadi?",
+   "variantlar": [
+    "kislorod",
+    "azot",
+    "vodorod",
+    "xlor"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suvdan O₂ ajralmaydi bu holda"
+    },
+    {
+     "variant": "B",
+     "xato": "manba yo'q"
+    },
+    {
+     "variant": "D",
+     "xato": "tarkibda yo'q"
+    }
+   ],
+   "yechim": "2Na + 2H₂O → 2NaOH + H₂↑.",
+   "parametrlar": {
+    "arch": "ia_suv"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda geliy bilan to'ldirilgan bayram sharlari. Nega sharlarga vodorod emas, geliy solinadi?",
+   "variantlar": [
+    "geliy vodoroddan yengil",
+    "geliy arzonroq",
+    "geliy rangli",
+    "geliy inert — yonmaydi va portlamaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha, biroz og'irroq"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha, qimmatroq"
+    },
+    {
+     "variant": "C",
+     "xato": "geliy rangsiz"
+    }
+   ],
+   "yechim": "He — VIII A: qavati to'la, hech narsa bilan reaksiyaga kirishmaydi. H₂ esa portlovchi.",
+   "parametrlar": {
+    "arch": "geliy_sahna"
+   },
+   "fig": "balloon"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Galogenlar (VII A) tashqi qavatida nechta elektron bor?",
+   "variantlar": [
+    "1",
+    "7",
+    "8",
+    "17"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "I A uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "inert gazlar"
+    },
+    {
+     "variant": "D",
+     "xato": "Cl ning jami e soni"
+    }
+   ],
+   "yechim": "VII A → 7 valent e; bitta e yetishmaydi → faol metallmaslar.",
+   "parametrlar": {
+    "arch": "galogen_e"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Davr bo'ylab chapdan o'ngga atom radiusi qanday o'zgaradi va nega?",
+   "variantlar": [
+    "kichrayadi — yadro zaryadi ortib, elektronlarni kuchliroq tortadi",
+    "kattalashadi — elektronlar ko'payadi",
+    "o'zgarmaydi",
+    "avval kattalashadi, keyin kichrayadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qavat soni o'zgarmaydi, tortish kuchayadi"
+    },
+    {
+     "variant": "C",
+     "xato": "Z ortishi ta'sir qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton kichrayadi"
+    }
+   ],
+   "yechim": "Qavatlar soni bir xil, yadro zaryadi ortadi → tortish kuchayadi → radius ↓.",
+   "parametrlar": {
+    "arch": "radius_davr"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi element ISHQORIY METALL?",
+   "variantlar": [
+    "Ca",
+    "K",
+    "Fe",
+    "Cl"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "II A — ishqoriy-yer metall"
+    },
+    {
+     "variant": "C",
+     "xato": "d-element"
+    },
+    {
+     "variant": "D",
+     "xato": "galogen"
+    }
+   ],
+   "yechim": "I A: Li, Na, K, Rb, Cs.",
+   "parametrlar": {
+    "arch": "ia_tanlash"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Element 2-davr, IV A guruhda joylashgan. Bu qaysi element?",
+   "variantlar": [
+    "Si",
+    "N",
+    "C",
+    "B"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3-davrda"
+    },
+    {
+     "variant": "B",
+     "xato": "V A"
+    },
+    {
+     "variant": "D",
+     "xato": "III A"
+    }
+   ],
+   "yechim": "2-davr, 4 valent e → uglerod.",
+   "parametrlar": {
+    "arch": "orin_element"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda oshxona folgasi (alyuminiy). Al davriy jadvalda 3-davr, III A guruhda. Uning atomida nechta valent elektron bor?",
+   "variantlar": [
+    "13",
+    "8",
+    "1",
+    "3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu jami elektronlar"
+    },
+    {
+     "variant": "B",
+     "xato": "qavat sig'imi bilan chalkashuv"
+    },
+    {
+     "variant": "C",
+     "xato": "I A emas"
+    }
+   ],
+   "yechim": "III A → tashqi qavatda 3 e (3s²3p¹); shu bois Al³⁺ ion beradi.",
+   "parametrlar": {
+    "arch": "folga_sahna"
+   },
+   "fig": "foil"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Guruhda yuqoridan pastga metallik xossasi qanday o'zgaradi?",
+   "variantlar": [
+    "kuchsizlanadi",
+    "o'zgarmaydi",
+    "kuchayadi",
+    "davriy tebranadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "radius ortadi — e berish osonlashadi"
+    },
+    {
+     "variant": "B",
+     "xato": "radius o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton kuchayadi"
+    }
+   ],
+   "yechim": "Li → Cs: radius ↑, tashqi e osonroq beriladi → metallik ↑.",
+   "parametrlar": {
+    "arch": "metallik_guruh"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Eng faol METALLMAS element qaysi?",
+   "variantlar": [
+    "Cl",
+    "O",
+    "Na",
+    "F"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ftordan keyin"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkinchi o'rin"
+    },
+    {
+     "variant": "C",
+     "xato": "bu faol METALL"
+    }
+   ],
+   "yechim": "Ftor — o'ng yuqori burchak, EM = 4,0.",
+   "parametrlar": {
+    "arch": "faol_metallmas"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Natriyning OLIY oksidi va unga mos gidroksid qaysi javobda to'g'ri?",
+   "variantlar": [
+    "NaO va NaOH",
+    "Na₂O va NaOH",
+    "Na₂O₂ va NaOH",
+    "Na₂O va NaH"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "natriy bir valentli: Na₂O"
+    },
+    {
+     "variant": "C",
+     "xato": "peroksid oliy oksid emas"
+    },
+    {
+     "variant": "D",
+     "xato": "NaH — gidrid, gidroksid emas"
+    }
+   ],
+   "yechim": "I A → R₂O va ROH (kuchli ishqor).",
+   "parametrlar": {
+    "arch": "na_oksid"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» katakni to'ldiring:\n[JADVAL] Guruh | I A | II A | VII A ;; Valent e | 1 | ? | 7",
+   "variantlar": [
+    "4",
+    "8",
+    "12",
+    "2"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "II A — 2 valent e"
+    },
+    {
+     "variant": "B",
+     "xato": "inert gazlarga xos"
+    },
+    {
+     "variant": "C",
+     "xato": "Mg ning jami e"
+    }
+   ],
+   "yechim": "II A (Be, Mg, Ca...): tashqi qavatda 2 e.",
+   "parametrlar": {
+    "arch": "jadval_valent"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda bir stakan sut — kalsiy manbai. Ca (II A) organizmda suyak to'qimasini mustahkamlaydi. Kalsiy qanday ion hosil qiladi?",
+   "variantlar": [
+    "Ca²⁻ — 2 elektron oladi",
+    "Ca²⁺ — 2 elektron beradi",
+    "Ca⁺ — 1 elektron beradi",
+    "ion hosil qilmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metall e beradi, olmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "II A — ikkala valent e ketadi"
+    },
+    {
+     "variant": "D",
+     "xato": "faol metall — doim Ca²⁺"
+    }
+   ],
+   "yechim": "II A metallari 2 e berib, barqaror qavatga erishadi: Ca²⁺ (suyakdagi fosfatlar tarkibida).",
+   "parametrlar": {
+    "arch": "sut_sahna"
+   },
+   "fig": "milk"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi qatorda elementlar faolligi (metallik) KUCHAYIB boradi?",
+   "variantlar": [
+    "Li → Na → K",
+    "K → Na → Li",
+    "F → Cl → Br",
+    "Al → Mg → ... aniqrog'i: Fe → Cu → Ag"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "teskari"
+    },
+    {
+     "variant": "C",
+     "xato": "bular metallmas"
+    },
+    {
+     "variant": "D",
+     "xato": "passivlashish qatori"
+    }
+   ],
+   "yechim": "I A da pastga faollik ortadi: kaliy suv bilan alanga olib reaksiyaga kirishadi.",
+   "parametrlar": {
+    "arch": "faollik_qator"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Amfoter element qaysi?",
+   "variantlar": [
+    "Na",
+    "Al",
+    "S",
+    "Ar"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tipik metall"
+    },
+    {
+     "variant": "C",
+     "xato": "tipik metallmas"
+    },
+    {
+     "variant": "D",
+     "xato": "inert gaz"
+    }
+   ],
+   "yechim": "Al birikmalari ham kislota, ham ishqor bilan reaksiyaga kirishadi.",
+   "parametrlar": {
+    "arch": "amfoter_oddiy"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elementning uchuvchan vodorodli birikmasi H₂R. U qaysi guruhda joylashgan?",
+   "variantlar": [
+    "VI A",
+    "II A",
+    "IV A",
+    "VII A"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "vodorodli birikma formulasi 8−guruh qoidasi bilan"
+    },
+    {
+     "variant": "C",
+     "xato": "RH₄ bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "HR bo'lardi"
+    }
+   ],
+   "yechim": "Vodorodlilar: guruh = 8 − H soni = 8 − 2 = 6 → VI A (H₂O, H₂S).",
+   "parametrlar": {
+    "arch": "h2r_guruh"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "3-davr elementlari oksidlari Na₂O, MgO, Al₂O₃, SO₃ ichida KISLOTALI oksid qaysi?",
+   "variantlar": [
+    "SO₃",
+    "Na₂O",
+    "MgO",
+    "Al₂O₃"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "asosli"
+    },
+    {
+     "variant": "C",
+     "xato": "asosli"
+    },
+    {
+     "variant": "D",
+     "xato": "amfoter"
+    }
+   ],
+   "yechim": "Metallmas oliy oksidi — kislotali: SO₃ + H₂O → H₂SO₄.",
+   "parametrlar": {
+    "arch": "kislotali_oksid"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Davriy jadvalda nechta guruh (asosiy) bor?",
+   "variantlar": [
+    "7",
+    "8",
+    "10",
+    "18"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "davrlar soni"
+    },
+    {
+     "variant": "C",
+     "xato": "yonaki bilan ham 8+8"
+    },
+    {
+     "variant": "D",
+     "xato": "IUPAC ustunlari"
+    }
+   ],
+   "yechim": "An'anaviy jadval: I A – VIII A.",
+   "parametrlar": {
+    "arch": "guruh_soni"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Mg va Ca ni taqqoslang: qaysi biri faolroq va nega?",
+   "variantlar": [
+    "Mg — kichik, tez reaksiya",
+    "bir xil — bitta guruh",
+    "Ca — radiusi katta, elektronlarini osonroq beradi",
+    "Mg — massasi kichik"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kichik radius e ni mahkam ushlaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "guruh ichida ham farq bor"
+    },
+    {
+     "variant": "D",
+     "xato": "massa emas, radius hal qiladi"
+    }
+   ],
+   "yechim": "II A da pastga: Ca suv bilan sovuqda ham reaksiyaga kirishadi, Mg — qiyin.",
+   "parametrlar": {
+    "arch": "mg_ca"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "«Galogen» so'zining ma'nosi va guruhning tipik xossasi qaysi javobda to'g'ri?",
+   "variantlar": [
+    "«suv sevuvchi»; suvda erimaydi",
+    "«nur taratuvchi»; shu'la beradi",
+    "«yengil»; uchuvchan metall",
+    "«tuz tug'diruvchi»; metallar bilan tuz hosil qiladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ma'no ham, xossa ham xato"
+    },
+    {
+     "variant": "B",
+     "xato": "bunday ma'no yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "galogenlar metallmas"
+    }
+   ],
+   "yechim": "NaCl, KBr... — galogenlar metallar bilan tipik tuzlar beradi.",
+   "parametrlar": {
+    "arch": "galogen_manо"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "I A guruhda yuqoridan pastga (Li → Cs) elementlarning FAOLLIGI qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "kamayadi",
+    "ortib boradi",
+    "o'zgarmaydi",
+    "ortib, keyin kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "radius ortadi — e oson beriladi"
+    },
+    {
+     "variant": "C",
+     "xato": "radius o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Cs — eng faol barqaror ishqoriy metall.",
+   "parametrlar": {
+    "arch": "faollik_grafik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "Li→Cs",
+    "ylab": "faollik"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Na₂O ning molyar massasini toping. (M(Na)=23, M(O)=16)",
+   "variantlar": [
+    "39",
+    "78",
+    "62",
+    "46"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bitta Na olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki O xato"
+    },
+    {
+     "variant": "D",
+     "xato": "O unutilgan"
+    }
+   ],
+   "yechim": "2·23 + 16 = 62 g/mol.",
+   "parametrlar": {
+    "arch": "m_oddiy"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Davriy jadvalning o'ng yuqori burchagiga yaqinlashganda elementlar xossasi qanday o'zgaradi?",
+   "variantlar": [
+    "metallmaslik kuchayadi",
+    "metallik kuchayadi",
+    "faollik yo'qoladi",
+    "radius kattalashadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "metallik chap-pastga kuchayadi"
+    },
+    {
+     "variant": "C",
+     "xato": "F — eng faol metallmas"
+    },
+    {
+     "variant": "D",
+     "xato": "radius kichrayadi"
+    }
+   ],
+   "yechim": "O'ng-yuqori — metallmaslar «poytaxti» (F, O, Cl).",
+   "parametrlar": {
+    "arch": "ong_yuqori"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elementning oliy oksidi RO₂, o'zi 3-davrda. Elementni va oksidini ayting.",
+   "variantlar": [
+    "Si; SiO₂",
+    "C; CO₂",
+    "S; SO₂",
+    "P; PO₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "uglerod 2-davrda"
+    },
+    {
+     "variant": "C",
+     "xato": "S ning oliy oksidi SO₃"
+    },
+    {
+     "variant": "D",
+     "xato": "P ning oliy oksidi P₂O₅"
+    }
+   ],
+   "yechim": "RO₂ → IV A; 3-davr → kremniy (qum — SiO₂).",
+   "parametrlar": {
+    "arch": "ro2_oddiy"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Davriy sistema haqidagi fikrlardan XATOSINI toping.",
+   "variantlar": [
+    "guruhdoshlar o'xshash xossali",
+    "davr yangi qavat ochilishi bilan boshlanadi",
+    "bir davr elementlarining xossalari bir xil bo'ladi",
+    "metallar chap tomonda ko'p"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'g'ri fikr"
+    },
+    {
+     "variant": "B",
+     "xato": "to'g'ri fikr"
+    },
+    {
+     "variant": "D",
+     "xato": "to'g'ri fikr"
+    }
+   ],
+   "yechim": "Davr ichida xossalar keskin O'ZGARADI (Na dan Cl gacha); o'xshashlik — guruhda.",
+   "parametrlar": {
+    "arch": "xato_fikr"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Kalsiyning oliy oksidi massasi 5,6 g. Uning mol miqdorini toping. (M(CaO)=56)",
+   "variantlar": [
+    "1",
+    "0,056",
+    "0,2",
+    "0,1"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'n barobar xato"
+    },
+    {
+     "variant": "B",
+     "xato": "grammda qoldirilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "M=28 xato"
+    }
+   ],
+   "yechim": "n = 5,6/56 = 0,1 mol.",
+   "parametrlar": {
+    "arch": "cao_mol"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi davriy jadval fragmentida X ning ustida N turibdi. X va N qaysi umumiy xossaga ega?",
+   "variantlar": [
+    "ikkalasi bir davrda",
+    "ikkalasi metall",
+    "hech qanday umumiylik yo'q",
+    "ikkalasi V A guruhda — valent elektronlari 5 tadan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ustma-ust — bitta GURUH"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkalasi metallmas"
+    },
+    {
+     "variant": "C",
+     "xato": "guruhdoshlar o'xshash"
+    }
+   ],
+   "yechim": "Ustun bo'ylab joylashganlar guruhdosh: N va P (X) — V A, RH₃ va R₂O₅ beradi.",
+   "parametrlar": {
+    "arch": "fragment_oddiy"
+   },
+   "fig": "pt_fragment"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Oshxonadagi uch «kimyoviy qahramon»: osh tuzi tarkibidagi X metali, sut tarkibidagi Y metali va dorixona yodi — Z elementi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X elementi qaysi guruhda joylashgan?",
+    "34. Y elementining ioni qanday zaryadli?",
+    "35. Z elementining vodorodli birikmasi formulasi qanday?"
+   ],
+   "javoblar_royxati": [
+    "A) I A",
+    "B) 2+",
+    "C) HI",
+    "D) VII A",
+    "E) 1+",
+    "F) HIO₄"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "VII A — yodning (Z) guruhi, natriyniki emas"
+    },
+    {
+     "variant": "E",
+     "xato": "1+ — natriy ioni; savol kalsiy (Y) haqida"
+    },
+    {
+     "variant": "F",
+     "xato": "HIO₄ — kislorodli kislota, vodorodli birikma emas"
+    }
+   ],
+   "yechim": "X = Na (NaCl) → I A (A). Y = Ca (sut) → Ca²⁺ (B). Z = I → HI (C).",
+   "parametrlar": {
+    "arch": "oshxona_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "4-davr, II A guruh elementini yozing.",
+   "javob": "Ca",
+   "yechim": "4-davr, 2 valent e → kalsiy.",
+   "parametrlar": {
+    "arch": "orin_o1"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "VII A guruh elementining oliy oksidi umumiy formulasini yozing.",
+   "javob": "R₂O₇",
+   "yechim": "Oliy valentlik = 7 → R₂O₇.",
+   "parametrlar": {
+    "arch": "oksid_o1"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elementning vodorodli birikmasi HR bo'lsa, tashqi qavatida nechta elektron bor?",
+   "javob": "7",
+   "yechim": "Guruh = 8 − 1 = 7 → 7 valent e (galogen).",
+   "parametrlar": {
+    "arch": "hr_o1"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Magniyning oliy oksidi molyar massasini toping. (M(Mg)=24)",
+   "javob": "40",
+   "yechim": "MgO: 24 + 16 = 40 g/mol.",
+   "parametrlar": {
+    "arch": "mgo_o1"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "9,4 g K₂O necha mol bo'ladi? (M(K₂O)=94)",
+   "javob": "0,1",
+   "yechim": "n = 9,4/94 = 0,1 mol.",
+   "parametrlar": {
+    "arch": "k2o_o1"
+   },
+   "tur": "O1",
+   "element": "I.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Natriy elementi haqida bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Na ning davriy sistemadagi o'rnini (davr, guruh) va buning atom tuzilishi bilan bog'liqligini yozing.",
+     "yechim": [
+      "3-davr (3 qavat), I A (tashqi 1 e): 2, 8, 1."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Oliy oksidi va gidroksidini yozing, xarakterini ayting.",
+     "yechim": [
+      "Na₂O — asosli oksid; NaOH — kuchli ishqor."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 0,1 mol NaOH ning massasini toping. (M=40)",
+     "yechim": [
+      "m = 0,1·40 = 4 g."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Na ning suv bilan reaksiya tenglamasini yozing.",
+     "yechim": [
+      "2Na + 2H₂O → 2NaOH + H₂↑."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "e) K natriyga qaraganda suv bilan faolroq reaksiyaga kirishadi. Sababini yozing.",
+     "yechim": [
+      "K radiusi katta — tashqi e osonroq beriladi (guruhda pastga faollik ortadi)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi element-zanjiri: o'rin → birikmalar → hisob → xossa; M15+A10.",
+   "parametrlar": {
+    "arch": "na_zanjir_a"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Alyuminiy — «qanotli metall»: samolyotlar, folga, idishlar. Quyidagi savollarga MULOHAZA yuritib javob yozing (hisob talab qilinmaydi).",
+   "bandlar": [
+    {
+     "savol": "a) Al ning davriy sistemadagi o'rni (3-davr, III A) undan qanday xossalarni kutishga asos beradi? Metall-metallmas «chegarasi» tushunchasi orqali yoriting.",
+     "yechim": [
+      "Chap-o'rta hudud — metall, lekin chegaraga yaqin: birikmalari amfoter;",
+      "3 valent e → Al³⁺; yengil va faol metall."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega faol metall bo'lgan alyuminiy havoda va idish sifatida chidamli?",
+     "yechim": [
+      "Yuzasi zich Al₂O₃ parda bilan qoplanib, ichkarini himoya qiladi (passivlanish)."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Al(OH)₃ ning amfoterligi nimada namoyon bo'ladi?",
+     "yechim": [
+      "Ham kislota, ham ishqor bilan reaksiyaga kirishadi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "al_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch elementning davriy sistemadagi o'rni jadvalda berilgan:\n[JADVAL] Element | davr | guruh ;; X | 2 | VI A ;; Y | 4 | II A ;; Z | 3 | VII A\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) X, Y, Z elementlarni aniqlang.",
+     "yechim": [
+      "X — O (kislorod); Y — Ca; Z — Cl."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Y ning oliy oksidi 0,2 molining massasini toping.",
+     "yechim": [
+      "CaO (M=56): 0,2·56 = 11,2 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) X va Y hosil qiladigan birikma formulasi va bog' turini yozing.",
+     "yechim": [
+      "CaO — ion bog'lanish (metall + metallmas)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Z ning vodorodli birikmasi eritmasi qanday muhitga ega? Nomini yozing.",
+     "yechim": [
+      "HCl — xlorid kislota; kuchli kislotali muhit."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rin-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "orin_jadval_o2"
+   }
+  }
+ ]
+}
