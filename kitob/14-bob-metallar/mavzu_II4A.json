@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-II4-A",
+ "daraja": "A",
+ "bob": 14,
+ "bob_nomi": "IIA, IIIA va d-metallar. Suv qattiqligi",
+ "manba": "MS spetsifikatsiyasi II.4; 9-sinf darslik metallar bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (haykal, samolyot, gips, kir mashina TENi) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "IIA guruh metallari atomlarining tashqi qavatida nechta elektron bor?",
+   "variantlar": [
+    "2",
+    "1",
+    "3",
+    "8"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu IA guruh"
+    },
+    {
+     "variant": "C",
+     "xato": "bu IIIA guruh"
+    },
+    {
+     "variant": "D",
+     "xato": "bu inert gazlar"
+    }
+   ],
+   "yechim": "ns² — ikkita valent elektron → +2 zaryadli ionlar (Ca²⁺, Mg²⁺).",
+   "parametrlar": {
+    "arch": "iia_tashqi_e"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Alanga testida kalsiy qanday rang beradi?",
+   "variantlar": [
+    "sariq",
+    "binafsha",
+    "g'isht-qizil",
+    "ko'k"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sariq — natriy"
+    },
+    {
+     "variant": "B",
+     "xato": "binafsha — kaliy"
+    },
+    {
+     "variant": "D",
+     "xato": "IA/IIA da ko'k alanga yo'q"
+    }
+   ],
+   "yechim": "Ca — g'isht-qizil; Sr — qirmizi; Ba — yashil.",
+   "parametrlar": {
+    "arch": "ca_alanga"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Magniy lentasi yondirilganda nima kuzatiladi?",
+   "variantlar": [
+    "ko'k tutun",
+    "qizil uchqunlar",
+    "ko'zni qamashtiruvchi yorqin oq alanga",
+    "rangsiz sekin yonish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "alanga oq-yorqin"
+    },
+    {
+     "variant": "B",
+     "xato": "qizil — Li, Sr ranglari"
+    },
+    {
+     "variant": "D",
+     "xato": "juda yorqin — fotosuratlarda ishlatilgan"
+    }
+   ],
+   "yechim": "2Mg + O₂ → 2MgO: yorqinligi tufayli eski fotoapparat «chaqnashlarida» ishlatilgan.",
+   "parametrlar": {
+    "arch": "mg_yonish"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda eski marmar haykal: qirralari yemirilib silliqlashgan. Bunga sabab — kislotali yomg'irlar. Qanday reaksiya boradi?",
+   "variantlar": [
+    "marmar suvda oddiy eriydi",
+    "marmar (CaCO₃) kislotalar bilan reaksiyaga kirishib asta eriydi",
+    "shamol yedirib yuboradi",
+    "marmar quyoshda parchalanadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "toza suvda CaCO₃ deyarli erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "shamol ta'siri bor, lekin asosiysi — kimyoviy yemirilish"
+    },
+    {
+     "variant": "D",
+     "xato": "yorug'lik CaCO₃ ni buzmaydi"
+    }
+   ],
+   "yechim": "CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂: havoga chiqqan SO₂/NO₂ yomg'irni kislotali qiladi.",
+   "parametrlar": {
+    "arch": "haykal_sahna"
+   },
+   "fig": "statue"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alyuminiy davriy jadvalning qaysi guruhida joylashgan va birikmalarida qanday oksidlanish darajasini namoyon qiladi?",
+   "variantlar": [
+    "IIA; +2",
+    "IIIA; +3",
+    "IA; +1",
+    "IIIA; −3"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u IIIA da"
+    },
+    {
+     "variant": "C",
+     "xato": "bu ishqoriy metallar"
+    },
+    {
+     "variant": "D",
+     "xato": "metall manfiy daraja olmaydi"
+    }
+   ],
+   "yechim": "Al: 3s²3p¹ — uchala elektronini berib Al³⁺ bo'ladi.",
+   "parametrlar": {
+    "arch": "al_guruh"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Suvning QATTIQLIGI qaysi ionlar tufayli yuzaga keladi?",
+   "variantlar": [
+    "Ca²⁺ va Mg²⁺",
+    "Na⁺ va K⁺",
+    "H⁺ va OH⁻",
+    "Fe³⁺ va Cu²⁺"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ular qattiqlik bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "bular muhit ionlari"
+    },
+    {
+     "variant": "D",
+     "xato": "og'ir metallar — ifloslanish, qattiqlik emas"
+    }
+   ],
+   "yechim": "Qattiq suv — tarkibida ko'p Ca²⁺/Mg²⁺ tuzlari bo'lgan suv.",
+   "parametrlar": {
+    "arch": "qattiqlik_tarif"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "VAQTINCHALIK qattiqlik qanday yo'qotiladi?",
+   "variantlar": [
+    "muzlatish bilan",
+    "qaynatish bilan",
+    "filtrlash bilan",
+    "tindirish bilan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "muzlatish tuzlarni cho'ktirmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "erigan tuzlar filtrdan o'tadi"
+    },
+    {
+     "variant": "D",
+     "xato": "erigan holda cho'kmaydi"
+    }
+   ],
+   "yechim": "Ca(HCO₃)₂ → (qaynatishda) CaCO₃↓ + H₂O + CO₂ — «qasqon» shu.",
+   "parametrlar": {
+    "arch": "vaqtinchalik"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda samolyot: korpusining asosiy qismi alyuminiy qotishmalaridan. Nega aynan alyuminiy?",
+   "variantlar": [
+    "eng qattiq metall bo'lgani uchun",
+    "yengil, yetarlicha pishiq va korroziyaga chidamli",
+    "eng arzon metall bo'lgani uchun",
+    "magnitlanmagani uchun"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qattiqlikda Cr, W ustun"
+    },
+    {
+     "variant": "C",
+     "xato": "temir arzonroq — gap yengillikda"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiy sabab — zichligi (2,7 g/sm³)"
+    }
+   ],
+   "yechim": "Zichlik temirdan ~3 barobar kichik; yuzadagi Al₂O₃ parda zangdan saqlaydi.",
+   "parametrlar": {
+    "arch": "samolyot_sahna"
+   },
+   "fig": "plane"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Temir buyumlardagi ZANG asosan qaysi birikmadan iborat?",
+   "variantlar": [
+    "sof temirdan",
+    "temir sulfiddan",
+    "temir karbiddan",
+    "temir(III) oksid-gidroksidlaridan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "zang — birikma"
+    },
+    {
+     "variant": "B",
+     "xato": "S havoda yetarli emas"
+    },
+    {
+     "variant": "C",
+     "xato": "karbid cho'yanda bo'ladi"
+    }
+   ],
+   "yechim": "Nam havoda: Fe → Fe(OH)₃/Fe₂O₃·nH₂O — g'ovak qo'ng'ir qatlam.",
+   "parametrlar": {
+    "arch": "zang_tarkib"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2Ca + O₂ → 2CaO. 4 g kalsiy yonganda necha gramm oksid hosil bo'ladi? (M: Ca=40, CaO=56)",
+   "variantlar": [
+    "4 g",
+    "5,6 g",
+    "56 g",
+    "11,2 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislorod massasi qo'shiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(CaO) = 5,6 g.",
+   "parametrlar": {
+    "arch": "cao_yonish_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alyuminiy faol metall bo'lsa-da, undan idishlar yasaladi. Buning sababi nimada?",
+   "variantlar": [
+    "alyuminiy aslida passiv",
+    "idishlar maxsus bo'yaladi",
+    "yuzasi zich Al₂O₃ pardasi bilan qoplanib himoyalanadi",
+    "suv bilan reaksiyaga kirisha olmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u faol — parda himoya qiladi"
+    },
+    {
+     "variant": "B",
+     "xato": "parda tabiiy hosil bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "parda olib tashlansa kirisha oladi"
+    }
+   ],
+   "yechim": "Zich oksid parda metallni havo va suvdan to'sadi — «o'z-o'zini himoya».",
+   "parametrlar": {
+    "arch": "al_parda"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Mg + 2HCl → MgCl₂ + H₂. 2,4 g magniy kislotada eriganda ajralgan vodorod hajmini (n.sh.) toping. (M(Mg)=24)",
+   "variantlar": [
+    "2,24 L",
+    "22,4 L",
+    "4,48 L",
+    "1,12 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n(Mg) = 0,1 mol → n(H₂) = 0,1 → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "mg_hcl_hisob"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda singan qo'lga gips bog'lanmoqda. Tibbiy gipsning asosi qaysi modda?",
+   "variantlar": [
+    "kalsiy sulfat (CaSO₄ asosidagi gips)",
+    "kalsiy karbonat (bo'r)",
+    "ohak (CaO)",
+    "osh tuzi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bo'r suv bilan qotmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "CaO suv bilan qizib ketadi — kuydiradi!"
+    },
+    {
+     "variant": "D",
+     "xato": "NaCl qotib qolmaydi"
+    }
+   ],
+   "yechim": "Kuydirilgan gips suv bilan qorilganda CaSO₄·2H₂O holida tez qotadi — shakl beradi.",
+   "parametrlar": {
+    "arch": "gips_sahna"
+   },
+   "fig": "gips"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "FeCl₂ va FeCl₃ birikmalarida temirning oksidlanish darajalari mos ravishda qanday?",
+   "variantlar": [
+    "+3 va +2",
+    "+1 va +2",
+    "+2 va +2",
+    "+2 va +3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "temirda +1 bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "xlorlar soni farq qiladi-ku"
+    }
+   ],
+   "yechim": "Temir o'zgaruvchan valentli: FeCl₂ — temir(II), FeCl₃ — temir(III).",
+   "parametrlar": {
+    "arch": "fe_valentlik"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ohaktosh, marmar va bo'r — bularning barchasi qaysi bitta moddaning turlari?",
+   "variantlar": [
+    "CaCO₃",
+    "CaSO₄",
+    "CaO",
+    "Ca(OH)₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu gips asosi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu so'ndirilmagan ohak"
+    },
+    {
+     "variant": "D",
+     "xato": "bu so'ndirilgan ohak"
+    }
+   ],
+   "yechim": "Uchalasi ham kalsiy karbonatning tabiiy shakllari.",
+   "parametrlar": {
+    "arch": "caco3_shakllar"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Metall | Alanga rangi ;; Ca | ? ;; Ba | ?",
+   "variantlar": [
+    "yashil; g'isht-qizil",
+    "sariq; binafsha",
+    "g'isht-qizil; yashil",
+    "oq; qizil"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "bular Na va K"
+    },
+    {
+     "variant": "D",
+     "xato": "oq «rang» alanga testi emas"
+    }
+   ],
+   "yechim": "Ca — g'isht-qizil, Ba — sarg'ish-yashil.",
+   "parametrlar": {
+    "arch": "alanga_iia_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Magniy oksidi (MgO) qanday xossasi uchun o'tga chidamli g'ishtlarda ishlatiladi?",
+   "variantlar": [
+    "juda yengil bo'lgani uchun",
+    "yonuvchan bo'lgani uchun",
+    "elektr o'tkazgani uchun",
+    "juda yuqori haroratda ham suyuqlanmaydi (t ≈ 2800 °C)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiysi — olovbardoshlik"
+    },
+    {
+     "variant": "B",
+     "xato": "oksid yonmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "MgO izolyator"
+    }
+   ],
+   "yechim": "MgO — olovbardosh material: pech va metallurgiya qurilmalari uchun.",
+   "parametrlar": {
+    "arch": "mgo_olovbardosh"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda kir mashinaning qizdirish elementi (TEN): oq-kulrang qattiq qatlam bilan qoplangan. Bu qatlam qayerdan paydo bo'ladi?",
+   "variantlar": [
+    "qattiq suvdagi kalsiy-magniy tuzlari qizdirishda cho'kadi",
+    "kir yuvish kukunidan",
+    "metallning o'zi oqaradi",
+    "kiyimlardagi changdan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kukun eriydi va yuviladi"
+    },
+    {
+     "variant": "C",
+     "xato": "metall rangini o'zgartirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "chang bunday qattiq qatlam bermaydi"
+    }
+   ],
+   "yechim": "Qaynatishda Ca(HCO₃)₂ → CaCO₃↓: TENda «toshqatlam» o'sib, uni kuydiradi.",
+   "parametrlar": {
+    "arch": "ten_sahna"
+   },
+   "fig": "washer"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CaCO₃ → CaO + CO₂. 50 g ohaktosh to'liq kuydirilganda necha gramm so'ndirilmagan ohak olinadi? (M: CaCO₃=100, CaO=56)",
+   "variantlar": [
+    "50 g",
+    "56 g",
+    "14 g",
+    "28 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CO₂ chiqib ketadi — massa kamayadi"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n = 0,5 mol → m(CaO) = 0,5·56 = 28 g.",
+   "parametrlar": {
+    "arch": "ohak_kuydirish"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fe, Cu, Zn, Cr metallari davriy jadvalning qaysi qismida joylashgan?",
+   "variantlar": [
+    "asosiy guruhchalarda",
+    "VIII A guruhda",
+    "lantanoidlar qatorida",
+    "yon guruhchalarda (B guruhlar, d-elementlar)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ular d-blokda"
+    },
+    {
+     "variant": "B",
+     "xato": "u inert gazlar guruhi"
+    },
+    {
+     "variant": "C",
+     "xato": "ular 4-davr d-metallari"
+    }
+   ],
+   "yechim": "d-metallar — o'zgaruvchan valentlik va rangli birikmalar bilan ajralib turadi.",
+   "parametrlar": {
+    "arch": "d_metallar_orni"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2Al + 6HCl → 2AlCl₃ + 3H₂. 2,7 g alyuminiy kislotada eriganda ajralgan vodorod hajmini (n.sh.) toping. (M(Al)=27)",
+   "variantlar": [
+    "2,24 L",
+    "6,72 L",
+    "1,12 L",
+    "3,36 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 3/2 unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n(Al) = 0,1 → n(H₂) = 0,15 mol → V = 3,36 L.",
+   "parametrlar": {
+    "arch": "al_hcl_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Bronza qaysi metallarning qotishmasi?",
+   "variantlar": [
+    "temir va uglerod",
+    "mis va qalay",
+    "mis va rux",
+    "alyuminiy va magniy"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu po'lat/cho'yan"
+    },
+    {
+     "variant": "C",
+     "xato": "bu latun"
+    },
+    {
+     "variant": "D",
+     "xato": "bu dural tarkibiga yaqin"
+    }
+   ],
+   "yechim": "Cu + Sn — insoniyatning eng qadimiy qotishmalaridan biri.",
+   "parametrlar": {
+    "arch": "bronza"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "DOIMIY qattiqlikni (CaSO₄, CaCl₂) yo'qotish uchun suvga qaysi modda qo'shiladi?",
+   "variantlar": [
+    "osh tuzi",
+    "kislota",
+    "soda (Na₂CO₃)",
+    "shakar"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NaCl cho'kma bermaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota qattiqlikni oshiradi"
+    },
+    {
+     "variant": "D",
+     "xato": "kimyoviy ta'sir yo'q"
+    }
+   ],
+   "yechim": "Ca²⁺ + CO₃²⁻ → CaCO₃↓ — kation cho'kmaga o'tadi, suv yumshaydi.",
+   "parametrlar": {
+    "arch": "doimiy_yumshatish"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Quyidagi metallardan qaysi biri MAGNITGA tortiladi?",
+   "variantlar": [
+    "alyuminiy",
+    "mis",
+    "temir",
+    "rux"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "magnitlanmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "magnitlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "magnitlanmaydi"
+    }
+   ],
+   "yechim": "Fe (va Ni, Co) — ferromagnit metallar.",
+   "parametrlar": {
+    "arch": "magnit"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Genetik qatordagi oxirgi o'tish uchun reagentni tanlang: CaCO₃ → Ca(HCO₃)₂.",
+   "variantlar": [
+    "faqat suv",
+    "CO₂ va suv (birgalikda)",
+    "HCl",
+    "NaOH"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CaCO₃ suvda erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "u CaCl₂ beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "ishqor karbonatni nordon tuzga o'tkazmaydi"
+    }
+   ],
+   "yechim": "CaCO₃ + CO₂ + H₂O → Ca(HCO₃)₂ — g'orlardagi stalaktitlar «kimyosi».",
+   "parametrlar": {
+    "arch": "gidrokarbonat_otish"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada uch xil suvning qattiqligi berilgan. Qaysi suv ENG QATTIQ?",
+   "variantlar": [
+    "quduq suvi",
+    "daryo suvi",
+    "distillangan suv",
+    "hammasi teng"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "3 mg-ekv/L — o'rtacha"
+    },
+    {
+     "variant": "C",
+     "xato": "deyarli 0"
+    },
+    {
+     "variant": "D",
+     "xato": "ustunlar keskin farq qiladi"
+    }
+   ],
+   "yechim": "Diagrammadan: quduq suvi ≈ 9 mg-ekv/L — yer osti suvlari ohaktosh qatlamlardan o'tadi.",
+   "parametrlar": {
+    "arch": "bar_qattiqlik_oqish"
+   },
+   "fig": "bar_hardness"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "10,2 g alyuminiy oksidi tarkibidagi alyuminiy massasini toping. (M: Al₂O₃=102, Al=27)",
+   "variantlar": [
+    "2,7 g",
+    "10,2 g",
+    "5,4 g",
+    "4,8 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molekulada 2 ta Al bor"
+    },
+    {
+     "variant": "B",
+     "xato": "kislorod ham bor-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "bu kislorod massasi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → n(Al) = 0,2 → m = 5,4 g.",
+   "parametrlar": {
+    "arch": "al2o3_tarkib"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "26-savol diagrammasidan: distillangan suvning qattiqligi qanday va nima uchun?",
+   "variantlar": [
+    "eng yuqori — toza suv qattiq bo'ladi",
+    "deyarli nol — bug'latib olinganda tuzlar qolib ketadi",
+    "daryo suviga teng",
+    "aniqlab bo'lmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qattiqlik tuzlardan, tozalikdan emas"
+    },
+    {
+     "variant": "C",
+     "xato": "diagrammada deyarli 0 ko'rsatilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "diagramma aniq ko'rsatadi"
+    }
+   ],
+   "yechim": "Distillangan suv — bug'dan kondensatlangan: Ca²⁺/Mg²⁺ yo'q.",
+   "parametrlar": {
+    "arch": "bar_qattiqlik_dist"
+   },
+   "fig": "bar_hardness"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Vaqtinchalik qattiq suv uzoq qaynatilmoqda. Suvdagi Ca(HCO₃)₂ miqdori vaqt bo'yicha qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "kamayib, nolga yaqin sathda to'xtaydi",
+    "o'zgarmaydi",
+    "ortadi",
+    "avval ortib keyin kamayadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "gidrokarbonat parchalanib cho'kadi"
+    },
+    {
+     "variant": "C",
+     "xato": "suv bug'lansa ham tuz CHO'KADI, ko'paymaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "boshidanoq kamayadi"
+    }
+   ],
+   "yechim": "Ca(HCO₃)₂ → CaCO₃↓ + H₂O + CO₂: erigan tuz cho'kmaga o'tib tugaydi.",
+   "parametrlar": {
+    "arch": "qattiqlik_grafik"
+   },
+   "svg": {
+    "correct": "fall_flat",
+    "d1": "flat",
+    "d2": "rise",
+    "d3": "rise_fall",
+    "xlab": "t",
+    "ylab": "C"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Mis(II) tuzlari eritmalari odatda qanday rangda bo'ladi?",
+   "variantlar": [
+    "yashil to'q",
+    "qizil",
+    "rangsiz",
+    "ko'k (havorang)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yashil — Fe²⁺ ga yaqin, Cu²⁺ ko'k"
+    },
+    {
+     "variant": "B",
+     "xato": "qizil eritma Cu²⁺ ga xos emas"
+    },
+    {
+     "variant": "C",
+     "xato": "d-metall ionlari ko'pincha rangli"
+    }
+   ],
+   "yechim": "CuSO₄ eritmasi — tiniq ko'k; suvsiz CuSO₄ esa oq.",
+   "parametrlar": {
+    "arch": "cu_rang"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O. 0,2 mol so'ndirilgan ohak to'liq reaksiyaga kirishganda hosil bo'lgan cho'kma massasini toping. (M(CaCO₃)=100)",
+   "variantlar": [
+    "100 g",
+    "10 g",
+    "20 g",
+    "40 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,2 mol → m = 20 g.",
+   "parametrlar": {
+    "arch": "ohakli_suv_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol diagrammasidan: quduq va daryo suvlari qattiqligi orasidagi farqni toping.",
+   "variantlar": [
+    "12 mg-ekv/L",
+    "3 mg-ekv/L",
+    "9 mg-ekv/L",
+    "6 mg-ekv/L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yig'indi olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "bu daryo suviniki"
+    },
+    {
+     "variant": "C",
+     "xato": "bu quduq suviniki"
+    }
+   ],
+   "yechim": "9 − 3 = 6 mg-ekv/L.",
+   "parametrlar": {
+    "arch": "bar_qattiqlik_farq"
+   },
+   "fig": "bar_hardness"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "II.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "II.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Qurilish omborida uch material bor: X — ohaktosh kukuni, Y — so'ndirilmagan ohak, Z — tibbiy gips. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Y ga suv quyilganda nima kuzatiladi?",
+    "34. X ga xlorid kislota tomizilsa qaysi gaz ajraladi?",
+    "35. Z materialning asosi qaysi modda?"
+   ],
+   "javoblar_royxati": [
+    "A) qizib, «qaynab» so'nadi",
+    "B) CO₂",
+    "C) CaSO₄",
+    "D) sovib qoladi",
+    "E) H₂",
+    "F) CaCO₃"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "CaO + H₂O — kuchli EKZOtermik: qiziydi"
+    },
+    {
+     "variant": "E",
+     "xato": "karbonat + kislota CO₂ beradi, vodorod emas"
+    },
+    {
+     "variant": "F",
+     "xato": "CaCO₃ — X (ohaktosh); gips esa sulfat"
+    }
+   ],
+   "yechim": "Y: CaO + H₂O → Ca(OH)₂ + Q — «so'nish» (A). X: CaCO₃ + HCl → ... + CO₂↑ (B). Z: gips — CaSO₄ asosida (C).",
+   "parametrlar": {
+    "arch": "qurilish_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol kalsiy oksidning massasini (g) toping. (M(CaO)=56)",
+   "javob": "11,2",
+   "yechim": "m = 0,2·56 = 11,2 g.",
+   "parametrlar": {
+    "arch": "cao_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "2,4 g magniy necha mol bo'ladi? (M(Mg)=24)",
+   "javob": "0,1",
+   "yechim": "n = 2,4/24 = 0,1 mol.",
+   "parametrlar": {
+    "arch": "mg_mol_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "20,4 g alyuminiy oksidi necha mol bo'ladi? (M(Al₂O₃)=102)",
+   "javob": "0,2",
+   "yechim": "n = 20,4/102 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "al2o3_mol_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Ca + 2H₂O → Ca(OH)₂ + H₂. 2 g kalsiy suv bilan reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh., L) toping. (M(Ca)=40)",
+   "javob": "1,12",
+   "yechim": "n = 0,05 mol → V(H₂) = 1,12 L.",
+   "parametrlar": {
+    "arch": "ca_suv_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "15 g ohaktosh to'liq kuydirilganda ajralgan CO₂ hajmini (n.sh., L) toping. (M(CaCO₃)=100)",
+   "javob": "3,36",
+   "yechim": "n = 0,15 mol → V = 3,36 L.",
+   "parametrlar": {
+    "arch": "caco3_co2_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Magniyning genetik qatori beriladi: Mg → MgO → MgCl₂ → Mg(OH)₂. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir o'tish uchun reaksiya tenglamasini yozing.",
+     "yechim": [
+      "2Mg + O₂ → 2MgO; MgO + 2HCl → MgCl₂ + H₂O; MgCl₂ + 2NaOH → Mg(OH)₂↓ + 2NaCl."
+     ],
+     "M": 5,
+     "A": 2
+    },
+    {
+     "savol": "b) Har bir moddaning sinfini ayting.",
+     "yechim": [
+      "Mg — metall; MgO — asosli oksid; MgCl₂ — o'rta tuz; Mg(OH)₂ — asos."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 4,8 g magniydan (yo'qotishsiz) olinadigan Mg(OH)₂ massasini hisoblang. (M(Mg(OH)₂)=58)",
+     "yechim": [
+      "n = 0,2 mol → m = 0,2·58 = 11,6 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Oxirgi mahsulotni yana MgO ga qaytarish yo'lini yozing.",
+     "yechim": [
+      "Mg(OH)₂ → (qizdirish) MgO + H₂O."
+     ],
+     "M": 3,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Mg zanjiri: tenglamalar → sinflar → hisob → teskari yo'l; M15+A10.",
+   "parametrlar": {
+    "arch": "mg_zanjir_o2"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Alyuminiy idishlar haqida maishiy savollar. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega alyuminiy idishda nordon (sirkali, pomidorli) taomlarni uzoq saqlash tavsiya etilmaydi? Kimyoviy asosini tushuntiring.",
+     "yechim": [
+      "Kislotalar himoya Al₂O₃ pardasini va metallni eritadi:",
+      "Al₂O₃ + 6H⁺ → 2Al³⁺ + 3H₂O — taomga alyuminiy ionlari o'tadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega yangi tozalangan (qirilgan) alyuminiy buyum ham bir zumda yaltirashini «yo'qotadi»?",
+     "yechim": [
+      "Havo kislorodi bilan darhol yangi yupqa Al₂O₃ pardasi hosil bo'ladi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Alyuminiyning yana bitta ishlatilish sohasini xossasi bilan bog'lab yozing.",
+     "yechim": [
+      "Elektr simlari — yengil va yaxshi o'tkazuvchan (yoki folga, aviatsiya)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Al-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "al_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch oq kukun jadvalda berilgan:\n[JADVAL] № | Modda ;; 1 | CaCO₃ (ohaktosh) ;; 2 | CaO (ohak) ;; 3 | CaSO₄·2H₂O (gips)\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Qaysi kukun suv bilan kuchli qizib reaksiyaga kirishadi? Tenglama yozing.",
+     "yechim": [
+      "CaO + H₂O → Ca(OH)₂ + Q — so'nish."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Qaysi kukun kislotada «vishillab» eriydi? Tenglama yozing.",
+     "yechim": [
+      "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Gipsni qolgan ikkitasidan qanday farqlash mumkin?",
+     "yechim": [
+      "Kislota bilan gaz bermaydi, suv bilan qizib ketmaydi — suv bilan qorilsa asta QOTADI."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) 1-kukun kuydirilganda massasi nega kamayadi?",
+     "yechim": [
+      "CaCO₃ → CaO + CO₂↑ — gaz uchib chiqadi (100 g dan 56 g qoladi)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Uch kukun tahlili: kuzatish → tenglama → farqlash; M15+A10.",
+   "parametrlar": {
+    "arch": "uch_kukun_o2"
+   }
+  }
+ ]
+}

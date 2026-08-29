@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-II4-B",
+ "daraja": "B",
+ "bob": 14,
+ "bob_nomi": "IIA, IIIA va d-metallar. Suv qattiqligi",
+ "manba": "Tongotarov/DTM metallar banki arxetiplari (noma'lum metall, ishqorda eriydigan aralashma, alyumotermiya, qattiqlik hisoblari) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi II.4",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: amfoter alyuminiy, temir zanjirlari, mg-ekv hisoblari, alyumotermiya.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "IIA guruh metallari haqidagi TO'G'RI fikrlarni tanlang:\n1) birikmalarida +2 oksidlanish darajasini namoyon qiladi;  2) Ca va Ba suv bilan oddiy sharoitda reaksiyaga kirishadi;  3) faolligi IA metallardan yuqori;  4) Mg sovuq suv bilan amalda kirishmaydi.",
+   "variantlar": [
+    "1, 2 va 4",
+    "1, 2 va 3",
+    "faqat 1",
+    "2 va 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "IIA faolligi IA dan PASTROQ"
+    },
+    {
+     "variant": "C",
+     "xato": "2 va 4 ham to'g'ri"
+    },
+    {
+     "variant": "D",
+     "xato": "3 noto'g'ri; 1 va 4 to'g'ri"
+    }
+   ],
+   "yechim": "ns² → +2; Ca, Sr, Ba suv bilan kirishadi; Mg faqat qaynoq suv/bug' bilan; faollik IA dan past.",
+   "parametrlar": {
+    "arch": "iia_fikr_tanlov"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4,8 g noma'lum ikki valentli metall xlorid kislotada eriganda 4,48 L (n.sh.) vodorod ajraldi. Metallni aniqlang.",
+   "variantlar": [
+    "Ca",
+    "Mg",
+    "Zn",
+    "Fe"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 40 bo'lardi (8 g kerak edi)"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 65 — mos emas"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 56 — mos emas"
+    }
+   ],
+   "yechim": "Me + 2HCl → MeCl₂ + H₂: n(H₂) = 0,2 = n(Me) → M = 4,8/0,2 = 24 — magniy.",
+   "parametrlar": {
+    "arch": "nomalum_ikki_valentli"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Suvda erigan qaysi tuz DOIMIY qattiqlikni yuzaga keltiradi?",
+   "variantlar": [
+    "Ca(HCO₃)₂",
+    "CaSO₄",
+    "Mg(HCO₃)₂",
+    "NaCl"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gidrokarbonat — vaqtinchalik qattiqlik"
+    },
+    {
+     "variant": "C",
+     "xato": "u ham vaqtinchalik"
+    },
+    {
+     "variant": "D",
+     "xato": "Na⁺ qattiqlik bermaydi"
+    }
+   ],
+   "yechim": "Sulfat/xloridlar qaynatishda cho'kmaydi — doimiy qattiqlik: faqat kimyoviy usul yordam beradi.",
+   "parametrlar": {
+    "arch": "doimiy_tuz"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2,7 g alyuminiy ORTIQCHA natriy gidroksid eritmasida eriganda qancha vodorod (n.sh.) ajraladi?",
+   "variantlar": [
+    "3,36 L",
+    "0 L — Al ishqorda erimaydi",
+    "2,24 L",
+    "6,72 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Al amfoter: ishqorda ham eriydi!"
+    },
+    {
+     "variant": "C",
+     "xato": "H₂ koeffitsiyenti 3/2"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "2Al + 2NaOH + 6H₂O → 2Na[Al(OH)₄] + 3H₂: n(H₂) = 0,15 → 3,36 L.",
+   "parametrlar": {
+    "arch": "al_ishqor_hisob"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda vaqtinchalik qattiq suvni qaynatishda erigan Ca(HCO₃)₂ miqdorining o'zgarishi berilgan. Kamayishning sababi qaysi reaksiya?",
+   "variantlar": [
+    "Ca(HCO₃)₂ → CaO + ...",
+    "Ca(HCO₃)₂ → CaCO₃↓ + H₂O + CO₂",
+    "Ca(HCO₃)₂ bug'lanib ketadi",
+    "Ca(HCO₃)₂ + O₂ → ..."
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oksid eritmada hosil bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "tuz bug'lanmaydi — parchalanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "kislorod bilan reaksiya yo'q"
+    }
+   ],
+   "yechim": "Qizdirishda nordon tuz parchalanib, erimaydigan karbonat cho'kadi — «qasqon».",
+   "parametrlar": {
+    "arch": "qattiqlik_egri_oqish"
+   },
+   "fig": "hardness_curve"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Temirning xlor va xlorid kislota bilan reaksiyalarida qanday tuzlar hosil bo'ladi?",
+   "variantlar": [
+    "Cl₂ bilan — FeCl₃; HCl bilan — FeCl₂",
+    "ikkalasida ham FeCl₃",
+    "ikkalasida ham FeCl₂",
+    "Cl₂ bilan — FeCl₂; HCl bilan — FeCl₃"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "HCl kuchli oksidlovchi emas — +2 gacha"
+    },
+    {
+     "variant": "C",
+     "xato": "erkin xlor kuchli oksidlovchi — +3 gacha"
+    },
+    {
+     "variant": "D",
+     "xato": "teskari"
+    }
+   ],
+   "yechim": "2Fe + 3Cl₂ → 2FeCl₃; Fe + 2HCl → FeCl₂ + H₂ — oksidlovchi kuchiga bog'liq.",
+   "parametrlar": {
+    "arch": "fe_cl2_hcl"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi moddalar ortiqcha NaOH eritmasida ERIYDI?\n1) Al;  2) Fe;  3) Zn(OH)₂;  4) Al₂O₃;  5) Cu.",
+   "variantlar": [
+    "1, 2 va 4",
+    "faqat 1",
+    "1, 3 va 4",
+    "hammasi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Fe ishqorda erimaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "amfoter Zn(OH)₂ va Al₂O₃ ham eriydi"
+    },
+    {
+     "variant": "D",
+     "xato": "Fe va Cu — yo'q"
+    }
+   ],
+   "yechim": "Amfoterlar (Al, Zn birikmalari) ishqorda eriydi; Fe, Cu — erimaydi.",
+   "parametrlar": {
+    "arch": "ishqorda_eriydigan"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qattiq suvdan uzoq foydalanish maishiy texnikaga qanday zarar keltiradi?",
+   "variantlar": [
+    "hech qanday zarar yo'q",
+    "qizdirgichlarda qasqon o'sib, energiya isrofi va kuyish yuz beradi",
+    "suv rangini o'zgartiradi",
+    "metallni eritib yuboradi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "TENlarning asosiy «dushmani» — qasqon"
+    },
+    {
+     "variant": "C",
+     "xato": "qattiqlik rangga ta'sir qilmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — qatlam O'SADI"
+    }
+   ],
+   "yechim": "CaCO₃ qatlami issiqlikni yomon o'tkazadi: TEN qizib kuyadi, quvurlar torayadi.",
+   "parametrlar": {
+    "arch": "qattiqlik_zarar"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi kationlarni eritma rangi bilan TO'G'RI moslang:\n[JADVAL] Kation | Rang ;; a) Cu²⁺ | 1) och yashil ;; b) Fe²⁺ | 2) ko'k ;; c) Fe³⁺ | 3) sarg'ish-qo'ng'ir",
+   "variantlar": [
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—2, b—1, c—3",
+    "a—3, b—2, c—1"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu²⁺ — ko'k"
+    },
+    {
+     "variant": "B",
+     "xato": "Fe³⁺ — sarg'ish"
+    },
+    {
+     "variant": "D",
+     "xato": "moslashuvlar chalkash"
+    }
+   ],
+   "yechim": "Cu²⁺ ko'k; Fe²⁺ och yashil; Fe³⁺ sarg'ish-qo'ng'ir — d-metallarning «vizit kartasi».",
+   "parametrlar": {
+    "arch": "ion_rang_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fe₂O₃ + 2Al → Al₂O₃ + 2Fe (alyumotermiya). 32 g temir(III) oksididan necha gramm temir olinadi? (M: Fe₂O₃=160, Fe=56)",
+   "variantlar": [
+    "11,2 g",
+    "22,4 g",
+    "32 g",
+    "44,8 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "massa saqlanmaydi bu holda"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "n = 0,2 mol → n(Fe) = 0,4 → m = 22,4 g.",
+   "parametrlar": {
+    "arch": "termit_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Al va Cu dan iborat 10 g aralashmaga ortiqcha NaOH eritmasi ta'sir ettirilganda 3,36 L (n.sh.) gaz ajraldi. Aralashmadagi mis massasini toping. (M(Al)=27)",
+   "variantlar": [
+    "2,7 g",
+    "10 g",
+    "7,3 g",
+    "5 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu Al massasi"
+    },
+    {
+     "variant": "B",
+     "xato": "Cu ishqorda erimaydi, lekin Al eridi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz yarim"
+    }
+   ],
+   "yechim": "Faqat Al eriydi: n(H₂) = 0,15 → n(Al) = 0,1 → 2,7 g → m(Cu) = 10 − 2,7 = 7,3 g.",
+   "parametrlar": {
+    "arch": "al_cu_aralashma"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Yonayotgan magniyni SUV bilan o'chirish mumkin emas. Sababi nimada?",
+   "variantlar": [
+    "suv magniyni sovutolmaydi",
+    "qizigan Mg suv bilan reaksiyaga kirishib, yonuvchan H₂ ajratadi",
+    "magniy suvda eriydi",
+    "suv alangani kuchaytirmaydi ham, o'chirmaydi ham"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gap sovutishda emas — kimyoviy xavfda"
+    },
+    {
+     "variant": "C",
+     "xato": "erish emas, reaksiya boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — portlash xavfini oshiradi"
+    }
+   ],
+   "yechim": "Mg + H₂O(bug') → MgO + H₂↑ — olov yanada avjlanadi. Quruq qum bilan o'chiriladi.",
+   "parametrlar": {
+    "arch": "mg_suv_xavf"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Vaqtinchalik qattiqlikni yo'qotishning «ohak usuli» qaysi reaksiyaga asoslangan?",
+   "variantlar": [
+    "Ca(HCO₃)₂ + HCl → ...",
+    "Ca(HCO₃)₂ + NaCl → ...",
+    "Ca(OH)₂ + CO₂ → ...",
+    "Ca(HCO₃)₂ + Ca(OH)₂ → 2CaCO₃↓ + 2H₂O"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislota qattiqlikni YO'QOTMAYDI, tuzni eritadi"
+    },
+    {
+     "variant": "B",
+     "xato": "reaksiya belgisi yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "bu ohakli suv sinovi, yumshatish emas"
+    }
+   ],
+   "yechim": "Hisoblangan miqdorda ohak qo'shilsa, barcha kalsiy karbonat holida cho'kadi.",
+   "parametrlar": {
+    "arch": "ohak_usuli"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fe → FeCl₂ → Fe(OH)₂ → Fe(OH)₃ zanjiridagi temirning oksidlanish darajalarini jadvalga mos to'ldiring:\n[JADVAL] Modda | Fe darajasi ;; Fe | 0 ;; FeCl₂ | ? ;; Fe(OH)₂ | ? ;; Fe(OH)₃ | ?",
+   "variantlar": [
+    "+2; +3; +3",
+    "+3; +2; +3",
+    "+2; +2; +2",
+    "+2; +2; +3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Fe(OH)₂ da hali +2"
+    },
+    {
+     "variant": "B",
+     "xato": "HCl bilan +2 hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "havoda oksidlanib +3 ga o'tadi"
+    }
+   ],
+   "yechim": "Fe(OH)₂ havo kislorodida qo'ng'ir Fe(OH)₃ ga o'tadi: 4Fe(OH)₂ + O₂ + 2H₂O → 4Fe(OH)₃.",
+   "parametrlar": {
+    "arch": "fe_daraja_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "25 g mis kuporosi (CuSO₄·5H₂O) tarkibidagi suvsiz tuz massasini toping. (M: CuSO₄·5H₂O=250, CuSO₄=160)",
+   "variantlar": [
+    "16 g",
+    "25 g",
+    "9 g",
+    "8 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suv chegirilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "bu suv massasi"
+    },
+    {
+     "variant": "D",
+     "xato": "0,05 mol deb olingan"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(CuSO₄) = 16 g.",
+   "parametrlar": {
+    "arch": "kuporos_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Po'lat bilan cho'yanning asosiy farqi nimada?",
+   "variantlar": [
+    "uglerod miqdorida: po'latda 2 % dan kam, cho'yanda ko'p",
+    "po'latda temir yo'q",
+    "cho'yan sof temir",
+    "po'lat — mis qotishmasi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkalasining asosi — temir"
+    },
+    {
+     "variant": "C",
+     "xato": "aksincha, C ko'proq"
+    },
+    {
+     "variant": "D",
+     "xato": "mis qotishmalari — bronza, latun"
+    }
+   ],
+   "yechim": "C kam — plastik po'lat; C ko'p (2–4 %) — qattiq, mo'rt cho'yan.",
+   "parametrlar": {
+    "arch": "polat_choyan"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "8,1 g alyuminiy ortiqcha ishqor eritmasida to'liq eridi. Ajralgan vodorod hajmini (n.sh.) toping. (M(Al)=27)",
+   "variantlar": [
+    "6,72 L",
+    "22,4 L",
+    "3,36 L",
+    "10,08 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 3/2 unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol Al uchun qiymat"
+    }
+   ],
+   "yechim": "n(Al) = 0,3 → n(H₂) = 0,45 mol → V = 10,08 L.",
+   "parametrlar": {
+    "arch": "al_ishqor_katta"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Buyumlarni xromlash (Cr qoplash) qanday maqsadda qilinadi?",
+   "variantlar": [
+    "korroziyadan himoya va qattiq yaltiroq yuza olish",
+    "massani oshirish uchun",
+    "elektr o'tkazishni to'xtatish uchun",
+    "faqat rang berish uchun"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qoplama juda yupqa"
+    },
+    {
+     "variant": "C",
+     "xato": "Cr o'tkazgich"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiysi himoya va yeyilishga chidam"
+    }
+   ],
+   "yechim": "Xrom — qattiq, zanglamaydigan qoplama: santexnika, asboblar, detallar.",
+   "parametrlar": {
+    "arch": "xromlash"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda alyumotermiya jarayoni: relslarni payvandlash uchun tigeldagi Fe₂O₃ + Al aralashmasi yondirilgan. Jarayonning qaysi xususiyati relslarni ulashga imkon beradi?",
+   "variantlar": [
+    "temir kukun holida hosil bo'ladi",
+    "alyuminiy relslarni yelimlaydi",
+    "reaksiya juda katta issiqlik berib, temir SUYUQ holda hosil bo'ladi",
+    "reaksiya sovuqda boradi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3000 °C atrofida — temir eriydi"
+    },
+    {
+     "variant": "B",
+     "xato": "Al oksidga o'tadi, «yelim» emas"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — o'ta ekzotermik"
+    }
+   ],
+   "yechim": "Fe₂O₃ + 2Al → Al₂O₃ + 2Fe + Q: suyuq temir chokka quyilib, relslarni biriktiradi.",
+   "parametrlar": {
+    "arch": "termit_oqish"
+   },
+   "fig": "termit"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Rux qoplangan temir tunuka nima deb ataladi va qoplamaning vazifasi nima?",
+   "variantlar": [
+    "bronza; bezak beradi",
+    "emal; issiqdan saqlaydi",
+    "nikel; magnitlaydi",
+    "galvanizatsiyalangan tunuka; temirni korroziyadan saqlaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bronza — qotishma, qoplama emas"
+    },
+    {
+     "variant": "B",
+     "xato": "emal — oksid qoplama, rux emas"
+    },
+    {
+     "variant": "C",
+     "xato": "rux magnit xossa bermaydi"
+    }
+   ],
+   "yechim": "Zn faolroq — «qurbon qoplama»: tirnalganda ham avval rux yemiriladi.",
+   "parametrlar": {
+    "arch": "galvanik_qoplama"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 L suvda 0,005 mol Ca²⁺ ioni bor. Suvning qattiqligini (mg-ekv/L) toping.",
+   "variantlar": [
+    "5",
+    "10",
+    "2,5",
+    "0,005"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Ca²⁺ ikki zaryadli: mmol × 2"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob teskari"
+    },
+    {
+     "variant": "D",
+     "xato": "birlik o'tkazilmagan"
+    }
+   ],
+   "yechim": "Qattiqlik = n(mmol/L) · zaryad = 5 · 2 = 10 mg-ekv/L — juda qattiq suv.",
+   "parametrlar": {
+    "arch": "qattiqlik_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi tuzlar keltirib chiqargan qattiqlik QAYNATISH bilan yo'qoladi?\n1) Ca(HCO₃)₂;  2) CaSO₄;  3) Mg(HCO₃)₂;  4) MgCl₂.",
+   "variantlar": [
+    "2 va 4",
+    "hammasi",
+    "faqat 1",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sulfat/xlorid — doimiy qattiqlik"
+    },
+    {
+     "variant": "B",
+     "xato": "CaSO₄, MgCl₂ qaynatishda cho'kmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "Mg(HCO₃)₂ ham parchalanadi"
+    }
+   ],
+   "yechim": "Faqat gidrokarbonatlar termik parchalanadi — vaqtinchalik qattiqlik.",
+   "parametrlar": {
+    "arch": "qaynatish_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fe va Cu dan iborat 12 g aralashma ortiqcha xlorid kislotaga solindi; 2,24 L (n.sh.) gaz ajraldi. Aralashmadagi mis massasini toping. (M(Fe)=56)",
+   "variantlar": [
+    "5,6 g",
+    "12 g",
+    "6,4 g",
+    "3,2 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu temir massasi"
+    },
+    {
+     "variant": "B",
+     "xato": "temir eridi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz yarim"
+    }
+   ],
+   "yechim": "Cu HCl da erimaydi: n(Fe) = n(H₂) = 0,1 → 5,6 g → m(Cu) = 6,4 g.",
+   "parametrlar": {
+    "arch": "fe_cu_aralashma_b"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "«So'ndirilgan» va «so'ndirilmagan» ohak mos ravishda qaysi moddalar?",
+   "variantlar": [
+    "Ca(OH)₂ va CaO",
+    "CaO va Ca(OH)₂",
+    "CaCO₃ va CaO",
+    "Ca(OH)₂ va CaCO₃"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "teskari"
+    },
+    {
+     "variant": "C",
+     "xato": "ohaktosh «ohak» emas"
+    },
+    {
+     "variant": "D",
+     "xato": "so'ndirilmagani — oksid"
+    }
+   ],
+   "yechim": "CaO + H₂O → Ca(OH)₂: suv bilan «so'ndiriladi».",
+   "parametrlar": {
+    "arch": "ohak_nomlari"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Al(OH)₃ dan natriy alyuminat olish uchun qaysi reagent va shart kerak?",
+   "variantlar": [
+    "suv bilan qaynatish",
+    "NaOH bilan suyuqlantirish (yoki ortiqcha konsentrlangan ishqor)",
+    "HCl qo'shish",
+    "NaCl eritmasi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suvda erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislota tuz (AlCl₃) beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "neytral tuz bilan reaksiya yo'q"
+    }
+   ],
+   "yechim": "Al(OH)₃ + NaOH → NaAlO₂ + 2H₂O (suyuqlanma) — amfoterlikning «kislotali» tomoni.",
+   "parametrlar": {
+    "arch": "alyuminat_olish"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Diagrammadagi quduq suvi (9 mg-ekv/L) ning 1 litrida necha mmol Ca²⁺ bo'lishi mumkin (barcha qattiqlik kalsiydan deb hisoblang)?",
+   "variantlar": [
+    "9",
+    "18",
+    "4,5",
+    "2,25"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "zaryadga bo'lish unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "ko'paytirish emas, bo'lish kerak"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "mg-ekv = mmol · 2 → mmol = 9/2 = 4,5.",
+   "parametrlar": {
+    "arch": "bar_qattiqlik_hisob_b"
+   },
+   "fig": "bar_hardness"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Mg(OH)₂ → MgO + H₂O. 5,8 g magniy gidroksid to'liq parchalanganda qolgan qattiq modda massasini toping. (M: Mg(OH)₂=58, MgO=40)",
+   "variantlar": [
+    "5,8 g",
+    "1,8 g",
+    "2 g",
+    "4 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv uchib chiqadi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu suv massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "0,05 mol deb olingan"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(MgO) = 4 g.",
+   "parametrlar": {
+    "arch": "mgoh2_parchalanish"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "5-savol grafigida egri nolga tushmay, past sathda TO'XTAB qoladi. Buning sababi nimada?",
+   "variantlar": [
+    "doimiy qattiqlik tuzlari (CaSO₄, MgCl₂) qaynatishda cho'kmaydi",
+    "qaynatish yetarli emas edi",
+    "suv tugab qoladi",
+    "asbob xatosi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qancha qaynatilmasin, sulfatlar cho'kmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "grafik konsentratsiya haqida"
+    },
+    {
+     "variant": "D",
+     "xato": "qonuniy hodisa — qattiqlik turi"
+    }
+   ],
+   "yechim": "Qaynatish faqat gidrokarbonatlarni yo'qotadi; qolgani — doimiy qattiqlik ulushi.",
+   "parametrlar": {
+    "arch": "qoldiq_qattiqlik"
+   },
+   "fig": "hardness_curve"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "(CuOH)₂CO₃ → 2CuO + H₂O + CO₂. 0,1 mol malaxit to'liq parchalanganda hosil bo'lgan qora modda massasini toping. (M(CuO)=80)",
+   "variantlar": [
+    "8 g",
+    "80 g",
+    "16 g",
+    "32 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(CuO) = 0,2 mol → m = 16 g.",
+   "parametrlar": {
+    "arch": "malaxit_hisob"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Xona haroratida SUYUQ holatda bo'lgan metall qaysi?",
+   "variantlar": [
+    "qalay",
+    "qo'rg'oshin",
+    "simob (Hg)",
+    "galliy"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "232 °C da suyuqlanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "327 °C"
+    },
+    {
+     "variant": "D",
+     "xato": "29,8 °C — kaftda eriydi, lekin xonada qattiq"
+    }
+   ],
+   "yechim": "Hg (t(suyuql.) = −39 °C) — termometrlarda ishlatilgan; bug'lari zaharli.",
+   "parametrlar": {
+    "arch": "suyuq_metall"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ca(HCO₃)₂ → CaCO₃ + H₂O + CO₂. 32,4 g kalsiy gidrokarbonat parchalanganda hosil bo'lgan cho'kma massasini toping. (M: Ca(HCO₃)₂=162, CaCO₃=100)",
+   "variantlar": [
+    "32,4 g",
+    "10 g",
+    "40 g",
+    "20 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gazlar chiqib ketadi"
+    },
+    {
+     "variant": "B",
+     "xato": "0,1 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,2 mol → m(CaCO₃) = 20 g.",
+   "parametrlar": {
+    "arch": "gidrokarbonat_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "19-savol jarayonida 5,4 g alyuminiy kukuni to'liq sarflandi. Hosil bo'lgan temir massasini toping. (Fe₂O₃ + 2Al → Al₂O₃ + 2Fe; M: Al=27, Fe=56)",
+   "variantlar": [
+    "5,6 g",
+    "22,4 g",
+    "5,4 g",
+    "11,2 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 2:2 = 1:1"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "C",
+     "xato": "M lar farqli"
+    }
+   ],
+   "yechim": "n(Al) = 0,2 → n(Fe) = 0,2 mol → m = 11,2 g.",
+   "parametrlar": {
+    "arch": "termit_hisob_rasm"
+   },
+   "fig": "termit"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.4",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "II.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "II.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch rangli eritma bor: X — ko'k; Y — sarg'ish-qo'ng'ir; Z — rangsiz, alangani g'isht-qizil rangga bo'yaydi. Eritmalar CuSO₄, FeCl₃ va CaCl₂ ekani ma'lum. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X eritmadagi tuz qaysi?",
+    "34. Y ga ishqor qo'shilganda qanday cho'kma tushadi?",
+    "35. Z eritmaga Na₂CO₃ qo'shilsa nima kuzatiladi?"
+   ],
+   "javoblar_royxati": [
+    "A) CuSO₄",
+    "B) qo'ng'ir Fe(OH)₃",
+    "C) oq cho'kma (CaCO₃)",
+    "D) FeCl₃",
+    "E) ko'k Cu(OH)₂",
+    "F) gaz ajralishi"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "sarg'ish rang — FeCl₃ (Y); ko'k esa mis tuzi"
+    },
+    {
+     "variant": "E",
+     "xato": "ko'k cho'kma X dan tushadi, Y dan emas"
+    },
+    {
+     "variant": "F",
+     "xato": "tuz + tuz almashinishida gaz emas, cho'kma kuzatiladi"
+    }
+   ],
+   "yechim": "Ko'k — CuSO₄ (A). Y (FeCl₃) + ishqor → Fe(OH)₃↓ qo'ng'ir (B). Z (CaCl₂) + Na₂CO₃ → CaCO₃↓ oq (C).",
+   "parametrlar": {
+    "arch": "uch_kation_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Mg va Al dan iborat 5,1 g aralashma ortiqcha xlorid kislotada eritilganda 5,6 L (n.sh.) vodorod ajraldi. Aralashmadagi alyuminiy massasini (g) toping. (M: Mg=24, Al=27)",
+   "javob": "2,7",
+   "yechim": "24x+27y = 5,1; x+1,5y = 0,25 → 9y = 0,9 → y = 0,1 mol → m(Al) = 2,7 g.",
+   "parametrlar": {
+    "arch": "mg_al_aralashma_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fe → FeCl₃ → Fe(OH)₃ → Fe₂O₃ zanjiri bo'yicha 11,2 g temirdan (yo'qotishsiz) olingan temir(III) oksid massasini (g) toping. (M: Fe=56, Fe₂O₃=160)",
+   "javob": "16",
+   "yechim": "n(Fe) = 0,2 → n(Fe₂O₃) = 0,1 mol → m = 16 g.",
+   "parametrlar": {
+    "arch": "fe_zanjir_o1"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi jarayon bo'yicha 16 g Fe₂O₃ dan alyumotermiya orqali olingan temir to'liq xlorid kislotada eritildi. Hosil bo'lgan tuz massasini (g) toping. (M: Fe₂O₃=160, FeCl₂=127)",
+   "javob": "25,4",
+   "yechim": "n(Fe) = 0,2 → FeCl₂ 0,2 mol → m = 25,4 g.",
+   "parametrlar": {
+    "arch": "sxema_termit_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "1 L quduq suvida 0,081 g Ca(HCO₃)₂ erigan. Suvning qattiqligini (mg-ekv/L) toping. (M(Ca(HCO₃)₂)=162)",
+   "javob": "1",
+   "yechim": "n = 0,5 mmol → qattiqlik = 0,5 · 2 = 1 mg-ekv/L.",
+   "parametrlar": {
+    "arch": "qattiqlik_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Al va Fe dan iborat 8,3 g aralashmaga ortiqcha NaOH eritmasi ta'sir ettirilganda 3,36 L (n.sh.) gaz ajraldi. Aralashmadagi temir massasini (g) toping. (M(Al)=27)",
+   "javob": "5,6",
+   "yechim": "Ishqorda faqat Al eriydi: n(H₂)=0,15 → n(Al)=0,1 → 2,7 g → m(Fe) = 5,6 g.",
+   "parametrlar": {
+    "arch": "al_fe_ishqor_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.4"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Quduq suvining 1 litrida 0,324 g Ca(HCO₃)₂ erigan. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Bu qanday turdagi qattiqlik? Sababi bilan yozing.",
+     "yechim": [
+      "Vaqtinchalik (karbonatli) — gidrokarbonat qaynatishda parchalanadi."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Suvning qattiqligini (mg-ekv/L) hisoblang. (M(Ca(HCO₃)₂)=162)",
+     "yechim": [
+      "n = 0,324/162 = 2 mmol → qattiqlik = 2·2 = 4 mg-ekv/L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 1 L suv qaynatilganda hosil bo'ladigan cho'kma massasini toping. (M(CaCO₃)=100)",
+     "yechim": [
+      "Ca(HCO₃)₂ → CaCO₃↓: n = 2 mmol → m = 0,2 g."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "d) Agar suvda CaSO₄ ham bo'lsa, uni qanday yo'qotish mumkin?",
+     "yechim": [
+      "Soda qo'shish: Ca²⁺ + CO₃²⁻ → CaCO₃↓ (yoki ion almashinuvchi filtrlar)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Qattiqlik zanjiri: tur → mg-ekv → cho'kma → doimiy usul; M15+A10.",
+   "parametrlar": {
+    "arch": "qattiqlik_o2_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Alyumotermiya jarayoni tahlil qilinadi: Fe₂O₃ + 2Al → Al₂O₃ + 2Fe. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega alyuminiy temirni uning oksididan siqib chiqara oladi? Jarayonning ekzotermikligi nimadan dalolat beradi? Batafsil tushuntiring.",
+     "yechim": [
+      "Al faollik qatorida Fe dan oldin — kislorodga «ochroq»: Al₂O₃ ning hosil bo'lish",
+      "issiqligi juda katta. Farq issiqlik sifatida ajraladi — harorat ~3000 °C ga yetadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega aralashma o'z-o'zidan yonib ketmaydi — maxsus yondirgich kerak?",
+     "yechim": [
+      "Aktivlanish energiyasi yuqori: jarayonni boshlash uchun mahalliy qizdirish kerak."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Alyumotermiyaning bitta amaliy qo'llanilishini yozing.",
+     "yechim": [
+      "Relslarni payvandlash (yoki qiyin qaytariladigan metallar — Cr, Mn olish)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Termit-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "termit_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Uch eritma jadvalda berilgan:\n[JADVAL] № | Eritma ;; 1 | CuSO₄ ;; 2 | FeCl₃ ;; 3 | CaCl₂\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir eritmaning rangini yozing.",
+     "yechim": [
+      "CuSO₄ — ko'k; FeCl₃ — sarg'ish-qo'ng'ir; CaCl₂ — rangsiz."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Har biriga NaOH qo'shilganda nima kuzatilishini tenglamalar bilan yozing.",
+     "yechim": [
+      "Cu(OH)₂↓ ko'k; Fe(OH)₃↓ qo'ng'ir; CaCl₂ bilan suyultirilgan eritmada deyarli o'zgarish yo'q (Ca(OH)₂ o'rtacha eriydi)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 3-eritmadagi kationni qanday aniqlash mumkin?",
+     "yechim": [
+      "Alanga testi (g'isht-qizil) yoki Na₂CO₃ bilan oq cho'kma."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "d) 0,1 mol CuSO₄ dan olinadigan Cu(OH)₂ massasini hisoblang. (M(Cu(OH)₂)=98)",
+     "yechim": [
+      "n = 0,1 mol → m = 9,8 g."
+     ],
+     "M": 3,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Kation-tahlil: rang → cho'kma → sinov → hisob; M15+A10.",
+   "parametrlar": {
+    "arch": "kation_tahlil_o2"
+   }
+  }
+ ]
+}
