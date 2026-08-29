@@ -157,7 +157,27 @@ def fig_lattice():
             '<rect x="140" y="24" width="94" height="72" fill="none" stroke="#8a9aa5" stroke-width="1" stroke-dasharray="4,3"/>'
             '<text x="160" y="110" class="lb" font-weight="bold">2-panjara</text></svg>')
 
-FIGS = dict(salt=fig_salt, pencil=fig_pencil, snowflake=fig_snowflake, wire=fig_wire,
+
+def fig_molecule():
+    """Tuzilish formulasi: HC≡C–CH=CH2, bog'lar belgilangan."""
+    return ('<svg width="250" height="96" viewBox="0 0 250 96">'
+            '<style>.lb{font-size:9px;font-family:Georgia,serif;fill:#12222e}'
+            '.fm{font-size:13px;font-family:Georgia,serif;fill:#12222e;font-weight:bold}</style>'
+            '<text x="18" y="46" class="fm">H–C</text>'
+            '<line x1="52" y1="38" x2="76" y2="38" stroke="#12222e" stroke-width="1.6"/>'
+            '<line x1="52" y1="42" x2="76" y2="42" stroke="#12222e" stroke-width="1.6"/>'
+            '<line x1="52" y1="46" x2="76" y2="46" stroke="#12222e" stroke-width="1.6"/>'
+            '<text x="80" y="46" class="fm">C–CH</text>'
+            '<line x1="128" y1="39" x2="152" y2="39" stroke="#12222e" stroke-width="1.6"/>'
+            '<line x1="128" y1="44" x2="152" y2="44" stroke="#12222e" stroke-width="1.6"/>'
+            '<text x="156" y="46" class="fm">CH\u2082</text>'
+            '<text x="52" y="64" class="lb">uch bog\'</text>'
+            '<text x="120" y="64" class="lb">qo\'sh bog\'</text>'
+            '<line x1="196" y1="80" x2="40" y2="80" stroke="#b03a2e" stroke-width="1.6"/>'
+            '<polygon points="36,80 44,76 44,84" fill="#b03a2e"/>'
+            '<text x="86" y="92" class="lb" fill="#b03a2e" font-weight="bold">o\'qish yo\'nalishi</text></svg>')
+
+FIGS = dict(salt=fig_salt, molecule=fig_molecule, pencil=fig_pencil, snowflake=fig_snowflake, wire=fig_wire,
             em_axis=fig_em_axis, lattice=fig_lattice)
 
 def table_from_markup(text):
@@ -286,7 +306,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

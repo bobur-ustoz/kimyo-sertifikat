@@ -616,7 +616,7 @@
    "element": "I.8",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "1 l eritmada 0,2 mol HCl va 0,1 mol NaOH aralashtirildi. Hosil bo'lgan eritmaning pH ini toping.",
+   "savol": "Rasmdagi titrlash qurilmasida kolbadagi 1 l eritmada 0,2 mol HCl bor; byuretkadan unga jami 0,1 mol NaOH quyildi. Hosil bo'lgan eritmaning pH ini toping.",
    "variantlar": [
     "7",
     "13",
@@ -641,7 +641,8 @@
    "yechim": "H⁺ qoldiq = 0,2 − 0,1 = 0,1 mol → [H⁺] = 0,1 → pH = 1.",
    "parametrlar": {
     "arch": "aralash_ph"
-   }
+   },
+   "fig": "burette"
   },
   {
    "n": 20,

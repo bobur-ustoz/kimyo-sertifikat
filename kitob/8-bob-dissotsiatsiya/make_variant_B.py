@@ -190,11 +190,12 @@ q(2, "yuqori",
 # 19 (3) — aralashtirish pH
 check("q19", (0.2-0.1)/1, 0.1)
 q(3, "yuqori",
-  "1 l eritmada 0,2 mol HCl va 0,1 mol NaOH aralashtirildi. Hosil bo'lgan eritmaning pH ini toping.",
+  "Rasmdagi titrlash qurilmasida kolbadagi 1 l eritmada 0,2 mol HCl bor; byuretkadan unga jami "
+  "0,1 mol NaOH quyildi. Hosil bo'lgan eritmaning pH ini toping.",
   "1", [("7", "kislota ortiqcha qolganini e'tiborsiz"), ("13", "ishqor ortiqcha deb olingan"),
          ("2", "qoldiq 0,01 M deb olingan")],
   "H⁺ qoldiq = 0,2 − 0,1 = 0,1 mol → [H⁺] = 0,1 → pH = 1.",
-  dict(arch="aralash_ph"))
+  dict(arch="aralash_ph"), fig="burette")
 
 # 20 (2) — alfa ta'rifi
 q(2, "yuqori",

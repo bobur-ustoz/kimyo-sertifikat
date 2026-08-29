@@ -30,11 +30,11 @@ q(3, "yuqori",
 # 2 (3) — hajm-zichlik tuzog'i
 check("q2", 100*44/(2000*1.1), 2)
 q(3, "yuqori",
-  "Hajmi 2 litr, zichligi 1,1 g/ml bo'lgan eritmada 44 g tuz erigan. Tuzning massa ulushini (%) toping.",
+  "Rasmdagi areometr eritmaning zichligini ko'rsatib turibdi. Hajmi 2 litr bo'lgan shu eritmada 44 g tuz erigan. Tuzning massa ulushini (%) toping.",
   "2", [("2,2", "zichlik hisobga olinmagan (44/2000)"), ("4,4", "eritma 1 litr deb olingan"),
          ("0,02", "foizga o'tkazilmagan")],
   "m(eritma) = 2000·1,1 = 2200 g; ω = 44/2200 · 100% = 2%.",
-  dict(arch="hajm_zichlik", V=2000, rho=1.1, tuz=44))
+  dict(arch="hajm_zichlik", V=2000, rho=1.1, tuz=44), fig="areometer")
 
 # 3 (2) — teskari
 check("q3", 45/0.15 - 45, 255)

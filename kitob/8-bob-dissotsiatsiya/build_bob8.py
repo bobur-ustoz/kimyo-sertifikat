@@ -165,7 +165,26 @@ def fig_pool():
             f'<path d="M72,44 v10" stroke="{R1}" stroke-width="1.4" stroke-dasharray="3,2"/>'
             '<text x="60" y="114" class="lb" font-weight="bold">basseyn suvi: pH 7,2–7,6 nazoratda</text></svg>')
 
-FIGS = dict(cond_curve=fig_cond_curve, ph_bars=fig_ph_bars, ph_scale=fig_ph_scale,
+
+def fig_burette():
+    """Titrlash: shtativdagi byuretka + konussimon kolba (pushti-qizil)."""
+    return ('<svg width="200" height="150" viewBox="0 0 200 150">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#6d1b45}</style>'
+            '<rect x="30" y="8" width="6" height="132" fill="#8a9aa5"/>'
+            '<rect x="18" y="138" width="70" height="6" rx="2" fill="#8a9aa5"/>'
+            '<line x1="36" y1="30" x2="66" y2="30" stroke="#8a9aa5" stroke-width="4"/>'
+            '<rect x="64" y="10" width="10" height="74" rx="3" fill="#fdf5f8" stroke="#6d1b45" stroke-width="1.6"/>'
+            '<rect x="66" y="12" width="6" height="40" fill="#c9dff0"/>'
+            + "".join(f'<line x1="64" y1="{18+i*10}" x2="68" y2="{18+i*10}" stroke="#6d1b45" stroke-width="0.8"/>' for i in range(7))
+            + '<polygon points="66,84 72,84 69,94" fill="#fdf5f8" stroke="#6d1b45" stroke-width="1.2"/>'
+            '<circle cx="69" cy="100" r="1.6" fill="#c9dff0"/>'
+            '<path d="M56,132 l13,-26 l13,26 q-13,8 -26,0 z" fill="#fdf5f8" stroke="#c2185b" stroke-width="1.8"/>'
+            '<path d="M60,128 q9,5 18,0 l-4,-9 q-5,3 -10,0 z" fill="#f4b8cd" opacity="0.8"/>'
+            '<text x="92" y="24" class="lb" font-weight="bold">byuretka: NaOH</text>'
+            '<text x="92" y="120" class="lb" font-weight="bold">kolba: HCl +</text>'
+            '<text x="92" y="132" class="lb">indikator</text></svg>')
+
+FIGS = dict(cond_curve=fig_cond_curve, burette=fig_burette, ph_bars=fig_ph_bars, ph_scale=fig_ph_scale,
             soap=fig_soap, flower=fig_flower, stomach=fig_stomach, pool=fig_pool)
 
 def table_from_markup(text):
@@ -294,7 +313,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

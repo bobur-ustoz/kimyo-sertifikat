@@ -197,7 +197,23 @@ def fig_bar_alkan():
             + bars + '<line x1="40" y1="126" x2="244" y2="126" stroke="#4a235a" stroke-width="1.5"/>'
             '<text x="6" y="14" class="lb">n(e), mol</text></svg>')
 
-FIGS = dict(apple=fig_apple, bar_alkan=fig_bar_alkan,  firework=fig_firework, fence=fig_fence, battery=fig_battery,
+
+def fig_gasrig():
+    """Gaz olish qurilmasi: kolba + tomchi voronka + naycha + yig'ish silindri (binafsha)."""
+    return ('<svg width="260" height="132" viewBox="0 0 260 132">'
+            '<style>.lb{font-size:8.4px;font-family:Georgia,serif;fill:#4a235a}</style>'
+            '<path d="M46,58 q-20,44 12,52 q34,8 44,-16 q6,-18 -8,-36 z" fill="#faf6fd" stroke="#4a235a" stroke-width="1.8"/>'
+            '<rect x="58" y="94" width="30" height="12" fill="#c9b3d8" opacity="0.7"/>'
+            '<text x="52" y="90" class="lb">KMnO\u2084</text>'
+            '<path d="M62,58 v-22 h-6 l10,-14 l10,14 h-6 v22" fill="#fff" stroke="#4a235a" stroke-width="1.4"/>'
+            '<text x="16" y="26" class="lb">HCl (kons.)</text>'
+            '<line x1="88" y1="62" x2="170" y2="46" stroke="#4a235a" stroke-width="2.2"/>'
+            '<rect x="176" y="40" width="40" height="76" rx="4" fill="#faf6fd" stroke="#4a235a" stroke-width="1.8"/>'
+            '<rect x="178" y="42" width="36" height="34" fill="#cdd94b" opacity="0.5"/>'
+            '<text x="222" y="60" class="lb" font-weight="bold" fill="#6c3483">Cl\u2082</text>'
+            '<text x="46" y="128" class="lb" font-weight="bold">gaz olish qurilmasi (mo\'rili shkafda!)</text></svg>')
+
+FIGS = dict(apple=fig_apple, gasrig=fig_gasrig, bar_alkan=fig_bar_alkan,  firework=fig_firework, fence=fig_fence, battery=fig_battery,
             activity=fig_activity, e_graph=fig_e_graph, cu_hno3=fig_cu_hno3)
 
 def table_from_markup(text):
@@ -326,7 +342,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

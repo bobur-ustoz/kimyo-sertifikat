@@ -368,10 +368,10 @@ O1 = [
       javob="6", yechim="Daraja +4 dan −2 gacha pasaydi: 4 − (−2) = 6 e.",
       parametrlar=dict(arch="e_farq")),
  dict(n=37, qiyinlik=3, kognitiv="yuqori",
-      savol="2KMnO₄ + 16HCl → 2KCl + 2MnCl₂ + 5Cl₂ + 8H₂O. 0,1 mol KMnO₄ dan olinadigan xlorning "
-            "hajmini (l, n.sh.) toping.",
+      savol="Rasmdagi qurilmada xlor olinmoqda: 2KMnO₄ + 16HCl → 2KCl + 2MnCl₂ + 5Cl₂ + 8H₂O. "
+            "Kolbaga 0,1 mol KMnO₄ solingan. Olinadigan xlorning hajmini (l, n.sh.) toping.",
       javob="5,6", yechim="Cl₂ = 0,1·5/2 = 0,25 mol → 0,25·22,4 = 5,6 l.",
-      parametrlar=dict(arch="hajm_cl2")),
+      parametrlar=dict(arch="hajm_cl2"), fig="gasrig"),
  dict(n=38, qiyinlik=3, kognitiv="yuqori",
       savol="6,2 g fosfor konsentrlangan nitrat kislotada H₃PO₄ gacha oksidlandi (P − 5e). Ajralgan "
             "NO₂ ning hajmini (l, n.sh.) toping. (M(P)=31)",

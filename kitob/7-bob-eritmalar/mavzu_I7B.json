@@ -47,7 +47,7 @@
    "element": "I.7",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "Hajmi 2 litr, zichligi 1,1 g/ml bo'lgan eritmada 44 g tuz erigan. Tuzning massa ulushini (%) toping.",
+   "savol": "Rasmdagi areometr eritmaning zichligini ko'rsatib turibdi. Hajmi 2 litr bo'lgan shu eritmada 44 g tuz erigan. Tuzning massa ulushini (%) toping.",
    "variantlar": [
     "2,2",
     "4,4",
@@ -75,7 +75,8 @@
     "V": 2000,
     "rho": 1.1,
     "tuz": 44
-   }
+   },
+   "fig": "areometer"
   },
   {
    "n": 3,

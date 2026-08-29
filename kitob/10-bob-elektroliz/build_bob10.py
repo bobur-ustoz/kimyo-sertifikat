@@ -315,7 +315,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

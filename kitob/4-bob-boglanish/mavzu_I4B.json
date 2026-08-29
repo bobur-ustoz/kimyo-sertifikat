@@ -837,7 +837,7 @@
    "element": "I.4",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "HC≡C–CH=CH₂ molekulasidagi uglerod–uglerod bog' uzunligi O'NGDAN CHAPGA tomon qanday o'zgaradi?",
+   "savol": "Rasmda molekulaning tuzilish formulasi berilgan. Undagi uglerod–uglerod bog' uzunligi O'NGDAN CHAPGA tomon qanday o'zgaradi?",
    "variantlar": [
     "ortadi; kamayadi",
     "kamayadi; kamayadi",
@@ -862,7 +862,8 @@
    "yechim": "O'ngdan: C=C (0,134) → C–C (0,146) ortadi → C≡C (0,120) keskin kamayadi.",
    "parametrlar": {
     "arch": "zanjir_uzunlik"
-   }
+   },
+   "fig": "molecule"
   },
   {
    "n": 27,

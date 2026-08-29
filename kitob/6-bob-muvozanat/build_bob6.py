@@ -224,7 +224,31 @@ def fig_bar_kontakt():
             + bars + '<line x1="40" y1="130" x2="230" y2="130" stroke="#1b4332" stroke-width="1.4"/>'
             '<text x="8" y="16" class="lb">n, mol</text></svg>')
 
-FIGS = dict(ct_eq=fig_ct_eq, bar_kontakt=fig_bar_kontakt,  vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2,
+
+def fig_manometer():
+    """Manometrli yopiq kolba (yashil palitra)."""
+    import math
+    ticks=""
+    for i in range(7):
+        a=(150-i*20)*math.pi/180
+        x1,y1=178+16*math.cos(a),40-16*math.sin(a)
+        x2,y2=178+21*math.cos(a),40-21*math.sin(a)
+        ticks+=f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b4332" stroke-width="1"/>'
+    return ('<svg width="230" height="130" viewBox="0 0 230 130">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#1b4332}</style>'
+            '<circle cx="90" cy="82" r="34" fill="#f4faf5" stroke="#1b4332" stroke-width="2"/>'
+            '<rect x="82" y="34" width="16" height="18" fill="#f4faf5" stroke="#1b4332" stroke-width="2"/>'
+            '<circle cx="90" cy="86" r="24" fill="#b9770e" opacity="0.25"/>'
+            '<text x="76" y="88" class="lb" font-weight="bold">N\u2082O\u2084</text>'
+            '<line x1="98" y1="40" x2="152" y2="40" stroke="#1b4332" stroke-width="2.4"/>'
+            '<circle cx="178" cy="40" r="24" fill="#fff" stroke="#1b4332" stroke-width="2"/>'
+            + ticks +
+            '<line x1="178" y1="40" x2="188" y2="26" stroke="#1e8449" stroke-width="2.2" stroke-linecap="round"/>'
+            '<circle cx="178" cy="40" r="2.4" fill="#1e8449"/>'
+            '<text x="160" y="74" class="lb" font-weight="bold">manometr</text>'
+            '<text x="40" y="126" class="lb" font-weight="bold">yopiq kolba (T = const)</text></svg>')
+
+FIGS = dict(ct_eq=fig_ct_eq, manometer=fig_manometer, bar_kontakt=fig_bar_kontakt,  vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2,
             piston=fig_piston)
 
 def table_from_markup(text):
@@ -353,7 +377,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

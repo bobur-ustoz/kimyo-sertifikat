@@ -265,13 +265,14 @@ q(3, "yuqori",
 
 # 26 (3) — uglerod zanjiri uzunliklari
 q(3, "yuqori",
-  "HC≡C–CH=CH₂ molekulasidagi uglerod–uglerod bog' uzunligi O'NGDAN CHAPGA tomon qanday o'zgaradi?",
+  "Rasmda molekulaning tuzilish formulasi berilgan. Undagi uglerod–uglerod bog' uzunligi "
+  "O'NGDAN CHAPGA tomon qanday o'zgaradi?",
   "ortadi; kamayadi",
   [("kamayadi; kamayadi", "C=C dan C–C ga o'tishda uzunlik ortadi"),
    ("ortadi; ortadi", "oxirida C≡C — eng qisqa bog'"),
    ("kamayadi; ortadi", "tartib teskari")],
   "O'ngdan: C=C (0,134) → C–C (0,146) ortadi → C≡C (0,120) keskin kamayadi.",
-  dict(arch="zanjir_uzunlik"))
+  dict(arch="zanjir_uzunlik"), fig="molecule")
 
 # 27 (3) — jadvaldan qutblilik tartibi
 q(3, "yuqori",

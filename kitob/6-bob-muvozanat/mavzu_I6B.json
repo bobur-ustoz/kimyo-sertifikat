@@ -779,7 +779,7 @@
    "element": "I.6",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "Yopiq idishda 1 mol N₂O₄ ning 25 % i NO₂ ga parchalanib muvozanat qaror topdi (T = const). Idishdagi bosim boshlang'ichiga nisbatan necha marta ortadi?",
+   "savol": "Rasmdagi manometrli yopiq kolbada 1 mol N₂O₄ ning 25 % i NO₂ ga parchalanib muvozanat qaror topdi (T = const). Manometr ko'rsatishi boshlang'ichiga nisbatan necha marta ortadi?",
    "variantlar": [
     "1,5",
     "1,25",
@@ -805,7 +805,8 @@
    "parametrlar": {
     "arch": "mol_ortish",
     "alfa": 0.25
-   }
+   },
+   "fig": "manometer"
   },
   {
    "n": 24,

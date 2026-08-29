@@ -210,7 +210,23 @@ def fig_bar_qoldiq():
             + bars + '<line x1="40" y1="128" x2="240" y2="128" stroke="#6e4b1f" stroke-width="1.5"/>'
             '<text x="8" y="16" class="lb">m, g</text></svg>')
 
-FIGS = dict(solubility_curve=fig_solubility_curve, bar_qoldiq=fig_bar_qoldiq,  beaker_sat=fig_beaker_sat, beakers3=fig_beakers3,
+
+def fig_areometer():
+    """Areometr silindrda: zichlik 1,10 g/ml ko'rsatmoqda (apelsin palitra)."""
+    return ('<svg width="180" height="150" viewBox="0 0 180 150">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#6e4b1f}</style>'
+            '<rect x="56" y="22" width="52" height="112" rx="6" fill="#fdf9f3" stroke="#6e4b1f" stroke-width="1.8"/>'
+            '<rect x="58" y="44" width="48" height="88" fill="#f5d9a8" opacity="0.75"/>'
+            '<line x1="56" y1="44" x2="108" y2="44" stroke="#ca6f1e" stroke-width="1.2"/>'
+            '<ellipse cx="82" cy="112" rx="9" ry="16" fill="#fff" stroke="#8a6a3a" stroke-width="1.4"/>'
+            '<rect x="79" y="30" width="6" height="70" rx="3" fill="#fff" stroke="#8a6a3a" stroke-width="1.2"/>'
+            + "".join(f'<line x1="80" y1="{38+i*8}" x2="84" y2="{38+i*8}" stroke="#8a6a3a" stroke-width="0.8"/>' for i in range(7))
+            + '<line x1="78" y1="54" x2="86" y2="54" stroke="#ca6f1e" stroke-width="1.6"/>'
+            '<text x="112" y="57" class="lb" font-weight="bold" fill="#ca6f1e">1,10 g/ml</text>'
+            '<text x="112" y="70" class="lb">suyuqlik sathi</text>'
+            '<text x="30" y="146" class="lb" font-weight="bold">areometr — zichlik o\'lchagich</text></svg>')
+
+FIGS = dict(solubility_curve=fig_solubility_curve, areometer=fig_areometer, bar_qoldiq=fig_bar_qoldiq,  beaker_sat=fig_beaker_sat, beakers3=fig_beakers3,
             jam=fig_jam, saltlake=fig_saltlake, aquarium=fig_aquarium, solubility_b=fig_solubility_b)
 
 def table_from_markup(text):
@@ -339,7 +355,10 @@ def render_variant(data, tag, star, izoh):
     H.append("<div class='sec' style='margin-top:4mm'>3-QISM · QISQA JAVOBLI SAVOLLAR <small>(36–40)</small></div>")
     for q in o1:
         H.append(f"<div class='q'><span class='qn'>{q['n']}.</span> {html.escape(q['savol'])} "
-                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span></div>")
+                 f"&nbsp; <i>Javob:</i> <span class='o1line'>&nbsp;</span>")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
+        H.append("</div>")
 
     H.append("<div class='sec' style='margin-top:4mm'>4-QISM · YOZMA ISH <small>(41–43 · har biri 25 ball)</small></div>")
     for q in o2:

@@ -243,12 +243,12 @@ q(3, "yuqori",
 # 23 (3) — mol ortishi / bosim
 check("q23", (1-0.25) + 2*0.25, 1.25)
 q(3, "yuqori",
-  "Yopiq idishda 1 mol N₂O₄ ning 25 % i NO₂ ga parchalanib muvozanat qaror topdi (T = const). "
-  "Idishdagi bosim boshlang'ichiga nisbatan necha marta ortadi?",
+  "Rasmdagi manometrli yopiq kolbada 1 mol N₂O₄ ning 25 % i NO₂ ga parchalanib muvozanat qaror "
+  "topdi (T = const). Manometr ko'rsatishi boshlang'ichiga nisbatan necha marta ortadi?",
   "1,25", [("1,5", "α=50% uchun qiymat"), ("2", "to'liq parchalanish deb olingan"),
             ("1,125", "NO₂ koeffitsiyenti unutilgan")],
   "Mollar: N₂O₄ 0,75 + NO₂ 0,5 = 1,25 mol → bosim 1,25 marta ortadi.",
-  dict(arch="mol_ortish", alfa=0.25))
+  dict(arch="mol_ortish", alfa=0.25), fig="manometer")
 
 # 24 (2) — choralar tanlovi (1-2-3-4 format)
 q(2, "yuqori",
