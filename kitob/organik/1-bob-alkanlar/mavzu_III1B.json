@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-III1-B",
+ "daraja": "B",
+ "bob": 1,
+ "bob_nomi": "Organik kimyo nazariyasi. Alkanlar",
+ "manba": "Tongotarov/DTM arxetiplari (zichlik/yonish/ω dan formula topish, izomerlar, xlorlash, aralashma) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi III.1",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★ (Organik kimyo kitobi): formula-detektiv masalalar, izomerlar sxemasi, aralashma yonishi.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Alkanlar haqidagi TO'G'RI fikrlarni tanlang:\n1) barcha bog'lari yakka (sigma);  2) bromli suvni rangsizlantiradi;  3) yorug'likda xlor bilan o'rin olish reaksiyasiga kirishadi;  4) umumiy formulasi CₙH₂ₙ₊₂.",
+   "variantlar": [
+    "hammasi",
+    "1 va 4",
+    "2 va 3",
+    "1, 3 va 4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bromli suvni alkENlar rangsizlantiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "xlorlash (radikal) ham alkanlarga xos"
+    },
+    {
+     "variant": "C",
+     "xato": "2 noto'g'ri"
+    }
+   ],
+   "yechim": "To'yingan: qo'shbog' yo'q — bromli suv sinoviga «befarq»; yorug'likda galogenlash boradi.",
+   "parametrlar": {
+    "arch": "alkan_fikr_tanlov"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Vodorodga nisbatan zichligi 22 bo'lgan alkanni aniqlang.",
+   "variantlar": [
+    "etan",
+    "butan",
+    "propan (C₃H₈)",
+    "metan"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 30, zichligi 15"
+    },
+    {
+     "variant": "B",
+     "xato": "M = 58, zichligi 29"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 16, zichligi 8"
+    }
+   ],
+   "yechim": "M = 22·2 = 44 → 14n + 2 = 44 → n = 3.",
+   "parametrlar": {
+    "arch": "zichlik_formula_b"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,1 mol uglevodorod yonganda 0,2 mol CO₂ va 0,3 mol H₂O hosil bo'ldi. Moddani aniqlang.",
+   "variantlar": [
+    "CH₄",
+    "C₂H₆ (etan)",
+    "C₃H₈",
+    "C₂H₄"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "unda CO₂ 0,1 mol bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "CO₂ 0,3 mol bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "unda H₂O 0,2 mol bo'lardi"
+    }
+   ],
+   "yechim": "C: 0,2/0,1 = 2; H: 0,6/0,1 = 6 → C₂H₆.",
+   "parametrlar": {
+    "arch": "yonish_formula"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Tarkibida 80 % uglerod bo'lgan alkanni aniqlang.",
+   "variantlar": [
+    "etan (C₂H₆)",
+    "metan",
+    "propan",
+    "butan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ω(C) = 75 %"
+    },
+    {
+     "variant": "C",
+     "xato": "ω(C) = 81,8 %"
+    },
+    {
+     "variant": "D",
+     "xato": "ω(C) = 82,8 %"
+    }
+   ],
+   "yechim": "C₂H₆: 24/30 = 80 %.",
+   "parametrlar": {
+    "arch": "omega_formula"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda C₅H₁₂ ning uch izomeri chizilgan. Qaysi izomerning qaynash harorati ENG PAST bo'ladi?",
+   "variantlar": [
+    "n-pentan",
+    "izopentan",
+    "neopentan — eng «sharsimon» molekula",
+    "hammasi teng"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "cho'ziq zanjir kuchliroq tortishadi — t eng yuqori"
+    },
+    {
+     "variant": "B",
+     "xato": "o'rtacha"
+    },
+    {
+     "variant": "D",
+     "xato": "shakl t(qayn.) ga ta'sir qiladi"
+    }
+   ],
+   "yechim": "Tarmoqlangan sari molekulalar «yopishishi» kamayadi: 36 °C → 28 °C → 9,5 °C.",
+   "parametrlar": {
+    "arch": "izomer_sxema_oqish"
+   },
+   "fig": "isomers"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metanning yorug'likdagi xlorlanishida BIRINCHI bosqich mahsuloti qaysi?",
+   "variantlar": [
+    "CCl₄ darhol",
+    "CH₄Cl",
+    "C va HCl",
+    "CH₃Cl (xlormetan) va HCl"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'liq almashinish — oxirgi bosqich"
+    },
+    {
+     "variant": "B",
+     "xato": "bunday birikma yo'q — H o'rin almashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "parchalanish bormaydi"
+    }
+   ],
+   "yechim": "CH₄ + Cl₂ → (yorug'lik) CH₃Cl + HCl — radikal O'RIN OLISH reaksiyasi.",
+   "parametrlar": {
+    "arch": "xlorlash_bosqich"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi juftliklar IZOMERLAR hisoblanadi?\n1) butan va 2-metilpropan;  2) etan va propan;  3) pentan va 2,2-dimetilpropan;  4) metan va etan.",
+   "variantlar": [
+    "2 va 4",
+    "hammasi",
+    "faqat 1",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bular gomologlar"
+    },
+    {
+     "variant": "B",
+     "xato": "2 va 4 — qator qo'shnilari"
+    },
+    {
+     "variant": "C",
+     "xato": "3 ham (ikkalasi C₅H₁₂)"
+    }
+   ],
+   "yechim": "Izomerlik sharti — bir xil molekulyar formula: C₄H₁₀ (1) va C₅H₁₂ (3).",
+   "parametrlar": {
+    "arch": "izomer_juft_tanlov"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Alkanlarda uglerod atomining gibridlanish turi qanday?",
+   "variantlar": [
+    "sp²",
+    "sp³",
+    "sp",
+    "gibridlanish yo'q"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "alkenlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "alkinlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "organikada bor"
+    }
+   ],
+   "yechim": "To'rt yakka bog' — tetraedrik sp³ (bog' burchagi 109°28′).",
+   "parametrlar": {
+    "arch": "sp3"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi formulalarni sinflari bilan TO'G'RI moslang:\n[JADVAL] Formula | Sinf ;; a) C₆H₁₄ | 1) sikloalkan ;; b) C₆H₁₂ | 2) alkan ;; c) C₆H₆ | 3) aren",
+   "variantlar": [
+    "a—2, b—1, c—3",
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—3, b—1, c—2"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "C₆H₁₄ = CₙH₂ₙ₊₂ — alkan"
+    },
+    {
+     "variant": "C",
+     "xato": "C₆H₆ — benzol (aren)"
+    },
+    {
+     "variant": "D",
+     "xato": "moslashuvlar chalkash"
+    }
+   ],
+   "yechim": "2n+2 → alkan; 2n → sikloalkan (yoki alken); C₆H₆ — benzol.",
+   "parametrlar": {
+    "arch": "sinf_moslash_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "11,2 L (n.sh.) butanning massasini toping. (M(C₄H₁₀)=58)",
+   "variantlar": [
+    "29 g",
+    "58 g",
+    "14,5 g",
+    "116 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "chorak mol emas"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,5 mol → m = 29 g.",
+   "parametrlar": {
+    "arch": "butan_massa_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,1 mol metan va 0,2 mol etan aralashmasi to'liq yondirildi. Hosil bo'lgan CO₂ ning umumiy mol miqdorini toping.",
+   "variantlar": [
+    "0,3",
+    "0,5",
+    "0,6",
+    "0,4"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etan har moli 2 CO₂ beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "metan ham qo'shiladi"
+    }
+   ],
+   "yechim": "n(CO₂) = 0,1·1 + 0,2·2 = 0,5 mol.",
+   "parametrlar": {
+    "arch": "aralash_yonish"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Vyurs reaksiyasi nima uchun ishlatiladi?",
+   "variantlar": [
+    "alkanni parchalash uchun",
+    "spirt olish uchun",
+    "galogenalkanlardan uzunroq zanjirli alkan olish uchun",
+    "alkanni to'yintirish uchun"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — zanjir ulanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "spirtlar boshqa yo'l bilan"
+    },
+    {
+     "variant": "D",
+     "xato": "alkan allaqachon to'yingan"
+    }
+   ],
+   "yechim": "2CH₃Cl + 2Na → C₂H₆ + 2NaCl — zanjirlar «tikiladi».",
+   "parametrlar": {
+    "arch": "vyurs"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2,2-dimetilbutan molekulasidagi uglerod atomlari sonini toping.",
+   "variantlar": [
+    "4",
+    "6",
+    "5",
+    "8"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy zanjir 4 + 2 metil"
+    },
+    {
+     "variant": "C",
+     "xato": "metillar ham uglerod"
+    },
+    {
+     "variant": "D",
+     "xato": "ortiqcha sanash"
+    }
+   ],
+   "yechim": "Butan zanjiri (4C) + ikkita metil (2C) = C₆H₁₄ — geksan izomeri.",
+   "parametrlar": {
+    "arch": "nom_dan_formula"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] n | Alkan | Izomerlar soni ;; 4 | butan | 2 ;; 5 | pentan | ? ;; 6 | geksan | ?",
+   "variantlar": [
+    "2; 4",
+    "3; 4",
+    "3; 5",
+    "4; 6"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pentanda 3 ta"
+    },
+    {
+     "variant": "B",
+     "xato": "geksanda 5 ta"
+    },
+    {
+     "variant": "D",
+     "xato": "ko'paytirib yuborilgan"
+    }
+   ],
+   "yechim": "C₅H₁₂ — 3 izomer; C₆H₁₄ — 5 izomer (soni tez o'sadi).",
+   "parametrlar": {
+    "arch": "izomer_soni_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "44,8 L (n.sh.) metan massasini va undagi uglerod massasini toping.",
+   "variantlar": [
+    "16 g; 12 g",
+    "32 g; 8 g",
+    "44,8 g; 24 g",
+    "32 g; 24 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2 mol bor"
+    },
+    {
+     "variant": "B",
+     "xato": "C: 2·12 = 24"
+    },
+    {
+     "variant": "C",
+     "xato": "hajm massa emas"
+    }
+   ],
+   "yechim": "n = 2 mol → m = 32 g; m(C) = 2·12 = 24 g.",
+   "parametrlar": {
+    "arch": "metan_c_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Alkanlarning tabiiy manbalari qaysilar?",
+   "variantlar": [
+    "faqat o'simliklar",
+    "suv va havo",
+    "faqat sun'iy sintez",
+    "tabiiy gaz va neft"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy manba — qazilmalar"
+    },
+    {
+     "variant": "B",
+     "xato": "ularda alkan yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "tabiiy zaxiralar ulkan"
+    }
+   ],
+   "yechim": "Tabiiy gaz — metan; neft — suyuq alkanlar ombori.",
+   "parametrlar": {
+    "arch": "tabiiy_manba"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CH₄ + Cl₂ → CH₃Cl + HCl. 0,1 mol metan birinchi bosqichda to'liq xlorlanganda hosil bo'lgan xlormetan massasini toping. (M(CH₃Cl)=50,5)",
+   "variantlar": [
+    "50,5 g",
+    "5,05 g",
+    "10,1 g",
+    "3,65 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "bu HCl massasi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m = 5,05 g.",
+   "parametrlar": {
+    "arch": "xlorlash_hisob"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Sikloalkanlarning eng sodda vakili qaysi?",
+   "variantlar": [
+    "siklometan",
+    "siklopropan (C₃H₆)",
+    "sikloetan",
+    "siklobutan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bir ugleroddan halqa bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki atomdan ham"
+    },
+    {
+     "variant": "D",
+     "xato": "u ikkinchi vakil"
+    }
+   ],
+   "yechim": "Halqa uchun kamida 3 uglerod kerak.",
+   "parametrlar": {
+    "arch": "siklopropan"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol rasmidagi 2-izomer (bitta metil tarmoqli) IUPAC bo'yicha qanday nomlanadi?",
+   "variantlar": [
+    "3-metilbutan",
+    "pentan",
+    "2-metilpentan",
+    "2-metilbutan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kichik raqam qoidasi"
+    },
+    {
+     "variant": "B",
+     "xato": "u to'g'ri zanjirli 1-izomer"
+    },
+    {
+     "variant": "C",
+     "xato": "asosiy zanjir 4 uglerodli"
+    }
+   ],
+   "yechim": "Asosiy zanjir — butan; CH₃ ikkinchi uglerodda.",
+   "parametrlar": {
+    "arch": "izomer_nomlash"
+   },
+   "fig": "isomers"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Metan «botqoq gazi» deb ham ataladi. Sababi nimada?",
+   "variantlar": [
+    "botqoqlarda organik qoldiqlar chirishida hosil bo'ladi",
+    "botqoq rangida bo'lgani uchun",
+    "faqat botqoqda uchraydi",
+    "botqoqni quritgani uchun"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "metan rangsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "asosiy manba — konlar"
+    },
+    {
+     "variant": "D",
+     "xato": "gaz suvni quritmaydi"
+    }
+   ],
+   "yechim": "Anaerob bakteriyalar faoliyati — pufakchalar ko'tarilib turadi.",
+   "parametrlar": {
+    "arch": "botqoq_gazi"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CH₄ + 2O₂ → CO₂ + 2H₂O. 11,2 L metan yonishi uchun 44,8 L havo-kisloroddan qancha kislorod ORTIB qoladi? (hajmlar n.sh.da, sof O₂ berilgan)",
+   "variantlar": [
+    "22,4 L",
+    "33,6 L",
+    "11,2 L",
+    "0 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "sarflangani 22,4 L"
+    },
+    {
+     "variant": "C",
+     "xato": "sarf ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "ortadi"
+    }
+   ],
+   "yechim": "Kerak: 2·11,2 = 22,4 L → ortadi: 44,8 − 22,4 = 22,4 L.",
+   "parametrlar": {
+    "arch": "ortiqcha_o2"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metandan sanoatda nimalar olinadi?\n1) vodorod (konversiya);  2) atsetilen (piroliz);  3) qurum (is qora);  4) sulfat kislota.",
+   "variantlar": [
+    "1, 2 va 3",
+    "hammasi",
+    "faqat 1",
+    "2 va 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "H₂SO₄ oltingugurtdan olinadi"
+    },
+    {
+     "variant": "C",
+     "xato": "2 va 3 ham sanoat jarayonlari"
+    },
+    {
+     "variant": "D",
+     "xato": "4 metanga aloqasiz"
+    }
+   ],
+   "yechim": "CH₄ → CO+3H₂; 2CH₄ → C₂H₂+3H₂ (1500 °C); CH₄ → C + 2H₂.",
+   "parametrlar": {
+    "arch": "metan_ishlatish_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metan va etan aralashmasi 8,96 L (n.sh.); yonishida jami 0,7 mol CO₂ hosil bo'ldi. Aralashmadagi etan mol miqdorini toping.",
+   "variantlar": [
+    "0,1",
+    "0,4",
+    "0,3",
+    "0,2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "x + 2y = 0,7; x+y = 0,4 → y = 0,3"
+    },
+    {
+     "variant": "B",
+     "xato": "bu jami mol"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "x+y = 0,4; x+2y = 0,7 → y = 0,3 mol etan.",
+   "parametrlar": {
+    "arch": "aralash_teskari_b"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi alkan xona haroratida SUYUQ holatda bo'ladi?",
+   "variantlar": [
+    "metan",
+    "propan",
+    "butan",
+    "geksan (C₆H₁₄)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gaz"
+    },
+    {
+     "variant": "B",
+     "xato": "gaz"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz (chegarada)"
+    }
+   ],
+   "yechim": "C₅ dan C₁₅ gacha — suyuqliklar (benzin-kerosin diapazoni).",
+   "parametrlar": {
+    "arch": "suyuq_alkan"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metanning konversiyasi (CH₄ + H₂O → CO + 3H₂) sanoatda nima uchun MUHIM?",
+   "variantlar": [
+    "kislorod olish uchun",
+    "ammiak sintezi va boshqa jarayonlar uchun vodorod beradi",
+    "metanni tozalash uchun",
+    "suvni tozalash uchun"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "reaksiyada O₂ yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "metan sarflanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "suv reagent"
+    }
+   ],
+   "yechim": "Dunyo vodorodining asosiy qismi aynan shu jarayondan olinadi.",
+   "parametrlar": {
+    "arch": "konversiya"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Grafikdan foydalaning: qaysi alkanlar qishda (−20 °C da) ham GAZ holatida qoladi?",
+   "variantlar": [
+    "metan, etan, propan",
+    "faqat metan",
+    "hammasi",
+    "hech qaysi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "etan (−89°) va propan (−42°) ham qaynab bo'lgan"
+    },
+    {
+     "variant": "C",
+     "xato": "butan −0,5 °C da qaynaydi — sovuqda suyuladi"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha"
+    }
+   ],
+   "yechim": "t(qayn.) < −20 °C bo'lganlar gazligicha qoladi; butan sovuqda suyulib, ballon «ishlamay» qoladi.",
+   "parametrlar": {
+    "arch": "bp_oqish_b"
+   },
+   "fig": "bp_alkan"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Teng mol miqdordagi propan va pentan aralashmasining 0,5 molida qancha massa bor? (M: C₃H₈=44, C₅H₁₂=72)",
+   "variantlar": [
+    "58 g",
+    "29 g",
+    "116 g",
+    "14,5 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol aralashma uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "chorak"
+    }
+   ],
+   "yechim": "0,25·44 + 0,25·72 = 11 + 18 = 29 g (o'rtacha M = 58).",
+   "parametrlar": {
+    "arch": "aralash_massa"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "5-savol rasmidagi uch izomer haqida qaysi fikr TO'G'RI?",
+   "variantlar": [
+    "formulalari har xil",
+    "xossalari bir xil",
+    "molekulyar formulalari bir xil (C₅H₁₂), xossalari farqli",
+    "ular gomologlar"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aynan bir xil — shu izomerlik"
+    },
+    {
+     "variant": "B",
+     "xato": "qaynash haroratlari farqli-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "gomologlar CH₂ ga farq qiladi"
+    }
+   ],
+   "yechim": "Izomerlik — «bitta formula, har xil modda» hodisasi.",
+   "parametrlar": {
+    "arch": "izomer_xulosa"
+   },
+   "fig": "isomers"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₄H₁₀ + 13/2O₂ → 4CO₂ + 5H₂O. 5,8 g butan yonganda hosil bo'lgan CO₂ hajmini (n.sh.) toping. (M(C₄H₁₀)=58)",
+   "variantlar": [
+    "8,96 L",
+    "2,24 L",
+    "22,4 L",
+    "4,48 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 4"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,1 → n(CO₂) = 0,4 mol → V = 8,96 L.",
+   "parametrlar": {
+    "arch": "butan_yonish_hisob"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "«Oktan soni» qaysi yoqilg'ining sifat ko'rsatkichi?",
+   "variantlar": [
+    "tabiiy gazning",
+    "ko'mirning",
+    "benzinning (detonatsiyaga chidamlilik)",
+    "spirtning"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gaz uchun boshqa ko'rsatkichlar"
+    },
+    {
+     "variant": "B",
+     "xato": "qattiq yoqilg'i"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiy qo'llanish benzinda"
+    }
+   ],
+   "yechim": "AI-95: izooktanning 95 % li aralashmasiga teng chidamlilik.",
+   "parametrlar": {
+    "arch": "oktan_soni"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "7,2 g pentan to'liq yonganda hosil bo'lgan CO₂ massasini toping. (M: C₅H₁₂=72, CO₂=44)",
+   "variantlar": [
+    "4,4 g",
+    "44 g",
+    "11 g",
+    "22 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 5"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol CO₂ massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,1 → n(CO₂) = 0,5 mol → m = 22 g.",
+   "parametrlar": {
+    "arch": "pentan_yonish_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Grafikdan: butan va propan qaynash haroratlari orasidagi farq taxminan qancha?",
+   "variantlar": [
+    "≈ 10 °C",
+    "≈ 90 °C",
+    "≈ 42 °C",
+    "0 °C"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "−0,5 − (−42) ≈ 41,5"
+    },
+    {
+     "variant": "B",
+     "xato": "bu boshqa juftlik"
+    },
+    {
+     "variant": "D",
+     "xato": "farq bor"
+    }
+   ],
+   "yechim": "−0,5 − (−42) = 41,5 ≈ 42 °C.",
+   "parametrlar": {
+    "arch": "bp_farq_b"
+   },
+   "fig": "bp_alkan"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.1",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.1",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "III.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "III.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch gazsimon alkan tekshirildi: X — vodorodga nisbatan zichligi 8; Y — vodorodga nisbatan zichligi 22; Z — 0,1 moli yonganda 0,4 mol CO₂ beradi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X gaz qaysi?",
+    "34. Y gazning formulasi qaysi?",
+    "35. Z gaz qaysi alkan?"
+   ],
+   "javoblar_royxati": [
+    "A) metan",
+    "B) C₃H₈",
+    "C) butan",
+    "D) etan",
+    "E) C₂H₆",
+    "F) pentan"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "etan zichligi 15 bo'lardi"
+    },
+    {
+     "variant": "E",
+     "xato": "M = 44 — bu propan"
+    },
+    {
+     "variant": "F",
+     "xato": "pentan 0,5 mol CO₂ berardi va u suyuq"
+    }
+   ],
+   "yechim": "X: M = 16 — metan (A). Y: M = 44 — propan (B). Z: 4 uglerodli — butan (C).",
+   "parametrlar": {
+    "arch": "uch_alkan_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Teng mol miqdordagi metan-etan aralashmasining vodorodga nisbatan zichligini toping. (M: CH₄=16, C₂H₆=30)",
+   "javob": "11,5",
+   "yechim": "O'rtacha M = (16+30)/2 = 23 → D(H₂) = 11,5.",
+   "parametrlar": {
+    "arch": "ortacha_zichlik_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.1"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,1 mol propan to'liq yonishi uchun kerak bo'ladigan HAVO mol miqdorini toping (havoda 21 % kislorod bor; C₃H₈ + 5O₂ → ...).",
+   "javob": "2,4",
+   "yechim": "n(O₂) = 0,5 mol → havo = 0,5/0,21 ≈ 2,4 mol — 10 mol ortig'i bilan yetadi.",
+   "parametrlar": {
+    "arch": "havo_hisob_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.1"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi jarayonda 6,72 L (n.sh.) noma'lum alkan yonib 0,9 mol CO₂ berdi. Alkanning molyar massasini (g/mol) toping.",
+   "javob": "44",
+   "yechim": "n = 0,3 mol; C soni = 0,9/0,3 = 3 → C₃H₈ → M = 44.",
+   "parametrlar": {
+    "arch": "sxema_formula_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "III.1"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4,48 L (n.sh.) etan to'liq yonganda hosil bo'lgan suvning massasini (g) toping. (2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O)",
+   "javob": "10,8",
+   "yechim": "n = 0,2 mol → n(H₂O) = 0,6 mol → m = 10,8 g.",
+   "parametrlar": {
+    "arch": "etan_suv_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.1"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Propan va noma'lum alkan X ning teng mol (0,1 moldan) aralashmasi 14,2 g keladi. X alkanning molyar massasini (g/mol) toping. (M(C₃H₈)=44)",
+   "javob": "98",
+   "yechim": "0,1·44 + 0,1·M = 14,2 → M = 98 — mos alkan C₇H₁₆ (geptan).",
+   "parametrlar": {
+    "arch": "aralash_m_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.1"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Uy pechida 8,96 L (n.sh.) metan yoqildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Yonish tenglamasini yozing va reaksiya turini ayting.",
+     "yechim": [
+      "CH₄ + 2O₂ → CO₂ + 2H₂O — ekzotermik oksidlanish."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Yonish uchun zarur kislorod hajmini (n.sh.) toping.",
+     "yechim": [
+      "n(CH₄) = 0,4 → n(O₂) = 0,8 mol → V = 17,92 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Bu kislorodni beradigan havo hajmini baholang (O₂ ≈ 21 %).",
+     "yechim": [
+      "V(havo) ≈ 17,92/0,21 ≈ 85 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega yopiq xonada gaz asbobi ishlatish xavfli? Ikki sabab yozing.",
+     "yechim": [
+      "Kislorod kamayadi; chala yonishda zaharli CO to'planadi."
+     ],
+     "M": 4,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Metan-havo zanjiri: tenglama → O₂ → havo → xavfsizlik; M15+A10.",
+   "parametrlar": {
+    "arch": "metan_havo_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Izomeriya hodisasining «kuchi» tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega uglerod atomlari soni ortishi bilan izomerlar soni «portlab» o'sadi (C₄ — 2 ta, C₁₀ — 75 ta, C₂₀ — 366 mingdan ortiq)?",
+     "yechim": [
+      "Har yangi uglerod zanjirga bir necha xil joyga «ulanishi» mumkin —",
+      "kombinatsiyalar soni ko'paytma qonuni bo'yicha keskin o'sadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Izomeriya benzin sifatiga qanday aloqador?",
+     "yechim": [
+      "Tarmoqlangan izomerlar (izooktan) detonatsiyaga chidamli — oktan soni yuqori."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) C₇H₁₆ uchun bitta tarmoqlangan izomer formulasini (nomini) yozing.",
+     "yechim": [
+      "Masalan, 2-metilgeksan (yoki 2,2-dimetilpentan)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Izomeriya-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "izomeriya_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Noma'lum gazsimon alkanning 0,02 moli yondirilganda 0,88 g CO₂ yig'ildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Hosil bo'lgan CO₂ mol miqdorini toping. (M(CO₂)=44)",
+     "yechim": [
+      "n(CO₂) = 0,88/44 = 0,02 mol."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Bir mol alkanga to'g'ri keladigan uglerod sonini aniqlang.",
+     "yechim": [
+      "0,02/0,02 = 1 → bitta uglerod."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Alkanning formulasi va nomini yozing.",
+     "yechim": [
+      "CH₄ — metan."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Shu alkan uchun izomerlar bormi? Sababini yozing.",
+     "yechim": [
+      "Yo'q — zanjir izomeriyasi kamida 4 uglerodda boshlanadi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Formula-detektiv: CO₂ → C soni → formula → izomeriya; M15+A10.",
+   "parametrlar": {
+    "arch": "formula_detektiv_o2"
+   }
+  }
+ ]
+}
