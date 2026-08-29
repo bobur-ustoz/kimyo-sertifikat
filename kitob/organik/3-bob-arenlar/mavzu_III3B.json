@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-III3-B",
+ "daraja": "B",
+ "bob": 3,
+ "bob_nomi": "Aromatik uglevodorodlar. Neft, gaz, ko'mir",
+ "manba": "Tongotarov/DTM arxetiplari (nitrolash, kreking balansi, trimer hisoblari, ksilol izomerlari) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi III.3",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★ (Organik kimyo kitobi).",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Benzol haqidagi TO'G'RI fikrlarni tanlang:\n1) barcha C–C bog'lari teng uzunlikda;  2) bromli suvni oson rangsizlantiradi;  3) katalizator ishtirokida Br₂ bilan o'rin olish beradi;  4) yuqori haroratda H₂ biriktira oladi.",
+   "variantlar": [
+    "1, 3 va 4",
+    "hammasi",
+    "1 va 2",
+    "faqat 1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "aromatik halqa Br₂ suvi bilan oddiy sharoitda kirishmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "2 noto'g'ri; 3-4 to'g'ri"
+    },
+    {
+     "variant": "D",
+     "xato": "katalitik o'rin olish va gidrogenlash ham bor"
+    }
+   ],
+   "yechim": "Aromatiklik: teng bog'lar; birikishga «qarshilik», katalitik o'rin olish oson.",
+   "parametrlar": {
+    "arch": "benzol_fikr_b"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Benzol nitrolanganda (HNO₃ + H₂SO₄) qanday mahsulot hosil bo'ladi?",
+   "variantlar": [
+    "anilin darhol",
+    "nitrobenzol (C₆H₅NO₂) va suv",
+    "benzol nitrat",
+    "fenol"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "anilin — nitrobenzolni QAYTARIB olinadi"
+    },
+    {
+     "variant": "C",
+     "xato": "bunday tuz yo'q — o'rin olish boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "u boshqa jarayon mahsuloti"
+    }
+   ],
+   "yechim": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O — «badam hidli» sariq suyuqlik.",
+   "parametrlar": {
+    "arch": "nitrolash"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₆H₆ + Br₂ → (FeBr₃) C₆H₅Br + HBr. 0,1 mol benzol to'liq bromlanganda hosil bo'lgan brombenzol massasini toping. (M(C₆H₅Br)=157)",
+   "variantlar": [
+    "157 g",
+    "15,7 g",
+    "7,85 g",
+    "8,1 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu HBr massasi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m = 15,7 g.",
+   "parametrlar": {
+    "arch": "brombenzol_hisob"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₁₆H₃₄ krekingida mahsulotlardan biri C₈H₁₈ bo'lsa, ikkinchisi qaysi?",
+   "variantlar": [
+    "C₈H₁₈ yana",
+    "C₈H₁₄",
+    "C₈H₁₆ (okten)",
+    "CH₄"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorodlar yig'indisi 36 bo'lib qoladi"
+    },
+    {
+     "variant": "B",
+     "xato": "H balansi buziladi (34 kerak)"
+    },
+    {
+     "variant": "D",
+     "xato": "uglerod balansi buziladi"
+    }
+   ],
+   "yechim": "C va H saqlanadi: 16=8+8; 34=18+16 → alkan + alken jufti.",
+   "parametrlar": {
+    "arch": "kreking_balans"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi rektifikatsion kolonnada fraksiyalar qanday tartibda joylashadi (pastdan yuqoriga)?",
+   "variantlar": [
+    "benzin → kerosin → dizel → mazut",
+    "aralash holda",
+    "mazut → dizel → kerosin → benzin",
+    "faqat harorat bir xil joyda"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari: og'irlar pastda"
+    },
+    {
+     "variant": "B",
+     "xato": "har «tarelka»da o'z fraksiyasi"
+    },
+    {
+     "variant": "D",
+     "xato": "kolonnada harorat gradiyenti bor"
+    }
+   ],
+   "yechim": "Pastda issiq (og'irlar suyuq), yuqorida salqin (yengillar kondensatlanadi).",
+   "parametrlar": {
+    "arch": "kolonna_tartib"
+   },
+   "fig": "column"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Toluol KMnO₄ bilan oksidlanganda nima hosil bo'ladi?",
+   "variantlar": [
+    "benzol",
+    "fenol",
+    "benzoy kislota (C₆H₅COOH)",
+    "CO₂ va suv"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "halqa emas, YON ZANJIR oksidlanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "OH halqaga bunda kirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "to'liq yonish emas — yumshoq oksidlanish"
+    }
+   ],
+   "yechim": "Yon zanjir «kuyadi», halqa qoladi: arenlarni farqlash siri shu.",
+   "parametrlar": {
+    "arch": "toluol_oksidlanish"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi moddalar BENZOLDAN bir bosqichda olinishi mumkin?\n1) nitrobenzol;  2) brombenzol;  3) siklogeksan;  4) anilin.",
+   "variantlar": [
+    "1, 2 va 3",
+    "hammasi",
+    "faqat 1",
+    "2 va 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "anilin ikki bosqich (nitrolash + qaytarish)"
+    },
+    {
+     "variant": "C",
+     "xato": "bromlash va gidrogenlash ham bir bosqich"
+    },
+    {
+     "variant": "D",
+     "xato": "4 — ikki bosqich"
+    }
+   ],
+   "yechim": "Nitrolash, katalitik bromlash, gidrogenlash — to'g'ridan-to'g'ri.",
+   "parametrlar": {
+    "arch": "benzoldan_tanlov"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Benzolda uglerodning gibridlanishi qanday?",
+   "variantlar": [
+    "sp³",
+    "sp",
+    "aralash sp²/sp³",
+    "barcha C — sp²"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u to'yinganlarda"
+    },
+    {
+     "variant": "B",
+     "xato": "u alkinlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "halqada bir xil"
+    }
+   ],
+   "yechim": "Tekis halqa: har C da p-orbital umumiy pi-tizimga «ulangan».",
+   "parametrlar": {
+    "arch": "benzol_sp2"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Dimetilbenzol (ksilol, C₈H₁₀) uchun jadvaldagi «?» ni to'ldiring:\n[JADVAL] Izomer | Metillar holati ;; orto- | ? ;; meta- | ? ;; para- | ?",
+   "variantlar": [
+    "1,1; 1,2; 1,3",
+    "1,2; 1,3; 1,4",
+    "1,2; 1,4; 1,3",
+    "1,3; 1,2; 1,4"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bitta uglerodda ikki metil — boshqa modda"
+    },
+    {
+     "variant": "C",
+     "xato": "meta — 1,3; para — 1,4"
+    },
+    {
+     "variant": "D",
+     "xato": "orto — qo'shni (1,2)"
+    }
+   ],
+   "yechim": "Orto — yonma-yon; meta — bittadan keyin; para — qarama-qarshi.",
+   "parametrlar": {
+    "arch": "ksilol_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O. 0,2 mol benzol nitrolanganda hosil bo'lgan nitrobenzol massasini toping. (M(C₆H₅NO₂)=123)",
+   "variantlar": [
+    "24,6 g",
+    "123 g",
+    "12,3 g",
+    "49,2 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,2·123 = 24,6 g.",
+   "parametrlar": {
+    "arch": "nitrobenzol_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3C₂H₂ → C₆H₆. 13,44 L (n.sh.) atsetilendan (yo'qotishsiz) olinadigan benzol massasini toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "46,8 g",
+    "7,8 g",
+    "15,6 g",
+    "78 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3 ga bo'lish unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "1 mol uchun"
+    }
+   ],
+   "yechim": "n(C₂H₂) = 0,6 → n(C₆H₆) = 0,2 mol → m = 15,6 g.",
+   "parametrlar": {
+    "arch": "trimer_hisob"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Neftni QAYTA ishlashning birlamchi va ikkilamchi usullari mos ravishda qaysilar?",
+   "variantlar": [
+    "kreking; haydash",
+    "filtrlash; haydash",
+    "yoqish; haydash",
+    "haydash; kreking va riforming"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "filtrlash usul emas"
+    },
+    {
+     "variant": "C",
+     "xato": "yoqish qayta ishlash emas"
+    }
+   ],
+   "yechim": "Birlamchi — fizik ajratish; ikkilamchi — kimyoviy o'zgartirish.",
+   "parametrlar": {
+    "arch": "birlamchi_ikkilamchi"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Molyar massasi 106 g/mol bo'lgan benzol gomologini aniqlang.",
+   "variantlar": [
+    "toluol",
+    "benzol",
+    "stirol",
+    "ksilol (C₈H₁₀)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 92"
+    },
+    {
+     "variant": "B",
+     "xato": "M = 78"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 104, gomolog emas"
+    }
+   ],
+   "yechim": "CₙH₂ₙ₋₆: 12·8 + 10 = 106 → C₈H₁₀.",
+   "parametrlar": {
+    "arch": "m106"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Xomashyo | Qayta ishlash usuli | Asosiy mahsulot ;; neft | haydash | ? ;; ko'mir | kokslash | ? ;; tabiiy gaz | konversiya | ?",
+   "variantlar": [
+    "fraksiyalar; koks; vodorod (sintez-gaz)",
+    "koks; fraksiyalar; vodorod",
+    "benzin; kul; metan",
+    "fraksiyalar; smola faqat; CO₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "birinchi ikkisi almashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "kul — mahsulot emas, qoldiq"
+    },
+    {
+     "variant": "D",
+     "xato": "koks — asosiy qattiq mahsulot"
+    }
+   ],
+   "yechim": "Har xomashyoning o'z «texnologik yo'li» bor.",
+   "parametrlar": {
+    "arch": "xomashyo_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₆H₆ + 3H₂ → C₆H₁₂. 39 g benzolni to'liq gidrogenlash uchun zarur vodorod hajmini (n.sh.) toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "11,2 L",
+    "33,6 L",
+    "22,4 L",
+    "67,2 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 3"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol H₂"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,5 → n(H₂) = 1,5 mol → V = 33,6 L.",
+   "parametrlar": {
+    "arch": "benzol_h2_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Riforming jarayonining maqsadi nima?",
+   "variantlar": [
+    "neftni fraksiyalarga bo'lish",
+    "gazni suyultirish",
+    "benzinning oktan sonini oshirish (aromatiklashtirish)",
+    "mazutni yoqish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u haydash"
+    },
+    {
+     "variant": "B",
+     "xato": "boshqa jarayon"
+    },
+    {
+     "variant": "D",
+     "xato": "yoqish texnologiya emas"
+    }
+   ],
+   "yechim": "To'g'ri zanjirlar halqali/aromatik shakllarga o'tadi — yoqilg'i sifati o'sadi.",
+   "parametrlar": {
+    "arch": "riforming"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "10,6 g ksilol (C₈H₁₀) necha mol bo'ladi?",
+   "variantlar": [
+    "1",
+    "0,2",
+    "0,1",
+    "0,05"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gramm-mol adashuvi"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n = 10,6/106 = 0,1 mol.",
+   "parametrlar": {
+    "arch": "ksilol_mol"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Stirolning (C₆H₅–CH=CH₂) benzoldan farqli xossasi qaysi?",
+   "variantlar": [
+    "umuman reaksiyaga kirishmaydi",
+    "gaz holatida",
+    "aromatik emas",
+    "bromli suvni RANGSIZLANTIRADI — yon zanjirda qo'shbog' bor"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qo'shbog' faol"
+    },
+    {
+     "variant": "B",
+     "xato": "suyuqlik"
+    },
+    {
+     "variant": "C",
+     "xato": "halqasi aromatik, yon zanjiri to'yinmagan"
+    }
+   ],
+   "yechim": "«Ikki dunyo» molekulasi: halqa + vinil guruh.",
+   "parametrlar": {
+    "arch": "stirol_farq"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol kolonnasida kerosin fraksiyasi 180–270 °C oralig'ida yig'iladi. 150 °C da qaynaydigan uglevodorod qaysi fraksiyaga tushadi?",
+   "variantlar": [
+    "benzin fraksiyasiga (u yuqoriroq «tarelkada»)",
+    "kerosinga",
+    "mazutga",
+    "dizelga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "150 < 180 — kerosin oralig'iga kirmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "mazut — eng og'ir qoldiq"
+    },
+    {
+     "variant": "D",
+     "xato": "dizel oralig'i yuqoriroq haroratda"
+    }
+   ],
+   "yechim": "Har fraksiya o'z t-oralig'ini «ushlaydi»; 150 °C — benzin-ligroin zonasi.",
+   "parametrlar": {
+    "arch": "kolonna_hisob"
+   },
+   "fig": "column"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Koks gazining asosiy komponentlari qaysilar?",
+   "variantlar": [
+    "CO₂ va N₂ faqat",
+    "O₂ va O₃",
+    "faqat NH₃",
+    "H₂ va CH₄"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yonuvchi gazlar asosiy"
+    },
+    {
+     "variant": "B",
+     "xato": "kislorod pirolizda ajralmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ammiak oz miqdorda"
+    }
+   ],
+   "yechim": "Koks gazi — qimmatli yoqilg'i va vodorod manbai.",
+   "parametrlar": {
+    "arch": "koks_gazi"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "44,8 L (n.sh.) atsetilendan trimerlanish orqali olinadigan benzol massasini toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "156 g",
+    "52 g",
+    "26 g",
+    "78 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "3 ga bo'lish unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "1 mol uchun"
+    }
+   ],
+   "yechim": "n = 2 mol → n(C₆H₆) = 2/3 mol → m = 52 g.",
+   "parametrlar": {
+    "arch": "trimer_katta"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi juftliklar IZOMERLAR?\n1) o-ksilol va p-ksilol;  2) toluol va benzol;  3) etilbenzol va ksilol;  4) benzol va siklogeksan.",
+   "variantlar": [
+    "hammasi",
+    "1 va 3",
+    "faqat 1",
+    "2 va 4"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2 — gomologlar; 4 — formulalari farqli"
+    },
+    {
+     "variant": "C",
+     "xato": "etilbenzol ham C₈H₁₀"
+    },
+    {
+     "variant": "D",
+     "xato": "ular izomer emas"
+    }
+   ],
+   "yechim": "C₈H₁₀: o-/m-/p-ksilol va etilbenzol — to'rt izomer.",
+   "parametrlar": {
+    "arch": "aren_izomer_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Krekingsiz haydashda neftdan 20 % benzin olinadi. 500 kg neftdan krekingda yana qo'shimcha 25 % benzin olinsa, JAMI benzin massasini toping.",
+   "variantlar": [
+    "100 kg",
+    "225 kg",
+    "125 kg",
+    "45 kg"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat birlamchi"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat kreking ulushi"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "m = 500·(0,20 + 0,25) = 225 kg.",
+   "parametrlar": {
+    "arch": "kreking_unum_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Benzolni birinchi bo'lib qaysi olim toshko'mir smolasidan ajratib olgan?",
+   "variantlar": [
+    "M. Faradey",
+    "A. Butlerov",
+    "D. Mendeleyev",
+    "N. Zelinskiy"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u tuzilish nazariyasi asoschisi"
+    },
+    {
+     "variant": "C",
+     "xato": "davriy qonun"
+    },
+    {
+     "variant": "D",
+     "xato": "u trimerlanishni amalga oshirgan"
+    }
+   ],
+   "yechim": "1825-yil: yoritish gazidan; keyin Kekule halqa formulasini taklif qildi.",
+   "parametrlar": {
+    "arch": "faradey"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Zanjirdagi X va Y ni aniqlang: C₆H₆ → (X) C₆H₅NO₂ → (Y) C₆H₅NH₂.",
+   "variantlar": [
+    "X — qaytarish; Y — nitrolash",
+    "X — bromlash; Y — gidroliz",
+    "X — oksidlash; Y — yonish",
+    "X — nitrolash; Y — qaytarish"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "mahsulotlar mos emas"
+    },
+    {
+     "variant": "C",
+     "xato": "anilin yonishdan hosil bo'lmaydi"
+    }
+   ],
+   "yechim": "Nitrobenzol [H] bilan anilinga qaytariladi (Zinin reaksiyasi) — bo'yoqlar sanoati asosi.",
+   "parametrlar": {
+    "arch": "anilin_zanjir"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Benzol halqasidagi C–C bog' uzunligi 140 pm. Bu qiymat nimadan dalolat beradi? (C–C 154 pm, C=C 134 pm)",
+   "variantlar": [
+    "barcha bog'lar yakka",
+    "barcha bog'lar qo'shbog'",
+    "o'lchov xatosi",
+    "bog'lar yakka va qo'shbog' ORALIG'IDA — «o'rtachalashgan»"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "154 bo'lardi"
+    },
+    {
+     "variant": "B",
+     "xato": "134 bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "aromatiklikning bevosita isboti"
+    }
+   ],
+   "yechim": "140 pm — aromatik delokalizatsiya belgisi: «bir yarim» bog'lar.",
+   "parametrlar": {
+    "arch": "halqa_140"
+   },
+   "fig": "benzene"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,5 mol toluolning massasini toping. (M(C₇H₈)=92)",
+   "variantlar": [
+    "92 g",
+    "46 g",
+    "23 g",
+    "184 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "chorak"
+    },
+    {
+     "variant": "D",
+     "xato": "2 mol uchun"
+    }
+   ],
+   "yechim": "m = 0,5·92 = 46 g.",
+   "parametrlar": {
+    "arch": "toluol_massa"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi ikki tasvir (Kekule formulasi va doirali halqa) haqida qaysi fikr TO'G'RI?",
+   "variantlar": [
+    "Kekule formulasi mutlaqo xato",
+    "ikkalasi har xil moddalar",
+    "doirali tasvir elektron taqsimotni aniqroq aks ettiradi",
+    "doira — kislorod belgisi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u tarixiy bosqich, «cheklangan» model"
+    },
+    {
+     "variant": "B",
+     "xato": "bitta benzolning ikki tasviri"
+    },
+    {
+     "variant": "D",
+     "xato": "elektron «bulut» belgisi"
+    }
+   ],
+   "yechim": "Kekule almashinuvchi bog'lar deb o'ylagan; zamonaviy model — delokalizatsiya.",
+   "parametrlar": {
+    "arch": "kekule_vs_doira"
+   },
+   "fig": "benzene"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "23,4 g benzol yonganda hosil bo'lgan CO₂ mol miqdorini toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "0,3",
+    "0,6",
+    "1,8",
+    "3,6"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "har mol benzol 6 CO₂ beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,3 → n(CO₂) = 1,8 mol.",
+   "parametrlar": {
+    "arch": "benzol_co2_b"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Tabiiy gaz konversiyasidan olinadigan «sintez-gaz» nima?",
+   "variantlar": [
+    "CO₂ va N₂",
+    "CH₄ va O₂",
+    "faqat vodorod",
+    "CO va H₂ aralashmasi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ular sintezga yaroqsiz"
+    },
+    {
+     "variant": "B",
+     "xato": "bu xomashyo, mahsulot emas"
+    },
+    {
+     "variant": "C",
+     "xato": "CO ham bor"
+    }
+   ],
+   "yechim": "Sintez-gazdan metanol, ammiak va sun'iy yoqilg'ilar olinadi.",
+   "parametrlar": {
+    "arch": "sintez_gaz"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,2 mol stirolning massasini toping. (M(C₈H₈)=104)",
+   "variantlar": [
+    "20,8 g",
+    "104 g",
+    "10,4 g",
+    "41,6 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,2·104 = 20,8 g.",
+   "parametrlar": {
+    "arch": "stirol_massa"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Benzol halqasi tasviri asosida: nega benzol KMnO₄ ning suvdagi eritmasini (sovuqda) rangsizlantirmaydi?",
+   "variantlar": [
+    "delokalizatsiyalangan pi-tizim alohida qo'shbog'day «ochiq» emas",
+    "molekulada pi-elektron yo'q",
+    "KMnO₄ organikaga umuman ta'sir qilmaydi",
+    "benzol suvda erimagani uchun faqat"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bor — lekin umumiy bulutda"
+    },
+    {
+     "variant": "C",
+     "xato": "alkenlarni oksidlaydi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "stirol ham erimaydi, lekin rangsizlantiradi"
+    }
+   ],
+   "yechim": "Aromatik barqarorlik — halqa oksidlanish va birikishga «qarshilik» ko'rsatadi.",
+   "parametrlar": {
+    "arch": "halqa_kmno4"
+   },
+   "fig": "benzene"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.3",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "III.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "III.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch rangsiz suyuqlik tekshirildi: X — bromli suvni ham, KMnO₄ ni ham rangsizlantirmadi, M = 78; Y — bromli suvni rangsizlantirdi, M = 104; Z — KMnO₄ bilan qizdirilganda benzoy kislota berdi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X suyuqlik qaysi?",
+    "34. Y suyuqlik qaysi?",
+    "35. Z suyuqlik qaysi?"
+   ],
+   "javoblar_royxati": [
+    "A) benzol",
+    "B) stirol",
+    "C) toluol",
+    "D) geksan",
+    "E) ksilol",
+    "F) siklogeksan"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "geksan M = 86"
+    },
+    {
+     "variant": "E",
+     "xato": "ksilol M = 106 va ikki kislota beradi"
+    },
+    {
+     "variant": "F",
+     "xato": "siklogeksan oksidlanishda benzoy kislota bermaydi"
+    }
+   ],
+   "yechim": "X: M=78, ikkala sinovga «jim» — benzol (A). Y: M=104, qo'shbog'li — stirol (B). Z: yon zanjiri oksidlanadi — toluol (C).",
+   "parametrlar": {
+    "arch": "uch_suyuqlik_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "6,72 L (n.sh.) atsetilen trimerlanishidan olingan benzol massasini (g) toping. (M(C₆H₆)=78)",
+   "javob": "7,8",
+   "yechim": "n = 0,3 → benzol 0,1 mol → 7,8 g.",
+   "parametrlar": {
+    "arch": "trimer_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "15,6 g benzol katalizator ishtirokida to'liq bromlandi (o'rin olish). Hosil bo'lgan brombenzol massasini (g) toping. (M: C₆H₆=78, C₆H₅Br=157)",
+   "javob": "31,4",
+   "yechim": "n = 0,2 mol → m = 0,2·157 = 31,4 g.",
+   "parametrlar": {
+    "arch": "bromlash_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi zanjir bo'yicha 12,8 g kalsiy karbiddan (yo'qotishsiz) olinadigan benzol massasini (g) toping. (M: CaC₂=64, C₆H₆=78)",
+   "javob": "5,2",
+   "yechim": "n(CaC₂) = 0,2 → C₂H₂ 0,2 → C₆H₆ 0,2/3 mol → m = 5,2 g.",
+   "parametrlar": {
+    "arch": "sxema_karbid_benzol"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Zavod 800 t neftni qayta ishlab, undan 45 % «yorug'» mahsulotlar (benzin+kerosin+dizel) oldi. Ularning jami massasini (t) toping.",
+   "javob": "360",
+   "yechim": "m = 800·0,45 = 360 t.",
+   "parametrlar": {
+    "arch": "zavod_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "9,2 g toluol KMnO₄ bilan to'liq oksidlanib benzoy kislota berdi. Kislota massasini (g) toping. (M: C₇H₈=92, C₆H₅COOH=122)",
+   "javob": "12,2",
+   "yechim": "n = 0,1 mol → m = 0,1·122 = 12,2 g.",
+   "parametrlar": {
+    "arch": "benzoy_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Zavodda 31,2 kg benzol nitrolanib nitrobenzol olindi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya tenglamasini yozing va turini ayting.",
+     "yechim": [
+      "C₆H₆ + HNO₃ → (H₂SO₄) C₆H₅NO₂ + H₂O — o'rin olish (nitrolash)."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Benzol mol miqdorini toping. (M=78)",
+     "yechim": [
+      "n = 31,2/78 = 0,4 kmol."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Nazariy nitrobenzol massasini hisoblang. (M=123)",
+     "yechim": [
+      "m = 0,4·123 = 49,2 kg."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Unum 85 % bo'lsa, amaldagi massani toping.",
+     "yechim": [
+      "m = 49,2·0,85 ≈ 41,8 kg."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Nitrolash-zanjir: tenglama → mol → nazariy → unum; M15+A10.",
+   "parametrlar": {
+    "arch": "nitrolash_zanjir_o2"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Aromatiklik «siri» tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Benzol formal jihatdan «uch qo'shbog'li» bo'lsa-da, nega alkenlarga xos birikish reaksiyalariga qiyin kirishadi?",
+     "yechim": [
+      "6 pi-elektron alohida bog'larda emas — halqa bo'ylab delokalizatsiyalangan.",
+      "Bu holat energetik juda qulay: uni buzish «qimmat», shu bois halqa o'zini saqlaydi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Benzolning o'rin olishga moyilligini shu asosda tushuntiring.",
+     "yechim": [
+      "O'rin olishda aromatik tizim SAQLANIB qoladi — energetik jihatdan «arzon» yo'l."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Aromatik halqani buzadigan bitta jarayonni ayting.",
+     "yechim": [
+      "Katalitik gidrogenlash (C₆H₆ + 3H₂ → C₆H₁₂) yoki yonish."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Aromatiklik-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "aromatiklik_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Noma'lum aromatik uglevodorod X: vodorodga nisbatan zichligi 46; KMnO₄ bilan oksidlanganda BITTA monokarbon kislota beradi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) X ning molyar massasini toping.",
+     "yechim": [
+      "M = 46·2 = 92 g/mol."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) X ning formulasi va nomini aniqlang.",
+     "yechim": [
+      "CₙH₂ₙ₋₆ = 92 → n = 7 → C₇H₈ — toluol."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Nega oksidlanish mahsuloti aynan benzoy kislota?",
+     "yechim": [
+      "Bitta yon zanjir (CH₃) COOH gacha oksidlanadi, halqa saqlanadi."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) X ning nitrolanish mahsulotini yozing (asosiy).",
+     "yechim": [
+      "o- va p-nitrotoluol (metil guruh o'rin olishni shu holatlarga yo'naltiradi)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "X-aren detektivi: M → formula → oksidlanish → nitrolash; M15+A10.",
+   "parametrlar": {
+    "arch": "aren_detektiv_o2"
+   }
+  }
+ ]
+}

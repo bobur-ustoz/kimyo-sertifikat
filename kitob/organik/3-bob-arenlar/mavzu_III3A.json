@@ -1,0 +1,1343 @@
+{
+ "variant": "mavzu-III3-A",
+ "daraja": "A",
+ "bob": 3,
+ "bob_nomi": "Aromatik uglevodorodlar. Neft, gaz, ko'mir",
+ "manba": "MS spetsifikatsiyasi III.3; 10-sinf darslik — savollar yangi tuzilgan, hayotiy sahnalar (AZS, asfalt, naftalin, koks pechi) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★ (Organik kimyo kitobi).",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Aromatik uglevodorodlarning (arenlarning) eng sodda vakili qaysi?",
+   "variantlar": [
+    "benzol (C₆H₆)",
+    "metan",
+    "atsetilen",
+    "toluol"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u alkan"
+    },
+    {
+     "variant": "C",
+     "xato": "u alkin"
+    },
+    {
+     "variant": "D",
+     "xato": "u ikkinchi vakil"
+    }
+   ],
+   "yechim": "Olti burchakli «aromatik halqa» — arenlar asosi.",
+   "parametrlar": {
+    "arch": "benzol_vakil"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Benzol molekulasida nechta uglerod va vodorod atomi bor?",
+   "variantlar": [
+    "6 C va 12 H",
+    "6 C va 14 H",
+    "5 C va 6 H",
+    "6 ta C va 6 ta H"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u siklogeksan"
+    },
+    {
+     "variant": "B",
+     "xato": "u geksan"
+    },
+    {
+     "variant": "C",
+     "xato": "halqa olti a'zoli"
+    }
+   ],
+   "yechim": "C₆H₆ — halqadagi har C ga bittadan H.",
+   "parametrlar": {
+    "arch": "benzol_formula"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda benzol molekulasining zamonaviy tasviri (halqa ichida doira). Doira nimani bildiradi?",
+   "variantlar": [
+    "olti elektronning halqa bo'ylab TENG taqsimlanganini",
+    "uchta oddiy qo'shbog'ni",
+    "halqa ichidagi bo'shliqni",
+    "kislorod atomini"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bog'lar «o'rtachalashgan», almashinmaydigan"
+    },
+    {
+     "variant": "C",
+     "xato": "geometrik emas, elektron ma'no"
+    },
+    {
+     "variant": "D",
+     "xato": "molekulada O yo'q"
+    }
+   ],
+   "yechim": "Aromatik tizim: 6 pi-elektron umumiy «bulut» — barcha C–C bog'lari bir xil (140 pm).",
+   "parametrlar": {
+    "arch": "halqa_oqish"
+   },
+   "fig": "benzene"
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda yoqilg'i quyish shoxobchasi. Benzin neftdan qanday jarayonda olinadi?",
+   "variantlar": [
+    "filtrlashda",
+    "muzlatishda",
+    "haydash (rektifikatsiya) va krekingda",
+    "elektrolizda"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "fraksiyalar filtrda ajralmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "sovutish usul emas bu yerda"
+    },
+    {
+     "variant": "D",
+     "xato": "tok bilan olinmaydi"
+    }
+   ],
+   "yechim": "Neft kolonnada fraksiyalarga bo'linadi; og'ir fraksiyalar krekingda «maydalanadi».",
+   "parametrlar": {
+    "arch": "azs_sahna"
+   },
+   "fig": "azs"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzol oddiy sharoitda qanday modda?",
+   "variantlar": [
+    "rangsiz gaz",
+    "qattiq kristall",
+    "rangsiz, o'ziga xos hidli, zaharli suyuqlik",
+    "hidsiz suyuqlik"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suyuqlik (t_qayn = 80 °C)"
+    },
+    {
+     "variant": "B",
+     "xato": "u naftalin"
+    },
+    {
+     "variant": "D",
+     "xato": "hidi aynan «aromatik»"
+    }
+   ],
+   "yechim": "Suvda erimaydi, o'zi yaxshi erituvchi; bug'lari zaharli — ehtiyot bo'linadi.",
+   "parametrlar": {
+    "arch": "benzol_xossa"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Arenlarning umumiy formulasi qaysi?",
+   "variantlar": [
+    "CₙH₂ₙ",
+    "CₙH₂ₙ₋₆",
+    "CₙH₂ₙ₋₂",
+    "CₙH₂ₙ₊₂"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "alkenlar"
+    },
+    {
+     "variant": "C",
+     "xato": "alkinlar"
+    },
+    {
+     "variant": "D",
+     "xato": "alkanlar"
+    }
+   ],
+   "yechim": "Benzol C₆H₆ (n=6), toluol C₇H₈ (n=7).",
+   "parametrlar": {
+    "arch": "aren_formula"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzolning eng yaqin gomologi qaysi?",
+   "variantlar": [
+    "fenol",
+    "stirol",
+    "naftalin",
+    "toluol (C₆H₅–CH₃)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "unda OH bor — boshqa sinf"
+    },
+    {
+     "variant": "B",
+     "xato": "unda qo'shbog'li zanjir"
+    },
+    {
+     "variant": "C",
+     "xato": "u ikki halqali"
+    }
+   ],
+   "yechim": "Metilbenzol — bo'yoq va portlovchi moddalar xomashyosi.",
+   "parametrlar": {
+    "arch": "toluol"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda yo'lga asfalt yotqizilmoqda. Asfalt tarkibidagi bog'lovchi qora modda nima?",
+   "variantlar": [
+    "ko'mir kukuni",
+    "qora bo'yoq",
+    "bitum — neft haydashning eng og'ir qoldig'i",
+    "kauchuk"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ko'mir emas, neft mahsuloti"
+    },
+    {
+     "variant": "B",
+     "xato": "bo'yoq bog'lamaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "asosi bitum, qo'shimchalar bo'lishi mumkin"
+    }
+   ],
+   "yechim": "Mazutdan keyin qoladigan bitum shag'alni «yelimlab» yo'l qoplamasini beradi.",
+   "parametrlar": {
+    "arch": "asfalt_sahna"
+   },
+   "fig": "asphalt"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Neftni haydashda fraksiyalar nimaga qarab ajraladi?",
+   "variantlar": [
+    "rangiga qarab",
+    "qaynash haroratlari oralig'iga qarab",
+    "hidiga qarab",
+    "zichligiga qarab faqat"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang mezon emas"
+    },
+    {
+     "variant": "C",
+     "xato": "hid ham emas"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiy mezon — t_qayn"
+    }
+   ],
+   "yechim": "Kolonnaning pastida og'ir (yuqori t), tepasida yengil (past t) fraksiyalar.",
+   "parametrlar": {
+    "arch": "fraksiya_mezon"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O. 7,8 g benzol yonganda hosil bo'lgan CO₂ hajmini (n.sh.) toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "2,24 L",
+    "13,44 L",
+    "22,4 L",
+    "6,72 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 6"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,1 → n(CO₂) = 0,6 mol → V = 13,44 L.",
+   "parametrlar": {
+    "arch": "benzol_yonish"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "KREKING jarayonining mohiyati nimada?",
+   "variantlar": [
+    "og'ir uglevodorodlarni yuqori haroratda maydalab, benzin olish",
+    "neftni suv bilan aralashtirish",
+    "gazni suyultirish",
+    "benzinni tozalash"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "aralashtirish o'zgartirmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "u fizik jarayon"
+    },
+    {
+     "variant": "D",
+     "xato": "tozalash emas, YARATISH"
+    }
+   ],
+   "yechim": "C₁₆H₃₄ → C₈H₁₈ + C₈H₁₆: benzin unumini 2-3 barobar oshiradi.",
+   "parametrlar": {
+    "arch": "kreking_tarif"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Molyar massasi 78 g/mol bo'lgan aromatik uglevodorodni aniqlang.",
+   "variantlar": [
+    "toluol",
+    "geksan",
+    "benzol (C₆H₆)",
+    "siklogeksan"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 92"
+    },
+    {
+     "variant": "B",
+     "xato": "M = 86, aromatik emas"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 84, aromatik emas"
+    }
+   ],
+   "yechim": "12·6 + 6 = 78.",
+   "parametrlar": {
+    "arch": "m78"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda kiyim shkafi uchun «kuya tabletkalari» (naftalin). Naftalin qanday modda?",
+   "variantlar": [
+    "mineral tuz",
+    "polimer",
+    "ikki halqali aromatik uglevodorod (C₁₀H₈), oson sublimatlanadi",
+    "spirt"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "organik modda"
+    },
+    {
+     "variant": "B",
+     "xato": "kichik molekula"
+    },
+    {
+     "variant": "D",
+     "xato": "tarkibida OH yo'q"
+    }
+   ],
+   "yechim": "Uchuvchan kristallar hidi kuyani qochiradi; qattiqdan to'g'ri bug'ga o'tadi.",
+   "parametrlar": {
+    "arch": "naftalin_sahna"
+   },
+   "fig": "mothball"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzol uchun qaysi reaksiya turi XOS?",
+   "variantlar": [
+    "oson birikish",
+    "halqani saqlagan holda O'RIN OLISH",
+    "polimerlanish",
+    "parchalanish oson"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aromatik tizim «buzilishni yoqtirmaydi»"
+    },
+    {
+     "variant": "C",
+     "xato": "halqa polimerlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "halqa juda barqaror"
+    }
+   ],
+   "yechim": "Aromatiklik halqani himoya qiladi: Br₂/HNO₃ H o'rnini oladi, halqa buzilmaydi.",
+   "parametrlar": {
+    "arch": "orin_olish_aren"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Toshko'mirni havosiz qizdirish (kokslash) mahsulotlariga nima kiradi?",
+   "variantlar": [
+    "faqat kul",
+    "benzin va kerosin",
+    "sof uglerod faqat",
+    "koks, toshko'mir smolasi, koks gazi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kul — yonish qoldig'i"
+    },
+    {
+     "variant": "B",
+     "xato": "ular neftdan"
+    },
+    {
+     "variant": "C",
+     "xato": "smola va gaz ham chiqadi"
+    }
+   ],
+   "yechim": "Koks — metallurgiya uchun; smola — aromatik moddalar manbai.",
+   "parametrlar": {
+    "arch": "kokslash"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Fraksiya | Qo'llanishi ;; benzin | ? ;; kerosin | ? ;; mazut | ?",
+   "variantlar": [
+    "aviatsiya; avtomobil; asfalt",
+    "avtomobil; aviatsiya; qozonxona yoqilg'isi",
+    "qozonxona; avtomobil; aviatsiya",
+    "avtomobil; asfalt; aviatsiya"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "birinchi ikkisi almashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "tartib chalkash"
+    },
+    {
+     "variant": "D",
+     "xato": "kerosin — reaktiv yoqilg'i"
+    }
+   ],
+   "yechim": "Benzin — avtomobillar; kerosin — samolyotlar; mazut — issiqlik energetikasi.",
+   "parametrlar": {
+    "arch": "fraksiya_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzol qayerda ishlatiladi?",
+   "variantlar": [
+    "bo'yoqlar, dorilar, plastmassalar sintezida xomashyo sifatida",
+    "ichimlik sifatida",
+    "oziq-ovqat qo'shimchasi",
+    "o'g'it sifatida"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "o'ta zaharli!"
+    },
+    {
+     "variant": "C",
+     "xato": "taqiqlangan"
+    },
+    {
+     "variant": "D",
+     "xato": "organik sintez xomashyosi"
+    }
+   ],
+   "yechim": "«Aromatik daraxt»ning ildizi: anilin, stirol, fenol — barchasi benzoldan.",
+   "parametrlar": {
+    "arch": "benzol_qollash"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda koks batareyasi: ko'mir 1000 °C da havosiz qizdirilmoqda. Nega havosiz?",
+   "variantlar": [
+    "harorat ko'tarilmasligi uchun",
+    "hid chiqmasligi uchun",
+    "havo bo'lsa ko'mir yonib ketadi — maqsad esa parchalash",
+    "shunchaki an'ana"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha, yuqori harorat kerak"
+    },
+    {
+     "variant": "B",
+     "xato": "asosiy sabab kimyoviy"
+    },
+    {
+     "variant": "D",
+     "xato": "texnologik zarurat"
+    }
+   ],
+   "yechim": "Piroliz: kislorodsiz muhitda modda yonmay, qismlarga ajraladi.",
+   "parametrlar": {
+    "arch": "koks_sahna"
+   },
+   "fig": "cokeoven"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol benzolning massasini toping. (M(C₆H₆)=78)",
+   "variantlar": [
+    "78 g",
+    "7,8 g",
+    "31,2 g",
+    "15,6 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,2·78 = 15,6 g.",
+   "parametrlar": {
+    "arch": "benzol_massa"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Tabiiy gaz, neft va ko'mir birgalikda qanday nomlanadi?",
+   "variantlar": [
+    "mineral o'g'itlar",
+    "qayta tiklanuvchi manbalar",
+    "sun'iy yoqilg'ilar",
+    "qazilma (uglevodorod) yoqilg'ilari"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ular boshqa sinf"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha — tugaydigan"
+    },
+    {
+     "variant": "C",
+     "xato": "tabiiy qazilmalar"
+    }
+   ],
+   "yechim": "Millionlab yillik organik qoldiqlar — energiya va kimyo xomashyosi.",
+   "parametrlar": {
+    "arch": "qazilma_yoqilgi"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzol suvga qo'shilsa nima kuzatiladi?",
+   "variantlar": [
+    "to'liq eriydi",
+    "aralashmaydi — yengil qatlam bo'lib suzadi",
+    "cho'kadi",
+    "reaksiyaga kirishadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "zichligi 0,88 — suvdan yengil"
+    },
+    {
+     "variant": "D",
+     "xato": "oddiy sharoitda suv bilan reaksiya yo'q"
+    }
+   ],
+   "yechim": "Organik erituvchi: o'zi suvda erimay, moy-yog'larni eritadi.",
+   "parametrlar": {
+    "arch": "benzol_suv"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Stirol qaysi mashhur polimerning monomeri?",
+   "variantlar": [
+    "polietilen",
+    "polistirol (penoplast)",
+    "kauchuk",
+    "PVX"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u etilendan"
+    },
+    {
+     "variant": "C",
+     "xato": "u butadiendan"
+    },
+    {
+     "variant": "D",
+     "xato": "u vinilxloriddan"
+    }
+   ],
+   "yechim": "C₆H₅–CH=CH₂ → penoplast, bir martalik idishlar.",
+   "parametrlar": {
+    "arch": "stirol"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Toluolning (C₇H₈) molyar massasini toping.",
+   "variantlar": [
+    "78 g/mol",
+    "84 g/mol",
+    "92 g/mol",
+    "106 g/mol"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu benzol"
+    },
+    {
+     "variant": "B",
+     "xato": "hisob xato"
+    },
+    {
+     "variant": "D",
+     "xato": "bu ksilol"
+    }
+   ],
+   "yechim": "12·7 + 8 = 92.",
+   "parametrlar": {
+    "arch": "toluol_m"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Neftning «quruq qoldiq»qa qadar haydalgan eng og'ir mahsuloti bo'lgan mazutdan yana nima olinadi?",
+   "variantlar": [
+    "benzin bevosita ko'p miqdorda",
+    "moylash moylari, parafin, bitum",
+    "tabiiy gaz",
+    "koks"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "benzin uchun kreking kerak"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz alohida qazilma"
+    },
+    {
+     "variant": "D",
+     "xato": "koks ko'mirdan"
+    }
+   ],
+   "yechim": "Mazut vakuumda qayta haydaladi — «og'ir» boyliklar ajratiladi.",
+   "parametrlar": {
+    "arch": "mazut"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Zanjirdagi X moddani aniqlang: CH₄ → C₂H₂ → X (uch molekula birikishi).",
+   "variantlar": [
+    "benzol",
+    "etilen",
+    "geksan",
+    "siklogeksan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "trimerlanish mahsuloti emas"
+    },
+    {
+     "variant": "C",
+     "xato": "to'yingan modda hosil bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "u benzoldan gidrogenlashda"
+    }
+   ],
+   "yechim": "3C₂H₂ → C₆H₆ — Zelinskiy trimerlanishi.",
+   "parametrlar": {
+    "arch": "zanjir_benzol"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada 1 tonna neftdan olinadigan asosiy mahsulotlar berilgan. Qaysi mahsulot ulushi eng katta?",
+   "variantlar": [
+    "dizel yoqilg'isi",
+    "benzin",
+    "mazut va boshqalar",
+    "kerosin"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkinchi o'rinda"
+    },
+    {
+     "variant": "C",
+     "xato": "uchinchi"
+    },
+    {
+     "variant": "D",
+     "xato": "eng kichik ulush"
+    }
+   ],
+   "yechim": "Zamonaviy zavodda: dizel ≈ 32 %, benzin ≈ 25 %, kerosin ≈ 8 %.",
+   "parametrlar": {
+    "arch": "bar_neft_oqish"
+   },
+   "fig": "bar_oil"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O. 15,6 g benzol yonganda necha mol suv hosil bo'ladi? (M(C₆H₆)=78)",
+   "variantlar": [
+    "0,2",
+    "1,2",
+    "6",
+    "0,6"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 2:6 = 1:3"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol... koeffitsiyent adashuvi"
+    }
+   ],
+   "yechim": "n = 0,2 mol → n(H₂O) = 0,6 mol.",
+   "parametrlar": {
+    "arch": "benzol_suv_hisob"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi rektifikatsion kolonnada BENZIN qayerdan chiqadi?",
+   "variantlar": [
+    "yuqori qismidan — u eng yengil fraksiyalardan",
+    "pastidan",
+    "o'rtasidan faqat",
+    "istalgan joyidan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "pastda og'ir mazut"
+    },
+    {
+     "variant": "C",
+     "xato": "o'rtada kerosin-dizel"
+    },
+    {
+     "variant": "D",
+     "xato": "har fraksiyaning o'z «qavati» bor"
+    }
+   ],
+   "yechim": "Yengil bug'lar yuqoriga ko'tarilib kondensatlanadi.",
+   "parametrlar": {
+    "arch": "kolonna_oqish"
+   },
+   "fig": "column"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Neft fraksiyalarida molekula kattalashgani sari qaynash harorati qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "kamayadi",
+    "o'zgarmaydi",
+    "avval kamayib keyin ortadi",
+    "ortib boradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "og'ir molekula qiyin bug'lanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "benzin 40°, mazut 350°+ farq bor"
+    },
+    {
+     "variant": "C",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Molekulalararo kuchlar zanjir uzunligi bilan o'sadi.",
+   "parametrlar": {
+    "arch": "fraksiya_grafik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "u",
+    "xlab": "C soni",
+    "ylab": "t(qayn.)"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Benzol bug'lari bilan ishlashda qanday ehtiyot chorasi SHART?",
+   "variantlar": [
+    "tortish shkafida ishlash — bug'lari zaharli",
+    "hidlab tekshirish",
+    "ochiq olov yonida ishlash",
+    "hech qanday"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qat'iyan mumkin emas"
+    },
+    {
+     "variant": "C",
+     "xato": "yonuvchan!"
+    },
+    {
+     "variant": "D",
+     "xato": "kanserogen modda"
+    }
+   ],
+   "yechim": "Benzol — kanserogen: faqat yopiq tizim va ventilyatsiya.",
+   "parametrlar": {
+    "arch": "benzol_xavf"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "39 g benzol necha mol bo'ladi? (M(C₆H₆)=78)",
+   "variantlar": [
+    "2",
+    "0,39",
+    "1",
+    "0,5"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari bo'lingan"
+    },
+    {
+     "variant": "B",
+     "xato": "birlik adashuvi"
+    },
+    {
+     "variant": "C",
+     "xato": "78 g bo'lardi"
+    }
+   ],
+   "yechim": "n = 39/78 = 0,5 mol.",
+   "parametrlar": {
+    "arch": "benzol_mol"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol diagrammasidan: 1000 kg neftdan taxminan qancha benzin olinadi (ulush 25 %)?",
+   "variantlar": [
+    "25 kg",
+    "320 kg",
+    "250 kg",
+    "500 kg"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nol adashgan"
+    },
+    {
+     "variant": "B",
+     "xato": "bu dizel ulushi"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi emas"
+    }
+   ],
+   "yechim": "m = 1000·0,25 = 250 kg.",
+   "parametrlar": {
+    "arch": "bar_neft_hisob"
+   },
+   "fig": "bar_oil"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "III.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "III.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch xomashyo solishtirildi: X — quduqdan chiqadigan qora suyuqlik; Y — qazilma qattiq yoqilg'i; Z — X ni haydashdan olingan, samolyotlarda ishlatiladigan fraksiya. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X xomashyo qaysi?",
+    "34. Y dan havosiz qizdirishda olinadigan asosiy qattiq mahsulot qaysi?",
+    "35. Z fraksiya qaysi?"
+   ],
+   "javoblar_royxati": [
+    "A) neft",
+    "B) koks",
+    "C) kerosin",
+    "D) tabiiy gaz",
+    "E) kul",
+    "F) benzin"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "gaz suyuqlik emas"
+    },
+    {
+     "variant": "E",
+     "xato": "kul — yonish qoldig'i; kokslash mahsuloti koks"
+    },
+    {
+     "variant": "F",
+     "xato": "aviatsiya yoqilg'isi — kerosin"
+    }
+   ],
+   "yechim": "X — neft (A). Y (ko'mir) kokslanganda koks (B). Z — kerosin (C).",
+   "parametrlar": {
+    "arch": "xomashyo_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,1 mol benzolning massasini (g) toping. (M(C₆H₆)=78)",
+   "javob": "7,8",
+   "yechim": "m = 0,1·78 = 7,8 g.",
+   "parametrlar": {
+    "arch": "benzol_massa_o1"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "15,6 g benzol necha mol bo'ladi?",
+   "javob": "0,2",
+   "yechim": "n = 15,6/78 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "benzol_mol_o1"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "4,6 g toluol necha mol bo'ladi? (M(C₇H₈)=92)",
+   "javob": "0,05",
+   "yechim": "n = 4,6/92 = 0,05 mol.",
+   "parametrlar": {
+    "arch": "toluol_o1"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₆H₆ + 3H₂ → C₆H₁₂. 0,3 mol benzolni to'liq gidrogenlash uchun zarur vodorod hajmini (n.sh., L) toping.",
+   "javob": "20,16",
+   "yechim": "n(H₂) = 0,9 mol → V = 20,16 L.",
+   "parametrlar": {
+    "arch": "gidrogenlash_o1_3"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Zavod 500 t neft qayta ishladi; dizel unumi 32 %. Olingan dizel massasini (t) toping.",
+   "javob": "160",
+   "yechim": "m = 500·0,32 = 160 t.",
+   "parametrlar": {
+    "arch": "dizel_o1"
+   },
+   "tur": "O1",
+   "element": "III.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Laboratoriyada 15,6 g benzol to'liq yondirildi (2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O). Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Benzol mol miqdorini toping.",
+     "yechim": [
+      "n = 15,6/78 = 0,2 mol."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Hosil bo'lgan CO₂ hajmini (n.sh.) hisoblang.",
+     "yechim": [
+      "n(CO₂) = 0,2·6 = 1,2 mol → V = 26,88 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Nega benzol tutab (qurumli) yonadi? Izohlang.",
+     "yechim": [
+      "ω(C) juda yuqori (92 %) — uglerod to'liq yonishga «ulgurmaydi»."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Benzol bilan ishlash xavfsizligi bo'yicha ikkita qoida yozing.",
+     "yechim": [
+      "Tortish shkafi/ventilyatsiya; ochiq olovdan uzoq, teri bilan kontaktsiz."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Benzol-yonish: mol → hajm → izoh → xavfsizlik; M15+A10.",
+   "parametrlar": {
+    "arch": "benzol_yonish_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "«Neft — faqat yoqilg'i emas» mavzusi tahlil qilinadi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega Mendeleyev «neftni yoqish — pechkani banknotalar bilan yoqish» degan? Fikrni asoslang.",
+     "yechim": [
+      "Neft — minglab moddalar xomashyosi: plastmassa, dori, tola, bo'yoq.",
+      "Yoqilganda bu imkoniyatlar «tutunga» aylanadi — kimyoviy qiymat energiyadan yuqori."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Kreking jarayoni neftni qayta ishlashda nima uchun «inqilob» qildi?",
+     "yechim": [
+      "Og'ir fraksiyalardan qo'shimcha benzin — mahsulot unumi keskin oshdi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Neftdan olinadigan uchta nooziq mahsulotni yozing.",
+     "yechim": [
+      "Polietilen, sintetik tola, dorivor moddalar (yoki bitum, moylar)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Neft-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "neft_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch uglevodorod jadvalda berilgan:\n[JADVAL] № | Modda | Formula ;; 1 | geksan | C₆H₁₄ ;; 2 | siklogeksan | C₆H₁₂ ;; 3 | benzol | C₆H₆\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har birining sinfini aniqlang.",
+     "yechim": [
+      "Geksan — alkan; siklogeksan — sikloalkan; benzol — aren."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Qaysi biri bromli suvni RANGSIZLANTIRMAYDI va nima uchun uchchalasi ham shu sinovda «jim»?",
+     "yechim": [
+      "Uchchalasi ham: alkan/sikloalkan to'yingan, benzolda esa aromatik tizim oddiy sharoitda birikishga bormaydi."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 3-moddaning vodorod biriktirish tenglamasini yozing.",
+     "yechim": [
+      "C₆H₆ + 3H₂ → (kat., t) C₆H₁₂ — siklogeksan."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Uchchala moddada ω(C) qaysi tartibda ortadi?",
+     "yechim": [
+      "Geksan (83,7 %) < siklogeksan (85,7 %) < benzol (92,3 %)."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "C₆-uchlik: sinf → sinov → reaksiya → ω(C); M15+A10.",
+   "parametrlar": {
+    "arch": "c6_uchlik_o2"
+   }
+  }
+ ]
+}
