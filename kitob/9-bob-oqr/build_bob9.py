@@ -178,7 +178,26 @@ def fig_cu_hno3():
             '<text x="10" y="96" class="lb">Cu parchasi →</text>'
             '<text x="46" y="126" class="lb" font-weight="bold">tajriba (mo\'rili shkafda!)</text></svg>')
 
-FIGS = dict(apple=fig_apple, firework=fig_firework, fence=fig_fence, battery=fig_battery,
+
+def fig_bar_alkan():
+    """Ustunli diagramma (binafsha): 1 mol alkan yonishida beriladigan elektron mollari."""
+    P1 = "#6c3483"
+    data = [("pentan", 32), ("geksan", 38), ("geptan", 44), ("oktan", 50)]
+    bars = ""
+    for i, (lab, v) in enumerate(data):
+        x = 52 + i * 47; h = v * 2.1; y = 126 - h
+        bars += (f'<rect x="{x}" y="{y:.0f}" width="28" height="{h:.0f}" rx="2" fill="{P1}" opacity="0.8" stroke="#4a235a" stroke-width="1"/>'
+                 f'<text x="{x+14}" y="{y-4:.0f}" text-anchor="middle" class="lb" font-weight="bold">{v}</text>'
+                 f'<text x="{x+14}" y="140" text-anchor="middle" class="lb">{lab}</text>')
+    return ('<svg width="250" height="148" viewBox="0 0 250 148">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#4a235a}</style>'
+            '<rect x="40" y="4" width="204" height="122" rx="4" fill="#faf6fd" stroke="#c9b3d8" stroke-width="1"/>'
+            + "".join(f'<line x1="42" y1="{126-v*2.1:.0f}" x2="242" y2="{126-v*2.1:.0f}" stroke="#e2d5ec" stroke-width="0.9"/>'
+                      f'<text x="26" y="{129-v*2.1:.0f}" class="lb">{v}</text>' for v in [20,40])
+            + bars + '<line x1="40" y1="126" x2="244" y2="126" stroke="#4a235a" stroke-width="1.5"/>'
+            '<text x="6" y="14" class="lb">n(e), mol</text></svg>')
+
+FIGS = dict(apple=fig_apple, bar_alkan=fig_bar_alkan,  firework=fig_firework, fence=fig_fence, battery=fig_battery,
             activity=fig_activity, e_graph=fig_e_graph, cu_hno3=fig_cu_hno3)
 
 def table_from_markup(text):
@@ -313,6 +332,8 @@ def render_variant(data, tag, star, izoh):
     for q in o2:
         txt, tbl = table_from_markup(q["matn"])
         H.append(f"<div class='o2'><div class='head'>{q['n']}-topshiriq</div><div>{txt}</div>{tbl}")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
         for b in q["bandlar"]:
             pts = b["M"] + b["A"]
             lab = f"M{b['M']}+A{b['A']}" if b["A"] else f"M{b['M']}"

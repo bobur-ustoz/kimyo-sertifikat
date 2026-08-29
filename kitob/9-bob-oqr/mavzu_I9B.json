@@ -348,7 +348,7 @@
    "element": "I.9",
    "qiyinlik": 3,
    "kognitiv": "yuqori",
-   "savol": "2 mol noma'lum alkan kislorodda to'liq yondirildi. Bu jarayonda oksidlovchi qaytaruvchidan 76·Nₐ ta elektron olgan bo'lsa, alkanni aniqlang.",
+   "savol": "Diagrammada ba'zi alkanlarning 1 moli to'liq yonganda oksidlovchiga beradigan elektron mollari ko'rsatilgan. 2 mol noma'lum alkan yondirilganda oksidlovchi qaytaruvchidan 76·Nₐ ta elektron olgan bo'lsa, diagrammadan foydalanib alkanni aniqlang.",
    "variantlar": [
     "pentan",
     "geksan",
@@ -359,23 +359,24 @@
    "chalgituvchilar": [
     {
      "variant": "A",
-     "xato": "n=5: 2(6·5+2)=64 ≠ 76"
+     "xato": "diagrammada 32: 2·32=64 ≠ 76"
     },
     {
      "variant": "C",
-     "xato": "n=7: 2(6·7+2)=88 ≠ 76"
+     "xato": "diagrammada 44: 2·44=88 ≠ 76"
     },
     {
      "variant": "D",
-     "xato": "n=8: 2·50=100 ≠ 76"
+     "xato": "diagrammada 50: 2·50=100 ≠ 76"
     }
    ],
-   "yechim": "CₙH₂ₙ₊₂ yonishida 1 mol alkan (6n+2) mol e beradi. 2(6n+2) = 76 → n = 6 → geksan.",
+   "yechim": "1 mol uchun 76/2 = 38 mol e kerak — diagrammada 38 geksanga mos. (Tekshiruv: 6n+2=38 → n=6.)",
    "parametrlar": {
     "arch": "alkan_elektron",
     "e": 76,
     "mol": 2
-   }
+   },
+   "fig": "bar_alkan"
   },
   {
    "n": 12,

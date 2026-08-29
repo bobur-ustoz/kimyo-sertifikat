@@ -203,7 +203,28 @@ def fig_piston():
             + vessel(150, 29, "#8a5a28", "V/2 · rang?")
             + '</svg>')
 
-FIGS = dict(ct_eq=fig_ct_eq, vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2,
+
+def fig_bar_kontakt():
+    """Ustunli diagramma (yashil): kontakt apparati mol ma'lumotlari."""
+    G1, G2 = "#1e8449", "#b9770e"
+    data = [("SO\u2082\nboshl.", 8, G1), ("O\u2082\nboshl.", 5, G1), ("SO\u2083\nmuvoz.", 6, G2)]
+    bars = ""
+    for i, (lab, v, col) in enumerate(data):
+        x = 60 + i * 54; h = v * 13; y = 130 - h
+        l1, l2 = lab.split("\n")
+        bars += (f'<rect x="{x}" y="{y}" width="30" height="{h}" rx="2" fill="{col}" opacity="0.85" stroke="#1b4332" stroke-width="1"/>'
+                 f'<text x="{x+15}" y="{y-4}" text-anchor="middle" class="lb" font-weight="bold">{v} mol</text>'
+                 f'<text x="{x+15}" y="144" text-anchor="middle" class="lb">{l1}</text>'
+                 f'<text x="{x+15}" y="154" text-anchor="middle" class="lb">{l2}</text>')
+    return ('<svg width="240" height="160" viewBox="0 0 240 160">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#1b4332}</style>'
+            '<rect x="40" y="6" width="190" height="124" rx="5" fill="#f4faf5" stroke="#1b4332" stroke-width="1.3"/>'
+            + "".join(f'<line x1="42" y1="{130-v*13}" x2="228" y2="{130-v*13}" stroke="#cfe3d6" stroke-width="0.8" stroke-dasharray="1.5,2.5"/>'
+                      f'<text x="30" y="{133-v*13}" class="lb">{v}</text>' for v in [2,4,6,8])
+            + bars + '<line x1="40" y1="130" x2="230" y2="130" stroke="#1b4332" stroke-width="1.4"/>'
+            '<text x="8" y="16" class="lb">n, mol</text></svg>')
+
+FIGS = dict(ct_eq=fig_ct_eq, bar_kontakt=fig_bar_kontakt,  vt_eq=fig_vt_eq, soda=fig_soda, plant=fig_plant, cave=fig_cave, no2=fig_no2,
             piston=fig_piston)
 
 def table_from_markup(text):
@@ -338,6 +359,8 @@ def render_variant(data, tag, star, izoh):
     for q in o2:
         txt, tbl = table_from_markup(q["matn"])
         H.append(f"<div class='o2'><div class='head'>{q['n']}-topshiriq</div><div>{txt}</div>{tbl}")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
         for b in q["bandlar"]:
             pts = b["M"] + b["A"]
             lab = f"M{b['M']}+A{b['A']}" if b["A"] else f"M{b['M']}"

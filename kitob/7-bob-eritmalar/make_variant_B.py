@@ -427,9 +427,9 @@ O2 = [
       parametrlar=dict(arch="oleum_zanjir", m=400, w=91, oleum=20)),
  dict(n=43, tur="O2", element="I.7", qiyinlik=3, kognitiv="yuqori", jami=25,
       matn=("Laboratoriyada uchta nomsiz tuz eritmasidan 50 g dan namuna olinib, suvi to'liq bug'latildi. "
-            "Quruq qoldiq massalari jadvalda berilgan (25 °C da NaCl ning eruvchanligi S = 36 g/100 g suv):\n"
-            "[JADVAL] Namuna | 1 | 2 | 3 ;; Qoldiq, g | 5 | 13,25 | 10\n"
+            "Quruq qoldiq massalari diagrammada berilgan (25 °C da NaCl ning eruvchanligi S = 36 g/100 g suv). "
             "Bandlar ketma-ket yechiladi."),
+      fig="bar_qoldiq",
       bandlar=[
         dict(savol="a) Har uchala eritmaning massa ulushini (%) hisoblang.",
              yechim=["ω₁ = 5/50 = 10%; ω₂ = 13,25/50 = 26,5%; ω₃ = 10/50 = 20%"], M=4, A=3),

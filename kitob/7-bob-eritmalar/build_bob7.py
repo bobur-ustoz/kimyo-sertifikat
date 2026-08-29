@@ -190,7 +190,27 @@ def fig_solubility_b():
             f'<text x="176" y="40" class="lb" fill="{T1}" font-weight="bold">X tuzi</text>'
             '</svg>')
 
-FIGS = dict(solubility_curve=fig_solubility_curve, beaker_sat=fig_beaker_sat, beakers3=fig_beakers3,
+
+def fig_bar_qoldiq():
+    """Ustunli diagramma (apelsin): bug'latishdan keyingi quruq qoldiqlar."""
+    T1 = "#ca6f1e"
+    data = [("1-namuna", 5), ("2-namuna", 13.25), ("3-namuna", 10)]
+    bars = ""
+    for i, (lab, v) in enumerate(data):
+        x = 58 + i * 58; h = v * 8.2; y = 128 - h
+        vv = str(v).replace(".", ",")
+        bars += (f'<rect x="{x}" y="{y}" width="34" height="{h}" rx="2" fill="{T1}" opacity="0.85" stroke="#6e4b1f" stroke-width="1"/>'
+                 f'<text x="{x+17}" y="{y-4}" text-anchor="middle" class="lb" font-weight="bold">{vv} g</text>'
+                 f'<text x="{x+17}" y="142" text-anchor="middle" class="lb">{lab}</text>')
+    return ('<svg width="250" height="150" viewBox="0 0 250 150">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#6e4b1f}</style>'
+            '<rect x="40" y="6" width="200" height="122" fill="#fdf9f3" stroke="#e4cfae" stroke-width="1.2"/>'
+            + "".join(f'<line x1="42" y1="{128-v*8.2:.0f}" x2="238" y2="{128-v*8.2:.0f}" stroke="#f0e2d0" stroke-width="0.9"/>'
+                      f'<text x="28" y="{131-v*8.2:.0f}" class="lb">{v}</text>' for v in [5,10,15])
+            + bars + '<line x1="40" y1="128" x2="240" y2="128" stroke="#6e4b1f" stroke-width="1.5"/>'
+            '<text x="8" y="16" class="lb">m, g</text></svg>')
+
+FIGS = dict(solubility_curve=fig_solubility_curve, bar_qoldiq=fig_bar_qoldiq,  beaker_sat=fig_beaker_sat, beakers3=fig_beakers3,
             jam=fig_jam, saltlake=fig_saltlake, aquarium=fig_aquarium, solubility_b=fig_solubility_b)
 
 def table_from_markup(text):
@@ -325,6 +345,8 @@ def render_variant(data, tag, star, izoh):
     for q in o2:
         txt, tbl = table_from_markup(q["matn"])
         H.append(f"<div class='o2'><div class='head'>{q['n']}-topshiriq</div><div>{txt}</div>{tbl}")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
         for b in q["bandlar"]:
             pts = b["M"] + b["A"]
             lab = f"M{b['M']}+A{b['A']}" if b["A"] else f"M{b['M']}"

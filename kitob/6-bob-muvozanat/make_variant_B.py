@@ -351,8 +351,9 @@ Y2 = dict(
                  dict(n=34, element="I.6", qiyinlik=3, kognitiv="yuqori"),
                  dict(n=35, element="I.6", qiyinlik=3, kognitiv="yuqori")],
   matn_umumiy=("Sulfat kislota ishlab chiqarishdagi kontakt apparatida 2SO₂ + O₂ ⇌ 2SO₃ + Q reaksiyasi boradi. "
-               "Yopiq reaktorga 8 mol SO₂ va 5 mol O₂ yuborildi; muvozanat qaror topganda 6 mol SO₃ hosil bo'ldi. "
-               "33–35-savollarga A–F ro'yxatidan javob tanlang."),
+               "Diagrammada reaktorga yuborilgan boshlang'ich mollar va muvozanatda hosil bo'lgan SO₃ miqdori "
+               "ko'rsatilgan. 33–35-savollarga A–F ro'yxatidan javob tanlang."),
+  fig="bar_kontakt",
   savollar_ichki=[
     "33. Muvozanatga kelguncha necha mol O₂ sarflangan?",
     "34. Muvozanatdagi gazlarning umumiy mol soni qancha?",

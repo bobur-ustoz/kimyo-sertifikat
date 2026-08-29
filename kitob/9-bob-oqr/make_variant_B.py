@@ -119,12 +119,13 @@ q(3, "yuqori",
 # 11 (3) — alkan-elektron (bank arxetipi)
 check("q11", (76/2 - 2)/6, 6, tol=0.001)  # 2(6n+2)=76 -> n=6
 q(3, "yuqori",
-  "2 mol noma'lum alkan kislorodda to'liq yondirildi. Bu jarayonda oksidlovchi qaytaruvchidan "
-  "76·Nₐ ta elektron olgan bo'lsa, alkanni aniqlang.",
-  "geksan", [("pentan", "n=5: 2(6·5+2)=64 ≠ 76"), ("geptan", "n=7: 2(6·7+2)=88 ≠ 76"),
-              ("oktan", "n=8: 2·50=100 ≠ 76")],
-  "CₙH₂ₙ₊₂ yonishida 1 mol alkan (6n+2) mol e beradi. 2(6n+2) = 76 → n = 6 → geksan.",
-  dict(arch="alkan_elektron", e=76, mol=2))
+  "Diagrammada ba'zi alkanlarning 1 moli to'liq yonganda oksidlovchiga beradigan elektron mollari "
+  "ko'rsatilgan. 2 mol noma'lum alkan yondirilganda oksidlovchi qaytaruvchidan 76·Nₐ ta elektron "
+  "olgan bo'lsa, diagrammadan foydalanib alkanni aniqlang.",
+  "geksan", [("pentan", "diagrammada 32: 2·32=64 ≠ 76"), ("geptan", "diagrammada 44: 2·44=88 ≠ 76"),
+              ("oktan", "diagrammada 50: 2·50=100 ≠ 76")],
+  "1 mol uchun 76/2 = 38 mol e kerak — diagrammada 38 geksanga mos. (Tekshiruv: 6n+2=38 → n=6.)",
+  dict(arch="alkan_elektron", e=76, mol=2), fig="bar_alkan")
 
 # 12 (3) — reaksiyani davom ettirish
 check("q12", 2+1+2+1+2, 8)

@@ -163,7 +163,30 @@ def fig_cell():
             '<text x="164" y="50" class="lb" font-weight="bold">2</text>'
             '</svg>')
 
-FIGS = dict(jewelry=fig_jewelry, aluminum=fig_aluminum, carbattery=fig_carbattery,
+
+def fig_bar_vanna():
+    """Ustunli diagramma (oltin): ketma-ket vannalarda katod mahsulotlari (Cu, Al — «?»)."""
+    S1, S2 = "#b7950b", "#34495e"
+    bars = (
+        f'<rect x="66" y="34" width="34" height="92" rx="2" fill="{S1}" opacity="0.85" stroke="{S2}" stroke-width="1"/>'
+        f'<text x="83" y="28" text-anchor="middle" class="lb" font-weight="bold">10,8 g</text>'
+        f'<text x="83" y="140" text-anchor="middle" class="lb">1 \u00b7 Ag</text>'
+        f'<rect x="124" y="86" width="34" height="40" rx="2" fill="none" stroke="{S1}" stroke-width="1.6" stroke-dasharray="5,3"/>'
+        f'<text x="141" y="80" text-anchor="middle" class="lb" font-weight="bold">?</text>'
+        f'<text x="141" y="140" text-anchor="middle" class="lb">2 \u00b7 Cu</text>'
+        f'<rect x="182" y="106" width="34" height="20" rx="2" fill="none" stroke="{S1}" stroke-width="1.6" stroke-dasharray="5,3"/>'
+        f'<text x="199" y="100" text-anchor="middle" class="lb" font-weight="bold">?</text>'
+        f'<text x="199" y="140" text-anchor="middle" class="lb">3 \u00b7 Al</text>')
+    return ('<svg width="240" height="148" viewBox="0 0 240 148">'
+            '<style>.lb{font-size:8.6px;font-family:Georgia,serif;fill:#34495e}</style>'
+            '<rect x="46" y="4" width="188" height="122" fill="#fcfbf4"/>'
+            '<rect x="46" y="4" width="188" height="9" fill="#34495e" opacity="0.12"/>'
+            + "".join(f'<line x1="48" y1="{126-m*8.5:.0f}" x2="232" y2="{126-m*8.5:.0f}" stroke="#d6dbdf" stroke-width="0.9"/>'
+                      f'<text x="30" y="{129-m*8.5:.0f}" class="lb">{m}</text>' for m in [4,8])
+            + bars + '<line x1="46" y1="126" x2="234" y2="126" stroke="#34495e" stroke-width="1.5"/>'
+            '<text x="6" y="14" class="lb">m, g</text></svg>')
+
+FIGS = dict(jewelry=fig_jewelry, bar_vanna=fig_bar_vanna,  aluminum=fig_aluminum, carbattery=fig_carbattery,
             hoffman=fig_hoffman, mt_graph=fig_mt_graph, cell=fig_cell)
 
 def table_from_markup(text):
@@ -298,6 +321,8 @@ def render_variant(data, tag, star, izoh):
     for q in o2:
         txt, tbl = table_from_markup(q["matn"])
         H.append(f"<div class='o2'><div class='head'>{q['n']}-topshiriq</div><div>{txt}</div>{tbl}")
+        if q.get("fig"):
+            H.append(f"<div style='text-align:center;margin:1.6mm 0'>{FIGS[q['fig']]()}</div>")
         for b in q["bandlar"]:
             pts = b["M"] + b["A"]
             lab = f"M{b['M']}+A{b['A']}" if b["A"] else f"M{b['M']}"

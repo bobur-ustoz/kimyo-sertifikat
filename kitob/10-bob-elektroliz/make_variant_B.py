@@ -428,10 +428,10 @@ O2 = [
       parametrlar=dict(arch="nacl_sxema")),
  dict(n=43, tur="O2", element="I.10", qiyinlik=3, kognitiv="yuqori", jami=25,
       matn=("Uchta elektroliz vannasi KETMA-KET ulangan; ularda mos ravishda AgNO₃, CuSO₄ eritmalari va "
-            "Al₂O₃ suyuqlanmasi bor. Zanjirdan 0,1 F zaryad o'tdi; natijalar jadvalda:\n"
-            "[JADVAL] Vanna | Elektrolit | Katod mahsuloti | Massa, g ;; 1 | AgNO₃ | Ag | 10,8 ;; "
-            "2 | CuSO₄ | Cu | ? ;; 3 | Al₂O₃(suyuql.) | Al | ?\n"
-            "Bandlar ketma-ket yechiladi. (M(Ag)=108, M(Cu)=64, M(Al)=27)"),
+            "Al₂O₃ suyuqlanmasi bor. Zanjirdan 0,1 F zaryad o'tdi; katodlarda ajralgan massalar "
+            "diagrammada ko'rsatilgan (2- va 3-vannalar «?»). Bandlar ketma-ket yechiladi. "
+            "(M(Ag)=108, M(Cu)=64, M(Al)=27)"),
+      fig="bar_vanna",
       bandlar=[
         dict(savol="a) Nega ketma-ket ulangan vannalardan bir xil zaryad o'tadi?",
              yechim=["Ketma-ket zanjirda tok kuchi (va vaqt) barcha uchastkalarda bir xil → Q = I·t ham bir xil."], M=3, A=1),
