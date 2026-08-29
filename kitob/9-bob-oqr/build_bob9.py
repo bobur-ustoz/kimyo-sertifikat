@@ -30,7 +30,7 @@ def svg(curve, xlab="t", ylab="v"):
             '<line x1="22" y1="86" x2="132" y2="86" class="ax"/><polygon points="132,86 125,83 125,89" fill="#222"/>'
             '<line x1="22" y1="86" x2="22" y2="8" class="ax"/><polygon points="22,8 19,15 25,15" fill="#222"/>'
             f'<text x="4" y="14" class="lb">{ylab}</text><text x="98" y="98" class="lb">{xlab}</text>'
-            f'{km}<path d="{p}" fill="none" stroke="{ACCENT2}" stroke-width="2.4" '
+            f'{km}<path d="{p}" fill="none" stroke="#6c3483" stroke-width="2.4" '
             'stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 # ---------- I.9 figuralari ----------
@@ -143,15 +143,20 @@ def fig_e_graph():
               f'<line x1="38" y1="{Y(0.6)}" x2="{X(0.2)}" y2="{Y(0.6)}" class="dsh"/>'
               f'<circle cx="{X(0.2)}" cy="{Y(0.6)}" r="2.6" fill="{ACCENT}"/>'
               f'<circle cx="{X(0.3)}" cy="{Y(0.9)}" r="2.6" fill="{ACCENT}"/>')
+    P1 = "#6c3483"
+    mk = "".join(f'<rect x="{X(n)-3:.0f}" y="{Y(e)-3:.0f}" width="6" height="6" fill="{P1}" stroke="#fff" stroke-width="1" '
+                 f'transform="rotate(45 {X(n):.0f} {Y(e):.0f})"/>' for n, e in pts)
     return ('<svg width="232" height="158" viewBox="0 0 238 158">'
-            '<style>.gr{stroke:#e3e3e3;stroke-width:0.7}.ax{stroke:#222;stroke-width:1.4}'
-            '.lb{font-size:9px;font-family:Georgia,serif;fill:#333}.dsh{stroke:#999;stroke-width:0.9;stroke-dasharray:3,3}</style>'
+            '<style>.gr{stroke:#e2d5ec;stroke-width:0.9}.ax{stroke:#4a235a;stroke-width:1.5}'
+            '.lb{font-size:9px;font-family:Georgia,serif;fill:#4a235a}.dsh{stroke:#6c3483;stroke-width:1;stroke-dasharray:2,3}</style>'
+            '<rect x="38" y="4" width="192" height="134" rx="4" fill="#faf6fd" stroke="#c9b3d8" stroke-width="1"/>'
             f'{grid}'
-            '<line x1="38" y1="138" x2="234" y2="138" class="ax"/><polygon points="234,138 227,135 227,141" fill="#222"/>'
-            '<line x1="38" y1="138" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#222"/>'
+            '<line x1="38" y1="138" x2="234" y2="138" class="ax"/><polygon points="234,138 227,135 227,141" fill="#4a235a"/>'
+            '<line x1="38" y1="138" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#4a235a"/>'
             f'{xt}{yt}{guides}'
-            '<text x="184" y="134" class="lb">n(Me), mol</text><text x="42" y="12" class="lb">n(e), mol</text>'
-            f'<path d="{path}" fill="none" stroke="{ACCENT2}" stroke-width="2.2"/>'
+            '<text x="184" y="134" class="lb">n(Me), mol</text><text x="42" y="14" class="lb">n(e), mol</text>'
+            f'<path d="{path}" fill="none" stroke="{P1}" stroke-width="2.4"/>'
+            f'{mk}'
             '</svg>')
 
 def fig_cu_hno3():
@@ -228,8 +233,8 @@ body {{ font-family: 'DejaVu Serif', Georgia, serif; font-size: 9.6pt; line-heig
 .opts b, .opts-inline b {{ font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.8pt; color:#333;}}
 .gopts {{ display:flex; gap:3mm; margin:1.6mm 0 0.5mm; flex-wrap: wrap;}}
 .gopts .go {{ text-align:center; font-family:'DejaVu Sans',Arial,sans-serif; font-weight:bold; font-size:9pt;}}
-.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #c8d2da; border-radius:2pt;
-                  background:#fff; padding:1mm;}}
+.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #d5c3e2; border-radius:2pt;
+                  background:#faf6fd; padding:1mm;}}
 table.jt {{ border-collapse: collapse; margin: 1.6mm 0; }}
 table.jt th, table.jt td {{ border: 0.8pt solid #9db4c4; padding: 0.8mm 2.4mm; font-size: 9pt; text-align:center;}}
 table.jt th {{ background:#e8eff5; font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.6pt;}}

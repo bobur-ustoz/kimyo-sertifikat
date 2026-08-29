@@ -30,38 +30,43 @@ def svg(curve, xlab="t", ylab="v"):
             '<line x1="22" y1="86" x2="132" y2="86" class="ax"/><polygon points="132,86 125,83 125,89" fill="#222"/>'
             '<line x1="22" y1="86" x2="22" y2="8" class="ax"/><polygon points="22,8 19,15 25,15" fill="#222"/>'
             f'<text x="4" y="14" class="lb">{ylab}</text><text x="98" y="98" class="lb">{xlab}</text>'
-            f'{km}<path d="{p}" fill="none" stroke="{ACCENT2}" stroke-width="2.4" '
+            f'{km}<path d="{p}" fill="none" stroke="#1e8449" stroke-width="2.4" '
             'stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 # ---------- I.6 figuralari ----------
 def fig_ct_eq():
-    """B-variant hisob grafigi: N2O4 (0,6->0,2) va NO2 (0->0,8) muvozanatga kelishi."""
-    def X(t): return 38 + t * 3.0      # t 0..60 -> 38..218
-    def Y(c): return 148 - c * 150     # c 0..0,9 -> 148..13
+    """B-variant hisob grafigi (6-bob uslubi: yashil, soya-fill, dumaloq markerlar)."""
+    G1, G2 = "#1e8449", "#b9770e"
+    def X(t): return 40 + t * 3.0
+    def Y(c): return 146 - c * 150
     n2o4 = [(0, 0.6), (10, 0.42), (20, 0.30), (30, 0.235), (40, 0.21), (50, 0.2), (60, 0.2)]
     no2 = [(0, 0.0), (10, 0.36), (20, 0.60), (30, 0.73), (40, 0.78), (50, 0.8), (60, 0.8)]
     def path(pts):
         return "M" + " L".join(f"{X(t):.0f},{Y(c):.0f}" for t, c in pts)
-    grid = "".join(f'<line x1="{X(t)}" y1="10" x2="{X(t)}" y2="148" class="gr"/>' for t in range(10, 61, 10)) + \
-           "".join(f'<line x1="38" y1="{Y(c):.0f}" x2="218" y2="{Y(c):.0f}" class="gr"/>' for c in
-                   [0.2, 0.4, 0.6, 0.8])
-    xt = "".join(f'<text x="{X(t)-6}" y="160" class="lb">{t}</text>' for t in range(0, 61, 20))
-    yt = "".join(f'<text x="12" y="{Y(c)+3:.0f}" class="lb">{c:.1f}</text>'.replace(".", ",") for c in
-                 [0.2, 0.4, 0.6, 0.8])
-    guides = (f'<line x1="38" y1="{Y(0.2)}" x2="218" y2="{Y(0.2)}" class="dsh"/>'
-              f'<line x1="38" y1="{Y(0.8)}" x2="218" y2="{Y(0.8)}" class="dsh"/>')
-    return ('<svg width="230" height="168" viewBox="0 0 236 168">'
-            '<style>.gr{stroke:#e3e3e3;stroke-width:0.7}.ax{stroke:#222;stroke-width:1.4}'
-            '.lb{font-size:9px;font-family:Georgia,serif;fill:#333}.dsh{stroke:#999;stroke-width:0.9;stroke-dasharray:3,3}</style>'
-            f'{grid}'
-            '<line x1="38" y1="148" x2="226" y2="148" class="ax"/><polygon points="226,148 219,145 219,151" fill="#222"/>'
-            '<line x1="38" y1="148" x2="38" y2="6" class="ax"/><polygon points="38,6 35,13 41,13" fill="#222"/>'
-            f'{xt}{yt}{guides}'
-            '<text x="200" y="144" class="lb">t, s</text><text x="42" y="12" class="lb">c, mol/l</text>'
-            f'<path d="{path(no2)}" fill="none" stroke="{ACCENT2}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<path d="{path(n2o4)}" fill="none" stroke="{ACCENT}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<text x="160" y="28" class="lb" fill="{ACCENT2}" font-weight="bold">NO₂</text>'
-            f'<text x="160" y="112" class="lb" fill="{ACCENT}" font-weight="bold">N₂O₄</text>'
+    area = path(no2) + f" L{X(60):.0f},{Y(0):.0f} L{X(0):.0f},{Y(0):.0f} Z"
+    yt = "".join(f'<line x1="36" y1="{Y(c):.0f}" x2="222" y2="{Y(c):.0f}" class="gr"/>'
+                 f'<text x="12" y="{Y(c)+3:.0f}" class="lb">{c:.1f}</text>'.replace(".", ",")
+                 for c in [0.2, 0.4, 0.6, 0.8])
+    xt = "".join(f'<line x1="{X(t)}" y1="146" x2="{X(t)}" y2="150" stroke="#1b4332" stroke-width="1.1"/>'
+                 f'<text x="{X(t)-6}" y="160" class="lb">{t}</text>' for t in range(0, 61, 20))
+    mk1 = "".join(f'<circle cx="{X(t)}" cy="{Y(c):.0f}" r="2.8" fill="#fff" stroke="{G1}" stroke-width="1.6"/>'
+                  for t, c in no2 if t % 20 == 0)
+    mk2 = "".join(f'<circle cx="{X(t)}" cy="{Y(c):.0f}" r="2.8" fill="{G2}"/>' for t, c in n2o4 if t % 20 == 0)
+    return ('<svg width="230" height="170" viewBox="0 0 236 170">'
+            '<style>.gr{stroke:#cfe3d6;stroke-width:0.8;stroke-dasharray:1.5,2.5}'
+            '.lb{font-size:9px;font-family:Georgia,serif;fill:#1b4332}</style>'
+            '<rect x="36" y="4" width="190" height="142" rx="5" fill="#f4faf5" stroke="#1b4332" stroke-width="1.3"/>'
+            f'{yt}{xt}'
+            f'<path d="{area}" fill="{G1}" opacity="0.10" stroke="none"/>'
+            f'<path d="{path(no2)}" fill="none" stroke="{G1}" stroke-width="2.4" stroke-linejoin="round"/>'
+            f'<path d="{path(n2o4)}" fill="none" stroke="{G2}" stroke-width="2.4" stroke-linejoin="round"/>'
+            f'{mk1}{mk2}'
+            f'<rect x="150" y="12" width="70" height="26" rx="3" fill="#fff" stroke="#cfe3d6"/>'
+            f'<circle cx="159" cy="20" r="3" fill="#fff" stroke="{G1}" stroke-width="1.6"/>'
+            f'<text x="166" y="23" class="lb" font-weight="bold">NO₂</text>'
+            f'<circle cx="159" cy="31" r="3" fill="{G2}"/>'
+            f'<text x="166" y="34" class="lb" font-weight="bold">N₂O₄</text>'
+            '<text x="196" y="166" class="lb">t, s</text><text x="8" y="14" class="lb">c, mol/l</text>'
             '</svg>')
 
 def fig_vt_eq():
@@ -80,10 +85,10 @@ def fig_vt_eq():
             f'<line x1="{X(30)}" y1="{Y(46)}" x2="{X(30)}" y2="130" class="dsh"/>'
             f'<text x="{X(30)-4}" y="143" class="lb" font-weight="bold">t₁</text>'
             '<text x="198" y="144" class="lb">t</text><text x="38" y="12" class="lb">v</text>'
-            f'<path d="{p1}" fill="none" stroke="{ACCENT2}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<path d="{p2}" fill="none" stroke="{ACCENT}" stroke-width="2.2" stroke-dasharray="6,3" stroke-linejoin="round"/>'
-            f'<text x="{X(4)}" y="{Y(96)}" class="lb" fill="{ACCENT2}" font-weight="bold">1 · to\'g\'ri</text>'
-            f'<text x="{X(10)}" y="{Y(14)}" class="lb" fill="{ACCENT}" font-weight="bold">2 · teskari</text>'
+            f'<path d="{p1}" fill="none" stroke="#1e8449" stroke-width="2.4" stroke-linejoin="round"/>'
+            f'<path d="{p2}" fill="none" stroke="#b9770e" stroke-width="2.4" stroke-dasharray="6,3" stroke-linejoin="round"/>'
+            f'<text x="{X(4)}" y="{Y(96)}" class="lb" fill="#1e8449" font-weight="bold">1 · to\'g\'ri</text>'
+            f'<text x="{X(10)}" y="{Y(14)}" class="lb" fill="#b9770e" font-weight="bold">2 · teskari</text>'
             f'<text x="{X(32)}" y="{Y(56)}" class="lb">muvozanat</text>'
             '</svg>')
 
@@ -253,8 +258,8 @@ body {{ font-family: 'DejaVu Serif', Georgia, serif; font-size: 9.6pt; line-heig
 .opts b, .opts-inline b {{ font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.8pt; color:#333;}}
 .gopts {{ display:flex; gap:3mm; margin:1.6mm 0 0.5mm; flex-wrap: wrap;}}
 .gopts .go {{ text-align:center; font-family:'DejaVu Sans',Arial,sans-serif; font-weight:bold; font-size:9pt;}}
-.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #c8d2da; border-radius:2pt;
-                  background:#fff; padding:1mm;}}
+.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #bcd9c4; border-radius:2pt;
+                  background:#f4faf5; padding:1mm;}}
 table.jt {{ border-collapse: collapse; margin: 1.6mm 0; }}
 table.jt th, table.jt td {{ border: 0.8pt solid #9db4c4; padding: 0.8mm 2.4mm; font-size: 9pt; text-align:center;}}
 table.jt th {{ background:#e8eff5; font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.6pt;}}

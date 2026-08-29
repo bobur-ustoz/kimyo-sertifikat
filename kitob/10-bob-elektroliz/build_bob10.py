@@ -30,7 +30,7 @@ def svg(curve, xlab="t", ylab="v"):
             '<line x1="22" y1="86" x2="132" y2="86" class="ax"/><polygon points="132,86 125,83 125,89" fill="#222"/>'
             '<line x1="22" y1="86" x2="22" y2="8" class="ax"/><polygon points="22,8 19,15 25,15" fill="#222"/>'
             f'<text x="4" y="14" class="lb">{ylab}</text><text x="98" y="98" class="lb">{xlab}</text>'
-            f'{km}<path d="{p}" fill="none" stroke="{ACCENT2}" stroke-width="2.4" '
+            f'{km}<path d="{p}" fill="none" stroke="#b7950b" stroke-width="2.4" '
             'stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 # ---------- I.10 figuralari ----------
@@ -126,15 +126,26 @@ def fig_mt_graph():
               f'<line x1="38" y1="{Y(21.6)}" x2="{X(0.2)}" y2="{Y(21.6)}" class="dsh"/>'
               f'<circle cx="{X(0.2)}" cy="{Y(21.6)}" r="2.6" fill="{ACCENT}"/>'
               f'<circle cx="{X(0.3)}" cy="{Y(32.4)}" r="2.6" fill="{ACCENT}"/>')
+    S1, S2 = "#b7950b", "#34495e"
+    grid_h = "".join(f'<line x1="38" y1="{Y(m):.0f}" x2="230" y2="{Y(m):.0f}" stroke="#d6dbdf" stroke-width="0.9"/>'
+                     for m in [10.8, 21.6, 32.4, 43.2])
+    tick_x = "".join(f'<line x1="{X(f)}" y1="138" x2="{X(f)}" y2="142" stroke="{S2}" stroke-width="1.2"/>'
+                     for f in [0.1, 0.2, 0.3, 0.4])
+    mk = "".join(f'<polygon points="{X(f):.0f},{Y(m)-4:.0f} {X(f)-4:.0f},{Y(m)+3:.0f} {X(f)+4:.0f},{Y(m)+3:.0f}" '
+                 f'fill="{S1}" stroke="{S2}" stroke-width="0.9"/>' for f, m in pts if f > 0)
     return ('<svg width="234" height="158" viewBox="0 0 240 158">'
-            '<style>.gr{stroke:#e3e3e3;stroke-width:0.7}.ax{stroke:#222;stroke-width:1.4}'
-            '.lb{font-size:8.6px;font-family:Georgia,serif;fill:#333}.dsh{stroke:#999;stroke-width:0.9;stroke-dasharray:3,3}</style>'
-            f'{grid}'
-            '<line x1="38" y1="138" x2="236" y2="138" class="ax"/><polygon points="236,138 229,135 229,141" fill="#222"/>'
-            '<line x1="38" y1="138" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#222"/>'
+            '<style>.ax{stroke:#34495e;stroke-width:1.6}'
+            '.lb{font-size:8.6px;font-family:Georgia,serif;fill:#34495e}.dsh{stroke:#b7950b;stroke-width:1;stroke-dasharray:4,2}</style>'
+            '<rect x="38" y="4" width="192" height="134" fill="#fcfbf4"/>'
+            '<rect x="38" y="4" width="192" height="10" fill="#34495e" opacity="0.12"/>'
+            f'{grid_h}{tick_x}'
+            '<line x1="38" y1="138" x2="236" y2="138" class="ax"/><polygon points="236,138 229,135 229,141" fill="#34495e"/>'
+            '<line x1="38" y1="138" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#34495e"/>'
             f'{xt}{yt}{guides}'
             '<text x="196" y="134" class="lb">Q, F</text><text x="42" y="12" class="lb">m(Ag), g</text>'
-            f'<path d="{path}" fill="none" stroke="{ACCENT2}" stroke-width="2.2"/>'
+            f'<path d="{path}" fill="none" stroke="{S1}" stroke-width="2.6"/>'
+            f'{mk}'
+            f'<text x="52" y="26" class="lb" font-weight="bold">▲ katoddagi kumush</text>'
             '</svg>')
 
 def fig_cell():
@@ -207,8 +218,8 @@ body {{ font-family: 'DejaVu Serif', Georgia, serif; font-size: 9.6pt; line-heig
 .opts b, .opts-inline b {{ font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.8pt; color:#333;}}
 .gopts {{ display:flex; gap:3mm; margin:1.6mm 0 0.5mm; flex-wrap: wrap;}}
 .gopts .go {{ text-align:center; font-family:'DejaVu Sans',Arial,sans-serif; font-weight:bold; font-size:9pt;}}
-.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #c8d2da; border-radius:2pt;
-                  background:#fff; padding:1mm;}}
+.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #d9ce9a; border-radius:2pt;
+                  background:#fcfbf4; padding:1mm;}}
 table.jt {{ border-collapse: collapse; margin: 1.6mm 0; }}
 table.jt th, table.jt td {{ border: 0.8pt solid #9db4c4; padding: 0.8mm 2.4mm; font-size: 9pt; text-align:center;}}
 table.jt th {{ background:#e8eff5; font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.6pt;}}

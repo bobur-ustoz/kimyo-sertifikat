@@ -30,7 +30,7 @@ def svg(curve, xlab="t", ylab="v"):
             '<line x1="22" y1="86" x2="132" y2="86" class="ax"/><polygon points="132,86 125,83 125,89" fill="#222"/>'
             '<line x1="22" y1="86" x2="22" y2="8" class="ax"/><polygon points="22,8 19,15 25,15" fill="#222"/>'
             f'<text x="4" y="14" class="lb">{ylab}</text><text x="98" y="98" class="lb">{xlab}</text>'
-            f'{km}<path d="{p}" fill="none" stroke="{ACCENT2}" stroke-width="2.4" '
+            f'{km}<path d="{p}" fill="none" stroke="#ca6f1e" stroke-width="2.4" '
             'stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 # ---------- I.7 laboratoriya figuralari (A-variant) ----------
@@ -46,18 +46,23 @@ def fig_solubility_curve():
            "".join(f'<line x1="34" y1="{Y(s):.0f}" x2="214" y2="{Y(s):.0f}" class="gr"/>' for s in range(20, 181, 20))
     xt = "".join(f'<text x="{X(t)-6}" y="162" class="lb">{t}</text>' for t in range(0, 81, 20))
     yt = "".join(f'<text x="10" y="{Y(s)+3:.0f}" class="lb">{s}</text>' for s in range(0, 181, 40))
+    T1, T2 = "#ca6f1e", "#148f77"
+    mk1 = "".join(f'<circle cx="{X(t):.0f}" cy="{Y(s):.0f}" r="3" fill="{T1}" stroke="#fff" stroke-width="1"/>' for t, s in kno3)
+    mk2 = "".join(f'<rect x="{X(t)-2.6:.0f}" y="{Y(s)-2.6:.0f}" width="5.2" height="5.2" fill="{T2}" stroke="#fff" stroke-width="1"/>' for t, s in nacl)
     return ('<svg width="228" height="172" viewBox="0 0 236 176">'
-            '<style>.gr{stroke:#e3e3e3;stroke-width:0.7}.ax{stroke:#222;stroke-width:1.4}'
-            '.lb{font-size:9px;font-family:Georgia,serif;fill:#333}</style>'
+            '<style>.gr{stroke:#f0e2d0;stroke-width:0.9}.ax{stroke:#6e4b1f;stroke-width:1.5}'
+            '.lb{font-size:9px;font-family:Georgia,serif;fill:#6e4b1f}</style>'
+            '<rect x="34" y="2" width="180" height="148" fill="#fdf9f3"/>'
             f'{grid}'
-            '<line x1="34" y1="150" x2="222" y2="150" class="ax"/><polygon points="222,150 215,147 215,153" fill="#222"/>'
-            '<line x1="34" y1="150" x2="34" y2="2" class="ax"/><polygon points="34,2 31,9 37,9" fill="#222"/>'
+            '<line x1="34" y1="150" x2="222" y2="150" class="ax"/><polygon points="222,150 215,147 215,153" fill="#6e4b1f"/>'
+            '<line x1="34" y1="150" x2="34" y2="2" class="ax"/><polygon points="34,2 31,9 37,9" fill="#6e4b1f"/>'
             f'{xt}{yt}'
             '<text x="196" y="146" class="lb">t, °C</text><text x="38" y="10" class="lb">s, g/100 g suv</text>'
-            f'<path d="{path(kno3)}" fill="none" stroke="{ACCENT2}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<path d="{path(nacl)}" fill="none" stroke="{ACCENT}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<text x="150" y="52" class="lb" fill="{ACCENT2}" font-weight="bold">KNO₃</text>'
-            f'<text x="170" y="112" class="lb" fill="{ACCENT}" font-weight="bold">NaCl</text>'
+            f'<path d="{path(kno3)}" fill="none" stroke="{T1}" stroke-width="2.6" stroke-linejoin="round"/>'
+            f'<path d="{path(nacl)}" fill="none" stroke="{T2}" stroke-width="2.6" stroke-dasharray="7,3" stroke-linejoin="round"/>'
+            f'{mk1}{mk2}'
+            f'<text x="148" y="52" class="lb" fill="{T1}" font-weight="bold">● KNO₃</text>'
+            f'<text x="168" y="112" class="lb" fill="{T2}" font-weight="bold">■ NaCl</text>'
             '</svg>')
 
 def _beaker(x, label, sub, precipitate, fill_h=44):
@@ -168,16 +173,21 @@ def fig_solubility_b():
         guides += (f'<line x1="{X(t)}" y1="{Y(s)}" x2="{X(t)}" y2="148" class="dsh"/>'
                    f'<line x1="38" y1="{Y(s)}" x2="{X(t)}" y2="{Y(s)}" class="dsh"/>'
                    f'<circle cx="{X(t)}" cy="{Y(s)}" r="2.6" fill="{ACCENT}"/>')
+    T1 = "#ca6f1e"
+    mk = "".join(f'<circle cx="{X(t):.0f}" cy="{Y(s):.0f}" r="3" fill="{T1}" stroke="#fff" stroke-width="1"/>'
+                 f'<text x="{X(t)+4:.0f}" y="{Y(s)-5:.0f}" class="lb" font-weight="bold">{s}</text>' for t, s in pts if t > 0)
     return ('<svg width="232" height="168" viewBox="0 0 238 168">'
-            '<style>.gr{stroke:#e3e3e3;stroke-width:0.7}.ax{stroke:#222;stroke-width:1.4}'
-            '.lb{font-size:9px;font-family:Georgia,serif;fill:#333}.dsh{stroke:#999;stroke-width:0.9;stroke-dasharray:3,3}</style>'
+            '<style>.gr{stroke:#f0e2d0;stroke-width:0.9}.ax{stroke:#6e4b1f;stroke-width:1.5}'
+            '.lb{font-size:9px;font-family:Georgia,serif;fill:#6e4b1f}.dsh{stroke:#148f77;stroke-width:1;stroke-dasharray:3,3}</style>'
+            '<rect x="38" y="4" width="184" height="144" fill="#fdf9f3"/>'
             f'{grid}'
-            '<line x1="38" y1="148" x2="230" y2="148" class="ax"/><polygon points="230,148 223,145 223,151" fill="#222"/>'
-            '<line x1="38" y1="148" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#222"/>'
+            '<line x1="38" y1="148" x2="230" y2="148" class="ax"/><polygon points="230,148 223,145 223,151" fill="#6e4b1f"/>'
+            '<line x1="38" y1="148" x2="38" y2="4" class="ax"/><polygon points="38,4 35,11 41,11" fill="#6e4b1f"/>'
             f'{xt}{yt}{guides}'
-            '<text x="204" y="144" class="lb">t, °C</text><text x="42" y="12" class="lb">s, g/100 g suv</text>'
-            f'<path d="{path}" fill="none" stroke="{ACCENT2}" stroke-width="2.2" stroke-linejoin="round"/>'
-            f'<text x="176" y="34" class="lb" fill="{ACCENT2}" font-weight="bold">X tuzi</text>'
+            '<text x="204" y="144" class="lb">t, °C</text><text x="42" y="14" class="lb">s, g/100 g suv</text>'
+            f'<path d="{path}" fill="none" stroke="{T1}" stroke-width="2.6" stroke-linejoin="round"/>'
+            f'{mk}'
+            f'<text x="176" y="40" class="lb" fill="{T1}" font-weight="bold">X tuzi</text>'
             '</svg>')
 
 FIGS = dict(solubility_curve=fig_solubility_curve, beaker_sat=fig_beaker_sat, beakers3=fig_beakers3,
@@ -235,8 +245,8 @@ body {{ font-family: 'DejaVu Serif', Georgia, serif; font-size: 9.6pt; line-heig
 .opts b, .opts-inline b {{ font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.8pt; color:#333;}}
 .gopts {{ display:flex; gap:3mm; margin:1.6mm 0 0.5mm; flex-wrap: wrap;}}
 .gopts .go {{ text-align:center; font-family:'DejaVu Sans',Arial,sans-serif; font-weight:bold; font-size:9pt;}}
-.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #c8d2da; border-radius:2pt;
-                  background:#fff; padding:1mm;}}
+.gopts .go svg {{ display:block; margin: 0 auto 0.6mm; border:0.8pt solid #e4cfae; border-radius:2pt;
+                  background:#fdf9f3; padding:1mm;}}
 table.jt {{ border-collapse: collapse; margin: 1.6mm 0; }}
 table.jt th, table.jt td {{ border: 0.8pt solid #9db4c4; padding: 0.8mm 2.4mm; font-size: 9pt; text-align:center;}}
 table.jt th {{ background:#e8eff5; font-family:'DejaVu Sans',Arial,sans-serif; font-size:8.6pt;}}
