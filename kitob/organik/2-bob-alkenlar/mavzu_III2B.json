@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-III2-B",
+ "daraja": "B",
+ "bob": 2,
+ "bob_nomi": "Alkenlar, alkadiyenlar, alkinlar",
+ "manba": "Tongotarov/DTM arxetiplari (Markovnikov, sifat sinovlari, brom-aralashma tahlili, karbid/polimer hisoblari) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi III.2",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★ (Organik kimyo kitobi): brom-test tajribasi, aralashma tahlili, unumli zanjirlar.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Alkenlar haqidagi TO'G'RI fikrlarni tanlang:\n1) bromli suvni rangsizlantiradi;  2) KMnO₄ eritmasini rangsizlantiradi;  3) o'rin olish — asosiy reaksiya turi;  4) polimerlanadi.",
+   "variantlar": [
+    "hammasi",
+    "1 va 4",
+    "2 va 3",
+    "1, 2 va 4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy tur — BIRIKISH, o'rin olish emas"
+    },
+    {
+     "variant": "B",
+     "xato": "KMnO₄ sinovi (Vagner) ham alkenlarga xos"
+    },
+    {
+     "variant": "C",
+     "xato": "3 noto'g'ri"
+    }
+   ],
+   "yechim": "Qo'shbog' birikish reaksiyalarining «markazi»; ikkala sifat sinovi ham ishlaydi.",
+   "parametrlar": {
+    "arch": "alken_fikr_b"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Normal sharoitdagi zichligi 1,25 g/L bo'lgan alkenni aniqlang.",
+   "variantlar": [
+    "propen",
+    "buten",
+    "eten (C₂H₄)",
+    "etan"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 42, zichligi 1,875"
+    },
+    {
+     "variant": "B",
+     "xato": "M = 56, zichligi 2,5"
+    },
+    {
+     "variant": "D",
+     "xato": "u alken emas"
+    }
+   ],
+   "yechim": "M = ρ·22,4 = 28 g/mol → C₂H₄.",
+   "parametrlar": {
+    "arch": "zichlik_alken"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Propenga HBr biriktirilganda ASOSIY mahsulot qaysi (Markovnikov qoidasi)?",
+   "variantlar": [
+    "1-brompropan",
+    "2-brompropan",
+    "ikkala izomer teng aralashmada",
+    "2,2-dibrompropan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod H ko'p uglerodga boradi"
+    },
+    {
+     "variant": "C",
+     "xato": "yo'nalish tanlab (Markovnikovcha) boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "bitta HBr birikadi"
+    }
+   ],
+   "yechim": "H⁺ vodorodi KO'PROQ H li uglerodga: CH₃–CHBr–CH₃ hosil bo'ladi.",
+   "parametrlar": {
+    "arch": "markovnikov"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂. 6,4 g toza karbiddan olinadigan atsetilen hajmini (n.sh.) toping. (M(CaC₂)=64)",
+   "variantlar": [
+    "22,4 L",
+    "4,48 L",
+    "1,12 L",
+    "2,24 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "0,2 mol emas"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "karbid_hisob_b"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi tajribada ikki probirkaga bromli suv quyilib, biriga etan, ikkinchisiga etilen yuborildi. Qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "ikkalasi ham rangsizlandi",
+    "etanli probirka rangsizlandi",
+    "hech biri o'zgarmadi",
+    "etilenli probirka rangsizlandi — u to'yinmagan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etan Br₂ ni biriktirmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha"
+    },
+    {
+     "variant": "C",
+     "xato": "alken sinovga «javob beradi»"
+    }
+   ],
+   "yechim": "Sifat reaksiyasi sinflarni bir zumda ajratadi: alkan «jim», alken «ishlaydi».",
+   "parametrlar": {
+    "arch": "brom_tajriba_oqish"
+   },
+   "fig": "bromtest"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Atsetilenga suv biriktirilganda (Kucherov reaksiyasi) nima hosil bo'ladi?",
+   "variantlar": [
+    "etil spirti",
+    "sirka kislota",
+    "sirka aldegidi (CH₃CHO)",
+    "etilenglikol"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "spirt etilen gidratlanishida"
+    },
+    {
+     "variant": "B",
+     "xato": "u aldegid oksidlanishidan"
+    },
+    {
+     "variant": "D",
+     "xato": "u boshqa jarayon mahsuloti"
+    }
+   ],
+   "yechim": "C₂H₂ + H₂O → (Hg²⁺) CH₃CHO — alkin gidratlanishining o'ziga xosligi.",
+   "parametrlar": {
+    "arch": "kucherov"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Formulasi C₄H₆ bo'lgan moddaga qaysi sinflar MOS kelishi mumkin?\n1) alkin (butin);  2) alkadiyen (butadien);  3) alkan;  4) alken.",
+   "variantlar": [
+    "faqat 1",
+    "1 va 2",
+    "3 va 4",
+    "hammasi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "dien ham CₙH₂ₙ₋₂"
+    },
+    {
+     "variant": "C",
+     "xato": "ularniki 2n+2 va 2n"
+    },
+    {
+     "variant": "D",
+     "xato": "alkan/alkenga to'g'ri kelmaydi"
+    }
+   ],
+   "yechim": "CₙH₂ₙ₋₂ — ikki sinf uchun umumiy: sinflararo izomeriya.",
+   "parametrlar": {
+    "arch": "c4h6_sinflar"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Alkenlarda uglerodning gibridlanishi qanday?",
+   "variantlar": [
+    "sp³ hamma joyda",
+    "sp",
+    "d²sp³",
+    "qo'shbog'dagi C lar — sp²"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qo'shbog' uglerodi sp²"
+    },
+    {
+     "variant": "B",
+     "xato": "sp — alkinlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "organikada uchramaydi"
+    }
+   ],
+   "yechim": "sp²: tekis uchburchak, 120° — pi-bog' tekislikka perpendikulyar.",
+   "parametrlar": {
+    "arch": "sp2"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi reaksiyalarni turlari bilan TO'G'RI moslang:\n[JADVAL] Reaksiya | Tur ;; a) C₂H₄ + Br₂ | 1) polimerlanish ;; b) nC₂H₄ → (–CH₂CH₂–)ₙ | 2) birikish ;; c) C₂H₆ + Cl₂ (yorug'lik) | 3) o'rin olish",
+   "variantlar": [
+    "a—2, b—1, c—3",
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—3, b—1, c—2"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Br₂ qo'shbog'ga BIRIKADI"
+    },
+    {
+     "variant": "C",
+     "xato": "n molekula → polimer"
+    },
+    {
+     "variant": "D",
+     "xato": "alkanda o'rin olish"
+    }
+   ],
+   "yechim": "Alken — birikish/polimerlanish; alkan — o'rin olish.",
+   "parametrlar": {
+    "arch": "reaksiya_moslash_b"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₂H₄ + Br₂ → C₂H₄Br₂. 0,1 mol etilen to'liq biriktirilganda hosil bo'lgan dibrometan massasini toping. (M(C₂H₄Br₂)=188)",
+   "variantlar": [
+    "188 g",
+    "9,4 g",
+    "18,8 g",
+    "16 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu Br₂ massasi"
+    }
+   ],
+   "yechim": "m = 0,1·188 = 18,8 g.",
+   "parametrlar": {
+    "arch": "dibrometan_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Etan va etilen aralashmasining 10 L (n.sh.) miqdori bromli suvdan o'tkazilganda hajm 6 L gacha kamaydi. Aralashmadagi etilen hajmini toping.",
+   "variantlar": [
+    "6 L",
+    "4 L",
+    "10 L",
+    "2 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu qolgan etan"
+    },
+    {
+     "variant": "C",
+     "xato": "hammasi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "Bromli suv faqat etilenni «ushlab qoladi»: V = 10 − 6 = 4 L (40 %).",
+   "parametrlar": {
+    "arch": "aralash_brom_hajm"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Vagner reaksiyasi (KMnO₄ bilan) alkenlarda nima beradi?",
+   "variantlar": [
+    "kislota darhol",
+    "ikki atomli spirt (glikol) — eritma rangsizlanadi",
+    "alkan",
+    "hech narsa"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yumshoq sharoitda glikol"
+    },
+    {
+     "variant": "C",
+     "xato": "qaytarilish emas"
+    },
+    {
+     "variant": "D",
+     "xato": "sinov aynan ishlaydi"
+    }
+   ],
+   "yechim": "3C₂H₄ + 2KMnO₄ + 4H₂O → 3C₂H₄(OH)₂ + 2MnO₂ + 2KOH.",
+   "parametrlar": {
+    "arch": "vagner"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Propen 0,1 mol HBr ni to'liq biriktirdi. Asosiy mahsulot massasini toping. (M(C₃H₇Br)=123)",
+   "variantlar": [
+    "123 g",
+    "12,3 g",
+    "6,15 g",
+    "8,1 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu HBr massasi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(2-brompropan) = 12,3 g.",
+   "parametrlar": {
+    "arch": "hbr_hisob"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Sinf | Umumiy formula | Bog' ;; alken | ? | C=C ;; alkin | ? | C≡C ;; alkadiyen | CₙH₂ₙ₋₂ | ?",
+   "variantlar": [
+    "CₙH₂ₙ₊₂; CₙH₂ₙ; C≡C",
+    "CₙH₂ₙ; CₙH₂ₙ; ikkita C≡C",
+    "CₙH₂ₙ; CₙH₂ₙ₋₂; ikkita C=C",
+    "CₙH₂ₙ₋₂; CₙH₂ₙ; bitta C=C"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "chalkash"
+    },
+    {
+     "variant": "B",
+     "xato": "alkin −2"
+    },
+    {
+     "variant": "D",
+     "xato": "teskari"
+    }
+   ],
+   "yechim": "Alken 2n; alkin 2n−2; dien — ikki qo'shbog'.",
+   "parametrlar": {
+    "arch": "sinf_jadval_b2"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₂H₄ + H₂O → C₂H₅OH. 11,2 L (n.sh.) etilen to'liq gidratlanganda hosil bo'lgan spirt massasini toping. (M(C₂H₅OH)=46)",
+   "variantlar": [
+    "46 g",
+    "11,5 g",
+    "23 g",
+    "9,2 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "0,2 mol emas"
+    }
+   ],
+   "yechim": "n = 0,5 mol → m = 23 g.",
+   "parametrlar": {
+    "arch": "gidratlanish_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Butadien-1,3 sanoatda nima uchun ishlab chiqariladi?",
+   "variantlar": [
+    "yoqilg'i sifatida",
+    "sun'iy kauchuk olish uchun",
+    "erituvchi sifatida",
+    "o'g'it sifatida"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qimmat — yoqilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "u gaz"
+    },
+    {
+     "variant": "D",
+     "xato": "organik gaz o'g'it emas"
+    }
+   ],
+   "yechim": "nCH₂=CH–CH=CH₂ → butadien kauchugi (Lebedev usuli tarixiy asos).",
+   "parametrlar": {
+    "arch": "butadien_maqsad"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O. 8,96 L (n.sh.) atsetilen yonganda hosil bo'lgan CO₂ massasini toping. (M(CO₂)=44)",
+   "variantlar": [
+    "35,2 g",
+    "17,6 g",
+    "44 g",
+    "70,4 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 2 emas"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,4 → n(CO₂) = 0,8 mol → m = 35,2 g.",
+   "parametrlar": {
+    "arch": "atsetilen_yonish_b"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Sis-trans (geometrik) izomeriya qaysi birikmalarda uchraydi?",
+   "variantlar": [
+    "qo'shbog' atrofida turli o'rinbosarli alkenlarda",
+    "barcha alkanlarda",
+    "faqat alkinlarda",
+    "faqat halqali birikmalarda"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "erkin aylanish bor — izomer yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "chiziqli uchbog'da bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "asosiy manba — qo'shbog'"
+    }
+   ],
+   "yechim": "C=C atrofida aylanish «qulflangan»: buten-2 ning sis- va trans- shakllari.",
+   "parametrlar": {
+    "arch": "sis_trans"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol tajribasida etilenli probirkaga jami 16 g brom «yutildi». Necha mol etilen yuborilgan? (M(Br₂)=160)",
+   "variantlar": [
+    "1",
+    "0,05",
+    "0,2",
+    "0,1"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "16/160"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi emas"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(Br₂) = 0,1 = n(C₂H₄) — 1:1 birikish.",
+   "parametrlar": {
+    "arch": "brom_hisob_b"
+   },
+   "fig": "bromtest"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Atsetilenning trimerlanishi (3C₂H₂ →) qanday mahsulot beradi?",
+   "variantlar": [
+    "geksan",
+    "siklogeksan",
+    "benzol (C₆H₆)",
+    "polietilen"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'yingan mahsulot emas"
+    },
+    {
+     "variant": "B",
+     "xato": "u gidrogenlashdan keyin"
+    },
+    {
+     "variant": "D",
+     "xato": "u etilendan"
+    }
+   ],
+   "yechim": "Zelinskiy reaksiyasi: uch molekula halqaga «yig'iladi» — arenlarga ko'prik.",
+   "parametrlar": {
+    "arch": "trimerlanish"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Propan va propen aralashmasi 0,3 mol; u bromli suvdan o'tkazilganda 16 g brom sarflandi. Aralashmadagi propan mol miqdorini toping. (M(Br₂)=160)",
+   "variantlar": [
+    "0,2",
+    "0,1",
+    "0,3",
+    "0,15"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu propen"
+    },
+    {
+     "variant": "C",
+     "xato": "hammasi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "teng emas"
+    }
+   ],
+   "yechim": "n(propen) = n(Br₂) = 0,1 → n(propan) = 0,3 − 0,1 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "aralash_brom_mol"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Atsetilen uchun XOS reaksiyalarni tanlang:\n1) ikki bosqichli brom biriktirish;  2) Kucherov gidratlanishi;  3) yorug'likda o'rin olish;  4) trimerlanib benzol berish.",
+   "variantlar": [
+    "1, 2 va 4",
+    "hammasi",
+    "faqat 1",
+    "2 va 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "o'rin olish — alkan «imzosi»"
+    },
+    {
+     "variant": "C",
+     "xato": "2 va 4 ham alkinga xos"
+    },
+    {
+     "variant": "D",
+     "xato": "3 mos emas"
+    }
+   ],
+   "yechim": "Uchbog' — ikki pi: bosqichli birikish, gidratlanish, trimerlanish.",
+   "parametrlar": {
+    "arch": "alkin_xossa_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Butadien-1,3 ning 5,4 grammi bromning qancha massasini TO'LIQ biriktira oladi? (M: C₄H₆=54, Br₂=160)",
+   "variantlar": [
+    "32 g",
+    "16 g",
+    "160 g",
+    "8 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "IKKITA qo'shbog' bor"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,1 mol; 2 qo'shbog' → n(Br₂) = 0,2 → m = 32 g.",
+   "parametrlar": {
+    "arch": "dien_brom_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Sanoatda etilen asosan qanday olinadi?",
+   "variantlar": [
+    "karbiddan",
+    "spirtdan faqat",
+    "neft uglevodorodlarini krekinglab/pirolizlab",
+    "havodan"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "karbid atsetilen beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "lab usuli"
+    },
+    {
+     "variant": "D",
+     "xato": "havoda etilen yo'q"
+    }
+   ],
+   "yechim": "Yirik neft-kimyo: alkanlar parchalanishida alkenlar «tug'iladi».",
+   "parametrlar": {
+    "arch": "etilen_sanoat"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Etilenni laboratoriyada olish usuli qaysi?",
+   "variantlar": [
+    "karbid + suv",
+    "etil spirtini kons. H₂SO₄ bilan qizdirib suvsizlantirish",
+    "metan xlorlash",
+    "polietilenni eritish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u atsetilen"
+    },
+    {
+     "variant": "C",
+     "xato": "u galogenalkan"
+    },
+    {
+     "variant": "D",
+     "xato": "erish gaz bermaydi"
+    }
+   ],
+   "yechim": "C₂H₅OH → (H₂SO₄, 170 °C) C₂H₄ + H₂O — degidratatsiya.",
+   "parametrlar": {
+    "arch": "etilen_lab"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Diagrammadan foydalaning: yiliga 400 mln tonna plastik ishlab chiqarilsa, taxminan qancha polietilenga to'g'ri keladi (PE ulushi 31 %)?",
+   "variantlar": [
+    "31 mln t",
+    "200 mln t",
+    "124 mln t",
+    "400 mln t"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "400 ning 31 %i"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "hammasi emas"
+    }
+   ],
+   "yechim": "m = 400·0,31 = 124 mln tonna.",
+   "parametrlar": {
+    "arch": "bar_polimer_hisob"
+   },
+   "fig": "bar_polymer"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "O'rtacha molyar massasi 54 000 g/mol bo'lgan butadien kauchugidagi zvenolar sonini toping. (M(C₄H₆)=54)",
+   "variantlar": [
+    "1000",
+    "540",
+    "100",
+    "2000"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "54000/54"
+    },
+    {
+     "variant": "C",
+     "xato": "nol kam"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 54000/54 = 1000.",
+   "parametrlar": {
+    "arch": "kauchuk_n"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Bog' uzunliklari grafigidan: qaysi bog' ENG MUSTAHKAM?",
+   "variantlar": [
+    "C≡C — eng qisqa bog'",
+    "C–C",
+    "C=C",
+    "hammasi teng"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "eng uzun — nisbatan bo'sh"
+    },
+    {
+     "variant": "C",
+     "xato": "o'rtada"
+    },
+    {
+     "variant": "D",
+     "xato": "uzunlik-mustahkamlik bog'liq"
+    }
+   ],
+   "yechim": "Qisqa bog' — kuchli bog': uzish energiyasi C≡C da eng katta.",
+   "parametrlar": {
+    "arch": "bog_mustahkam"
+   },
+   "fig": "bond_len"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,25 mol butadien-1,3 ning massasini toping. (M(C₄H₆)=54)",
+   "variantlar": [
+    "54 g",
+    "13,5 g",
+    "27 g",
+    "108 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarim mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "2 mol uchun"
+    }
+   ],
+   "yechim": "m = 0,25·54 = 13,5 g.",
+   "parametrlar": {
+    "arch": "dien_massa"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Nega atsetilen ballonlarda maxsus g'ovak modda va atsetonga singdirilgan holda saqlanadi?",
+   "variantlar": [
+    "hidini kamaytirish uchun",
+    "arzonlashtirish uchun",
+    "rangini saqlash uchun",
+    "siqilgan sof atsetilen portlashga moyil"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gap xavfsizlikda"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha, qimmatlashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz rangsiz"
+    }
+   ],
+   "yechim": "C₂H₂ yuqori bosimda beqaror — eritilgan holatda xavfsiz tashiladi.",
+   "parametrlar": {
+    "arch": "atsetilen_saqlash"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "C₂H₂ + 2H₂ → C₂H₆. 0,15 mol atsetilenni to'liq gidrogenlash uchun zarur vodorod hajmini (n.sh.) toping.",
+   "variantlar": [
+    "3,36 L",
+    "22,4 L",
+    "1,68 L",
+    "6,72 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "IKKI mol H₂ kerak"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n(H₂) = 0,3 mol → V = 6,72 L.",
+   "parametrlar": {
+    "arch": "alkin_gidrogenlash"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol tajribasi asosida: qaysi JUFT gazni bromli suv FARQLAY OLMAYDI?",
+   "variantlar": [
+    "etan va etilen",
+    "metan va propen",
+    "metan va etan",
+    "etilen va atsetilen"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aynan farqlaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "farqlaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu juft ham «bir xil» (reaksiyasiz), lekin savol to'yinmaganlar haqida"
+    }
+   ],
+   "yechim": "Ikkala to'yinmagan gaz ham rangsizlantiradi — ularni miqdoriy farq (2 barobar Br₂) yoki boshqa sinov ajratadi.",
+   "parametrlar": {
+    "arch": "brom_chegara"
+   },
+   "fig": "bromtest"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.2",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "III.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "III.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch gaz tekshirildi: X — bromli suvni o'zgartirmadi; Y — bromli suvni rangsizlantirdi, 1 moli 1 mol Br₂ biriktirdi; Z — bromli suvni rangsizlantirdi, 1 moli 2 mol Br₂ biriktirdi. Gazlar C₂H₆, C₂H₄ va C₂H₂ ekani ma'lum. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X gaz qaysi?",
+    "34. Z gazning formulasi qaysi?",
+    "35. Y gazdan sanoatda qaysi mahsulot olinadi?"
+   ],
+   "javoblar_royxati": [
+    "A) etan",
+    "B) C₂H₂",
+    "C) polietilen",
+    "D) etilen",
+    "E) C₂H₄",
+    "F) benzol"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "etilen — Y (1 mol Br₂)"
+    },
+    {
+     "variant": "E",
+     "xato": "2 mol Br₂ biriktirgani — uchbog'li C₂H₂"
+    },
+    {
+     "variant": "F",
+     "xato": "benzol atsetilendan (Z dan) olinadi"
+    }
+   ],
+   "yechim": "X — to'yingan etan (A). Z — atsetilen: 2 pi-bog' (B). Y — etilen: undan PE (C).",
+   "parametrlar": {
+    "arch": "uch_gaz_brom_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Tarkibida 80 % CaC₂ bo'lgan 8 g texnik karbiddan olinadigan atsetilen hajmini (n.sh., L) toping. (M(CaC₂)=64)",
+   "javob": "2,24",
+   "yechim": "m(sof) = 6,4 g → n = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "texnik_karbid_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CaC₂ → C₂H₂ → C₂H₄ zanjiri bo'yicha 0,2 mol karbiddan (yo'qotishsiz) olingan etilen massasini (g) toping. (M(C₂H₄)=28)",
+   "javob": "5,6",
+   "yechim": "Har bosqich 1:1 → n = 0,2 mol → m = 5,6 g.",
+   "parametrlar": {
+    "arch": "karbid_etilen_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi zanjir bo'yicha 4,48 L (n.sh.) etilendan (yo'qotishsiz) olingan etil spirti massasini (g) toping. (M(C₂H₅OH)=46)",
+   "javob": "9,2",
+   "yechim": "n = 0,2 mol → m = 0,2·46 = 9,2 g.",
+   "parametrlar": {
+    "arch": "sxema_spirt_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Etan-etilen aralashmasi 8,96 L (n.sh.); bromli suvdan o'tkazilganda 24 g brom sarflandi. Aralashmadagi etan mol miqdorini toping. (M(Br₂)=160)",
+   "javob": "0,25",
+   "yechim": "n(C₂H₄) = 24/160 = 0,15 → n(etan) = 0,4 − 0,15 = 0,25 mol.",
+   "parametrlar": {
+    "arch": "aralash_brom_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "11,2 L (n.sh.) etilen gidratlandi; unum 80 %. Olingan spirt massasini (g) toping. (M(C₂H₅OH)=46)",
+   "javob": "18,4",
+   "yechim": "n = 0,5 mol → nazariy 23 g → amalda 23·0,8 = 18,4 g.",
+   "parametrlar": {
+    "arch": "unum_spirt_zanjir"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Ustaxonada 32 g toza kalsiy karbiddan atsetilen olinib, payvandlashda ishlatildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya tenglamasini yozing.",
+     "yechim": [
+      "CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Nazariy olinadigan atsetilen hajmini (n.sh.) toping. (M(CaC₂)=64)",
+     "yechim": [
+      "n = 0,5 mol → V = 11,2 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Gazning 75 % i yig'ib olindi. Amaldagi hajmni hisoblang.",
+     "yechim": [
+      "V = 11,2·0,75 = 8,4 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Qolgan Ca(OH)₂ dan xo'jalikda qanday foydalanish mumkin?",
+     "yechim": [
+      "Ohak suti sifatida: devor oqlash, tuproq kislotaliligini kamaytirish."
+     ],
+     "M": 4,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Karbid-amaliyot: tenglama → nazariy → unum → qoldiq; M15+A10.",
+   "parametrlar": {
+    "arch": "karbid_amaliyot_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Qo'shbog'ning «tabiati» tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega qo'shbog' (C=C) yakka bog'dan mustahkamroq bo'lsa-da, alkenlar alkanlardan FAOLROQ? Ziddiyatni yeching.",
+     "yechim": [
+      "Qo'shbog' = sigma + pi. Pi-bog' alohida olganda bo'shroq va «ochiq» joylashgan —",
+      "reagentlar unga oson hujum qiladi. Umumiy mustahkamlik va faollik — har xil narsalar."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Markovnikov qoidasini bitta misolda ko'rsating.",
+     "yechim": [
+      "CH₃–CH=CH₂ + HCl → CH₃–CHCl–CH₃: H ko'p vodorodli uglerodga boradi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Alkenlarning ikkita sifat reaksiyasini ayting.",
+     "yechim": [
+      "Bromli suv va KMnO₄ eritmasining rangsizlanishi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Qo'shbog'-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "qoshbog_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Noma'lum gazsimon uglevodorod X: vodorodga nisbatan zichligi 14; bromli suvni rangsizlantiradi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) X ning molyar massasini toping.",
+     "yechim": [
+      "M = 14·2 = 28 g/mol."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) X ning formulasi va sinfini aniqlang.",
+     "yechim": [
+      "C₂H₄ — alken (bromli suv sinovi to'yinmaganlikni tasdiqlaydi)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 0,1 mol X to'liq biriktirishi mumkin bo'lgan brom mol miqdorini yozing.",
+     "yechim": [
+      "Bitta qo'shbog' → 0,1 mol Br₂."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) X ning polimerlanish tenglamasini yozing va mahsulotni nomlang.",
+     "yechim": [
+      "nCH₂=CH₂ → (–CH₂–CH₂–)ₙ — polietilen."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "X-detektiv: M → formula → Br₂ → polimer; M15+A10.",
+   "parametrlar": {
+    "arch": "x_detektiv_o2"
+   }
+  }
+ ]
+}

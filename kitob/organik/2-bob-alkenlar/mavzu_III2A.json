@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-III2-A",
+ "daraja": "A",
+ "bob": 2,
+ "bob_nomi": "Alkenlar, alkadiyenlar, alkinlar",
+ "manba": "MS spetsifikatsiyasi III.2; 10-sinf darslik — savollar yangi tuzilgan, hayotiy sahnalar (meva-etilen, payvandlash, PE paket, shina) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★ (Organik kimyo kitobi): soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Alkenlarning umumiy formulasi qaysi?",
+   "variantlar": [
+    "CₙH₂ₙ",
+    "CₙH₂ₙ₊₂",
+    "CₙH₂ₙ₋₂",
+    "CₙH₂ₙ₊₁"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu alkanlar"
+    },
+    {
+     "variant": "C",
+     "xato": "bu alkinlar/alkadiyenlar"
+    },
+    {
+     "variant": "D",
+     "xato": "bu radikal"
+    }
+   ],
+   "yechim": "Bitta qo'shbog' ikki vodorodni «yeydi»: eten C₂H₄, propen C₃H₆.",
+   "parametrlar": {
+    "arch": "alken_formula"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Alkenlar molekulasidagi o'ziga xos bog' qanday?",
+   "variantlar": [
+    "bitta C=C qo'shbog'",
+    "faqat yakka bog'lar",
+    "uchbog'",
+    "ion bog'"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u alkanlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "u alkinlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "organikada kovalent"
+    }
+   ],
+   "yechim": "Qo'shbog' = sigma + pi: pi-bog' bo'shroq — reaksiyalar «eshigi».",
+   "parametrlar": {
+    "arch": "qoshbog"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Eng sodda alken qaysi?",
+   "variantlar": [
+    "metilen",
+    "etilen (C₂H₄)",
+    "propen",
+    "atsetilen"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "erkin holda barqaror emas"
+    },
+    {
+     "variant": "C",
+     "xato": "u ikkinchi vakil"
+    },
+    {
+     "variant": "D",
+     "xato": "u alkin"
+    }
+   ],
+   "yechim": "CH₂=CH₂ — dunyoda eng ko'p ishlab chiqariladigan organik modda.",
+   "parametrlar": {
+    "arch": "etilen"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda banan va pomidorlar birga qo'yilgan: bananlar tezroq pishyapti. Buning «aybdori» qaysi gaz?",
+   "variantlar": [
+    "metan",
+    "karbonat angidrid",
+    "etilen — mevalarning tabiiy pishish gormoni",
+    "ammiak"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "pishishga ta'siri yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "CO₂ pishirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "u meva gazi emas"
+    }
+   ],
+   "yechim": "Pishgan meva C₂H₄ ajratadi — u qo'shnilarini ham «uyg'otadi». Omborlarda etilen nazorat qilinadi.",
+   "parametrlar": {
+    "arch": "meva_sahna"
+   },
+   "fig": "fruits"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alkenlar nomlarida qaysi qo'shimcha ishlatiladi?",
+   "variantlar": [
+    "-en",
+    "-an",
+    "-in",
+    "-ol"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "alkanlarda"
+    },
+    {
+     "variant": "C",
+     "xato": "alkinlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "spirtlarda"
+    }
+   ],
+   "yechim": "Etan → eten; propan → propen: qo'shbog' «-en» bilan belgilanadi.",
+   "parametrlar": {
+    "arch": "en_qoshimcha"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "To'yinmagan uglevodorodni aniqlashning eng oddiy sinovi qaysi?",
+   "variantlar": [
+    "lakmusni qizartirishi",
+    "bromli suvni rangsizlantirishi",
+    "alanga rangi",
+    "hidi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "uglevodorod kislota emas"
+    },
+    {
+     "variant": "C",
+     "xato": "alanga sinfni aniq ko'rsatmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "hid ishonchli belgi emas"
+    }
+   ],
+   "yechim": "Qo'shbog' Br₂ ni biriktiradi: sariq rang yo'qoladi — «to'yinmaganlik testi».",
+   "parametrlar": {
+    "arch": "brom_test"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alkinlarning umumiy formulasi qaysi?",
+   "variantlar": [
+    "CₙH₂ₙ",
+    "CₙH₂ₙ₊₂",
+    "CₙHₙ",
+    "CₙH₂ₙ₋₂"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "alkenlar"
+    },
+    {
+     "variant": "B",
+     "xato": "alkanlar"
+    },
+    {
+     "variant": "C",
+     "xato": "maxsus holat"
+    }
+   ],
+   "yechim": "Uchbog' to'rt vodorod «yeydi»: atsetilen C₂H₂.",
+   "parametrlar": {
+    "arch": "alkin_formula"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda gaz payvandlash: ishchi po'latni atsetilen alangasi bilan kesyapti. Nega aynan atsetilen?",
+   "variantlar": [
+    "u eng arzon gaz",
+    "kislorodda yonganda ~3000 °C harorat beradi",
+    "u xavfsiz gaz",
+    "alanga rangi chiroyli"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy sabab — alanga harorati"
+    },
+    {
+     "variant": "C",
+     "xato": "aksincha, ehtiyotkorlik talab qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "rang emas, harorat muhim"
+    }
+   ],
+   "yechim": "2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O + Q: kislorod-atsetilen alangasi metallni eritadi.",
+   "parametrlar": {
+    "arch": "payvand_sahna"
+   },
+   "fig": "welding"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Atsetilen laboratoriya va texnikada qanday olinadi?",
+   "variantlar": [
+    "ohaktoshni kuydirib",
+    "metanni suvda eritib",
+    "rux va kislotadan",
+    "kalsiy karbidga suv ta'sir ettirib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u CO₂ beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "erish reaksiya emas"
+    },
+    {
+     "variant": "C",
+     "xato": "u H₂ beradi"
+    }
+   ],
+   "yechim": "CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂ — «karbid» usuli.",
+   "parametrlar": {
+    "arch": "karbid_usul"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O. 5,6 g etilen yonganda hosil bo'lgan CO₂ hajmini (n.sh.) toping. (M(C₂H₄)=28)",
+   "variantlar": [
+    "4,48 L",
+    "8,96 L",
+    "22,4 L",
+    "2,24 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 2"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,2 mol → n(CO₂) = 0,4 → V = 8,96 L.",
+   "parametrlar": {
+    "arch": "etilen_yonish_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "POLIMERLANISH reaksiyasi nima?",
+   "variantlar": [
+    "molekulaning parchalanishi",
+    "suv ajralib chiqishi bilan borish",
+    "yonish turi",
+    "ko'p mayda molekulalarning yirik zanjirga birlashishi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — birikish"
+    },
+    {
+     "variant": "B",
+     "xato": "u polikondensatsiya"
+    },
+    {
+     "variant": "C",
+     "xato": "yonishga aloqasi yo'q"
+    }
+   ],
+   "yechim": "nCH₂=CH₂ → (–CH₂–CH₂–)ₙ: qo'shbog'lar ochilib zanjir «tikiladi».",
+   "parametrlar": {
+    "arch": "polimerlanish_tarif"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Molyar massasi 28 g/mol bo'lgan alkenni aniqlang.",
+   "variantlar": [
+    "propen",
+    "eten (C₂H₄)",
+    "buten",
+    "etan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 42"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 56"
+    },
+    {
+     "variant": "D",
+     "xato": "u alkan (M=30)"
+    }
+   ],
+   "yechim": "14n = 28 → n = 2.",
+   "parametrlar": {
+    "arch": "m_dan_alken"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda polietilen paket. U qaysi moddadan olinadi?",
+   "variantlar": [
+    "metandan bevosita",
+    "etilenning polimerlanishidan",
+    "sellyulozadan",
+    "kauchukdan"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metan polimerlanmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "u qog'oz asosi"
+    },
+    {
+     "variant": "D",
+     "xato": "kauchuk — dien polimeri"
+    }
+   ],
+   "yechim": "PE — eng ko'p ishlab chiqariladigan plastik: paketlar, quvurlar, plyonkalar.",
+   "parametrlar": {
+    "arch": "paket_sahna"
+   },
+   "fig": "bag"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alkadiyenlar molekulasida nechta qo'shbog' bor?",
+   "variantlar": [
+    "1 ta",
+    "3 ta",
+    "2 ta",
+    "qo'shbog' yo'q"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bitta — alkenlarda"
+    },
+    {
+     "variant": "B",
+     "xato": "trienlarda"
+    },
+    {
+     "variant": "D",
+     "xato": "diyen — «ikki en»"
+    }
+   ],
+   "yechim": "Butadien CH₂=CH–CH=CH₂ — kauchuk «g'ishti».",
+   "parametrlar": {
+    "arch": "dien_tarif"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Tabiiy kauchukning asosi qaysi uglevodorod?",
+   "variantlar": [
+    "izopren (2-metilbutadien-1,3)",
+    "etilen",
+    "atsetilen",
+    "benzol"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "PE beradi, kauchuk emas"
+    },
+    {
+     "variant": "C",
+     "xato": "boshqa sinf"
+    },
+    {
+     "variant": "D",
+     "xato": "u aren"
+    }
+   ],
+   "yechim": "Geveya daraxti shirasi — poliizopren; sun'iy kauchuk butadiendan olinadi.",
+   "parametrlar": {
+    "arch": "kauchuk_asos"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Modda | Formula ;; eten | ? ;; propin | ? ;; butadien-1,3 | ?",
+   "variantlar": [
+    "C₂H₆; C₃H₆; C₄H₈",
+    "C₂H₄; C₃H₆; C₄H₆",
+    "C₂H₄; C₃H₄; C₄H₆",
+    "C₂H₂; C₃H₄; C₄H₆"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qo'shimchalar chalkash"
+    },
+    {
+     "variant": "B",
+     "xato": "propIN — uchbog'li"
+    },
+    {
+     "variant": "D",
+     "xato": "eten — alken"
+    }
+   ],
+   "yechim": "en → 2n; in → 2n−2; dien → 2n−2.",
+   "parametrlar": {
+    "arch": "formula_jadval_2"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "GIDROGENLASH reaksiyasida alkenga nima biriktiriladi?",
+   "variantlar": [
+    "suv",
+    "brom",
+    "vodorod (H₂)",
+    "kislorod"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u gidratlanish"
+    },
+    {
+     "variant": "B",
+     "xato": "u galogenlash"
+    },
+    {
+     "variant": "D",
+     "xato": "u yonish"
+    }
+   ],
+   "yechim": "C₂H₄ + H₂ → C₂H₆ (katalizator) — margarin ham shu usulda «qattiqlashtiriladi».",
+   "parametrlar": {
+    "arch": "gidrogenlash"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda avtomobil shinasi. Uning asosiy materiali qanday olinadi?",
+   "variantlar": [
+    "polietilendan quyib",
+    "sof neftdan",
+    "metallni qoplab",
+    "butadien kauchugini oltingugurt bilan vulkanizatsiya qilib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "PE shinaga yaroqsiz — yumshoq"
+    },
+    {
+     "variant": "B",
+     "xato": "neft — xomashyo, material emas"
+    },
+    {
+     "variant": "C",
+     "xato": "asos — rezina"
+    }
+   ],
+   "yechim": "Kauchuk + S → rezina: oltingugurt «ko'priklari» elastiklik va pishiqlik beradi.",
+   "parametrlar": {
+    "arch": "shina_sahna"
+   },
+   "fig": "tire"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2C₂H₂ + 5O₂ → 4CO₂ + 2H₂O. 2,6 g atsetilen yonganda hosil bo'lgan CO₂ mol miqdorini toping. (M(C₂H₂)=26)",
+   "variantlar": [
+    "0,2 mol",
+    "0,1 mol",
+    "0,4 mol",
+    "0,05 mol"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "nisbat 2:4 = 1:2"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n = 0,1 → n(CO₂) = 0,2 mol.",
+   "parametrlar": {
+    "arch": "atsetilen_hisob_a"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alkenlarda izomeriya alkanlarga qaraganda qanday qo'shimcha turga ega?",
+   "variantlar": [
+    "izotop izomeriyasi",
+    "hech qanday farq yo'q",
+    "faqat halqa izomeriyasi",
+    "qo'shbog' HOLATI izomeriyasi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bunday atama yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "buten-1/buten-2 farqli-ku"
+    },
+    {
+     "variant": "C",
+     "xato": "halqa — sikloalkanlarda"
+    }
+   ],
+   "yechim": "Buten-1 va buten-2: qo'shbog' 1- yoki 2-holatda.",
+   "parametrlar": {
+    "arch": "holat_izomeriya"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Atsetilen molekulasining tuzilishi qanday?",
+   "variantlar": [
+    "H₂C=CH₂",
+    "H₃C–CH₃",
+    "H–C≡C–H (chiziqli)",
+    "burchakli"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu etilen"
+    },
+    {
+     "variant": "B",
+     "xato": "bu etan"
+    },
+    {
+     "variant": "D",
+     "xato": "sp gibrid — chiziqli"
+    }
+   ],
+   "yechim": "Uchbog' — bitta sigma + ikkita pi; molekula «tayoqcha»day.",
+   "parametrlar": {
+    "arch": "atsetilen_tuzilish"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi polimerdan suv quvurlari va oyna romlari tayyorlanadi?",
+   "variantlar": [
+    "polivinilxlorid (PVX)",
+    "polietilen faqat",
+    "kauchuk",
+    "shisha tola"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "PVX qattiqroq va olovbardosh"
+    },
+    {
+     "variant": "C",
+     "xato": "quvur uchun yumshoq"
+    },
+    {
+     "variant": "D",
+     "xato": "u polimer emas"
+    }
+   ],
+   "yechim": "nCH₂=CHCl → PVX — «plastik derazalar» materiali.",
+   "parametrlar": {
+    "arch": "pvx"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol etilenning massasini toping. (M(C₂H₄)=28)",
+   "variantlar": [
+    "5,6 g",
+    "28 g",
+    "2,8 g",
+    "11,2 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,2·28 = 5,6 g.",
+   "parametrlar": {
+    "arch": "etilen_massa"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Etilen suvni biriktirsa (gidratlanish) nima hosil bo'ladi?",
+   "variantlar": [
+    "sirka kislota",
+    "metan",
+    "etil spirti (C₂H₅OH)",
+    "glitserin"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u boshqa bosqichda"
+    },
+    {
+     "variant": "B",
+     "xato": "uglerod kamaymaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "uch atomli spirt boshqa yo'l bilan"
+    }
+   ],
+   "yechim": "C₂H₄ + H₂O → C₂H₅OH (katalizator) — sanoat usuli.",
+   "parametrlar": {
+    "arch": "gidratlanish_a"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi zanjirdagi X moddani aniqlang: CaC₂ → X → C₂H₄.",
+   "variantlar": [
+    "C₂H₆",
+    "C₂H₂ (atsetilen)",
+    "CH₄",
+    "CO₂"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "etan alkenga «qaytmaydi» bu zanjirda"
+    },
+    {
+     "variant": "C",
+     "xato": "metan karbiddan olinmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "organik zanjir uziladi"
+    }
+   ],
+   "yechim": "Karbid → atsetilen; C₂H₂ + H₂ → C₂H₄ (qisman gidrogenlash).",
+   "parametrlar": {
+    "arch": "zanjir_x_2"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada jahon plastik ishlab chiqarishida polimerlar ulushi berilgan. Yetakchi polimer qaysi?",
+   "variantlar": [
+    "PVX",
+    "polipropilen (PP)",
+    "kauchuk",
+    "polietilen (PE)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "uchinchi o'rinlarda"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkinchi"
+    },
+    {
+     "variant": "C",
+     "xato": "u plastik emas"
+    }
+   ],
+   "yechim": "PE — paketdan quvurgacha: eng universal plastik.",
+   "parametrlar": {
+    "arch": "bar_polimer_oqish"
+   },
+   "fig": "bar_polymer"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Molyar massasi 42 g/mol bo'lgan alkenni aniqlang.",
+   "variantlar": [
+    "eten",
+    "buten",
+    "propan",
+    "propen (C₃H₆)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 28"
+    },
+    {
+     "variant": "B",
+     "xato": "M = 56"
+    },
+    {
+     "variant": "C",
+     "xato": "alkan, M = 44"
+    }
+   ],
+   "yechim": "14n = 42 → n = 3.",
+   "parametrlar": {
+    "arch": "m42_alken"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Grafikda C–C, C=C va C≡C bog' uzunliklari berilgan. Bog' karrali ortgani sari uzunlik qanday o'zgaradi?",
+   "variantlar": [
+    "uzayadi",
+    "qisqaradi",
+    "o'zgarmaydi",
+    "tartibsiz"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha"
+    },
+    {
+     "variant": "C",
+     "xato": "154 → 134 → 120 pm"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton qisqaradi"
+    }
+   ],
+   "yechim": "Ko'proq elektron jufti atomlarni kuchliroq «tortadi» — bog' kaltaroq va mustahkamroq.",
+   "parametrlar": {
+    "arch": "bog_uzunlik_oqish"
+   },
+   "fig": "bond_len"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Bromli suvga asta-sekin etilen yuborilmoqda. Eritma rangining INTENSIVLIGI qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "o'zgarmaydi",
+    "ortadi",
+    "kamayib, nolga tushadi",
+    "avval ortib keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "brom biriktirilib sarflanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "rang yo'qoladi, kuchaymaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "boshidanoq kamayadi"
+    }
+   ],
+   "yechim": "C₂H₄ + Br₂ → C₂H₄Br₂: sariq Br₂ rangsiz birikmaga o'tadi.",
+   "parametrlar": {
+    "arch": "brom_grafik"
+   },
+   "svg": {
+    "correct": "fall",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "V(C₂H₄)",
+    "ylab": "rang"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Karbid bilan ishlashda qanday ehtiyotkorlik zarur?",
+   "variantlar": [
+    "namlikdan saqlash — suv bilan yonuvchan gaz beradi",
+    "issiqdan saqlash faqat",
+    "yorug'likdan saqlash",
+    "hech qanday"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "asosiy xavf — nam"
+    },
+    {
+     "variant": "C",
+     "xato": "yorug'lik ta'sir qilmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "C₂H₂ portlovchan!"
+    }
+   ],
+   "yechim": "Nam havoda ham CaC₂ atsetilen ajratadi — zich yopiq idishda saqlanadi.",
+   "parametrlar": {
+    "arch": "karbid_xavf"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "O'rtacha molyar massasi 28 000 g/mol bo'lgan polietilen zanjirida nechta etilen zvenosi bor?",
+   "variantlar": [
+    "100",
+    "28",
+    "10000",
+    "1000"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "28000/28"
+    },
+    {
+     "variant": "B",
+     "xato": "bu monomer massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "nol ortiqcha"
+    }
+   ],
+   "yechim": "n = 28000/28 = 1000.",
+   "parametrlar": {
+    "arch": "polimer_n"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "28-savol grafigidan: C–C va C≡C bog' uzunliklari orasidagi farqni toping (pm).",
+   "variantlar": [
+    "20",
+    "14",
+    "34",
+    "120"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "134−120 xato juftlik"
+    },
+    {
+     "variant": "B",
+     "xato": "154−134? yo'q, C–C va C≡C"
+    },
+    {
+     "variant": "D",
+     "xato": "bu C≡C ning o'zi"
+    }
+   ],
+   "yechim": "154 − 120 = 34 pm.",
+   "parametrlar": {
+    "arch": "bog_farq"
+   },
+   "fig": "bond_len"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "III.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "III.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "III.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "III.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch buyum tekshirildi: X — polietilen plyonka; Y — avtomobil kamerasi (rezina); Z — payvandlash balloni gazi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X qaysi monomerdan olingan?",
+    "34. Y materialning asosi qaysi sinf birikmasidan olingan?",
+    "35. Z gaz qaysi va u qanday olinadi?"
+   ],
+   "javoblar_royxati": [
+    "A) etilen",
+    "B) alkadiyendan",
+    "C) atsetilen; karbiddan",
+    "D) metan",
+    "E) alkanlardan",
+    "F) etilen; havodan"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "metan polimer bermaydi"
+    },
+    {
+     "variant": "E",
+     "xato": "kauchuk — butadien (dien) polimeri"
+    },
+    {
+     "variant": "F",
+     "xato": "atsetilen havodan emas, karbiddan/metandan olinadi"
+    }
+   ],
+   "yechim": "X: nCH₂=CH₂ → PE (A). Y: kauchuk — butadien polimeri (B). Z: payvandda C₂H₂; CaC₂ + H₂O usuli (C).",
+   "parametrlar": {
+    "arch": "material_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "4,48 L (n.sh.) etilen necha mol bo'ladi?",
+   "javob": "0,2",
+   "yechim": "n = 4,48/22,4 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "etilen_mol_o1"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,1 mol atsetilenning massasini (g) toping. (M(C₂H₂)=26)",
+   "javob": "2,6",
+   "yechim": "m = 0,1·26 = 2,6 g.",
+   "parametrlar": {
+    "arch": "atsetilen_massa_o1"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O. 5,6 g etilen yonganda hosil bo'lgan CO₂ hajmini (n.sh., L) toping. (M(C₂H₄)=28)",
+   "javob": "8,96",
+   "yechim": "n = 0,2 → CO₂ 0,4 mol → 8,96 L.",
+   "parametrlar": {
+    "arch": "etilen_o1"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₄ + H₂ → C₂H₆. 0,3 mol etilenni to'liq gidrogenlash uchun zarur vodorod hajmini (n.sh., L) toping.",
+   "javob": "6,72",
+   "yechim": "n(H₂) = 0,3 mol → V = 6,72 L.",
+   "parametrlar": {
+    "arch": "gidrogenlash_o1"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Molyar massasi 56 000 g/mol bo'lgan polietilendagi zvenolar sonini toping.",
+   "javob": "2000",
+   "yechim": "n = 56000/28 = 2000.",
+   "parametrlar": {
+    "arch": "polimer_o1"
+   },
+   "tur": "O1",
+   "element": "III.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Payvandlash uchun 12,8 g toza kalsiy karbid ishlatildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Atsetilen olinish tenglamasini yozing.",
+     "yechim": [
+      "CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Ajralgan atsetilen hajmini (n.sh.) hisoblang. (M(CaC₂)=64)",
+     "yechim": [
+      "n = 0,2 mol → V = 4,48 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Shu gazning massasini toping. (M(C₂H₂)=26)",
+     "yechim": [
+      "m = 0,2·26 = 5,2 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Atsetilen alangasi nega juda yuqori haroratli? Izohlang.",
+     "yechim": [
+      "Uchbog'da katta energiya «jamlangan» — yonishda ko'p issiqlik ajraladi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Karbid zanjiri: tenglama → hajm → massa → izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "karbid_zanjir_a"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Polimerlar dunyosi tahlil qilinadi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega aynan TO'YINMAGAN uglevodorodlar polimerlanadi, alkanlar esa yo'q?",
+     "yechim": [
+      "Qo'shbog'ning pi-qismi oson uziladi — bo'shagan «qo'llar» qo'shni molekulaga",
+      "ulanadi. Alkanda bunday «ochiladigan» bog' yo'q."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Polietilen paketlarning afzalligi va ekologik muammosi nimada?",
+     "yechim": [
+      "Afzallik: yengil, suv o'tkazmas, arzon. Muammo: tabiatda deyarli chirimaydi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Bitta sun'iy polimer va uning monomerini yozing.",
+     "yechim": [
+      "PVX — vinilxlorid (yoki PP — propen)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Polimer-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "polimer_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "III.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch gaz jadvalda berilgan:\n[JADVAL] № | Gaz | Formula ;; 1 | etan | C₂H₆ ;; 2 | etilen | C₂H₄ ;; 3 | atsetilen | C₂H₂\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir gazning sinfini va undagi C–C bog' turini yozing.",
+     "yechim": [
+      "Etan — alkan (yakka); etilen — alken (qo'shbog'); atsetilen — alkin (uchbog')."
+     ],
+     "M": 5,
+     "A": 2
+    },
+    {
+     "savol": "b) Qaysi gazlar bromli suvni rangsizlantiradi?",
+     "yechim": [
+      "Etilen va atsetilen (to'yinmaganlar); etan — yo'q."
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "c) 2- va 3-gazlarning bromli suv bilan reaksiya tenglamalarini yozing.",
+     "yechim": [
+      "C₂H₄ + Br₂ → C₂H₄Br₂; C₂H₂ + 2Br₂ → C₂H₂Br₄."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega atsetilen ikki barobar ko'p brom biriktiradi?",
+     "yechim": [
+      "Uchbog'da IKKITA pi-bog' bor — ikkala bosqichda ochiladi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Uch gaz jadvali: sinf → sinov → tenglamalar → izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "uch_gaz_jadval_o2"
+   }
+  }
+ ]
+}
