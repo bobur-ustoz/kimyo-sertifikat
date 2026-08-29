@@ -1,0 +1,1341 @@
+{
+ "variant": "mavzu-II1-A",
+ "daraja": "A",
+ "bob": 11,
+ "bob_nomi": "Anorganik moddalar sinflari va genetik bog'lanish",
+ "manba": "MS spetsifikatsiyasi II.1; darslik anorganik sinflar bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (antatsid, choynak qasqoni, devor oqlash, gazli ichimlik) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Oksidlar deb qanday moddalarga aytiladi?",
+   "variantlar": [
+    "biri kislorod bo'lgan IKKI elementdan tashkil topgan birikmalarga",
+    "tarkibida kislorod bo'lgan har qanday moddaga",
+    "metall va kislota qoldig'idan iborat moddalarga",
+    "faqat metallarning birikmalariga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "KOH da ham O bor, lekin u asos"
+    },
+    {
+     "variant": "C",
+     "xato": "bu tuzlar"
+    },
+    {
+     "variant": "D",
+     "xato": "CO₂ — metallmas oksidi ham bor"
+    }
+   ],
+   "yechim": "Oksid: EₓOᵧ — masalan, CaO, CO₂, Fe₂O₃.",
+   "parametrlar": {
+    "arch": "oksid_tarif"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Qaysi qatorda FAQAT kislotali oksidlar berilgan?",
+   "variantlar": [
+    "CaO, Na₂O, MgO",
+    "CO₂, CaO, ZnO",
+    "CO, NO, N₂O",
+    "CO₂, SO₂, P₂O₅"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bular asosli oksidlar"
+    },
+    {
+     "variant": "B",
+     "xato": "CaO — asosli, ZnO — amfoter"
+    },
+    {
+     "variant": "C",
+     "xato": "bular befarq (tuz hosil qilmaydigan) oksidlar"
+    }
+   ],
+   "yechim": "Kislotali oksidlar suv bilan kislota beradi: CO₂ → H₂CO₃, SO₂ → H₂SO₃, P₂O₅ → H₃PO₄.",
+   "parametrlar": {
+    "arch": "kislotali_qator"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Qaysi formula ASOSGA tegishli?",
+   "variantlar": [
+    "HNO₃",
+    "Na₂SO₄",
+    "SO₃",
+    "NaOH"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislota (H bilan boshlanadi)"
+    },
+    {
+     "variant": "B",
+     "xato": "tuz"
+    },
+    {
+     "variant": "C",
+     "xato": "kislotali oksid"
+    }
+   ],
+   "yechim": "Asos: metall + gidroksid guruh(lar)i — NaOH, Ca(OH)₂.",
+   "parametrlar": {
+    "arch": "asos_formula"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda antatsid tabletka: me'dada kislota (HCl) ko'payib ketganda Mg(OH)₂ li tabletka ichiladi. Bunda qanday reaksiya boradi?",
+   "variantlar": [
+    "neytrallanish: asos kislotani tuz va suvga aylantiradi",
+    "parchalanish: kislota parchalanadi",
+    "o'rin olish: magniy vodorodni siqib chiqaradi",
+    "hech qanday reaksiya bormaydi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kislota asos bilan BIRGA reaksiyaga kirishadi"
+    },
+    {
+     "variant": "C",
+     "xato": "Mg(OH)₂ — asos, metall emas"
+    },
+    {
+     "variant": "D",
+     "xato": "aynan reaksiya tufayli og'riq qoladi"
+    }
+   ],
+   "yechim": "Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O — ortiqcha kislota neytrallanadi.",
+   "parametrlar": {
+    "arch": "antacid_sahna"
+   },
+   "fig": "antacid"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kislotalar tarkibi qanday qismlardan iborat?",
+   "variantlar": [
+    "vodorod atomlari va kislota qoldig'idan",
+    "metall va gidroksid guruhidan",
+    "metall va kislota qoldig'idan",
+    "faqat metallmaslardan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu asoslar tarkibi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu tuzlar tarkibi"
+    },
+    {
+     "variant": "D",
+     "xato": "tarkibda albatta H bo'ladi"
+    }
+   ],
+   "yechim": "HCl, H₂SO₄, H₃PO₄: almashinuvchi H + qoldiq.",
+   "parametrlar": {
+    "arch": "kislota_tarkib"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Tuzlar deb qanday moddalarga aytiladi?",
+   "variantlar": [
+    "vodorod va kislota qoldig'idan iborat moddalarga",
+    "ikki metalldan iborat moddalarga",
+    "metall va kisloroddan iborat moddalarga",
+    "metall atomlari va kislota qoldig'idan iborat moddalarga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu kislotalar"
+    },
+    {
+     "variant": "B",
+     "xato": "bu qotishma, birikma emas"
+    },
+    {
+     "variant": "C",
+     "xato": "bu asosli oksidlar"
+    }
+   ],
+   "yechim": "NaCl, K₂SO₄, CaCO₃ — kislotadagi H o'rnini metall olgan.",
+   "parametrlar": {
+    "arch": "tuz_tarif"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "CO₂ + H₂O → H₂CO₃ reaksiyasida qanday sinflar qatnashadi va hosil bo'ladi?",
+   "variantlar": [
+    "asosli oksid + suv → asos",
+    "kislota + suv → oksid",
+    "kislotali oksid + suv → kislota",
+    "tuz + suv → kislota"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CO₂ — kislotali oksid"
+    },
+    {
+     "variant": "B",
+     "xato": "yo'nalish teskari"
+    },
+    {
+     "variant": "D",
+     "xato": "CO₂ tuz emas"
+    }
+   ],
+   "yechim": "Kislotali oksidlar suv bilan tegishli kislotani beradi.",
+   "parametrlar": {
+    "arch": "co2_suv"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qasqon bosgan choynak: uni sirka kislota eritmasi bilan tozalashadi. Qasqon (CaCO₃) bilan kislota reaksiyasida qanday belgi kuzatiladi?",
+   "variantlar": [
+    "eritma qizil rangga kiradi",
+    "gaz pufakchalari (CO₂) ajraladi",
+    "cho'kma tushadi",
+    "hech narsa kuzatilmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang o'zgarishi bu reaksiyada kuzatilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "aksincha — qattiq qasqon ERIB ketadi"
+    },
+    {
+     "variant": "D",
+     "xato": "«vishillash» — CO₂ ajralishi"
+    }
+   ],
+   "yechim": "CaCO₃ + 2CH₃COOH → (CH₃COO)₂Ca + H₂O + CO₂↑ — karbonatlar kislotada «vishillaydi».",
+   "parametrlar": {
+    "arch": "kettle_sahna"
+   },
+   "fig": "kettle"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi asos ISHQOR hisoblanadi?",
+   "variantlar": [
+    "Cu(OH)₂ — ko'k cho'kma",
+    "Fe(OH)₃ — qo'ng'ir cho'kma",
+    "Al(OH)₃ — oq cho'kma",
+    "KOH — suvda yaxshi eriydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suvda erimaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "suvda erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "erimaydi, ustiga amfoter"
+    }
+   ],
+   "yechim": "Ishqorlar — suvda eriydigan asoslar: NaOH, KOH, Ba(OH)₂...",
+   "parametrlar": {
+    "arch": "ishqor_tanlov"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CaO + H₂O → Ca(OH)₂. 5,6 g kalsiy oksididan necha gramm asos olinadi? (M: CaO=56, Ca(OH)₂=74)",
+   "variantlar": [
+    "5,6 g",
+    "7,4 g",
+    "74 g",
+    "14,8 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa saqlanmaydi — suv qo'shildi"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "n = 5,6/56 = 0,1 mol → m = 0,1·74 = 7,4 g.",
+   "parametrlar": {
+    "arch": "cao_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi tuz NORDON tuz hisoblanadi?",
+   "variantlar": [
+    "Na₂CO₃",
+    "NaHCO₃",
+    "NaCl",
+    "(CuOH)₂CO₃"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'rta tuz — H qolmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "o'rta tuz"
+    },
+    {
+     "variant": "D",
+     "xato": "asosli tuz — OH bor"
+    }
+   ],
+   "yechim": "Nordon tuzda kislota vodorodi qisman saqlangan: NaHCO₃ (gidrokarbonat).",
+   "parametrlar": {
+    "arch": "nordon_misol"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol xlorid kislotani to'liq neytrallash uchun necha gramm NaOH kerak? (M(NaOH)=40)",
+   "variantlar": [
+    "40 g",
+    "4 g",
+    "8 g",
+    "16 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun qiymat"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkiga bo'lib yuborilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "HCl + NaOH → NaCl + H₂O (1:1): n = 0,2 mol → m = 0,2·40 = 8 g.",
+   "parametrlar": {
+    "arch": "neytrallanish_hisob"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda devorni ohak suti bilan oqlash: bir necha kundan keyin qoplama qattiq va oq bo'lib qotadi. Buning sababi qanday reaksiya?",
+   "variantlar": [
+    "ohak shunchaki qurib qoladi",
+    "Ca(OH)₂ havodagi CO₂ bilan CaCO₃ ga aylanadi",
+    "ohak kislorod bilan oksidlanadi",
+    "ohak suv bilan birikadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qurish ham bor, lekin qotish — kimyoviy"
+    },
+    {
+     "variant": "C",
+     "xato": "reaksiya CO₂ bilan boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha, suv bug'lanib chiqadi"
+    }
+   ],
+   "yechim": "Ca(OH)₂ + CO₂ → CaCO₃ + H₂O: yumshoq ohak «toshga» aylanadi.",
+   "parametrlar": {
+    "arch": "whitewash_sahna"
+   },
+   "fig": "whitewash"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Genetik qatordagi X moddani aniqlang: Ca → CaO → X → CaCO₃.",
+   "variantlar": [
+    "CaCl₂",
+    "CaH₂",
+    "Ca(OH)₂",
+    "Ca(NO₃)₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "xlorid karbonatga bevosita o'tmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "gidrid bu qatorga kirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "nitrat emas — oksiddan suv bilan olinadigan asos"
+    }
+   ],
+   "yechim": "CaO + H₂O → Ca(OH)₂; Ca(OH)₂ + CO₂ → CaCO₃: X — kalsiy gidroksid.",
+   "parametrlar": {
+    "arch": "genetik_x"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi oksid AMFOTER (ham kislota, ham ishqor bilan reaksiyaga kirishadi)?",
+   "variantlar": [
+    "Na₂O",
+    "ZnO",
+    "SO₃",
+    "CO"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat kislota bilan — asosli"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat ishqor bilan — kislotali"
+    },
+    {
+     "variant": "D",
+     "xato": "hech biri bilan — befarq"
+    }
+   ],
+   "yechim": "ZnO + 2HCl → ZnCl₂ + H₂O va ZnO + 2NaOH → Na₂ZnO₂ + H₂O.",
+   "parametrlar": {
+    "arch": "amfoter_misol"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni mos ravishda to'ldiring:\n[JADVAL] Modda | Sinf ;; CO₂ | ? ;; KOH | ? ;; ZnSO₄ | ?",
+   "variantlar": [
+    "asosli oksid; kislota; nordon tuz",
+    "kislotali oksid; ishqor; nordon tuz",
+    "befarq oksid; asos; o'rta tuz",
+    "kislotali oksid; ishqor; o'rta tuz"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "hammasi noto'g'ri joylashgan"
+    },
+    {
+     "variant": "B",
+     "xato": "ZnSO₄ da vodorod yo'q — o'rta tuz"
+    },
+    {
+     "variant": "C",
+     "xato": "CO₂ kislota (H₂CO₃) beradi — befarq emas"
+    }
+   ],
+   "yechim": "CO₂ — kislotali oksid; KOH — eriydigan asos (ishqor); ZnSO₄ — o'rta tuz.",
+   "parametrlar": {
+    "arch": "sinf_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Asosli oksid kislota bilan reaksiyaga kirishganda nima hosil bo'ladi?",
+   "variantlar": [
+    "faqat tuz",
+    "asos va vodorod",
+    "tuz va suv",
+    "yangi kislota"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv ham hosil bo'ladi"
+    },
+    {
+     "variant": "B",
+     "xato": "H₂ ajralmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "kislota sarflanadi"
+    }
+   ],
+   "yechim": "CaO + 2HCl → CaCl₂ + H₂O — sinflararo asosiy reaksiya.",
+   "parametrlar": {
+    "arch": "oksid_kislota"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda gazli ichimlik: unga bosim ostida CO₂ eritilgan. Tildagi yengil «achchiq-o'tkir» ta'm qaysi moddadan?",
+   "variantlar": [
+    "hosil bo'lgan kuchsiz karbonat kislotadan (H₂CO₃)",
+    "erigan shakardan",
+    "sof CO₂ gazining o'zidan",
+    "idish materialidan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "shakar shirin ta'm beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz suv bilan birikib KISLOTA beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "ta'm eritmadagi kislotadan"
+    }
+   ],
+   "yechim": "CO₂ + H₂O ⇄ H₂CO₃: shu kislota ichimlikka o'tkir ta'm beradi.",
+   "parametrlar": {
+    "arch": "sodadrink_sahna"
+   },
+   "fig": "sodadrink"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2Mg + O₂ → 2MgO. 4,8 g magniy yonganda necha gramm oksid hosil bo'ladi? (M: Mg=24, MgO=40)",
+   "variantlar": [
+    "4,8 g",
+    "40 g",
+    "16 g",
+    "8 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislorod massasi qo'shilmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "n = 0,2 mol → m(MgO) = 0,2·40 = 8 g.",
+   "parametrlar": {
+    "arch": "mgo_hisob"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "H₂SO₄ kislotasi necha negizli?",
+   "variantlar": [
+    "ikki negizli",
+    "bir negizli",
+    "uch negizli",
+    "to'rt negizli"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 ta almashinuvchi H bor"
+    },
+    {
+     "variant": "C",
+     "xato": "H₃PO₄ uch negizli"
+    },
+    {
+     "variant": "D",
+     "xato": "H₄P₂O₇ to'rt negizli"
+    }
+   ],
+   "yechim": "Negizlilik — almashinuvchi H soni: H₂SO₄ da 2 ta.",
+   "parametrlar": {
+    "arch": "negizlilik"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "H₂SO₄ natriy bilan ikki xil tuz beradi: Na₂SO₄ va NaHSO₄. Qaysi biri nordon tuz va nima uchun?",
+   "variantlar": [
+    "Na₂SO₄ — natriy ko'p",
+    "ikkalasi ham nordon",
+    "NaHSO₄ — tarkibida almashinmagan vodorod qolgan",
+    "ikkalasi ham o'rta"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metall ko'pligi nordonlik belgisi emas"
+    },
+    {
+     "variant": "B",
+     "xato": "Na₂SO₄ da H yo'q — o'rta"
+    },
+    {
+     "variant": "D",
+     "xato": "NaHSO₄ da H saqlangan — nordon"
+    }
+   ],
+   "yechim": "Nordon tuz = H qisman almashgan: NaHSO₄ (natriy gidrosulfat).",
+   "parametrlar": {
+    "arch": "nordon_orta_farq"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi oksid suvda erib ISHQOR hosil qiladi?",
+   "variantlar": [
+    "Na₂O",
+    "CuO",
+    "SO₂",
+    "ZnO"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suv bilan reaksiyaga kirishmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislota beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "suvda erimaydi (amfoter)"
+    }
+   ],
+   "yechim": "Na₂O + H₂O → 2NaOH: faol metall oksidlari ishqor beradi.",
+   "parametrlar": {
+    "arch": "oksid_suv_ishqor"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Zn + 2HCl → ZnCl₂ + H₂. 6,5 g rux kislotada to'liq eriganda ajralgan vodorod hajmini (n.sh.) toping. (M(Zn)=65)",
+   "variantlar": [
+    "2,24 L",
+    "22,4 L",
+    "1,12 L",
+    "4,48 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "ikkiga bo'lingan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "n(Zn) = 0,1 mol → n(H₂) = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "zn_hcl_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi oksid suv bilan reaksiyaga KIRISHMAYDI?",
+   "variantlar": [
+    "K₂O",
+    "CuO",
+    "SO₃",
+    "BaO"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ishqor beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "sulfat kislota beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "ishqor beradi"
+    }
+   ],
+   "yechim": "Faol bo'lmagan metallarning oksidlari (CuO, FeO...) suv bilan birikmaydi.",
+   "parametrlar": {
+    "arch": "suv_bilan_emas"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Genetik qatordagi X moddani aniqlang: S → SO₂ → X → H₂SO₄.",
+   "variantlar": [
+    "H₂SO₃",
+    "Na₂SO₃",
+    "SO₃",
+    "H₂S"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sulfit kislotadan sulfat kislota bevosita olinmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "tuz bu zanjirga kirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "qaytarilish — teskari yo'nalish"
+    }
+   ],
+   "yechim": "SO₂ oksidlanib SO₃ ga, SO₃ + H₂O → H₂SO₄.",
+   "parametrlar": {
+    "arch": "genetik_s"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada azotli o'g'itlardagi azot ulushi (%) berilgan. Qaysi o'g'it azotga eng boy?",
+   "variantlar": [
+    "(NH₄)₂SO₄ (21 %)",
+    "KNO₃ (14 %)",
+    "NH₄NO₃ (35 %)",
+    "hammasi teng"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'rtacha ustun"
+    },
+    {
+     "variant": "B",
+     "xato": "eng past ustun"
+    },
+    {
+     "variant": "D",
+     "xato": "ustunlar farqli"
+    }
+   ],
+   "yechim": "Diagrammadan: ammiakli selitra NH₄NO₃ — 35 % azot bilan yetakchi.",
+   "parametrlar": {
+    "arch": "bar_ogit_oqish"
+   },
+   "fig": "bar_ogit"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄. 0,1 mol mis(II) sulfatdan necha gramm ko'k cho'kma olinadi? (M(Cu(OH)₂)=98)",
+   "variantlar": [
+    "98 g",
+    "4,9 g",
+    "19,6 g",
+    "9,8 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkiga bo'lingan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(Cu(OH)₂) = 0,1 mol → m = 9,8 g.",
+   "parametrlar": {
+    "arch": "cuoh2_hisob"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Asoslarning suvda erishi haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "barcha asoslar suvda eriydi",
+    "hech biri erimaydi",
+    "ko'pchiligi erimaydi; eriydiganlari ishqor deyiladi",
+    "faqat og'ir metallarniki eriydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu(OH)₂, Fe(OH)₃ erimaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "NaOH, KOH yaxshi eriydi"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — ishqoriy metallarniki eriydi"
+    }
+   ],
+   "yechim": "Eruvchanlik jadvalining «asos» ustuni asosan «E» (erimaydi) belgili.",
+   "parametrlar": {
+    "arch": "asos_eruvchanlik"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Ohaktosh bo'lagiga xlorid kislota tomchilab qo'shilmoqda. Ajralgan CO₂ hajmi qo'shilgan kislota miqdoriga qanday bog'liq? Grafikni tanlang.",
+   "variantlar": [
+    "chegarasiz ortib boradi",
+    "ortib boradi, ohaktosh tugagach o'zgarmaydi",
+    "o'zgarmaydi",
+    "avval ortadi, keyin kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CaCO₃ tugagach gaz ajralishi to'xtaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislota qo'shilgani sari gaz ortadi"
+    },
+    {
+     "variant": "D",
+     "xato": "ajralgan gaz kamaymaydi"
+    }
+   ],
+   "yechim": "CaCO₃ cheklangan: u tugaguncha V(CO₂) chiziqli ortadi, so'ng plato.",
+   "parametrlar": {
+    "arch": "co2_grafik"
+   },
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "n(HCl)",
+    "ylab": "V(CO₂)"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi juftliklardan qaysi biri o'zaro reaksiyaga KIRISHADI?",
+   "variantlar": [
+    "CO₂ va SO₃",
+    "NaCl va KNO₃",
+    "CaO va Na₂O",
+    "CO₂ va NaOH"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkalasi kislotali — o'zaro birikmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "eritmada almashinish belgisi yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "ikkalasi asosli oksid"
+    }
+   ],
+   "yechim": "Kislotali oksid + ishqor → tuz + suv: CO₂ + 2NaOH → Na₂CO₃ + H₂O.",
+   "parametrlar": {
+    "arch": "juft_reaksiya"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Fe₂O₃ + 3H₂ → 2Fe + 3H₂O. 16 g temir(III) oksididan necha gramm temir olinadi? (M: Fe₂O₃=160, Fe=56)",
+   "variantlar": [
+    "11,2 g",
+    "16 g",
+    "5,6 g",
+    "56 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kislorod chiqib ketadi — massa kamayadi"
+    },
+    {
+     "variant": "C",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "1 mol Fe massasi"
+    }
+   ],
+   "yechim": "n(Fe₂O₃) = 0,1 mol → n(Fe) = 0,2 mol → m = 11,2 g.",
+   "parametrlar": {
+    "arch": "fe2o3_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol diagrammasidan foydalaning: 200 kg ammiakli selitra (NH₄NO₃) tarkibida necha kg azot bor?",
+   "variantlar": [
+    "35 kg",
+    "70 kg",
+    "140 kg",
+    "200 kg"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "100 kg uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "o'g'itning hammasi azot emas"
+    }
+   ],
+   "yechim": "m(N) = 200 · 0,35 = 70 kg.",
+   "parametrlar": {
+    "arch": "bar_ogit_hisob"
+   },
+   "fig": "bar_ogit"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.1",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.1",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "II.1",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "II.1",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uyda uch modda bor: X — osh sodasi (NaHCO₃), Y — o'chirilgan ohak (Ca(OH)₂), Z — sirka kislota eritmasi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X modda qaysi sinfga kiradi?",
+    "34. Y havodagi CO₂ bilan reaksiyada nima beradi?",
+    "35. Z bilan X aralashtirilganda qaysi gaz ajraladi?"
+   ],
+   "javoblar_royxati": [
+    "A) nordon tuz",
+    "B) CaCO₃",
+    "C) CO₂",
+    "D) o'rta tuz",
+    "E) CaO",
+    "F) H₂"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "NaHCO₃ da vodorod saqlangan — nordon tuz"
+    },
+    {
+     "variant": "E",
+     "xato": "Ca(OH)₂ + CO₂ → karbonat, oksid emas"
+    },
+    {
+     "variant": "F",
+     "xato": "kislota + karbonat CO₂ beradi, vodorod emas"
+    }
+   ],
+   "yechim": "X: NaHCO₃ — nordon tuz (A). Y: Ca(OH)₂ + CO₂ → CaCO₃ + H₂O (B). Z + X: CH₃COOH + NaHCO₃ → tuz + H₂O + CO₂↑ (C).",
+   "parametrlar": {
+    "arch": "uy_kimyo_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "8 g natriy gidroksid necha mol bo'ladi? (M(NaOH)=40)",
+   "javob": "0,2",
+   "yechim": "n = 8/40 = 0,2 mol.",
+   "parametrlar": {
+    "arch": "naoh_mol_o1"
+   },
+   "tur": "O1",
+   "element": "II.1"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "11,2 g CaO suv bilan to'liq reaksiyaga kirishdi. Hosil bo'lgan Ca(OH)₂ massasini (g) toping.",
+   "javob": "14,8",
+   "yechim": "n = 11,2/56 = 0,2 mol → m = 0,2·74 = 14,8 g.",
+   "parametrlar": {
+    "arch": "cao_suv_o1"
+   },
+   "tur": "O1",
+   "element": "II.1"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "P₂O₅ + 3H₂O → 2H₃PO₄. 0,1 mol fosfor(V) oksididan olingan kislota massasini (g) toping. (M(H₃PO₄)=98)",
+   "javob": "19,6",
+   "yechim": "n(H₃PO₄) = 0,2 mol → m = 19,6 g.",
+   "parametrlar": {
+    "arch": "p2o5_o1"
+   },
+   "tur": "O1",
+   "element": "II.1"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Fe + S → FeS. 5,6 g temirdan olingan temir(II) sulfid massasini (g) toping. (M: Fe=56, FeS=88)",
+   "javob": "8,8",
+   "yechim": "n = 0,1 mol → m = 0,1·88 = 8,8 g.",
+   "parametrlar": {
+    "arch": "fes_o1"
+   },
+   "tur": "O1",
+   "element": "II.1"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4,9 g sulfat kislotani to'liq neytrallash uchun necha gramm NaOH kerak? (M(H₂SO₄)=98)",
+   "javob": "4",
+   "yechim": "n = 0,05 mol → NaOH: 0,1 mol → m = 4 g.",
+   "parametrlar": {
+    "arch": "h2so4_neytral_o1"
+   },
+   "tur": "O1",
+   "element": "II.1"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Kalsiyning genetik qatori beriladi: Ca → CaO → Ca(OH)₂ → CaCO₃. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir o'tish uchun reaksiya tenglamasini yozing.",
+     "yechim": [
+      "2Ca + O₂ → 2CaO; CaO + H₂O → Ca(OH)₂; Ca(OH)₂ + CO₂ → CaCO₃ + H₂O."
+     ],
+     "M": 5,
+     "A": 2
+    },
+    {
+     "savol": "b) Har bir moddaning sinfini ayting.",
+     "yechim": [
+      "Ca — oddiy modda (metall); CaO — asosli oksid; Ca(OH)₂ — asos; CaCO₃ — o'rta tuz."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 20 g kalsiydan (yo'qotishsiz) olinadigan CaO massasini hisoblang.",
+     "yechim": [
+      "n = 0,5 mol → m(CaO) = 0,5·56 = 28 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Zanjirni teskari yo'nalishda (CaCO₃ dan Ca(OH)₂ ga) qanday qaytish mumkin? Izohlang.",
+     "yechim": [
+      "CaCO₃ qizdirilib CaO olinadi (parchalanish), so'ng suv bilan Ca(OH)₂."
+     ],
+     "M": 3,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Genetik zanjir: tenglamalar → sinflar → hisob → teskari yo'l; M15+A10.",
+   "parametrlar": {
+    "arch": "ca_genetik_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Qurilishda ohak bilan ishlashda ikki hodisa kuzatiladi: (1) oqlangan devor asta-sekin qotib, oq va mustahkam bo'ladi; (2) xona havosini tekshirish uchun ohakli suv qo'yilsa, u loyqalanadi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Ikkala hodisaning kimyoviy mohiyatini tenglamalar bilan tushuntiring.",
+     "yechim": [
+      "Ikkalasi ham bitta reaksiya: Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O.",
+      "Devorda CaCO₃ qattiq qatlam beradi, eritmada — loyqa (cho'kma)."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega ohakli suv idishi ochiq qoldirilsa, yuzasida qattiq parda paydo bo'ladi?",
+     "yechim": [
+      "Havo CO₂ si yuzadagi Ca(OH)₂ bilan reaksiyaga kirishib CaCO₃ pardasini hosil qiladi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Bu reaksiyada qatnashuvchi moddalarning sinflarini ayting.",
+     "yechim": [
+      "Asos + kislotali oksid → tuz + suv."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "ohak_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.1",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Beshta modda jadvalda berilgan:\n[JADVAL] № | Modda ;; 1 | K₂O ;; 2 | HNO₃ ;; 3 | Ba(OH)₂ ;; 4 | KHSO₄ ;; 5 | SO₂\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir moddaning sinfini (turini) aniqlang.",
+     "yechim": [
+      "K₂O — asosli oksid; HNO₃ — kislota; Ba(OH)₂ — asos (ishqor); KHSO₄ — nordon tuz; SO₂ — kislotali oksid."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "b) Qaysi juftliklar o'zaro reaksiyaga kirisha oladi? Ikkita misol tenglamasini yozing.",
+     "yechim": [
+      "K₂O + 2HNO₃ → 2KNO₃ + H₂O; Ba(OH)₂ + SO₂ → BaSO₃ + H₂O."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 1-modda suv bilan reaksiyasining tenglamasini yozing va mahsulot sinfini ayting.",
+     "yechim": [
+      "K₂O + H₂O → 2KOH — ishqor."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) 4-moddadan o'rta tuz olish yo'lini ko'rsating.",
+     "yechim": [
+      "KHSO₄ + KOH → K₂SO₄ + H₂O — ishqor bilan to'liq neytrallash."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Sinflash-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "sinf_jadval_o2"
+   }
+  }
+ ]
+}
