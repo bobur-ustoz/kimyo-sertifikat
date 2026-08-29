@@ -1,0 +1,1341 @@
+{
+ "variant": "mavzu-II2-A",
+ "daraja": "A",
+ "bob": 12,
+ "bob_nomi": "Oksidlar, asoslar, kislotalar va tuzlarning xossalari",
+ "manba": "MS spetsifikatsiyasi II.2; darslik sinflar xossalari bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (o't o'chirgich, tish emali, mis idish, tuproqqa ohak) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kislota eritmasiga lakmus tomizilsa, u qanday rangga kiradi?",
+   "variantlar": [
+    "ko'k",
+    "sariq",
+    "qizil",
+    "rangsiz"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ko'k — ishqoriy muhitda"
+    },
+    {
+     "variant": "B",
+     "xato": "lakmus sariq bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "fenolftalein kislotada rangsiz"
+    }
+   ],
+   "yechim": "Lakmus: kislotada qizil, ishqorda ko'k, neytralda binafsha.",
+   "parametrlar": {
+    "arch": "lakmus_kislota"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Fenolftalein qaysi muhitda PUSHTI rangga kiradi?",
+   "variantlar": [
+    "kislotali muhitda",
+    "neytral muhitda",
+    "ishqoriy muhitda",
+    "har qanday eritmada"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislotada rangsiz qoladi"
+    },
+    {
+     "variant": "B",
+     "xato": "neytralda ham rangsiz"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat ishqorda pushti"
+    }
+   ],
+   "yechim": "Fenolftalein — ishqorlarning «bayroqchasi»: OH⁻ ko'p bo'lsa pushti.",
+   "parametrlar": {
+    "arch": "fenolftalein"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi metall xlorid kislotadan vodorodni siqib chiqaradi?",
+   "variantlar": [
+    "Cu",
+    "Zn",
+    "Ag",
+    "Au"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faollik qatorida H dan keyin"
+    },
+    {
+     "variant": "C",
+     "xato": "H dan keyin"
+    },
+    {
+     "variant": "D",
+     "xato": "eng passiv metall"
+    }
+   ],
+   "yechim": "Faollik qatorida H dan OLDINGI metallar kislotadan H₂ ajratadi: Zn + 2HCl → ZnCl₂ + H₂↑.",
+   "parametrlar": {
+    "arch": "metall_kislota"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda ko'pikli o't o'chirgich: ishga tushirilganda ichidagi soda eritmasi kislota bilan aralashadi. Olovni nima o'chiradi?",
+   "variantlar": [
+    "soda olovni sovutadi",
+    "kislota olovga sepiladi",
+    "ajralgan CO₂ gazi havodagi kislorodni olovdan to'sadi",
+    "ko'pik yonib ketadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy ish — CO₂ pardasida"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota idish ichida reaksiya uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ko'pik yonmaydi — himoya qatlami"
+    }
+   ],
+   "yechim": "NaHCO₃ + kislota → tuz + H₂O + CO₂↑: og'ir CO₂ olov ustini «yopadi».",
+   "parametrlar": {
+    "arch": "otochirgich_sahna"
+   },
+   "fig": "extinguisher"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ishqorlar qanday olinadi?",
+   "variantlar": [
+    "faol metall yoki uning oksidini suv bilan reaksiyaga kiritib",
+    "har qanday metallni suvda eritib",
+    "kislotani qizdirib",
+    "tuzni suvda eritib"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Cu, Fe suv bilan ishqor bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislotadan ishqor hosil bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "erish — fizik jarayon"
+    }
+   ],
+   "yechim": "2Na + 2H₂O → 2NaOH + H₂; Na₂O + H₂O → 2NaOH.",
+   "parametrlar": {
+    "arch": "ishqor_olinish"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Erimaydigan asos (masalan, Cu(OH)₂) qanday olinadi?",
+   "variantlar": [
+    "metallga suv ta'sir ettirib",
+    "oksidga suv qo'shib",
+    "kislotaga metall solib",
+    "tuz eritmasiga ishqor ta'sir ettirib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu suv bilan reaksiyaga kirishmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "CuO suv bilan birikmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu tuz va vodorod beradi"
+    }
+   ],
+   "yechim": "CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄ — ko'k cho'kma.",
+   "parametrlar": {
+    "arch": "asos_olinish"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Cu(OH)₂ qizdirilganda qanday o'zgarish kuzatiladi?",
+   "variantlar": [
+    "oq tusga kiradi",
+    "ko'k modda qorayadi: CuO va suv hosil bo'ladi",
+    "erib ketadi",
+    "o'zgarish bo'lmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CuO — qora"
+    },
+    {
+     "variant": "C",
+     "xato": "parchalanadi, erimaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "erimaydigan asoslar qizdirishda parchalanadi"
+    }
+   ],
+   "yechim": "Cu(OH)₂ → CuO + H₂O: erimaydigan asoslar termik beqaror.",
+   "parametrlar": {
+    "arch": "cuoh2_parchalanish"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda tish emali: uning asosi kalsiy fosfat va gidroksiapatit. Shirinliklardan keyin og'izda hosil bo'ladigan kislotalar tishga qanday ta'sir qiladi?",
+   "variantlar": [
+    "emalni mustahkamlaydi",
+    "hech qanday ta'sir qilmaydi",
+    "tishni oqartiradi",
+    "emal tuzlarini asta-sekin eritib, karies boshlaydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislota tuzni yemiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota + tuz reaksiyasi boradi"
+    },
+    {
+     "variant": "C",
+     "xato": "yemirilish oqartirish emas"
+    }
+   ],
+   "yechim": "Kislota kalsiy tuzlarini eriydigan holga o'tkazadi — shu bois ovqatdan keyin og'iz chayiladi.",
+   "parametrlar": {
+    "arch": "tish_sahna"
+   },
+   "fig": "tooth"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi ikki eritma aralashtirilganda OQ cho'kma tushadi?",
+   "variantlar": [
+    "NaOH va HCl",
+    "KNO₃ va NaCl",
+    "AgNO₃ va NaCl",
+    "CuSO₄ va NaOH"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mahsulotlar eriydi"
+    },
+    {
+     "variant": "B",
+     "xato": "reaksiya bormaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "cho'kma ko'k, oq emas"
+    }
+   ],
+   "yechim": "Ag⁺ + Cl⁻ → AgCl↓ — xlorid ioniga sifat reaksiyasi.",
+   "parametrlar": {
+    "arch": "agcl_chokma"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CuO + H₂SO₄ → CuSO₄ + H₂O. 9,8 g sulfat kislota uchun necha gramm mis(II) oksidi kerak? (M: H₂SO₄=98, CuO=80)",
+   "variantlar": [
+    "80 g",
+    "9,8 g",
+    "4 g",
+    "8 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "massalar teng bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(CuO) = 0,1·80 = 8 g.",
+   "parametrlar": {
+    "arch": "cuo_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Tuz olishning qaysi usuli TO'G'RI ko'rsatilgan?",
+   "variantlar": [
+    "kislota + asos → tuz + suv",
+    "kislota + kislota → tuz",
+    "metall + asos → tuz",
+    "oksid + oksid → suv"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikki kislota tuz bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "odatdagi metallar asos bilan kirishmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki oksiddan tuz hosil bo'ladi, suv emas"
+    }
+   ],
+   "yechim": "Neytrallanish — tuz olishning asosiy usuli.",
+   "parametrlar": {
+    "arch": "tuz_olinish_usul"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Fe + H₂SO₄(suyul.) → FeSO₄ + H₂. 5,6 g temir eriganda necha mol vodorod ajraladi? (M(Fe)=56)",
+   "variantlar": [
+    "1",
+    "0,2",
+    "5,6",
+    "0,1"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol bilan gramm adashgan"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "C",
+     "xato": "massa qiymati"
+    }
+   ],
+   "yechim": "n(Fe) = 0,1 mol → n(H₂) = 0,1 mol.",
+   "parametrlar": {
+    "arch": "fe_h2_hisob"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qoraygan mis qozoncha: olovda uzoq turgach yuzasi qora qatlam bilan qoplangan. Bu qatlam nima va uni limon kislota nega tozalaydi?",
+   "variantlar": [
+    "qatlam — kuya; kislota uni yuvadi",
+    "qatlam — zang (Fe₂O₃)",
+    "qatlam — CuO; kislota u bilan reaksiyaga kirishib eriydigan tuz beradi",
+    "qatlam — tuz; suv eritadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kuya emas — kimyoviy oksidlanish mahsuloti"
+    },
+    {
+     "variant": "B",
+     "xato": "mis idishda temir zangi bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "suvda erimaydi — kislota kerak"
+    }
+   ],
+   "yechim": "2Cu + O₂ → 2CuO (qora); CuO + kislota → mis tuzi + suv — yuza yana yaltiraydi.",
+   "parametrlar": {
+    "arch": "mis_idish_sahna"
+   },
+   "fig": "copperpan"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi reaksiya AMALGA OSHMAYDI?",
+   "variantlar": [
+    "Cu + HCl → ...",
+    "Zn + HCl → ...",
+    "Fe + CuSO₄ → ...",
+    "CuO + HCl → ..."
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Zn faol — vodorod ajraladi"
+    },
+    {
+     "variant": "C",
+     "xato": "Fe misdan faol — siqib chiqaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "oksid kislota bilan kirishadi"
+    }
+   ],
+   "yechim": "Cu faollik qatorida H dan KEYIN — kislotadan vodorod ajrata olmaydi.",
+   "parametrlar": {
+    "arch": "bormaydigan_reaksiya"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Kislotali oksidlar qanday olinadi?",
+   "variantlar": [
+    "metallmaslarni yondirib yoki tuzlarni parchalab",
+    "metallarga suv qo'shib",
+    "faqat tuzlarni eritib",
+    "ishqorlarni qizdirib"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu ishqor beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "erish oksid bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "ishqorlar termik barqaror"
+    }
+   ],
+   "yechim": "S + O₂ → SO₂; CaCO₃ → CaO + CO₂ (bunda CO₂ — kislotali oksid).",
+   "parametrlar": {
+    "arch": "oksid_olinish"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi cho'kmalarning ranglarini mos ravishda aniqlang:\n[JADVAL] Cho'kma | Rang ;; Cu(OH)₂ | ? ;; Fe(OH)₃ | ?",
+   "variantlar": [
+    "oq; qora",
+    "ko'k; oq",
+    "ko'k; qo'ng'ir-qizg'ish",
+    "qora; ko'k"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ranglar noto'g'ri"
+    },
+    {
+     "variant": "B",
+     "xato": "Fe(OH)₃ — qo'ng'ir"
+    },
+    {
+     "variant": "D",
+     "xato": "teskari joylashgan"
+    }
+   ],
+   "yechim": "Cu(OH)₂ — havorang-ko'k; Fe(OH)₃ — zang rangli (qo'ng'ir).",
+   "parametrlar": {
+    "arch": "chokma_rang_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Metall + kislota reaksiyasida qanday mahsulotlar hosil bo'ladi (suyultirilgan HCl, H₂SO₄ uchun)?",
+   "variantlar": [
+    "tuz va suv",
+    "tuz va vodorod",
+    "faqat tuz",
+    "oksid va vodorod"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu asos yoki oksid bilan"
+    },
+    {
+     "variant": "C",
+     "xato": "H₂ ham ajraladi"
+    },
+    {
+     "variant": "D",
+     "xato": "metall tuzga o'tadi"
+    }
+   ],
+   "yechim": "Zn + H₂SO₄ → ZnSO₄ + H₂↑ (faol metallar uchun).",
+   "parametrlar": {
+    "arch": "metall_kislota_mahsulot"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda dehqon nordon (kislotali) tuproqqa maydalangan ohak (CaCO₃/Ca(OH)₂) sepmoqda. Buning maqsadi nima?",
+   "variantlar": [
+    "tuproqni oqartirish",
+    "zararkunandalarni yo'qotish",
+    "tuproq kislotaliligini neytrallash",
+    "tuproqni zichlash"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang emas, muhit muhim"
+    },
+    {
+     "variant": "B",
+     "xato": "ohak insektitsid emas"
+    },
+    {
+     "variant": "D",
+     "xato": "aksincha — unumdorlik uchun muhit tuzatiladi"
+    }
+   ],
+   "yechim": "Ohak tuproqdagi ortiqcha kislotalar bilan reaksiyaga kirishadi — ko'p ekinlar neytral muhitni yaxshi ko'radi.",
+   "parametrlar": {
+    "arch": "tuproq_sahna"
+   },
+   "fig": "soil"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Zn + H₂SO₄ → ZnSO₄ + H₂. 0,2 mol rux to'liq eriganda necha gramm tuz hosil bo'ladi? (M(ZnSO₄)=161)",
+   "variantlar": [
+    "161 g",
+    "32,2 g",
+    "16,1 g",
+    "64,4 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(ZnSO₄) = 0,2 mol → m = 0,2·161 = 32,2 g.",
+   "parametrlar": {
+    "arch": "znso4_hisob"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Qaysi qatorda kislotalar KUCHAYIB borish tartibida joylashgan bo'lishi mumkin?",
+   "variantlar": [
+    "H₂SO₄ → H₂SO₃ → H₂CO₃",
+    "hammasi teng kuchli",
+    "H₂SO₃ → H₂CO₃ → H₂SO₄",
+    "H₂CO₃ → H₂SO₃ → H₂SO₄"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu kuchsizlanish tartibi"
+    },
+    {
+     "variant": "B",
+     "xato": "karbonat kislota juda kuchsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "H₂CO₃ eng kuchsiz — o'rtada turolmaydi"
+    }
+   ],
+   "yechim": "Karbonat — juda kuchsiz, sulfit — o'rtacha, sulfat — kuchli kislota.",
+   "parametrlar": {
+    "arch": "kislota_kuch"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Karbonat tuzini qanday BILIB olish mumkin?",
+   "variantlar": [
+    "kislota qo'shilganda «vishillab» CO₂ ajratadi",
+    "suvda eritib",
+    "rangiga qarab",
+    "hidiga qarab"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ko'p tuzlar eriydi — farqlab bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'p karbonatlar ham oq"
+    },
+    {
+     "variant": "D",
+     "xato": "karbonatlar hidsiz"
+    }
+   ],
+   "yechim": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑ — karbonatlarga sifat reaksiyasi.",
+   "parametrlar": {
+    "arch": "karbonat_sifat"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Temir buyumlar nam havoda qanday modda bilan qoplanadi?",
+   "variantlar": [
+    "zang — asosan temir(III) oksid-gidroksidlari",
+    "kuygan qatlam — sof uglerod",
+    "temir tuzi",
+    "qo'rg'oshin qatlami"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "uglerod havodan kelmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "tuz uchun kislota kerak"
+    },
+    {
+     "variant": "D",
+     "xato": "boshqa metall paydo bo'lmaydi"
+    }
+   ],
+   "yechim": "4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ — sekin oksidlanish (korroziya).",
+   "parametrlar": {
+    "arch": "zang_hosil"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂. 10 g marmar to'liq eriganda ajralgan gaz hajmini (n.sh.) toping. (M(CaCO₃)=100)",
+   "variantlar": [
+    "22,4 L",
+    "4,48 L",
+    "1,12 L",
+    "2,24 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi olingan"
+    }
+   ],
+   "yechim": "n = 0,1 mol → V(CO₂) = 2,24 L.",
+   "parametrlar": {
+    "arch": "marmar_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ishqor eritmasi teriga tegsa, nima qilish kerak?",
+   "variantlar": [
+    "kuchli kislota quyish",
+    "ko'p suv bilan yuvib, so'ng kuchsiz kislota (borat) eritmasi bilan ishlov berish",
+    "hech narsa qilmaslik",
+    "quruq latta bilan artish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kuchli kislota o'zi kuydiradi"
+    },
+    {
+     "variant": "C",
+     "xato": "ishqor teri oqsillarini yemiradi"
+    },
+    {
+     "variant": "D",
+     "xato": "avval albatta suv bilan yuviladi"
+    }
+   ],
+   "yechim": "Xavfsizlik qoidasi: suv + neytrallovchi kuchsiz eritma.",
+   "parametrlar": {
+    "arch": "xavfsizlik"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi o'zgarishni amalga oshirish uchun qaysi reagent kerak: CuSO₄ → Cu(OH)₂?",
+   "variantlar": [
+    "H₂O",
+    "HCl",
+    "NaOH eritmasi",
+    "Fe"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tuz suv bilan gidroksid bermaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota gidroksid eritadi"
+    },
+    {
+     "variant": "D",
+     "xato": "temir Cu METALLNI siqib chiqaradi"
+    }
+   ],
+   "yechim": "CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄.",
+   "parametrlar": {
+    "arch": "otish_reagent"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada uch tajribada yig'ilgan gazlar hajmi berilgan. Qaysi tajribada VODOROD olingan bo'lishi mumkin?",
+   "variantlar": [
+    "2-tajriba (CaCO₃ + HCl)",
+    "3-tajriba (H₂O₂ → ...)",
+    "hech qaysi",
+    "1-tajriba (Zn + HCl)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu CO₂ beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu kislorod beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "1-tajriba — klassik H₂ olinishi"
+    }
+   ],
+   "yechim": "Diagramma yorlig'idan: Zn + 2HCl → ZnCl₂ + H₂↑.",
+   "parametrlar": {
+    "arch": "bar_gaz_oqish"
+   },
+   "fig": "bar_gaz"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "8 g CuO ni to'liq eritish uchun necha gramm sulfat kislota kerak? (M: CuO=80, H₂SO₄=98)",
+   "variantlar": [
+    "98 g",
+    "4,9 g",
+    "19,6 g",
+    "9,8 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(H₂SO₄) = 9,8 g.",
+   "parametrlar": {
+    "arch": "cuo_teskari"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Nitrat tuzlarining eruvchanligi haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "barchasi erimaydi",
+    "barcha nitratlar suvda eriydi",
+    "faqat KNO₃ eriydi",
+    "og'ir metallarniki erimaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — eruvchanlik jadvalida NO₃⁻ ustuni to'liq «E»"
+    },
+    {
+     "variant": "C",
+     "xato": "hammasi eriydi"
+    },
+    {
+     "variant": "D",
+     "xato": "AgNO₃ ham yaxshi eriydi"
+    }
+   ],
+   "yechim": "NO₃⁻ tuzlari — eruvchanlik jadvalining «eng oq» ustuni.",
+   "parametrlar": {
+    "arch": "nitrat_eruvchanlik"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Cu(OH)₂ namunasi asta qizdirilmoqda. Qattiq modda massasi vaqt davomida qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "ortadi",
+    "kamayib, so'ng o'zgarmay qoladi",
+    "o'zgarmaydi",
+    "nolgacha kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv chiqib ketadi — massa kamayadi"
+    },
+    {
+     "variant": "C",
+     "xato": "parchalanish massa yo'qotadi"
+    },
+    {
+     "variant": "D",
+     "xato": "CuO qattiq qoladi"
+    }
+   ],
+   "yechim": "Cu(OH)₂ → CuO + H₂O↑: suv uchgach massa CuO da to'xtaydi.",
+   "parametrlar": {
+    "arch": "massa_grafik"
+   },
+   "svg": {
+    "correct": "fall_flat",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "fall",
+    "xlab": "t",
+    "ylab": "m"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi tuz suvda ERIMAYDI?",
+   "variantlar": [
+    "BaSO₄",
+    "NaCl",
+    "K₂CO₃",
+    "Cu(NO₃)₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yaxshi eriydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ishqoriy metall tuzi — eriydi"
+    },
+    {
+     "variant": "D",
+     "xato": "nitratlar eriydi"
+    }
+   ],
+   "yechim": "BaSO₄ — og'ir oq cho'kma; sulfat ioniga sifat reaksiyasida ishlatiladi.",
+   "parametrlar": {
+    "arch": "erimaydigan_tuz"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "NaOH + HCl → NaCl + H₂O. 4 g natriy gidroksid to'liq neytrallanganda necha gramm tuz hosil bo'ladi? (M: NaOH=40, NaCl=58,5)",
+   "variantlar": [
+    "4 g",
+    "5,85 g",
+    "58,5 g",
+    "11,7 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tuz massasi asosnikidan farq qiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(NaCl) = 0,1·58,5 = 5,85 g.",
+   "parametrlar": {
+    "arch": "nacl_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-diagrammadagi 1-tajribada 6,5 g rux ishlatilgan. Yig'ilgan vodorod hajmi qancha bo'lgan? (M(Zn)=65)",
+   "variantlar": [
+    "2,24 L",
+    "22,4 L",
+    "6,5 L",
+    "1,12 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "massa qiymati"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n(Zn) = 0,1 mol → V(H₂) = 0,1·22,4 = 2,24 L — diagrammadagi ustunga mos.",
+   "parametrlar": {
+    "arch": "bar_gaz_hisob"
+   },
+   "fig": "bar_gaz"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "II.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "II.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Laboratoriyada uchta probirkada rangsiz eritmalar bor: X — HCl, Y — NaOH, Z — NaCl. Ularni farqlash uchun tajribalar o'tkazildi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Lakmus X eritmada qanday rang beradi?",
+    "34. Fenolftalein qaysi eritmada pushti bo'ladi?",
+    "35. Z eritmaga AgNO₃ tomizilsa nima kuzatiladi?"
+   ],
+   "javoblar_royxati": [
+    "A) qizil",
+    "B) Y da",
+    "C) oq cho'kma",
+    "D) ko'k",
+    "E) X da",
+    "F) gaz ajralishi"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "ko'k — ishqorda; X esa kislota"
+    },
+    {
+     "variant": "E",
+     "xato": "fenolftalein kislotada rangsiz"
+    },
+    {
+     "variant": "F",
+     "xato": "AgNO₃ + NaCl cho'kma beradi, gaz emas"
+    }
+   ],
+   "yechim": "X (HCl): lakmus qizil (A). Y (NaOH): fenolftalein pushti (B). Z (NaCl): Ag⁺ + Cl⁻ → AgCl↓ oq cho'kma (C).",
+   "parametrlar": {
+    "arch": "indikator_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Zn + H₂SO₄ → ZnSO₄ + H₂. 0,2 mol rux eriganda hosil bo'lgan tuz massasini (g) toping. (M(ZnSO₄)=161)",
+   "javob": "32,2",
+   "yechim": "n = 0,2 mol → m = 0,2·161 = 32,2 g.",
+   "parametrlar": {
+    "arch": "znso4_o1"
+   },
+   "tur": "O1",
+   "element": "II.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "4,9 g sulfat kislotani neytrallash uchun necha gramm KOH kerak? (M: H₂SO₄=98, KOH=56)",
+   "javob": "5,6",
+   "yechim": "n = 0,05 mol → KOH 0,1 mol → 5,6 g.",
+   "parametrlar": {
+    "arch": "koh_o1"
+   },
+   "tur": "O1",
+   "element": "II.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "16 g mis(II) oksidini eritish uchun necha mol HCl kerak? (M(CuO)=80)",
+   "javob": "0,4",
+   "yechim": "CuO + 2HCl: n(CuO) = 0,2 mol → n(HCl) = 0,4 mol.",
+   "parametrlar": {
+    "arch": "cuo_hcl_o1"
+   },
+   "tur": "O1",
+   "element": "II.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Mg + 2HCl → MgCl₂ + H₂. 1,2 g magniy eriganda ajralgan vodorod hajmini (n.sh., L) toping. (M(Mg)=24)",
+   "javob": "1,12",
+   "yechim": "n = 0,05 mol → V = 0,05·22,4 = 1,12 L.",
+   "parametrlar": {
+    "arch": "mg_h2_o1"
+   },
+   "tur": "O1",
+   "element": "II.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuO + H₂ → Cu + H₂O. 20 g mis(II) oksididan necha gramm mis olinadi? (M: CuO=80, Cu=64)",
+   "javob": "16",
+   "yechim": "n = 0,25 mol → m(Cu) = 0,25·64 = 16 g.",
+   "parametrlar": {
+    "arch": "cu_qaytarish_o1"
+   },
+   "tur": "O1",
+   "element": "II.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "MgO dan magniy sulfat olish topshirig'i berildi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya tenglamasini yozing va bu tuz olishning qaysi usuli ekanini ayting.",
+     "yechim": [
+      "MgO + H₂SO₄ → MgSO₄ + H₂O — asosli oksid + kislota usuli."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Yana qanday ikki usul bilan MgSO₄ olish mumkin? Tenglamalarini yozing.",
+     "yechim": [
+      "Mg + H₂SO₄ → MgSO₄ + H₂; Mg(OH)₂ + H₂SO₄ → MgSO₄ + 2H₂O."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 12 g MgO dan olinadigan MgSO₄ massasini hisoblang. (M: MgO=40, MgSO₄=120)",
+     "yechim": [
+      "n = 0,3 mol → m = 0,3·120 = 36 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Olingan eritmadan qattiq tuzni qanday ajratib olish mumkin?",
+     "yechim": [
+      "Eritmani bug'latish (suvni uchirish) orqali."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Tuz olish usullari: tenglama → muqobil yo'llar → hisob; M15+A10.",
+   "parametrlar": {
+    "arch": "mgso4_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Laboratoriyada ikkita bir xil ko'rinishdagi oq kukun bor: biri — osh tuzi (NaCl), ikkinchisi — bo'r (CaCO₃). Quyidagilarni MULOHAZA yuritib bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Ikkala kukunni kimyoviy usul bilan qanday farqlash mumkinligini ikki xil yo'l bilan tushuntiring (tenglamalar bilan).",
+     "yechim": [
+      "1-yo'l: kislota qo'shish — CaCO₃ «vishillaydi» (CO₂), NaCl da o'zgarish yo'q.",
+      "2-yo'l: suvda eritish — NaCl eriydi, CaCO₃ erimaydi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega farqlashda ta'm ko'rish usulidan foydalanish mumkin emas?",
+     "yechim": [
+      "Laboratoriyada moddalarni tatib ko'rish qat'iyan taqiqlangan — xavfsizlik qoidasi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) CaCO₃ + HCl reaksiyasining tenglamasini yozing.",
+     "yechim": [
+      "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Farqlash-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "farqlash_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Kimyoviy xossalar jadvalda tekshiriladi:\n[JADVAL] Reaksiya | Kuzatish ;; Zn + HCl | ? ;; CuSO₄ + NaOH | ? ;; CaCO₃ + HCl | ? ;; AgNO₃ + NaCl | ?\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir reaksiyada nima kuzatilishini yozing.",
+     "yechim": [
+      "Zn+HCl: gaz (H₂); CuSO₄+NaOH: ko'k cho'kma; CaCO₃+HCl: gaz (CO₂); AgNO₃+NaCl: oq cho'kma."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "b) Barcha reaksiya tenglamalarini yozing.",
+     "yechim": [
+      "Zn+2HCl→ZnCl₂+H₂; CuSO₄+2NaOH→Cu(OH)₂+Na₂SO₄; CaCO₃+2HCl→CaCl₂+H₂O+CO₂; AgNO₃+NaCl→AgCl+NaNO₃."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Qaysi reaksiyalar almashinish turiga kiradi?",
+     "yechim": [
+      "CuSO₄+NaOH, CaCO₃+HCl, AgNO₃+NaCl — almashinish; Zn+HCl — o'rin olish."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Gaz ajralgan reaksiyalarda gazlarni qanday farqlash mumkin?",
+     "yechim": [
+      "H₂ — yonuvchan («pop» tovushi); CO₂ — ohakli suvni loyqalatadi, yonishni so'ndiradi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Kuzatishlar-jadval: belgi → tenglama → tur → farqlash; M15+A10.",
+   "parametrlar": {
+    "arch": "kuzatish_jadval_o2"
+   }
+  }
+ ]
+}
