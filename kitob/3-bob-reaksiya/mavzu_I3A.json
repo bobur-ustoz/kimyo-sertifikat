@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-I3-A",
+ "daraja": "A",
+ "bob": 3,
+ "bob_nomi": "Kimyoviy reaksiya turlari va issiqlik effekti",
+ "manba": "MS spetsifikatsiyasi I.3; darslik reaksiya turlari va termokimyo bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (sham, muzlatuvchi paket, qo'l isitgich, non-soda) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kimyoviy reaksiyaning asosiy belgisi nima?",
+   "variantlar": [
+    "moddaning maydalanishi",
+    "agregat holat o'zgarishi",
+    "harakat tezligining o'zgarishi",
+    "yangi modda hosil bo'lishi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "maydalanish — fizik hodisa"
+    },
+    {
+     "variant": "B",
+     "xato": "erish/qaynash — fizik hodisa"
+    },
+    {
+     "variant": "C",
+     "xato": "mexanik hodisa"
+    }
+   ],
+   "yechim": "Reaksiyada moddalar tarkibi o'zgarib, YANGI xossali moddalar hosil bo'ladi.",
+   "parametrlar": {
+    "arch": "belgi_oddiy"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Birikish reaksiyasi deb qanday reaksiyaga aytiladi?",
+   "variantlar": [
+    "bitta moddadan bir nechta modda hosil bo'lishiga",
+    "moddalar o'z qismlarini almashishiga",
+    "ikki yoki bir necha moddadan BITTA modda hosil bo'lishiga",
+    "oddiy modda murakkab moddadan atomni siqib chiqarishiga"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu parchalanish"
+    },
+    {
+     "variant": "B",
+     "xato": "bu almashinish"
+    },
+    {
+     "variant": "D",
+     "xato": "bu o'rin olish"
+    }
+   ],
+   "yechim": "A + B → AB ko'rinishi: masalan, 2Mg + O₂ → 2MgO.",
+   "parametrlar": {
+    "arch": "birikish_tarif"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "2H₂O → 2H₂ + O₂ reaksiyasi qaysi turga kiradi?",
+   "variantlar": [
+    "birikish",
+    "parchalanish",
+    "o'rin olish",
+    "almashinish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bitta moddadan IKKITA hosil bo'ldi"
+    },
+    {
+     "variant": "C",
+     "xato": "oddiy modda reaksiyaga kirmagan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki murakkab modda yo'q"
+    }
+   ],
+   "yechim": "AB → A + B: bitta murakkab moddadan ikkita oddiy modda.",
+   "parametrlar": {
+    "arch": "parchalanish_misol"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: yonayotgan sham xonani yoritadi va isitadi. Sham yonishi qanday reaksiya?",
+   "variantlar": [
+    "endotermik — issiqlik yutiladi",
+    "ekzotermik — issiqlik va yorug'lik ajraladi",
+    "fizik hodisa",
+    "faqat erish jarayoni"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sham atrofni ISITADI, sovutmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "parafin kislorod bilan reaksiyaga kirishib CO₂ va suv beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "erish ham bor, lekin yonish — kimyoviy jarayon"
+    }
+   ],
+   "yechim": "Yonish — deyarli har doim ekzotermik: energiya issiqlik va yorug'lik ko'rinishida chiqadi.",
+   "parametrlar": {
+    "arch": "sham_sahna"
+   },
+   "fig": "candle"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Zn + CuSO₄ → ZnSO₄ + Cu reaksiyasi qaysi turga kiradi?",
+   "variantlar": [
+    "almashinish",
+    "birikish",
+    "o'rin olish",
+    "parchalanish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy modda (Zn) qatnashyapti"
+    },
+    {
+     "variant": "B",
+     "xato": "mahsulot bitta emas"
+    },
+    {
+     "variant": "D",
+     "xato": "moddalar soni kamaymadi"
+    }
+   ],
+   "yechim": "Oddiy modda (Zn) murakkab modda tarkibidagi Cu ni siqib chiqardi.",
+   "parametrlar": {
+    "arch": "orin_misol"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "AgNO₃ + NaCl → AgCl↓ + NaNO₃ reaksiyasi qaysi turga kiradi?",
+   "variantlar": [
+    "o'rin olish",
+    "almashinish",
+    "birikish",
+    "parchalanish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy modda qatnashmayapti"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki modda ikkita mahsulot berdi"
+    },
+    {
+     "variant": "D",
+     "xato": "moddalar parchalanmadi"
+    }
+   ],
+   "yechim": "Ikki murakkab modda o'z tarkibiy qismlarini almashdi: AB + CD → AD + CB.",
+   "parametrlar": {
+    "arch": "almashinish_misol"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Ekzotermik reaksiya deb qanday reaksiyaga aytiladi?",
+   "variantlar": [
+    "issiqlik AJRALIB chiqishi bilan boradigan reaksiyaga",
+    "issiqlik yutilishi bilan boradigan",
+    "faqat yorug'likda boradigan",
+    "katalizator ishtirokida boradigan"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu endotermik"
+    },
+    {
+     "variant": "C",
+     "xato": "yorug'lik sharti boshqa tushuncha"
+    },
+    {
+     "variant": "D",
+     "xato": "katalitik reaksiya boshqa belgi"
+    }
+   ],
+   "yechim": "Ekzo — «tashqariga»: energiya sistemadan chiqadi (+Q).",
+   "parametrlar": {
+    "arch": "ekzo_tarif"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda sport jarohatiga qo'yiladigan «muzlatuvchi paket»: ichidagi ammiakli selitra suvda eriganda paket keskin SOVIYDI. Bu qanday jarayon?",
+   "variantlar": [
+    "ekzotermik — issiqlik ajraladi",
+    "yonish reaksiyasi",
+    "muzlash jarayoni",
+    "endotermik — erish issiqlik yutadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "paket sovuqni beradi, issiqni emas"
+    },
+    {
+     "variant": "B",
+     "xato": "hech narsa yonmayapti"
+    },
+    {
+     "variant": "C",
+     "xato": "suv muzlamaydi — issiqlik eritmaga yutiladi"
+    }
+   ],
+   "yechim": "NH₄NO₃ erishi issiqlikni atrofdan (jarohat joyidan) yutadi — paket soviydi.",
+   "parametrlar": {
+    "arch": "coldpack_sahna"
+   },
+   "fig": "coldpack"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Termokimyoviy tenglamada «+Q» belgisi nimani bildiradi?",
+   "variantlar": [
+    "issiqlik yutilishini",
+    "bosim ortishini",
+    "reaksiyada issiqlik ajralishini (ekzotermik)",
+    "reaksiya tezligini"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yutilish «−Q» bilan yoziladi"
+    },
+    {
+     "variant": "B",
+     "xato": "Q — issiqlik, bosim emas"
+    },
+    {
+     "variant": "D",
+     "xato": "tezlik boshqa kattalik"
+    }
+   ],
+   "yechim": "A + B → C + Q — issiqlik mahsulotlar tomonida: ajralib chiqadi.",
+   "parametrlar": {
+    "arch": "plusq_belgi"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CH₄ + 2O₂ → CO₂ + 2H₂O + 890 kJ. 2 mol metan yonganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "890 kJ",
+    "445 kJ",
+    "3560 kJ",
+    "1780 kJ"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu 1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkiga bo'lib yuborilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "to'rt baravar — xato"
+    }
+   ],
+   "yechim": "Q = 2 · 890 = 1780 kJ — issiqlik mol soniga proporsional.",
+   "parametrlar": {
+    "arch": "metan_q_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagi jarayonlardan qaysi biri ENDOTERMIK?",
+   "variantlar": [
+    "ohaktoshning parchalanishi (CaCO₃ → CaO + CO₂)",
+    "ko'mirning yonishi",
+    "kislota va ishqor neytrallanishi",
+    "temirning zanglashi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yonish — ekzotermik"
+    },
+    {
+     "variant": "C",
+     "xato": "neytrallanish issiqlik beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "sekin oksidlanish ham ekzotermik"
+    }
+   ],
+   "yechim": "Ohaktoshni parchalash uchun uzluksiz qizdirish kerak — issiqlik YUTILADI.",
+   "parametrlar": {
+    "arch": "endo_misol"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C + O₂ → CO₂ + 393 kJ. 6 g uglerod yonganda qancha issiqlik ajraladi? (M(C)=12)",
+   "variantlar": [
+    "393 kJ",
+    "786 kJ",
+    "196,5 kJ",
+    "98 kJ"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu 12 g (1 mol) uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar — xato"
+    },
+    {
+     "variant": "D",
+     "xato": "chorak olingan"
+    }
+   ],
+   "yechim": "n = 6/12 = 0,5 mol → Q = 0,5 · 393 = 196,5 kJ.",
+   "parametrlar": {
+    "arch": "uglerod_q"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qishki «qo'l isitgich» xaltachasi: ichidagi temir kukuni havo kislorodi bilan sekin reaksiyaga kirishib, xaltacha bir necha soat iliq turadi. Bunda qanday jarayon boradi?",
+   "variantlar": [
+    "temirning erishi",
+    "endotermik parchalanish",
+    "fizik ishqalanish issiqligi",
+    "temirning sekin oksidlanishi — ekzotermik reaksiya"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "temir erimaydi — kimyoviy o'zgaradi"
+    },
+    {
+     "variant": "B",
+     "xato": "issiqlik AJRALYAPTI, yutilmayapti"
+    },
+    {
+     "variant": "C",
+     "xato": "ishqalanmasdan ham isiydi — reaksiya manbai"
+    }
+   ],
+   "yechim": "4Fe + 3O₂ → 2Fe₂O₃ + Q: zanglashning tezlashtirilgan varianti — issiqlik manbai.",
+   "parametrlar": {
+    "arch": "handwarmer_sahna"
+   },
+   "fig": "handwarmer"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2H₂ + O₂ → 2H₂O + 572 kJ. 1 mol vodorod yonganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "286 kJ",
+    "572 kJ",
+    "1144 kJ",
+    "143 kJ"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu 2 mol H₂ uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "Q = 572/2 = 286 kJ (tenglamada 2 mol H₂ bor).",
+   "parametrlar": {
+    "arch": "h2_q"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi tenglama BIRIKISH reaksiyasiga misol bo'ladi?",
+   "variantlar": [
+    "2HgO → 2Hg + O₂",
+    "S + O₂ → SO₂",
+    "Fe + CuCl₂ → FeCl₂ + Cu",
+    "HCl + NaOH → NaCl + H₂O"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "parchalanish"
+    },
+    {
+     "variant": "C",
+     "xato": "o'rin olish"
+    },
+    {
+     "variant": "D",
+     "xato": "almashinish"
+    }
+   ],
+   "yechim": "Ikki moddadan bitta mahsulot: birikish.",
+   "parametrlar": {
+    "arch": "birikish_tanlov"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Kislota bilan ishqor orasidagi neytrallanish reaksiyasi qaysi turga kiradi?",
+   "variantlar": [
+    "almashinish",
+    "birikish",
+    "parchalanish",
+    "o'rin olish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkita mahsulot (tuz va suv) hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "moddalar parchalanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "oddiy modda qatnashmaydi"
+    }
+   ],
+   "yechim": "HCl + NaOH → NaCl + H₂O: ion qismlar almashinadi (va issiqlik ajraladi).",
+   "parametrlar": {
+    "arch": "neytrallanish_tur"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni mos ravishda to'ldiring:\n[JADVAL] Reaksiya | Turi ;; 2Mg + O₂ → 2MgO | ? ;; CaCO₃ → CaO + CO₂ | ?",
+   "variantlar": [
+    "birikish; parchalanish",
+    "parchalanish; birikish",
+    "birikish; almashinish",
+    "o'rin olish; parchalanish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "tartib teskari"
+    },
+    {
+     "variant": "C",
+     "xato": "CaCO₃ bitta moddaga ajraldi"
+    },
+    {
+     "variant": "D",
+     "xato": "MgO ikki moddadan hosil bo'ldi"
+    }
+   ],
+   "yechim": "Mg + O₂ → bitta mahsulot (birikish); CaCO₃ → ikki mahsulot (parchalanish).",
+   "parametrlar": {
+    "arch": "tur_jadval"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda novvoyxona: xamirga qo'shilgan ichimlik sodasi qizdirilganda 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂↑ reaksiyasi boradi. Xamirni nima «ko'pchitadi» va bu qaysi tur reaksiya?",
+   "variantlar": [
+    "suv bug'i; birikish",
+    "ajralgan CO₂ gazi; parchalanish",
+    "Na₂CO₃; almashinish",
+    "kislorod; o'rin olish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy ko'pchitgich — CO₂; tur ham noto'g'ri"
+    },
+    {
+     "variant": "C",
+     "xato": "tuz qattiq qoladi, gaz emas"
+    },
+    {
+     "variant": "D",
+     "xato": "reaksiyada O₂ ajralmaydi"
+    }
+   ],
+   "yechim": "Qizdirishda soda parchalanadi, CO₂ pufakchalari xamirni g'ovak qiladi.",
+   "parametrlar": {
+    "arch": "soda_sahna"
+   },
+   "fig": "bread"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2H₂ + O₂ → 2H₂O + 572 kJ. 4 g vodorod yonganda qancha issiqlik ajraladi? (M(H₂)=2)",
+   "variantlar": [
+    "572 kJ",
+    "286 kJ",
+    "1144 kJ",
+    "143 kJ"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu 1 mol (2 g) uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "4 mol deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "asossiz bo'lish"
+    }
+   ],
+   "yechim": "n = 4/2 = 2 mol H₂ → aynan tenglamadagi miqdor: 572 kJ.",
+   "parametrlar": {
+    "arch": "h2_massa_q"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Reaksiyaning issiqlik effekti (Q) qaysi birlikda o'lchanadi?",
+   "variantlar": [
+    "g (gramm)",
+    "kJ (kilojoul)",
+    "mol",
+    "°C (gradus)"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa birligi"
+    },
+    {
+     "variant": "C",
+     "xato": "modda miqdori birligi"
+    },
+    {
+     "variant": "D",
+     "xato": "harorat birligi — issiqlik miqdori emas"
+    }
+   ],
+   "yechim": "Issiqlik — energiya turi: J, kJ (ko'pincha kJ/mol).",
+   "parametrlar": {
+    "arch": "q_birlik"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "N₂ + O₂ → 2NO − 180 kJ. Bu reaksiya haqida qaysi fikr TO'G'RI?",
+   "variantlar": [
+    "ekzotermik: 180 kJ ajraladi",
+    "endotermik: 1 mol NO uchun 180 kJ yutiladi",
+    "issiqlik effekti yo'q",
+    "endotermik: 1 mol NO hosil bo'lishida 90 kJ yutiladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "«−» ishorasi yutilishni bildiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "180 kJ — 2 mol NO uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "Q = −180 kJ ko'rsatilgan"
+    }
+   ],
+   "yechim": "«−Q» — yutilish; 180/2 = 90 kJ har mol NO uchun. Shu bois NO faqat yuqori haroratda hosil bo'ladi.",
+   "parametrlar": {
+    "arch": "no_endo"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Yonish reaksiyalari haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "barchasi endotermik",
+    "issiqlik effekti bo'lmaydi",
+    "deyarli barchasi ekzotermik",
+    "faqat metallar yonishi issiqlik beradi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yonish issiqlik BERADI"
+    },
+    {
+     "variant": "B",
+     "xato": "gulxan yonida buni his qilish oson"
+    },
+    {
+     "variant": "D",
+     "xato": "metan, ko'mir ham issiqlik beradi"
+    }
+   ],
+   "yechim": "Yonish — yoqilg'idan energiya olishning asosiy usuli: doim +Q.",
+   "parametrlar": {
+    "arch": "yonish_ekzo"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2KClO₃ → 2KCl + 3O₂. 0,2 mol bertole tuzi parchalanganda necha mol kislorod ajraladi?",
+   "variantlar": [
+    "0,2",
+    "0,6",
+    "0,3",
+    "0,1"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 2:3 — teng emas"
+    },
+    {
+     "variant": "B",
+     "xato": "uch baravar emas, 1,5 baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat teskari olingan"
+    }
+   ],
+   "yechim": "n(O₂) = 0,2 · 3/2 = 0,3 mol.",
+   "parametrlar": {
+    "arch": "kclo3_mol"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi energiya diagrammasida mahsulotlarning energiyasi boshlang'ich moddalarnikidan PAST. Bu qanday reaksiya?",
+   "variantlar": [
+    "endotermik — issiqlik yutiladi",
+    "issiqlik effektsiz",
+    "fizik jarayon",
+    "ekzotermik — energiya farqi issiqlik sifatida ajraladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yutilishda mahsulot energiyasi YUQORI bo'lardi"
+    },
+    {
+     "variant": "B",
+     "xato": "sathlar farqi aynan issiqlik effekti"
+    },
+    {
+     "variant": "C",
+     "xato": "diagramma kimyoviy reaksiya uchun"
+    }
+   ],
+   "yechim": "Sistema pastroq energiyaga tushdi — ortiqcha energiya issiqlik bo'lib chiqdi.",
+   "parametrlar": {
+    "arch": "profil_oqish_oddiy"
+   },
+   "fig": "profile"
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Temir mixni mis(II) sulfat eritmasiga tushirsak, mix qizil g'ubor bilan qoplanadi. Bu qaysi tur reaksiya va g'ubor nima?",
+   "variantlar": [
+    "almashinish; mis oksidi",
+    "o'rin olish; metall mis",
+    "birikish; zang",
+    "parchalanish; mis sulfidi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy modda (Fe) qatnashyapti; g'ubor — Cu"
+    },
+    {
+     "variant": "C",
+     "xato": "zang emas — mis ajralyapti"
+    },
+    {
+     "variant": "D",
+     "xato": "hech narsa parchalanmayapti"
+    }
+   ],
+   "yechim": "Fe + CuSO₄ → FeSO₄ + Cu: faolroq temir misni siqib chiqaradi.",
+   "parametrlar": {
+    "arch": "fe_cuso4"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Diagrammada uch gazning 1 mol uchun yonish issiqliklari berilgan. Qaysi gaz 1 MOL hisobida eng ko'p issiqlik beradi?",
+   "variantlar": [
+    "metan (CH₄)",
+    "etan (C₂H₆)",
+    "hammasi teng",
+    "propan (C₃H₈)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "890 kJ — eng past ustun"
+    },
+    {
+     "variant": "B",
+     "xato": "1560 kJ — o'rtada"
+    },
+    {
+     "variant": "C",
+     "xato": "ustunlar balandligi har xil"
+    }
+   ],
+   "yechim": "Diagrammadan: C₃H₈ ≈ 2220 kJ/mol — molekulada atomlar ko'p, yonish issiqligi katta.",
+   "parametrlar": {
+    "arch": "bar_yonish_oqish"
+   },
+   "fig": "bar_yonish"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,5 mol oltingugurt yonganda 148,5 kJ issiqlik ajraldi. 1 mol uchun issiqlik effektini toping.",
+   "variantlar": [
+    "148,5 kJ",
+    "297 kJ",
+    "74 kJ",
+    "594 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu 0,5 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yana ikkiga bo'lingan"
+    },
+    {
+     "variant": "D",
+     "xato": "to'rt baravar — xato"
+    }
+   ],
+   "yechim": "Q = 148,5/0,5 = 297 kJ/mol: S + O₂ → SO₂ + 297 kJ.",
+   "parametrlar": {
+    "arch": "s_teskari_oddiy"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fotosintez jarayoni (6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂) qanday reaksiya?",
+   "variantlar": [
+    "ekzotermik — issiqlik ajraladi",
+    "issiqlik effektsiz",
+    "endotermik — quyosh energiyasi yutiladi",
+    "fizik jarayon"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha: yorug'liksiz bormaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "energiya glyukozada «saqlanadi»"
+    },
+    {
+     "variant": "D",
+     "xato": "yangi modda (glyukoza) hosil bo'ladi"
+    }
+   ],
+   "yechim": "O'simlik yorug'lik energiyasini yutib, uni glyukozaning kimyoviy energiyasiga aylantiradi.",
+   "parametrlar": {
+    "arch": "fotosintez"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Metan yonishida ajraladigan issiqlik yoqilgan metan MASSASIGA qanday bog'liq? Grafikni tanlang.",
+   "variantlar": [
+    "to'g'ri proporsional ortadi",
+    "o'zgarmaydi",
+    "kamayadi",
+    "avval ortib, keyin to'xtaydi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "har mol metan o'z 890 kJ ini beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'proq yoqilg'i — ko'proq issiqlik"
+    },
+    {
+     "variant": "D",
+     "xato": "kislorod yetarli bo'lsa chegara yo'q"
+    }
+   ],
+   "yechim": "Q = n · 890 = (m/16) · 890 — massaga chiziqli bog'liq.",
+   "parametrlar": {
+    "arch": "q_massa_grafik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "flat",
+    "d2": "fall",
+    "d3": "rise_flat",
+    "xlab": "m(CH₄)",
+    "ylab": "Q"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagilardan qaysi biri FIZIK hodisa?",
+   "variantlar": [
+    "muzning erishi",
+    "gugurtning yonishi",
+    "sutning achishi",
+    "temirning zanglashi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "yangi moddalar (CO₂, kul) hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "yangi modda — sut kislotasi"
+    },
+    {
+     "variant": "D",
+     "xato": "yangi modda — zang (Fe₂O₃)"
+    }
+   ],
+   "yechim": "Muz erishida modda o'zgarmaydi: H₂O qattiqdan suyuqqa o'tadi, xolos.",
+   "parametrlar": {
+    "arch": "fizik_hodisa"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Qozonxonaga 4450 kJ issiqlik kerak. Buning uchun necha mol metan yoqish lozim? (Q = 890 kJ/mol)",
+   "variantlar": [
+    "4450",
+    "0,2",
+    "5",
+    "10"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molga aylantirilmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "nisbat teskari olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "n = 4450/890 = 5 mol (≈ 112 L gaz).",
+   "parametrlar": {
+    "arch": "metan_teskari_mol"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "24-savoldagi diagrammada reaksiyaning issiqlik effektiga qaysi kesma mos keladi?",
+   "variantlar": [
+    "egri chiziqning eng yuqori nuqtasi",
+    "boshlang'ich sath bilan cho'qqi orasidagi farq",
+    "vaqt o'qi uzunligi",
+    "boshlang'ich va mahsulot sathlari orasidagi farq"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu — aktivlanish energiyasi cho'qqisi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu — aktivlanish energiyasi"
+    },
+    {
+     "variant": "C",
+     "xato": "issiqlik o'qlar farqidan o'qiladi"
+    }
+   ],
+   "yechim": "Q = E(boshlang'ich) − E(mahsulot): sathlar orasidagi vertikal farq.",
+   "parametrlar": {
+    "arch": "profil_strelka"
+   },
+   "fig": "profile"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Oshxonada uch jarayon kuzatildi: X — gaz plitada metan yonmoqda; Y — muzlatgichda suv muzga aylanmoqda; Z — xamirdagi soda qizdirilganda parchalanib, gaz ajratmoqda. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X jarayon qanday reaksiya?",
+    "34. Y jarayonning tabiati qanday?",
+    "35. Z jarayonda ajralayotgan gaz qaysi?"
+   ],
+   "javoblar_royxati": [
+    "A) ekzotermik yonish",
+    "B) fizik hodisa",
+    "C) CO₂",
+    "D) endotermik parchalanish",
+    "E) O₂",
+    "F) kimyoviy almashinish"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "D — Z jarayonga mos tavsif, X ga emas"
+    },
+    {
+     "variant": "E",
+     "xato": "soda parchalanishida kislorod ajralmaydi"
+    },
+    {
+     "variant": "F",
+     "xato": "muzlash — kimyoviy emas, agregat holat o'zgarishi"
+    }
+   ],
+   "yechim": "X: CH₄ yonishi — ekzotermik (A). Y: muzlash — fizik hodisa (B). Z: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂↑ — gaz CO₂ (C).",
+   "parametrlar": {
+    "arch": "oshxona_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "C + O₂ → CO₂ + 393 kJ. 12 g ko'mir yonganda ajraladigan issiqlikni (kJ) toping.",
+   "javob": "393",
+   "yechim": "n = 12/12 = 1 mol → 393 kJ.",
+   "parametrlar": {
+    "arch": "komir_q_o1"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Suvni parchalash uchun 1 mol H₂O ga 286 kJ energiya kerak. 2 mol suvni parchalashga qancha energiya (kJ) sarflanadi?",
+   "javob": "572",
+   "yechim": "Q = 2 · 286 = 572 kJ (endotermik jarayon).",
+   "parametrlar": {
+    "arch": "suv_parchalash_o1"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CH₄ + 2O₂ → CO₂ + 2H₂O + 890 kJ. 0,25 mol metan yonganda ajraladigan issiqlikni (kJ) toping.",
+   "javob": "222,5",
+   "yechim": "Q = 0,25 · 890 = 222,5 kJ.",
+   "parametrlar": {
+    "arch": "metan_q_o1"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2KClO₃ → 2KCl + 3O₂. 0,6 mol kislorod olish uchun necha mol KClO₃ kerak?",
+   "javob": "0,4",
+   "yechim": "n = 0,6 · 2/3 = 0,4 mol.",
+   "parametrlar": {
+    "arch": "kclo3_teskari_o1"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2H₂ + O₂ → 2H₂O + 572 kJ. 1 g vodorod yonganda ajraladigan issiqlikni (kJ) toping.",
+   "javob": "143",
+   "yechim": "1 g = 0,5 mol H₂ → Q = 0,5 · 286 = 143 kJ.",
+   "parametrlar": {
+    "arch": "h2_gramm_o1"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Mang'alda ko'mir yoqilmoqda: C + O₂ → CO₂ + 393 kJ. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Bu reaksiyaning turini va issiqlik effekti belgisini aniqlang.",
+     "yechim": [
+      "Birikish reaksiyasi; +Q — ekzotermik."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) 6 g ko'mir yonganda ajraladigan issiqlikni hisoblang.",
+     "yechim": [
+      "n = 6/12 = 0,5 mol → Q = 0,5·393 = 196,5 kJ."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "c) Shu issiqlik 500 g suvni necha gradusga isitishi mumkin? (c = 4,2 J/(g·°C))",
+     "yechim": [
+      "Δt = 196500/(500·4,2) ≈ 94 °C."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Amalda suv bunchalik isimaydi. Sababini izohlang.",
+     "yechim": [
+      "Issiqlikning katta qismi havoga, idishga tarqaladi — yo'qotishlar bor."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi yonish-zanjiri: tur → hisob → amaliy baho; M15+A10.",
+   "parametrlar": {
+    "arch": "komir_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Alpinistlar sovuqda «qo'l isitgich» (temir kukunli xaltacha) va sport shifokorlari «muzlatuvchi paket» (ammiakli selitrali xaltacha) ishlatadi. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Ikki xaltachaning ishlash tamoyilini issiqlik effekti tushunchasi asosida solishtirib tushuntiring.",
+     "yechim": [
+      "Isitgich: 4Fe + 3O₂ → 2Fe₂O₃ + Q — ekzotermik oksidlanish, issiqlik ajraladi.",
+      "Muzlatgich: NH₄NO₃ ning suvda erishi endotermik — issiqlik atrofdan yutiladi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega isitgich xaltachasi ochilmaguncha «ishlamaydi»?",
+     "yechim": [
+      "Germetik xaltada kislorod yo'q; ochilgach havo O₂ si kirib, oksidlanish boshlanadi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Har bir xaltachadagi jarayon uchun issiqlik effekti belgisini (+Q/−Q) yozing.",
+     "yechim": [
+      "Isitgich: +Q; muzlatuvchi paket: −Q."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "xaltacha_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "To'rt reaksiya jadvalda berilgan:\n[JADVAL] № | Reaksiya ;; 1 | 2Al + 3S → Al₂S₃ ;; 2 | 2HgO → 2Hg + O₂ ;; 3 | Mg + 2HCl → MgCl₂ + H₂ ;; 4 | BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir reaksiyaning turini aniqlang.",
+     "yechim": [
+      "1 — birikish; 2 — parchalanish; 3 — o'rin olish; 4 — almashinish."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "b) Qaysi reaksiyalarda oddiy modda ISHTIROK ETADI (reagent sifatida)?",
+     "yechim": [
+      "1 (Al, S) va 3 (Mg)."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Qaysi reaksiyada gaz, qaysinisida cho'kma hosil bo'ladi?",
+     "yechim": [
+      "Gaz: 2 (O₂) va 3 (H₂); cho'kma: 4 (BaSO₄↓)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) 2-reaksiya qizdirishni talab qiladi. Uning issiqlik effekti belgisini asoslang.",
+     "yechim": [
+      "Endotermik (−Q): uzluksiz issiqlik berilmasa parchalanish to'xtaydi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Reaksiya-jadval tahlili: M15+A10.",
+   "parametrlar": {
+    "arch": "reaksiya_jadval_o2"
+   }
+  }
+ ]
+}

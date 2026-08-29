@@ -1,0 +1,1335 @@
+{
+ "variant": "mavzu-I3-B",
+ "daraja": "B",
+ "bob": 3,
+ "bob_nomi": "Kimyoviy reaksiya turlari va issiqlik effekti",
+ "manba": "Tongotarov variantlari arxetiplari (termokimyoviy hisoblar, 1-2-3 tanlovlar, teskari masalalar) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi I.3",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: Gess qonuni, kalorimetr, aralashma va teskari masalalar, energiya diagrammasi.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Quyidagi jarayonlardan qaysilari EKZOTERMIK?\n1) C + O₂ → CO₂;  2) CaCO₃ → CaO + CO₂;  3) HCl + NaOH → NaCl + H₂O;  4) N₂ + O₂ → 2NO.",
+   "variantlar": [
+    "1 va 3",
+    "2 va 4",
+    "faqat 1",
+    "1, 3 va 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bular endotermik — issiqlik yutiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "neytrallanish ham issiqlik beradi (57,3 kJ/mol)"
+    },
+    {
+     "variant": "D",
+     "xato": "NO hosil bo'lishi − 180 kJ — endotermik"
+    }
+   ],
+   "yechim": "Yonish va neytrallanish — ekzo; karbonat parchalanishi va NO sintezi — endo.",
+   "parametrlar": {
+    "arch": "ekzo_tanlov123"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Metan yonishida (Q = 890 kJ/mol) 222,5 kJ issiqlik ajraldi. Yoqilgan metan massasini toping.",
+   "variantlar": [
+    "16 g",
+    "8 g",
+    "4 g",
+    "2 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol deb olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "0,5 mol — ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "n = 222,5/890 = 0,25 mol → m = 0,25 · 16 = 4 g.",
+   "parametrlar": {
+    "arch": "metan_teskari_massa"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ma'lum: C + O₂ → CO₂ + 393,5 kJ va CO + ½O₂ → CO₂ + 283 kJ. C + ½O₂ → CO reaksiyasining issiqlik effektini toping.",
+   "variantlar": [
+    "676,5 kJ",
+    "110,5 kJ",
+    "283 kJ",
+    "−110,5 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ayirish o'rniga qo'shilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikkinchi bosqich effekti"
+    },
+    {
+     "variant": "D",
+     "xato": "reaksiya ekzotermik: ishora musbat"
+    }
+   ],
+   "yechim": "Gess qonuni: Q₁ = Q(umumiy) − Q₂ = 393,5 − 283 = 110,5 kJ.",
+   "parametrlar": {
+    "arch": "hess_co"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4Al + 3O₂ → 2Al₂O₃ + 3352 kJ. 5,4 g alyuminiy yonganda qancha issiqlik ajraladi? (M(Al)=27)",
+   "variantlar": [
+    "167,6 kJ",
+    "838 kJ",
+    "3352 kJ",
+    "335,2 kJ"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol Al uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "4 mol Al uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "nol adashgan"
+    }
+   ],
+   "yechim": "n(Al) = 0,2 mol; 4 mol Al — 3352 kJ → 0,2 mol — 3352·0,2/4 = 167,6 kJ.",
+   "parametrlar": {
+    "arch": "al_yonish"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi energiya diagrammasidan reaksiyaning issiqlik effektini aniqlang.",
+   "variantlar": [
+    "80 kJ yutiladi",
+    "150 kJ ajraladi",
+    "80 kJ ajraladi",
+    "230 kJ ajraladi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mahsulot energiyasi PAST — issiqlik ajraladi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu aktivlanish energiyasi (cho'qqigacha)"
+    },
+    {
+     "variant": "D",
+     "xato": "cho'qqi bilan mahsulot farqi — teskari reaksiya to'sig'i"
+    }
+   ],
+   "yechim": "Q = E(reagent) − E(mahsulot) = 200 − 120 = 80 kJ (+Q, ekzotermik).",
+   "parametrlar": {
+    "arch": "profil_dH"
+   },
+   "fig": "profile"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi reaksiya ALMASHINISH turiga kiradi va oxirigacha boradi?",
+   "variantlar": [
+    "Zn + H₂SO₄ → ZnSO₄ + H₂",
+    "SO₃ + H₂O → H₂SO₄",
+    "2H₂O₂ → 2H₂O + O₂",
+    "BaCl₂ + H₂SO₄ → BaSO₄↓ + 2HCl"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'rin olish (oddiy modda bor)"
+    },
+    {
+     "variant": "B",
+     "xato": "birikish"
+    },
+    {
+     "variant": "C",
+     "xato": "parchalanish"
+    }
+   ],
+   "yechim": "Ikki murakkab modda qism almashdi; BaSO₄ cho'kmasi jarayonni oxirigacha yetkazadi.",
+   "parametrlar": {
+    "arch": "almashinish_tanlov"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi reaksiyalar PARCHALANISH turiga kiradi?\n1) 2KMnO₄ → K₂MnO₄ + MnO₂ + O₂;  2) NH₃ + HCl → NH₄Cl;  3) 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂;  4) Fe + S → FeS.",
+   "variantlar": [
+    "1 va 3",
+    "2 va 4",
+    "faqat 1",
+    "1, 2 va 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bular birikish reaksiyalari"
+    },
+    {
+     "variant": "C",
+     "xato": "soda parchalanishi ham shu tur"
+    },
+    {
+     "variant": "D",
+     "xato": "NH₃ + HCl — ikki moddadan bitta: birikish"
+    }
+   ],
+   "yechim": "Bitta moddadan bir nechta mahsulot: KMnO₄ va NaHCO₃ parchalanishi.",
+   "parametrlar": {
+    "arch": "parchalanish_tanlov123"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Termokimyoviy tenglamada «−Q» yozuvi nimani anglatadi?",
+   "variantlar": [
+    "issiqlik ajralishini",
+    "reaksiya umuman bormasligini",
+    "mahsulot miqdori kamligini",
+    "reaksiya issiqlik yutilishi bilan borishini (endotermik)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ajralish «+Q» bilan yoziladi"
+    },
+    {
+     "variant": "B",
+     "xato": "boradi, lekin energiya talab qiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "Q miqdorga emas, energiyaga tegishli"
+    }
+   ],
+   "yechim": "−Q: sistema energiya yutadi — uzluksiz qizdirish talab etiladi.",
+   "parametrlar": {
+    "arch": "minusq_belgi"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi reaksiyalarni turlari bilan TO'G'RI moslang:\n[JADVAL] Reaksiya | Tur ;; a) CuO + H₂ → Cu + H₂O | 1) birikish ;; b) 2SO₂ + O₂ → 2SO₃ | 2) o'rin olish ;; c) Cu(OH)₂ → CuO + H₂O | 3) parchalanish",
+   "variantlar": [
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—2, b—1, c—3",
+    "a—3, b—1, c—2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂ oddiy modda Cu ni siqib chiqaradi — o'rin olish"
+    },
+    {
+     "variant": "B",
+     "xato": "SO₂ + O₂ dan bitta mahsulot — birikish"
+    },
+    {
+     "variant": "D",
+     "xato": "Cu(OH)₂ bitta moddadan ikkitaga ajraldi — parchalanish"
+    }
+   ],
+   "yechim": "a: oddiy H₂ kislorodni «tortib oldi» — o'rin olish; b: birikish; c: parchalanish.",
+   "parametrlar": {
+    "arch": "tur_moslash_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2SO₂ + O₂ → 2SO₃ + 198 kJ. 0,4 mol SO₃ hosil bo'lganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "198 kJ",
+    "39,6 kJ",
+    "79,2 kJ",
+    "19,8 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "2 mol SO₃ uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat xato"
+    }
+   ],
+   "yechim": "2 mol SO₃ — 198 kJ → 0,4 mol — 198·0,4/2 = 39,6 kJ.",
+   "parametrlar": {
+    "arch": "so3_q"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Propan yonishida (C₃H₈ + 5O₂ → 3CO₂ + 4H₂O + 2220 kJ) 44,4 kJ issiqlik ajraldi. Hosil bo'lgan CO₂ ning hajmini (n.sh., L) toping.",
+   "variantlar": [
+    "0,448",
+    "4,48",
+    "2,24",
+    "1,344"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "propanning o'zi hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "nol adashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "CO₂ koeffitsiyenti unutilgan"
+    }
+   ],
+   "yechim": "n(C₃H₈) = 44,4/2220 = 0,02 mol → n(CO₂) = 0,06 mol → V = 0,06·22,4 = 1,344 L.",
+   "parametrlar": {
+    "arch": "propan_co2_hajm"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Termokimyoviy tenglamaning oddiy tenglamadan farqi nimada?",
+   "variantlar": [
+    "issiqlik effekti (Q) ko'rsatiladi",
+    "koeffitsiyentlar bo'lmaydi",
+    "faqat gazlar uchun yoziladi",
+    "strelka ishlatilmaydi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyentlar saqlanadi"
+    },
+    {
+     "variant": "C",
+     "xato": "har qanday moddalar uchun yoziladi"
+    },
+    {
+     "variant": "D",
+     "xato": "strelka bor"
+    }
+   ],
+   "yechim": "Termokimyoviy tenglama: tenglama + issiqlik effekti (masalan, ... + 890 kJ).",
+   "parametrlar": {
+    "arch": "termoteng_tarif"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Neytrallanish issiqligi 57,3 kJ/mol. 0,5 mol HCl to'liq neytrallanganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "28,65 kJ",
+    "57,3 kJ",
+    "114,6 kJ",
+    "14,3 kJ"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "D",
+     "xato": "chorak olingan"
+    }
+   ],
+   "yechim": "Q = 0,5 · 57,3 = 28,65 kJ.",
+   "parametrlar": {
+    "arch": "neytrallanish_q"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring (Q — ajralgan issiqlik):\n[JADVAL] Yoqilg'i | mol | Q, kJ ;; CH₄ (890 kJ/mol) | 0,5 | ? ;; C (393,5 kJ/mol) | 2 | ?",
+   "variantlar": [
+    "445; 787",
+    "890; 393,5",
+    "445; 393,5",
+    "1780; 787"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "mol soniga ko'paytirilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikkinchi qator 2 mol"
+    },
+    {
+     "variant": "D",
+     "xato": "birinchi qator 0,5 mol — kamayadi"
+    }
+   ],
+   "yechim": "CH₄: 0,5·890 = 445 kJ; C: 2·393,5 = 787 kJ.",
+   "parametrlar": {
+    "arch": "q_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi yoqilg'ining 1 GRAMMI yonganda eng ko'p issiqlik ajraladi? (H₂ — 286 kJ/mol; CH₄ — 890 kJ/mol; C — 393,5 kJ/mol)",
+   "variantlar": [
+    "metan (55,6 kJ/g)",
+    "ko'mir (32,8 kJ/g)",
+    "hammasi teng",
+    "vodorod (143 kJ/g)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "890/16 ≈ 56 — vodoroddan kam"
+    },
+    {
+     "variant": "B",
+     "xato": "393,5/12 ≈ 33 — eng kam"
+    },
+    {
+     "variant": "C",
+     "xato": "molyar massalar farqli — gramm hisobida farq katta"
+    }
+   ],
+   "yechim": "1 g uchun: H₂ — 286/2 = 143; CH₄ — 55,6; C — 32,8 kJ/g. Shu bois H₂ — raketa yoqilg'isi.",
+   "parametrlar": {
+    "arch": "solishtirma_issiqlik"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Gess qonuniga ko'ra reaksiyaning issiqlik effekti nimaga bog'liq?",
+   "variantlar": [
+    "reaksiya bosqichlari soniga",
+    "katalizator tabiatiga",
+    "faqat boshlang'ich va oxirgi holatlarga",
+    "idish shakliga"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yo'l qanday bo'lmasin, effekt bir xil"
+    },
+    {
+     "variant": "B",
+     "xato": "katalizator Q ni o'zgartirmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "termodinamikaga aloqasi yo'q"
+    }
+   ],
+   "yechim": "Gess qonuni: Q oraliq bosqichlarga bog'liq emas — shu tufayli Q ni hisoblab topish mumkin.",
+   "parametrlar": {
+    "arch": "hess_tarif"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Moddaning HOSIL BO'LISH issiqligi deb nimaga aytiladi?",
+   "variantlar": [
+    "1 mol birikma ODDIY moddalardan hosil bo'lishidagi issiqlik effektiga",
+    "1 g modda yonishidagi issiqlikka",
+    "moddani parchalashga ketgan issiqlikka",
+    "istalgan reaksiyaning issiqligiga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu solishtirma yonish issiqligi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu teskari jarayon effekti"
+    },
+    {
+     "variant": "D",
+     "xato": "aynan oddiy moddalardan 1 mol uchun"
+    }
+   ],
+   "yechim": "Masalan: H₂ + ½O₂ → H₂O + 286 kJ — suvning hosil bo'lish issiqligi 286 kJ/mol.",
+   "parametrlar": {
+    "arch": "hosil_bolish_tarif"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Uglerod chala yonganda (kislorod yetishmasa) nima hosil bo'ladi va bu nima uchun xavfli?",
+   "variantlar": [
+    "CO₂ — bo'g'uvchi gaz",
+    "kul — chang",
+    "CO — zaharli is gazi",
+    "H₂ — portlovchi gaz"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CO₂ to'liq yonishda hosil bo'ladi"
+    },
+    {
+     "variant": "B",
+     "xato": "kul mineral qoldiq, gaz emas"
+    },
+    {
+     "variant": "D",
+     "xato": "uglerod yonishida vodorod ajralmaydi"
+    }
+   ],
+   "yechim": "2C + O₂ → 2CO: rangsiz, hidsiz, gemoglobinni bog'laydi — pechlarni erta yopish xavfli.",
+   "parametrlar": {
+    "arch": "chala_yonish"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi kalorimetrda yoqilg'i namunasi yondirildi: 500 g suv 20 °C dan 60 °C gacha isidi. Suvga o'tgan issiqlikni toping. (c = 4,2 J/(g·°C))",
+   "variantlar": [
+    "8,4 kJ",
+    "126 kJ",
+    "84 kJ",
+    "42 kJ"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nol adashgan"
+    },
+    {
+     "variant": "B",
+     "xato": "Δt = 60 deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "Δt = 20 deb olingan"
+    }
+   ],
+   "yechim": "Q = mcΔt = 500 · 4,2 · 40 = 84 000 J = 84 kJ.",
+   "parametrlar": {
+    "arch": "kalorimetr_hisob"
+   },
+   "fig": "calorimeter"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Termokimyoviy tenglamalarda koeffitsiyentlar KASR bo'lishi mumkinmi?",
+   "variantlar": [
+    "mumkin emas — atomlar bo'linmaydi",
+    "mumkin — ular mol nisbatlarni bildiradi",
+    "faqat gazlarda mumkin",
+    "faqat endotermik reaksiyalarda"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tenglama molekulalar emas, MOLLAR haqida"
+    },
+    {
+     "variant": "C",
+     "xato": "istalgan moddada mumkin"
+    },
+    {
+     "variant": "D",
+     "xato": "issiqlik belgisiga bog'liq emas"
+    }
+   ],
+   "yechim": "H₂ + ½O₂ → H₂O + 286 kJ: ½ mol O₂ — bu 3,01·10²³ ta molekula, mantiqan to'g'ri.",
+   "parametrlar": {
+    "arch": "kasr_koeff"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "N₂ + 3H₂ → 2NH₃ + 92 kJ. 10 mol ammiak hosil bo'lganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "920 kJ",
+    "460 kJ",
+    "92 kJ",
+    "230 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "92 ni to'g'ridan-to'g'ri 10 ga ko'paytirilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "2 mol uchun qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "2 mol NH₃ — 92 kJ → 10 mol — 92·10/2 = 460 kJ.",
+   "parametrlar": {
+    "arch": "nh3_q"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi reaksiyalar HAM o'rin olish, HAM ekzotermik?\n1) Zn + 2HCl → ZnCl₂ + H₂ + Q;  2) CaCO₃ → CaO + CO₂ − Q;  3) Fe + CuSO₄ → FeSO₄ + Cu + Q;  4) SO₃ + H₂O → H₂SO₄ + Q.",
+   "variantlar": [
+    "1, 3 va 4",
+    "faqat 1",
+    "2 va 4",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "SO₃ + H₂O — birikish, o'rin olish emas"
+    },
+    {
+     "variant": "B",
+     "xato": "Fe + CuSO₄ ham o'rin olish va issiqlik beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "2 — parchalanish va endotermik"
+    }
+   ],
+   "yechim": "O'rin olish (oddiy modda + murakkab) va +Q: 1 va 3.",
+   "parametrlar": {
+    "arch": "orin_ekzo_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,3 mol metan (890 kJ/mol) va 0,2 mol etan (1560 kJ/mol) aralashmasi to'liq yondirildi. Jami ajralgan issiqlikni toping.",
+   "variantlar": [
+    "2450 kJ",
+    "579 kJ",
+    "445 kJ",
+    "312 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molyar qiymatlar shunchaki qo'shilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat metan hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat etan hisoblangan"
+    }
+   ],
+   "yechim": "Q = 0,3·890 + 0,2·1560 = 267 + 312 = 579 kJ.",
+   "parametrlar": {
+    "arch": "aralash_q"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Ekzotermik reaksiyada mahsulotlarning ichki energiyasi boshlang'ich moddalarnikiga nisbatan qanday?",
+   "variantlar": [
+    "yuqori",
+    "teng",
+    "past — farq issiqlik sifatida ajraladi",
+    "avval yuqori, so'ng teng"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yuqori bo'lsa issiqlik yutilardi (endo)"
+    },
+    {
+     "variant": "B",
+     "xato": "teng bo'lsa Q = 0 bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "oxirgi holat baribir pastda"
+    }
+   ],
+   "yechim": "Energiya saqlanadi: sistemadan chiqqan issiqlik = sathlar farqi.",
+   "parametrlar": {
+    "arch": "energiya_past"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Hosil bo'lish issiqliklari: CO₂ — 393,5; H₂O — 286; CH₄ — 75 kJ/mol. Metanning yonish issiqligini hisoblang.",
+   "variantlar": [
+    "754,5 kJ/mol",
+    "604,5 kJ/mol",
+    "890,5 kJ/mol",
+    "358,5 kJ/mol"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "CH₄ ni ayirish o'rniga qo'shilgan: 393,5+2·286−75"
+    },
+    {
+     "variant": "B",
+     "xato": "H₂O koeffitsiyenti (2) unutilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob tartibsiz"
+    }
+   ],
+   "yechim": "Q(yonish) = [393,5 + 2·286] − 75 = 965,5 − 75 = 890,5 kJ/mol (Gess qonuni asosida).",
+   "parametrlar": {
+    "arch": "hess_hosil_bolish"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Diagrammada yoqilg'ilarning 1 g uchun yonish issiqliklari berilgan. 10 g metan yonganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "890 kJ",
+    "330 kJ",
+    "1430 kJ",
+    "550 kJ"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu 1 mol (16 g) uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ko'mir ustuni olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "vodorod ustuni olingan"
+    }
+   ],
+   "yechim": "Diagrammadan CH₄ ≈ 55 kJ/g → Q = 10 · 55 = 550 kJ.",
+   "parametrlar": {
+    "arch": "bar_fuel_hisob"
+   },
+   "fig": "bar_fuel"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CaCO₃ → CaO + CO₂ − 178 kJ. 50 g ohaktoshni to'liq parchalash uchun qancha issiqlik kerak? (M(CaCO₃)=100)",
+   "variantlar": [
+    "178 kJ",
+    "356 kJ",
+    "44,5 kJ",
+    "89 kJ"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol (100 g) uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar ko'p"
+    },
+    {
+     "variant": "C",
+     "xato": "chorak olingan"
+    }
+   ],
+   "yechim": "n = 0,5 mol → Q = 0,5 · 178 = 89 kJ yutiladi.",
+   "parametrlar": {
+    "arch": "caco3_endo_q"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "5-savoldagi diagrammada boshlang'ich sath bilan egri chiziq CHO'QQISI orasidagi farq nimani bildiradi?",
+   "variantlar": [
+    "issiqlik effektini",
+    "aktivlanish energiyasini",
+    "mahsulot energiyasini",
+    "reaksiya tezligini"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Q — boshlang'ich va OXIRGI sathlar farqi"
+    },
+    {
+     "variant": "C",
+     "xato": "mahsulot sathi — o'ng pastda"
+    },
+    {
+     "variant": "D",
+     "xato": "tezlik diagrammada bevosita ko'rinmaydi"
+    }
+   ],
+   "yechim": "Cho'qqigacha «to'siq» — reaksiya boshlanishi uchun kerakli minimal energiya (Eₐ).",
+   "parametrlar": {
+    "arch": "aktivlanish_oqish"
+   },
+   "fig": "profile"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5,6 g temir mis(II) sulfat eritmasi bilan to'liq reaksiyaga kirishdi. Ajralgan mis massasini toping. (M(Fe)=56, M(Cu)=64)",
+   "variantlar": [
+    "5,6 g",
+    "3,2 g",
+    "12,8 g",
+    "6,4 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massalar teng emas — M lar farqli"
+    },
+    {
+     "variant": "B",
+     "xato": "ikkiga bo'lingan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar ko'p"
+    }
+   ],
+   "yechim": "Fe + CuSO₄ → FeSO₄ + Cu: n = 0,1 mol → m(Cu) = 0,1·64 = 6,4 g.",
+   "parametrlar": {
+    "arch": "fe_cu_massa"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Katalizator reaksiyaning issiqlik effektiga qanday ta'sir qiladi?",
+   "variantlar": [
+    "o'zgartirmaydi — faqat aktivlanish energiyasini pasaytiradi",
+    "Q ni oshiradi",
+    "Q ni kamaytiradi",
+    "reaksiyani endotermikka aylantiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Q holatlar farqi — katalizatorga bog'liq emas"
+    },
+    {
+     "variant": "C",
+     "xato": "Gess qonuniga zid bo'lardi"
+    },
+    {
+     "variant": "D",
+     "xato": "effekt tabiatini o'zgartira olmaydi"
+    }
+   ],
+   "yechim": "Katalizator yo'lni (to'siqni) o'zgartiradi, boshlang'ich/oxirgi holatlarni emas.",
+   "parametrlar": {
+    "arch": "katalizator_q"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Atsetilen yonishida 1 mol C₂H₂ dan 1300 kJ issiqlik ajraladi. 5,6 L (n.sh.) atsetilen yonganda qancha issiqlik ajraladi?",
+   "variantlar": [
+    "1300 kJ",
+    "325 kJ",
+    "650 kJ",
+    "162,5 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "22,4 L (1 mol) uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,5 mol deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "n = 5,6/22,4 = 0,25 mol → Q = 0,25·1300 = 325 kJ — shu bois payvandlashda ishlatiladi.",
+   "parametrlar": {
+    "arch": "atsetilen_hajm_q"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savoldagi diagrammadagi reaksiya uchun TESKARI reaksiyaning issiqlik effekti qanday bo'ladi?",
+   "variantlar": [
+    "80 kJ ajraladi",
+    "80 kJ yutiladi (endotermik)",
+    "150 kJ yutiladi",
+    "0 kJ"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari yo'nalishda ishorasi almashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu to'g'ri reaksiyaning aktivlanish energiyasi"
+    },
+    {
+     "variant": "D",
+     "xato": "energiya farqi yo'qolmaydi"
+    }
+   ],
+   "yechim": "To'g'ri reaksiya +80 kJ bersa, teskarisi −80 kJ: mahsulotdan reagentga «tepalikka chiqish».",
+   "parametrlar": {
+    "arch": "teskari_reaksiya_q"
+   },
+   "fig": "profile"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.3",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "I.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch reaksiya berilgan: X — 2H₂ + O₂ → 2H₂O + 572 kJ; Y — CaCO₃ → CaO + CO₂ − 178 kJ; Z — Zn + 2HCl → ZnCl₂ + H₂ + Q. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Qaysi reaksiya endotermik va qaysi turga kiradi?",
+    "34. X reaksiyada 0,5 mol O₂ sarflansa, qancha issiqlik ajraladi?",
+    "35. Z reaksiyaning turi qanday?"
+   ],
+   "javoblar_royxati": [
+    "A) Y; parchalanish",
+    "B) 286 kJ",
+    "C) o'rin olish",
+    "D) X; birikish",
+    "E) 572 kJ",
+    "F) almashinish"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "X ekzotermik (+572 kJ) — endotermik emas"
+    },
+    {
+     "variant": "E",
+     "xato": "572 kJ — 1 mol O₂ (2 mol H₂) uchun; 0,5 mol O₂ → yarmi"
+    },
+    {
+     "variant": "F",
+     "xato": "Zn — oddiy modda: bu almashinish emas, o'rin olish"
+    }
+   ],
+   "yechim": "Y: −178 kJ, parchalanish (A). X da 1 mol O₂ — 572 kJ → 0,5 mol — 286 kJ (B). Z: oddiy modda murakkabdan vodorodni siqib chiqaradi — o'rin olish (C).",
+   "parametrlar": {
+    "arch": "uch_reaksiya_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "8 g metan (890 kJ/mol) va 15 g etan (1560 kJ/mol) aralashmasi to'liq yondirildi. Jami ajralgan issiqlikni (kJ) toping. (M: CH₄=16, C₂H₆=30)",
+   "javob": "1225",
+   "yechim": "n(CH₄)=0,5; n(C₂H₆)=0,5 → Q = 0,5·890 + 0,5·1560 = 445 + 780 = 1225 kJ.",
+   "parametrlar": {
+    "arch": "aralash_zanjir"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2Mg + O₂ → 2MgO + 1204 kJ. 150,5 kJ issiqlik olish uchun necha gramm magniy yoqish kerak? (M(Mg)=24)",
+   "javob": "6",
+   "yechim": "1 mol Mg — 602 kJ → n = 150,5/602 = 0,25 mol → m = 0,25·24 = 6 g.",
+   "parametrlar": {
+    "arch": "mg_teskari_zanjir"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi qurilmada metan yondirilib, ajralgan issiqlik YO'QOTISHSIZ 5 kg suvni 20 °C dan 62,4 °C gacha isitdi (c = 4,2 J/(g·°C)). Sarflangan metan hajmini (n.sh., L) toping. (Q = 890 kJ/mol)",
+   "javob": "22,4",
+   "yechim": "Q = 5000·4,2·42,4 ≈ 890 kJ → n = 1 mol → V = 22,4 L.",
+   "parametrlar": {
+    "arch": "sxema_suv_isitish"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ma'lum: S + O₂ → SO₂ + 297 kJ va 2SO₂ + O₂ → 2SO₃ + 198 kJ. 0,5 mol oltingugurtdan SO₃ olinganda jami ajraladigan issiqlikni (kJ) toping.",
+   "javob": "198",
+   "yechim": "1 mol S → SO₃: 297 + 99 = 396 kJ → 0,5 mol: 198 kJ (Gess qonuni).",
+   "parametrlar": {
+    "arch": "hess_zanjir"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "44,8 L (n.sh.) vodorod va metan aralashmasi yondirilganda 1176 kJ issiqlik ajraldi. Aralashmadagi vodorod miqdorini (mol) toping. (H₂ — 286, CH₄ — 890 kJ/mol)",
+   "javob": "1",
+   "yechim": "x·286 + (2−x)·890 = 1176 → 1780 − 604x = 1176 → x = 1 mol (50 %).",
+   "parametrlar": {
+    "arch": "aralash_teskari_zanjir"
+   },
+   "tur": "O1",
+   "element": "I.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Laboratoriyada kalorimetr yordamida ko'mirning yonish issiqligi tekshirilmoqda: C + O₂ → CO₂ + 393,5 kJ. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) 6 g ko'mir to'liq yonganda ajraladigan issiqlikni hisoblang.",
+     "yechim": [
+      "n = 6/12 = 0,5 mol → Q = 0,5·393,5 = 196,75 kJ."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Shu issiqlik kalorimetrdagi 500 g suvga yo'qotishsiz o'tsa, suv harorati necha gradusga ko'tariladi? (c = 4,2 J/(g·°C))",
+     "yechim": [
+      "Δt = 196750/(500·4,2) ≈ 93,7 °C."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "c) Tajribada harorat faqat 75 °C ga ko'tarildi. Foydali ish koeffitsiyentini (issiqlikning suvga o'tgan ulushini, %) baholang.",
+     "yechim": [
+      "η = 75/93,7 · 100 ≈ 80 %."
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "d) Qolgan issiqlik qayerga ketganini izohlang.",
+     "yechim": [
+      "Kalorimetr devorlari, atrof havo isishi, chala yonish yo'qotishlari."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Kalorimetr zanjiri: hisob → Δt → FIK → tahlil; M15+A10.",
+   "parametrlar": {
+    "arch": "kalorimetr_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uglerodning CO gacha yonish issiqligini bevosita o'lchab bo'lmaydi. Ma'lum: C + O₂ → CO₂ + 393,5 kJ va CO + ½O₂ → CO₂ + 283 kJ. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Gess qonunidan foydalanib, C + ½O₂ → CO reaksiyasining issiqlik effektini keltirib chiqarish yo'lini bosqichma-bosqich yozing.",
+     "yechim": [
+      "C → CO₂ yo'li ikki bosqichga ajratiladi: C → CO → CO₂.",
+      "393,5 = Q(C→CO) + 283 → Q(C→CO) = 393,5 − 283 = 110,5 kJ."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega bu effektni tajribada BEVOSITA o'lchash qiyin?",
+     "yechim": [
+      "Uglerod yonganda doim CO bilan birga CO₂ ham hosil bo'ladi —",
+      "«sof» C → CO jarayonini ajratib bo'lmaydi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Topilgan qiymat asosida 2 mol CO hosil bo'lishidagi issiqlikni yozing.",
+     "yechim": [
+      "2 · 110,5 = 221 kJ."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Gess-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "hess_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Uch yoqilg'i taqqoslanadi:\n[JADVAL] Yoqilg'i | M, g/mol | Q, kJ/mol ;; H₂ | 2 | 286 ;; CH₄ | 16 | 890 ;; C (ko'mir) | 12 | 393,5\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir yoqilg'ining 1 GRAMM uchun yonish issiqligini hisoblang.",
+     "yechim": [
+      "H₂: 286/2 = 143; CH₄: 890/16 ≈ 55,6; C: 393,5/12 ≈ 32,8 kJ/g."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "b) Massa birligi hisobida qaysi yoqilg'i eng samarali? Diagramma bilan solishtiring.",
+     "yechim": [
+      "Vodorod — 143 kJ/g: qolganlaridan 2,5–4 baravar yuqori."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 1000 kJ issiqlik olish uchun har bir yoqilg'idan necha gramm kerakligini toping.",
+     "yechim": [
+      "H₂: 1000/143 ≈ 7 g; CH₄: ≈ 18 g; C: ≈ 30,5 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Yonish mahsulotlari jihatidan qaysi yoqilg'i ekologik toza? Izohlang.",
+     "yechim": [
+      "H₂ — mahsuloti faqat suv; CH₄ va C esa CO₂ (issiqxona gazi) chiqaradi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Yoqilg'i-taqqoslash: solishtirma issiqlik → samaradorlik → ekologiya; M15+A10.",
+   "parametrlar": {
+    "arch": "yoqilgi_taqqos_o2"
+   },
+   "fig": "bar_fuel"
+  }
+ ]
+}
