@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-IV2-A",
+ "daraja": "A",
+ "bob": 17,
+ "bob_nomi": "Sifat reaksiyalari",
+ "manba": "MS spetsifikatsiyasi IV.2; laboratoriya banki arxetiplari — savollar yangi tuzilgan, hayotiy sahnalar (yodlangan tuz, mineral suv, bo'yoqlar, test-to'plam) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "SIFAT reaksiyasi deb qanday reaksiyaga aytiladi?",
+   "variantlar": [
+    "muayyan ion yoki moddani ANIQLAB beradigan xarakterli reaksiyaga",
+    "juda tez boradigan reaksiyaga",
+    "issiqlik ajratadigan reaksiyaga",
+    "faqat rangli reaksiyaga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "tezlik emas, tanish belgisi muhim"
+    },
+    {
+     "variant": "C",
+     "xato": "issiqlik ko'p reaksiyalarda bor"
+    },
+    {
+     "variant": "D",
+     "xato": "belgi gaz yoki cho'kma ham bo'lishi mumkin"
+    }
+   ],
+   "yechim": "Sifat reaksiya «imzo» beradi: rang, cho'kma, gaz, hid — modda taniladi.",
+   "parametrlar": {
+    "arch": "sifat_tarif"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Xlorid ionini (Cl⁻) aniqlash uchun qaysi reagent ishlatiladi?",
+   "variantlar": [
+    "BaCl₂",
+    "AgNO₃ — oq suzmasimon cho'kma tushadi",
+    "NaOH",
+    "lakmus"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u sulfatga reagent"
+    },
+    {
+     "variant": "C",
+     "xato": "ishqor xloridga cho'kma bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "indikator ionni aniqlamaydi"
+    }
+   ],
+   "yechim": "Ag⁺ + Cl⁻ → AgCl↓ (oq, yorug'likda qorayadi).",
+   "parametrlar": {
+    "arch": "cl_reagent"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Sulfat ionini (SO₄²⁻) qaysi reagent bilan aniqlash mumkin?",
+   "variantlar": [
+    "AgNO₃",
+    "fenolftalein",
+    "mis",
+    "BaCl₂ — kislotada erimaydigan oq cho'kma"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Ag₂SO₄ yaxshi ko'rinmaydi — asosiy reagent bariy"
+    },
+    {
+     "variant": "B",
+     "xato": "indikator cho'kma bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "metall sulfat ioni bilan cho'kma bermaydi"
+    }
+   ],
+   "yechim": "Ba²⁺ + SO₄²⁻ → BaSO₄↓ — og'ir oq cho'kma, HNO₃ da ham erimaydi.",
+   "parametrlar": {
+    "arch": "so4_reagent"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda «yodlangan tuz» qadog'i. Bunday tuzga yod birikmalari nima maqsadda qo'shiladi?",
+   "variantlar": [
+    "ta'mni kuchaytirish",
+    "qalqonsimon bez uchun zarur yod tanqisligini to'ldirish",
+    "tuzni oqartirish",
+    "saqlash muddatini uzaytirish"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yod miqdori ta'mga sezilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "rang uchun emas"
+    },
+    {
+     "variant": "D",
+     "xato": "konservant emas"
+    }
+   ],
+   "yechim": "KIO₃/KI qo'shimchasi — yod yetishmovchiligi (buqoq) profilaktikasi.",
+   "parametrlar": {
+    "arch": "yodli_tuz_sahna"
+   },
+   "fig": "iodized"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Karbonat ionini (CO₃²⁻) qanday aniqlash mumkin?",
+   "variantlar": [
+    "ishqor qo'shib",
+    "suv qo'shib",
+    "kislota qo'shilganda «vishillab» CO₂ ajralishi orqali",
+    "qizdirib faqat"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ko'zga ko'rinadigan belgi yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "erish belgisiz"
+    },
+    {
+     "variant": "D",
+     "xato": "hamma karbonat ham parchalanavermaydi"
+    }
+   ],
+   "yechim": "CO₃²⁻ + 2H⁺ → H₂O + CO₂↑; gaz ohakli suvni loyqalatadi.",
+   "parametrlar": {
+    "arch": "co3_aniqlash"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Mis(II) ionining (Cu²⁺) «vizit kartasi» qanday?",
+   "variantlar": [
+    "eritmasi yashil; qora cho'kma",
+    "eritmasi ko'k; ishqor bilan ko'k cho'kma beradi",
+    "rangsiz eritma",
+    "qizil cho'kma"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yashil — Fe²⁺ ga yaqin"
+    },
+    {
+     "variant": "C",
+     "xato": "Cu²⁺ har doim rangli"
+    },
+    {
+     "variant": "D",
+     "xato": "qizil cho'kma boshqa ionlarga xos emas bu holda"
+    }
+   ],
+   "yechim": "Cu²⁺ + 2OH⁻ → Cu(OH)₂↓ (havorang); qizdirilsa qora CuO.",
+   "parametrlar": {
+    "arch": "cu_belgi"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Temir(III) ioniga (Fe³⁺) ishqor ta'sir ettirilganda qanday cho'kma tushadi?",
+   "variantlar": [
+    "qo'ng'ir-qizg'ish Fe(OH)₃",
+    "oq cho'kma",
+    "ko'k cho'kma",
+    "qora cho'kma"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "oq — Al(OH)₃, BaSO₄ kabi"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'k — mis"
+    },
+    {
+     "variant": "D",
+     "xato": "qora — sulfidlar"
+    }
+   ],
+   "yechim": "Fe³⁺ + 3OH⁻ → Fe(OH)₃↓ — «zang rangli» cho'kma.",
+   "parametrlar": {
+    "arch": "fe3_belgi"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda mineral suv etiketkasi: unda Ca²⁺, Mg²⁺, HCO₃⁻, SO₄²⁻ miqdorlari yozilgan. Bu ma'lumotlar qanday aniqlanadi?",
+   "variantlar": [
+    "ta'mga qarab taxminan",
+    "suv rangiga qarab",
+    "qadoqlash paytida o'ylab yoziladi",
+    "laboratoriyada ionlarga sifat va miqdor tahlillari o'tkazib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aniq raqamlar tahlildan keladi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu ionlar rangsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "etiketka tahlil natijasi"
+    }
+   ],
+   "yechim": "Har bir ion o'z reaksiyasi bilan topiladi va miqdori o'lchanadi — analitik kimyo ishi.",
+   "parametrlar": {
+    "arch": "mineral_suv_sahna"
+   },
+   "fig": "mineral"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ammoniy ionini (NH₄⁺) aniqlash usuli qanday?",
+   "variantlar": [
+    "kislota qo'shilganda gaz chiqadi",
+    "AgNO₃ bilan cho'kma",
+    "ishqor qo'shib qizdirilganda o'tkir hidli NH₃ ajraladi",
+    "alanga qizil bo'ladi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislota bilan belgi yo'q"
+    },
+    {
+     "variant": "B",
+     "xato": "ammoniy kumush bilan xarakterli cho'kma bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "NH₄⁺ alanga rangi bermaydi"
+    }
+   ],
+   "yechim": "NH₄⁺ + OH⁻ → NH₃↑ + H₂O: hid va nam lakmusning ko'karishi.",
+   "parametrlar": {
+    "arch": "nh4_aniqlash"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "5,85 g osh tuzi eritmasiga ortiqcha AgNO₃ qo'shildi. Hosil bo'lgan cho'kma massasini toping. (M: NaCl=58,5, AgCl=143,5)",
+   "variantlar": [
+    "5,85 g",
+    "143,5 g",
+    "28,7 g",
+    "14,35 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "cho'kma — AgCl, tuz emas"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,1 mol → m(AgCl) = 14,35 g.",
+   "parametrlar": {
+    "arch": "agcl_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alanga testida bariy tuzlari qanday rang beradi?",
+   "variantlar": [
+    "qizil",
+    "sariq",
+    "binafsha",
+    "sarg'ish-yashil"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "qizil — Li, Sr"
+    },
+    {
+     "variant": "B",
+     "xato": "sariq — Na"
+    },
+    {
+     "variant": "C",
+     "xato": "binafsha — K"
+    }
+   ],
+   "yechim": "Ba — yashil alanga; Sr — qirmizi; Ca — g'isht-qizil.",
+   "parametrlar": {
+    "arch": "ba_alanga"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada 0,2 mol sulfat ioni bor. Ortiqcha BaCl₂ qo'shilganda hosil bo'ladigan cho'kma massasini toping. (M(BaSO₄)=233)",
+   "variantlar": [
+    "46,6 g",
+    "23,3 g",
+    "233 g",
+    "11,65 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "0,1 mol emas, 0,2 mol"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "chorak"
+    }
+   ],
+   "yechim": "m = 0,2·233 = 46,6 g.",
+   "parametrlar": {
+    "arch": "baso4_hisob_a"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda rassom bo'yoqlari: yashil rang — malaxit, ko'k — azurit (mis birikmalari). Bo'yoqlarning rangi nimadan?",
+   "variantlar": [
+    "qo'shilgan sun'iy bo'yoqlardan",
+    "yorug'likning sinishidan faqat",
+    "moy tarkibidan",
+    "tarkibidagi metall ionlarining o'ziga xos ranglaridan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "tabiiy mineral pigmentlar"
+    },
+    {
+     "variant": "B",
+     "xato": "asosi — moddaning o'z rangi"
+    },
+    {
+     "variant": "C",
+     "xato": "moy — bog'lovchi, rang bermaydi"
+    }
+   ],
+   "yechim": "Ko'p pigmentlar — rangli metall birikmalari: mis — yashil-ko'k, temir — qo'ng'ir-qizil.",
+   "parametrlar": {
+    "arch": "boyoq_sahna"
+   },
+   "fig": "paints"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Kislorod gazini qanday TANISH mumkin?",
+   "variantlar": [
+    "«pop» tovush beradi",
+    "ohakli suvni loyqalatadi",
+    "o'tkir hidi bor",
+    "cho'g'lanib turgan cho'p alangalanib ketadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu vodorod"
+    },
+    {
+     "variant": "B",
+     "xato": "bu CO₂"
+    },
+    {
+     "variant": "C",
+     "xato": "O₂ hidsiz"
+    }
+   ],
+   "yechim": "O₂ yonishni kuchaytiradi — cho'g' testi.",
+   "parametrlar": {
+    "arch": "o2_tanish"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Fosfat ioniga (PO₄³⁻) AgNO₃ ta'sir ettirilganda qanday cho'kma tushadi?",
+   "variantlar": [
+    "oq",
+    "qora",
+    "SARIQ Ag₃PO₄",
+    "ko'k"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oq — AgCl"
+    },
+    {
+     "variant": "B",
+     "xato": "qora — sulfidlar"
+    },
+    {
+     "variant": "D",
+     "xato": "ko'k — mis birikmalari"
+    }
+   ],
+   "yechim": "Ag₃PO₄ — sariq cho'kma (nitrat kislotada eriydi).",
+   "parametrlar": {
+    "arch": "po4_belgi"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Ion | Reagent | Belgi ;; Cl⁻ | AgNO₃ | ? ;; SO₄²⁻ | BaCl₂ | ?",
+   "variantlar": [
+    "oq cho'kma; oq cho'kma",
+    "sariq cho'kma; gaz",
+    "gaz; oq cho'kma",
+    "oq cho'kma; qora cho'kma"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "AgCl oq; BaSO₄ ham oq"
+    },
+    {
+     "variant": "C",
+     "xato": "xlorid gaz bermaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "BaSO₄ oq"
+    }
+   ],
+   "yechim": "Ikkalasi ham oq; farqi: AgCl yorug'likda qorayadi, BaSO₄ kislotada erimaydi.",
+   "parametrlar": {
+    "arch": "ion_belgi_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Vodorod gazi qanday taniladi?",
+   "variantlar": [
+    "cho'g'ni alangalatadi",
+    "yoqilganda «pop» tovush beradi",
+    "nam lakmusni ko'kartiradi",
+    "sariq-yashil rangi bor"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu O₂"
+    },
+    {
+     "variant": "C",
+     "xato": "bu NH₃"
+    },
+    {
+     "variant": "D",
+     "xato": "bu Cl₂"
+    }
+   ],
+   "yechim": "H₂-havo aralashmasi mayda «portlash» bilan yonadi.",
+   "parametrlar": {
+    "arch": "h2_tanish_a"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda akvarium suvi uchun test-to'plam: tomchi reagent suv namunasida rang o'zgartiradi. Bu qanday tahlil?",
+   "variantlar": [
+    "mikroskopik tahlil",
+    "faqat harorat o'lchash",
+    "sifat (va yarim miqdoriy) tahlil — ionlar rang orqali aniqlanadi",
+    "suvni tozalash vositasi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mikroskop ishlatilmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "rang ion konsentratsiyasini ko'rsatadi"
+    },
+    {
+     "variant": "D",
+     "xato": "test tozalamaydi, o'lchaydi"
+    }
+   ],
+   "yechim": "Maishiy test-to'plamlar — sifat reaksiyalarining «cho'ntak» varianti.",
+   "parametrlar": {
+    "arch": "testkit_sahna"
+   },
+   "fig": "testkit"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,15 mol soda (Na₂CO₃) ortiqcha xlorid kislota bilan reaksiyaga kirishdi. Ajralgan gaz hajmini (n.sh.) toping.",
+   "variantlar": [
+    "2,24 L",
+    "22,4 L",
+    "3,36 L",
+    "6,72 L"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(CO₂) = 0,15 mol → V = 3,36 L.",
+   "parametrlar": {
+    "arch": "co2_hisob_a"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ohakli suvdan CO₂ o'tkazilganda nima kuzatiladi?",
+   "variantlar": [
+    "qizil rangga kiradi",
+    "gaz pufakchalari chiqadi",
+    "eritma oq loyqalanadi (CaCO₃)",
+    "hech narsa"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang o'zgarishi emas, cho'kma"
+    },
+    {
+     "variant": "B",
+     "xato": "gaz kirityapmiz-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "loyqalanish — CO₂ ning asosiy sinovi"
+    }
+   ],
+   "yechim": "Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O — «karbonat ko'zgusi».",
+   "parametrlar": {
+    "arch": "ohakli_suv_sinov"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alanga testini o'tkazish uchun namuna qaysi asbobda alangaga kiritiladi?",
+   "variantlar": [
+    "toza nixrom (platina) simchada",
+    "temir mixda",
+    "yog'och cho'pda",
+    "mis simda"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "temirning o'zi rang beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "yog'och yonib xalaqit qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "mis o'zi yashil rang beradi!"
+    }
+   ],
+   "yechim": "Sim avval kislotada tozalanib, rang bermasligi tekshiriladi.",
+   "parametrlar": {
+    "arch": "alanga_asbob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi ionlar eritmani RANGSIZ qoldiradi?",
+   "variantlar": [
+    "Cu²⁺, Fe³⁺",
+    "Fe²⁺, Cu²⁺",
+    "hamma ionlar rangli",
+    "Na⁺, K⁺, Ca²⁺, Cl⁻, SO₄²⁻"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ular rangli"
+    },
+    {
+     "variant": "B",
+     "xato": "yashil va ko'k"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'pchiligi rangsiz"
+    }
+   ],
+   "yechim": "Rangsiz ionlar alanga testi yoki cho'kma reaksiyalari bilan topiladi.",
+   "parametrlar": {
+    "arch": "rangsiz_ionlar"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,1 mol ammoniy xlorid ishqor bilan qizdirildi. Ajralgan gaz hajmini (n.sh.) toping.",
+   "variantlar": [
+    "22,4 L",
+    "2,24 L",
+    "1,12 L",
+    "4,48 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "NH₄Cl + NaOH → NaCl + NH₃↑ + H₂O: n = 0,1 → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "nh3_hisob_a"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "AgCl cho'kmasining o'ziga xos qo'shimcha belgisi qanday?",
+   "variantlar": [
+    "qizdirilganda ko'karadi",
+    "suvda erib ketadi",
+    "hid chiqaradi",
+    "yorug'likda asta qorayadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bunday emas"
+    },
+    {
+     "variant": "B",
+     "xato": "erimaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "hidsiz"
+    }
+   ],
+   "yechim": "2AgCl → (yorug'lik) 2Ag + Cl₂ — fotokimyoviy parchalanish (fotografiya asosi).",
+   "parametrlar": {
+    "arch": "agcl_yoruglik"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Sulfid ioni (S²⁻) og'ir metall tuzlari bilan qanday cho'kmalar beradi?",
+   "variantlar": [
+    "oq",
+    "qora (CuS, PbS)",
+    "sariq faqat",
+    "cho'kma bermaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sulfidlar odatda to'q rangli"
+    },
+    {
+     "variant": "C",
+     "xato": "CdS sariq, lekin ko'pi qora"
+    },
+    {
+     "variant": "D",
+     "xato": "og'ir metall sulfidlari erimaydi"
+    }
+   ],
+   "yechim": "Qora dog' — sulfidning klassik belgisi (kumush qorayishi ham shu).",
+   "parametrlar": {
+    "arch": "s2_belgi"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda to'rt alanga rangi berilgan. Qaysi biri NATRIYGA tegishli?",
+   "variantlar": [
+    "1-alanga (qirmizi)",
+    "2-alanga (sariq)",
+    "3-alanga (binafsha)",
+    "4-alanga (yashil)"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu litiy/stronsiy"
+    },
+    {
+     "variant": "C",
+     "xato": "bu kaliy"
+    },
+    {
+     "variant": "D",
+     "xato": "bu bariy/mis"
+    }
+   ],
+   "yechim": "Panel: qizil — Li/Sr; sariq — Na; binafsha — K; yashil — Ba/Cu.",
+   "parametrlar": {
+    "arch": "alanga_panel_oqish"
+   },
+   "fig": "flame_panel"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada 0,1 mol Ba²⁺ ioni bor. Ortiqcha soda qo'shilganda hosil bo'lgan cho'kma massasini toping. (M(BaCO₃)=197)",
+   "variantlar": [
+    "197 g",
+    "9,85 g",
+    "19,7 g",
+    "23,3 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "yarmi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu BaSO₄ massasi"
+    }
+   ],
+   "yechim": "Ba²⁺ + CO₃²⁻ → BaCO₃↓: m = 19,7 g.",
+   "parametrlar": {
+    "arch": "baco3_hisob"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi probirkalar qatorida qaysi cho'kma temir(III) gidroksidga tegishli?",
+   "variantlar": [
+    "3-probirka (qo'ng'ir)",
+    "1-probirka (oq)",
+    "2-probirka (ko'k)",
+    "4-probirka (qora)"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "oq — AgCl/BaSO₄"
+    },
+    {
+     "variant": "C",
+     "xato": "ko'k — Cu(OH)₂"
+    },
+    {
+     "variant": "D",
+     "xato": "qora — CuS"
+    }
+   ],
+   "yechim": "Cho'kma ranglari: oq, ko'k, qo'ng'ir, qora — «rang lug'ati» yodda bo'lsin.",
+   "parametrlar": {
+    "arch": "chokma_panel_oqish"
+   },
+   "fig": "precip_panel"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Xlorid eritmasiga AgNO₃ tomchilab qo'shilmoqda. Cho'kma massasi qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "chegarasiz ortadi",
+    "ortib borib, xlorid tugagach o'zgarmay qoladi",
+    "o'zgarmaydi",
+    "ortib, keyin kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cl⁻ tugagach cho'kma ko'paymaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "cho'kma hosil bo'lyapti-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "AgCl ortiqcha reagentda erimaydi"
+    }
+   ],
+   "yechim": "Ekvivalent nuqtadan keyin qo'shilgan AgNO₃ «bo'sh» ketadi — plato.",
+   "parametrlar": {
+    "arch": "chokma_grafik"
+   },
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "V(AgNO₃)",
+    "ylab": "m(AgCl)"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Nitrat ioni (NO₃⁻) haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "oson aniqlanadigan cho'kma reaksiyasi yo'q — maxsus usullar kerak",
+    "AgNO₃ bilan cho'kadi",
+    "BaCl₂ bilan cho'kadi",
+    "ishqor bilan gaz beradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "barcha nitratlar eriydi"
+    },
+    {
+     "variant": "C",
+     "xato": "Ba(NO₃)₂ ham eriydi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu NH₄⁺ belgisi"
+    }
+   ],
+   "yechim": "Barcha nitratlar suvda eriydi — NO₃⁻ «qiyin» ion (mis + kons. H₂SO₄ sinovi qo'llanadi).",
+   "parametrlar": {
+    "arch": "no3_muammo"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada 0,05 mol Cu²⁺ bor. Ortiqcha ishqor qo'shilganda hosil bo'lgan cho'kma massasini toping. (M(Cu(OH)₂)=98)",
+   "variantlar": [
+    "4,9 g",
+    "9,8 g",
+    "98 g",
+    "2,45 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "0,1 mol emas"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "m = 0,05·98 = 4,9 g — havorang cho'kma.",
+   "parametrlar": {
+    "arch": "cuoh2_hisob_a"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol panelidan foydalaning: noma'lum tuz alangani BINAFSHA rangga bo'yadi va AgNO₃ bilan oq cho'kma berdi. Bu qaysi tuz?",
+   "variantlar": [
+    "NaCl",
+    "KNO₃",
+    "KCl",
+    "BaCl₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sariq alanga bo'lardi"
+    },
+    {
+     "variant": "B",
+     "xato": "nitrat AgNO₃ bilan cho'kmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "yashil alanga bo'lardi"
+    }
+   ],
+   "yechim": "Binafsha → K⁺; oq cho'kma → Cl⁻ ⇒ KCl.",
+   "parametrlar": {
+    "arch": "alanga_panel_hisob"
+   },
+   "fig": "flame_panel"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "IV.2",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "IV.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "IV.2",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "IV.2",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch probirkada rangsiz eritmalar bor: X — NaCl, Y — Na₂SO₄, Z — Na₂CO₃ (qaysi birida qaysi eritma borligi noma'lum). Tajribalar o'tkazildi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X ga AgNO₃ tomizilganda oq cho'kma tushdi. X qaysi eritma bo'lishi mumkin?",
+    "34. Z ga kislota qo'shilganda gaz ajraldi. Z qaysi eritma?",
+    "35. Y ni tasdiqlash uchun qaysi reagent qo'shiladi?"
+   ],
+   "javoblar_royxati": [
+    "A) NaCl",
+    "B) Na₂CO₃",
+    "C) BaCl₂",
+    "D) Na₂SO₄",
+    "E) fenolftalein",
+    "F) suv"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "sulfat AgNO₃ bilan xarakterli oq cho'kma bermaydi (asosiy sinov Ba²⁺)"
+    },
+    {
+     "variant": "E",
+     "xato": "indikator ionni aniq ko'rsatmaydi"
+    },
+    {
+     "variant": "F",
+     "xato": "suv reagent emas"
+    }
+   ],
+   "yechim": "X: Ag⁺ + Cl⁻ → AgCl↓ (A). Z: karbonat kislotada CO₂ beradi (B). Y (sulfat): BaCl₂ bilan oq cho'kma — tasdiq (C).",
+   "parametrlar": {
+    "arch": "uch_eritma_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada 0,1 mol xlorid ioni bor. Ortiqcha AgNO₃ dan hosil bo'ladigan cho'kma massasini (g) toping. (M(AgCl)=143,5)",
+   "javob": "14,35",
+   "yechim": "m = 0,1·143,5 = 14,35 g.",
+   "parametrlar": {
+    "arch": "agcl_o1"
+   },
+   "tur": "O1",
+   "element": "IV.2"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Eritmada 0,2 mol sulfat ioni bor. Ortiqcha BaCl₂ dan hosil bo'ladigan cho'kma massasini (g) toping. (M(BaSO₄)=233)",
+   "javob": "46,6",
+   "yechim": "m = 0,2·233 = 46,6 g.",
+   "parametrlar": {
+    "arch": "baso4_o1"
+   },
+   "tur": "O1",
+   "element": "IV.2"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "5,3 g soda (Na₂CO₃) ortiqcha kislota bilan reaksiyaga kirishganda ajralgan gaz hajmini (n.sh., L) toping. (M(Na₂CO₃)=106)",
+   "javob": "1,12",
+   "yechim": "n = 0,05 mol → V(CO₂) = 1,12 L.",
+   "parametrlar": {
+    "arch": "co2_o1_a"
+   },
+   "tur": "O1",
+   "element": "IV.2"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,2 mol ammoniy ionidan ishqor bilan qizdirishda ajraladigan ammiak massasini (g) toping. (M(NH₃)=17)",
+   "javob": "3,4",
+   "yechim": "n(NH₃) = 0,2 mol → m = 3,4 g.",
+   "parametrlar": {
+    "arch": "nh3_o1_a"
+   },
+   "tur": "O1",
+   "element": "IV.2"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Eritmadagi 0,1 mol Cu²⁺ ortiqcha ishqor bilan cho'ktirildi. Cho'kma massasini (g) toping. (M(Cu(OH)₂)=98)",
+   "javob": "9,8",
+   "yechim": "m = 0,1·98 = 9,8 g.",
+   "parametrlar": {
+    "arch": "cuoh2_o1"
+   },
+   "tur": "O1",
+   "element": "IV.2"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Oq kristall modda tekshirildi: alanga testi SARIQ rang berdi; eritmasiga AgNO₃ tomizilganda OQ cho'kma tushdi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir sinov qaysi ionni ko'rsatadi?",
+     "yechim": [
+      "Sariq alanga → Na⁺; oq cho'kma (AgCl) → Cl⁻."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Moddaning formulasini va nomini yozing.",
+     "yechim": [
+      "NaCl — osh tuzi."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) 0,1 mol shu tuzdan olinadigan AgCl massasini hisoblang. (M(AgCl)=143,5)",
+     "yechim": [
+      "m = 14,35 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Cho'kmani tasdiqlashning qo'shimcha belgisi qanday?",
+     "yechim": [
+      "AgCl yorug'likda asta qorayadi; HNO₃ da erimaydi."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Modda-detektiv: sinovlar → formula → hisob → tasdiq; M15+A10.",
+   "parametrlar": {
+    "arch": "modda_detektiv"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Sifat tahlilining nozik jihatlari o'rganiladi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega xloridni AgNO₃ bilan tekshirishdan OLDIN eritmaga nitrat kislota qo'shiladi? Batafsil tushuntiring.",
+     "yechim": [
+      "Karbonat/fosfat kabi ionlar ham Ag⁺ bilan cho'kma beradi — «soxta signal».",
+      "HNO₃ ularni parchalaydi (CO₂ chiqadi), AgCl esa kislotada erimay qoladi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega alanga testida sim har namunadan keyin kislotada tozalanadi?",
+     "yechim": [
+      "Oldingi namuna qoldig'i (ayniqsa natriy) keyingi rangni «bosib» yuboradi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Sifat tahlilida «bitta belgi — hukm emas» qoidasi nimani anglatadi?",
+     "yechim": [
+      "Xulosa kamida ikki mustaqil sinov bilan tasdiqlanadi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Tahlil-madaniyati (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "tahlil_madaniyati"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "IV.2",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "To'rt rangsiz eritma jadvalda berilgan:\n[JADVAL] № | Eritma ;; 1 | NaCl ;; 2 | Na₂SO₄ ;; 3 | Na₂CO₃ ;; 4 | NaNO₃\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Uch reagent (HCl, BaCl₂, AgNO₃) yordamida to'rttala eritmani farqlash rejasini tuzing.",
+     "yechim": [
+      "Avval HCl: gaz bergani — Na₂CO₃. Keyin BaCl₂: cho'kma — Na₂SO₄. So'ng AgNO₃: cho'kma — NaCl; hech narsa — NaNO₃."
+     ],
+     "M": 6,
+     "A": 3
+    },
+    {
+     "savol": "b) Har bir musbat sinovning tenglamasini yozing.",
+     "yechim": [
+      "Na₂CO₃+2HCl→2NaCl+H₂O+CO₂; Na₂SO₄+BaCl₂→BaSO₄↓+2NaCl; NaCl+AgNO₃→AgCl↓+NaNO₃."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "c) Nega NaNO₃ «istisno usuli» bilan topiladi?",
+     "yechim": [
+      "NO₃⁻ uchun oddiy cho'kma reaksiyasi yo'q — qolganlari chiqarilgach aniqlanadi."
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "d) Sinovlar TARTIBI muhimligini bitta misolda ko'rsating.",
+     "yechim": [
+      "AgNO₃ ni birinchi qo'shsak, karbonat/sulfat ham cho'kadi — natija chalkashadi."
+     ],
+     "M": 2,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Farqlash-reja: ketma-ketlik → tenglamalar → istisno → tartib; M15+A10.",
+   "parametrlar": {
+    "arch": "farqlash_reja_o2"
+   }
+  }
+ ]
+}
