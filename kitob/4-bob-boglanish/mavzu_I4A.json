@@ -1,0 +1,1341 @@
+{
+ "variant": "mavzu-I4-A",
+ "daraja": "A",
+ "bob": 4,
+ "bob_nomi": "Kimyoviy bog'lanish",
+ "manba": "MS spetsifikatsiyasi I.4; darslik bog'lanish bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (tuz, qalam-olmos, qor, mis sim) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kimyoviy bog'lanish hosil bo'lishining asosiy sababi nimada?",
+   "variantlar": [
+    "atomlar og'irlashishga intiladi",
+    "atomlar isishga intiladi",
+    "atomlar rang hosil qilishga intiladi",
+    "atomlar barqaror (tugallangan) elektron qavatga intiladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa bog'lanish sababi emas"
+    },
+    {
+     "variant": "B",
+     "xato": "issiqlik — jarayon oqibati bo'lishi mumkin, sabab emas"
+    },
+    {
+     "variant": "C",
+     "xato": "rang bog'lanish maqsadi emas"
+    }
+   ],
+   "yechim": "Bog'lanishda atomlar oktet (2 yoki 8 e) holatga erishib, energiya jihatdan barqarorlashadi.",
+   "parametrlar": {
+    "arch": "sabab"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kovalent bog'lanish qanday hosil bo'ladi?",
+   "variantlar": [
+    "umumiy elektron juftlar hisobiga",
+    "elektronlarning to'liq o'tishi hisobiga",
+    "erkin elektronlar «gazi» hisobiga",
+    "faqat tortishish kuchlari hisobiga"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu ion bog'lanish"
+    },
+    {
+     "variant": "C",
+     "xato": "bu metall bog'lanish"
+    },
+    {
+     "variant": "D",
+     "xato": "kovalentda elektron juft umumlashadi"
+    }
+   ],
+   "yechim": "Ikkala atom elektronlari juftlashib, umumiy bo'ladi — kovalent bog'.",
+   "parametrlar": {
+    "arch": "kovalent_tarif"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi moddada ION bog'lanish mavjud?",
+   "variantlar": [
+    "HCl",
+    "Cl₂",
+    "KCl",
+    "H₂O"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod bilan — qutbli kovalent"
+    },
+    {
+     "variant": "B",
+     "xato": "qutbsiz kovalent"
+    },
+    {
+     "variant": "D",
+     "xato": "qutbli kovalent"
+    }
+   ],
+   "yechim": "Tipik metall (K) + tipik metallmas (Cl) → elektron to'liq o'tadi — ion bog'.",
+   "parametrlar": {
+    "arch": "ion_misol"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda osh tuzi kristallari ko'rsatilgan. Nega NaCl kristallari muntazam KUB shaklida bo'ladi?",
+   "variantlar": [
+    "tuz zavodda shunday kesiladi",
+    "suv bug'lanib qirralarni tekislaydi",
+    "ionlar panjarada qat'iy tartibda joylashadi",
+    "tasodifiy shakllanadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "shakl tabiiy — ichki tuzilishdan"
+    },
+    {
+     "variant": "B",
+     "xato": "qirralar panjara tekisliklaridir"
+    },
+    {
+     "variant": "D",
+     "xato": "ion panjara geometriyasi aniq"
+    }
+   ],
+   "yechim": "Na⁺ va Cl⁻ ionlari navbatlashib kub panjara hosil qiladi — tashqi shakl ichki tartibni aks ettiradi.",
+   "parametrlar": {
+    "arch": "tuz_sahna"
+   },
+   "fig": "salt"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "H₂ molekulasidagi bog'lanish qanday?",
+   "variantlar": [
+    "qutbsiz kovalent",
+    "qutbli kovalent",
+    "ion",
+    "vodorod bog'lanish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "atomlar bir xil — ΔEM = 0"
+    },
+    {
+     "variant": "C",
+     "xato": "elektron o'tishi yo'q"
+    },
+    {
+     "variant": "D",
+     "xato": "bu molekulalararo kuch"
+    }
+   ],
+   "yechim": "Bir xil atomlar: elektron juft o'rtada — qutbsiz kovalent.",
+   "parametrlar": {
+    "arch": "h2_bog"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Elektromanfiylik nima?",
+   "variantlar": [
+    "atomning elektron berish qobiliyati",
+    "atomning massasi",
+    "atomning bog'dagi elektronlarni o'ziga tortish qobiliyati",
+    "atomning radiusi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu qaytaruvchilik xossasi"
+    },
+    {
+     "variant": "B",
+     "xato": "EM massa emas"
+    },
+    {
+     "variant": "D",
+     "xato": "radius alohida xossa"
+    }
+   ],
+   "yechim": "EM qancha katta bo'lsa, atom umumiy juftni shuncha kuchli tortadi (F — chempion, 4,0).",
+   "parametrlar": {
+    "arch": "em_tarif"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "HCl molekulasida umumiy elektron juft qaysi atomga siljigan?",
+   "variantlar": [
+    "vodorodga",
+    "o'rtada turadi",
+    "goh u, goh bu atomga",
+    "xlorga — uning elektromanfiyligi katta"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H ning EM i (2,1) Cl nikidan (3,0) kichik"
+    },
+    {
+     "variant": "B",
+     "xato": "ΔEM ≠ 0 — juft siljiydi"
+    },
+    {
+     "variant": "C",
+     "xato": "siljish doimiy — qutbli bog'"
+    }
+   ],
+   "yechim": "EM(Cl) > EM(H): juft xlorga siljigan — H(δ+)–Cl(δ−).",
+   "parametrlar": {
+    "arch": "siljish"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda oddiy qalam (grafit) va olmos uzuk ko'rsatilgan. Ikkalasi ham uglerod! Xossalari nega bunchalik farq qiladi?",
+   "variantlar": [
+    "ular turli elementlardan tuzilgan",
+    "atomlarning panjaradagi joylashuvi (tuzilishi) har xil",
+    "olmosda qo'shimchalar bor",
+    "grafit eskirgan olmos"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ikkalasi ham faqat ugleroddan"
+    },
+    {
+     "variant": "C",
+     "xato": "sof olmos ham qattiq"
+    },
+    {
+     "variant": "D",
+     "xato": "biri ikkinchisiga o'z-o'zidan aylanmaydi"
+    }
+   ],
+   "yechim": "Olmos — fazoviy tetraedrik atom panjara (juda qattiq); grafit — qatlamli tuzilish (qatlamlar sirg'aladi — yozadi). Bu allotropiya.",
+   "parametrlar": {
+    "arch": "qalam_sahna"
+   },
+   "fig": "pencil"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Metall bog'lanish nima hisobiga hosil bo'ladi?",
+   "variantlar": [
+    "umumiy elektron juftlar hisobiga",
+    "kationlar va umumlashgan erkin elektronlar tortishuvi hisobiga",
+    "ionlarning tortishuvi hisobiga",
+    "molekulalar tortishuvi hisobiga"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "juftlar mahkam emas — elektronlar umumlashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "manfiy ion yo'q — elektron gazi bor"
+    },
+    {
+     "variant": "D",
+     "xato": "metallda molekula yo'q"
+    }
+   ],
+   "yechim": "Metallda valent elektronlar «gaz» kabi erkin: ular kationlarni bog'lab turadi.",
+   "parametrlar": {
+    "arch": "metall_tarif"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi qatorda faqat KOVALENT bog'li moddalar berilgan?",
+   "variantlar": [
+    "NaCl, H₂O, CO₂",
+    "Fe, Cu, Zn",
+    "KBr, CaO, NaF",
+    "H₂O, CO₂, NH₃"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NaCl — ion"
+    },
+    {
+     "variant": "B",
+     "xato": "bular metall bog'lanishli"
+    },
+    {
+     "variant": "C",
+     "xato": "barchasi ion birikma"
+    }
+   ],
+   "yechim": "Uchala modda ham metallmas atomlaridan — kovalent (qutbli) bog'lar.",
+   "parametrlar": {
+    "arch": "kovalent_qator"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "σ-bog' va π-bog' haqidagi to'g'ri fikrni tanlang.",
+   "variantlar": [
+    "yakka bog' doim σ; karrali bog'da qo'shimchalari π",
+    "yakka bog' doim π",
+    "σ va π farqi yo'q",
+    "π-bog' σ dan mustahkam"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "birinchi bog' hamisha σ"
+    },
+    {
+     "variant": "C",
+     "xato": "ular ustma tushish usuli bilan farqlanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "π odatda kuchsizroq — reaksiyada birinchi uziladi"
+    }
+   ],
+   "yechim": "Birinchi (o'q bo'ylab) bog' — σ; qo'sh/uch bog'ning qolganlari — π.",
+   "parametrlar": {
+    "arch": "sigma_pi_tarif"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "CO₂ molekulasida nechta σ- va nechta π-bog' bor?",
+   "variantlar": [
+    "4 σ",
+    "2 σ va 4 π",
+    "2 σ va 2 π",
+    "1 σ va 3 π"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "har qo'sh bog'da faqat bittasi σ"
+    },
+    {
+     "variant": "B",
+     "xato": "har qo'sh bog'da bitta π"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkita alohida C=O bog' bor"
+    }
+   ],
+   "yechim": "O=C=O: har C=O da 1σ + 1π → jami 2σ + 2π.",
+   "parametrlar": {
+    "arch": "co2_sanash"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda olti burchakli qor parchasi ko'rsatilgan. Qorning bunday muntazam shakli nimadan darak beradi?",
+   "variantlar": [
+    "shamol qorni shunday kesadi",
+    "muz kristalida H₂O molekulalari vodorod bog'lar orqali tartibli joylashgan",
+    "qor tarkibida olti xil modda bor",
+    "tasodif"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "shakl ichki tuzilishdan, tashqi ta'sirdan emas"
+    },
+    {
+     "variant": "C",
+     "xato": "qor — faqat suv"
+    },
+    {
+     "variant": "D",
+     "xato": "barcha qor parchalari 6 burchakli — qonuniyat"
+    }
+   ],
+   "yechim": "Vodorod bog'lari H₂O molekulalarini olti burchakli panjaraga «tizadi» — qor shakli shundan.",
+   "parametrlar": {
+    "arch": "qor_sahna"
+   },
+   "fig": "snowflake"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Vodorod bog'lanish qaysi atomlar orasida hosil bo'ladi?",
+   "variantlar": [
+    "istalgan ikki H atomi orasida",
+    "metall va vodorod orasida",
+    "faqat kislorod atomlari orasida",
+    "bir molekula H atomi bilan boshqa molekulaning F, O yoki N atomi orasida"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy H–H — kovalent bog'"
+    },
+    {
+     "variant": "B",
+     "xato": "bu gidriddagi bog'"
+    },
+    {
+     "variant": "C",
+     "xato": "H ishtiroki shart"
+    }
+   ],
+   "yechim": "Shart: H kuchli EM li atomga (F, O, N) bog'langan bo'lishi va qo'shni molekulada juft bo'lishi.",
+   "parametrlar": {
+    "arch": "vodorod_shart"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Muz qanday kristall panjaraga ega?",
+   "variantlar": [
+    "ion",
+    "molekular",
+    "atom",
+    "metall"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂O — neytral molekula"
+    },
+    {
+     "variant": "C",
+     "xato": "tugunlarda alohida atomlar emas"
+    },
+    {
+     "variant": "D",
+     "xato": "suv metall emas"
+    }
+   ],
+   "yechim": "Muz tugunlarida H₂O molekulalari (vodorod bog'lar bilan) — molekular panjara, past t da eriydi.",
+   "parametrlar": {
+    "arch": "muz_panjara"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Davr bo'ylab chapdan o'ngga elektromanfiylik qanday o'zgaradi?",
+   "variantlar": [
+    "kamayadi",
+    "o'zgarmaydi",
+    "avval ortib, keyin kamayadi",
+    "ortadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yadro zaryadi ortadi, radius kichrayadi — tortish kuchayadi"
+    },
+    {
+     "variant": "B",
+     "xato": "Na dan Cl gacha EM 0,9 dan 3,0 gacha o'sadi"
+    },
+    {
+     "variant": "C",
+     "xato": "davr ichida monoton ortadi"
+    }
+   ],
+   "yechim": "Davrda radius kichrayib, yadro tortishi kuchayadi → EM ortadi (ftorga tomon).",
+   "parametrlar": {
+    "arch": "em_davr"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Jadvalda ikki moddaning xossalari berilgan:\n[JADVAL] Modda | Suyuql. t | Eritmasi tok o'tkazadimi ;; X | 801 °C | ha ;; Y | 0 °C | yo'q\nX va Y qanday panjaralarga ega?",
+   "variantlar": [
+    "X — molekular, Y — ion",
+    "ikkalasi ham atom",
+    "X — ion, Y — molekular",
+    "X — metall, Y — ion"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yuqori t va elektrolitlik — ion belgisi"
+    },
+    {
+     "variant": "B",
+     "xato": "atom panjara suvda erib tok o'tkazmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "Y past t da eriydi — molekular"
+    }
+   ],
+   "yechim": "X (801 °C, elektrolit) — NaCl kabi ion; Y (0 °C) — muz kabi molekular.",
+   "parametrlar": {
+    "arch": "jadval_yengil"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda elektr simlari (mis) ko'rsatilgan. Misning tok o'tkazishi va egiluvchanligi qaysi bog'lanish bilan tushuntiriladi?",
+   "variantlar": [
+    "metall bog'lanish — erkin elektronlar va sirg'aluvchi qatlamlar",
+    "ion bog'lanish",
+    "kovalent bog'lanish",
+    "vodorod bog'lanish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ionli moddalar mo'rt, qattiq holda tok o'tkazmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "kovalent kristallar (olmos) tok o'tkazmaydi, mo'rt"
+    },
+    {
+     "variant": "D",
+     "xato": "metallda vodorod bog' yo'q"
+    }
+   ],
+   "yechim": "Erkin elektronlar tokni tashiydi; kation qatlamlari «elektron yelim» ichida sirg'anadi — sim egiladi, uzilmaydi.",
+   "parametrlar": {
+    "arch": "sim_sahna"
+   },
+   "fig": "wire"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "N₂ molekulasi juda inert (reaksiyaga qiyin kirishadi). Buning sababi nimada?",
+   "variantlar": [
+    "azot atomi juda katta",
+    "molekulada bog' yo'q",
+    "N≡N uch bog' juda mustahkam (946 kJ/mol)",
+    "azot metall xossali"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "azot kichik atom"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha, uchta bog' bor"
+    },
+    {
+     "variant": "D",
+     "xato": "azot — metallmas"
+    }
+   ],
+   "yechim": "1σ + 2π uch karrali bog'ni uzish katta energiya talab qiladi — N₂ inert.",
+   "parametrlar": {
+    "arch": "n2_inert"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "«Quruq muz» (qattiq CO₂) xona sharoitida suyuqlanmasdan bug'lanib ketadi. Bu qaysi panjara belgisi?",
+   "variantlar": [
+    "molekular — molekulalararo kuchlar juda kuchsiz",
+    "ion — ionlar uchib ketadi",
+    "atom — atomlar ajraladi",
+    "metall"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ion panjara 800 °C atrofida suyuqlanadi"
+    },
+    {
+     "variant": "C",
+     "xato": "atom panjara o'ta mustahkam"
+    },
+    {
+     "variant": "D",
+     "xato": "CO₂ metall emas"
+    }
+   ],
+   "yechim": "Molekulalarni ushlab turuvchi kuchlar kuchsiz — CO₂ to'g'ridan-to'g'ri gazga o'tadi (sublimatsiya).",
+   "parametrlar": {
+    "arch": "quruq_muz"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "NH₃ molekulasida nechta umumiy elektron juft (bog') va nechta taqsimlanmagan juft bor?",
+   "variantlar": [
+    "3 ta bog', 1 ta taqsimlanmagan juft",
+    "4 ta bog', 0 ta juft",
+    "3 ta bog', 2 ta juft",
+    "2 ta bog', 1 ta juft"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "azotning 5 valent elektronidan 3 tasi bog'da"
+    },
+    {
+     "variant": "C",
+     "xato": "5 − 3 = 2 elektron → 1 juft"
+    },
+    {
+     "variant": "D",
+     "xato": "vodorodlar 3 ta"
+    }
+   ],
+   "yechim": "N: 5 valent e → 3 tasi N–H bog'larda, 2 tasi (1 juft) bo'sh — donor bo'la oladi.",
+   "parametrlar": {
+    "arch": "nh3_juft"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi javobda moddalar panjara turi bilan TO'G'RI juftlangan?",
+   "variantlar": [
+    "olmos — molekular; NaCl — atom; muz — ion",
+    "olmos — atom; NaCl — ion; muz — molekular",
+    "olmos — ion; NaCl — molekular; muz — atom",
+    "olmos — atom; NaCl — molekular; muz — ion"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "hammasi almashib ketgan"
+    },
+    {
+     "variant": "C",
+     "xato": "hech biri mos emas"
+    },
+    {
+     "variant": "D",
+     "xato": "NaCl va muz o'rni almashgan"
+    }
+   ],
+   "yechim": "Olmos — atomlar to'ri; NaCl — ionlar; muz — H₂O molekulalari.",
+   "parametrlar": {
+    "arch": "juftlash"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qutbli kovalent bog'da elektron juft ...",
+   "variantlar": [
+    "aynan o'rtada turadi",
+    "to'liq bitta atomga o'tadi",
+    "molekuladan chiqib ketadi",
+    "elektromanfiyroq atom tomon siljigan bo'ladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu qutbsiz bog'"
+    },
+    {
+     "variant": "B",
+     "xato": "to'liq o'tish — ion bog'"
+    },
+    {
+     "variant": "C",
+     "xato": "juft bog'da qoladi"
+    }
+   ],
+   "yechim": "Siljish qisman zaryadlar (δ+ va δ−) hosil qiladi — dipol.",
+   "parametrlar": {
+    "arch": "qutbli_tarif"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "HF, HCl, HBr qatorida bog'ning MUSTAHKAMLIGI qanday o'zgaradi?",
+   "variantlar": [
+    "ortadi",
+    "o'zgarmaydi",
+    "kamayadi — atom radiusi ortib, bog' uzayadi",
+    "avval ortib, keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "galogen kattalashgani sari bog' kuchsizlanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "uzunlik o'zgargani uchun energiya ham o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton kamayadi"
+    }
+   ],
+   "yechim": "F→Cl→Br: radius ↑, bog' uzunligi ↑ → energiya ↓ (HF eng mustahkam).",
+   "parametrlar": {
+    "arch": "hf_qator"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Qaysi modda qattiq holatda ham, suyuqlanmasida ham tok O'TKAZADI?",
+   "variantlar": [
+    "mis",
+    "osh tuzi",
+    "shakar",
+    "olmos"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qattiq holda o'tkazmaydi (ionlar mahkam)"
+    },
+    {
+     "variant": "C",
+     "xato": "noelektrolit"
+    },
+    {
+     "variant": "D",
+     "xato": "kovalent panjara — dielektrik"
+    }
+   ],
+   "yechim": "Metallda erkin elektronlar har qanday holatda ham bor — tok o'tadi.",
+   "parametrlar": {
+    "arch": "otkazuvchi"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "VII A guruh vodorodli birikmalarida (HF→HCl→HBr→HI) bog' uzunligining o'zgarish grafigi qanday?",
+   "variantlar": [
+    "kamayib boradi",
+    "o'zgarmaydi",
+    "bosqichma-bosqich ortib boradi",
+    "ortib, keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "radius kattalashadi — bog' uzayadi"
+    },
+    {
+     "variant": "B",
+     "xato": "davriy qonuniyat bor"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Guruhda pastga radius ortadi → H–Hal masofasi uzayadi.",
+   "parametrlar": {
+    "arch": "grafik_uzunlik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "HF→HI",
+    "ylab": "l(bog')"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "CH₄ molekulasidagi barcha bog'lar soni va ularning turi qanday?",
+   "variantlar": [
+    "4 ta π-bog'",
+    "2 σ va 2 π",
+    "5 ta σ",
+    "4 ta σ-bog'"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yakka bog'lar faqat σ"
+    },
+    {
+     "variant": "B",
+     "xato": "metanda karrali bog' yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "C–H bog'lar 4 ta"
+    }
+   ],
+   "yechim": "To'rt C–H yakka bog' — barchasi σ.",
+   "parametrlar": {
+    "arch": "ch4_sanash"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Osh tuzi kristali nega MO'RT (bolg'a bilan urilsa maydalanadi)?",
+   "variantlar": [
+    "ionlari juda kichik",
+    "siljishda bir xil zaryadli ionlar to'qnashib, itarishadi",
+    "panjarasida suv bor",
+    "bog'lari juda kuchsiz"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "o'lcham mo'rtlik sababi emas"
+    },
+    {
+     "variant": "C",
+     "xato": "quruq tuz ham mo'rt"
+    },
+    {
+     "variant": "D",
+     "xato": "ion bog' kuchli, lekin yo'nalishga sezgir"
+    }
+   ],
+   "yechim": "Qatlam siljiganda «+»«+» va «−»«−» ro'para kelib itarishadi — kristall yoriladi.",
+   "parametrlar": {
+    "arch": "mortlik"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Suv molekulasining shakli va qutbliligi haqida to'g'ri xulosa qaysi?",
+   "variantlar": [
+    "chiziqli molekula — qutbsiz",
+    "burchakli molekula — shuning uchun qutbli (dipol)",
+    "burchakli, lekin qutbsiz",
+    "shakli qutblilikka ta'sir qilmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂O burchakli (≈104,5°)"
+    },
+    {
+     "variant": "C",
+     "xato": "burchakli shaklda dipollar yig'indisi nolga teng emas"
+    },
+    {
+     "variant": "D",
+     "xato": "CO₂ (chiziqli) — qutbsiz, H₂O — qutbli: shakl hal qiladi"
+    }
+   ],
+   "yechim": "Ikkala O–H dipoli burchak ostida — teng ta'sir etmaydi, molekula dipol bo'ladi.",
+   "parametrlar": {
+    "arch": "suv_shakl"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Bog'lanish haqidagi fikrlardan XATOSINI toping.",
+   "variantlar": [
+    "metallar egiluvchan bo'ladi",
+    "ion bog'li moddalar qattiq holatda tok yaxshi o'tkazadi",
+    "molekular kristallar past haroratda suyuqlanadi",
+    "atom panjarali moddalar juda qattiq"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "to'g'ri — qatlamlar sirg'aladi"
+    },
+    {
+     "variant": "C",
+     "xato": "to'g'ri fikr"
+    },
+    {
+     "variant": "D",
+     "xato": "to'g'ri — olmos misol"
+    }
+   ],
+   "yechim": "Ion kristallda ionlar mahkam o'rnashgan — tok faqat eritma/suyuqlanmada o'tadi.",
+   "parametrlar": {
+    "arch": "xato_fikr"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "K₂SO₄ tarkibida qanday bog'lanish turlari bor?",
+   "variantlar": [
+    "faqat ion",
+    "faqat kovalent",
+    "metall va ion",
+    "ion (K⁺ bilan SO₄²⁻ orasida) va kovalent (S–O)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sulfat ioni ichida kovalent bog'lar bor"
+    },
+    {
+     "variant": "B",
+     "xato": "kaliy bilan qoldiq orasida ion bog'"
+    },
+    {
+     "variant": "C",
+     "xato": "metall bog' sof metallda bo'ladi"
+    }
+   ],
+   "yechim": "Murakkab tuzlarda ikkala tur: kation–anion (ion) + anion ichida (kovalent).",
+   "parametrlar": {
+    "arch": "k2so4"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmdagi ΔEM shkalasidan foydalaning: H–O bog'ida ΔEM = 1,4. Bog' turini aniqlang.",
+   "variantlar": [
+    "qutbli kovalent",
+    "ion",
+    "qutbsiz kovalent",
+    "vodorod bog'lanish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1,7 dan kichik — hali kovalent"
+    },
+    {
+     "variant": "C",
+     "xato": "ΔEM 0 emas"
+    },
+    {
+     "variant": "D",
+     "xato": "bu molekula ichidagi bog' emas, molekulalararo kuch"
+    }
+   ],
+   "yechim": "0 < 1,4 < 1,7 → qutbli kovalent (suvdagi O–H bog'lari).",
+   "parametrlar": {
+    "arch": "em_oqish"
+   },
+   "fig": "em_axis"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.4",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.4",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.4",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch modda berilgan: muz (H₂O), osh tuzi (NaCl) va mis sim (Cu). 33–35-savollarda mos panjara/bog' turini A–F ro'yxatidan tanlang.",
+   "savollar_ichki": [
+    "33. Muz kristalining panjara turi qanday?",
+    "34. Osh tuzi kristalining panjara turi qanday?",
+    "35. Mis simdagi bog'lanish turi qanday?"
+   ],
+   "javoblar_royxati": [
+    "A) molekular",
+    "B) ion",
+    "C) metall",
+    "D) atom",
+    "E) vodorod",
+    "F) donor-akseptor"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "atom panjara — olmos, SiO₂ kabilarda"
+    },
+    {
+     "variant": "E",
+     "xato": "vodorod bog' — panjara turi emas, molekulalararo kuch"
+    },
+    {
+     "variant": "F",
+     "xato": "mexanizm nomi"
+    }
+   ],
+   "yechim": "Muz — molekulalar tugunlarda (A); NaCl — ionlar (B); Cu — metall bog'lanish (C).",
+   "parametrlar": {
+    "arch": "uch_modda_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "F₂ molekulasidagi bog' turini yozing (qutbli/qutbsiz kovalent, ion, metall).",
+   "javob": "qutbsiz kovalent",
+   "yechim": "Bir xil atomlar — ΔEM = 0.",
+   "parametrlar": {
+    "arch": "f2_o1"
+   },
+   "tur": "O1",
+   "element": "I.4"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "H₂O molekulasidagi σ-bog'lar sonini yozing.",
+   "javob": "2",
+   "yechim": "Ikki O–H yakka bog' — 2 σ.",
+   "parametrlar": {
+    "arch": "h2o_o1"
+   },
+   "tur": "O1",
+   "element": "I.4"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "C₂H₂ (asetilen) molekulasidagi BARCHA bog'lar sonini toping (σ + π).",
+   "javob": "5",
+   "yechim": "σ: 2 C–H + 1 C–C = 3; π: 2 → jami 5.",
+   "parametrlar": {
+    "arch": "c2h2_o1"
+   },
+   "tur": "O1",
+   "element": "I.4"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Olmosning kristall panjara turini yozing.",
+   "javob": "atom",
+   "yechim": "Tugunlarda C atomlari, kovalent to'r — atom panjara.",
+   "parametrlar": {
+    "arch": "olmos_o1"
+   },
+   "tur": "O1",
+   "element": "I.4"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "MgCl₂ formula birligidagi ion bog'lar sonini yozing.",
+   "javob": "2",
+   "yechim": "Mg²⁺ ikkita Cl⁻ bilan — 2 ta ion bog'.",
+   "parametrlar": {
+    "arch": "mgcl2_o1"
+   },
+   "tur": "O1",
+   "element": "I.4"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Quyidagi moddalar berilgan: NaCl, H₂O, N₂, Cu. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir moddadagi bog'lanish turini aniqlang.",
+     "yechim": [
+      "NaCl — ion; H₂O — qutbli kovalent; N₂ — qutbsiz kovalent; Cu — metall"
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) N₂ dagi σ- va π-bog'lar sonini yozing.",
+     "yechim": [
+      "1 σ va 2 π (uch karrali bog')"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Har bir moddaning qattiq holatdagi panjara turini ko'rsating.",
+     "yechim": [
+      "NaCl — ion; muz — molekular; qattiq N₂ — molekular; Cu — metall"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Qaysi modda suyuq holatda vodorod bog'lanish hosil qiladi? Sxemasini chizing.",
+     "yechim": [
+      "H₂O: O–H···O (H bilan qo'shni molekula kislorodi orasida)."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "To'rt modda tahlili: bog' → sanash → panjara → vodorod bog'; M15+A10.",
+   "parametrlar": {
+    "arch": "tort_modda"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Oshxonadagi ikki oq kukun adashtirib qo'yildi: biri osh tuzi, biri shakar. Quyidagi savollarga MULOHAZA yuritib javob yozing (tatib ko'rish mumkin emas!).",
+   "bandlar": [
+    {
+     "savol": "a) Bog'lanish nazariyasiga tayanib, ularni farqlashning kamida ikkita usulini asoslab yozing.",
+     "yechim": [
+      "1) Eritmaning tok o'tkazishi: tuz (ion) — o'tkazadi, shakar (molekular) — yo'q.",
+      "2) Qizdirish: shakar past t da eriydi/kuyadi, tuz 801 °C gacha chidaydi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega tuz eritmasi tok o'tkazadi-yu, shakar eritmasi o'tkazmaydi?",
+     "yechim": [
+      "Tuz ionlarga ajraladi (erkin zaryad tashuvchilar); shakar molekulalar holida eriydi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Ikkala moddaning kristall panjara turlarini yozing.",
+     "yechim": [
+      "NaCl — ion panjara; shakar — molekular panjara."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Hayotiy detektiv (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "tuz_shakar"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.4",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "O'quvchi uch moddani qizdirib, xossalarini jadvalga yozdi:\n[JADVAL] Modda | Suyuql. t, °C | Qattiqlik | Eritmasi/suyuqlanmasi tok o'tkazishi ;; shakar | 186 | yumshoq | yo'q ;; kvars (SiO₂) | 1710 | juda qattiq | (erimaydi) ;; KCl | 776 | mo'rt | ha\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir moddaning panjara turini xossalariga asoslanib aniqlang.",
+     "yechim": [
+      "Shakar — molekular (past t, yumshoq); kvars — atom (o'ta yuqori t, qattiq);",
+      "KCl — ion (mo'rt, suyuqlanmasi elektrolit)."
+     ],
+     "M": 6,
+     "A": 3
+    },
+    {
+     "savol": "b) Qaysi moddada bog'lar eng mustahkam? Asoslang.",
+     "yechim": [
+      "Kvarsda — uzluksiz kovalent to'r (atom panjara), suyuqlantirish eng qiyin."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) KCl ning mo'rtligini panjara tuzilishi orqali izohlang.",
+     "yechim": [
+      "Siljishda bir xil zaryadli ionlar ro'para kelib itarishadi — kristall yoriladi."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Har bir panjara turiga yana bittadan misol keltiring.",
+     "yechim": [
+      "Molekular — muz/CO₂; atom — olmos; ion — NaCl."
+     ],
+     "M": 3,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Xossa-jadval tahlili: M15+A10. B-variantdagidan boshqa moddalar.",
+   "parametrlar": {
+    "arch": "uch_xossa"
+   }
+  }
+ ]
+}
