@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-II5-B",
+ "daraja": "B",
+ "bob": 15,
+ "bob_nomi": "Metallmaslar. Vodorod. Mineral o'g'itlar",
+ "manba": "Tongotarov/DTM metalmaslar banki arxetiplari (noma'lum galogen, cheklovchi reagent, sanoat zanjirlari, o'g'it hisoblari) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi II.5",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: ammiak favvorasi, kontakt va HNO₃ zanjirlari, unum va aralashma masalalari.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Galogenlar haqidagi TO'G'RI fikrlarni tanlang:\n1) tashqi qavatida 7 tadan elektron bor;  2) guruhda pastga oksidlovchilik kuchayadi;  3) faolroq galogen passivrog'ini tuzidan siqib chiqaradi;  4) vodorod bilan HX tipidagi birikmalar beradi.",
+   "variantlar": [
+    "1, 2 va 3",
+    "faqat 1 va 4",
+    "1, 3 va 4",
+    "hammasi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oksidlovchilik pastga KAMAYADI"
+    },
+    {
+     "variant": "B",
+     "xato": "3 ham to'g'ri (Cl₂ + KBr)"
+    },
+    {
+     "variant": "D",
+     "xato": "2 noto'g'ri"
+    }
+   ],
+   "yechim": "ns²np⁵; F > Cl > Br > I; Cl₂ + 2KBr → 2KCl + Br₂; HF...HI.",
+   "parametrlar": {
+    "arch": "galogen_fikr_tanlov"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "HX tipidagi birikmada vodorodning massa ulushi 2,74 %. X elementni aniqlang.",
+   "variantlar": [
+    "F",
+    "Cl",
+    "Br",
+    "I"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "HF da ω(H) = 5 %"
+    },
+    {
+     "variant": "C",
+     "xato": "HBr da ω(H) = 1,23 %"
+    },
+    {
+     "variant": "D",
+     "xato": "HI da ω(H) = 0,78 %"
+    }
+   ],
+   "yechim": "M(HX) = 1/0,0274 ≈ 36,5 → M(X) = 35,5 — xlor.",
+   "parametrlar": {
+    "arch": "nomalum_galogen"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Laboratoriyada ammiak qanday olinadi?",
+   "variantlar": [
+    "azot va vodorodni aralashtirib",
+    "NH₄Cl va Ca(OH)₂ aralashmasini qizdirib",
+    "NH₄NO₃ ni suvda eritib",
+    "azotni suvda eritib"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sintez yuqori bosim/katalizator talab qiladi"
+    },
+    {
+     "variant": "C",
+     "xato": "erish NH₃ ajratmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "N₂ suv bilan reaksiyaga kirishmaydi"
+    }
+   ],
+   "yechim": "2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃↑ + 2H₂O — «ishqor + ammoniy tuzi» usuli.",
+   "parametrlar": {
+    "arch": "nh3_lab_olinish"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "4NH₃ + 5O₂ → 4NO + 6H₂O (katalizator). 0,4 mol ammiak oksidlanganda hosil bo'lgan NO hajmini (n.sh.) toping.",
+   "variantlar": [
+    "11,2 L",
+    "4,48 L",
+    "22,4 L",
+    "8,96 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 4:4 = 1:1"
+    },
+    {
+     "variant": "B",
+     "xato": "0,2 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    }
+   ],
+   "yechim": "n(NO) = 0,4 mol → V = 8,96 L — nitrat kislota zanjirining 2-bosqichi.",
+   "parametrlar": {
+    "arch": "nh3_oksidlanish"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda «ammiak favvorasi» tajribasi: NH₃ to'la kolbaga bir tomchi suv kiritilganda suv kuchli otilib chiqa boshlaydi. Buning sababi nimada?",
+   "variantlar": [
+    "NH₃ suvda juda yaxshi erib, kolbada bosim keskin pasayadi",
+    "NH₃ suv bilan portlaydi",
+    "suv NH₃ ni siqib chiqaradi",
+    "kolba qizib ketadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "portlash yo'q — erish bor"
+    },
+    {
+     "variant": "C",
+     "xato": "aksincha, tashqi bosim suvni ichkariga itaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "harorat emas, bosim farqi sabab"
+    }
+   ],
+   "yechim": "1 hajm suv ~700 hajm NH₃ ni yutadi → vakuumga yaqin holat → atmosfera suvni «otib» kiritadi.",
+   "parametrlar": {
+    "arch": "favvora_oqish"
+   },
+   "fig": "fountain"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Xlor suvda eriganida qanday jarayon boradi va eritma nima uchun oqartirish xossasiga ega?",
+   "variantlar": [
+    "Cl₂ + H₂O ⇄ HCl + HClO; gipoxlorit kislota kuchli oksidlovchi",
+    "xlor shunchaki eriydi",
+    "Cl₂ + H₂O → 2HCl + O₂ to'liq",
+    "xlor suvni muzlatadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "qisman kimyoviy reaksiya boradi"
+    },
+    {
+     "variant": "C",
+     "xato": "bunday to'liq parchalanish yorug'likda sekin boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "harorat bilan bog'liq emas"
+    }
+   ],
+   "yechim": "HClO bo'yoq molekulalarini oksidlab buzadi — «xlorka»ning ishlash asosi.",
+   "parametrlar": {
+    "arch": "xlorli_suv"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi jarayonlarda VODOROD olinadi?\n1) Zn + HCl;  2) Cu + HCl;  3) suvning elektrolizi;  4) CaCO₃ ni qizdirish;  5) Na + H₂O.",
+   "variantlar": [
+    "1, 2 va 3",
+    "1, 3 va 5",
+    "faqat 1 va 3",
+    "hammasi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu kislotadan H₂ ajratmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "Na + H₂O ham H₂ beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "2 va 4 — yo'q"
+    }
+   ],
+   "yechim": "Faol metall + kislota/suv va elektroliz — H₂ manbalari; CaCO₃ esa CO₂ beradi.",
+   "parametrlar": {
+    "arch": "h2_olinish_tanlov"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Sulfat kislota ishlab chiqarishning KONTAKT usuli bosqichlarini to'g'ri tartibda ko'rsating.",
+   "variantlar": [
+    "S → SO₃ → SO₂ → H₂SO₄",
+    "S → SO₂ → SO₃ → H₂SO₄",
+    "S → H₂S → SO₂ → H₂SO₄",
+    "S → SO₂ → H₂SO₃ → H₂SO₄"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "avval SO₂, keyin katalitik SO₃"
+    },
+    {
+     "variant": "C",
+     "xato": "vodorod sulfid bosqichi yo'q"
+    },
+    {
+     "variant": "D",
+     "xato": "sulfit kislota orqali emas"
+    }
+   ],
+   "yechim": "Yonish → katalitik oksidlanish (V₂O₅) → absorbsiya (oleum orqali).",
+   "parametrlar": {
+    "arch": "kontakt_tartib"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi o'g'itlarni beradigan elementi bilan TO'G'RI moslang:\n[JADVAL] O'g'it | Element ;; a) karbamid CO(NH₂)₂ | 1) K ;; b) superfosfat | 2) N ;; c) silvinit | 3) P",
+   "variantlar": [
+    "a—1, b—2, c—3",
+    "a—2, b—1, c—3",
+    "a—2, b—3, c—1",
+    "a—3, b—2, c—1"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "karbamid — azotli"
+    },
+    {
+     "variant": "B",
+     "xato": "superfosfat — fosforli"
+    },
+    {
+     "variant": "D",
+     "xato": "moslashuvlar chalkash"
+    }
+   ],
+   "yechim": "Karbamid — N (46 %); superfosfat — P; silvinit (KCl·NaCl) — K.",
+   "parametrlar": {
+    "arch": "ogit_moslash_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ammiakli selitradagi (NH₄NO₃) azotning massa ulushini toping. (M(NH₄NO₃)=80)",
+   "variantlar": [
+    "35 %",
+    "17,5 %",
+    "28 %",
+    "46 %"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "molekulada IKKITA azot bor"
+    },
+    {
+     "variant": "C",
+     "xato": "bu azot massasi, ulush emas"
+    },
+    {
+     "variant": "D",
+     "xato": "bu karbamid ko'rsatkichi"
+    }
+   ],
+   "yechim": "ω(N) = 2·14/80 = 35 %.",
+   "parametrlar": {
+    "arch": "selitra_azot"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,4 mol azot va 0,9 mol vodorod aralashmasi reaksiyaga kiritildi (N₂ + 3H₂ → 2NH₃, to'liq unum deb hisoblang). Necha mol ammiak hosil bo'ladi?",
+   "variantlar": [
+    "0,8",
+    "0,6",
+    "1,3",
+    "0,3"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "vodorod yetmaydi — u cheklovchi"
+    },
+    {
+     "variant": "C",
+     "xato": "mollar shunchaki qo'shilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "nisbat 3:2, teskari emas"
+    }
+   ],
+   "yechim": "0,4 mol N₂ ga 1,2 mol H₂ kerak edi; H₂ cheklovchi: n(NH₃) = 0,9·2/3 = 0,6 mol.",
+   "parametrlar": {
+    "arch": "cheklovchi_nh3"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Ozon qatlamining Yer hayoti uchun ahamiyati nimada?",
+   "variantlar": [
+    "kislorod zaxirasini saqlaydi",
+    "issiqlikni ushlab turadi",
+    "yomg'ir hosil qiladi",
+    "Quyoshning zararli ultrabinafsha nurlarini yutadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nafas uchun ozon emas, O₂ xizmat qiladi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu — issiqxona gazlari vazifasi"
+    },
+    {
+     "variant": "C",
+     "xato": "ozon yog'ingarchilikka aloqasiz"
+    }
+   ],
+   "yechim": "Stratosferadagi O₃ UV-B nurlarni yutib, tiriklikni himoya qiladi.",
+   "parametrlar": {
+    "arch": "ozon_qatlam"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Konsentrlangan xlorid kislota ochiq idishda nega «tutaydi»?",
+   "variantlar": [
+    "kislota qaynayapti",
+    "idish qiziyapti",
+    "xlor gazi ajralyapti",
+    "uchuvchan HCl gazi havo namligi bilan tuman hosil qiladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "xona haroratida qaynamaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "issiqliksiz ham tutaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ajralayotgani — HCl, Cl₂ emas"
+    }
+   ],
+   "yechim": "HCl juda uchuvchan: bug'lari nam havoda mayda tomchilar («tuman») beradi.",
+   "parametrlar": {
+    "arch": "hcl_tutash"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring (oddiy sharoitda):\n[JADVAL] Galogen | Agregat holati ;; Cl₂ | ? ;; Br₂ | ? ;; I₂ | ?",
+   "variantlar": [
+    "gaz; suyuqlik; qattiq",
+    "gaz; gaz; suyuqlik",
+    "suyuqlik; qattiq; gaz",
+    "gaz; qattiq; suyuqlik"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Br₂ — yagona suyuq metallmas"
+    },
+    {
+     "variant": "C",
+     "xato": "tartib chalkash"
+    },
+    {
+     "variant": "D",
+     "xato": "I₂ — qattiq, uchuvchan"
+    }
+   ],
+   "yechim": "Molekula kattalashgani sari: gaz → suyuq → qattiq.",
+   "parametrlar": {
+    "arch": "galogen_holat_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "44,8 L (n.sh.) ammiakning massasini toping. (M(NH₃)=17)",
+   "variantlar": [
+    "34 g",
+    "17 g",
+    "22,4 g",
+    "68 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 mol bor"
+    },
+    {
+     "variant": "C",
+     "xato": "hajm bilan chalkashuv"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 2 mol → m = 34 g.",
+   "parametrlar": {
+    "arch": "nh3_massa_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Vodorod sanoatda asosan qanday olinadi?",
+   "variantlar": [
+    "faqat rux va kislotadan",
+    "havoni suyultirib",
+    "neftni haydab",
+    "tabiiy gazni (metanni) suv bug'i bilan konversiya qilib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu laboratoriya usuli — qimmat"
+    },
+    {
+     "variant": "B",
+     "xato": "havoda H₂ deyarli yo'q"
+    },
+    {
+     "variant": "C",
+     "xato": "haydash H₂ ajratmaydi"
+    }
+   ],
+   "yechim": "CH₄ + H₂O → CO + 3H₂ (konversiya); yana suv elektrolizi ham qo'llanadi.",
+   "parametrlar": {
+    "arch": "h2_sanoat"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "P₂O₅ + 3H₂O → 2H₃PO₄. 14,2 g fosfor(V) oksididan olingan kislota massasini toping. (M: P₂O₅=142, H₃PO₄=98)",
+   "variantlar": [
+    "19,6 g",
+    "9,8 g",
+    "98 g",
+    "39,2 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,1 mol → H₃PO₄ 0,2 mol → 19,6 g.",
+   "parametrlar": {
+    "arch": "h3po4_hisob"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi gaz havodan YENGIL va nam lakmus qog'ozni KO'KARTIRADI?",
+   "variantlar": [
+    "HCl",
+    "CO₂",
+    "NH₃",
+    "Cl₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u qizartiradi va og'irroq"
+    },
+    {
+     "variant": "B",
+     "xato": "kislotali, og'ir"
+    },
+    {
+     "variant": "D",
+     "xato": "og'ir, oqartiradi"
+    }
+   ],
+   "yechim": "Ammiak — yagona keng tarqalgan ishqoriy gaz.",
+   "parametrlar": {
+    "arch": "ishqoriy_gaz"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol tajribasida kolbaga otilib kirayotgan suvga fenolftalein qo'shilgan edi. Favvora qanday rangda bo'ladi va nima uchun?",
+   "variantlar": [
+    "rangsiz — muhit neytral",
+    "qizil — muhit kislotali",
+    "ko'k — mis ionlari bor",
+    "pushti — NH₃ eritmasi ishqoriy muhit beradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NH₃·H₂O — asos"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota yo'q; fenolftalein kislotada rangsiz"
+    },
+    {
+     "variant": "C",
+     "xato": "eritmada mis yo'q"
+    }
+   ],
+   "yechim": "NH₃ + H₂O ⇄ NH₄⁺ + OH⁻: fenolftalein pushti «favvora» — samarali namoyish.",
+   "parametrlar": {
+    "arch": "favvora_rang"
+   },
+   "fig": "fountain"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Oltingugurtning qaysi qo'llanilishi TO'G'RI ko'rsatilgan?",
+   "variantlar": [
+    "mikrosxemalar yasash",
+    "lampochka to'ldirish",
+    "kauchukni vulkanizatsiya qilish",
+    "ichimlik suvini xlorlash"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u — kremniy"
+    },
+    {
+     "variant": "B",
+     "xato": "u — inert gazlar"
+    },
+    {
+     "variant": "D",
+     "xato": "u — xlor"
+    }
+   ],
+   "yechim": "S kauchukka «ko'prik» bog'lar hosil qilib, uni pishiq rezinaga aylantiradi.",
+   "parametrlar": {
+    "arch": "s_vulkanizatsiya"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Cl₂ + 2KI → 2KCl + I₂. 0,1 mol xlor to'liq reaksiyaga kirishganda ajralgan yod massasini toping. (M(I₂)=254)",
+   "variantlar": [
+    "12,7 g",
+    "254 g",
+    "25,4 g",
+    "50,8 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 1:1 (mol bo'yicha)"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "Faol galogen passivini siqib chiqaradi: n(I₂) = 0,1 → 25,4 g (eritma qo'ng'irlashadi).",
+   "parametrlar": {
+    "arch": "galogen_siqish_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi moddalar AZOTLI o'g'it hisoblanadi?\n1) NH₄NO₃;  2) (NH₄)₂SO₄;  3) CO(NH₂)₂;  4) KCl;  5) Ca(H₂PO₄)₂.",
+   "variantlar": [
+    "1, 2 va 3",
+    "1, 2 va 4",
+    "faqat 1",
+    "1, 3 va 5"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "KCl — kaliyli"
+    },
+    {
+     "variant": "C",
+     "xato": "sulfat va karbamid ham azot beradi"
+    },
+    {
+     "variant": "D",
+     "xato": "superfosfat — fosforli"
+    }
+   ],
+   "yechim": "Selitra, ammoniy sulfat, karbamid — azot manbalari.",
+   "parametrlar": {
+    "arch": "azotli_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Karbamid CO(NH₂)₂ dagi azotning massa ulushini toping. (M=60)",
+   "variantlar": [
+    "23,3 %",
+    "35 %",
+    "46,7 %",
+    "14 %"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "molekulada 2 ta azot"
+    },
+    {
+     "variant": "B",
+     "xato": "bu selitra ko'rsatkichi"
+    },
+    {
+     "variant": "D",
+     "xato": "bitta azot massasi bilan chalkashuv"
+    }
+   ],
+   "yechim": "ω = 28/60 ≈ 46,7 % — eng konsentrlangan azotli o'g'it.",
+   "parametrlar": {
+    "arch": "karbamid_azot"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "«Qaldiroq gaz» nima?",
+   "variantlar": [
+    "vodorod va kislorodning 2:1 hajmiy aralashmasi",
+    "toza vodorod",
+    "vodorod va azot aralashmasi",
+    "metan va havo"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "toza H₂ tinch yonadi"
+    },
+    {
+     "variant": "C",
+     "xato": "azot yonmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "u ham portlaydi, lekin nomi boshqa"
+    }
+   ],
+   "yechim": "2H₂ + O₂ — uchqundan kuchli portlaydi; nomi shundan.",
+   "parametrlar": {
+    "arch": "qaldiroq_gaz"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NO ni NO₂ ga aylantirish uchun qanday shart YETARLI?",
+   "variantlar": [
+    "yuqori bosim va katalizator",
+    "kuchli qizdirish",
+    "havo kislorodi bilan aralashtirish (oddiy sharoitda)",
+    "suvdan o'tkazish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu NH₃ sintezi sharoiti"
+    },
+    {
+     "variant": "B",
+     "xato": "aksincha, qizdirish muvozanatni buzadi"
+    },
+    {
+     "variant": "D",
+     "xato": "NO suvda deyarli erimaydi"
+    }
+   ],
+   "yechim": "2NO + O₂ → 2NO₂ — rangsiz gaz havoda o'z-o'zidan qo'ng'irlashadi.",
+   "parametrlar": {
+    "arch": "no_no2"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Grafikda galogenlarning qaynash haroratlari berilgan. Xona haroratida (25 °C) SUYUQ holatda bo'lgan galogen qaysi?",
+   "variantlar": [
+    "Cl₂",
+    "I₂",
+    "Br₂",
+    "F₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "−34 °C da qaynaydi — xonada gaz"
+    },
+    {
+     "variant": "B",
+     "xato": "xonada qattiq"
+    },
+    {
+     "variant": "D",
+     "xato": "−188 °C — gaz"
+    }
+   ],
+   "yechim": "Br₂: suyuqlanishi −7 °C, qaynashi 59 °C → 25 °C da suyuq (yagona suyuq metallmas).",
+   "parametrlar": {
+    "arch": "bp_line_oqish"
+   },
+   "fig": "bp_line"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Kontakt usuli bo'yicha (yo'qotishsiz) 3,2 g oltingugurtdan necha gramm sulfat kislota olinadi? (M: S=32, H₂SO₄=98)",
+   "variantlar": [
+    "98 g",
+    "9,8 g",
+    "4,9 g",
+    "19,6 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,05 mol deb yarim olingan xato"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "S → SO₂ → SO₃ → H₂SO₄ (1:1:1:1): n = 0,1 mol → m = 9,8 g.",
+   "parametrlar": {
+    "arch": "kontakt_hisob"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "26-savol grafigidan: yod (I₂) xona haroratida qanday holatda bo'ladi?",
+   "variantlar": [
+    "gaz",
+    "suyuq",
+    "plazma",
+    "qattiq (qaynash harorati 184 °C)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "gaz bo'lish uchun t(qayn.) xona haroratidan past bo'lishi kerak"
+    },
+    {
+     "variant": "B",
+     "xato": "suyuq galogen — brom"
+    },
+    {
+     "variant": "C",
+     "xato": "oddiy sharoitda emas"
+    }
+   ],
+   "yechim": "I₂ — to'q binafsha qattiq modda; qizdirilsa sublimatlanadi.",
+   "parametrlar": {
+    "arch": "bp_line_i2"
+   },
+   "fig": "bp_line"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5,6 L (n.sh.) azot yetarli vodorod bilan to'liq reaksiyaga kirishdi. Hosil bo'lgan ammiak massasini toping. (M(NH₃)=17)",
+   "variantlar": [
+    "4,25 g",
+    "8,5 g",
+    "17 g",
+    "34 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "2 mol uchun"
+    }
+   ],
+   "yechim": "n(N₂) = 0,25 → NH₃ 0,5 mol → m = 8,5 g.",
+   "parametrlar": {
+    "arch": "nh3_massa_zanjir"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Oq fosfor qanday saqlanadi va nima uchun?",
+   "variantlar": [
+    "kerosin ostida",
+    "suv ostida — havoda o'z-o'zidan alangalanadi",
+    "ochiq havoda",
+    "ampulada faqat"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kerosin — ishqoriy metallar uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "40 °C dayoq o'z-o'zidan yonadi"
+    },
+    {
+     "variant": "D",
+     "xato": "suv yetarli himoya"
+    }
+   ],
+   "yechim": "P₄ suv bilan reaksiyaga kirishmaydi — suv uni havodan to'sadi.",
+   "parametrlar": {
+    "arch": "fosfor_saqlash"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃ + 2H₂O. 10,7 g ammoniy xlorid to'liq reaksiyaga kirishganda ajralgan ammiak hajmini (n.sh.) toping. (M(NH₄Cl)=53,5)",
+   "variantlar": [
+    "2,24 L",
+    "22,4 L",
+    "8,96 L",
+    "4,48 L"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "nisbat 2:2 = 1:1"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n = 0,2 mol → n(NH₃) = 0,2 → V = 4,48 L.",
+   "parametrlar": {
+    "arch": "nh4cl_nh3_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "26-savol grafigidan: brom va xlor qaynash haroratlari orasidagi farqni toping.",
+   "variantlar": [
+    "25 °C",
+    "59 °C",
+    "125 °C",
+    "93 °C"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "farq emas"
+    },
+    {
+     "variant": "B",
+     "xato": "bu bromning o'zi"
+    },
+    {
+     "variant": "C",
+     "xato": "boshqa juftlik farqi"
+    }
+   ],
+   "yechim": "59 − (−34) = 93 °C.",
+   "parametrlar": {
+    "arch": "bp_line_farq"
+   },
+   "fig": "bp_line"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.5",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.5",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "II.5",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "II.5",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch metallmas berilgan: X — sariq qattiq modda, yonganda bo'g'uvchi hidli gaz beradi; Y — sariq-yashil zaharli gaz, nam rangli matoni oqartiradi; Z — rangsiz gaz, havoning asosiy qismi. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. X element qaysi?",
+    "34. Y ning suvdagi eritmasi nima deb ataladi?",
+    "35. Z dan sanoatda qaysi muhim mahsulot olinadi?"
+   ],
+   "javoblar_royxati": [
+    "A) oltingugurt",
+    "B) xlorli suv",
+    "C) ammiak",
+    "D) fosfor",
+    "E) nashatir spirti",
+    "F) kislorod"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "fosfor yonganda oq tutun (P₂O₅) beradi, bo'g'uvchi SO₂ emas"
+    },
+    {
+     "variant": "E",
+     "xato": "nashatir spirti — NH₃ eritmasi, xlorniki emas"
+    },
+    {
+     "variant": "F",
+     "xato": "azotdan kislorod olinmaydi — NH₃ sintez qilinadi"
+    }
+   ],
+   "yechim": "X — S (yonganda SO₂). Y — Cl₂, eritmasi xlorli suv (B). Z — N₂: undan Gaber usulida ammiak sintez qilinadi (C).",
+   "parametrlar": {
+    "arch": "uch_metallmas_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,3 mol azot va 0,6 mol vodorod aralashmasi reaksiyaga kiritildi; unum 50 %. Hosil bo'lgan ammiak massasini (g) toping. (M(NH₃)=17)",
+   "javob": "3,4",
+   "yechim": "H₂ cheklovchi: nazariy NH₃ = 0,4 mol; unum 50 % → 0,2 mol → m = 3,4 g.",
+   "parametrlar": {
+    "arch": "unum_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.5"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "S → SO₂ → SO₃ → H₂SO₄ zanjiri bo'yicha 6,4 g oltingugurtdan (yo'qotishsiz) olingan kislota massasini (g) toping. (M: S=32, H₂SO₄=98)",
+   "javob": "19,6",
+   "yechim": "n = 0,2 mol → H₂SO₄ 0,2 mol → m = 19,6 g.",
+   "parametrlar": {
+    "arch": "kontakt_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.5"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi zanjir bo'yicha 4,48 L (n.sh.) ammiakdan (yo'qotishsiz) olingan nitrat kislota massasini (g) toping. (M(HNO₃)=63)",
+   "javob": "12,6",
+   "yechim": "NH₃ → NO → NO₂ → HNO₃ (1:1:1:1): n = 0,2 mol → m = 12,6 g.",
+   "parametrlar": {
+    "arch": "sxema_hno3_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "II.5"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Fermerga 160 kg ammiakli selitra keltirildi (ω(N) = 35 %). Bu o'g'it tuproqqa necha kg azot beradi?",
+   "javob": "56",
+   "yechim": "m(N) = 160 · 0,35 = 56 kg.",
+   "parametrlar": {
+    "arch": "ogit_azot_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.5"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "KClO₃ va KCl dan iborat 20 g aralashma qizdirilganda 3,36 L (n.sh.) kislorod ajraldi (2KClO₃ → 2KCl + 3O₂). Boshlang'ich aralashmadagi KCl massasini (g) toping. (M(KClO₃)=122,5)",
+   "javob": "7,75",
+   "yechim": "n(O₂) = 0,15 → n(KClO₃) = 0,1 mol → 12,25 g → m(KCl) = 20 − 12,25 = 7,75 g.",
+   "parametrlar": {
+    "arch": "kclo3_aralashma_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.5"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Zavodda azotdan nitrat kislota olinadi: N₂ → NH₃ → NO → NO₂ → HNO₃. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Birinchi bosqich (ammiak sintezi) tenglamasini va sharoitlarini yozing.",
+     "yechim": [
+      "N₂ + 3H₂ ⇄ 2NH₃ — yuqori bosim, ~450 °C, temir katalizator."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) 0,2 mol azotdan (yo'qotishsiz) olinadigan ammiak massasini toping. (M(NH₃)=17)",
+     "yechim": [
+      "n(NH₃) = 0,4 mol → m = 6,8 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Shu ammiakdan zanjir bo'yicha olinadigan HNO₃ massasini hisoblang. (M(HNO₃)=63)",
+     "yechim": [
+      "NH₃ → HNO₃ (1:1): n = 0,4 mol → m = 25,2 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Agar umumiy unum 80 % bo'lsa, amalda olinadigan kislota massasini toping.",
+     "yechim": [
+      "m = 25,2 · 0,8 = 20,16 g."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "HNO₃ zanjiri: sintez → NH₃ → kislota → unum; M15+A10.",
+   "parametrlar": {
+    "arch": "hno3_o2_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Azot elementining «paradoksi» tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega azot oddiy sharoitda deyarli hech narsa bilan reaksiyaga kirishmaydi, lekin azot birikmalari (nitratlar, NH₃) juda faol? Molekula tuzilishi asosida tushuntiring.",
+     "yechim": [
+      "N≡N uch bog'ining energiyasi juda katta (945 kJ/mol) — uni uzish qiyin.",
+      "Birikmalarda esa bunday to'siq yo'q: azot atomi turli darajalarda faol qatnashadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Tabiatda azot qanday yo'llar bilan «bog'lanadi»?",
+     "yechim": [
+      "Chaqmoq (N₂ + O₂ → NO) va tuganak bakteriyalar (dukkakli o'simliklar ildizida)."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Sanoatda azotni bog'lash usulining nomini yozing.",
+     "yechim": [
+      "Gaber(-Bosh) usuli — ammiak sintezi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Azot-paradoks (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "azot_paradoks_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.5",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Uch azotli o'g'it solishtiriladi:\n[JADVAL] O'g'it | Formula | M ;; selitra | NH₄NO₃ | 80 ;; ammoniy sulfat | (NH₄)₂SO₄ | 132 ;; karbamid | CO(NH₂)₂ | 60\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir o'g'itdagi azotning massa ulushini hisoblang.",
+     "yechim": [
+      "Selitra: 28/80 = 35 %; ammoniy sulfat: 28/132 ≈ 21,2 %; karbamid: 28/60 ≈ 46,7 %."
+     ],
+     "M": 6,
+     "A": 3
+    },
+    {
+     "savol": "b) Azotga eng boy o'g'itni aniqlang.",
+     "yechim": [
+      "Karbamid — 46,7 %."
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "c) 500 kg karbamid tuproqqa qancha azot berishini toping.",
+     "yechim": [
+      "m(N) = 500 · 0,467 ≈ 233,5 kg."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega bir xil massa uchun karbamid tashish iqtisodiy foydali?",
+     "yechim": [
+      "Har kg da azot ko'p — tashish va saqlash xarajati birlik azotga kam tushadi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'g'it-taqqoslash: ω(N) → tanlash → hisob → iqtisod; M15+A10.",
+   "parametrlar": {
+    "arch": "ogit_taqqos_o2"
+   }
+  }
+ ]
+}
