@@ -1,0 +1,1356 @@
+{
+ "variant": "mavzu-I10-B",
+ "daraja": "B",
+ "bob": 10,
+ "bob_nomi": "Elektroliz",
+ "manba": "Tongotarov elektroliz banki (2019-2021) arxetiplari — javoblar mustaqil qayta hisoblangan; MS spetsifikatsiyasi I.10",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: Faradey hisoblari, ikki bosqichli katod, teskari X% masalalar, 1-2-3 tanlovlar, grafik-jadval savollar.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaCl SUYUQLANMASI va NaCl ERITMASI inert elektrodlarda elektroliz qilinganda katodda mos ravishda nima ajraladi?",
+   "variantlar": [
+    "Na va H₂",
+    "Na va Na",
+    "H₂ va H₂",
+    "Cl₂ va O₂"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "eritmada aktiv metall ajralmaydi — suv qaytariladi"
+    },
+    {
+     "variant": "C",
+     "xato": "suyuqlanmada suv yo'q — Na⁺ qaytariladi"
+    },
+    {
+     "variant": "D",
+     "xato": "bular anod mahsulotlari"
+    }
+   ],
+   "yechim": "Suyuqlanmada raqobat yo'q: Na⁺+e→Na. Eritmada Na aktiv — suv qaytariladi: 2H₂O+2e→H₂+2OH⁻.",
+   "parametrlar": {
+    "arch": "suyuqlanma_eritma"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuSO₄ eritmasi inert elektrodlarda elektroliz qilinganda katod va anodda mos ravishda nima ajraladi, eritmada qaysi modda to'planadi?",
+   "variantlar": [
+    "Cu; SO₂; SO₃",
+    "H₂; O₂; CuSO₄",
+    "Cu; O₂; H₂SO₄",
+    "Cu; O₂; Cu(OH)₂"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sulfat-ion anodda oksidlanmaydi — suv oksidlanadi"
+    },
+    {
+     "variant": "B",
+     "xato": "Cu aktivlik qatorida H dan keyin — o'zi qaytariladi"
+    },
+    {
+     "variant": "D",
+     "xato": "eritmada H⁺ ortadi — kislota to'planadi"
+    }
+   ],
+   "yechim": "Katod: Cu²⁺+2e→Cu; anod: 2H₂O−4e→O₂+4H⁺ → eritmada H₂SO₄ to'planadi.",
+   "parametrlar": {
+    "arch": "cuso4_mahsulot"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Elektroliz jarayonida KATODDA qanday jarayon boradi?",
+   "variantlar": [
+    "oksidlanish — anionlar elektron beradi",
+    "neytrallanish",
+    "dissotsiatsiya",
+    "qaytarilish — kationlar (yoki suv) elektron oladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu anod jarayoni"
+    },
+    {
+     "variant": "B",
+     "xato": "kislota-asos jarayoni elektrodda bormaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "dissotsiatsiya eritmaning o'zida boradi"
+    }
+   ],
+   "yechim": "Katod manba «−» qutbiga ulanadi: unga kelgan zarrachalar e olib qaytariladi.",
+   "parametrlar": {
+    "arch": "katod_jarayon"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Oz miqdordagi CuSO₄ eritmasi doimiy tok bilan elektroliz qilinmoqda. KATOD massasining vaqtga bog'liq grafigi qanday bo'ladi? (Cu²⁺ tugagach elektroliz davom etadi.)",
+   "variantlar": [
+    "doimiy chiziqli ortadi",
+    "boshdan o'zgarmas",
+    "chiziqli ortib, so'ng o'zgarmay qoladi",
+    "ortib, keyin kamayadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu²⁺ tugagach katodda H₂ ajraladi — gaz massani oshirmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "Cu ajralar ekan massa ortadi"
+    },
+    {
+     "variant": "D",
+     "xato": "ajralgan mis qaytib erimaydi"
+    }
+   ],
+   "yechim": "Cu²⁺ bor ekan m ~ Q chiziqli ortadi; tugagach katodda H₂ chiqadi — massa o'zgarmaydi.",
+   "parametrlar": {
+    "arch": "grafik_mt"
+   },
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "rise",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "t",
+    "ylab": "m(katod)"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda AgNO₃ eritmasi elektrolizida katodda ajralgan kumush massasining o'tgan zaryadga (F) bog'liqligi berilgan. Grafikdan foydalanib, 0,2 F zaryadda ajralgan kumush massasini toping (g).",
+   "variantlar": [
+    "10,8",
+    "43,2",
+    "5,4",
+    "21,6"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,1 F qiymati"
+    },
+    {
+     "variant": "B",
+     "xato": "0,4 F qiymati"
+    },
+    {
+     "variant": "C",
+     "xato": "0,05 F qiymati"
+    }
+   ],
+   "yechim": "Ag⁺+e→Ag: 1 F → 108 g. Grafikdan: 0,2 F → 21,6 g.",
+   "parametrlar": {
+    "arch": "grafik_oqish",
+    "f": 0.2
+   },
+   "fig": "mt_graph"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuSO₄ ning mo'l eritmasidan 0,2 F zaryad o'tkazildi. Katodda ajralgan misning massasini (g) toping. (M(Cu)=64)",
+   "variantlar": [
+    "6,4",
+    "12,8",
+    "3,2",
+    "64"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "2 e ekani unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 F uchun qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "1 mol deb olingan"
+    }
+   ],
+   "yechim": "Cu²⁺+2e→Cu: n(Cu) = 0,2/2 = 0,1 mol → 6,4 g.",
+   "parametrlar": {
+    "arch": "faradey_cu"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaCl ning mo'l eritmasidan 1 F zaryad o'tkazilganda anodda ajralgan xlorning hajmini (l, n.sh.) toping.",
+   "variantlar": [
+    "22,4",
+    "11,2",
+    "5,6",
+    "44,8"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,25 mol xato"
+    },
+    {
+     "variant": "D",
+     "xato": "2 mol xato"
+    }
+   ],
+   "yechim": "2Cl⁻−2e→Cl₂: n(Cl₂) = 1/2 = 0,5 mol → 11,2 l.",
+   "parametrlar": {
+    "arch": "cl2_hajm"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi tuz ERITMASINING elektrolizi amalda faqat SUVNING parchalanishiga teng bo'ladi?",
+   "variantlar": [
+    "Na₂SO₄",
+    "CuSO₄",
+    "NaCl",
+    "AgNO₃"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "katodda mis ajraladi"
+    },
+    {
+     "variant": "C",
+     "xato": "anodda xlor ajraladi"
+    },
+    {
+     "variant": "D",
+     "xato": "katodda kumush ajraladi"
+    }
+   ],
+   "yechim": "Na⁺ (aktiv) qaytarilmaydi, SO₄²⁻ oksidlanmaydi → ikkala elektrodda ham suv parchalanadi (H₂ va O₂).",
+   "parametrlar": {
+    "arch": "suv_elektroliz_tuz"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Tarkibida Cu²⁺ va K⁺ ionlari bo'lgan eritma elektroliz qilinganda katodda BIRINCHI navbatda nima qaytariladi?",
+   "variantlar": [
+    "Cu²⁺ ionlari",
+    "K⁺ ionlari",
+    "ikkala ion baravar",
+    "suv molekulalari"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "aktiv metall ioni eritmada qaytarilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "qaytarilish osonligi aktivlikka teskari"
+    },
+    {
+     "variant": "D",
+     "xato": "Cu²⁺ turganda suv navbatda emas"
+    }
+   ],
+   "yechim": "Aktivlik qatorida keyin turgan metallning ioni oson qaytariladi: avval Cu²⁺, K⁺ esa umuman qaytarilmaydi.",
+   "parametrlar": {
+    "arch": "kation_navbat"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,1 kg 11,7 % li NaCl eritmasidan 1 F zaryad o'tkazildi. Elektroliz davomida sarflangan suvning massasini (g) toping. (M(NaCl)=58,5)",
+   "variantlar": [
+    "9",
+    "10,8",
+    "5,4",
+    "12,6"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat katod suvi hisoblangan holdagi xato"
+    },
+    {
+     "variant": "C",
+     "xato": "0,3 mol xato"
+    },
+    {
+     "variant": "D",
+     "xato": "0,4 mol NaCl (boshqa masala) qiymati"
+    }
+   ],
+   "yechim": "NaCl = 0,2 mol → 0,2 F da: 2NaCl+2H₂O→2NaOH+H₂+Cl₂ (suv 0,2 mol). Qolgan 0,8 F — suv elektrolizi: 2H₂O→2H₂+O₂ (4 F ga 2 mol) → 0,4 mol. Jami 0,6 mol = 10,8 g.",
+   "parametrlar": {
+    "arch": "suv_sarfi",
+    "nacl": 0.2
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,2 kg X % li CuSO₄ eritmasi orqali 2 F zaryad o'tkazilganda katodda 11,2 l (n.sh.) gaz ajraldi. X ni aniqlang (inert elektrodlar).",
+   "variantlar": [
+    "20",
+    "40",
+    "60",
+    "50"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Cu uchun 1 F deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "gaz 1 mol deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "eritma 0,16 kg xato"
+    }
+   ],
+   "yechim": "Katodda gaz (H₂ 0,5 mol) — 1 F sarflagan; qolgan 1 F misga: Cu = 0,5 mol → CuSO₄ 80 g → X = 80/200 = 40 %.",
+   "parametrlar": {
+    "arch": "teskari_foiz",
+    "m": 200,
+    "f": 2
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "K₂SO₄ eritmasi elektroliz qilinganda ANODDA qanday jarayon boradi?",
+   "variantlar": [
+    "SO₄²⁻ − 2e → SO₄ (ion oksidlanadi)",
+    "2H₂O − 4e → O₂ + 4H⁺ (suv oksidlanadi)",
+    "K⁺ + e → K",
+    "2H₂O + 2e → H₂ + 2OH⁻"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kislorodli kislota qoldig'i eritmada oksidlanmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu katod jarayoni bo'lardi (lekin K aktiv)"
+    },
+    {
+     "variant": "D",
+     "xato": "bu katodda boradigan qaytarilish"
+    }
+   ],
+   "yechim": "SO₄²⁻ barqaror — anodda suv oksidlanib O₂ ajraladi.",
+   "parametrlar": {
+    "arch": "anod_suv"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Tarkibida 0,1 mol AgNO₃ va 0,1 mol Cu(NO₃)₂ bo'lgan eritmadan 0,25 F zaryad o'tkazildi. Katodda ajralgan moddalarning umumiy massasini (g) toping. (M(Ag)=108, M(Cu)=64)",
+   "variantlar": [
+    "10,8",
+    "17,2",
+    "15,6",
+    "14,0"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat kumush hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "Cu 0,1 mol to'liq ajraldi deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "Ag uchun 2 e xato olingan"
+    }
+   ],
+   "yechim": "Avval Ag⁺: 0,1 mol (0,1 F) → 10,8 g. Qolgan 0,15 F → Cu 0,075 mol → 4,8 g. Jami 15,6 g.",
+   "parametrlar": {
+    "arch": "ketma_ket"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi metallar sanoatda ularning birikmalari SUYUQLANMASINI elektroliz qilib olinadi?\n1) natriy;  2) alyuminiy;  3) mis;  4) kalsiy.",
+   "variantlar": [
+    "1, 2 va 4",
+    "1 va 2",
+    "2 va 3",
+    "1, 3 va 4"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "Ca ham suyuqlanma (CaCl₂) elektrolizidan olinadi"
+    },
+    {
+     "variant": "C",
+     "xato": "mis eritma elektrolizi/pirometallurgiya bilan olinadi"
+    },
+    {
+     "variant": "D",
+     "xato": "mis suyuqlanmani talab qilmaydi"
+    }
+   ],
+   "yechim": "Aktiv metallar (Na, Ca, Al) suvli eritmadan ajralmaydi — faqat suyuqlanmadan olinadi. Cu — eritmadan.",
+   "parametrlar": {
+    "arch": "suyuqlanma_tanlov"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "2 A tok kuchida 0,02 mol elektron o'tishi uchun qancha vaqt (s) kerak? (F = 96500 C/mol)",
+   "variantlar": [
+    "1930",
+    "482,5",
+    "96,5",
+    "965"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Q ning o'zi (kulon)"
+    },
+    {
+     "variant": "B",
+     "xato": "4 A uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "o'n barobar xato"
+    }
+   ],
+   "yechim": "Q = 0,02·96500 = 1930 C → t = Q/I = 1930/2 = 965 s.",
+   "parametrlar": {
+    "arch": "vaqt_hisob"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Elektroliz vannasida KATOD tok manbaining qaysi qutbiga ulanadi va unda qanday zaryadli zarrachalar razryadlanadi?",
+   "variantlar": [
+    "musbat qutbga; anionlar",
+    "manfiy qutbga; kationlar",
+    "manfiy qutbga; anionlar",
+    "musbat qutbga; kationlar"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu anodning ta'rifi"
+    },
+    {
+     "variant": "C",
+     "xato": "manfiy elektrodga musbat ionlar tortiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "kationlar manfiy elektrodga boradi"
+    }
+   ],
+   "yechim": "Katod «−» qutbga ulanadi; unga musbat ionlar (kationlar) kelib qaytariladi.",
+   "parametrlar": {
+    "arch": "qutb"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Inert elektrodlardagi elektroliz mahsulotlari jadvalda berilgan:\n[JADVAL] Eritma | Katodda | Anodda ;; NaCl | ? | Cl₂ ;; CuSO₄ | Cu | ? ;; Na₂SO₄ | H₂ | O₂\n«?» o'rnidagi mahsulotlarni mos ravishda aniqlang.",
+   "variantlar": [
+    "Na va O₂",
+    "H₂ va SO₂",
+    "H₂ va O₂",
+    "Na va SO₃"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritmada natriy ajralmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "sulfat-ion oksidlanmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkala katak ham xato"
+    }
+   ],
+   "yechim": "NaCl eritmasida katodda suv qaytariladi (H₂); CuSO₄ da anodda suv oksidlanadi (O₂).",
+   "parametrlar": {
+    "arch": "mahsulot_jadval"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Metall buyumni nikel bilan qoplash (galvanostegiya) uchun buyum qaysi elektrod vazifasida ulanadi?",
+   "variantlar": [
+    "anod — u erib turadi",
+    "katod — unda Ni²⁺ qaytarilib qatlam hosil qiladi",
+    "istalgan elektrod",
+    "elektrolitning o'zi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "anod sifatida nikel plastinka ulanadi"
+    },
+    {
+     "variant": "C",
+     "xato": "metall faqat katodda ajraladi"
+    },
+    {
+     "variant": "D",
+     "xato": "buyum elektrod bo'lishi shart"
+    }
+   ],
+   "yechim": "Qoplanadigan buyum — katod: Ni²⁺ + 2e → Ni. Anod — eriydigan Ni plastinka.",
+   "parametrlar": {
+    "arch": "galvanostegiya"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuSO₄ ning mo'l eritmasidan 1 F zaryad o'tkazilganda eritma massasi necha grammga kamayadi? (Katodda faqat mis ajraladi.)",
+   "variantlar": [
+    "32",
+    "8",
+    "72",
+    "40"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "anod kislorodi unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "faqat O₂ hisoblangan"
+    },
+    {
+     "variant": "C",
+     "xato": "Cu 1 mol deb olingan"
+    }
+   ],
+   "yechim": "Cu = 0,5 mol (32 g) + O₂ = 0,25 mol (8 g) → eritmadan 40 g chiqib ketadi.",
+   "parametrlar": {
+    "arch": "massa_kamayish"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Nima uchun qattiq NaCl tok o'tkazmaydi-yu, uning suyuqlanmasi o'tkazadi?",
+   "variantlar": [
+    "suyuqlanmada ionlar erkin harakatlanadi",
+    "suyuqlanmada erkin elektronlar paydo bo'ladi",
+    "qattiq holatda ionlar yo'q",
+    "suyuqlanmada molekulalar hosil bo'ladi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "o'tkazuvchanlik ionli, elektronli emas"
+    },
+    {
+     "variant": "C",
+     "xato": "ionlar bor, lekin panjarada mahkam"
+    },
+    {
+     "variant": "D",
+     "xato": "NaCl ion birikma — molekula hosil qilmaydi"
+    }
+   ],
+   "yechim": "Kristallda ionlar tugunlarda qotgan; suyuqlanishda ular erkinlashib zaryad tashiy oladi.",
+   "parametrlar": {
+    "arch": "ion_otkazish"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuSO₄ eritmasi inert elektrodlarda elektroliz qilinganda eritma massasi 49 g ga, undagi atomlar soni 2,5·Nₐ taga kamaydi. Eritmadan necha faradey zaryad o'tgan?",
+   "variantlar": [
+    "1",
+    "1,5",
+    "2,5",
+    "2"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat mis bosqichi hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "vodorod bosqichi unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "atomlar soni faradeyga tenglashtirilgan"
+    }
+   ],
+   "yechim": "Cu²⁺ 0,5 mol bo'lgan: 1-bosqich (1 F): Cu 0,5 mol (32 g; 0,5Nₐ atom). Anodda jami O₂ 0,5 mol (16 g; 1Nₐ atom). 2-bosqich (1 F): H₂ 0,5 mol (1 g; 1Nₐ atom). Jami: 49 g va 2,5Nₐ → 2 F.",
+   "parametrlar": {
+    "arch": "massa_atom"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Al₂O₃ suyuqlanmasidan (kriolitda) 0,3 F zaryad o'tkazilganda katodda necha gramm alyuminiy ajraladi? (M(Al)=27)",
+   "variantlar": [
+    "8,1",
+    "2,7",
+    "0,9",
+    "5,4"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 e deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "9 ga bo'lish xatosi"
+    },
+    {
+     "variant": "D",
+     "xato": "0,2 mol xato"
+    }
+   ],
+   "yechim": "Al³⁺+3e→Al: n = 0,3/3 = 0,1 mol → 2,7 g.",
+   "parametrlar": {
+    "arch": "al_suyuqlanma"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi eritmalar elektroliz qilinganda katodda METALL ajraladi?\n1) CuSO₄;  2) AgNO₃;  3) KNO₃;  4) NaCl.",
+   "variantlar": [
+    "1, 2 va 4",
+    "faqat 1",
+    "1 va 2",
+    "2 va 3"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "NaCl eritmasida katodda H₂ ajraladi"
+    },
+    {
+     "variant": "B",
+     "xato": "kumush ham H dan keyin — katodda ajraladi"
+    },
+    {
+     "variant": "D",
+     "xato": "K⁺ eritmada qaytarilmaydi"
+    }
+   ],
+   "yechim": "H dan keyingi metallar (Cu, Ag) eritmadan ajraladi; K, Na — aktiv, o'rniga suv qaytariladi.",
+   "parametrlar": {
+    "arch": "metall_tanlov"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Quyidagilardan qaysi biri elektrolizning sanoatdagi qo'llanilishiga MANSUB EMAS?",
+   "variantlar": [
+    "alyuminiy olish",
+    "misni rafinlash",
+    "neftni haydash (rektifikatsiya)",
+    "buyumlarni xromlash"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Al₂O₃ suyuqlanmasi elektrolizi"
+    },
+    {
+     "variant": "B",
+     "xato": "eruvchan anodli elektroliz"
+    },
+    {
+     "variant": "D",
+     "xato": "galvanostegiya — elektroliz turi"
+    }
+   ],
+   "yechim": "Rektifikatsiya — fizik ajratish (qaynash haroratlari bo'yicha), elektrokimyoga aloqasi yo'q.",
+   "parametrlar": {
+    "arch": "qollanilish"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Misni rafinlashda xom mis ANOD qilib ulanadi. 1 F zaryad o'tganda anodning massasi necha grammga kamayadi? (M(Cu)=64)",
+   "variantlar": [
+    "64",
+    "16",
+    "32",
+    "0"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol deb olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "4 e xato"
+    },
+    {
+     "variant": "D",
+     "xato": "anod erimaydi deb olingan"
+    }
+   ],
+   "yechim": "Eruvchan anod: Cu⁰−2e→Cu²⁺ → 0,5 mol = 32 g eriydi (katodda shuncha toza mis o'tiradi).",
+   "parametrlar": {
+    "arch": "rafinlash"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaCl ning mo'l eritmasidan 0,4 F zaryad o'tkazilganda eritmada necha gramm NaOH to'planadi? (M(NaOH)=40)",
+   "variantlar": [
+    "8",
+    "40",
+    "32",
+    "16"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,2 mol deb olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "0,8 mol xato"
+    }
+   ],
+   "yechim": "Katodda 2H₂O+2e→H₂+2OH⁻: OH⁻ = 0,4 mol → NaOH 0,4 mol = 16 g.",
+   "parametrlar": {
+    "arch": "naoh_hisob"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savoldagi grafikdan foydalaning: katodda 32,4 g kumush ajralishi uchun eritmadan necha faradey zaryad o'tishi kerak?",
+   "variantlar": [
+    "0,2",
+    "0,3",
+    "0,4",
+    "3"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "21,6 g uchun qiymat"
+    },
+    {
+     "variant": "C",
+     "xato": "43,2 g uchun qiymat"
+    },
+    {
+     "variant": "D",
+     "xato": "o'n barobar xato"
+    }
+   ],
+   "yechim": "Grafik: 1 F → 108 g nisbat → 32,4/108 = 0,3 F.",
+   "parametrlar": {
+    "arch": "grafik_teskari"
+   },
+   "fig": "mt_graph"
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Rasmdagi elektrolizyor sxemasida qaysi elektrod KATOD hisoblanadi?",
+   "variantlar": [
+    "«+» qutbga ulangan 2-elektrod",
+    "ikkalasi ham katod",
+    "tok manbaining «−» qutbiga ulangan 1-elektrod",
+    "elektrolitga chuqurroq tushgani"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "u anod — oksidlanish boradi"
+    },
+    {
+     "variant": "B",
+     "xato": "zanjirda bitta katod, bitta anod bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "chuqurlik ahamiyatsiz — qutb muhim"
+    }
+   ],
+   "yechim": "Katod — manbaning manfiy qutbiga ulangan elektrod; rasmda 1-elektrod.",
+   "parametrlar": {
+    "arch": "sxema_oqish"
+   },
+   "fig": "cell"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Molyar massasi M bo'lgan n valentli metall tuzining eritmasidan 1 F zaryad o'tганda katodda ajraladigan metall massasi qaysi ifoda bilan topiladi?",
+   "variantlar": [
+    "M·n",
+    "n/M",
+    "M/(2n)",
+    "M/n"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "valentlikka bo'linadi, ko'paytirilmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "teskari kasr"
+    },
+    {
+     "variant": "C",
+     "xato": "2 koeffitsiyenti asossiz"
+    }
+   ],
+   "yechim": "1 F = 1 mol e → metall (Meⁿ⁺+ne) dan 1/n mol ajraladi → massasi M/n g.",
+   "parametrlar": {
+    "arch": "parametrli_ekvivalent"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Suv elektroliz qilinganda katod va anodda ajralgan gazlarning hajm nisbati (n.sh.) qanday bo'ladi?",
+   "variantlar": [
+    "2 : 1 (H₂ : O₂)",
+    "1 : 2 (H₂ : O₂)",
+    "1 : 1",
+    "3 : 1"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "vodorod ikki barobar KO'P ajraladi"
+    },
+    {
+     "variant": "C",
+     "xato": "2H₂O → 2H₂ + O₂ — nisbat teng emas"
+    },
+    {
+     "variant": "D",
+     "xato": "suvda H:O atom nisbati emas, mol nisbat olinadi"
+    }
+   ],
+   "yechim": "2H₂O → 2H₂ + O₂: har 2 mol vodorodga 1 mol kislorod.",
+   "parametrlar": {
+    "arch": "suv_nisbat"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Na₂SO₄ eritmasidan (amalda suv elektrolizi) 0,6 F zaryad o'tkazildi. Ikkala elektrodda ajralgan gazlarning UMUMIY hajmini (l, n.sh.) toping.",
+   "variantlar": [
+    "10,08",
+    "6,72",
+    "3,36",
+    "13,44"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "faqat H₂ hisoblangan"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat O₂ hisoblangan"
+    },
+    {
+     "variant": "D",
+     "xato": "H₂ ga 1 e xato olingan"
+    }
+   ],
+   "yechim": "H₂ = 0,6/2 = 0,3 mol; O₂ = 0,6/4 = 0,15 mol → jami 0,45 mol = 10,08 l.",
+   "parametrlar": {
+    "arch": "jami_gaz"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Katodda ajralgan modda massasi quyidagilarning qaysilariga BOG'LIQ?\n1) tok kuchiga;  2) elektroliz vaqtiga;  3) elektrod yuzasiga;  4) metallning molyar massasiga.",
+   "variantlar": [
+    "1 va 2",
+    "1, 2, 3 va 4",
+    "faqat 4",
+    "1, 2 va 4"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "m = M·I·t/(nF) — molyar massa ham formulada"
+    },
+    {
+     "variant": "B",
+     "xato": "yuza tezlikni emas, faqat tok zichligini o'zgartiradi — massa Q va M ga bog'liq"
+    },
+    {
+     "variant": "C",
+     "xato": "zaryad (I·t) asosiy omil"
+    }
+   ],
+   "yechim": "Faradey qonuni: m = M·I·t/(n·F) — tok, vaqt va M/n ga bog'liq; yuza formulaga kirmaydi.",
+   "parametrlar": {
+    "arch": "faradey_omillar"
+   }
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.10",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.10",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "I.10",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "I.10",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Galvanika sexida buyumlar AgNO₃ eritmasida (inert anod bilan) kumushlanadi. Bitta buyum uchun vannadan 0,05 F zaryad o'tkaziladi. (M(Ag)=108.) 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Bitta buyumga o'tirgan kumush massasi (g) qancha?",
+    "34. Shu vaqtda anodda ajralgan kislorodning hajmi (l, n.sh.) qancha?",
+    "35. 10,8 g kumush o'tirishi uchun necha faradey zaryad kerak bo'ladi?"
+   ],
+   "javoblar_royxati": [
+    "A) 5,4",
+    "B) 0,28",
+    "C) 0,1",
+    "D) 10,8",
+    "E) 0,56",
+    "F) 0,05"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "0,1 F uchun massa — 33-savolga xato javob"
+    },
+    {
+     "variant": "E",
+     "xato": "O₂ ga 2 e deb olish xatosi"
+    },
+    {
+     "variant": "F",
+     "xato": "zaryadning o'zi — 35 uchun chalg'itadi"
+    }
+   ],
+   "yechim": "33: Ag = 0,05 mol → 5,4 g (A). 34: O₂ = 0,05/4 = 0,0125 mol → 0,28 l (B). 35: 10,8/108 = 0,1 F (C).",
+   "parametrlar": {
+    "arch": "kumushlash_ssenariy",
+    "f": 0.05
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "KCl suyuqlanmasi elektroliz qilinganda katodda qaysi modda ajraladi?",
+   "javob": "K (kaliy)",
+   "yechim": "Suyuqlanmada suv yo'q: K⁺ + e → K.",
+   "parametrlar": {
+    "arch": "suyuqlanma_o1"
+   },
+   "tur": "O1",
+   "element": "I.10"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaCl ning mo'l eritmasidan 0,5 F zaryad o'tkazilganda anodda ajralgan gazning hajmini (l, n.sh.) toping.",
+   "javob": "5,6",
+   "yechim": "Cl₂ = 0,5/2 = 0,25 mol → 5,6 l.",
+   "parametrlar": {
+    "arch": "cl2_o1"
+   },
+   "tur": "O1",
+   "element": "I.10"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "CuSO₄ ning mo'l eritmasidan 4 F zaryad o'tkazilganda katodda ajralgan misning massasini (g) toping.",
+   "javob": "128",
+   "yechim": "Cu = 4/2 = 2 mol → 128 g.",
+   "parametrlar": {
+    "arch": "cu_o1"
+   },
+   "tur": "O1",
+   "element": "I.10"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "AgNO₃ ning mo'l eritmasi 5 A tok bilan 3860 s elektroliz qilindi. Katodda ajralgan kumushning massasini (g) toping. (F=96500 C/mol, M(Ag)=108)",
+   "javob": "21,6",
+   "yechim": "Q = 5·3860 = 19300 C = 0,2 F → Ag = 0,2 mol → 21,6 g.",
+   "parametrlar": {
+    "arch": "it_hisob"
+   },
+   "tur": "O1",
+   "element": "I.10"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Suyuqlanmadan 2,7 g alyuminiy olish uchun necha faradey zaryad o'tkazish kerak? (M(Al)=27)",
+   "javob": "0,3",
+   "yechim": "n(Al) = 0,1 mol → Q = 0,1·3 = 0,3 F.",
+   "parametrlar": {
+    "arch": "teskari_f"
+   },
+   "tur": "O1",
+   "element": "I.10"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "0,2 kg 16 % li CuSO₄ eritmasidan (inert elektrodlar) 0,5 F zaryad o'tkazildi. Bandlar ketma-ket yechiladi. (M(CuSO₄)=160, M(Cu)=64)",
+   "bandlar": [
+    {
+     "savol": "a) Katod va anoddagi jarayonlarning tenglamalarini yozing (ikkala bosqich uchun).",
+     "yechim": [
+      "Katod: Cu²⁺+2e→Cu, so'ng 2H₂O+2e→H₂+2OH⁻; anod: 2H₂O−4e→O₂+4H⁺"
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Katodda ajralgan moddalarning umumiy massasini toping.",
+     "yechim": [
+      "Cu²⁺ = 32/160 = 0,2 mol → 0,4 F sarflaydi (12,8 g). Qolgan 0,1 F → H₂ 0,05 mol (0,1 g).",
+      "Jami 12,9 g"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Anodda ajralgan gazning hajmini (l, n.sh.) toping.",
+     "yechim": [
+      "O₂ = 0,5/4 = 0,125 mol → 2,8 l"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Eritma massasi necha grammga kamayganini hisoblang.",
+     "yechim": [
+      "12,9 + 0,125·32 = 12,9 + 4 = 16,9 g"
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "e) Nega 0,4 F dan keyin katodda vodorod ajrala boshladi? Izohlang.",
+     "yechim": [
+      "Cu²⁺ ionlari tugadi — endi katodda navbatdagi zarracha, ya'ni suv qaytariladi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Ikki bosqichli katod zanjiri: tenglamalar → massa → hajm → balans → izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "cuso4_zanjir",
+    "m": 200,
+    "w": 16,
+    "f": 0.5
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Sxemadagi X₁, X₂, X₃ moddalarni aniqlab, quyidagilarni bajaring:\nNaCl(suyuqlanma) —elektroliz→ X₁(metall) + X₂(gaz);  X₁ + H₂O → X₃ + H₂↑",
+   "bandlar": [
+    {
+     "savol": "a) X₁, X₂, X₃ ni aniqlab, ikkala reaksiya tenglamasini yozing (elektrod jarayonlari bilan).",
+     "yechim": [
+      "X₁=Na, X₂=Cl₂, X₃=NaOH. 2NaCl →(el-z) 2Na + Cl₂ (katod: Na⁺+e→Na; anod: 2Cl⁻−2e→Cl₂);",
+      "2Na + 2H₂O → 2NaOH + H₂"
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) NaCl ERITMASI elektrolizi suyuqlanmadan nimasi bilan farq qiladi? Tenglama bilan ko'rsating.",
+     "yechim": [
+      "Eritmada katodda suv qaytariladi: 2NaCl+2H₂O → 2NaOH+H₂+Cl₂ — natriy metall holida ajralmaydi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Nega natriy metallini eritma elektrolizidan olib bo'lmaydi?",
+     "yechim": [
+      "Na juda aktiv: uning ioni o'rniga suv oson qaytariladi (ajralgan Na suv bilan darhol reaksiyaga kirishardi)."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Sxema-zanjir formati (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "nacl_sxema"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.10",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uchta elektroliz vannasi KETMA-KET ulangan; ularda mos ravishda AgNO₃, CuSO₄ eritmalari va Al₂O₃ suyuqlanmasi bor. Zanjirdan 0,1 F zaryad o'tdi; natijalar jadvalda:\n[JADVAL] Vanna | Elektrolit | Katod mahsuloti | Massa, g ;; 1 | AgNO₃ | Ag | 10,8 ;; 2 | CuSO₄ | Cu | ? ;; 3 | Al₂O₃(suyuql.) | Al | ?\nBandlar ketma-ket yechiladi. (M(Ag)=108, M(Cu)=64, M(Al)=27)",
+   "bandlar": [
+    {
+     "savol": "a) Nega ketma-ket ulangan vannalardan bir xil zaryad o'tadi?",
+     "yechim": [
+      "Ketma-ket zanjirda tok kuchi (va vaqt) barcha uchastkalarda bir xil → Q = I·t ham bir xil."
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) 2-vannadagi mis massasini hisoblang.",
+     "yechim": [
+      "Cu = 0,1/2 = 0,05 mol → 3,2 g"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) 3-vannadagi alyuminiy massasini hisoblang.",
+     "yechim": [
+      "Al = 0,1/3 mol → 0,9 g"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Natijalarni solishtirib xulosa chiqaring: bir xil zaryadda massa nimaga proporsional?",
+     "yechim": [
+      "m ~ M/n (elektrokimyoviy ekvivalent): Ag(108/1) > Cu(64/2) > Al(27/3)."
+     ],
+     "M": 4,
+     "A": 3
+    }
+   ],
+   "rasmiylashtirish": "Jadval-tahlil (ketma-ket vannalar): M15+A10.",
+   "parametrlar": {
+    "arch": "vanna_jadval",
+    "f": 0.1
+   }
+  }
+ ]
+}
