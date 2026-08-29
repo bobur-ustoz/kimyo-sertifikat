@@ -1,0 +1,1333 @@
+{
+ "variant": "mavzu-II3-B",
+ "daraja": "B",
+ "bob": 13,
+ "bob_nomi": "IA guruh metallari",
+ "manba": "Tongotarov/DTM arxetiplari (noma'lum metall, aralashma, kristallogidrat, nisbatga qarab tuz turi) va Spectrum uslubidagi 36–43 — javoblar mustaqil tekshirilgan; MS spetsifikatsiyasi II.3",
+ "izoh": "B-varianti — HAQIQIY MS MUHITI ★★★: noma'lum metall masalalari, peroksidlar, teng massa diagrammasi, aralash tuz hosil bo'lishi.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Ishqoriy metallar haqidagi TO'G'RI fikrlarni tanlang:\n1) barchasi +1 oksidlanish darajasini namoyon qiladi;  2) zichliklari juda katta;  3) Li, Na, K suvdan yengil;  4) guruhda pastga suyuqlanish harorati ortadi.",
+   "variantlar": [
+    "1, 3 va 4",
+    "2 va 4",
+    "1 va 3",
+    "faqat 1"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suyuqlanish harorati pastga KAMAYADI"
+    },
+    {
+     "variant": "B",
+     "xato": "zichliklari kichik: Li 0,53 g/sm³"
+    },
+    {
+     "variant": "D",
+     "xato": "Li, Na, K haqiqatan suvda qalqib turadi (reaksiya bilan!)"
+    }
+   ],
+   "yechim": "ns¹ → +1; yengil metallar (Li, Na, K < 1 g/sm³); t(suyuql.) pastga kamayadi.",
+   "parametrlar": {
+    "arch": "togri_fikr_tanlov"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "3,9 g noma'lum ishqoriy metall suv bilan reaksiyaga kirishganda 1,12 L (n.sh.) vodorod ajraldi. Metallni aniqlang.",
+   "variantlar": [
+    "Na",
+    "K",
+    "Li",
+    "Rb"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "M = 23 bo'lardi (2,3 g kerak edi)"
+    },
+    {
+     "variant": "C",
+     "xato": "M = 7 — juda yengil"
+    },
+    {
+     "variant": "D",
+     "xato": "M = 85,5 — mos emas"
+    }
+   ],
+   "yechim": "n(H₂) = 0,05 → n(Me) = 0,1 mol → M = 3,9/0,1 = 39 g/mol — kaliy.",
+   "parametrlar": {
+    "arch": "nomalum_metall"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Natriy havoda (ortiqcha kislorodda) yonganda ASOSAN qaysi mahsulot hosil bo'ladi?",
+   "variantlar": [
+    "Na₂O (oksid)",
+    "NaOH",
+    "Na₂O₂ (peroksid)",
+    "NaO₂ ko'p miqdorda"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oddiy oksid faqat kislorod yetishmaganda"
+    },
+    {
+     "variant": "B",
+     "xato": "gidroksid suv bilan hosil bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "superoksid asosan K, Rb, Cs ga xos"
+    }
+   ],
+   "yechim": "2Na + O₂ → Na₂O₂ — IA guruhda faqat Li oddiy oksid (Li₂O) beradi.",
+   "parametrlar": {
+    "arch": "peroksid"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaCl va KCl dan iborat 13,3 g aralashma eritmasiga ortiqcha AgNO₃ qo'shilganda 28,7 g cho'kma tushdi. Aralashmadagi KCl massasini toping. (M: NaCl=58,5, KCl=74,5, AgCl=143,5)",
+   "variantlar": [
+    "7,45 g",
+    "5,85 g",
+    "13,3 g",
+    "14,9 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu NaCl massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "aralashmaning hammasi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "0,2 mol deb olingan"
+    }
+   ],
+   "yechim": "n(AgCl) = 0,2 = x+y; 58,5x + 74,5y = 13,3 → y = 0,1 mol → m(KCl) = 7,45 g.",
+   "parametrlar": {
+    "arch": "xlorid_aralashma"
+   }
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Diagrammada TENG MASSALI (1 g dan) Li, Na va K ning suv bilan reaksiyasida ajralgan vodorod hajmlari berilgan. Nega eng ko'p vodorodni litiy beradi?",
+   "variantlar": [
+    "litiy eng faol metall",
+    "litiy ko'proq elektron beradi",
+    "diagramma xato tuzilgan",
+    "molyar massasi eng kichik — 1 g da atomlar soni eng ko'p"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faollik aksincha K da yuqori — gap mol sonida"
+    },
+    {
+     "variant": "B",
+     "xato": "har atom baribir 1 e beradi"
+    },
+    {
+     "variant": "C",
+     "xato": "hisob buni tasdiqlaydi: 1/7 > 1/23 > 1/39"
+    }
+   ],
+   "yechim": "n = m/M: 1 g Li — 0,143 mol; Na — 0,043; K — 0,026 → H₂ ham shunga proporsional.",
+   "parametrlar": {
+    "arch": "bar_teng_massa"
+   },
+   "fig": "bar_water"
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sanoat va laboratoriyada NaOH ni Na₂CO₃ dan olishning qadimiy usuli (kaustifikatsiya) qaysi reaksiyaga asoslangan?",
+   "variantlar": [
+    "Na₂CO₃ + HCl → ...",
+    "Na₂CO₃ ni qizdirish",
+    "Na₂CO₃ + H₂O → ...",
+    "Na₂CO₃ + Ca(OH)₂ → 2NaOH + CaCO₃↓"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu tuz va CO₂ beradi, ishqor emas"
+    },
+    {
+     "variant": "B",
+     "xato": "o'rta karbonat parchalanmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "gidroliz to'liq NaOH bermaydi"
+    }
+   ],
+   "yechim": "CaCO₃ cho'kmaga tushib, eritmada NaOH qoladi — «kaustiklash».",
+   "parametrlar": {
+    "arch": "kaustifikatsiya"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Kaliy haqidagi TO'G'RI fikrlarni tanlang:\n1) suv bilan reaksiyada ajralgan H₂ alangalanadi;  2) alangani binafsha rangga bo'yaydi;  3) natriydan passivroq;  4) kerosin ostida saqlanadi.",
+   "variantlar": [
+    "1, 2 va 4",
+    "1, 2 va 3",
+    "faqat 2",
+    "2 va 3"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "K natriydan FAOLROQ"
+    },
+    {
+     "variant": "C",
+     "xato": "1 va 4 ham to'g'ri"
+    },
+    {
+     "variant": "D",
+     "xato": "3 noto'g'ri, 1 va 4 to'g'ri"
+    }
+   ],
+   "yechim": "K: shiddatli reaksiya (H₂ yonadi), binafsha alanga, kerosinda saqlanadi; faollik Na dan yuqori.",
+   "parametrlar": {
+    "arch": "k_fikrlar"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "«Texnik nom — formula» mosligini TO'G'RI ko'rsating: potash — ?",
+   "variantlar": [
+    "K₂CO₃",
+    "KOH",
+    "KCl",
+    "KNO₃"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u — o'yuvchi kaliy"
+    },
+    {
+     "variant": "C",
+     "xato": "u — silvin (o'g'it)"
+    },
+    {
+     "variant": "D",
+     "xato": "u — kaliyli selitra"
+    }
+   ],
+   "yechim": "Potash — kaliy karbonat, o'simlik kuli tarkibida bo'lgan qadimiy modda.",
+   "parametrlar": {
+    "arch": "potash_nom"
+   }
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi metallarni suvdagi reaksiya kuzatuvi bilan TO'G'RI moslang:\n[JADVAL] Metall | Kuzatuv ;; a) Li | 1) yuzada yugurib eriydi ;; b) Na | 2) sekin, tinch eriydi ;; c) K | 3) chaqnab, binafsha alanga bilan",
+   "variantlar": [
+    "a—1, b—2, c—3",
+    "a—2, b—3, c—1",
+    "a—2, b—1, c—3",
+    "a—3, b—1, c—2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Li eng sekin — u «tinch»"
+    },
+    {
+     "variant": "B",
+     "xato": "alanga — kaliyda"
+    },
+    {
+     "variant": "D",
+     "xato": "Li chaqnamaydi"
+    }
+   ],
+   "yechim": "Faollik Li < Na < K: sekin → yugurib → alanga bilan.",
+   "parametrlar": {
+    "arch": "suv_kuzatuv_jadval"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,23 g natriy suvga tashlandi. Hosil bo'lgan ishqor massasini toping. (M: Na=23, NaOH=40)",
+   "variantlar": [
+    "0,23 g",
+    "4 g",
+    "0,2 g",
+    "0,4 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "massa o'zgaradi — OH qo'shiladi"
+    },
+    {
+     "variant": "B",
+     "xato": "nol adashgan"
+    },
+    {
+     "variant": "C",
+     "xato": "yarim olingan"
+    }
+   ],
+   "yechim": "n = 0,01 mol → m(NaOH) = 0,01·40 = 0,4 g.",
+   "parametrlar": {
+    "arch": "kichik_na_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "28,6 g kristall soda (Na₂CO₃·10H₂O) tarkibidagi suvsiz tuz massasini toping. (M: Na₂CO₃·10H₂O=286, Na₂CO₃=106)",
+   "variantlar": [
+    "28,6 g",
+    "10,6 g",
+    "18 g",
+    "21,2 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv chegirilmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "bu suvning bir molyar massasi"
+    },
+    {
+     "variant": "D",
+     "xato": "0,2 mol deb olingan"
+    }
+   ],
+   "yechim": "n = 28,6/286 = 0,1 mol → m(Na₂CO₃) = 10,6 g.",
+   "parametrlar": {
+    "arch": "kristall_soda"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "IA metallarning ionlari (Na⁺, K⁺) eritmada qanday rang beradi va ular qanday aniqlanadi?",
+   "variantlar": [
+    "sariq va binafsha rangda",
+    "ko'k rangda",
+    "aniqlab bo'lmaydi",
+    "rangsiz; alanga testi orqali aniqlanadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eritma emas, ALANGA shunday bo'yaladi"
+    },
+    {
+     "variant": "B",
+     "xato": "ko'k — Cu²⁺ ioni"
+    },
+    {
+     "variant": "C",
+     "xato": "alanga testi ishonchli usul"
+    }
+   ],
+   "yechim": "Eritmalari rangsiz; cho'kma reaksiyalari ham deyarli yo'q — shu bois alanga testi asosiy usul.",
+   "parametrlar": {
+    "arch": "ion_rang"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,2 mol KOH orqali 0,2 mol SO₂ o'tkazildi. Qaysi tuz hosil bo'ladi?",
+   "variantlar": [
+    "K₂SO₃ (o'rta tuz)",
+    "K₂SO₄",
+    "ikkala tuz teng miqdorda",
+    "KHSO₃ (nordon tuz)"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "buning uchun KOH ikki barobar ko'p bo'lishi kerak"
+    },
+    {
+     "variant": "B",
+     "xato": "sulfat SO₃ dan hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "nisbat aynan 1:1 — faqat nordon tuz"
+    }
+   ],
+   "yechim": "KOH : SO₂ = 1:1 → KOH + SO₂ → KHSO₃.",
+   "parametrlar": {
+    "arch": "nisbat_tuz"
+   }
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Xossa | Na | K ;; zichlik, g/sm³ | 0,97 | 0,86 ;; suvdan yengilmi? | ? | ? ;; pichoqda kesiladimi? | ha | ?",
+   "variantlar": [
+    "ha; ha; ha",
+    "yo'q; ha; ha",
+    "ha; yo'q; ha",
+    "ha; ha; yo'q"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "0,97 < 1 — natriy ham suvdan yengil"
+    },
+    {
+     "variant": "C",
+     "xato": "0,86 < 1 — kaliy ham yengil"
+    },
+    {
+     "variant": "D",
+     "xato": "K natriydan ham yumshoqroq"
+    }
+   ],
+   "yechim": "Ikkalasining zichligi 1 dan kichik; ikkalasi yumshoq.",
+   "parametrlar": {
+    "arch": "xossa_jadval"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Suyuqlantirilgan NaCl elektroliz qilinganda katodda va anodda mos ravishda nima ajraladi?",
+   "variantlar": [
+    "H₂ va Cl₂",
+    "Na va Cl₂",
+    "Na va O₂",
+    "Cl₂ va Na"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu NaCl ERITMASI elektrolizi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislorod xloridda yo'q"
+    },
+    {
+     "variant": "D",
+     "xato": "elektrodlar almashib ketgan"
+    }
+   ],
+   "yechim": "Suyuqlanmada suv yo'q: katod — Na⁺ + e → Na; anod — 2Cl⁻ − 2e → Cl₂.",
+   "parametrlar": {
+    "arch": "suyuqlanma_elektroliz"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Rubidiy va seziy qanday saqlanadi?",
+   "variantlar": [
+    "kerosin ostida",
+    "ochiq bankada",
+    "vakuumlangan shisha ampulalarda",
+    "suv ostida"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ular kerosin ostida ham xavfli darajada faol"
+    },
+    {
+     "variant": "B",
+     "xato": "havoda o'z-o'zidan alangalanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "portlaydi"
+    }
+   ],
+   "yechim": "Rb, Cs — havoda o'z-o'zidan yonadi: faqat ampulada, inert muhitda.",
+   "parametrlar": {
+    "arch": "rb_cs_saqlash"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "11,2 g kaliy gidroksidni to'liq neytrallash uchun necha gramm nitrat kislota kerak? (M: KOH=56, HNO₃=63)",
+   "variantlar": [
+    "12,6 g",
+    "63 g",
+    "6,3 g",
+    "25,2 g"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "0,1 mol deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "n(KOH) = 0,2 mol → n(HNO₃) = 0,2 → m = 12,6 g.",
+   "parametrlar": {
+    "arch": "koh_hno3"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Kosmik kemalarda havodagi CO₂ ni yutish uchun qaysi modda ishlatiladi?",
+   "variantlar": [
+    "LiOH",
+    "NaCl",
+    "Li metali",
+    "H₂SO₄"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "tuz CO₂ ni yutmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "metall bilan emas, ishqor bilan yutiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "kislota CO₂ bilan reaksiyaga kirishmaydi"
+    }
+   ],
+   "yechim": "2LiOH + CO₂ → Li₂CO₃ + H₂O: LiOH yengil — har gramm muhim bo'lgan kosmosda qulay.",
+   "parametrlar": {
+    "arch": "lioh_kosmos"
+   }
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Rasmda natriy bilan ishlash jarayoni: metall pinset bilan olinib, filtr qog'ozda quritilyapti va pichoq bilan kesilyapti. Filtr qog'ozning vazifasi nima?",
+   "variantlar": [
+    "yuzadagi kerosinni shimib olish — aks holda tortishda xato bo'ladi va reaksiya sekinlashadi",
+    "metallni sovutish",
+    "metallni yumshatish",
+    "qo'lni himoya qilish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "harorat muammo emas"
+    },
+    {
+     "variant": "C",
+     "xato": "Na o'zi yumshoq"
+    },
+    {
+     "variant": "D",
+     "xato": "qo'l himoyasi — pinsetning ishi"
+    }
+   ],
+   "yechim": "Tajribadan oldin kerosin qoldig'i olib tashlanadi; metall qo'lga OLINMAYDI.",
+   "parametrlar": {
+    "arch": "na_kesish_oqish"
+   },
+   "fig": "sodium_cut"
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Davriy jadvalda IA guruh katagida vodorod ham yoziladi. Vodorod haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "u ham ishqoriy metall",
+    "u metall emas — faqat konfiguratsiyasi (1s¹) o'xshash",
+    "u suyuq metall",
+    "u kerosinda saqlanadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H — metallmas gaz"
+    },
+    {
+     "variant": "C",
+     "xato": "suyuq metall — simob"
+    },
+    {
+     "variant": "D",
+     "xato": "gaz ballonlarda saqlanadi"
+    }
+   ],
+   "yechim": "H ning o'rni shartli: 1 valent elektron bor, lekin xossalari galogenlarga ham o'xshaydi.",
+   "parametrlar": {
+    "arch": "vodorod_orni"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Na₂O + H₂O → 2NaOH. 6,2 g natriy oksididan olingan ishqor massasini toping. (M: Na₂O=62, NaOH=40)",
+   "variantlar": [
+    "4 g",
+    "40 g",
+    "8 g",
+    "6,2 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent 2 unutilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "massa o'zgaradi"
+    }
+   ],
+   "yechim": "n = 0,1 mol → NaOH 0,2 mol → 8 g.",
+   "parametrlar": {
+    "arch": "na2o_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Qaysi metallar ODDIY sharoitda suv bilan reaksiyaga kirishib, ishqor va vodorod beradi?\n1) Na;  2) Cu;  3) K;  4) Fe;  5) Ag.",
+   "variantlar": [
+    "1, 3 va 4",
+    "hammasi",
+    "faqat 1",
+    "1 va 3"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Fe faqat qizdirilganda bug' bilan (va ishqor emas, oksid beradi)"
+    },
+    {
+     "variant": "B",
+     "xato": "Cu, Ag suv bilan umuman kirishmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "K ham (hattoki shiddatliroq)"
+    }
+   ],
+   "yechim": "Faqat ishqoriy (va ba'zi IIA) metallar: 2Me + 2H₂O → 2MeOH + H₂.",
+   "parametrlar": {
+    "arch": "suv_h2_tanlov"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Na va Na₂O dan iborat 6,2 g aralashma suvga solindi; 1,12 L (n.sh.) vodorod ajraldi. Aralashmadagi Na₂O massasini toping. (M: Na=23, Na₂O=62)",
+   "variantlar": [
+    "2,3 g",
+    "3,9 g",
+    "6,2 g",
+    "3,1 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu Na massasi"
+    },
+    {
+     "variant": "C",
+     "xato": "aralashmaning hammasi emas"
+    },
+    {
+     "variant": "D",
+     "xato": "0,05 mol deb olingan"
+    }
+   ],
+   "yechim": "H₂ faqat metalldan: n(Na) = 0,1 mol → 2,3 g → m(Na₂O) = 6,2 − 2,3 = 3,9 g.",
+   "parametrlar": {
+    "arch": "na_na2o_aralashma"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Kaliyli selitra (KNO₃) asosan qayerda ishlatiladi?",
+   "variantlar": [
+    "faqat portlovchi sifatida",
+    "kompleks o'g'it sifatida (K va N beradi)",
+    "oziq-ovqat konservanti sifatida keng",
+    "yoqilg'i sifatida"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy zamonaviy ishlatilishi — o'g'it"
+    },
+    {
+     "variant": "C",
+     "xato": "cheklangan; asosiy yo'nalish o'g'it"
+    },
+    {
+     "variant": "D",
+     "xato": "o'zi yonmaydi — oksidlovchi"
+    }
+   ],
+   "yechim": "KNO₃ — ikki oziq elementli (N + K) qimmatli o'g'it.",
+   "parametrlar": {
+    "arch": "kno3_ishlatish"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "NaOH dan NaHCO₃ (nordon tuz) olish uchun qanday shart bajarilishi kerak?",
+   "variantlar": [
+    "CO₂ kam miqdorda berilishi",
+    "eritma qizdirilishi",
+    "katalizator qo'shilishi",
+    "CO₂ ORTIQCHA miqdorda o'tkazilishi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kam CO₂ o'rta tuz (Na₂CO₃) beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "qizdirish NaHCO₃ ni aksincha parchalaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator shart emas"
+    }
+   ],
+   "yechim": "NaOH + CO₂(ortiqcha) → NaHCO₃; 2NaOH + CO₂(kam) → Na₂CO₃ + H₂O.",
+   "parametrlar": {
+    "arch": "nordon_shart"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "5-savol diagrammasini tekshiring: 1 g litiy suv bilan reaksiyaga kirishganda ajraladigan vodorod hajmini hisoblang. (M(Li)=7)",
+   "variantlar": [
+    "3,2 L",
+    "1,6 L",
+    "22,4 L",
+    "0,8 L"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "H₂ koeffitsiyenti unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "n(Li) = 1/7 mol → n(H₂) = 1/14 → V = 22,4/14 = 1,6 L.",
+   "parametrlar": {
+    "arch": "bar_water_hisob"
+   },
+   "fig": "bar_water"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "200 g 20 % li NaOH eritmasida necha mol ishqor bor? (M(NaOH)=40)",
+   "variantlar": [
+    "1",
+    "0,5",
+    "2",
+    "0,2"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "40 g = 1 mol"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "foiz mol emas"
+    }
+   ],
+   "yechim": "m(NaOH) = 40 g → n = 1 mol.",
+   "parametrlar": {
+    "arch": "foiz_mol"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Grafikdan foydalaning: qaysi ishqoriy metall inson kaftida (36,6 °C) erib ketishi mumkin?",
+   "variantlar": [
+    "Na (98 °C)",
+    "Li (181 °C)",
+    "Cs (28 °C)",
+    "K (64 °C)"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kaft harorati yetmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "eng chidamlisi"
+    },
+    {
+     "variant": "D",
+     "xato": "64 > 36,6"
+    }
+   ],
+   "yechim": "Suyuqlanish harorati tana haroratidan past bo'lgan yagona barqaror IA metall — seziy.",
+   "parametrlar": {
+    "arch": "kaft_erish"
+   },
+   "fig": "melting"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Suv osti kemalari va kosmik stansiyalarda Na₂O₂ (peroksid) nima maqsadda ishlatiladi?",
+   "variantlar": [
+    "suvni tozalash uchun",
+    "yoqilg'i sifatida",
+    "issiqlik manbai sifatida",
+    "CO₂ ni yutib, kislorod ajratish uchun"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "asosiy vazifasi havo regeneratsiyasi"
+    },
+    {
+     "variant": "B",
+     "xato": "u oksidlovchi, yoqilg'i emas"
+    },
+    {
+     "variant": "C",
+     "xato": "maqsad — kislorod"
+    }
+   ],
+   "yechim": "2Na₂O₂ + 2CO₂ → 2Na₂CO₃ + O₂ — «nafas olayotgan» modda.",
+   "parametrlar": {
+    "arch": "na2o2_regeneratsiya"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "yuqori",
+   "savol": "Li, Na, K zichliklari haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "uchalasi suvdan og'ir",
+    "uchalasi ham suvdan yengil",
+    "faqat Li yengil",
+    "faqat K og'ir"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "0,53; 0,97; 0,86 g/sm³ — hammasi < 1"
+    },
+    {
+     "variant": "C",
+     "xato": "Na va K ham yengil"
+    },
+    {
+     "variant": "D",
+     "xato": "K ham yengil (0,86)"
+    }
+   ],
+   "yechim": "Shu bois ular suv YUZASIDA reaksiyaga kirishadi.",
+   "parametrlar": {
+    "arch": "zichlik_fakt"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Noma'lum massali kaliy suv bilan reaksiyaga kirishib, 5,6 g KOH hosil qildi. Olingan kaliy massasini toping. (M: K=39, KOH=56)",
+   "variantlar": [
+    "5,6 g",
+    "7,8 g",
+    "3,9 g",
+    "1,95 g"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mahsulot massasi"
+    },
+    {
+     "variant": "B",
+     "xato": "ikki baravar"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n(KOH) = 0,1 mol → n(K) = 0,1 → m = 3,9 g.",
+   "parametrlar": {
+    "arch": "k_teskari"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Grafikdan: litiy va seziy suyuqlanish haroratlari orasidagi farqni toping.",
+   "variantlar": [
+    "209 °C",
+    "117 °C",
+    "153 °C",
+    "70 °C"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "yig'indi olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "Li−K farqi"
+    },
+    {
+     "variant": "D",
+     "xato": "bu Na va Cs farqi (98−28)"
+    }
+   ],
+   "yechim": "181 − 28 = 153 °C.",
+   "parametrlar": {
+    "arch": "suyuqlanish_farq_b"
+   },
+   "fig": "melting"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.3",
+     "qiyinlik": 2,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 34,
+     "element": "II.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    },
+    {
+     "n": 35,
+     "element": "II.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch ishqoriy metall tekshirildi: X — suv bilan tinch reaksiyaga kirishadi, alangani qizil rangga bo'yaydi; Y — shiddatli reaksiyada H₂ alangalanadi, alanga binafsha; Z — suv yuzasida «yugurib» eriydi, alanga sariq. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Y metall qaysi?",
+    "34. Z ning suv bilan reaksiyasida hosil bo'ladigan ishqor qaysi?",
+    "35. X, Y, Z ni faollik ORTIB borish tartibida joylashtiring."
+   ],
+   "javoblar_royxati": [
+    "A) K",
+    "B) NaOH",
+    "C) X → Z → Y",
+    "D) Na",
+    "E) KOH",
+    "F) Y → Z → X"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "sariq alanga — Z (natriy); Y binafsha — kaliy"
+    },
+    {
+     "variant": "E",
+     "xato": "Z — natriy: ishqori NaOH"
+    },
+    {
+     "variant": "F",
+     "xato": "bu kamayish tartibi"
+    }
+   ],
+   "yechim": "Qizil — Li (X), binafsha — K (Y), sariq — Na (Z). Faollik: Li < Na < K → X → Z → Y.",
+   "parametrlar": {
+    "arch": "uch_ia_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Na va K dan iborat 6,2 g aralashma suv bilan reaksiyaga kirishganda 2,24 L (n.sh.) vodorod ajraldi. Aralashmadagi kaliy massasini (g) toping. (M: Na=23, K=39)",
+   "javob": "3,9",
+   "yechim": "x+y = 0,2; 23x+39y = 6,2 → 16y = 1,6 → y = 0,1 → m(K) = 3,9 g.",
+   "parametrlar": {
+    "arch": "na_k_aralashma_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Na → NaOH → Na₂SO₄ zanjiri bo'yicha 4,6 g natriydan (yo'qotishsiz) olingan tuz massasini (g) toping. (M(Na₂SO₄)=142)",
+   "javob": "14,2",
+   "yechim": "n(Na) = 0,2 → n(Na₂SO₄) = 0,1 mol → m = 14,2 g.",
+   "parametrlar": {
+    "arch": "na_zanjir_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "Sxemadagi zanjir bo'yicha 11,7 g osh tuzidan (yo'qotishsiz) olingan NaOH massasini (g) toping. (M: NaCl=58,5, NaOH=40)",
+   "javob": "8",
+   "yechim": "n(NaCl) = 0,2 → elektroliz → Na 0,2 → NaOH 0,2 mol → 8 g.",
+   "parametrlar": {
+    "arch": "sxema_nacl_zanjir"
+   },
+   "fig": "scheme38",
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "57,2 g kristall soda (Na₂CO₃·10H₂O) qizdirilib suvsizlantirildi. Qolgan suvsiz tuz massasini (g) toping. (M: krist.=286, Na₂CO₃=106)",
+   "javob": "21,2",
+   "yechim": "n = 0,2 mol → m = 0,2·106 = 21,2 g.",
+   "parametrlar": {
+    "arch": "kristall_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "8 g NaOH li eritma orqali 3,36 L (n.sh.) CO₂ o'tkazildi. Hosil bo'lgan NaHCO₃ massasini (g) toping. (M: NaOH=40, NaHCO₃=84)",
+   "javob": "8,4",
+   "yechim": "n(NaOH)=0,2; n(CO₂)=0,15 → aralash tuzlar: x+2y=0,2, x+y=0,15 → x(NaHCO₃)=0,1 mol → 8,4 g.",
+   "parametrlar": {
+    "arch": "co2_nisbat_zanjir"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. 0,46 g natriy 100 g suvga tashlandi. Bandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya tenglamasini yozing.",
+     "yechim": [
+      "2Na + 2H₂O → 2NaOH + H₂↑."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "b) Ajralgan vodorod hajmini (n.sh.) toping.",
+     "yechim": [
+      "n(Na) = 0,02 mol → n(H₂) = 0,01 → V = 0,224 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Hosil bo'lgan NaOH massasini hisoblang.",
+     "yechim": [
+      "n = 0,02 mol → m = 0,8 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Eritmadagi NaOH ning massa ulushini (%) toping (H₂ chiqib ketganini hisobga oling).",
+     "yechim": [
+      "m(eritma) = 100 + 0,46 − 0,02 = 100,44 g → ω = 0,8/100,44 ≈ 0,8 %."
+     ],
+     "M": 4,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Na-suv to'liq zanjiri: tenglama → gaz → ishqor → foiz; M15+A10.",
+   "parametrlar": {
+    "arch": "na_suv_foiz_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "IA guruh bo'ylab qonuniyatlar tahlil qilinadi. Quyidagilarni MULOHAZA bilan bajaring.",
+   "bandlar": [
+    {
+     "savol": "a) Nega guruhda yuqoridan pastga metallik faolligi ortadi? Atom tuzilishi asosida bosqichma-bosqich tushuntiring.",
+     "yechim": [
+      "Pastga qavatlar soni ortadi → radius kattalashadi → tashqi 1 e yadrodan uzoqlashadi",
+      "va ichki qavatlar uni to'sadi → e ni berish osonlashadi → faollik ortadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega ishqoriy metallar doim +1 oksidlanish darajasini namoyon qiladi?",
+     "yechim": [
+      "Bitta e berish barqaror inert-gaz qavatini ochadi; 2-e ni ichki qavatdan olish juda katta energiya talab qiladi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Fransiy (Fr) haqida bashorat: faolligi qanday bo'ladi?",
+     "yechim": [
+      "Guruhning eng ostida — nazariy jihatdan eng faol ishqoriy metall."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Qonuniyat-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "qonuniyat_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Topshiriqni bajarish jarayonida barcha mulohaza va hisoblarni uzviy ketma-ketlikda yozing. Uch natriy birikmasi jadvalda berilgan:\n[JADVAL] № | Modda ;; 1 | NaOH ;; 2 | Na₂CO₃ ;; 3 | NaHCO₃\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har birining xlorid kislota bilan reaksiya tenglamasini yozing.",
+     "yechim": [
+      "NaOH+HCl→NaCl+H₂O; Na₂CO₃+2HCl→2NaCl+H₂O+CO₂; NaHCO₃+HCl→NaCl+H₂O+CO₂."
+     ],
+     "M": 5,
+     "A": 3
+    },
+    {
+     "savol": "b) 0,1 mol NaOH, 0,1 mol Na₂CO₃ va 0,1 mol NaHCO₃ aralashmasini to'liq neytrallash uchun jami necha mol HCl kerak?",
+     "yechim": [
+      "0,1 + 0,2 + 0,1 = 0,4 mol."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Qaysi ikkitasi o'zaro reaksiyaga kirisha oladi? Tenglama yozing.",
+     "yechim": [
+      "NaOH + NaHCO₃ → Na₂CO₃ + H₂O."
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "d) Uchchalasini bitta reagent bilan qanday farqlash mumkinligini tavsiflang.",
+     "yechim": [
+      "Masalan, CaCl₂: Na₂CO₃ — darhol cho'kma; NaOH — cho'kmasiz (issiqlik); NaHCO₃ — qizdirilgandagina cho'kma."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Uch birikma tahlili: tenglamalar → mol hisobi → o'zaro → farqlash; M15+A10.",
+   "parametrlar": {
+    "arch": "uch_birikma_o2"
+   }
+  }
+ ]
+}

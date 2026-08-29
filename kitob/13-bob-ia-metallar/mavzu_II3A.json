@@ -1,0 +1,1342 @@
+{
+ "variant": "mavzu-II3-A",
+ "daraja": "A",
+ "bob": 13,
+ "bob_nomi": "IA guruh metallari",
+ "manba": "MS spetsifikatsiyasi II.3; 9-sinf darslik ishqoriy metallar bo'limi — savollar yangi tuzilgan, hayotiy sahnalar (ko'cha chiroqi, kerosin, muzli yo'l, kaliyli o'g'it) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq savollar, rasmli hayotiy misollar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "IA guruh (ishqoriy) metallari atomlarining tashqi qavatida nechta elektron bor?",
+   "variantlar": [
+    "2",
+    "7",
+    "1",
+    "8"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu IIA guruh"
+    },
+    {
+     "variant": "B",
+     "xato": "bu VII A — galogenlar"
+    },
+    {
+     "variant": "D",
+     "xato": "bu inert gazlar"
+    }
+   ],
+   "yechim": "ns¹ — bitta valent elektron; shu bois ular +1 zaryadli ion beradi.",
+   "parametrlar": {
+    "arch": "tashqi_e"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "IA guruhda yuqoridan pastga (Li → Na → K → Rb → Cs) metallik faolligi qanday o'zgaradi?",
+   "variantlar": [
+    "kamayadi",
+    "ortadi",
+    "o'zgarmaydi",
+    "avval ortib, keyin kamayadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "radius ortgani sari e oson beriladi"
+    },
+    {
+     "variant": "C",
+     "xato": "radius o'zgaradi-ku"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Radius kattalashadi → tashqi elektron yadrodan uzoq → osonroq beriladi.",
+   "parametrlar": {
+    "arch": "faollik_yonalish"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Natriy metali laboratoriyada qanday saqlanadi?",
+   "variantlar": [
+    "suv ostida",
+    "kerosin ostida",
+    "ochiq havoda",
+    "spirt ichida"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "suv bilan portlab reaksiyaga kirishadi!"
+    },
+    {
+     "variant": "C",
+     "xato": "havoda tez oksidlanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "spirt bilan ham reaksiyaga kirishadi"
+    }
+   ],
+   "yechim": "Kerosin havodagi O₂ va namlikdan himoya qiladi.",
+   "parametrlar": {
+    "arch": "na_saqlash"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda tungi yo'ldagi TO'Q SARIQ chiroqlar: ular natriy bug'ili lampalar. Sariq rang qayerdan keladi?",
+   "variantlar": [
+    "lampa shishasi sariq bo'yalgan",
+    "qo'zg'algan natriy atomlari o'ziga xos sariq nur taratadi",
+    "lampada olov yonadi",
+    "sariq gaz — xlor bor"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "rang Na atomlarining nuridan"
+    },
+    {
+     "variant": "C",
+     "xato": "yonish yo'q — elektr razryad"
+    },
+    {
+     "variant": "D",
+     "xato": "xlor lampada ishlatilmaydi"
+    }
+   ],
+   "yechim": "Elektr toki Na atomlarini qo'zg'atadi; qaytishda 589 nm li sariq nur chiqadi — alanga testidagi rang.",
+   "parametrlar": {
+    "arch": "chiroq_sahna"
+   },
+   "fig": "streetlamp"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Natriy suv bilan reaksiyaga kirishganda qanday moddalar hosil bo'ladi?",
+   "variantlar": [
+    "NaOH va H₂",
+    "Na₂O va H₂",
+    "NaH va O₂",
+    "faqat NaOH"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "suvli muhitda gidroksid hosil bo'ladi"
+    },
+    {
+     "variant": "C",
+     "xato": "kislorod ajralmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "vodorod ham ajraladi"
+    }
+   ],
+   "yechim": "2Na + 2H₂O → 2NaOH + H₂↑ — shiddatli, issiqlik bilan.",
+   "parametrlar": {
+    "arch": "na_suv"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Ishqoriy metallarning qattiqligi haqida qaysi fikr to'g'ri?",
+   "variantlar": [
+    "juda qattiq — olmosdek",
+    "yumshoq — pichoq bilan kesiladi",
+    "mo'rt — chinniday sinadi",
+    "kesib bo'lmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha, eng yumshoq metallar"
+    },
+    {
+     "variant": "C",
+     "xato": "ular plastik, mo'rt emas"
+    },
+    {
+     "variant": "D",
+     "xato": "laboratoriyada pichoq bilan kesiladi"
+    }
+   ],
+   "yechim": "Metall panjarasi bo'sh — Na, K yangi kesilganda kumushdek yaltiraydi.",
+   "parametrlar": {
+    "arch": "yumshoqlik"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "IA guruh metallari nega «ishqoriy metallar» deb ataladi?",
+   "variantlar": [
+    "ishqorlarda erigani uchun",
+    "achchiq ta'mi uchun",
+    "ishqor rangida bo'lgani uchun",
+    "suv bilan reaksiyada ishqor hosil qilgani uchun"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metall ishqorda erimaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "metallar tatib ko'rilmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "ishqorning rangi yo'q"
+    }
+   ],
+   "yechim": "Me + H₂O → MeOH (ishqor) + H₂ — nomi shu xossadan.",
+   "parametrlar": {
+    "arch": "nom_sababi"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda kerosinli bankada saqlanayotgan natriy bo'laklari. Nega natriyni OCHIQ havoda qoldirib bo'lmaydi?",
+   "variantlar": [
+    "bug'lanib ketadi",
+    "rangini yo'qotadi, xolos",
+    "havo kislorodi va namlik bilan tez reaksiyaga kirishib buziladi",
+    "changga aylanadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "metall xona haroratida bug'lanmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "gap faqat rangda emas — modda o'zgaradi"
+    },
+    {
+     "variant": "D",
+     "xato": "mexanik emas, kimyoviy o'zgarish"
+    }
+   ],
+   "yechim": "Yangi kesim havoda darrov xiralashadi: oksid/gidroksid/karbonat qatlami hosil bo'ladi.",
+   "parametrlar": {
+    "arch": "kerosin_sahna"
+   },
+   "fig": "kerosene"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Alanga testida natriy va kaliy qanday ranglar beradi?",
+   "variantlar": [
+    "Na — binafsha, K — sariq",
+    "ikkalasi ham qizil",
+    "Na — sariq, K — binafsha",
+    "ikkalasi ham yashil"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "qizil — Li, Sr"
+    },
+    {
+     "variant": "D",
+     "xato": "yashil — Cu, Ba"
+    }
+   ],
+   "yechim": "Alanga ranglari — IA metallarni farqlashning eng oson usuli.",
+   "parametrlar": {
+    "arch": "alanga_ranglar"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2Na + 2H₂O → 2NaOH + H₂. 4,6 g natriy suv bilan reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh.) toping. (M(Na)=23)",
+   "variantlar": [
+    "4,48 L",
+    "22,4 L",
+    "2,24 L",
+    "1,12 L"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "koeffitsiyent: H₂ ikki barobar kam"
+    },
+    {
+     "variant": "B",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "yana ikkiga bo'lingan"
+    }
+   ],
+   "yechim": "n(Na) = 0,2 mol → n(H₂) = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "na_h2_hisob"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "NaOH ning texnik nomi qaysi?",
+   "variantlar": [
+    "kaustik soda (o'yuvchi natriy)",
+    "ichimlik sodasi",
+    "kir sodasi",
+    "potash"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "u — NaHCO₃"
+    },
+    {
+     "variant": "C",
+     "xato": "u — Na₂CO₃"
+    },
+    {
+     "variant": "D",
+     "xato": "u — K₂CO₃"
+    }
+   ],
+   "yechim": "«Kaustik» — kuydiruvchi: teri va matolarni yemiradi.",
+   "parametrlar": {
+    "arch": "naoh_nom"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,5 mol potash (K₂CO₃) necha gramm bo'ladi? (M(K₂CO₃)=138)",
+   "variantlar": [
+    "138 g",
+    "34,5 g",
+    "276 g",
+    "69 g"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "B",
+     "xato": "chorak olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,5 · 138 = 69 g.",
+   "parametrlar": {
+    "arch": "potash_massa"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda qishda muzlagan yo'lga tuz sepilmoqda. Osh tuzi muzni nega eritadi?",
+   "variantlar": [
+    "tuz muz bilan reaksiyaga kirishib issiqlik beradi",
+    "tuz muzni qirib tashlaydi",
+    "tuz eritmasining muzlash harorati toza suvnikidan past",
+    "tuz quyosh nurini tortadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kimyoviy reaksiya bormaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "mexanik emas — fizik-kimyoviy hodisa"
+    },
+    {
+     "variant": "D",
+     "xato": "kechasi ham ishlaydi-ku"
+    }
+   ],
+   "yechim": "NaCl + muz aralashmasi −21 °C gacha suyuq qoladi — muz «eriydi».",
+   "parametrlar": {
+    "arch": "muzyol_sahna"
+   },
+   "fig": "icyroad"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "«Ichimlik sodasi» va «kir sodasi» mos ravishda qaysi moddalar?",
+   "variantlar": [
+    "Na₂CO₃ va NaHCO₃",
+    "NaOH va NaCl",
+    "K₂CO₃ va KOH",
+    "NaHCO₃ va Na₂CO₃"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "bular soda emas"
+    },
+    {
+     "variant": "C",
+     "xato": "kaliy birikmalari soda deb atalmaydi"
+    }
+   ],
+   "yechim": "NaHCO₃ — oshxonada; Na₂CO₃ — kir yuvishda ishlatilgan.",
+   "parametrlar": {
+    "arch": "sodalar_farqi"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Litiy haqida qaysi fikr TO'G'RI?",
+   "variantlar": [
+    "eng og'ir metall",
+    "suyuq metall",
+    "eng yengil metall — zamonaviy akkumulyatorlarda ishlatiladi",
+    "radioaktiv metall"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — zichligi 0,53 g/sm³"
+    },
+    {
+     "variant": "B",
+     "xato": "suyuq metall — simob"
+    },
+    {
+     "variant": "D",
+     "xato": "tabiiy Li barqaror"
+    }
+   ],
+   "yechim": "Li-ion batareyalar: telefondan elektromobilgacha.",
+   "parametrlar": {
+    "arch": "litiy_fakt"
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Jadvaldagi «?» kataklarni to'ldiring:\n[JADVAL] Element | Alanga rangi ;; Na | ? ;; K | ? ;; Li | qizil",
+   "variantlar": [
+    "binafsha; sariq",
+    "yashil; qizil",
+    "sariq; sariq",
+    "sariq; binafsha"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari"
+    },
+    {
+     "variant": "B",
+     "xato": "yashil IA ga xos emas"
+    },
+    {
+     "variant": "C",
+     "xato": "K — binafsha"
+    }
+   ],
+   "yechim": "Na — sariq, K — binafsha, Li — qirmizi-qizil.",
+   "parametrlar": {
+    "arch": "alanga_jadval"
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "IA metallarning tuzlari suvda qanday eriydi?",
+   "variantlar": [
+    "hech biri erimaydi",
+    "faqat xloridlari eriydi",
+    "faqat issiq suvda eriydi",
+    "deyarli barchasi yaxshi eriydi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "eruvchanlik jadvalida Na⁺, K⁺ ustunlari to'liq «E»"
+    },
+    {
+     "variant": "B",
+     "xato": "karbonat, sulfat, nitratlari ham eriydi"
+    },
+    {
+     "variant": "C",
+     "xato": "sovuqda ham eriydi"
+    }
+   ],
+   "yechim": "Na⁺ va K⁺ tuzlari — eruvchanlik jadvalining «muammosiz» qatorlari.",
+   "parametrlar": {
+    "arch": "tuz_eruvchanlik"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda «Kaliy xlorid» yozuvli o'g'it qopi. O'simliklarga kaliy nima uchun kerak?",
+   "variantlar": [
+    "hosil pishishi va o'simlikning qurg'oqchilik-sovuqqa chidamliligi uchun",
+    "faqat rang berish uchun",
+    "zararkunandalarni qo'rqitish uchun",
+    "tuproqni yumshatish uchun"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "kaliy fiziologik jarayonlarda qatnashadi"
+    },
+    {
+     "variant": "C",
+     "xato": "o'g'it insektitsid emas"
+    },
+    {
+     "variant": "D",
+     "xato": "mexanik emas, oziqlanish elementi"
+    }
+   ],
+   "yechim": "K — o'simlikning uch asosiy oziq elementidan biri (N, P, K).",
+   "parametrlar": {
+    "arch": "ogit_sahna"
+   },
+   "fig": "potash"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "0,3 mol natriy gidroksidning massasini toping. (M(NaOH)=40)",
+   "variantlar": [
+    "40 g",
+    "12 g",
+    "6 g",
+    "24 g"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "C",
+     "xato": "yarmi olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "ikki baravar"
+    }
+   ],
+   "yechim": "m = 0,3 · 40 = 12 g.",
+   "parametrlar": {
+    "arch": "naoh_massa"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Ishqoriy metallar tabiatda qanday holda uchraydi?",
+   "variantlar": [
+    "sof metall holida",
+    "faqat gaz holida",
+    "faqat birikmalar holida",
+    "umuman uchramaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "juda faol — darrov reaksiyaga kirishadi"
+    },
+    {
+     "variant": "B",
+     "xato": "ular qattiq metallar"
+    },
+    {
+     "variant": "D",
+     "xato": "NaCl, KCl konlari juda ko'p"
+    }
+   ],
+   "yechim": "Faolligi tufayli erkin holda saqlanolmaydi: NaCl, silvin KCl va h.k.",
+   "parametrlar": {
+    "arch": "tabiatda"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Bir xil sharoitda natriy va kaliy suv bilan reaksiyaga kiritilsa, qaysi biri SHIDDATLIROQ reaksiyaga kirishadi?",
+   "variantlar": [
+    "Na — u faolroq",
+    "K — hattoki ajralgan vodorod alangalanadi",
+    "ikkalasi bir xil",
+    "hech biri kirishmaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "guruhda pastga faollik ortadi: K > Na"
+    },
+    {
+     "variant": "C",
+     "xato": "faollik farqi aniq ko'rinadi"
+    },
+    {
+     "variant": "D",
+     "xato": "ikkalasi ham shiddatli kirishadi"
+    }
+   ],
+   "yechim": "K faolroq: reaksiya issiqligi H₂ ni yondiradi (binafsha alanga).",
+   "parametrlar": {
+    "arch": "na_k_shiddat"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Na₂O suv bilan reaksiyaga kirishganda nima hosil bo'ladi?",
+   "variantlar": [
+    "NaOH",
+    "NaH",
+    "Na₂O₂",
+    "Na"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "gidrid suvdan hosil bo'lmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "peroksid yonishda hosil bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "oksiddan metall ajralmaydi"
+    }
+   ],
+   "yechim": "Na₂O + H₂O → 2NaOH — asosli oksid + suv → ishqor.",
+   "parametrlar": {
+    "arch": "na2o_suv"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2K + 2H₂O → 2KOH + H₂. 7,8 g kaliy suvga tashlanganda ajralgan vodorod hajmini (n.sh.) toping. (M(K)=39)",
+   "variantlar": [
+    "2,24 L",
+    "4,48 L",
+    "22,4 L",
+    "11,2 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "H₂ koeffitsiyenti unutilgan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "hisob xato"
+    }
+   ],
+   "yechim": "n(K) = 0,2 mol → n(H₂) = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "k_h2_hisob"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Qaysi modda «ichimlik sodasi» nomi bilan sotiladi?",
+   "variantlar": [
+    "Na₂CO₃",
+    "NaOH",
+    "NaCl",
+    "NaHCO₃"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu kir soda"
+    },
+    {
+     "variant": "B",
+     "xato": "o'yuvchi — oziq-ovqatga mumkin emas"
+    },
+    {
+     "variant": "C",
+     "xato": "bu osh tuzi"
+    }
+   ],
+   "yechim": "Natriy gidrokarbonat — xamir ko'pchitgich, me'da uchun vosita.",
+   "parametrlar": {
+    "arch": "ichimlik_soda"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Genetik qatordagi X moddani aniqlang: Na → NaOH → X → NaCl (X karbonatlar sinfidan).",
+   "variantlar": [
+    "Na₂O",
+    "Na₂CO₃",
+    "NaNO₃",
+    "Na₂SO₄"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "oksid NaOH dan KEYIN kelmaydi — u NaOH dan oldingi bosqich"
+    },
+    {
+     "variant": "C",
+     "xato": "nitrat karbonat emas"
+    },
+    {
+     "variant": "D",
+     "xato": "sulfat ham emas"
+    }
+   ],
+   "yechim": "NaOH + CO₂ → Na₂CO₃; Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂.",
+   "parametrlar": {
+    "arch": "genetik_na"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Grafikda IA metallarining suyuqlanish haroratlari berilgan. Qaysi metall ENG OSON suyuqlanadi?",
+   "variantlar": [
+    "Li",
+    "Na",
+    "K",
+    "Cs"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "aksincha — eng yuqori harorat (181 °C)"
+    },
+    {
+     "variant": "B",
+     "xato": "98 °C — o'rtada"
+    },
+    {
+     "variant": "C",
+     "xato": "64 °C — Cs dan yuqori"
+    }
+   ],
+   "yechim": "Grafikdan: guruhda pastga suyuqlanish harorati pasayadi — Cs ≈ 28 °C.",
+   "parametrlar": {
+    "arch": "suyuqlanish_oqish"
+   },
+   "fig": "melting"
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Sof natriy metali sanoatda qanday olinadi?",
+   "variantlar": [
+    "NaCl eritmasidan temir bilan siqib chiqarib",
+    "NaOH ni qizdirib",
+    "tabiiy konlardan qazib",
+    "suyuqlantirilgan NaCl ni elektroliz qilib"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "Na har qanday metalldan faol"
+    },
+    {
+     "variant": "B",
+     "xato": "ishqor metallga parchalanmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "tabiatda sof Na yo'q"
+    }
+   ],
+   "yechim": "2NaCl (suyuql.) → elektroliz → 2Na (katodda) + Cl₂ (anodda).",
+   "parametrlar": {
+    "arch": "na_olinish"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "26-savol grafigidan: qaysi ishqoriy metallning suyuqlanish harorati ENG YUQORI?",
+   "variantlar": [
+    "Li",
+    "Cs",
+    "K",
+    "Rb"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "eng past (28 °C)"
+    },
+    {
+     "variant": "C",
+     "xato": "64 °C"
+    },
+    {
+     "variant": "D",
+     "xato": "39 °C"
+    }
+   ],
+   "yechim": "Li — 181 °C: guruh boshida eng «chidamli».",
+   "parametrlar": {
+    "arch": "suyuqlanish_max"
+   },
+   "fig": "melting"
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "IA guruhda yuqoridan pastga suv bilan reaksiya SHIDDATI qanday o'zgaradi? Grafikni tanlang.",
+   "variantlar": [
+    "ortib boradi",
+    "kamayadi",
+    "o'zgarmaydi",
+    "avval ortib, so'ng kamayadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "faollik pastga ortadi"
+    },
+    {
+     "variant": "C",
+     "xato": "Li bilan Cs farqi juda katta"
+    },
+    {
+     "variant": "D",
+     "xato": "monoton ortadi"
+    }
+   ],
+   "yechim": "Li — sekin, Na — yugurib, K — alanga bilan, Rb/Cs — portlash bilan.",
+   "parametrlar": {
+    "arch": "shiddat_grafik"
+   },
+   "svg": {
+    "correct": "rise",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "Li→Cs",
+    "ylab": "shiddat"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Natriy bilan ishlashda qaysi xavfsizlik qoidasi SHART?",
+   "variantlar": [
+    "qo'lda ushlab kesish",
+    "suvda yuvib ishlatish",
+    "pinset bilan olish, suvdan uzoq tutish, ko'zoynak taqish",
+    "og'izda saqlash"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teridagi nam bilan reaksiyaga kirishadi — kuyish!"
+    },
+    {
+     "variant": "B",
+     "xato": "suv bilan portlaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "qat'iyan taqiqlanadi"
+    }
+   ],
+   "yechim": "Na terining namligi bilan ham ishqor hosil qiladi — faqat pinset va quruq asboblar.",
+   "parametrlar": {
+    "arch": "na_xavfsizlik"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂. 5,3 g kir soda kislota bilan to'liq reaksiyaga kirishganda ajralgan gaz hajmini (n.sh.) toping. (M(Na₂CO₃)=106)",
+   "variantlar": [
+    "1,12 L",
+    "2,24 L",
+    "22,4 L",
+    "0,56 L"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "0,1 mol deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "1 mol uchun"
+    },
+    {
+     "variant": "D",
+     "xato": "yarmi"
+    }
+   ],
+   "yechim": "n = 5,3/106 = 0,05 mol → V(CO₂) = 1,12 L.",
+   "parametrlar": {
+    "arch": "soda_hcl_hisob"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "26-savol grafigidan foydalanib, natriy va kaliy suyuqlanish haroratlari FARQINI toping.",
+   "variantlar": [
+    "62 °C",
+    "34 °C",
+    "98 °C",
+    "134 °C"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu boshqa juftlikning farqi"
+    },
+    {
+     "variant": "C",
+     "xato": "bu Na ning o'zi"
+    },
+    {
+     "variant": "D",
+     "xato": "yig'indini emas, farqni so'rayapti"
+    }
+   ],
+   "yechim": "98 − 64 = 34 °C.",
+   "parametrlar": {
+    "arch": "suyuqlanish_farq"
+   },
+   "fig": "melting"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "II.3",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "II.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "II.3",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "II.3",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Uch idishda oq moddalar bor: X — osh tuzi, Y — ichimlik sodasi, Z — o'yuvchi natriy donachalari. 33–35-savollarga A–F ro'yxatidan javob tanlang.",
+   "savollar_ichki": [
+    "33. Y ga sirka tomizilsa nima kuzatiladi?",
+    "34. Z ning eritmasida fenolftalein qanday rang oladi?",
+    "35. X ning alanga testidagi rangi qanday?"
+   ],
+   "javoblar_royxati": [
+    "A) gaz pufakchalari",
+    "B) pushti",
+    "C) sariq",
+    "D) o'zgarish yo'q",
+    "E) rangsiz qoladi",
+    "F) binafsha"
+   ],
+   "javoblar": {
+    "33": "A",
+    "34": "B",
+    "35": "C"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "NaHCO₃ + kislota CO₂ beradi — o'zgarish bor"
+    },
+    {
+     "variant": "E",
+     "xato": "NaOH kuchli ishqor — fenolftalein pushti bo'ladi"
+    },
+    {
+     "variant": "F",
+     "xato": "binafsha — kaliy; NaCl da natriy bor"
+    }
+   ],
+   "yechim": "Y: NaHCO₃ + CH₃COOH → CO₂↑ (A). Z: NaOH — pushti (B). X: Na — sariq alanga (C).",
+   "parametrlar": {
+    "arch": "oq_moddalar_ssenariy"
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "0,1 mol natriy gidroksidning massasini (g) toping. (M(NaOH)=40)",
+   "javob": "4",
+   "yechim": "m = 0,1·40 = 4 g.",
+   "parametrlar": {
+    "arch": "naoh_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "9,2 g natriy necha mol bo'ladi? (M(Na)=23)",
+   "javob": "0,4",
+   "yechim": "n = 9,2/23 = 0,4 mol.",
+   "parametrlar": {
+    "arch": "na_mol_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "10,6 g Na₂CO₃ ortiqcha kislota bilan reaksiyaga kirishganda ajralgan CO₂ hajmini (n.sh., L) toping. (M(Na₂CO₃)=106)",
+   "javob": "2,24",
+   "yechim": "n = 0,1 mol → V = 2,24 L.",
+   "parametrlar": {
+    "arch": "soda_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "K₂O + H₂O → 2KOH. 9,4 g kaliy oksididan olingan ishqor massasini (g) toping. (M: K₂O=94, KOH=56)",
+   "javob": "11,2",
+   "yechim": "n = 0,1 mol → KOH 0,2 mol → 11,2 g.",
+   "parametrlar": {
+    "arch": "k2o_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "0,15 mol natriy suv bilan reaksiyaga kirishganda ajralgan vodorod hajmini (n.sh., L) toping.",
+   "javob": "1,68",
+   "yechim": "n(H₂) = 0,075 mol → V = 0,075·22,4 = 1,68 L.",
+   "parametrlar": {
+    "arch": "na_h2_o1"
+   },
+   "tur": "O1",
+   "element": "II.3"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "2,3 g natriy suvga tashlandi. Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya tenglamasini yozing va kuzatiladigan hodisalarni tavsiflang.",
+     "yechim": [
+      "2Na + 2H₂O → 2NaOH + H₂↑; metall suv yuzasida yugurib eriydi, gaz ajraladi."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Ajralgan vodorod hajmini (n.sh.) hisoblang.",
+     "yechim": [
+      "n(Na) = 0,1 mol → n(H₂) = 0,05 → V = 1,12 L."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Hosil bo'lgan ishqor massasini toping.",
+     "yechim": [
+      "n(NaOH) = 0,1 mol → m = 4 g."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Eritmaga fenolftalein tomizilsa nima kuzatiladi? Sababini yozing.",
+     "yechim": [
+      "Pushti rang — eritmada NaOH (ishqoriy muhit) bor."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Na-suv zanjiri: tenglama → gaz → ishqor → indikator; M15+A10.",
+   "parametrlar": {
+    "arch": "na_suv_zanjir"
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Ishqoriy metallar bilan ishlash qoidalari o'rganilmoqda. Quyidagilarga MULOHAZA yuritib javob yozing.",
+   "bandlar": [
+    {
+     "savol": "a) Nega ishqoriy metallar tabiatda faqat birikma holida uchraydi va laboratoriyada kerosin ostida saqlanadi? Ikkala faktni bitta xossa orqali bog'lab tushuntiring.",
+     "yechim": [
+      "Sabab bitta — o'ta yuqori faollik: havo, suv, hatto namlik bilan darhol reaksiyaga",
+      "kirishadi. Tabiatda hamma «erkin» atomlar allaqachon birikkan; kerosin esa havo/namdan to'sadi."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega kesilgan natriy bo'lagining yuzasi bir necha soniyada xiralashadi?",
+     "yechim": [
+      "Yuzada Na₂O, NaOH, so'ng Na₂CO₃ pardasi hosil bo'ladi (havo O₂, H₂O, CO₂ bilan)."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Rb va Cs qanday idishlarda saqlanadi?",
+     "yechim": [
+      "Vakuumlangan shisha ampulalarda — ular kerosin ostida ham xavfli darajada faol."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Faollik-mulohaza (faqat M): M13+M9+M3 = 25.",
+   "parametrlar": {
+    "arch": "faollik_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "II.3",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Uch «oq modda» jadvalda solishtiriladi:\n[JADVAL] Modda | Formula ;; osh tuzi | NaCl ;; ichimlik sodasi | NaHCO₃ ;; o'yuvchi natriy | NaOH\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Har bir moddaning sinfini aniqlang.",
+     "yechim": [
+      "NaCl — o'rta tuz; NaHCO₃ — nordon tuz; NaOH — asos (ishqor)."
+     ],
+     "M": 4,
+     "A": 2
+    },
+    {
+     "savol": "b) Qaysilari xlorid kislota bilan reaksiyaga kirishadi? Tenglamalarini yozing.",
+     "yechim": [
+      "NaHCO₃ + HCl → NaCl + H₂O + CO₂↑; NaOH + HCl → NaCl + H₂O. NaCl kirishmaydi."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "c) Qaysi birini qizdirish o'zgartiradi? Tenglama yozing.",
+     "yechim": [
+      "2NaHCO₃ → Na₂CO₃ + H₂O + CO₂ (NaCl va NaOH termik barqaror)."
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) Uchchala eritmani indikatorlar yordamida qanday farqlash mumkin?",
+     "yechim": [
+      "NaOH — fenolftalein pushti; NaHCO₃ — kuchsiz ishqoriy (lakmus ko'kish); NaCl — neytral."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Oq moddalar jadvali: sinf → reaksiya → qizdirish → indikator; M15+A10.",
+   "parametrlar": {
+    "arch": "oq_moddalar_o2"
+   }
+  }
+ ]
+}
