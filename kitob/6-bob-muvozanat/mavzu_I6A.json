@@ -1,0 +1,1355 @@
+{
+ "variant": "mavzu-I6-A",
+ "daraja": "A",
+ "bob": 6,
+ "bob_nomi": "Kimyoviy muvozanat",
+ "manba": "MS spetsifikatsiyasi I.6; darslik (8-9-sinf) muvozanat bo'limlari — savollar yangi tuzilgan, hayotiy sahnalar (limonad, ammiak zavodi, g'or, NO₂ probirkalari) bilan",
+ "izoh": "A-varianti — O'RGATUVCHI ★★: soddaroq sonlar, rasmli hayotiy savollar, o'rgatuvchi chalg'ituvchilar. B-variantdan arxetip-pozitsiya jihatidan farqli.",
+ "savollar": [
+  {
+   "n": 1,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Kimyoviy muvozanat deb qanday holatga aytiladi?",
+   "variantlar": [
+    "barcha reaksiyalar to'xtagan holat",
+    "reagentlar to'liq sarflangan holat",
+    "to'g'ri va teskari reaksiya tezliklari tenglashgan holat",
+    "faqat mahsulot hosil bo'layotgan holat"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "reaksiyalar davom etadi — muvozanat dinamik"
+    },
+    {
+     "variant": "B",
+     "xato": "muvozanatda reagentlar ham, mahsulotlar ham bo'ladi"
+    },
+    {
+     "variant": "D",
+     "xato": "teskari reaksiya ham xuddi shu tezlikda boradi"
+    }
+   ],
+   "yechim": "Muvozanat: v(to'g'ri) = v(teskari), konsentratsiyalar o'zgarmas bo'lib qoladi.",
+   "parametrlar": {
+    "arch": "tarif_oddiy"
+   }
+  },
+  {
+   "n": 2,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "quyi",
+   "savol": "Reaksiya tenglamasidagi «⇌» belgisi nimani bildiradi?",
+   "variantlar": [
+    "reaksiya juda tez borishini",
+    "reaksiya ikkala yo'nalishda ham borishini",
+    "reaksiya issiqlik chiqarishini",
+    "reaksiya faqat qizdirilganda borishini"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "belgi tezlik haqida ma'lumot bermaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "issiqlik +Q/−Q bilan ko'rsatiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "sharoit belgining ustida alohida yoziladi"
+    }
+   ],
+   "yechim": "«⇌» — qaytar reaksiya belgisi: jarayon to'g'ri va teskari yo'nalishda boradi.",
+   "parametrlar": {
+    "arch": "qaytar_belgi"
+   }
+  },
+  {
+   "n": 3,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "N₂ + 3H₂ ⇌ 2NH₃ reaksiyasi uchun muvozanat konstantasining TO'G'RI ifodasi qaysi?",
+   "variantlar": [
+    "Kc = [NH₃]²/([N₂]·[H₂]³)",
+    "Kc = [N₂]·[H₂]³/[NH₃]²",
+    "Kc = [NH₃]/([N₂]·[H₂])",
+    "Kc = 2[NH₃]/([N₂]·3[H₂])"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu teskari reaksiyaning konstantasi"
+    },
+    {
+     "variant": "C",
+     "xato": "koeffitsiyentlar daraja bo'lib kirishi kerak"
+    },
+    {
+     "variant": "D",
+     "xato": "koeffitsiyent ko'paytuvchi emas, daraja bo'ladi"
+    }
+   ],
+   "yechim": "Mahsulot kasrning suratida, koeffitsiyentlar daraja ko'rsatkichi bo'ladi.",
+   "parametrlar": {
+    "arch": "kc_ifoda"
+   }
+  },
+  {
+   "n": 4,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: gazli ichimlik shishasi ochilganda «vish-sh» etib pufakchalar chiqadi. Buning muvozanat nuqtai nazaridan sababi nimada? (CO₂(g) ⇌ CO₂(eritma))",
+   "variantlar": [
+    "harorat keskin ko'tariladi",
+    "suv bug'lanib ketadi",
+    "bosim keskin pasayadi — muvozanat gaz tomonga siljiydi",
+    "katalizator hosil bo'ladi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "shisha ochilganda harorat deyarli o'zgarmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "pufakchalar suv bug'i emas, erigan CO₂ dir"
+    },
+    {
+     "variant": "D",
+     "xato": "hech qanday katalizator ishtirok etmaydi"
+    }
+   ],
+   "yechim": "Qopqoq ostida CO₂ bosimi katta; ochilganda bosim tushadi — muvozanat erigan gaz chiqishi tomonga siljiydi.",
+   "parametrlar": {
+    "arch": "soda_sahna"
+   },
+   "fig": "soda"
+  },
+  {
+   "n": 5,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "A + B ⇌ C + Q reaksiyasida haroratni PASAYTIRSAK muvozanat qaysi tomonga siljiydi?",
+   "variantlar": [
+    "chapga — reagentlar tomonga",
+    "siljimaydi",
+    "avval o'ngga, keyin chapga",
+    "o'ngga — mahsulot tomonga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "T↓ ekzotermik (issiqlik chiqaruvchi) yo'nalishga yordam beradi"
+    },
+    {
+     "variant": "B",
+     "xato": "harorat muvozanatni doim siljitadi"
+    },
+    {
+     "variant": "C",
+     "xato": "siljish bitta yangi holatgacha boradi"
+    }
+   ],
+   "yechim": "Sovutish issiqlik chiqaradigan (to'g'ri) reaksiyani kuchaytiradi — muvozanat o'ngga siljiydi.",
+   "parametrlar": {
+    "arch": "harorat_oddiy"
+   }
+  },
+  {
+   "n": 6,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "A + B ⇌ C reaksiyasida muvozanat konsentratsiyalari: [A]=0,5 M, [B]=0,4 M, [C]=1 M. Muvozanat konstantasini hisoblang.",
+   "variantlar": [
+    "0,2",
+    "1,1",
+    "5",
+    "2"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari nisbat olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "ko'paytirish o'rniga qo'shilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "faqat [A] ga bo'lingan"
+    }
+   ],
+   "yechim": "Kc = [C]/([A]·[B]) = 1/(0,5·0,4) = 5.",
+   "parametrlar": {
+    "arch": "kc_oddiy_hisob"
+   }
+  },
+  {
+   "n": 7,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "N₂ + 3H₂ ⇌ 2NH₃ muvozanatida bosim OSHIRILSA muvozanat qaysi tomonga siljiydi?",
+   "variantlar": [
+    "chapga — gaz mollari ko'p tomonga",
+    "siljimaydi",
+    "bosim muvozanatga hech qachon ta'sir qilmaydi",
+    "o'ngga — gaz mollari kam tomonga"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bosim↑ mol KAM tomonga siljitadi"
+    },
+    {
+     "variant": "B",
+     "xato": "mol sonlari teng emas: 4 ≠ 2"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat Δn = 0 bo'lganda ta'sir qilmaydi"
+    }
+   ],
+   "yechim": "Chapda 4 mol, o'ngda 2 mol gaz: bosim ortishi mol kam tomonni «afzal» qiladi.",
+   "parametrlar": {
+    "arch": "bosim_oddiy"
+   }
+  },
+  {
+   "n": 8,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda ammiak zavodi reaktori ko'rsatilgan. Nega sanoatda NH₃ sintezi 200–300 atm bosimda olib boriladi?",
+   "variantlar": [
+    "yuqori bosim muvozanatni NH₃ tomonga siljitadi — unum ortadi",
+    "yuqori bosim reaksiyani qaytmas qiladi",
+    "yuqori bosimda katalizator kerak bo'lmaydi",
+    "yuqori bosim haroratni pasaytiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "reaksiya baribir qaytarligicha qoladi"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator baribir ishlatiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "bosim haroratni avtomatik pasaytirmaydi"
+    }
+   ],
+   "yechim": "4 mol gazdan 2 mol hosil bo'ladi: bosim↑ mol kam (NH₃) tomonga siljitadi, unum ortadi.",
+   "parametrlar": {
+    "arch": "plant_sahna"
+   },
+   "fig": "plant"
+  },
+  {
+   "n": 9,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "CO + H₂O(g) ⇌ CO₂ + H₂ muvozanatida suv bug'i konsentratsiyasi OSHIRILSA nima kuzatiladi?",
+   "variantlar": [
+    "muvozanat chapga siljiydi",
+    "hech narsa o'zgarmaydi",
+    "muvozanat o'ngga siljiydi, CO₂ va H₂ ko'payadi",
+    "Kc ortadi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "reagent qo'shilishi to'g'ri reaksiyani kuchaytiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "konsentratsiya o'zgarishi muvozanatni siljitadi"
+    },
+    {
+     "variant": "D",
+     "xato": "Kc harorat o'zgarmagach o'zgarmaydi"
+    }
+   ],
+   "yechim": "Reagent qo'shilsa Le Chatelier bo'yicha muvozanat uni «sarflash» tomonga — o'ngga siljiydi.",
+   "parametrlar": {
+    "arch": "konts_oddiy"
+   }
+  },
+  {
+   "n": 10,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Katalizator muvozanatdagi sistemaga qanday ta'sir ko'rsatadi?",
+   "variantlar": [
+    "muvozanatni siljitmaydi, unga tezroq erishtiradi",
+    "muvozanatni mahsulot tomonga siljitadi",
+    "mahsulot unumini oshiradi",
+    "teskari reaksiyani sekinlashtiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkala tezlikni teng oshirgani uchun siljitmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "muvozanat holati o'zgarmas ekan, unum ham o'zgarmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "katalizator ikkala yo'nalishni ham tezlashtiradi"
+    }
+   ],
+   "yechim": "Katalizator to'g'ri va teskari reaksiyalarni teng marta tezlashtiradi.",
+   "parametrlar": {
+    "arch": "katalizator_oddiy"
+   }
+  },
+  {
+   "n": 11,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Yopiq idishdagi rangli gaz sistemasida muvozanat qaror topganini qanday KUZATISH orqali bilish mumkin?",
+   "variantlar": [
+    "rang butunlay yo'qoladi",
+    "pufakchalar chiqishi to'xtaydi",
+    "harorat nolga tushadi",
+    "aralashma rangi o'zgarmay qoladi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "muvozanatda rangli modda ham qoladi"
+    },
+    {
+     "variant": "B",
+     "xato": "yopiq idishda gaz chiqib ketmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "harorat muvozanat belgisi emas"
+    }
+   ],
+   "yechim": "Konsentratsiyalar o'zgarmas bo'lgach, rang intensivligi ham o'zgarmay qoladi — muvozanat belgisi.",
+   "parametrlar": {
+    "arch": "belgi_kuzatish"
+   }
+  },
+  {
+   "n": 12,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "O'zgarmas hajmli idishdagi muvozanatga inert gaz (masalan, argon) qo'shilsa, muvozanat holatiga nima bo'ladi?",
+   "variantlar": [
+    "mahsulot tomonga siljiydi",
+    "o'zgarmaydi",
+    "reagentlar tomonga siljiydi",
+    "reaksiya to'xtaydi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "reagent-mahsulot konsentratsiyalari o'zgarmagan"
+    },
+    {
+     "variant": "C",
+     "xato": "argon reaksiyada ishtirok etmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "inert gaz reaksiyani to'xtatmaydi"
+    }
+   ],
+   "yechim": "V = const da inert gaz hech bir moddaning konsentratsiyasini o'zgartirmaydi.",
+   "parametrlar": {
+    "arch": "inert_oddiy"
+   }
+  },
+  {
+   "n": 13,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmga qarang: g'or shiftidan tomgan suvdan stalaktitlar o'sadi. Suvda Ca(HCO₃)₂ ⇌ CaCO₃↓ + CO₂↑ + H₂O muvozanati bor. G'or havosida tomchidan CO₂ uchib chiqishi muvozanatga qanday ta'sir qiladi?",
+   "variantlar": [
+    "muvozanat chapga siljiydi — stalaktit eriydi",
+    "muvozanat o'ngga siljiydi — CaCO₃ cho'kib, stalaktit o'sadi",
+    "muvozanat siljimaydi",
+    "suv qaynab ketadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mahsulot (CO₂) kamayishi to'g'ri yo'nalishni kuchaytiradi"
+    },
+    {
+     "variant": "C",
+     "xato": "CO₂ chiqib ketishi konsentratsiyani o'zgartiradi"
+    },
+    {
+     "variant": "D",
+     "xato": "g'orda harorat past, qaynash yuz bermaydi"
+    }
+   ],
+   "yechim": "CO₂ chiqib ketgani sari muvozanat uni «to'ldirish» uchun o'ngga siljiydi — CaCO₃ cho'kadi.",
+   "parametrlar": {
+    "arch": "cave_sahna"
+   },
+   "fig": "cave"
+  },
+  {
+   "n": 14,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "A ⇌ 2B reaksiyasi uchun Kc = 2. Muvozanatda [A] = 2 M bo'lsa, [B] ni toping (M).",
+   "variantlar": [
+    "4",
+    "1",
+    "2",
+    "0,5"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "kvadrat ildiz olinmagan"
+    },
+    {
+     "variant": "B",
+     "xato": "Kc/[A] deb olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "teskari nisbat"
+    }
+   ],
+   "yechim": "Kc = [B]²/[A] → [B]² = 2·2 = 4 → [B] = 2 M.",
+   "parametrlar": {
+    "arch": "kc_dan_topish"
+   }
+  },
+  {
+   "n": 15,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "H₂ + I₂ ⇌ 2HI. Boshlang'ich [H₂] = [I₂] = 1 M. Muvozanatda [HI] = 1,2 M bo'ldi. Muvozanatdagi [H₂] ni toping (M).",
+   "variantlar": [
+    "0,6",
+    "1,2",
+    "0,4",
+    "0,8"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "sarflangan miqdorning o'zi"
+    },
+    {
+     "variant": "B",
+     "xato": "HI qiymati ko'chirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "HI/2 ni ayirish unutilib, boshqa xato"
+    }
+   ],
+   "yechim": "HI 1,2 M hosil bo'ldi → H₂ sarfi 0,6 M → qoldi 1 − 0,6 = 0,4 M.",
+   "parametrlar": {
+    "arch": "ice_oddiy_a",
+    "hi": 1.2
+   }
+  },
+  {
+   "n": 16,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Yopiq idishdagi 1 mol N₂O₄ ning YARMI parchalanib muvozanat qaror topdi (N₂O₄ ⇌ 2NO₂). Idishdagi gazlarning umumiy mol soni qancha bo'ldi?",
+   "variantlar": [
+    "1",
+    "2",
+    "0,5",
+    "1,5"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "mol o'zgarmaydi deb olingan"
+    },
+    {
+     "variant": "B",
+     "xato": "to'liq parchalanish deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "faqat qolgan N₂O₄ hisoblangan"
+    }
+   ],
+   "yechim": "Qoldi 0,5 mol N₂O₄, hosil bo'ldi 2·0,5 = 1 mol NO₂ → jami 1,5 mol.",
+   "parametrlar": {
+    "arch": "mol_oddiy",
+    "alfa": 0.5
+   }
+  },
+  {
+   "n": 17,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Muvozanatdagi sistemada mahsulot unumini OSHIRISHNING to'g'ri usuli qaysi?",
+   "variantlar": [
+    "katalizator miqdorini oshirish",
+    "reagentlarni kamaytirish",
+    "hosil bo'layotgan mahsulotni doimiy chiqarib turish",
+    "idishni ochiq qoldirish"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "katalizator unumni o'zgartirmaydi"
+    },
+    {
+     "variant": "B",
+     "xato": "bu muvozanatni chapga siljitadi"
+    },
+    {
+     "variant": "D",
+     "xato": "reagent gazlar ham chiqib ketishi mumkin"
+    }
+   ],
+   "yechim": "Mahsulot chiqarilsa uning konsentratsiyasi kamayadi — muvozanat doim o'ngga siljib turadi.",
+   "parametrlar": {
+    "arch": "mahsulot_chiqarish"
+   }
+  },
+  {
+   "n": 18,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda bir xil gaz (NO₂/N₂O₄ aralashmasi) solingan ikkita probirka: biri issiq suvda (to'q qo'ng'ir), biri muzda (och rangli). 2NO₂ ⇌ N₂O₄ + Q. Qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "isitish muvozanatni qo'ng'ir NO₂ tomonga siljitadi",
+    "isitish muvozanatni N₂O₄ tomonga siljitadi",
+    "harorat rangga ta'sir qilmaydi",
+    "sovutish NO₂ ni ko'paytiradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "unda issiq probirka och rangli bo'lardi"
+    },
+    {
+     "variant": "C",
+     "xato": "tajribada ranglar aniq farq qiladi"
+    },
+    {
+     "variant": "D",
+     "xato": "sovuq probirka och — NO₂ kamaygan"
+    }
+   ],
+   "yechim": "T↑ endotermik (teskari) yo'nalishni kuchaytiradi: N₂O₄ → 2NO₂, rang to'qlashadi.",
+   "parametrlar": {
+    "arch": "no2_sahna"
+   },
+   "fig": "no2"
+  },
+  {
+   "n": 19,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Harorat ko'tarilganda reaksiyaning Kc qiymati ORTDI. To'g'ri reaksiya haqida qanday xulosa chiqariladi?",
+   "variantlar": [
+    "ekzotermik — issiqlik chiqaradi",
+    "issiqlik effektisiz",
+    "katalitik",
+    "endotermik — issiqlik yutib boradi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "ekzotermikda T↑ Kc ni kamaytiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "unda Kc haroratga deyarli bog'liq bo'lmasdi"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator Kc ga ta'sir etmaydi"
+    }
+   ],
+   "yechim": "T↑ da Kc ortishi — muvozanat o'ngga siljiganini, ya'ni to'g'ri reaksiya endotermik ekanini bildiradi.",
+   "parametrlar": {
+    "arch": "kc_harorat_oddiy"
+   }
+  },
+  {
+   "n": 20,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Reaksiya davomida mahsulot konsentratsiyasi o'lchab borildi:\n[JADVAL] t, min | 0 | 5 | 10 | 15 | 20 ;; c, M | 0 | 0,6 | 0,9 | 1,0 | 1,0\nSistema qaysi vaqtdan boshlab muvozanatda?",
+   "variantlar": [
+    "20-minutdan",
+    "10-minutdan",
+    "5-minutdan",
+    "15-minutdan"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1,0 qiymati 15-minutdayoq o'rnatilgan"
+    },
+    {
+     "variant": "B",
+     "xato": "10-min da c hali o'sayotgan edi (0,9 → 1,0)"
+    },
+    {
+     "variant": "C",
+     "xato": "0,6 → 0,9 — o'zgarish davom etgan"
+    }
+   ],
+   "yechim": "Konsentratsiya o'zgarishdan to'xtagan ilk nuqta — 15-min (1,0 M saqlangan).",
+   "parametrlar": {
+    "arch": "jadval_oqish"
+   }
+  },
+  {
+   "n": 21,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2SO₂ + O₂ ⇌ 2SO₃ reaksiyasida 2 mol SO₂ dan muvozanatda 1,5 mol SO₃ hosil bo'ldi. SO₃ ning unumini (%) toping.",
+   "variantlar": [
+    "75",
+    "50",
+    "87,5",
+    "60"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "asossiz yarim"
+    },
+    {
+     "variant": "C",
+     "xato": "O₂ bo'yicha hisob aralashgan"
+    },
+    {
+     "variant": "D",
+     "xato": "1,5/2,5 xato nisbat"
+    }
+   ],
+   "yechim": "Nazariy unum 2 mol; amalda 1,5 mol → 1,5/2 · 100% = 75%.",
+   "parametrlar": {
+    "arch": "unum_hisob"
+   }
+  },
+  {
+   "n": 22,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2SO₂ + O₂ ⇌ 2SO₃ muvozanatida: [SO₂]=0,2 M, [O₂]=0,1 M, [SO₃]=0,2 M. Muvozanat konstantasini toping.",
+   "variantlar": [
+    "0,1",
+    "10",
+    "1",
+    "5"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "teskari nisbat"
+    },
+    {
+     "variant": "C",
+     "xato": "kvadratlar tushirib qoldirilgan"
+    },
+    {
+     "variant": "D",
+     "xato": "O₂ darajasi 2 deb olingan"
+    }
+   ],
+   "yechim": "Kc = 0,2²/(0,2²·0,1) = 1/0,1 = 10.",
+   "parametrlar": {
+    "arch": "kc_so3"
+   }
+  },
+  {
+   "n": 23,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Quyidagilardan qaysi biri reaksiyaning QAYTMAS borishiga sabab bo'ladi?",
+   "variantlar": [
+    "katalizator ishtirok etishi",
+    "cho'kma hosil bo'lib, muhitdan chiqishi",
+    "reaksiyaning sekin borishi",
+    "moddalarning rangli bo'lishi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "katalizator qaytarlikni o'zgartirmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "tezlik qaytarlikka bog'liq emas"
+    },
+    {
+     "variant": "D",
+     "xato": "rang qaytarlik mezoni emas"
+    }
+   ],
+   "yechim": "Mahsulot muhitni tark etsa (cho'kma, gaz, kam dissotsiyalanuvchi modda) teskari reaksiya imkoni yo'qoladi.",
+   "parametrlar": {
+    "arch": "qaytmas_shart"
+   }
+  },
+  {
+   "n": 24,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "N₂ + 3H₂ ⇌ 2NH₃ + Q. NH₃ unumini oshirish uchun QAYSI JUFT chora to'g'ri tanlangan?",
+   "variantlar": [
+    "bosimni oshirish va haroratni pasaytirish",
+    "bosimni pasaytirish va haroratni oshirish",
+    "katalizator qo'shish va bosimni pasaytirish",
+    "inert gaz qo'shish va isitish"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "ikkalasi ham muvozanatni chapga siljitadi"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator siljitmaydi, bosim↓ chapga siljitadi"
+    },
+    {
+     "variant": "D",
+     "xato": "inert gaz (V=const) siljitmaydi, isitish chapga siljitadi"
+    }
+   ],
+   "yechim": "Mol kamayadi (4→2): bosim↑ o'ngga; ekzotermik: T↓ o'ngga. Ikkala chora ham unumni oshiradi.",
+   "parametrlar": {
+    "arch": "kombinatsiya_oddiy"
+   }
+  },
+  {
+   "n": 25,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Muvozanat konstantasi Kc quyidagilardan FAQAT qaysi biriga bog'liq?",
+   "variantlar": [
+    "bosimga",
+    "haroratga",
+    "katalizatorga",
+    "boshlang'ich konsentratsiyalarga"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bosim muvozanatni siljitadi, Kc ni o'zgartirmaydi"
+    },
+    {
+     "variant": "C",
+     "xato": "katalizator Kc ga ta'sir etmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "qanday boshlansa ham o'sha T da Kc bir xil"
+    }
+   ],
+   "yechim": "Kc — haroratning funksiyasi: T o'zgarmagach Kc o'zgarmaydi.",
+   "parametrlar": {
+    "arch": "kc_omil_oddiy"
+   }
+  },
+  {
+   "n": 26,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Yopiq idishga faqat reagentlar solindi. MAHSULOT konsentratsiyasining vaqtga bog'liq grafigi qaysi?",
+   "variantlar": [
+    "doimiy kamayadi",
+    "noldan ortib, muvozanatda o'zgarmay qoladi",
+    "boshdan oxirigacha o'zgarmas",
+    "ortib, keyin nolga tushadi"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bu reagent konsentratsiyasining grafigi"
+    },
+    {
+     "variant": "C",
+     "xato": "mahsulot 0 dan boshlab ortib boradi"
+    },
+    {
+     "variant": "D",
+     "xato": "muvozanatda mahsulot yo'qolmaydi"
+    }
+   ],
+   "yechim": "Mahsulot 0 dan ortib boradi va muvozanatda platoga chiqadi (o'sish + plato).",
+   "parametrlar": {
+    "arch": "grafik_mahsulot"
+   },
+   "svg": {
+    "correct": "rise_flat",
+    "d1": "fall",
+    "d2": "flat",
+    "d3": "rise_fall",
+    "xlab": "t",
+    "ylab": "c(mahsulot)"
+   }
+  },
+  {
+   "n": 27,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "A + B ⇌ C sistemasida idish hajmi 2 marta KAMAYTIRILDI. To'g'ri reaksiya tezligi necha marta ortadi?",
+   "variantlar": [
+    "2",
+    "8",
+    "4",
+    "o'zgarmaydi"
+   ],
+   "javob": "C",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "faqat bitta modda hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "uchinchi daraja xato olingan"
+    },
+    {
+     "variant": "D",
+     "xato": "konsentratsiyalar ortgani uchun tezlik ham ortadi"
+    }
+   ],
+   "yechim": "Ikkala konsentratsiya 2 marta ortadi: v = k[A][B] → 2·2 = 4 marta.",
+   "parametrlar": {
+    "arch": "hajm_oddiy"
+   }
+  },
+  {
+   "n": 28,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "2NO₂(qo'ng'ir) ⇌ N₂O₄(rangsiz) + Q muvozanatidagi idish ISITILSA rang qanday o'zgaradi?",
+   "variantlar": [
+    "ochiladi — N₂O₄ ko'payadi",
+    "o'zgarmaydi",
+    "rang butunlay yo'qoladi",
+    "to'qlashadi — NO₂ ko'payadi"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "isitish endotermik (NO₂ hosil bo'lish) yo'nalishini kuchaytiradi"
+    },
+    {
+     "variant": "B",
+     "xato": "harorat bu muvozanatni albatta siljitadi"
+    },
+    {
+     "variant": "C",
+     "xato": "NO₂ to'liq yo'qolmaydi"
+    }
+   ],
+   "yechim": "T↑ issiqlik yutuvchi yo'nalishga (N₂O₄ → 2NO₂) yordam beradi — qo'ng'ir rang kuchayadi.",
+   "parametrlar": {
+    "arch": "rang_isitish"
+   }
+  },
+  {
+   "n": 29,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "To'g'ri reaksiya uchun Kc = 5. Teskari reaksiyaning muvozanat konstantasini toping.",
+   "variantlar": [
+    "5",
+    "0,2",
+    "−5",
+    "25"
+   ],
+   "javob": "B",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "bir xil deb olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "konstanta manfiy bo'lmaydi"
+    },
+    {
+     "variant": "D",
+     "xato": "kvadrat olingan"
+    }
+   ],
+   "yechim": "K(tesk) = 1/K(to'g'ri) = 1/5 = 0,2.",
+   "parametrlar": {
+    "arch": "teskari_kc_oddiy"
+   }
+  },
+  {
+   "n": 30,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "Muvozanat haqidagi fikrlardan XATOSINI toping.",
+   "variantlar": [
+    "muvozanatda barcha moddalar konsentratsiyalari o'zaro teng bo'ladi",
+    "muvozanatda konsentratsiyalar o'zgarmas bo'ladi",
+    "muvozanat sharoit o'zgarsa siljiydi",
+    "muvozanatda ikkala reaksiya davom etadi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "bu to'g'ri fikr"
+    },
+    {
+     "variant": "C",
+     "xato": "bu to'g'ri fikr (Le Chatelier)"
+    },
+    {
+     "variant": "D",
+     "xato": "bu to'g'ri fikr (dinamiklik)"
+    }
+   ],
+   "yechim": "Konsentratsiyalar O'ZGARMAS, lekin o'zaro TENG bo'lishi shart emas — bu keng tarqalgan xato.",
+   "parametrlar": {
+    "arch": "xato_fikr"
+   }
+  },
+  {
+   "n": 31,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "2 mol PCl₅ dan muvozanatga kelguncha 0,5 mol parchalandi. Dissotsiatsiya darajasini (%) toping.",
+   "variantlar": [
+    "50",
+    "75",
+    "0,25",
+    "25"
+   ],
+   "javob": "D",
+   "chalgituvchilar": [
+    {
+     "variant": "A",
+     "xato": "1 moldan hisoblangan"
+    },
+    {
+     "variant": "B",
+     "xato": "qolgan ulush olingan"
+    },
+    {
+     "variant": "C",
+     "xato": "foizga o'tkazilmagan"
+    }
+   ],
+   "yechim": "α = 0,5/2 = 0,25 → 25%.",
+   "parametrlar": {
+    "arch": "alfa_oddiy"
+   }
+  },
+  {
+   "n": 32,
+   "tur": "Y1",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "Rasmda to'g'ri (1) va teskari (2) reaksiya tezliklarining vaqtga bog'liqligi berilgan. Grafik bo'yicha qaysi xulosa TO'G'RI?",
+   "variantlar": [
+    "t₁ dan boshlab tezliklar tenglashadi — muvozanat qaror topadi",
+    "t₁ da reaksiyalar to'xtaydi",
+    "teskari reaksiya boshidanoq tez",
+    "to'g'ri tezlik doimo ortib boradi"
+   ],
+   "javob": "A",
+   "chalgituvchilar": [
+    {
+     "variant": "B",
+     "xato": "tezliklar nolga tushmaydi — teng bo'lib davom etadi"
+    },
+    {
+     "variant": "C",
+     "xato": "teskari tezlik 0 dan boshlanadi"
+    },
+    {
+     "variant": "D",
+     "xato": "reagentlar kamaygani uchun u pasayadi"
+    }
+   ],
+   "yechim": "1-egri pasayadi, 2-egri ortadi; t₁ da kesishmasdan bir sathga kelib teng davom etadi — muvozanat.",
+   "parametrlar": {
+    "arch": "vt_oqish"
+   },
+   "fig": "vt_eq"
+  },
+  {
+   "n": 33,
+   "tur": "Y2",
+   "element": "I.6",
+   "ichki_pasport": [
+    {
+     "n": 33,
+     "element": "I.6",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 34,
+     "element": "I.6",
+     "qiyinlik": 2,
+     "kognitiv": "o'rta"
+    },
+    {
+     "n": 35,
+     "element": "I.6",
+     "qiyinlik": 3,
+     "kognitiv": "yuqori"
+    }
+   ],
+   "matn_umumiy": "Limonad zavodida suvga CO₂ bosim ostida eritiladi: CO₂(g) ⇌ CO₂(eritma) + Q. 20 °C va 1 atm bosimda 1 l suvda 1,7 g CO₂ eriydi; erigan gaz massasi bosimga to'g'ri proporsional (Genri qonuni). 33–35-savollarga A–F ro'yxatidan javob tanlang (javoblar — gramm).",
+   "savollar_ichki": [
+    "33. 2 atm bosimda 1 l suvda necha gramm CO₂ eriydi?",
+    "34. 2 atm da tayyorlangan 1 l ichimlik ochilib, bosim 1 atm ga tushsa, necha gramm CO₂ uchib chiqadi?",
+    "35. 2 atm da tayyorlangan 0,5 l ichimlik ochilsa-chi?"
+   ],
+   "javoblar_royxati": [
+    "A) 1,7",
+    "B) 0,85",
+    "C) 3,4",
+    "D) 6,8",
+    "E) 5,1",
+    "F) 0"
+   ],
+   "javoblar": {
+    "33": "C",
+    "34": "A",
+    "35": "B"
+   },
+   "chalgituvchilar": [
+    {
+     "variant": "D",
+     "xato": "bosim kvadratga ko'tarilgan (1,7·4)"
+    },
+    {
+     "variant": "E",
+     "xato": "3,4 + 1,7 — yig'ish xatosi"
+    },
+    {
+     "variant": "F",
+     "xato": "«hammasi uchib ketadi» degan xato tasavvur"
+    }
+   ],
+   "yechim": "33: 1,7·2 = 3,4 g (C). 34: chiqib ketadi 3,4 − 1,7 = 1,7 g (A). 35: 0,5 l uchun hammasi ikki barobar kam → 0,85 g (B).",
+   "parametrlar": {
+    "arch": "limonad_ssenariy",
+    "s1atm": 1.7
+   }
+  },
+  {
+   "n": 36,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "H₂ + I₂ ⇌ 2HI muvozanatida [H₂]=0,2 M, [I₂]=0,2 M, [HI]=0,4 M. Muvozanat konstantasini toping.",
+   "javob": "4",
+   "yechim": "Kc = 0,4²/(0,2·0,2) = 0,16/0,04 = 4.",
+   "parametrlar": {
+    "arch": "kc_hi"
+   },
+   "tur": "O1",
+   "element": "I.6"
+  },
+  {
+   "n": 37,
+   "qiyinlik": 2,
+   "kognitiv": "o'rta",
+   "savol": "1 mol N₂O₄ dan muvozanatga kelguncha 0,3 mol parchalandi. Dissotsiatsiya darajasini (%) toping.",
+   "javob": "30",
+   "yechim": "α = 0,3/1 = 30%.",
+   "parametrlar": {
+    "arch": "alfa_o1"
+   },
+   "tur": "O1",
+   "element": "I.6"
+  },
+  {
+   "n": 38,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "A ⇌ B + C reaksiyasida boshlang'ich [A] = 1 M. Muvozanatda [B] = 0,4 M bo'lsa, [A] ni toping (M).",
+   "javob": "0,6",
+   "yechim": "A sarfi = B = 0,4 M → [A] = 1 − 0,4 = 0,6 M.",
+   "parametrlar": {
+    "arch": "ice_o1"
+   },
+   "tur": "O1",
+   "element": "I.6"
+  },
+  {
+   "n": 39,
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "savol": "To'g'ri reaksiya uchun Kc = 9. Teskari reaksiya konstantasini toping (yuzdan birgacha).",
+   "javob": "0,11",
+   "yechim": "K(tesk) = 1/9 ≈ 0,11.",
+   "parametrlar": {
+    "arch": "teskari_o1"
+   },
+   "tur": "O1",
+   "element": "I.6"
+  },
+  {
+   "n": 40,
+   "qiyinlik": 3,
+   "kognitiv": "o'rta",
+   "savol": "N₂ + 3H₂ ⇌ 2NH₃ reaksiyasida muvozanatga kelguncha 6 mol H₂ sarflandi. Necha mol NH₃ hosil bo'lgan?",
+   "javob": "4",
+   "yechim": "Nisbat 3:2 → NH₃ = 6·2/3 = 4 mol.",
+   "parametrlar": {
+    "arch": "stex_o1"
+   },
+   "tur": "O1",
+   "element": "I.6"
+  },
+  {
+   "n": 41,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Hajmi 1 l bo'lgan yopiq idishga 1 mol H₂ va 1 mol I₂ solindi. Muvozanat qaror topganda idishda 1,6 mol HI bor edi (H₂ + I₂ ⇌ 2HI). Bandlar ketma-ket yechiladi — har biri keyingisiga asos bo'ladi.",
+   "bandlar": [
+    {
+     "savol": "a) «Boshlang'ich — o'zgarish — muvozanat» (ICE) jadvalini tuzing.",
+     "yechim": [
+      "H₂: 1 → 1−x; I₂: 1 → 1−x; HI: 0 → 2x = 1,6 → x = 0,8"
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Muvozanatdagi [H₂] va [I₂] ni toping.",
+     "yechim": [
+      "[H₂] = [I₂] = 1 − 0,8 = 0,2 M"
+     ],
+     "M": 3,
+     "A": 2
+    },
+    {
+     "savol": "c) Muvozanat konstantasini hisoblang.",
+     "yechim": [
+      "Kc = 1,6²/(0,2·0,2) = 64"
+     ],
+     "M": 4,
+     "A": 3
+    },
+    {
+     "savol": "d) H₂ ning necha foizi reaksiyaga kirishganini toping.",
+     "yechim": [
+      "0,8/1 = 80%"
+     ],
+     "M": 2,
+     "A": 2
+    },
+    {
+     "savol": "e) Harorat o'zgartirilsa Kc qiymati o'zgaradimi? Javobingizni izohlang.",
+     "yechim": [
+      "Ha — Kc faqat haroratga bog'liq: T o'zgarsa Kc ham o'zgaradi;",
+      "boshqa omillar (bosim, konsentratsiya, katalizator) uni o'zgartirmaydi."
+     ],
+     "M": 3,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "O'rgatuvchi ICE zanjiri: jadval → konsentratsiya → Kc → % → nazariy izoh; M15+A10.",
+   "parametrlar": {
+    "arch": "hi_zanjir",
+    "h2": 1,
+    "i2": 1,
+    "hi": 1.6
+   }
+  },
+  {
+   "n": 42,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Ammiak zavodida N₂ + 3H₂ ⇌ 2NH₃ + Q jarayoni 450 °C da, 250 atm bosimda, temir katalizator ishtirokida olib boriladi. Quyidagi savollarga MULOHAZA yuritib javob yozing (hisob talab qilinmaydi).",
+   "bandlar": [
+    {
+     "savol": "a) Reaksiya ekzotermik bo'lsa-da, nega jarayon past haroratda emas, 450 °C da olib boriladi? Muvozanat va tezlik tushunchalarini solishtirib asoslang.",
+     "yechim": [
+      "Past T da unum yuqori (muvozanat o'ngda), lekin tezlik juda sekin — iqtisodiy zarar.",
+      "450 °C — unum va tezlik o'rtasidagi kelishuv (optimal) harorat."
+     ],
+     "M": 13,
+     "A": 0
+    },
+    {
+     "savol": "b) Nega aynan yuqori bosim (250 atm) tanlangan? Mol sonlari orqali tushuntiring.",
+     "yechim": [
+      "4 mol gazdan 2 mol hosil bo'ladi: bosim↑ mol kam tomonga siljitadi — NH₃ unumi ortadi."
+     ],
+     "M": 9,
+     "A": 0
+    },
+    {
+     "savol": "c) Katalizatorning bu jarayondagi rolini bir jumla bilan ayting.",
+     "yechim": [
+      "Muvozanatni siljitmaydi — unga erishish vaqtini keskin qisqartiradi."
+     ],
+     "M": 3,
+     "A": 0
+    }
+   ],
+   "rasmiylashtirish": "Sanoat-mulohaza formati (faqat M): M13+M9+M3 = 25 (rasmiy 42-format).",
+   "parametrlar": {
+    "arch": "zavod_mulohaza"
+   }
+  },
+  {
+   "n": 43,
+   "tur": "O2",
+   "element": "I.6",
+   "qiyinlik": 3,
+   "kognitiv": "yuqori",
+   "jami": 25,
+   "matn": "Yopiq idishda N₂O₄ ⇌ 2NO₂ reaksiyasi kuzatildi; konsentratsiyalar jadvalda:\n[JADVAL] t, s | 0 | 20 | 40 | 60 ;; [N₂O₄], M | 1,0 | 0,7 | 0,6 | 0,6 ;; [NO₂], M | 0 | 0,6 | 0,8 | 0,8\nBandlar ketma-ket yechiladi.",
+   "bandlar": [
+    {
+     "savol": "a) Sistema qaysi vaqtdan boshlab muvozanatda? Asoslang.",
+     "yechim": [
+      "40-s dan: ikkala konsentratsiya ham o'zgarishdan to'xtagan (0,6 va 0,8)."
+     ],
+     "M": 3,
+     "A": 1
+    },
+    {
+     "savol": "b) Muvozanat konstantasini hisoblang.",
+     "yechim": [
+      "Kc = [NO₂]²/[N₂O₄] = 0,8²/0,6 ≈ 1,07"
+     ],
+     "M": 5,
+     "A": 4
+    },
+    {
+     "savol": "c) Muvozanatga kelguncha N₂O₄ ning necha foizi parchalangan?",
+     "yechim": [
+      "Parchalandi 0,4 M → 0,4/1,0 = 40%"
+     ],
+     "M": 3,
+     "A": 3
+    },
+    {
+     "savol": "d) Nega [NO₂] ning o'sishi [N₂O₄] kamayishidan ikki barobar katta? Stexiometriya orqali izohlang.",
+     "yechim": [
+      "Tenglamada 1 mol N₂O₄ dan 2 mol NO₂ hosil bo'ladi — o'zgarishlar 1:2 nisbatda."
+     ],
+     "M": 4,
+     "A": 2
+    }
+   ],
+   "rasmiylashtirish": "Jadval-tahlil (kuzatuv) formati: M15+A10. B-variantdagi Kc–T jadvalidan farqli.",
+   "parametrlar": {
+    "arch": "n2o4_jadval"
+   }
+  }
+ ]
+}
