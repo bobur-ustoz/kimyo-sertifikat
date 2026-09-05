@@ -200,9 +200,6 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
             <button onClick={request} disabled={sending} style={{width:"100%",padding:"12px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:sending?"not-allowed":"pointer",fontFamily:"inherit",opacity:sending?0.7:1}}>
               {sending?"Yuborilmoqda...":"Sotib olish so'rovini yuborish"}
             </button>
-            <button onClick={()=>{onClose();setTab("obuna");}} style={{width:"100%",marginTop:8,padding:"10px",borderRadius:10,background:"#fff",color:C.textMid,border:`1px solid ${C.border}`,fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>
-              Yoki Premium oling — barcha variantlar ochiq
-            </button>
           </>
         )}
       </div>
@@ -581,7 +578,6 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
               {!pending&&(
                 <div style={{display:"flex",gap:9,marginTop:16,flexWrap:"wrap",justifyContent:"center"}}>
                   <button onClick={()=>onBuy?.(variant)} style={{padding:"10px 20px",borderRadius:10,background:C.mint,color:C.primary,border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><CreditCard size={14}/> {fmtSum(variant?.price)} so'mga olish</button>
-                  <button onClick={()=>setTab("obuna")} style={{padding:"10px 18px",borderRadius:10,background:"rgba(255,255,255,0.1)",color:"#E2E8F0",border:"1px solid rgba(255,255,255,0.16)",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Premium — hammasi ochiq</button>
                 </div>
               )}
             </div>
@@ -627,7 +623,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
             <div style={{width:42,height:42,borderRadius:10,background:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Lock size={18} color={C.textLight}/></div>
             <div style={{flex:1}}>
               <div style={{fontWeight:800,fontSize:13.5,color:C.textMid,marginBottom:3}}>🤖 AI Analog Savol Generator</div>
-              <div style={{fontSize:12,color:C.textLight}}>Bu funksiya Standart yoki Premium rejada mavjud</div>
+              <div style={{fontSize:12,color:C.textLight}}>Bu funksiya Standart rejada mavjud</div>
             </div>
             <button onClick={()=>setTab("obuna")} style={{padding:"8px 16px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Obuna</button>
           </div>
@@ -946,10 +942,10 @@ function TestGenerator({teacher,plan,setTab,session}) {
       <div style={{maxWidth:640,background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:24,display:"flex",alignItems:"center",gap:16}}>
         <Lock size={28} color="#94A3B8"/>
         <div style={{flex:1}}>
-          <div style={{color:"#fff",fontWeight:800,fontSize:15}}>Test Generator Premium rejada mavjud</div>
-          <div style={{color:"#94A3B8",fontSize:12.5,marginTop:4}}>43 talik to'liq testni faqat Premium obunachilar generatsiya qila oladi</div>
+          <div style={{color:"#fff",fontWeight:800,fontSize:15}}>Test Generator Standart rejada mavjud</div>
+          <div style={{color:"#94A3B8",fontSize:12.5,marginTop:4}}>43 talik to'liq testni faqat Standart obunachilar generatsiya qila oladi</div>
         </div>
-        <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Premium olish</button>
+        <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Obuna bo'lish</button>
       </div>
     </div>
   );

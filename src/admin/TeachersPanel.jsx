@@ -107,7 +107,7 @@ export default function TeachersPanel({ onSelect }) {
             </div>
             <div style={{flex:1,minWidth:0}}>
               <div style={{fontWeight:700,fontSize:13.5,color:C.text}}>{t.name}</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{t.subject}{t.is_free ? " · Bepul" : " · Premium"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{t.subject}{t.is_free ? " · Bepul" : " · Pullik"}</div>
             </div>
             <button style={btnGhost} onClick={() => onSelect(t)}>Variantlar →</button>
             <button style={{...btnGhost, padding:8}} onClick={() => { setEditing(t); setShowForm(true); }}>✏️</button>
