@@ -48,11 +48,13 @@ export default async function handler(req, res) {
     global: { headers: { Authorization: `Bearer ${jwt}` } },
   });
   const [{ data: profile }, { data: purchase }] = await Promise.all([
-    asUser.from("profiles").select("plan, is_admin").eq("id", userData.user.id).maybeSingle(),
+    asUser.from("profiles").select("is_admin").eq("id", userData.user.id).maybeSingle(),
     asUser.from("variant_purchases").select("status").eq("student_id", userData.user.id).eq("variant_id", variant.id).maybeSingle(),
   ]);
 
-  const unlocked = profile?.is_admin || profile?.plan === "premium" || purchase?.status === "paid";
+  // No plan grants a blanket unlock: every non-free variant needs its own paid
+  // purchase row (the Premium "everything free" tier has been removed).
+  const unlocked = profile?.is_admin || purchase?.status === "paid";
   if (!unlocked) return res.status(403).json({ ...locked, error: "Bu variant hali sotib olinmagan." });
 
   res.status(200).json(signToken(videoId));
