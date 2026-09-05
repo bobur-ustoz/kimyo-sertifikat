@@ -9,17 +9,16 @@ import { resetErrorText, signInErrorText } from "./lib/authErrors";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:false},{t:"Barcha variantlar ochiq",ok:false}] },
-  { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"Mashhur",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:true},{t:"Barcha variantlar ochiq",ok:false}] },
-  { id:"premium",name:"Premium",price:"99,900",period:"so'm / oy",color:"#0F5132",btnBg:"#0F5132",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Barcha variantlar ochiq — to'lovsiz",ok:true},{t:"Har bir video cheksiz",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true},{t:"Yangi variantlar avtomatik",ok:true}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:false}] },
+  { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true}] },
 ];
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
-const canUse = (plan,feature) => { if(feature==="analog") return plan!=="free"; if(feature==="adaptive") return plan==="premium"; return true; };
-// A variant's videos are open when it is the teacher's free variant, the student
-// is on Premium, or they have paid for that variant. Mirrors api/bunny-token.js,
-// which is the real gate -- this only decides what the UI shows.
-const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || plan==="premium" || purchases?.[variant.id]==="paid");
+const canUse = (plan,feature) => (feature==="analog"||feature==="adaptive") ? plan!=="free" : true;
+// A variant's videos are open when it is the teacher's free variant or the
+// student has paid for it. Mirrors api/bunny-token.js, which is the real gate
+// -- this only decides what the UI shows.
+const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || purchases?.[variant.id]==="paid");
 const fmtSum = n => Number(n||0).toLocaleString("ru-RU").replace(/\u00a0/g," ");
 
 async function fetchTeachers() {
@@ -217,8 +216,13 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
-  const planColors={free:"#475569",standart:"#0D9488",premium:"#0F5132"};
-  const planNames={free:"Bepul",standart:"Standart ⭐",premium:"Premium 💎"};
+  const planColors={free:"#475569",standart:"#0D9488"};
+  const planNames={free:"Bepul",standart:"Standart ⭐"};
+  // Falls back to Standart's look for any legacy plan value (e.g. an account
+  // still marked "premium" from before that tier existed) instead of
+  // rendering "undefined" in the sidebar.
+  const planColor=planColors[plan]||planColors.standart;
+  const planName=planNames[plan]||planNames.standart;
   return (
     <div className={`app-sidebar${mobileOpen?" open":""}`} style={{width:258,maxWidth:"82vw",minHeight:"100vh",background:"#FAFFFE",borderRight:`1px solid ${C.border}`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,zIndex:200}}>
       <div style={{background:C.primary,padding:"18px 18px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
@@ -233,9 +237,9 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
           <X size={16} color="#fff"/>
         </button>
       </div>
-      <div style={{margin:"10px 10px 0",padding:"7px 10px",borderRadius:9,background:planColors[plan]+"18",border:`1px solid ${planColors[plan]}30`,display:"flex",alignItems:"center",gap:7}}>
-        <div style={{width:8,height:8,borderRadius:"50%",background:planColors[plan],flexShrink:0}}/>
-        <span style={{fontSize:11,fontWeight:700,color:planColors[plan]}}>Joriy reja: {planNames[plan]}</span>
+      <div style={{margin:"10px 10px 0",padding:"7px 10px",borderRadius:9,background:planColor+"18",border:`1px solid ${planColor}30`,display:"flex",alignItems:"center",gap:7}}>
+        <div style={{width:8,height:8,borderRadius:"50%",background:planColor,flexShrink:0}}/>
+        <span style={{fontSize:11,fontWeight:700,color:planColor}}>Joriy reja: {planName}</span>
       </div>
       {teacher?(
         <div style={{margin:"8px 10px 0",padding:"9px 12px",borderRadius:11,background:teacher.bgColor,border:`1px solid ${C.borderGreen}`,display:"flex",alignItems:"center",gap:9}}>
@@ -1047,7 +1051,7 @@ function SubscriptionScreen({plan,session,setTab}) {
           <Star size={13} color={C.primary}/><span style={{fontSize:11.5,fontWeight:700,color:C.primary,textTransform:"uppercase",letterSpacing:"0.09em"}}>Obuna rejalari · 2026</span>
         </div>
         <h1 style={{fontSize:26,fontWeight:900,color:C.text,marginBottom:8}}>O'zingizga mos rejani tanlang</h1>
-        <p style={{color:C.textMid,fontSize:14,maxWidth:500,margin:"0 auto"}}>Milliy sertifikat imtihoniga tayyorlanishni yangi bosqichga olib chiqing. AI vositalar va premium kontent bilan.</p>
+        <p style={{color:C.textMid,fontSize:14,maxWidth:500,margin:"0 auto"}}>Milliy sertifikat imtihoniga tayyorlanishni yangi bosqichga olib chiqing. AI vositalar va sifatli kontent bilan.</p>
       </div>
       {notice&&(
         <div style={{background:C.warningBg,border:`1px solid #FDE68A`,borderRadius:12,padding:"12px 16px",marginBottom:20,display:"flex",alignItems:"center",gap:10,maxWidth:640,marginLeft:"auto",marginRight:"auto"}}>
@@ -1056,7 +1060,7 @@ function SubscriptionScreen({plan,session,setTab}) {
         </div>
       )}
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18,marginBottom:30}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:18,marginBottom:30,maxWidth:760,marginLeft:"auto",marginRight:"auto"}}>
         {PLANS.map(p=>{
           const current=plan===p.id; const isHov=hover===p.id;
           return (
@@ -1099,7 +1103,7 @@ function SubscriptionScreen({plan,session,setTab}) {
             ["To'lov qanday amalga oshiriladi?","Payme, Uzcard, Humo va boshqa qulay usullar orqali to'lashingiz mumkin. Xavfsiz va tez."],
             ["Obunani bekor qilish mumkinmi?","Ha, istalgan vaqtda bekor qilishingiz mumkin. Hech qanday jarima yo'q."],
             ["AI funksiyalar qanday ishlaydi?","Claude AI texnologiyasi asosida ishlaydi. Har savol uchun noyob analog va adaptive test yaratadi."],
-            ["Demo versiya bormi?","Bepul reja orqali platformani sinab ko'rishingiz mumkin. 3 ta variant to'liq ochiq."],
+            ["Demo versiya bormi?","Bepul reja orqali platformani sinab ko'rishingiz mumkin. Har o'qituvchidan 1 ta variant to'liq ochiq."],
           ].map(([q,a])=>(
             <div key={q} style={{background:"#fff",borderRadius:12,padding:"14px 16px",border:`1px solid ${C.borderGreen}`}}>
               <div style={{fontSize:13,fontWeight:700,color:C.primary,marginBottom:5}}>{q}</div>
@@ -1177,8 +1181,8 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
   const total=vList.reduce((s,v)=>s+v.ready,0);
   const allQ=vList.reduce((s,v)=>s+v.total,0);
   const maxV=vList.length||1;
-  const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"},premium:{name:"Premium",color:C.primary,bg:C.mintBg}};
-  const pi=planInfo[plan];
+  const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"}};
+  const pi=planInfo[plan]||planInfo.standart;
 
   if(!session) return (
     <div style={{padding:"26px 30px",display:"flex",flexDirection:"column",alignItems:"center",gap:20}}>
@@ -1221,9 +1225,9 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{display:"flex",alignItems:"center",gap:12}}>
             <div style={{flex:1,background:pi.bg,borderRadius:10,padding:"12px 14px",border:`1px solid ${pi.color}30`}}>
               <div style={{fontSize:15,fontWeight:900,color:pi.color,marginBottom:2}}>{pi.name} reja</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":plan==="standart"?"49,900 so'm/oy · AI Analog Generator":"99,900 so'm/oy · Barcha imkoniyatlar"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
             </div>
-            {plan!=="premium"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
+            {plan==="free"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
         </div>
         {teacher&&(
