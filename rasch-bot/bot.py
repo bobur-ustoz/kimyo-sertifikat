@@ -177,6 +177,9 @@ async def _finalize(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
+SUPPORTED_DOCUMENT_EXTENSIONS = (".pdf", ".png", ".jpg", ".jpeg", ".webp", ".gif")
+
+
 async def _download_telegram_file(
     update: Update, context: ContextTypes.DEFAULT_TYPE
 ) -> tuple[bytes, str] | None:
@@ -185,8 +188,10 @@ async def _download_telegram_file(
         tg_file = await context.bot.get_file(message.photo[-1].file_id)
         filename = "photo.jpg"
     elif message.document:
-        tg_file = await context.bot.get_file(message.document.file_id)
         filename = message.document.file_name or "document"
+        if not filename.lower().endswith(SUPPORTED_DOCUMENT_EXTENSIONS):
+            return None
+        tg_file = await context.bot.get_file(message.document.file_id)
     else:
         return None
 
@@ -250,10 +255,20 @@ async def receive_test_score(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def receive_written_file(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     savol = _current_savol(context)
 
-    downloaded = await _download_telegram_file(update, context)
+    try:
+        downloaded = await _download_telegram_file(update, context)
+    except Exception as exc:  # noqa: BLE001 - tarmoq/Telegram API xatolaridan chidamli bo'lish
+        logger.error("Faylni yuklab olishda xatolik (savol %s): %s", savol, exc)
+        await update.message.reply_text(
+            "Faylni yuklab olishda xatolik yuz berdi (fayl juda katta yoki tarmoq muammosi "
+            f"bo'lishi mumkin). Iltimos, {savol}-savol uchun faylni qaytadan yuboring."
+        )
+        return WRITTEN_FILE
+
     if downloaded is None:
         await update.message.reply_text(
-            f"Iltimos, {savol}-savol uchun rasm yoki PDF fayl yuboring (matn emas)."
+            f"Iltimos, {savol}-savol uchun rasm yoki PDF fayl yuboring "
+            "(qo'llab-quvvatlanadigan formatlar: JPG, PNG, WEBP, GIF, PDF)."
         )
         return WRITTEN_FILE
 
@@ -357,13 +372,13 @@ def main() -> None:
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={
-            NAME: [MessageHandler(filters.TEXT & ~filters.COMMAND, receive_name)],
-            TEST_SCORE: [MessageHandler(filters.TEXT & ~filters.COMMAND, receive_test_score)],
+            NAME: [MessageHandler(~filters.COMMAND, receive_name)],
+            TEST_SCORE: [MessageHandler(~filters.COMMAND, receive_test_score)],
             WRITTEN_FILE: [
                 MessageHandler(filters.PHOTO | filters.Document.ALL, receive_written_file),
-                MessageHandler(filters.TEXT & ~filters.COMMAND, receive_written_wrong_type),
+                MessageHandler(~filters.COMMAND, receive_written_wrong_type),
             ],
-            MANUAL_BALL: [MessageHandler(filters.TEXT & ~filters.COMMAND, receive_manual_ball)],
+            MANUAL_BALL: [MessageHandler(~filters.COMMAND, receive_manual_ball)],
         },
         fallbacks=[CommandHandler("bekor", cancel)],
     )
