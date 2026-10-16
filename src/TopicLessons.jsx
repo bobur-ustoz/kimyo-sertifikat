@@ -35,8 +35,8 @@ function AskAI({session,target,setTab}){
     try{
       const { data:{session:s} } = await supabase.auth.getSession();
       const r = await fetch("/api/ask-video",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({...target,question})});
-      const data = await r.json();
-      if(!r.ok) throw new Error(data.error||"Xatolik");
+      const data = await r.json().catch(()=>({}));
+      if(!r.ok) throw new Error(data.error||"Server javob bermadi. Keyinroq urinib ko'ring.");
       setThread(t=>[...t,{question,answer:data.answer}]);
       setQ("");
     }catch(e){ setErr(e.message); }
