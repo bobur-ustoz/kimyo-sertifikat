@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "./lib/supabaseClient";
 import { Upload } from "tus-js-client";
+import { C, inputStyle, btnPrimary, btnGhost, card } from "./adminStyles";
+import TopicsAdmin from "./AdminTopics";
 import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud, Sparkles, ThumbsUp } from "lucide-react";
 
-const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", bgSoft:"#F8FAFC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626", warning:"#D97706", warningBg:"#FFFBEB" };
 
 async function callClaude(prompt, maxTokens) {
   const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
@@ -12,10 +13,6 @@ async function callClaude(prompt, maxTokens) {
   return (data.text||"").replace(/```json\n?|\n?```/g,"").trim();
 }
 
-const inputStyle = {width:"100%",padding:"9px 11px",borderRadius:8,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",color:C.text};
-const btnPrimary = {padding:"9px 14px",borderRadius:8,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6};
-const btnGhost = {padding:"8px 12px",borderRadius:8,background:"#fff",color:C.textMid,border:`1px solid ${C.border}`,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:5};
-const card = {background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:16};
 
 function LoginScreen(){
   const [email,setEmail]=useState("");
@@ -439,6 +436,7 @@ export default function Admin(){
   const [session,setSession]=useState(undefined);
   const [teacher,setTeacher]=useState(null);
   const [variant,setVariant]=useState(null);
+  const [section,setSection]=useState("teachers");
 
   useEffect(()=>{
     supabase.auth.getSession().then(({data})=>setSession(data.session));
@@ -456,12 +454,18 @@ export default function Admin(){
           <FlaskConical size={19} color={C.mint}/>
           <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — Admin</span>
         </div>
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+        {[["teachers","O'qituvchilar"],["topics","Mavzular"]].map(([id,label])=>(
+          <button key={id} onClick={()=>setSection(id)} style={{background:section===id?C.mint:"rgba(255,255,255,0.14)",color:section===id?C.primary:"#fff",border:"none",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{label}</button>
+        ))}
         <button onClick={()=>supabase.auth.signOut()} style={{background:"rgba(255,255,255,0.14)",border:"none",color:"#fff",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><LogOut size={13}/> Chiqish</button>
+        </div>
       </div>
       <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px"}}>
-        {!teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
-        {teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
-        {teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
+        {section==="topics" && <TopicsAdmin/>}
+        {section==="teachers" && !teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
+        {section==="teachers" && teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
+        {section==="teachers" && teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
       </div>
     </div>
   );
