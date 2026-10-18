@@ -38,24 +38,34 @@ export default async function handler(req, res) {
   if (!tr?.content) return res.status(404).json({ error: "Bu video uchun matn hali yuklanmagan" });
 
   try {
-    const r = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-5",
-        max_tokens: 1200,
-        system: `${SYSTEM}\n\n<video_matni>\n${tr.content}\n</video_matni>`,
-        messages: [{ role: "user", content: q }],
-      }),
-    });
-    const data = await r.json();
-    if (!r.ok) return res.status(502).json({ error: data.error?.message || "AI xatosi" });
-    const answer = (data.content || []).find((b) => b.type === "text")?.text?.replace(/\*\*|__/g, "").trim() || "";
-    if (!answer) return res.status(502).json({ error: "AI javob qaytarmadi" });
+    // The model sometimes spends its whole token budget before writing any text,
+    // so an empty answer is retried once with a much larger budget.
+    const ask = async (maxTokens) => {
+      const r = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": process.env.ANTHROPIC_API_KEY,
+          "anthropic-version": "2023-06-01",
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-5",
+          max_tokens: maxTokens,
+          system: `${SYSTEM}\n\n<video_matni>\n${tr.content}\n</video_matni>`,
+          messages: [{ role: "user", content: q }],
+        }),
+      });
+      const data = await r.json();
+      if (!r.ok) return { error: data.error?.message || "AI xatosi" };
+      const text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n");
+      return { answer: text.replace(/\*\*|__/g, "").trim() };
+    };
+
+    let out = await ask(2000);
+    if (!out.error && !out.answer) out = await ask(6000);
+    if (out.error) return res.status(502).json({ error: out.error });
+    const answer = out.answer;
+    if (!answer) return res.status(502).json({ error: "AI hozir javob bera olmadi. Savolni qayta yuboring." });
 
     await admin.from("video_questions").insert({
       student_id: userData.user.id,
