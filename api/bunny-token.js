@@ -17,6 +17,13 @@ export default async function handler(req, res) {
   const { videoId } = req.body || {};
   if (!videoId) return res.status(400).json({ error: "Missing videoId" });
 
+  // Topic lessons (Mavzular) are public to read, so their videos need no purchase.
+  const [{ data: topicHit }, { data: exampleHit }] = await Promise.all([
+    anon.from("topics").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
+    anon.from("topic_examples").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
+  ]);
+  if (topicHit || exampleHit) return res.status(200).json(signToken(videoId));
+
   // Which variant does this video belong to? The client never gets to say.
   const { data: question, error } = await anon
     .from("questions")
