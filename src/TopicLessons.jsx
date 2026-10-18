@@ -13,6 +13,27 @@ function VideoBox({Player,videoId}){
   );
 }
 
+// Renders \frac{a}{b} as a stacked fraction and _X as a subscript; the rest stays plain text.
+function Sub({s}){
+  const parts=s.split(/_([A-Za-z0-9]{1,3})/);
+  return <>{parts.map((p,i)=>i%2?<sub key={i}>{p}</sub>:p)}</>;
+}
+function Rich({text}){
+  const out=[]; const re=/\\frac\{([^{}]*)\}\{([^{}]*)\}/g; let last=0,m,k=0;
+  while((m=re.exec(text))){
+    if(m.index>last) out.push(<Sub key={k++} s={text.slice(last,m.index)}/>);
+    out.push(
+      <span key={k++} style={{display:"inline-flex",flexDirection:"column",alignItems:"center",verticalAlign:"middle",margin:"0 4px",lineHeight:1.3,fontSize:"0.95em"}}>
+        <span style={{padding:"0 5px",borderBottom:"1.5px solid currentColor"}}><Sub s={m[1]}/></span>
+        <span style={{padding:"0 5px"}}><Sub s={m[2]}/></span>
+      </span>
+    );
+    last=m.index+m[0].length;
+  }
+  if(last<text.length) out.push(<Sub key={k++} s={text.slice(last)}/>);
+  return <>{out}</>;
+}
+
 function AskAI({session,target,setTab}){
   const [q,setQ]=useState("");
   const [busy,setBusy]=useState(false);
@@ -53,7 +74,7 @@ function AskAI({session,target,setTab}){
       {thread.map((m,i)=>(
         <div key={i} style={{marginBottom:12}}>
           <div style={{background:C.mintBg,borderRadius:10,padding:"8px 12px",fontSize:13,color:C.text,marginBottom:6,fontWeight:600}}>{m.question}</div>
-          <div style={{padding:"4px 4px 0",fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}>{m.answer}</div>
+          <div style={{padding:"4px 4px 0",fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}><Rich text={m.answer}/></div>
         </div>
       ))}
       {err&&<p style={{fontSize:12,color:C.danger,marginBottom:8}}>{err}</p>}
