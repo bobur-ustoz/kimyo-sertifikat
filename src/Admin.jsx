@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogOut, FlaskConical, Wallet } from "lucide-react";
+import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import Login from "./admin/Login";
 import TeachersPanel from "./admin/TeachersPanel";
@@ -7,6 +7,8 @@ import VariantsPanel from "./admin/VariantsPanel";
 import QuestionsPanel from "./admin/QuestionsPanel";
 import PurchasesPanel from "./admin/PurchasesPanel";
 import { C } from "./admin/ui";
+import TopicsAdmin from "./AdminTopics";
+import QuestionsReview from "./AdminQuestions";
 
 const headerBtn = (active) => ({
   background: active ? C.mint : "rgba(255,255,255,0.14)",
@@ -19,7 +21,7 @@ const headerBtn = (active) => ({
 export default function Admin() {
   const [session, setSession] = useState(undefined);
   const [profile, setProfile] = useState(undefined);   // undefined = still loading
-  const [screen, setScreen] = useState("content");   // content | purchases
+  const [screen, setScreen] = useState("content");   // content | topics | questions | purchases
   const [teacher, setTeacher] = useState(null);      // drilled into a teacher
   const [variant, setVariant] = useState(null);      // ...and one of its variants
 
@@ -34,15 +36,17 @@ export default function Admin() {
   useEffect(() => {
     if (!session) { setProfile(null); return; }
     setProfile(undefined);
-    supabase.from("profiles").select("is_admin, email").eq("id", session.user.id).maybeSingle()
-      .then(({ data }) => setProfile(data || null));
+    supabase.from("profiles").select("is_admin, is_moderator, email").eq("id", session.user.id).maybeSingle()
+      .then(({ data }) => { setProfile(data || null); if (!data?.is_admin && data?.is_moderator) setScreen("questions"); });
   }, [session]);
 
   if (session === undefined) return null;
   if (!session) return <Login/>;
   if (profile === undefined) return null;
 
-  if (!profile?.is_admin) return (
+  // Moderators may only review the students' questions; admins manage everything.
+  const isAdmin = !!profile?.is_admin;
+  if (!isAdmin && !profile?.is_moderator) return (
     <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:C.bgSoft,fontFamily:"'Inter',system-ui,sans-serif",padding:18}}>
       <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:28,maxWidth:400,textAlign:"center"}}>
         <div style={{fontSize:15,fontWeight:800,color:C.text,marginBottom:8}}>Bu hisobda admin huquqi yo'q</div>
@@ -71,13 +75,22 @@ export default function Admin() {
       <div style={{background:C.primary,padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <FlaskConical size={19} color={C.mint}/>
-          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — Admin</span>
+          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — {isAdmin ? "Admin" : "Moderator"}</span>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
-          <button style={headerBtn(screen === "purchases")}
+          {isAdmin && <button style={headerBtn(screen === "content")} onClick={() => { setScreen("content"); setTeacher(null); setVariant(null); }}>
+            <FlaskConical size={13}/> O'qituvchilar
+          </button>}
+          {isAdmin && <button style={headerBtn(screen === "topics")} onClick={() => setScreen("topics")}>
+            <BookOpen size={13}/> Mavzular
+          </button>}
+          <button style={headerBtn(screen === "questions")} onClick={() => setScreen("questions")}>
+            <MessageSquare size={13}/> Savollar
+          </button>
+          {isAdmin && <button style={headerBtn(screen === "purchases")}
             onClick={() => setScreen(screen === "purchases" ? "content" : "purchases")}>
             <Wallet size={13}/> To'lovlar
-          </button>
+          </button>}
           <button style={headerBtn(false)} onClick={() => supabase.auth.signOut()}>
             <LogOut size={13}/> Chiqish
           </button>
@@ -85,8 +98,10 @@ export default function Admin() {
       </div>
 
       <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px"}}>
-        {screen === "purchases"
-          ? <PurchasesPanel onBack={() => setScreen("content")}/>
+        {screen === "questions" ? <QuestionsReview/>
+          : !isAdmin ? null
+          : screen === "topics" ? <TopicsAdmin/>
+          : screen === "purchases" ? <PurchasesPanel onBack={() => setScreen("content")}/>
           : content}
       </div>
     </div>

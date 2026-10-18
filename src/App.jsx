@@ -5,6 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { supabase } from "./lib/supabaseClient";
 import { RESET_PATH } from "./ResetPassword";
 import { resetErrorText, signInErrorText } from "./lib/authErrors";
+import TopicLessons from "./TopicLessons";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
@@ -1337,7 +1338,7 @@ export default function App() {
         )}
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
-        {tab==="topics"&&<TopicsDirectory onGoVariant={id=>{setVarId(id);setTab("variants");}} teacher={teacher} setTab={setTab} questions={teacherQuestions}/>}
+        {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
