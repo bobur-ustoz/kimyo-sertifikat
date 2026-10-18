@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare } from "lucide-react";
+import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare, Download } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import Login from "./admin/Login";
 import TeachersPanel from "./admin/TeachersPanel";
@@ -9,6 +9,7 @@ import PurchasesPanel from "./admin/PurchasesPanel";
 import { C } from "./admin/ui";
 import TopicsAdmin from "./AdminTopics";
 import QuestionsReview from "./AdminQuestions";
+import { downloadBackup } from "./backup";
 
 const headerBtn = (active) => ({
   background: active ? C.mint : "rgba(255,255,255,0.14)",
@@ -90,6 +91,9 @@ export default function Admin() {
           {isAdmin && <button style={headerBtn(screen === "purchases")}
             onClick={() => setScreen(screen === "purchases" ? "content" : "purchases")}>
             <Wallet size={13}/> To'lovlar
+          </button>}
+          {isAdmin && <button style={headerBtn(false)} onClick={downloadBackup}>
+            <Download size={13}/> Zaxira
           </button>}
           <button style={headerBtn(false)} onClick={() => supabase.auth.signOut()}>
             <LogOut size={13}/> Chiqish
