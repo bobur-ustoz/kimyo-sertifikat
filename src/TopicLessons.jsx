@@ -18,7 +18,7 @@ function Sub({s}){
   const parts=s.split(/_([A-Za-z0-9]{1,3})/);
   return <>{parts.map((p,i)=>i%2?<sub key={i}>{p}</sub>:p)}</>;
 }
-function Rich({text}){
+export function Rich({text}){
   const out=[]; const re=/\\frac\{([^{}]*)\}\{([^{}]*)\}/g; let last=0,m,k=0;
   while((m=re.exec(text))){
     if(m.index>last) out.push(<Sub key={k++} s={text.slice(last,m.index)}/>);
@@ -42,6 +42,18 @@ function AskAI({session,target,setTab}){
   const key = target.topicId||target.exampleId;
   useEffect(()=>{ setThread([]); setErr(""); setQ(""); },[key]);
 
+  const flag = async (i) => {
+    const m=thread[i];
+    if(!m?.id) return;
+    setThread(t=>t.map((x,j)=>j===i?{...x,flag:"sending"}:x));
+    try{
+      const { data:{session:s} } = await supabase.auth.getSession();
+      const r = await fetch("/api/flag-answer",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({questionId:m.id})});
+      if(!r.ok) throw new Error();
+      setThread(t=>t.map((x,j)=>j===i?{...x,flag:"done"}:x));
+    }catch{ setThread(t=>t.map((x,j)=>j===i?{...x,flag:null}:x)); setErr("Xabar yuborilmadi. Keyinroq urinib ko'ring."); }
+  };
+
   if(!session) return (
     <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:12,padding:"14px 16px",fontSize:13,color:C.textMid,display:"flex",alignItems:"center",gap:10,justifyContent:"space-between"}}>
       <span>Video bo'yicha savol berish uchun tizimga kiring.</span>
@@ -58,7 +70,7 @@ function AskAI({session,target,setTab}){
       const r = await fetch("/api/ask-video",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({...target,question})});
       const data = await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(data.error||"Server javob bermadi. Keyinroq urinib ko'ring.");
-      setThread(t=>[...t,{question,answer:data.answer}]);
+      setThread(t=>[...t,{question,answer:data.answer,id:data.id,approved:!!data.approved,flag:null}]);
       setQ("");
     }catch(e){ setErr(e.message); }
     setBusy(false);
@@ -75,6 +87,12 @@ function AskAI({session,target,setTab}){
         <div key={i} style={{marginBottom:12}}>
           <div style={{background:C.mintBg,borderRadius:10,padding:"8px 12px",fontSize:13,color:C.text,marginBottom:6,fontWeight:600}}>{m.question}</div>
           <div style={{padding:"4px 4px 0",fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}><Rich text={m.answer}/></div>
+          <div style={{display:"flex",alignItems:"center",gap:10,padding:"6px 4px 0",fontSize:11.5}}>
+            {m.approved&&<span style={{color:C.primary,fontWeight:700}}>✓ O'qituvchi tasdiqlagan</span>}
+            {!m.approved&&m.id&&m.flag===null&&<button onClick={()=>flag(i)} style={{background:"none",border:"none",padding:0,color:C.textMid,textDecoration:"underline",cursor:"pointer",fontFamily:"inherit",fontSize:11.5}}>Javob noto'g'rimi?</button>}
+            {m.flag==="sending"&&<span style={{color:C.textLight}}>Yuborilmoqda…</span>}
+            {m.flag==="done"&&<span style={{color:C.textMid}}>Rahmat! Javob tekshiriladi.</span>}
+          </div>
         </div>
       ))}
       {err&&<p style={{fontSize:12,color:C.danger,marginBottom:8}}>{err}</p>}

@@ -2,6 +2,11 @@ import { createClient } from "@supabase/supabase-js";
 
 const MAX_QUESTION = 500;
 
+// Same question typed slightly differently (case, punctuation, apostrophes) must match.
+const normalize = (q) =>
+  q.toLowerCase().normalize("NFC").replace(/[\u02bb\u02bc\u2019\u2018`\u00b4']/g, "")
+    .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+
 const SYSTEM = `Sen kimyo bo'yicha video darsning yordamchisisan. O'quvchi savoliga FAQAT quyidagi video matni asosida javob ber.
 Qoidalar:
 - Sen tahlilchi emassan, faqat o'qituvchining so'zlarini yetkazuvchisan. Javobda faqat o'qituvchi video matnida AYTGAN gaplarni, raqamlarni va formulalarni ayt; ularni o'qituvchining so'zlariga yaqin shaklda qayta bayon qil.
@@ -37,8 +42,23 @@ export default async function handler(req, res) {
 
   const admin = createClient(url, serviceKey);
   const col = topicId ? "topic_id" : "example_id";
-  const { data: tr } = await admin.from("video_transcripts").select("content").eq(col, topicId || exampleId).maybeSingle();
+  const { data: tr } = await admin.from("video_transcripts").select("content,updated_at").eq(col, topicId || exampleId).maybeSingle();
   if (!tr?.content) return res.status(404).json({ error: "Bu video uchun matn hali yuklanmagan" });
+
+  // Answer cache: a previously answered identical question costs no AI tokens.
+  // Flagged answers are never served; answers older than the transcript are stale
+  // unless a reviewer approved them after the transcript was last changed.
+  const norm = normalize(q);
+  const { data: prior } = await admin.from("video_questions")
+    .select("id,answer,status,hits,created_at,reviewed_at")
+    .eq(col, topicId || exampleId).eq("question_norm", norm).neq("status", "flagged")
+    .order("created_at", { ascending: false }).limit(10);
+  const fresh = (prior || []).filter((r) => new Date(r.reviewed_at || r.created_at) >= new Date(tr.updated_at));
+  const hit = fresh.find((r) => r.status === "approved") || fresh[0];
+  if (hit) {
+    await admin.from("video_questions").update({ hits: (hit.hits || 0) + 1 }).eq("id", hit.id);
+    return res.status(200).json({ answer: hit.answer, id: hit.id, approved: hit.status === "approved", cached: true });
+  }
 
   try {
     // The model sometimes spends its whole token budget before writing any text,
@@ -70,14 +90,15 @@ export default async function handler(req, res) {
     const answer = out.answer;
     if (!answer) return res.status(502).json({ error: "AI hozir javob bera olmadi. Savolni qayta yuboring." });
 
-    await admin.from("video_questions").insert({
+    const { data: saved } = await admin.from("video_questions").insert({
       student_id: userData.user.id,
       topic_id: topicId || null,
       example_id: exampleId || null,
       question: q,
+      question_norm: norm,
       answer,
-    });
-    res.status(200).json({ answer });
+    }).select("id").single();
+    res.status(200).json({ answer, id: saved?.id || null, approved: false, cached: false });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }

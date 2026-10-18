@@ -3,6 +3,7 @@ import { supabase } from "./lib/supabaseClient";
 import { Upload } from "tus-js-client";
 import { C, inputStyle, btnPrimary, btnGhost, card } from "./adminStyles";
 import TopicsAdmin from "./AdminTopics";
+import QuestionsReview from "./AdminQuestions";
 import { LogOut, Plus, Trash2, Save, ChevronLeft, CheckCircle2, Circle, FlaskConical, UploadCloud, Sparkles, ThumbsUp } from "lucide-react";
 
 
@@ -436,7 +437,8 @@ export default function Admin(){
   const [session,setSession]=useState(undefined);
   const [teacher,setTeacher]=useState(null);
   const [variant,setVariant]=useState(null);
-  const [section,setSection]=useState("teachers");
+  const [section,setSection]=useState(null);
+  const [profile,setProfile]=useState(undefined);   // undefined = still loading
 
   useEffect(()=>{
     supabase.auth.getSession().then(({data})=>setSession(data.session));
@@ -444,28 +446,51 @@ export default function Admin(){
     return ()=>sub.subscription.unsubscribe();
   },[]);
 
+  // Signing in is not the same as having a role: admins manage everything,
+  // moderators may only review the students' questions.
+  useEffect(()=>{
+    if(!session){ setProfile(null); return; }
+    setProfile(undefined);
+    supabase.from("profiles").select("is_admin, is_moderator, email").eq("id",session.user.id).maybeSingle()
+      .then(({data})=>{ setProfile(data||null); setSection(data?.is_admin?"teachers":"questions"); });
+  },[session]);
+
   if (session===undefined) return null;
   if (!session) return <LoginScreen/>;
+  if (profile===undefined) return null;
+  const isAdmin = !!profile?.is_admin;
+  if (!isAdmin && !profile?.is_moderator) return (
+    <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:C.bgSoft,fontFamily:"'Inter',system-ui,sans-serif",padding:18}}>
+      <div style={{...card,maxWidth:400,textAlign:"center"}}>
+        <div style={{fontSize:15,fontWeight:800,color:C.text,marginBottom:8}}>Bu hisobda ruxsat yo'q</div>
+        <p style={{fontSize:12.5,color:C.textMid,lineHeight:1.65,marginBottom:16}}>
+          <strong>{profile?.email||session.user.email}</strong> bilan kirdingiz. Bu hisob admin panelga kira olmaydi.
+        </p>
+        <button onClick={()=>supabase.auth.signOut()} style={{...btnPrimary,margin:"0 auto"}}><LogOut size={13}/> Chiqib, qayta kirish</button>
+      </div>
+    </div>
+  );
 
   return (
     <div style={{minHeight:"100vh",background:C.bgSoft,fontFamily:"'Inter',system-ui,sans-serif"}}>
       <div style={{background:C.primary,padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <FlaskConical size={19} color={C.mint}/>
-          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — Admin</span>
+          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — {isAdmin?"Admin":"Moderator"}</span>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
-        {[["teachers","O'qituvchilar"],["topics","Mavzular"]].map(([id,label])=>(
+        {(isAdmin?[["teachers","O'qituvchilar"],["topics","Mavzular"],["questions","Savollar"]]:[["questions","Savollar"]]).map(([id,label])=>(
           <button key={id} onClick={()=>setSection(id)} style={{background:section===id?C.mint:"rgba(255,255,255,0.14)",color:section===id?C.primary:"#fff",border:"none",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{label}</button>
         ))}
         <button onClick={()=>supabase.auth.signOut()} style={{background:"rgba(255,255,255,0.14)",border:"none",color:"#fff",padding:"7px 12px",borderRadius:8,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",gap:6}}><LogOut size={13}/> Chiqish</button>
         </div>
       </div>
       <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px"}}>
-        {section==="topics" && <TopicsAdmin/>}
-        {section==="teachers" && !teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
-        {section==="teachers" && teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
-        {section==="teachers" && teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
+        {section==="topics" && isAdmin && <TopicsAdmin/>}
+        {section==="questions" && <QuestionsReview/>}
+        {isAdmin && section==="teachers" && !teacher && <TeachersPanel onSelect={t=>setTeacher(t)}/>}
+        {isAdmin && section==="teachers" && teacher && !variant && <VariantsPanel teacher={teacher} onBack={()=>setTeacher(null)} onSelect={v=>setVariant(v)}/>}
+        {isAdmin && section==="teachers" && teacher && variant && <QuestionsPanel teacher={teacher} variant={variant} onBack={()=>setVariant(null)}/>}
       </div>
     </div>
   );
