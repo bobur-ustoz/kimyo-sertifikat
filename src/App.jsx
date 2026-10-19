@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
@@ -513,7 +513,20 @@ function QuizBlock({question,session,source="practice"}){
   );
 }
 
-function BunnyPlayer({videoId,session,onLocked}){
+let playerJsLoading=null;
+const loadPlayerJs=()=>{
+  if(window.playerjs) return Promise.resolve();
+  if(!playerJsLoading) playerJsLoading=new Promise((ok,fail)=>{
+    const el=document.createElement("script");
+    el.src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js";
+    el.onload=ok; el.onerror=()=>{playerJsLoading=null;fail();};
+    document.head.appendChild(el);
+  });
+  return playerJsLoading;
+};
+
+function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
+  const frameRef=useRef(null);
   const [src,setSrc]=useState(null);
   const [err,setErr]=useState("");
   useEffect(()=>{
@@ -535,9 +548,22 @@ function BunnyPlayer({videoId,session,onLocked}){
       .catch(()=>{ if(!cancelled) setErr("Video ochilmadi"); });
     return ()=>{cancelled=true;};
   },[videoId,session?.access_token]);
+  // Optional: report the playback position and let the page seek. If player.js
+  // cannot load, the video still plays; only the time-aware extras stay off.
+  useEffect(()=>{
+    if(!src||(!onTime&&!playerRef)) return;
+    let live=true;
+    loadPlayerJs().then(()=>{
+      if(!live||!frameRef.current) return;
+      const pl=new window.playerjs.Player(frameRef.current);
+      if(playerRef) playerRef.current=pl;
+      pl.on("ready",()=>{ pl.on("timeupdate",d=>onTime?.(d.seconds)); });
+    }).catch(()=>{});
+    return ()=>{ live=false; if(playerRef) playerRef.current=null; };
+  },[src]);
   if(err) return <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,color:"#94A3B8",fontSize:12.5,padding:20,textAlign:"center"}}><Lock size={20} color="#64748B"/>{err}</div>;
   if(!src) return <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:12}}>Yuklanmoqda…</div>;
-  return <iframe src={src} loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowFullScreen/>;
+  return <iframe ref={frameRef} src={src} loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowFullScreen/>;
 }
 
 function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,variant,purchases,onBuy}) {

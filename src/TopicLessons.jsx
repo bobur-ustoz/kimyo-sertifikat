@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Tag, Play, ChevronLeft, Send, Sparkles } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import { C } from "./adminStyles";
 
-function VideoBox({Player,videoId}){
+function VideoBox({Player,videoId,onTime,playerRef}){
   return (
     <div style={{position:"relative",paddingTop:"56.25%",background:"#0F172A",borderRadius:14,overflow:"hidden"}}>
       {videoId
-        ? <Player key={videoId} videoId={videoId}/>
+        ? <Player key={videoId} videoId={videoId} onTime={onTime} playerRef={playerRef}/>
         : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:13}}>Video tez orada qo'shiladi</div>}
     </div>
   );
@@ -34,13 +34,34 @@ export function Rich({text}){
   return <>{out}</>;
 }
 
-function AskAI({session,target,setTab}){
+const fmt=sec=>`${Math.floor(sec/60)}:${String(Math.floor(sec%60)).padStart(2,"0")}`;
+
+function AskAI({session,target,setTab,time,playerRef}){
   const [q,setQ]=useState("");
   const [busy,setBusy]=useState(false);
   const [thread,setThread]=useState([]);
   const [err,setErr]=useState("");
   const key = target.topicId||target.exampleId;
-  useEffect(()=>{ setThread([]); setErr(""); setQ(""); },[key]);
+  const [faq,setFaq]=useState([]);
+  const [allOpen,setAllOpen]=useState(false);
+  useEffect(()=>{ setThread([]); setErr(""); setQ(""); setAllOpen(false); },[key]);
+  useEffect(()=>{
+    setFaq([]);
+    if(!session) return;
+    let live=true;
+    supabase.auth.getSession().then(({data:{session:s}})=>{
+      if(!s) return;
+      return fetch("/api/faq",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify(target)})
+        .then(r=>r.ok?r.json():{items:[]}).then(d=>{ if(live) setFaq(d.items||[]); });
+    }).catch(()=>{});
+    return ()=>{live=false;};
+  },[key,!!session]);
+
+  // Approved questions answer instantly from the saved text, no AI call.
+  const showFaq=(f)=>{
+    setThread(t=>[...t,{question:f.question,answer:f.answer,id:f.id,approved:true,flag:null}]);
+    if(f.video_seconds!=null) playerRef?.current?.setCurrentTime(f.video_seconds);
+  };
 
   const flag = async (i) => {
     const m=thread[i];
@@ -90,6 +111,29 @@ function AskAI({session,target,setTab}){
         <div style={{fontSize:14,fontWeight:800,color:C.text}}>Savol bering</div>
       </div>
       <p style={{fontSize:12,color:C.textMid,marginBottom:12}}>AI faqat shu videoda aytilgan narsalar bo'yicha javob beradi.</p>
+      {faq.length>0&&(()=>{
+        const timed=faq.filter(f=>f.video_seconds!=null);
+        const WIN=120;
+        const near=timed.filter(f=>Math.abs(f.video_seconds-(time||0))<=WIN)
+          .sort((a,b)=>Math.abs(a.video_seconds-(time||0))-Math.abs(b.video_seconds-(time||0))).slice(0,4);
+        const general=faq.filter(f=>f.video_seconds==null).slice(0,3);
+        const chip=f=><button key={f.id} onClick={()=>showFaq(f)} style={{display:"inline-flex",alignItems:"center",gap:6,padding:"6px 11px",borderRadius:20,border:`1px solid ${C.border}`,background:"#fff",fontSize:12.5,color:C.text,cursor:"pointer",fontFamily:"inherit",margin:"0 6px 6px 0",textAlign:"left"}}>
+          {f.question}{f.video_seconds!=null&&<span style={{fontSize:11,color:C.textLight}}>{fmt(f.video_seconds)}</span>}</button>;
+        const bucket=Array.from(new Set(timed.map(f=>Math.floor(f.video_seconds/300)))).sort((a,b)=>a-b);
+        return (
+          <div style={{marginBottom:12}}>
+            <div style={{fontSize:12,color:C.textMid,marginBottom:6}}>{near.length?`Hozirgi daqiqa (${fmt(time||0)}) atrofidagi savollar:`:"Tez-tez so'raladigan savollar:"}</div>
+            <div>{near.map(chip)}{!near.length&&[...timed.slice(0,3),...general].slice(0,4).map(chip)}</div>
+            {faq.length>near.length&&<button onClick={()=>setAllOpen(o=>!o)} style={{background:"none",border:"none",padding:0,color:C.accent,fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>{allOpen?"Yopish":`Hammasi (${faq.length})`}</button>}
+            {allOpen&&<div style={{marginTop:8}}>
+              {bucket.map(b=>(<div key={b} style={{display:"grid",gridTemplateColumns:"84px 1fr",gap:8,padding:"6px 0",borderTop:`1px solid ${C.border}`}}>
+                <div style={{fontSize:11.5,color:C.textMid,paddingTop:6}}>{fmt(b*300)} – {fmt(b*300+300)}</div>
+                <div>{timed.filter(f=>Math.floor(f.video_seconds/300)===b).map(chip)}</div></div>))}
+              {general.length>0&&<div style={{display:"grid",gridTemplateColumns:"84px 1fr",gap:8,padding:"6px 0",borderTop:`1px solid ${C.border}`}}><div style={{fontSize:11.5,color:C.textMid,paddingTop:6}}>Umumiy</div><div>{faq.filter(f=>f.video_seconds==null).map(chip)}</div></div>}
+            </div>}
+          </div>
+        );
+      })()}
       {thread.map((m,i)=>(
         <div key={i} style={{marginBottom:12}}>
           <div style={{background:C.mintBg,borderRadius:10,padding:"8px 12px",fontSize:13,color:C.text,marginBottom:6,fontWeight:600}}>{m.question}</div>
@@ -137,6 +181,9 @@ function Analog({ex}){
 function TopicPage({topic,Player,session,setTab,onBack}){
   const [examples,setExamples]=useState([]);
   const [active,setActive]=useState(null); // example_number, null = topic video
+  const [time,setTime]=useState(0);
+  const playerRef=useRef(null);
+  useEffect(()=>{ setTime(0); },[active]);
   useEffect(()=>{
     setActive(null);
     supabase.from("topic_examples").select("id,example_number,bunny_video_id,analog_savol,analog_yechim,analog_javob").eq("topic_id",topic.id).order("example_number")
@@ -149,10 +196,10 @@ function TopicPage({topic,Player,session,setTab,onBack}){
       <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:4}}>{topic.name}</h1>
       <p style={{fontSize:13,color:C.textMid,marginBottom:16}}>{ex?`${ex.example_number}-misol tahlili`:"Mavzu darsi"}</p>
 
-      <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id}/>
+      <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
       <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
         {ex&&<Analog ex={ex}/>}
-        <AskAI session={session} setTab={setTab} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
+        <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
       </div>
 
       <div style={{display:"flex",alignItems:"center",gap:9,margin:"28px 0 12px"}}>

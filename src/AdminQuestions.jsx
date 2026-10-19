@@ -15,6 +15,10 @@ function Row({row,onChanged}){
   const [edit,setEdit]=useState(false);
   const [text,setText]=useState(row.answer);
   const [busy,setBusy]=useState(false);
+  const [time,setTime]=useState(row.video_seconds!=null?`${Math.floor(row.video_seconds/60)}:${String(row.video_seconds%60).padStart(2,"0")}`:"");
+  // "18:37" or "1237" seconds -> seconds; empty = not tied to a moment in the video.
+  const secs = () => { const t=time.trim(); if(!t) return null; const m=t.match(/^(\d+):([0-5]?\d)$/); if(m) return +m[1]*60+ +m[2]; return /^\d+$/.test(t)?+t:undefined; };
+  const timeBad = secs()===undefined;
   const where = row.topic_examples
     ? `${row.topic_examples.topics?.name||"Mavzu"} · ${row.topic_examples.example_number}-misol`
     : (row.topics?.name||"Mavzu");
@@ -31,8 +35,8 @@ function Row({row,onChanged}){
     if(error){ alert("Saqlanmadi: "+error.message); return; }
     onChanged();
   };
-  const approve = () => update({status:"approved",reviewed_at:new Date().toISOString()});
-  const saveEdit = async () => { await update({answer:text.trim(),status:"approved",reviewed_at:new Date().toISOString()}); setEdit(false); };
+  const approve = () => update({status:"approved",reviewed_at:new Date().toISOString(),video_seconds:secs()??null});
+  const saveEdit = async () => { await update({answer:text.trim(),status:"approved",reviewed_at:new Date().toISOString(),video_seconds:secs()??null}); setEdit(false); };
   const del = async () => {
     if(!confirm("Bu savol-javobni o'chirishni tasdiqlaysizmi? Boshqa o'quvchilarga ko'rsatilmaydi.")) return;
     setBusy(true);
@@ -53,12 +57,18 @@ function Row({row,onChanged}){
       {edit
         ? <textarea style={{...inputStyle,minHeight:110,resize:"vertical"}} value={text} onChange={e=>setText(e.target.value)}/>
         : <div style={{fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}><Rich text={row.answer}/></div>}
+      <div style={{display:"flex",alignItems:"center",gap:8,marginTop:10,fontSize:12,color:C.textMid}}>
+        Videoda qaysi daqiqada (m:ss)?
+        <input style={{...inputStyle,width:90,padding:"6px 10px"}} placeholder="18:37" value={time} onChange={e=>setTime(e.target.value)}
+          onBlur={()=>{ if(!timeBad && row.status==="approved") update({video_seconds:secs()??null}); }}/>
+        {timeBad&&<span style={{color:C.danger}}>Masalan: 18:37</span>}
+      </div>
       <div style={{display:"flex",gap:8,marginTop:12,flexWrap:"wrap"}}>
         {edit ? (<>
-          <button style={btnPrimary} disabled={busy||!text.trim()} onClick={saveEdit}><Save size={13}/> Saqlash va tasdiqlash</button>
+          <button style={btnPrimary} disabled={busy||!text.trim()||timeBad} onClick={saveEdit}><Save size={13}/> Saqlash va tasdiqlash</button>
           <button style={btnGhost} onClick={()=>{setEdit(false);setText(row.answer);}}>Bekor qilish</button>
         </>) : (<>
-          {row.status!=="approved" && <button style={btnPrimary} disabled={busy} onClick={approve}><Check size={13}/> Tasdiqlash</button>}
+          {row.status!=="approved" && <button style={btnPrimary} disabled={busy||timeBad} onClick={approve}><Check size={13}/> Tasdiqlash</button>}
           <button style={btnGhost} onClick={()=>setEdit(true)}><Pencil size={12}/> Tahrirlash</button>
           <button style={{...btnGhost,color:C.danger}} disabled={busy} onClick={del}><Trash2 size={12}/> O'chirish</button>
         </>)}
