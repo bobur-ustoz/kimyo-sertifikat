@@ -48,6 +48,7 @@ function AskAI({session,target,setTab}){
     setThread(t=>t.map((x,j)=>j===i?{...x,flag:"sending"}:x));
     try{
       const { data:{session:s} } = await supabase.auth.getSession();
+      if(!s) throw new Error("Sessiya tugagan. Sahifani yangilab, qayta kiring.");
       const r = await fetch("/api/flag-answer",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({questionId:m.id})});
       if(!r.ok) throw new Error();
       setThread(t=>t.map((x,j)=>j===i?{...x,flag:"done"}:x));
@@ -70,6 +71,7 @@ function AskAI({session,target,setTab}){
     setThread(t=>[...t,{tmp,question,answer:null,id:null,approved:false,flag:null}]);
     try{
       const { data:{session:s} } = await supabase.auth.getSession();
+      if(!s) throw new Error("Sessiya tugagan. Sahifani yangilab, qayta kiring.");
       const r = await fetch("/api/ask-video",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({...target,question})});
       const data = await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(data.error||"Server javob bermadi. Keyinroq urinib ko'ring.");
