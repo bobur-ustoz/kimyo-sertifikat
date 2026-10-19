@@ -20,10 +20,13 @@ export default async function handler(req, res) {
 
   const admin = createClient(url, serviceKey);
   const col = topicId ? "topic_id" : "example_id";
-  const { data, error } = await admin.from("video_questions")
-    .select("id,question,answer,video_seconds,hits")
+  const base = (cols) => admin.from("video_questions").select(cols)
     .eq(col, topicId || exampleId).eq("status", "approved")
     .order("hits", { ascending: false }).limit(200);
+  let { data, error } = await base("id,question,answer,video_seconds,hits");
+  // The video_seconds column ships in a separate migration; until it is applied
+  // the questions still show, just without a minute.
+  if (error?.code === "42703") ({ data, error } = await base("id,question,answer,hits"));
   if (error) return res.status(500).json({ error: error.message });
   res.status(200).json({ items: data || [] });
 }

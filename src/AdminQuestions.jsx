@@ -35,8 +35,8 @@ function Row({row,onChanged}){
     if(error){ alert("Saqlanmadi: "+error.message); return; }
     onChanged();
   };
-  const approve = () => update({status:"approved",reviewed_at:new Date().toISOString(),video_seconds:secs()??null});
-  const saveEdit = async () => { await update({answer:text.trim(),status:"approved",reviewed_at:new Date().toISOString(),video_seconds:secs()??null}); setEdit(false); };
+  const approve = () => update({status:"approved",reviewed_at:new Date().toISOString(),...(secs()!=null?{video_seconds:secs()}:{})});
+  const saveEdit = async () => { await update({answer:text.trim(),status:"approved",reviewed_at:new Date().toISOString(),...(secs()!=null?{video_seconds:secs()}:{})}); setEdit(false); };
   const del = async () => {
     if(!confirm("Bu savol-javobni o'chirishni tasdiqlaysizmi? Boshqa o'quvchilarga ko'rsatilmaydi.")) return;
     setBusy(true);
