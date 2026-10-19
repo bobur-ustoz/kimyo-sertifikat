@@ -64,15 +64,20 @@ function AskAI({session,target,setTab}){
   const ask = async () => {
     const question=q.trim();
     if(!question||busy) return;
-    setBusy(true); setErr("");
+    // Show the question at once; the answer fills in when it arrives.
+    const tmp=Date.now();
+    setBusy(true); setErr(""); setQ("");
+    setThread(t=>[...t,{tmp,question,answer:null,id:null,approved:false,flag:null}]);
     try{
       const { data:{session:s} } = await supabase.auth.getSession();
       const r = await fetch("/api/ask-video",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({...target,question})});
       const data = await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(data.error||"Server javob bermadi. Keyinroq urinib ko'ring.");
-      setThread(t=>[...t,{question,answer:data.answer,id:data.id,approved:!!data.approved,flag:null}]);
-      setQ("");
-    }catch(e){ setErr(e.message); }
+      setThread(t=>t.map(m=>m.tmp===tmp?{...m,answer:data.answer,id:data.id,approved:!!data.approved}:m));
+    }catch(e){
+      setThread(t=>t.filter(m=>m.tmp!==tmp));
+      setQ(question); setErr(e.message);
+    }
     setBusy(false);
   };
 
@@ -86,13 +91,13 @@ function AskAI({session,target,setTab}){
       {thread.map((m,i)=>(
         <div key={i} style={{marginBottom:12}}>
           <div style={{background:C.mintBg,borderRadius:10,padding:"8px 12px",fontSize:13,color:C.text,marginBottom:6,fontWeight:600}}>{m.question}</div>
-          <div style={{padding:"4px 4px 0",fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}><Rich text={m.answer}/></div>
-          <div style={{display:"flex",alignItems:"center",gap:10,padding:"6px 4px 0",fontSize:11.5}}>
+          <div style={{padding:"4px 4px 0",fontSize:13,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap"}}>{m.answer===null?<span style={{color:C.textLight}}>Javob yozilmoqda…</span>:<Rich text={m.answer}/>}</div>
+          {m.answer!==null&&<div style={{display:"flex",alignItems:"center",gap:10,padding:"6px 4px 0",fontSize:11.5}}>
             {m.approved&&<span style={{color:C.primary,fontWeight:700}}>✓ O'qituvchi tasdiqlagan</span>}
             {!m.approved&&m.id&&m.flag===null&&<button onClick={()=>flag(i)} style={{background:"none",border:"none",padding:0,color:C.textMid,textDecoration:"underline",cursor:"pointer",fontFamily:"inherit",fontSize:11.5}}>Javob noto'g'rimi?</button>}
             {m.flag==="sending"&&<span style={{color:C.textLight}}>Yuborilmoqda…</span>}
             {m.flag==="done"&&<span style={{color:C.textMid}}>Rahmat! Javob tekshiriladi.</span>}
-          </div>
+          </div>}
         </div>
       ))}
       {err&&<p style={{fontSize:12,color:C.danger,marginBottom:8}}>{err}</p>}
