@@ -210,7 +210,7 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
 function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose,variants}) {
-  const TABS=[{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"variants",label:"Variantlar",icon:Grid3X3},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
+  const TABS=[{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
@@ -257,9 +257,9 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
       <nav style={{flex:1,padding:"10px 10px 6px"}}>
         <div style={{fontSize:9.5,fontWeight:700,color:C.textLight,letterSpacing:"0.1em",textTransform:"uppercase",padding:"0 8px 8px"}}>Asosiy bo'limlar</div>
         {TABS.map(t=>{
-          const Ic=t.icon; const on=tab===t.id;
+          const Ic=t.icon; const on=tab===t.id||(tab==="variants"&&t.id===(teacher?.section==="dtm"?"dtm":"collections"));
           return (
-            <button key={t.id} onClick={()=>{setTab(t.id);if(t.id!=="variants")setVarId(null);onClose?.();}}
+            <button key={t.id} onClick={()=>{setTab(t.id);setVarId(null);onClose?.();}}
               style={{display:"flex",alignItems:"center",gap:10,width:"100%",padding:"9px 12px",borderRadius:10,marginBottom:2,background:on?C.primary:"transparent",color:on?"#fff":C.textMid,border:"none",cursor:"pointer",textAlign:"left",fontFamily:"inherit",fontSize:12.5,fontWeight:on?700:500,transition:"all 0.14s"}}
               onMouseEnter={e=>{if(!on){e.currentTarget.style.background=C.mintBg;e.currentTarget.style.color=C.primary;}}}
               onMouseLeave={e=>{if(!on){e.currentTarget.style.background="transparent";e.currentTarget.style.color=C.textMid;}}}>
@@ -346,11 +346,12 @@ function TeachersGrid({onSelect,plan,teachers,mode}) {
 }
 
 // ── VARIANTS GRID ─────────────────────────────────────────────────
-function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy}) {
+function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy,onBack}) {
   const vList=variants; const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
   const openCount=vList.filter(v=>variantUnlocked(v,plan,purchases)).length;
   return (
     <div style={{padding:"26px 30px"}}>
+      {onBack&&<button onClick={onBack} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 12px",borderRadius:9,background:"#fff",border:`1px solid ${C.border}`,color:C.textMid,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",marginBottom:14}}>← {teacher.section==="dtm"?"DTM yillari":"Kolleksiyalar"}</button>}
       <div style={{marginBottom:20}}>
         <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
           <div style={{width:28,height:28,borderRadius:8,background:teacher.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:"#fff"}}>{teacher.initials}</div>
@@ -1364,7 +1365,7 @@ export default function App() {
             <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kolleksiyalarni ko'rish</button>
           </div>
         )}
-        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)}/>}
+        {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)} onBack={()=>{setTab(teacher.section==="dtm"?"dtm":"collections");setVarId(null);}}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
