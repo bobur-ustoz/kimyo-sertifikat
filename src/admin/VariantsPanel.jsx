@@ -10,17 +10,36 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
     () => supabase.from("variants").select("*").eq("teacher_id", teacher.id).order("variant_number"),
     [teacher.id]
   );
+  const dtm = teacher.section === "dtm";
   const [newNum, setNewNum] = useState("");
+  const [qCount, setQCount] = useState(dtm ? "30" : "43");   // questions per variant
+  const [bulkTo, setBulkTo] = useState("");
   const [err, setErr] = useState("");
 
   const addVariant = async () => {
     const num = parseInt(newNum, 10);
     if (!num) { setErr("Variant raqamini kiriting."); return; }
     setErr("");
+    const total = parseInt(qCount, 10);
+    if (!total || total < 1) { setErr("Savollar sonini kiriting."); return; }
     const { error } = await supabase.from("variants")
-      .insert({ teacher_id: teacher.id, variant_number: num, total_questions: 43 });
+      .insert({ teacher_id: teacher.id, variant_number: num, total_questions: total });
     if (error) { setErr(writeErrorText(error)); return; }
     setNewNum("");
+    reload();
+  };
+
+  // 1..N in one go (a DTM year has ~20 variants); numbers that already exist are skipped.
+  const addBulk = async () => {
+    const to = parseInt(bulkTo, 10);
+    const total = parseInt(qCount, 10);
+    if (!to || to < 1 || to > 100) { setErr("Variantlar sonini kiriting (1 dan 100 gacha)."); return; }
+    if (!total || total < 1) { setErr("Savollar sonini kiriting."); return; }
+    setErr("");
+    const rows = Array.from({ length: to }, (_, i) => ({ teacher_id: teacher.id, variant_number: i + 1, total_questions: total }));
+    const { error } = await supabase.from("variants").upsert(rows, { onConflict: "teacher_id,variant_number", ignoreDuplicates: true });
+    if (error) { setErr(writeErrorText(error)); return; }
+    setBulkTo("");
     reload();
   };
 
@@ -47,10 +66,21 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
       <h2 style={pageTitle}>{teacher.name} — Variantlar</h2>
       <p style={pageSub}>{teacher.subject}</p>
 
-      <div style={{ ...card, marginBottom:14, display:"flex", gap:8, alignItems:"center", background:C.mintBg }}>
-        <input style={{ ...inputStyle, width:120 }} type="number" placeholder="Variant raqami"
-          value={newNum} onChange={e => setNewNum(e.target.value)}/>
-        <button style={btnPrimary} onClick={addVariant}><Plus size={14}/> Variant qo'shish</button>
+      <div style={{ ...card, marginBottom:14, background:C.mintBg }}>
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap",marginBottom:10}}>
+          <label style={{fontSize:12,color:C.textMid}}>Har variantda savol soni</label>
+          <input style={{ ...inputStyle, width:80 }} type="number" value={qCount} onChange={e => setQCount(e.target.value)}/>
+        </div>
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap",marginBottom:10}}>
+          <input style={{ ...inputStyle, width:120 }} type="number" placeholder="Variant raqami"
+            value={newNum} onChange={e => setNewNum(e.target.value)}/>
+          <button style={btnPrimary} onClick={addVariant}><Plus size={14}/> Variant qo'shish</button>
+        </div>
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+          <input style={{ ...inputStyle, width:120 }} type="number" placeholder="Nechta variant"
+            value={bulkTo} onChange={e => setBulkTo(e.target.value)}/>
+          <button style={btnPrimary} onClick={addBulk}><Plus size={14}/> 1 dan shu raqamgacha qo'shish</button>
+        </div>
       </div>
 
       {err && <div style={errorBox}>{err}</div>}
