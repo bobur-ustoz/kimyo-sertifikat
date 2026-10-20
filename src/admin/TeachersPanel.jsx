@@ -5,7 +5,7 @@ import { useRows } from "./useRows";
 import { writeErrorText } from "./writeError";
 import { C, card, inputStyle, btnPrimary, btnGhost, pageTitle, errorBox } from "./ui";
 
-const EMPTY = { name:"", subject:"", initials:"", color:"#0F5132", bg_color:"#F0FDF4", rating:5, students:0, badge:"", is_free:true, description:"" };
+const EMPTY = { name:"", subject:"", initials:"", color:"#0F5132", bg_color:"#F0FDF4", rating:5, students:0, badge:"", is_free:true, description:"", section:"milliy" };
 
 // Each entry is [key, label, extra props / value transform] so the six near
 // identical inputs below stay one loop instead of six copied blocks.
@@ -17,8 +17,8 @@ const FIELDS = [
   ["badge", "Badge (ixtiyoriy)", {}],
 ];
 
-function TeacherForm({ editing, onSaved, onCancel }) {
-  const [f, setF] = useState(editing || EMPTY);
+function TeacherForm({ editing, initial, onSaved, onCancel }) {
+  const [f, setF] = useState(editing || initial || EMPTY);
   const [err, setErr] = useState("");
   const set = (k, v) => setF(p => ({ ...p, [k]: v }));
 
@@ -28,9 +28,12 @@ function TeacherForm({ editing, onSaved, onCancel }) {
       return;
     }
     setErr("");
+    // "section" only exists once the DTM migration has run, so it is sent only for DTM.
+    const { section, ...rest } = f;
+    const payload = section === "dtm" ? f : rest;
     const { error } = editing
-      ? await supabase.from("teachers").update(f).eq("id", editing.id)
-      : await supabase.from("teachers").insert(f);
+      ? await supabase.from("teachers").update(payload).eq("id", editing.id)
+      : await supabase.from("teachers").insert(payload);
     if (error) { setErr(writeErrorText(error)); return; }
     onSaved();
   };
@@ -45,12 +48,20 @@ function TeacherForm({ editing, onSaved, onCancel }) {
               onChange={e => set(key, transform ? transform(e.target.value) : e.target.value)}/>
           </div>
         ))}
+        <div>
+          <label style={{fontSize:11,color:C.textMid}}>Bo'lim</label>
+          <select style={inputStyle} value={f.section || "milliy"} onChange={e => set("section", e.target.value)}>
+            <option value="milliy">Milliy Sertifikat (o'qituvchi)</option>
+            <option value="dtm">DTM (yil bo'yicha)</option>
+          </select>
+        </div>
         <label style={{display:"flex",alignItems:"center",gap:8,marginTop:18,fontSize:12,color:C.text,cursor:"pointer"}}>
           <input type="checkbox" checked={f.is_free} onChange={e => set("is_free", e.target.checked)}/>
           Bepul kolleksiya
         </label>
       </div>
 
+      {f.section === "dtm" && <div style={{fontSize:11.5,color:C.textMid,marginBottom:10}}>DTM uchun: Ism-familiya o'rniga yilni yozing (masalan "2019 yil"), Fan: "DTM baza savollari".</div>}
       <label style={{fontSize:11,color:C.textMid}}>Tavsif</label>
       <textarea style={{...inputStyle, marginBottom:10, minHeight:60}} value={f.description || ""}
         onChange={e => set("description", e.target.value)}/>
@@ -70,6 +81,7 @@ export default function TeachersPanel({ onSelect }) {
     supabase.from("teachers").select("*").order("sort_order").order("created_at"));
   const [editing, setEditing] = useState(null);   // teacher being edited
   const [showForm, setShowForm] = useState(false);
+  const [newSection, setNewSection] = useState("milliy");
   const [err, setErr] = useState("");
 
   const del = async (id) => {
@@ -84,13 +96,18 @@ export default function TeachersPanel({ onSelect }) {
     <div>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
         <h2 style={{...pageTitle, marginBottom:0}}>O'qituvchilar</h2>
-        <button style={btnPrimary} onClick={() => { setEditing(null); setShowForm(true); }}>
-          <Plus size={14}/> Yangi o'qituvchi
-        </button>
+        <div style={{display:"flex",gap:8}}>
+          <button style={btnPrimary} onClick={() => { setEditing(null); setNewSection("milliy"); setShowForm(true); }}>
+            <Plus size={14}/> Yangi o'qituvchi
+          </button>
+          <button style={btnPrimary} onClick={() => { setEditing(null); setNewSection("dtm"); setShowForm(true); }}>
+            <Plus size={14}/> Yangi DTM yili
+          </button>
+        </div>
       </div>
 
       {showForm && (
-        <TeacherForm editing={editing} onCancel={() => setShowForm(false)}
+        <TeacherForm key={editing?.id || newSection} editing={editing} initial={newSection === "dtm" ? { ...EMPTY, section:"dtm", subject:"DTM baza savollari" } : null} onCancel={() => setShowForm(false)}
           onSaved={() => { setShowForm(false); reload(); }}/>
       )}
 
@@ -107,7 +124,7 @@ export default function TeachersPanel({ onSelect }) {
             </div>
             <div style={{flex:1,minWidth:0}}>
               <div style={{fontWeight:700,fontSize:13.5,color:C.text}}>{t.name}</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{t.subject}{t.is_free ? " · Bepul" : " · Pullik"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{t.section === "dtm" ? "DTM · " : ""}{t.subject}{t.is_free ? " · Bepul" : " · Pullik"}</div>
             </div>
             <button style={btnGhost} onClick={() => onSelect(t)}>Variantlar →</button>
             <button style={{...btnGhost, padding:8}} onClick={() => { setEditing(t); setShowForm(true); }}>✏️</button>

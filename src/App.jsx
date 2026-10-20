@@ -27,7 +27,7 @@ async function fetchTeachers() {
   const { data: vRows } = await supabase.from("variants").select("teacher_id,total_questions");
   const counts = {}, videoCounts = {};
   (vRows||[]).forEach(v=>{ counts[v.teacher_id]=(counts[v.teacher_id]||0)+1; videoCounts[v.teacher_id]=(videoCounts[v.teacher_id]||0)+(v.total_questions||43); });
-  return (tRows||[]).map(t=>({ ...t, bgColor:t.bg_color, free:t.is_free, desc:t.description, variants:counts[t.id]||0, videoCount:videoCounts[t.id]||0 }));
+  return (tRows||[]).map(t=>({ ...t, section:t.section||"milliy", bgColor:t.bg_color, free:t.is_free, desc:t.description, variants:counts[t.id]||0, videoCount:videoCounts[t.id]||0 }));
 }
 
 async function fetchVariants(teacherId) {
@@ -210,7 +210,7 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
 function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose,variants}) {
-  const TABS=[{id:"collections",label:"Kolleksiyalar",icon:BookOpen},{id:"variants",label:"Variantlar",icon:Grid3X3},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
+  const TABS=[{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"variants",label:"Variantlar",icon:Grid3X3},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
@@ -289,7 +289,8 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
 }
 
 // ── TEACHERS GRID ─────────────────────────────────────────────────
-function TeachersGrid({onSelect,plan,teachers}) {
+function TeachersGrid({onSelect,plan,teachers,mode}) {
+  const dtm=mode==="dtm";
   const totalVariants = teachers.reduce((s,t)=>s+t.variants,0);
   const totalVideos = teachers.reduce((s,t)=>s+t.videoCount,0);
   const totalStudents = teachers.reduce((s,t)=>s+(t.students||0),0);
@@ -297,11 +298,11 @@ function TeachersGrid({onSelect,plan,teachers}) {
     <div style={{padding:"26px 30px"}}>
       <div style={{marginBottom:22}}>
         <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:8}}><BookOpen size={13} color={C.accent}/><span style={{fontSize:11,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>Barcha kolleksiyalar · 2026</span></div>
-        <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>O'qituvchi Kolleksiyalarini Tanlang</h1>
-        <p style={{color:C.textMid,fontSize:13.5}}>Har bir o'qituvchining milliy sertifikat variant tahlillari bilan ishlang</p>
+        <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>{dtm?"DTM baza savollari: yilni tanlang":"O'qituvchi Kolleksiyalarini Tanlang"}</h1>
+        <p style={{color:C.textMid,fontSize:13.5}}>{dtm?"Davlat tomonidan e'lon qilingan DTM savollarining yillar bo'yicha video tahlillari":"Har bir o'qituvchining milliy sertifikat variant tahlillari bilan ishlang"}</p>
       </div>
       <div className="stat-row" style={{display:"flex",gap:12,marginBottom:22}}>
-        {[{icon:"👨‍🏫",val:String(teachers.length),label:"O'qituvchi"},{icon:"📚",val:String(totalVariants),label:"Jami variant"},{icon:"🎬",val:totalVideos.toLocaleString(),label:"Video dars"},{icon:"👥",val:totalStudents.toLocaleString()+"+",label:"O'quvchi"}].map(s=>(
+        {[{icon:"👨‍🏫",val:String(teachers.length),label:dtm?"Yil":"O'qituvchi"},{icon:"📚",val:String(totalVariants),label:"Jami variant"},{icon:"🎬",val:totalVideos.toLocaleString(),label:"Video dars"},{icon:"👥",val:totalStudents.toLocaleString()+"+",label:"O'quvchi"}].map(s=>(
           <div key={s.label} style={{flex:1,background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"13px 14px",display:"flex",alignItems:"center",gap:9,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
             <span style={{fontSize:22}}>{s.icon}</span>
             <div><div style={{fontSize:18,fontWeight:900,color:C.primary}}>{s.val}</div><div style={{fontSize:10,color:C.textMid}}>{s.label}</div></div>
@@ -310,7 +311,7 @@ function TeachersGrid({onSelect,plan,teachers}) {
       </div>
       {teachers.length===0 ? (
         <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:16,padding:40,textAlign:"center",color:C.textMid}}>
-          Hali o'qituvchi qo'shilmagan. <a href="/admin" style={{color:C.accent,fontWeight:700}}>Admin panel</a> orqali qo'shing.
+          {dtm?"Hali DTM yili qo'shilmagan.":"Hali o'qituvchi qo'shilmagan."} <a href="/admin" style={{color:C.accent,fontWeight:700}}>Admin panel</a> orqali qo'shing.
         </div>
       ) : (
       <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:15}}>
@@ -328,7 +329,7 @@ function TeachersGrid({onSelect,plan,teachers}) {
               <div style={{display:"inline-flex",background:t.bgColor,color:t.color,fontSize:10.5,fontWeight:700,padding:"3px 9px",borderRadius:20,marginBottom:12,border:`1px solid ${t.color}30`}}>{t.subject}</div>
               <p style={{fontSize:12,color:C.textMid,lineHeight:1.6,marginBottom:14}}>{t.desc}</p>
               <div style={{display:"flex",gap:14,marginBottom:16}}>
-                {[[t.variants,"Variant"],[`⭐${t.rating}`,"Reyting"],[(t.students||0).toLocaleString(),"O'quvchi"]].map(([v,l])=>(
+                {(dtm?[[t.variants,"Variant"]]:[[t.variants,"Variant"],[`⭐${t.rating}`,"Reyting"],[(t.students||0).toLocaleString(),"O'quvchi"]]).map(([v,l])=>(
                   <div key={l}><div style={{fontSize:15,fontWeight:900,color:t.color}}>{v}</div><div style={{fontSize:10,color:C.textLight}}>{l}</div></div>
                 ))}
               </div>
@@ -356,7 +357,7 @@ function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy}) {
           <span style={{fontSize:12,fontWeight:700,color:teacher.color,textTransform:"uppercase",letterSpacing:"0.08em"}}>{teacher.name} · {teacher.subject}</span>
         </div>
         <h1 style={{fontSize:23,fontWeight:900,color:C.text,marginBottom:6}}>{teacher.name} — Variantlar Tahlili</h1>
-        <p style={{color:C.textMid,fontSize:13.5}}>Har bir variantdagi masalalar to'liq video tahlili — milliy sertifikat qolipida</p>
+        <p style={{color:C.textMid,fontSize:13.5}}>{teacher.section==="dtm"?"Har bir variantdagi DTM masalalarining to'liq video tahlili":"Har bir variantdagi masalalar to'liq video tahlili — milliy sertifikat qolipida"}</p>
       </div>
       <div className="stat-row" style={{display:"flex",gap:12,marginBottom:20}}>
         {[{icon:"📚",val:vList.length,label:"Jami variantlar"},{icon:"🎬",val:vList.reduce((s,v)=>s+v.total,0),label:"Jami savol"},{icon:"✅",val:done,label:"To'liq tayyor"},{icon:"🔓",val:openCount,label:"Sizga ochiq"}].map(s=>(
@@ -1354,7 +1355,8 @@ export default function App() {
       {mobileOpen&&<div className="sidebar-overlay" onClick={()=>setMobileOpen(false)}/>}
       <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)} variants={variants}/>
       <main className="app-main" style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column",minWidth:0}}>
-        {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan} teachers={teachers}/>}
+        {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section!=="dtm")}/>}
+        {tab==="dtm"&&<TeachersGrid mode="dtm" onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section==="dtm")}/>}
         {tab==="variants"&&!teacher&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
             <div style={{fontSize:48}}>👨‍🏫</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>O'qituvchi tanlanmagan</div>
