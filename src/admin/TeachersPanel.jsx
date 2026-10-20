@@ -23,14 +23,20 @@ function TeacherForm({ editing, initial, onSaved, onCancel }) {
   const set = (k, v) => setF(p => ({ ...p, [k]: v }));
 
   const save = async () => {
-    if (!f.name || !f.subject || !f.initials) {
-      setErr("Ism, fan va inisiallar to'ldirilishi shart.");
+    const isDtm = f.section === "dtm";
+    // A DTM year only needs its name: subject and the two-letter badge are filled in here.
+    const digits = (f.name || "").replace(/\D/g, "");
+    const data = isDtm
+      ? { ...f, subject: f.subject || "DTM baza savollari", initials: f.initials || (digits.slice(-2) || (f.name || "").slice(0, 2).toUpperCase()) }
+      : f;
+    if (!data.name || !data.subject || !data.initials) {
+      setErr(isDtm ? "Yil nomini kiriting (masalan 2019 yil)." : "Ism, fan va inisiallar to'ldirilishi shart.");
       return;
     }
     setErr("");
     // "section" only exists once the DTM migration has run, so it is sent only for DTM.
-    const { section, ...rest } = f;
-    const payload = section === "dtm" ? f : rest;
+    const { section, ...rest } = data;
+    const payload = section === "dtm" ? data : rest;
     const { error } = editing
       ? await supabase.from("teachers").update(payload).eq("id", editing.id)
       : await supabase.from("teachers").insert(payload);
@@ -41,9 +47,9 @@ function TeacherForm({ editing, initial, onSaved, onCancel }) {
   return (
     <div style={{ ...card, marginBottom:14, background:C.mintBg }}>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:10}}>
-        {FIELDS.map(([key, label, { transform, ...props }]) => (
+        {FIELDS.filter(([key]) => f.section !== "dtm" || !["subject", "initials"].includes(key)).map(([key, label, { transform, ...props }]) => (
           <div key={key}>
-            <label style={{fontSize:11,color:C.textMid}}>{label}</label>
+            <label style={{fontSize:11,color:C.textMid}}>{f.section === "dtm" && key === "name" ? "Yil (masalan: 2019 yil)" : label}</label>
             <input {...props} style={inputStyle} value={f[key] || ""}
               onChange={e => set(key, transform ? transform(e.target.value) : e.target.value)}/>
           </div>
@@ -61,7 +67,6 @@ function TeacherForm({ editing, initial, onSaved, onCancel }) {
         </label>
       </div>
 
-      {f.section === "dtm" && <div style={{fontSize:11.5,color:C.textMid,marginBottom:10}}>DTM uchun: Ism-familiya o'rniga yilni yozing (masalan "2019 yil"), Fan: "DTM baza savollari".</div>}
       <label style={{fontSize:11,color:C.textMid}}>Tavsif</label>
       <textarea style={{...inputStyle, marginBottom:10, minHeight:60}} value={f.description || ""}
         onChange={e => set("description", e.target.value)}/>
