@@ -76,7 +76,7 @@ export default function Admin() {
       <div style={{background:C.primary,padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <FlaskConical size={19} color={C.mint}/>
-          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform — {isAdmin ? "Admin" : "Moderator"}</span>
+          <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Noor — {isAdmin ? "Admin" : "Moderator"}</span>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:8}}>
           {isAdmin && <button style={headerBtn(screen === "content")} onClick={() => { setScreen("content"); setTeacher(null); setVariant(null); }}>

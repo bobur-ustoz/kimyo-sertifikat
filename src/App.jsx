@@ -227,8 +227,8 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <div style={{width:40,height:40,borderRadius:10,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><FlaskConical size={21} color={C.mint}/></div>
           <div>
-            <div style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Kimyo Platform</div>
-            <div style={{color:C.mint,fontSize:10,fontWeight:600,marginTop:1}}>Milliy Sertifikat · 2026</div>
+            <div style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Noor</div>
+            <div style={{color:C.mint,fontSize:10,fontWeight:600,marginTop:1}}>Milliy Sertifikat · DTM</div>
           </div>
         </div>
         <button onClick={onClose} className="sidebar-close-btn" style={{display:"none",background:"rgba(255,255,255,0.14)",border:"none",borderRadius:8,width:30,height:30,alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0}}>
@@ -1226,7 +1226,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
         <div style={{background:`linear-gradient(130deg,${C.primary} 0%,${C.accent} 100%)`,borderRadius:16,padding:"24px",marginBottom:20,color:"#fff",display:"flex",gap:18,alignItems:"center"}}>
           <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0}}>👨‍🎓</div>
           <div style={{flex:1,minWidth:0}}>
-            <div style={{fontSize:10,color:C.mint,fontWeight:800,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.09em"}}>Kimyo Platform · 2026</div>
+            <div style={{fontSize:10,color:C.mint,fontWeight:800,marginBottom:4,textTransform:"uppercase",letterSpacing:"0.09em"}}>Noor · 2026</div>
             <div style={{fontSize:16,fontWeight:900,marginBottom:3,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{session.user.email}</div>
             <div style={{fontSize:12.5,color:"#D1FAE5"}}>{teacher?`${teacher.name} kursi`:"O'qituvchi tanlanmagan"}</div>
             <div style={{display:"inline-flex",alignItems:"center",gap:5,marginTop:6,background:"rgba(255,255,255,0.15)",padding:"4px 12px",borderRadius:20}}>
