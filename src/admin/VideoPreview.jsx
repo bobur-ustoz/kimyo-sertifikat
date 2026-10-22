@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import { C } from "./ui";
 
@@ -8,8 +8,20 @@ import { C } from "./ui";
 export default function VideoPreview({ videoId }) {
   const [src, setSrc] = useState(null);
   const [err, setErr] = useState("");
+  const [visible, setVisible] = useState(false);
+  const box = useRef(null);
+
+  // A variant has ~30 players on one page: each one only loads once it scrolls into view.
+  useEffect(() => {
+    const el = box.current;
+    if (!el || visible) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect(); } }, { rootMargin: "300px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [visible]);
 
   useEffect(() => {
+    if (!visible) return;
     let off = false;
     setSrc(null); setErr("");
     (async () => {
@@ -25,10 +37,10 @@ export default function VideoPreview({ videoId }) {
       } catch { if (!off) setErr("Video ochilmadi"); }
     })();
     return () => { off = true; };
-  }, [videoId]);
+  }, [videoId, visible]);
 
   return (
-    <div style={{ position:"relative", paddingTop:"56.25%", background:"#0F172A", borderRadius:10, overflow:"hidden", maxWidth:640 }}>
+    <div ref={box} style={{ position:"relative", paddingTop:"56.25%", background:"#0F172A", borderRadius:10, overflow:"hidden", maxWidth:560 }}>
       {src ? (
         <iframe src={src} title="Video" style={{ position:"absolute", inset:0, width:"100%", height:"100%", border:"none" }}
           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowFullScreen/>

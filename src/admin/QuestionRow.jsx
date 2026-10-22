@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Save, CheckCircle2, Circle, UploadCloud, Play } from "lucide-react";
+import { Save, CheckCircle2, Circle, UploadCloud } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useVideoUpload } from "./useVideoUpload";
 import { videoTitle } from "./uploadVideo";
@@ -16,7 +16,6 @@ export default function QuestionRow({ q, onChanged, groups, teacher, variant }) 
   const [f, setF] = useState(() => ({ question_type:"mcq", ...q }));
   const [dirty, setDirty] = useState(false);
   const [open, setOpen] = useState(false);
-  const [playing, setPlaying] = useState(false);
   const fileRef = useRef(null);
   const [saveErr, setSaveErr] = useState("");
 
@@ -59,23 +58,19 @@ export default function QuestionRow({ q, onChanged, groups, teacher, variant }) 
         <button style={btnGhost} onClick={() => setOpen(o => !o)}>{open ? "Yopish" : "Savol va javoblar"}</button>
       </div>
 
+      {/* the uploaded video plays right here */}
+      {f.bunny_video_id && <div style={{ marginBottom: 8 }}><VideoPreview videoId={f.bunny_video_id}/></div>}
+
       {/* video row */}
       <div style={{display:"flex",gap:8,marginBottom: open ? 8 : 0, alignItems:"center"}}>
         {f.bunny_video_id ? (
-          <div style={{ ...inputStyle, flex:1, display:"flex", alignItems:"center", gap:8, color:C.primary, fontWeight:600 }}>
-            <CheckCircle2 size={14}/> Video yuklangan (Bunny)
-          </div>
+          <div style={{ flex:1 }}/>
         ) : (
           <input style={{ ...inputStyle, flex:1 }} placeholder="Video havolasi (URL, ixtiyoriy)"
             value={f.video_url || ""} onChange={e => set("video_url", e.target.value)}/>
         )}
         <input ref={fileRef} type="file" accept="video/*" style={{display:"none"}}
           onChange={e => { const file = e.target.files[0]; if (file) upload(file); e.target.value = ""; }}/>
-        {f.bunny_video_id && (
-          <button style={btnGhost} onClick={() => setPlaying(p => !p)}>
-            <Play size={12}/> {playing ? "Yopish" : "Ko'rish"}
-          </button>
-        )}
         {pct === null ? (
           <button style={btnGhost} onClick={() => fileRef.current?.click()}>
             <UploadCloud size={13}/> {f.bunny_video_id ? "Almashtirish" : "Video yuklash"}
@@ -85,9 +80,6 @@ export default function QuestionRow({ q, onChanged, groups, teacher, variant }) 
         )}
         {dirty && <button style={btnPrimary} onClick={save}><Save size={13}/> Saqlash</button>}
       </div>
-      {playing && f.bunny_video_id && (
-        <div style={{ marginBottom: 10 }}><VideoPreview videoId={f.bunny_video_id}/></div>
-      )}
       {uploadErr && <p style={{fontSize:11,color:C.danger,marginBottom: open ? 8 : 0}}>Xatolik: {uploadErr}</p>}
       {saveErr && <div style={{ ...errorBox, marginTop:8, marginBottom: open ? 8 : 0 }}>{saveErr}</div>}
 
