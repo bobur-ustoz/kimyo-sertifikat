@@ -4,6 +4,7 @@ import { supabase } from "../lib/supabaseClient";
 import { useVideoUpload } from "./useVideoUpload";
 import { videoTitle } from "./uploadVideo";
 import AnalogReview from "./AnalogReview";
+import QuestionTranscript from "./QuestionTranscript";
 import { writeErrorText } from "./writeError";
 import { C, card, inputStyle, btnPrimary, btnGhost, toggleBtn, hint, sectionLabel, errorBox } from "./ui";
 
@@ -141,6 +142,8 @@ export default function QuestionRow({ q, onChanged, groups, teacher, variant }) 
               )}
             </div>
           )}
+
+          <QuestionTranscript questionId={q.id}/>
 
           <AnalogReview questionId={q.id} topic={f.topic}/>
         </div>
