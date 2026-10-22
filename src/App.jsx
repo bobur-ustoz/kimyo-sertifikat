@@ -211,32 +211,78 @@ async function callClaude(prompt, maxTokens) {
 }
 
 // ── VARIANT SOTIB OLISH ──────────────────────────────────────────
+// The student pays by card transfer, uploads the receipt photo and files a request.
+// The receipt goes to a private bucket and the request is created by the server
+// (/api/purchase-request), which also posts it to the admin on Telegram.
 function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTab}) {
   const [contact,setContact]=useState("");
+  const [file,setFile]=useState(null);
+  const [preview,setPreview]=useState(null);
   const [sending,setSending]=useState(false);
   const [err,setErr]=useState("");
+  const [pay,setPay]=useState(null);          // { card, holder } from the server
+  const [payErr,setPayErr]=useState("");
+  const [reason,setReason]=useState("");      // why the admin rejected the last request
+  const [copied,setCopied]=useState(false);
   const price = variant.price ?? 5000;
+  const canPay = !!session && status!=="pending";
+
+  useEffect(()=>{
+    if(!canPay) return;
+    let live=true;
+    fetch("/api/payment-info",{method:"POST",headers:{Authorization:`Bearer ${session.access_token}`}})
+      .then(async r=>{
+        const d=await r.json().catch(()=>({}));
+        if(!live) return;
+        if(r.ok) setPay(d); else setPayErr(d.error||"To'lov rekvizitlari yuklanmadi.");
+      })
+      .catch(()=>{ if(live) setPayErr("To'lov rekvizitlari yuklanmadi."); });
+    return ()=>{live=false;};
+  },[canPay,session?.access_token]);
+
+  useEffect(()=>{
+    if(status!=="rejected"||!session) return;
+    supabase.from("variant_purchases").select("reject_reason").eq("student_id",session.user.id).eq("variant_id",variant.id).maybeSingle()
+      .then(({data})=>setReason(data?.reject_reason||""));
+  },[status,variant.id]);
+
+  useEffect(()=>()=>{ if(preview) URL.revokeObjectURL(preview); },[preview]);
+
+  const pickFile = e => {
+    const f=e.target.files?.[0];
+    if(!f) return;
+    if(!["image/jpeg","image/png","image/webp"].includes(f.type)){ setErr("Chek rasmi jpg, png yoki webp bo'lishi kerak."); return; }
+    if(f.size>5*1024*1024){ setErr("Rasm hajmi 5 MB dan oshmasin."); return; }
+    setErr(""); setFile(f); setPreview(URL.createObjectURL(f));
+  };
+
+  const copyCard = () => {
+    navigator.clipboard?.writeText(pay.card.replace(/\s/g,"")).then(()=>{ setCopied(true); setTimeout(()=>setCopied(false),1500); }).catch(()=>{});
+  };
 
   const request = async () => {
     if(!contact.trim()){ setErr("Telefon raqamingizni kiriting."); return; }
+    if(!file){ setErr("To'lov chekining rasmini yuklang."); return; }
     setSending(true); setErr("");
-    const { error } = await supabase.from("variant_purchases").insert({
-      student_id:session.user.id, variant_id:variant.id, amount:price, contact:contact.trim(),
-    });
+    try{
+      const ext=({"image/jpeg":"jpg","image/png":"png","image/webp":"webp"})[file.type];
+      const path=`${session.user.id}/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${ext}`;
+      const { error:upErr } = await supabase.storage.from("payment-proofs").upload(path,file,{contentType:file.type});
+      if(upErr) throw new Error("Rasm yuklanmadi: "+upErr.message);
+      const r = await fetch("/api/purchase-request",{
+        method:"POST",
+        headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},
+        body:JSON.stringify({variantId:variant.id,contact:contact.trim(),proofPath:path}),
+      });
+      const d = await r.json().catch(()=>({}));
+      if(!r.ok) throw new Error(d.error||"So'rov yuborilmadi. Keyinroq urinib ko'ring.");
+      onRequested();
+    }catch(e){ setErr(e.message); }
     setSending(false);
-    if(error){ setErr("So'rov yuborilmadi: "+error.message); return; }
-    // Nudge the admin on Telegram. The request is already saved, so a failure
-    // here must not look to the student like the purchase did not go through.
-    fetch("/api/notify-purchase",{
-      method:"POST",
-      headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},
-      body:JSON.stringify({variantId:variant.id}),
-    }).catch(()=>{});
-    onRequested();
   };
 
   const wrap = {position:"fixed",inset:0,background:"rgba(15,23,42,0.55)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:18};
-  const box = {background:"#fff",borderRadius:16,padding:"22px 24px",width:"100%",maxWidth:420,boxShadow:"0 20px 60px rgba(0,0,0,0.3)"};
+  const box = {background:"#fff",borderRadius:16,padding:"22px 24px",width:"100%",maxWidth:420,maxHeight:"92vh",overflowY:"auto",boxShadow:"0 20px 60px rgba(0,0,0,0.3)"};
 
   return (
     <div style={wrap} onClick={onClose}>
@@ -261,19 +307,48 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
           </>
         ) : status==="pending" ? (
           <div style={{background:C.warningBg,border:"1px solid #FDE68A",borderRadius:11,padding:"13px 15px"}}>
-            <div style={{fontSize:13,fontWeight:800,color:C.warning,marginBottom:5}}>So'rovingiz qabul qilindi</div>
-            <p style={{fontSize:12.5,color:"#92400E",lineHeight:1.65,margin:0}}>To'lovni amalga oshirganingizdan so'ng administrator variantni ochib beradi. Odatda bu bir necha soat ichida bo'ladi.</p>
+            <div style={{fontSize:13,fontWeight:800,color:C.warning,marginBottom:5}}>Chekingiz yuborildi</div>
+            <p style={{fontSize:12.5,color:"#92400E",lineHeight:1.65,margin:0}}>Administrator to'lovni tekshirib, variantni ochib beradi. Odatda bu bir necha soat ichida bo'ladi. Natija shu yerda ko'rinadi.</p>
           </div>
         ) : (
           <>
-            <p style={{fontSize:12.5,color:C.textMid,lineHeight:1.65,marginBottom:12}}>Telefon raqamingizni qoldiring — administrator siz bilan bog'lanib, to'lovni qabul qiladi va variantni ochadi. Click va Payme orqali avtomatik to'lov tez orada ulanadi.</p>
-            <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>Telefon raqam</label>
+            {status==="rejected"&&(
+              <div style={{background:C.dangerBg,border:"1px solid #FECACA",borderRadius:11,padding:"12px 14px",marginBottom:14}}>
+                <div style={{fontSize:13,fontWeight:800,color:C.danger,marginBottom:4}}>Oldingi so'rovingiz rad etildi</div>
+                <p style={{fontSize:12.5,color:"#991B1B",lineHeight:1.6,margin:0}}>{reason||"Sabab ko'rsatilmagan."} Quyida to'lov chekini qayta yuklab, so'rovni yangidan yuborishingiz mumkin.</p>
+              </div>
+            )}
+
+            <div style={{border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 14px",marginBottom:14}}>
+              <div style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:6}}>1. Shu kartaga o'tkazing</div>
+              {pay ? (
+                <>
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:8}}>
+                    <div style={{fontSize:17,fontWeight:800,color:C.text,fontFamily:"monospace",letterSpacing:"0.04em"}}>{pay.card}</div>
+                    <button onClick={copyCard} style={{padding:"6px 10px",borderRadius:8,border:`1px solid ${C.border}`,background:"#fff",fontSize:11.5,fontWeight:700,color:C.primary,cursor:"pointer",fontFamily:"inherit"}}>{copied?"Nusxalandi":"Nusxalash"}</button>
+                  </div>
+                  {pay.holder&&<div style={{fontSize:12,color:C.textMid,marginTop:4}}>{pay.holder}</div>}
+                  <div style={{fontSize:12,color:C.textMid,marginTop:6}}>Aynan <strong>{fmtSum(price)} so'm</strong> o'tkazing.</div>
+                </>
+              ) : payErr ? (
+                <div style={{fontSize:12.5,color:C.danger}}>{payErr}</div>
+              ) : (
+                <div style={{fontSize:12.5,color:C.textLight}}>Yuklanmoqda…</div>
+              )}
+            </div>
+
+            <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>2. To'lov chekining rasmi</label>
+            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={pickFile} style={{fontSize:12.5,marginBottom:preview?8:12,width:"100%"}}/>
+            {preview&&<img src={preview} alt="Chek" style={{display:"block",maxWidth:"100%",maxHeight:150,borderRadius:8,border:`1px solid ${C.border}`,marginBottom:12}}/>}
+
+            <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>3. Telefon raqam</label>
             <input value={contact} onChange={e=>setContact(e.target.value)} placeholder="+998 90 123 45 67"
               style={{width:"100%",padding:"11px 13px",borderRadius:10,border:`1px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",marginBottom:12}}/>
             {err&&<div style={{fontSize:12,color:C.danger,marginBottom:10}}>{err}</div>}
-            <button onClick={request} disabled={sending} style={{width:"100%",padding:"12px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:sending?"not-allowed":"pointer",fontFamily:"inherit",opacity:sending?0.7:1}}>
-              {sending?"Yuborilmoqda...":"Sotib olish so'rovini yuborish"}
+            <button onClick={request} disabled={sending||!pay} style={{width:"100%",padding:"12px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:sending||!pay?"not-allowed":"pointer",fontFamily:"inherit",opacity:sending||!pay?0.7:1}}>
+              {sending?"Yuborilmoqda...":"Chekni yuborish"}
             </button>
+            <p style={{fontSize:11.5,color:C.textLight,lineHeight:1.6,margin:"10px 0 0"}}>Administrator to'lovni tekshirgach variant ochiladi.</p>
           </>
         )}
       </div>

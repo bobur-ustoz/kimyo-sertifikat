@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { ChevronLeft, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, CheckCircle2, Image as ImageIcon } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { useRows } from "./useRows";
 import { writeErrorText } from "./writeError";
 import { C, card, btnGhost, pill, toggleBtn, pageTitle, pageSub, errorBox } from "./ui";
 
-const FILTERS = [["pending","Kutilmoqda"],["paid","To'langan"],["cancelled","Bekor qilingan"],["all","Hammasi"]];
+const FILTERS = [["pending","Kutilmoqda"],["paid","To'langan"],["rejected","Rad etilgan"],["cancelled","Bekor qilingan"],["all","Hammasi"]];
 
 const BADGE = {
   paid:      { style: pill(C.mintBg, C.primary, "#86EFAC"), label: "To'langan" },
   pending:   { style: pill(C.warningBg, C.warning, "#FDE68A"), label: "Kutilmoqda" },
   cancelled: { style: pill("#F1F5F9", C.textMid, C.border), label: "Bekor qilingan" },
+  rejected:  { style: pill("#FEF2F2", C.danger, "#FECACA"), label: "Rad etilgan" },
 };
 
 export default function PurchasesPanel({ onBack }) {
@@ -26,11 +27,20 @@ export default function PurchasesPanel({ onBack }) {
     return filter === "all" ? q : q.eq("status", filter);
   }, [filter]);
 
+  // Receipts live in a private bucket; a short-lived signed link opens one.
+  const openProof = async (row) => {
+    setErr("");
+    const { data, error } = await supabase.storage.from("payment-proofs").createSignedUrl(row.proof_path, 120);
+    if (error || !data?.signedUrl) { setErr("Chek rasmi ochilmadi: " + (error?.message || "topilmadi")); return; }
+    window.open(data.signedUrl, "_blank", "noopener");
+  };
+
   const mark = async (row, status) => {
     setBusy(row.id);
     setErr("");
     const { error } = await supabase.from("variant_purchases")
-      .update({ status, paid_at: status === "paid" ? new Date().toISOString() : null })
+      .update({ status, paid_at: status === "paid" ? new Date().toISOString() : null,
+                reviewed_by: "admin panel", reviewed_at: new Date().toISOString() })
       .eq("id", row.id);
     setBusy(null);
     if (error) { setErr(writeErrorText(error)); return; }
@@ -41,7 +51,7 @@ export default function PurchasesPanel({ onBack }) {
     <div>
       <button style={{ ...btnGhost, marginBottom:14 }} onClick={onBack}><ChevronLeft size={14}/> Orqaga</button>
       <h2 style={pageTitle}>Variant to'lovlari</h2>
-      <p style={pageSub}>O'quvchi so'rov yuboradi → siz to'lovni qabul qilasiz → "To'landi" bosasiz va variant darhol ochiladi.</p>
+      <p style={pageSub}>O'quvchi chek yuboradi → Telegram'da tugma bilan yoki shu yerda "To'landi" bosasiz → variant darhol ochiladi. Ikkala yo'l bir xil jadvalni yangilaydi.</p>
 
       <div style={{display:"flex",gap:7,marginBottom:14,flexWrap:"wrap"}}>
         {FILTERS.map(([id, label]) => (
@@ -69,8 +79,17 @@ export default function PurchasesPanel({ onBack }) {
                     {r.amount?.toLocaleString("ru-RU")} so'm · {r.contact || "telefon yo'q"} · {new Date(r.created_at).toLocaleString("uz-UZ")}
                   </div>
                   <div style={{fontSize:10.5,color:C.textLight,marginTop:2,fontFamily:"monospace"}}>{r.student_id}</div>
+                  {r.status === "rejected" && r.reject_reason && (
+                    <div style={{fontSize:11.5,color:C.danger,marginTop:3}}>Sabab: {r.reject_reason}</div>
+                  )}
+                  {r.reviewed_by && (
+                    <div style={{fontSize:10.5,color:C.textLight,marginTop:2}}>Ko'rib chiqdi: {r.reviewed_by}</div>
+                  )}
                 </div>
                 <div style={{display:"flex",alignItems:"center",gap:7}}>
+                  {r.proof_path && (
+                    <button style={btnGhost} onClick={() => openProof(r)}><ImageIcon size={12}/> Chek</button>
+                  )}
                   <span style={badge.style}>{badge.label}</span>
                   {r.status !== "paid" && (
                     <button disabled={busy === r.id} style={{ ...btnGhost, color:C.primary, borderColor:C.primary }} onClick={() => mark(r, "paid")}>

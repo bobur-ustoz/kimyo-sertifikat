@@ -157,3 +157,39 @@ VITE_ANTHROPIC_API_KEY=sk-ant-...
 
 *Kimyo Sertifikat · Milliy Sertifikat 2026*
 
+
+---
+
+## 💳 To'lovni Telegram orqali tasdiqlash
+
+O'quvchi kartaga pul o'tkazadi, chek rasmini yuklaydi, admin Telegram'da bitta tugma bilan tasdiqlaydi.
+
+**Oqim:** chek rasmi private `payment-proofs` bucket'iga tushadi → `api/purchase-request.js` so'rovni `pending` qilib yozadi va admin chatiga rasm + [✅ Tasdiqlash] [❌ Rad etish] yuboradi → tugma bosilganda `api/telegram-webhook.js` holatni yangilaydi (tasdiqlansa variant darhol ochiladi). Admin paneldagi *To'lovlar* bo'limi zaxira usul sifatida qoladi va xuddi shu jadvalni yangilaydi.
+
+### Migratsiya
+Supabase SQL Editor'da `supabase/migrations/20261021000000_payment_proofs.sql` ni ishga tushiring (ustunlar, private bucket va uning siyosatlari). Faylni **frontend deploy'dan oldin** ishga tushiring, aks holda eski sotib olish oynasi to'g'ridan-to'g'ri yozolmay qoladi.
+
+### Vercel muhit o'zgaruvchilari (faqat server, `VITE_` bilan boshlanmasin)
+| Nom | Nima |
+|---|---|
+| `TELEGRAM_BOT_TOKEN` | @BotFather bergan bot tokeni |
+| `TELEGRAM_ADMIN_CHAT_ID` | So'rovlar keladigan chat/admin ID (botga avval /start yozing) |
+| `TELEGRAM_ADMIN_IDS` | (ixtiyoriy) tugmani bosishga ruxsat etilgan Telegram ID'lar, vergul bilan. Bo'lmasa `TELEGRAM_ADMIN_CHAT_ID` ishlatiladi |
+| `TELEGRAM_WEBHOOK_SECRET` | Uzun tasodifiy qator (webhook imzosi) |
+| `PAYMENT_CARD_NUMBER` | O'quvchilarga ko'rsatiladigan karta raqami |
+| `PAYMENT_CARD_HOLDER` | Karta egasi (ixtiyoriy) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service_role kaliti (avvaldan bor) |
+
+### Webhook'ni ulash (bir marta)
+Quyidagi buyruqda `<TOKEN>` va `<SECRET>` ni o'z qiymatlaringiz bilan almashtiring (`<SECRET>` Vercel'dagi `TELEGRAM_WEBHOOK_SECRET` bilan bir xil bo'lishi shart):
+
+```bash
+curl "https://api.telegram.org/bot<TOKEN>/setWebhook" \
+  -d "url=https://kimyo-sertifikat.vercel.app/api/telegram-webhook" \
+  -d "secret_token=<SECRET>" \
+  -d 'allowed_updates=["callback_query","message"]'
+```
+Tekshirish: `https://api.telegram.org/bot<TOKEN>/getWebhookInfo`.
+
+### Rad etish sababi
+❌ bosilgach bot "sabab yozing" deb so'raydi: shu xabarga **reply** qilib yozing (ixtiyoriy). Sabab o'quvchiga saytda ko'rinadi; rad etilgan o'quvchi chekni qayta yuborishi mumkin.
