@@ -36,12 +36,12 @@ export function Rich({text}){
 
 const fmt=sec=>`${Math.floor(sec/60)}:${String(Math.floor(sec%60)).padStart(2,"0")}`;
 
-function AskAI({session,target,setTab,time,playerRef}){
+export function AskAI({session,target,setTab,time,playerRef}){
   const [q,setQ]=useState("");
   const [busy,setBusy]=useState(false);
   const [thread,setThread]=useState([]);
   const [err,setErr]=useState("");
-  const key = target.topicId||target.exampleId;
+  const key = target.topicId||target.exampleId||target.questionId;
   const [faq,setFaq]=useState([]);
   const [allOpen,setAllOpen]=useState(false);
   useEffect(()=>{ setThread([]); setErr(""); setQ(""); setAllOpen(false); },[key]);

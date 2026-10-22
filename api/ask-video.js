@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { canUseQuestion } from "./_access.js";
 
 const MAX_QUESTION = 500;
 
@@ -34,15 +35,22 @@ export default async function handler(req, res) {
   const { data: userData, error: userErr } = await anon.auth.getUser(jwt);
   if (userErr || !userData?.user) return res.status(401).json({ error: "Sessiya yaroqsiz. Qayta kiring." });
 
-  const { topicId, exampleId, question } = req.body || {};
-  if (!topicId === !exampleId) return res.status(400).json({ error: "topicId yoki exampleId kerak" });
+  const { topicId, exampleId, questionId, question } = req.body || {};
+  if ([topicId, exampleId, questionId].filter(Boolean).length !== 1) return res.status(400).json({ error: "topicId, exampleId yoki questionId kerak" });
   const q = typeof question === "string" ? question.trim() : "";
   if (!q) return res.status(400).json({ error: "Savol bo'sh" });
   if (q.length > MAX_QUESTION) return res.status(400).json({ error: `Savol ${MAX_QUESTION} belgidan oshmasin` });
 
   const admin = createClient(url, serviceKey);
-  const col = topicId ? "topic_id" : "example_id";
-  const { data: tr } = await admin.from("video_transcripts").select("content,updated_at").eq(col, topicId || exampleId).maybeSingle();
+  const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
+  const target = topicId || exampleId || questionId;
+  if (questionId) {
+    const access = await canUseQuestion(admin, userData.user.id, questionId);
+    if (!access.ok) return res.status(access.status).json({ error: access.error });
+  }
+  const { data: tr } = questionId
+    ? await admin.from("question_transcripts").select("content,updated_at").eq("question_id", questionId).maybeSingle()
+    : await admin.from("video_transcripts").select("content,updated_at").eq(col, target).maybeSingle();
   if (!tr?.content) return res.status(404).json({ error: "Bu video uchun matn hali yuklanmagan" });
 
   // Answer cache: a previously answered identical question costs no AI tokens.
@@ -51,7 +59,7 @@ export default async function handler(req, res) {
   const norm = normalize(q);
   const { data: prior } = await admin.from("video_questions")
     .select("id,answer,status,hits,created_at,reviewed_at")
-    .eq(col, topicId || exampleId).eq("question_norm", norm).neq("status", "flagged")
+    .eq(col, target).eq("question_norm", norm).neq("status", "flagged")
     .order("created_at", { ascending: false }).limit(10);
   const fresh = (prior || []).filter((r) => new Date(r.reviewed_at || r.created_at) >= new Date(tr.updated_at));
   const hit = fresh.find((r) => r.status === "approved") || fresh[0];
@@ -94,6 +102,7 @@ export default async function handler(req, res) {
       student_id: userData.user.id,
       topic_id: topicId || null,
       example_id: exampleId || null,
+      question_id: questionId || null,
       question: q,
       question_norm: norm,
       answer,

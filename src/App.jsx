@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { supabase } from "./lib/supabaseClient";
 import { RESET_PATH } from "./ResetPassword";
 import { resetErrorText, signInErrorText } from "./lib/authErrors";
-import TopicLessons from "./TopicLessons";
+import TopicLessons, { AskAI } from "./TopicLessons";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
@@ -623,8 +623,9 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
             </a>
           )}
         </div>
+        {unlocked&&curQ&&<div style={{marginBottom:15}}><AskAI key={curQ.id} session={session} setTab={setTab} target={{questionId:curQ.id}}/></div>}
         <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:11,padding:"10px 15px",marginBottom:12,display:"flex",flexWrap:"wrap",gap:7}}>
-          {[["Savol",`${activeQ}-savol`],["Yil","2026"],["Mavzu",curTopic],["O'qituvchi",teacher.name]].map(([l,val])=>(
+          {(teacher.section==="dtm"?[["Savol",`${activeQ}-savol`],["Yil",teacher.name.replace(/\D/g,"")||teacher.name],["Mavzu",curTopic]]:[["Savol",`${activeQ}-savol`],["Yil","2026"],["Mavzu",curTopic],["O'qituvchi",teacher.name]]).map(([l,val])=>(
             <div key={l} style={{display:"flex",alignItems:"center",gap:5,background:"#fff",padding:"4px 11px",borderRadius:20,border:`1px solid ${C.border}`}}>
               <span style={{fontSize:10.5,color:C.textMid}}>{l}:</span><span style={{fontSize:11.5,fontWeight:800,color:C.primary}}>{val}</span>
             </div>

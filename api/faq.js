@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { canUseQuestion } from "./_access.js";
 
 // Reviewer-approved questions for one video, ready to show as quick buttons.
 // Only the question, answer and video position leave the server: never who asked.
@@ -15,13 +16,17 @@ export default async function handler(req, res) {
   const { data: userData, error: userErr } = await anon.auth.getUser(jwt);
   if (userErr || !userData?.user) return res.status(401).json({ error: "Sessiya yaroqsiz" });
 
-  const { topicId, exampleId } = req.body || {};
-  if (!topicId === !exampleId) return res.status(400).json({ error: "topicId yoki exampleId kerak" });
+  const { topicId, exampleId, questionId } = req.body || {};
+  if ([topicId, exampleId, questionId].filter(Boolean).length !== 1) return res.status(400).json({ error: "topicId, exampleId yoki questionId kerak" });
 
   const admin = createClient(url, serviceKey);
-  const col = topicId ? "topic_id" : "example_id";
+  const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
+  if (questionId) {
+    const access = await canUseQuestion(admin, userData.user.id, questionId);
+    if (!access.ok) return res.status(access.status).json({ error: access.error });
+  }
   const base = (cols) => admin.from("video_questions").select(cols)
-    .eq(col, topicId || exampleId).eq("status", "approved")
+    .eq(col, topicId || exampleId || questionId).eq("status", "approved")
     .order("hits", { ascending: false }).limit(200);
   let { data, error } = await base("id,question,answer,video_seconds,hits");
   // The video_seconds column ships in a separate migration; until it is applied
