@@ -1014,7 +1014,7 @@ function AnalyticsScreen({session,analytics,setTab}){
 // ── TEST GENERATOR (with AI Adaptive) ────────────────────────────
 function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const [mode,setMode]=useState(teacher?.section==="dtm"?"dtm":"milliy"); // milliy | dtm | topic
-  const [srcId,setSrcId]=useState(teacher?.id||"");
+  const [srcIds,setSrcIds]=useState(teacher?[teacher.id]:[]);
   const [from,setFrom]=useState(1);
   const [to,setTo]=useState(4);
   const [topicList,setTopicList]=useState([]);
@@ -1033,12 +1033,21 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%"};
   const allowed=canUse(plan,"adaptive");
   const sources=teachers.filter(t=>mode==="dtm"?t.section==="dtm":t.section!=="dtm");
-  const src=sources.find(t=>t.id===srcId)||sources[0];
+  const chosen=sources.filter(t=>srcIds.includes(t.id));
+  const picked=chosen;
+  useEffect(()=>{ if(mode!=="topic"&&sources.length&&!sources.some(t=>srcIds.includes(t.id))) setSrcIds([sources[0].id]); },[mode,sources.length]);
+  const src=picked[0];
+  const pickedKey=picked.map(t=>t.id).join(",");
+  const labelOf=v=>mode==="dtm"?`${v.tname.replace(/\D/g,"")||v.tname} · ${v.n}-variant`:`${v.n}-variant`;
   useEffect(()=>{
     setSelVars([]); setVarQ(""); setVarList([]);
-    if(!src?.id||mode==="topic") return;
-    supabase.from("variants").select("variant_number").eq("teacher_id",src.id).order("variant_number").then(({data})=>setVarList((data||[]).map(v=>v.variant_number)));
-  },[src?.id,mode]);
+    if(!picked.length||mode==="topic") return;
+    supabase.from("variants").select("id, variant_number, teacher_id").in("teacher_id",picked.map(t=>t.id)).then(({data})=>{
+      const nm=Object.fromEntries(picked.map(t=>[t.id,t.name]));
+      setVarList((data||[]).map(v=>({id:v.id,n:v.variant_number,tid:v.teacher_id,tname:nm[v.teacher_id]||""}))
+        .sort((x,y)=>y.tname.localeCompare(x.tname,undefined,{numeric:true})||x.n-y.n));
+    });
+  },[pickedKey,mode]);
   useEffect(()=>{ if(mode==="topic"&&!topicList.length) fetchTopicList().then(setTopicList); },[mode]);
 
   const buildTest = async () => {
@@ -1046,12 +1055,16 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
       const qs=await buildTopicTest(selTopics,total);
       return { qs, title:`Mavzular bo'yicha test (${selTopics.length} mavzu)` };
     }
-    const { questions, variantNumbers } = await fetchVariantRangeQuestions(src.id, 1, 9999, selVars);
-    if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${src.name} — Aralash Test (${selVars.join(", ")}-Variant)` };
-    return { qs:buildMixedTest(questions, variantNumbers), title:`${src.name} — Aralash Test (${selVars.join(", ")}-Variant)` };
+    const chosenVars=varList.filter(v=>selVars.includes(v.id));
+    const { data } = await supabase.from("questions").select("*, option_groups(options)").in("variant_id",chosenVars.map(v=>v.id));
+    const vMap=Object.fromEntries(chosenVars.map(v=>[v.id,v]));
+    const questions=(data||[]).map(q=>({...q,variant_number:vMap[q.variant_id].n,variant_label:mode==="dtm"?labelOf(vMap[q.variant_id]):null}));
+    const names=picked.map(t=>t.name).join(", ");
+    if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${names} — Aralash Test (${chosenVars.length} variant)` };
+    return { qs:buildMixedTest(questions, chosenVars.map(v=>v.n)), title:`${names} — Aralash Test (${chosenVars.map(v=>v.n).join(", ")}-Variant)` };
   };
   const noQs = mode==="topic"?"Tanlangan mavzulardan savollar topilmadi.":"Tanlangan variantlar oralig'ida hali savollar kiritilmagan.";
-  const canGo = mode==="topic" ? selTopics.length>0 : (!!src && selVars.length>0);
+  const canGo = mode==="topic" ? selTopics.length>0 : (picked.length>0 && selVars.length>0);
 
   const start = async () => {
     setStep("loading"); setError("");
@@ -1087,7 +1100,7 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
       <div style={{padding:"26px 30px"}}>
         <div style={{maxWidth:720}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
-            <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length}{q.variant_number?` · ${q.variant_number}-Variantdan`:""}</div>
+            <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length}{q.variant_number?` · ${q.variant_label||`${q.variant_number}-Variant`}dan`:""}</div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
               <div style={{fontSize:11,color:C.textLight}}>{q.topic}</div>
               <button onClick={()=>downloadTestPDF(testQs,meta.teacher,meta.from,meta.to,meta.title)} title="Testni PDF qilib yuklab olish" style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,borderRadius:7,fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Download size={11}/> PDF</button>
@@ -1133,39 +1146,40 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
         </div>
         <div style={{display:"flex",gap:6,marginBottom:14,background:"#F1F5F9",padding:4,borderRadius:11}}>
           {[["milliy","Milliy Sertifikat"],["dtm","DTM"],["topic","Mavzular"]].map(([id,l])=>(
-            <button key={id} onClick={()=>{setMode(id);setSrcId("");setError("");}} style={{flex:1,padding:"9px",borderRadius:8,border:"none",background:mode===id?"#fff":"transparent",color:mode===id?C.primary:C.textMid,fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit",boxShadow:mode===id?"0 1px 4px rgba(0,0,0,0.1)":"none"}}>{l}</button>
+            <button key={id} onClick={()=>{setMode(id);setSrcIds([]);setError("");}} style={{flex:1,padding:"9px",borderRadius:8,border:"none",background:mode===id?"#fff":"transparent",color:mode===id?C.primary:C.textMid,fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit",boxShadow:mode===id?"0 1px 4px rgba(0,0,0,0.1)":"none"}}>{l}</button>
           ))}
         </div>
         <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
           {mode!=="topic"&&(<>
-            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> {mode==="dtm"?"Yilni va variantlarni tanlang":"O'qituvchi va variantlarni tanlang"}</div>
+            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> {mode==="dtm"?"Yillar va variantlarni tanlang (bir nechta yilni belgilash mumkin)":"O'qituvchi va variantlarni tanlang"}</div>
             {!sources.length?<div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Hozircha {mode==="dtm"?"DTM yillari":"o'qituvchilar"} qo'shilmagan.</div>:(
               <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:14}}>
-                {sources.map(t=>{const on=src?.id===t.id; return <button key={t.id} onClick={()=>setSrcId(t.id)} style={{padding:"8px 14px",borderRadius:20,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}>{t.name}{t.variants?` · ${t.variants} variant`:""}</button>;})}
+                {sources.map(t=>{const on=picked.some(x=>x.id===t.id); return <button key={t.id} onClick={()=>setSrcIds(a=>mode==="dtm"?(on?a.filter(x=>x!==t.id):[...a.filter(x=>sources.some(y=>y.id===x)),t.id]):[t.id])} style={{padding:"8px 14px",borderRadius:20,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}>{mode==="dtm"&&on?"✓ ":""}{t.name}{t.variants?` · ${t.variants} variant`:""}</button>;})}
               </div>
             )}
             <div style={{marginBottom:14}}>
               {selVars.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
-                {selVars.map(n=><button key={n} onClick={()=>setSelVars(a=>a.filter(x=>x!==n))} style={{padding:"5px 10px",borderRadius:20,border:`1.5px solid ${C.primary}`,background:C.mintBg,color:C.primary,fontWeight:700,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>{n}-variant ✕</button>)}
+                {selVars.map(id=>{const v=varList.find(x=>x.id===id); return v&&<button key={id} onClick={()=>setSelVars(a=>a.filter(x=>x!==id))} style={{padding:"5px 10px",borderRadius:20,border:`1.5px solid ${C.primary}`,background:C.mintBg,color:C.primary,fontWeight:700,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>{labelOf(v)} ✕</button>;})}
                 <button onClick={()=>setSelVars([])} style={{padding:"5px 10px",borderRadius:20,border:"none",background:"transparent",color:C.textMid,fontSize:12,cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>Tozalash</button>
               </div>}
               <div style={{display:"flex",gap:8,marginBottom:8}}>
-                <input value={varQ} onChange={e=>setVarQ(e.target.value.replace(/\D/g,""))} placeholder="Variant raqamini yozib qidiring..." style={{...sel,cursor:"text"}}/>
-                <button onClick={()=>setSelVars(selVars.length===varList.length?[]:[...varList])} disabled={!varList.length} style={{padding:"0 14px",borderRadius:9,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>{selVars.length===varList.length&&varList.length?"Bekor qilish":"Hammasi"}</button>
+                <input value={varQ} onChange={e=>setVarQ(e.target.value)} placeholder="Yil yoki variant raqamini yozib qidiring..." style={{...sel,cursor:"text"}}/>
+                <button onClick={()=>setSelVars(selVars.length===varList.length?[]:varList.map(v=>v.id))} disabled={!varList.length} style={{padding:"0 14px",borderRadius:9,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>{selVars.length===varList.length&&varList.length?"Bekor qilish":"Hammasi"}</button>
               </div>
               <div style={{maxHeight:260,overflowY:"auto",border:`1px solid ${C.border}`,borderRadius:10}}>
-                {(()=>{ const list=varList.filter(n=>!varQ||String(n).includes(varQ)); if(!list.length) return <div style={{padding:14,fontSize:12.5,color:C.textMid}}>{varList.length?"Bunday variant topilmadi.":"Variantlar yuklanmoqda..."}</div>;
-                  return list.map(n=>{ const on=selVars.includes(n); return (
-                    <label key={n} style={{display:"flex",alignItems:"center",gap:10,padding:"9px 12px",cursor:"pointer",background:on?C.mintBg:"#fff",borderBottom:`1px solid ${C.border}`}}>
-                      <input type="checkbox" checked={on} onChange={()=>setSelVars(a=>on?a.filter(x=>x!==n):[...a,n].sort((x,y)=>x-y))} style={{accentColor:C.primary,width:16,height:16}}/>
-                      <span style={{flex:1,fontSize:13,fontWeight:on?700:500,color:C.text}}>{n}-variant</span>
-                    </label>); }); })()}
+                {(()=>{ const list=varList.filter(v=>!varQ||labelOf(v).toLowerCase().includes(varQ.toLowerCase())); if(!list.length) return <div style={{padding:14,fontSize:12.5,color:C.textMid}}>{varList.length?"Bunday variant topilmadi.":"Variantlar yuklanmoqda..."}</div>;
+                  let lastT=null; return list.map(v=>{ const n=v.id; const on=selVars.includes(n); const head=mode==="dtm"&&picked.length>1&&v.tid!==lastT; lastT=v.tid; return (
+                    <div key={n}>{head&&<div style={{padding:"7px 12px",background:"#F8FAFC",fontSize:10.5,fontWeight:800,color:C.textMid,borderBottom:`1px solid ${C.border}`}}>{v.tname}</div>}
+                    <label style={{display:"flex",alignItems:"center",gap:10,padding:"9px 12px",cursor:"pointer",background:on?C.mintBg:"#fff",borderBottom:`1px solid ${C.border}`}}>
+                      <input type="checkbox" checked={on} onChange={()=>setSelVars(a=>on?a.filter(x=>x!==n):[...a,n])} style={{accentColor:C.primary,width:16,height:16}}/>
+                      <span style={{flex:1,fontSize:13,fontWeight:on?700:500,color:C.text}}>{labelOf(v)}</span>
+                    </label></div>); }); })()}
               </div>
             </div>
             <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
               <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
               <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{mode==="dtm"
-                ?<>Tizim <strong>{src?.name||"tanlangan yil"}</strong>ning <strong>tanlangan {selVars.length} ta variantidan</strong> har bir o'rin uchun bittadan savolni tasodifiy tanlab, DTM testini tuzadi.</>
+                ?<>Tizim <strong>{picked.map(t=>t.name).join(", ")||"tanlangan yillar"}</strong> yillaridan <strong>tanlangan {selVars.length} ta variantdan</strong> har bir o'rin uchun bittadan savolni tasodifiy tanlab, DTM testini tuzadi.</>
                 :<>Tizim <strong>{src?.name||"tanlangan o'qituvchi"}</strong>ning <strong>tanlangan {selVars.length} ta variantidan</strong> savollarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos aralashtiradi: 1–32 A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish.</>}</p>
             </div>
           </>)}
