@@ -4,7 +4,7 @@ const GREEN = [15, 81, 50], TEAL = [13, 148, 136], MINT = [240, 253, 244], SOFT 
 const GRAY = [100, 116, 139], INK = [15, 23, 42], WHITE = [255, 255, 255], LINE = [226, 232, 240];
 
 // "stem ... A) x; B) y; C) z; D) w"  ->  { stem, opts:{A,B,C,D} } (null when it does not look like that)
-function splitOptions(text) {
+export function splitOptions(text) {
   const t = String(text || "").replace(/\s+/g, " ").trim();
   const i = t.search(/(?:Variantlar:\s*)?A\)\s/);
   if (i < 0) return null;

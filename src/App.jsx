@@ -6,6 +6,7 @@ import { supabase } from "./lib/supabaseClient";
 import { RESET_PATH } from "./ResetPassword";
 import { resetErrorText, signInErrorText } from "./lib/authErrors";
 import TopicLessons, { AskAI } from "./TopicLessons";
+import { splitOptions } from "./analogPdf";
 
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
@@ -706,21 +707,17 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
                   <Sparkles size={13} color={C.mint}/>
                   <span style={{color:C.mint,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em"}}>Analog savol</span>
                 </div>
-                <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:10}}>{analog.savol}</p>
-                {analog.formula&&<div style={{fontFamily:"'Courier New',monospace",fontSize:13,color:C.mint,background:"rgba(110,231,183,0.08)",padding:"8px 12px",borderRadius:8,marginBottom:10,border:"1px solid rgba(110,231,183,0.15)"}}>{analog.formula}</div>}
-                <div style={{marginBottom:8}}>
-                  <div style={{fontSize:11,fontWeight:700,color:"#94A3B8",textTransform:"uppercase",letterSpacing:"0.07em",marginBottom:7}}>Yechim bosqichlari:</div>
-                  {(analog.yechim||[]).map((step,i)=>(
-                    <div key={i} style={{display:"flex",gap:9,marginBottom:6,alignItems:"flex-start"}}>
-                      <div style={{width:20,height:20,borderRadius:"50%",background:"rgba(110,231,183,0.15)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:800,color:C.mint,flexShrink:0,marginTop:1}}>{i+1}</div>
-                      <span style={{color:"#CBD5E1",fontSize:12.5,lineHeight:1.6}}>{step}</span>
-                    </div>
-                  ))}
-                </div>
-                {analog.javob&&<div style={{background:"rgba(15,81,50,0.3)",borderRadius:8,padding:"9px 12px",border:"1px solid rgba(110,231,183,0.25)"}}>
-                  <span style={{fontSize:11,fontWeight:700,color:C.mint}}>Javob: </span>
-                  <span style={{fontSize:13,color:"#E2E8F0",fontWeight:600}}>{analog.javob}</span>
-                </div>}
+                {(()=>{ const sp=splitOptions(analog.savol); return sp ? (<>
+                  <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:12}}>{sp.stem}</p>
+                  <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:8}}>
+                    {["A","B","C","D"].map(L=>(
+                      <div key={L} style={{display:"flex",alignItems:"center",gap:9,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(110,231,183,0.2)",borderRadius:9,padding:"9px 12px"}}>
+                        <span style={{width:22,height:22,borderRadius:"50%",background:"rgba(110,231,183,0.18)",color:C.mint,fontSize:11,fontWeight:800,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{L}</span>
+                        <span style={{color:"#E2E8F0",fontSize:13}}>{sp.opts[L]}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>) : <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,margin:0}}>{analog.savol}</p>; })()}
               </div>
             )}
           </div>
