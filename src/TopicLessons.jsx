@@ -106,11 +106,10 @@ export function AskAI({session,target,setTab,time,playerRef}){
 
   return (
     <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:16}}>
-      <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:4}}>
+      <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:12}}>
         <Sparkles size={15} color={C.accent}/>
         <div style={{fontSize:14,fontWeight:800,color:C.text}}>Savol bering</div>
       </div>
-      <p style={{fontSize:12,color:C.textMid,marginBottom:12}}>AI faqat shu videoda aytilgan narsalar bo'yicha javob beradi.</p>
       {faq.length>0&&(()=>{
         const timed=faq.filter(f=>f.video_seconds!=null);
         const WIN=120;
