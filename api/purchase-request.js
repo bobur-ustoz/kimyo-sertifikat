@@ -70,10 +70,11 @@ export default async function handler(req, res) {
   let target;   // { price, label, col, id }
   if (isLesson) {
     const { data: lesson } = await admin.from("live_lessons")
-      .select("id, title, price, recording_video_id").eq("id", lessonId).maybeSingle();
-    if (!lesson || !lesson.recording_video_id) return res.status(404).json({ error: "Dars yozuvi topilmadi" });
-    if (!(lesson.price > 0)) return res.status(400).json({ error: "Bu yozuv bepul" });
-    target = { price: lesson.price, label: `🎥 Dars yozuvi: ${escapeHtml(lesson.title)}`, col: "live_lesson_id", id: lesson.id };
+      .select("id, title, price, status").eq("id", lessonId).maybeSingle();
+    if (!lesson) return res.status(404).json({ error: "Dars topilmadi" });
+    if (lesson.status === "ended" && !lesson.price) return res.status(400).json({ error: "Bu dars bepul" });
+    if (!(lesson.price > 0)) return res.status(400).json({ error: "Bu dars bepul" });
+    target = { price: lesson.price, label: `🎥 Jonli dars: ${escapeHtml(lesson.title)}`, col: "live_lesson_id", id: lesson.id };
   } else {
     const { data: variant } = await admin.from("variants")
       .select("id, variant_number, price, is_free, teachers(name)").eq("id", variantId).maybeSingle();

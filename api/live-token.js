@@ -42,6 +42,12 @@ export default async function handler(req, res) {
 
   const isHost = !!profile?.is_admin;
   if (!isHost) {
+    // A priced lesson needs an approved purchase (one payment covers the live class and the recording).
+    if (lesson.price > 0) {
+      const { data: bought } = await admin.from("variant_purchases").select("status")
+        .eq("student_id", user.id).eq("live_lesson_id", lesson.id).maybeSingle();
+      if (bought?.status !== "paid") return res.status(403).json({ error: "Bu jonli dars pullik. Avval sotib oling." });
+    }
     if (lesson.status !== "live") return res.status(403).json({ error: lesson.status === "ended" ? "Dars tugagan" : "Dars hali boshlanmadi" });
   }
 

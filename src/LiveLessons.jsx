@@ -110,9 +110,12 @@ export default function LiveLessons({session,plan,setTab,Player,PurchaseModal}) 
             <span style={{display:"flex",alignItems:"center",gap:4}}><Clock size={12}/> {l.duration_min} daqiqa</span>
           </div>
         </div>
-        {locked(l)
-          ? <button onClick={()=>setTab("obuna")} style={{display:"flex",alignItems:"center",gap:6,padding:"10px 16px",borderRadius:10,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}><Lock size={13}/> Standart kerak</button>
-          : <button onClick={()=>join(l)} disabled={!isLive||busy===l.id} style={{padding:"10px 20px",borderRadius:10,border:"none",background:isLive?C.primary:"#E2E8F0",color:isLive?"#fff":C.textLight,fontWeight:800,fontSize:13,cursor:isLive?"pointer":"not-allowed",fontFamily:"inherit"}}>{busy===l.id?"Ulanmoqda...":isLive?"Qo'shilish":"Hali boshlanmagan"}</button>}
+        {(()=>{
+          const st=bought[l.id]; const paid=!(l.price>0)||st==="paid";
+          if(!paid&&st==="pending") return <span style={{fontSize:12,fontWeight:800,color:"#D97706",background:"#FFFBEB",border:"1px solid #FDE68A",borderRadius:10,padding:"8px 12px"}}>To'lov tekshirilmoqda</span>;
+          if(!paid) return <button onClick={()=>session?setBuying(l):setTab("profile")} style={{padding:"10px 16px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>{session?`Sotib olish · ${Number(l.price).toLocaleString("ru-RU")} so'm`:"Kirish va sotib olish"}</button>;
+          return <button onClick={()=>join(l)} disabled={!isLive||busy===l.id} style={{padding:"10px 20px",borderRadius:10,border:"none",background:isLive?C.primary:"#E2E8F0",color:isLive?"#fff":C.textLight,fontWeight:800,fontSize:13,cursor:isLive?"pointer":"not-allowed",fontFamily:"inherit"}}>{busy===l.id?"Ulanmoqda...":isLive?"Qo'shilish":"Hali boshlanmagan"}</button>;
+        })()}
       </div>
     );
   };

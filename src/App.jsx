@@ -290,7 +290,7 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
         <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",marginBottom:14}}>
           <div>
             <div style={{fontSize:17,fontWeight:900,color:C.text}}>{lesson?lesson.title:`${variant.number}-Variant`}</div>
-            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{lesson?"Jonli dars yozuvi":`${teacher?.name} · ${variant.total||43} ta video dars`}</div>
+            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{lesson?"Jonli dars + dars yozuvi":`${teacher?.name} · ${variant.total||43} ta video dars`}</div>
           </div>
           <button onClick={onClose} style={{background:"none",border:"none",cursor:"pointer",color:C.textLight,padding:0}}><X size={18}/></button>
         </div>

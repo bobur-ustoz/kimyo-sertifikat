@@ -38,7 +38,7 @@ export default function LivePanel() {
     if(!form.title.trim()||!form.starts_at){ setError("Mavzu va vaqtni kiriting"); return; }
     const { error } = await supabase.from("live_lessons").insert({title:form.title.trim(),description:form.description.trim()||null,starts_at:new Date(form.starts_at).toISOString(),duration_min:Number(form.duration_min)||90,for_all:form.for_all,price:Number(form.price)||0});
     if(error){ setError(error.message); return; }
-    setForm({title:"",description:"",starts_at:"",duration_min:90,for_all:false,price:""}); load();
+    setForm({title:"",description:"",starts_at:"",duration_min:90,for_all:false,price:20000}); load();
   };
   const start = async l => {
     setBusy(l.id); setError("");
@@ -47,7 +47,7 @@ export default function LivePanel() {
   };
   const setAccess = async (l,forAll) => { await supabase.from("live_lessons").update({for_all:forAll}).eq("id",l.id); load(); };
   const setPrice = async l => {
-    const v=window.prompt(`"${l.title}" yozuvi narxi (so'm). 0 = bepul:`, String(l.price||0));
+    const v=window.prompt(`"${l.title}" dars narxi (so'm, jonli dars + yozuv). 0 = bepul:`, String(l.price||0));
     if(v===null) return;
     const n=Math.max(0,Math.round(Number(v)));
     if(Number.isNaN(n)) return;
@@ -77,7 +77,7 @@ export default function LivePanel() {
         </div>
         <div style={{display:"grid",gridTemplateColumns:"2fr 1fr",gap:10,marginBottom:10}}>
           <input style={inputStyle} placeholder="Qisqacha izoh (ixtiyoriy)" value={form.description} onChange={e=>setForm({...form,description:e.target.value})}/>
-          <input style={inputStyle} type="number" min={0} placeholder="Yozuv narxi, so'm (0 = bepul)" value={form.price} onChange={e=>setForm({...form,price:e.target.value})}/>
+          <input style={inputStyle} type="number" min={0} placeholder="Dars narxi, so'm (0 = bepul)" value={form.price} onChange={e=>setForm({...form,price:e.target.value})}/>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:14}}>
           <div style={{flex:1}}/>
@@ -100,7 +100,7 @@ export default function LivePanel() {
           {l.status!=="live"&&(up.id===l.id
             ? <span style={{fontSize:12,fontWeight:700,color:C.primary}}>Yuklanmoqda {up.pct}%</span>
             : <label style={{...btnGhost,cursor:"pointer"}}><Upload size={13}/> {l.recording_video_id?"Yozuvni almashtirish":"Yozuv yuklash"}<input type="file" accept="video/*" style={{display:"none"}} onChange={e=>{uploadRec(l,e.target.files?.[0]); e.target.value="";}}/></label>)}
-          <button style={btnGhost} onClick={()=>setPrice(l)} title="Yozuv narxi">{l.price>0?`Yozuv: ${Number(l.price).toLocaleString("ru-RU")} so'm`:"Yozuv: bepul"}</button>
+          <button style={btnGhost} onClick={()=>setPrice(l)} title="Yozuv narxi">{l.price>0?`Narx: ${Number(l.price).toLocaleString("ru-RU")} so'm`:"Narx: bepul"}</button>
           {l.recording_video_id&&<span style={pill("#F0FDF4",C.primary,"#86EFAC")}>✓ Jonli dars yuklandi</span>}
           <button style={btnGhost} onClick={()=>del(l)}><Trash2 size={13}/></button>
         </div>
