@@ -23,6 +23,19 @@ const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "i
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
+  // { action: "info" }: which card to pay to. Merged here because the Hobby plan caps the
+  // number of serverless functions; the card is only shown to signed-in users.
+  if (req.body?.action === "info") {
+    const card = process.env.PAYMENT_CARD_NUMBER;
+    if (!card) return res.status(503).json({ error: "To'lov rekvizitlari hali sozlanmagan" });
+    const j = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+    if (!j) return res.status(401).json({ error: "Avval hisobingizga kiring" });
+    const a = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { data: who, error: whoErr } = await a.auth.getUser(j);
+    if (whoErr || !who?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
+    return res.status(200).json({ card, holder: process.env.PAYMENT_CARD_HOLDER || "" });
+  }
+
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!serviceKey) return res.status(503).json({ error: "To'lov hali sozlanmagan" });
 

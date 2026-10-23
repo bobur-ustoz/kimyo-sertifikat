@@ -52,10 +52,10 @@ export async function uploadQuestionVideo({ question, title, onProgress }) {
   // leave it in the library forever; ask the server to drop it. A failure here
   // costs storage, not correctness, so it must not fail the upload.
   if (previousVideoId && previousVideoId !== auth.videoId) {
-    fetch("/api/bunny-delete", {
+    fetch("/api/bunny-auth", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
-      body: JSON.stringify({ videoId: previousVideoId }),
+      body: JSON.stringify({ videoId: previousVideoId, delete: true }),
     }).catch(() => {});
   }
 

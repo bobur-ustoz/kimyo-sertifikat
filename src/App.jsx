@@ -230,7 +230,7 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
   useEffect(()=>{
     if(!canPay) return;
     let live=true;
-    fetch("/api/payment-info",{method:"POST",headers:{Authorization:`Bearer ${session.access_token}`}})
+    fetch("/api/purchase-request",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},body:JSON.stringify({action:"info"})})
       .then(async r=>{
         const d=await r.json().catch(()=>({}));
         if(!live) return;

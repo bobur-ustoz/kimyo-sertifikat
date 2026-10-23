@@ -19,6 +19,19 @@ export default async function handler(req, res) {
   const { data: profile } = await supabaseAsUser.from("profiles").select("is_admin").eq("id", userData.user.id).single();
   if (!profile?.is_admin) return res.status(403).json({ error: "Admin only" });
 
+  // { videoId, delete: true } removes a video (merged here to stay under the Hobby plan's
+  // serverless function limit). Refuses to delete one a question still points at.
+  if (req.body?.delete && req.body?.videoId) {
+    const { videoId } = req.body;
+    const { data: inUse } = await supabase.from("questions").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle();
+    if (inUse) return res.status(409).json({ error: "Bu video hali savolga bog'langan" });
+    const r = await fetch(`https://video.bunnycdn.com/library/${process.env.BUNNY_LIBRARY_ID}/videos/${videoId}`, {
+      method: "DELETE", headers: { AccessKey: process.env.BUNNY_API_KEY },
+    });
+    if (!r.ok && r.status !== 404) return res.status(502).json({ error: `Bunny o'chira olmadi: ${(await r.text()).slice(0, 200)}` });
+    return res.status(200).json({ ok: true });
+  }
+
   const { title } = req.body || {};
   if (!title) return res.status(400).json({ error: "Missing title" });
 
