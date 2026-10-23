@@ -896,6 +896,34 @@ function BTooltip({active,payload,label,data}){
     <div style={{fontSize:11,color:C.textMid}}>{d?.correct}/{d?.attempted} to'g'ri javob</div>
   </div>);
 }
+function AiSummary({analytics,avg}) {
+  const [text,setText]=useState("");
+  const [loading,setLoading]=useState(false);
+  const [err,setErr]=useState("");
+  const sig=JSON.stringify(analytics.map(b=>[b.topic,b.correct,b.attempted]));
+  const run = async (force) => {
+    if(!force){ try{ const c=JSON.parse(localStorage.getItem("ai_summary")||"null"); if(c?.sig===sig){ setText(c.text); return; } }catch{} }
+    setLoading(true); setErr("");
+    try{
+      const lines=analytics.map(b=>`- ${b.topic}: ${b.score}% (${b.correct}/${b.attempted} to'g'ri)`).join("\n");
+      const t=await callClaude(`Sen kimyo bo'yicha milliy sertifikat/DTM tayyorgarlik platformasining do'stona ustozisan. O'quvchining mavzular bo'yicha natijalari (umumiy ${avg}%):\n${lines}\n\nO'zbek tilida (lotin) o'quvchiga to'g'ridan-to'g'ri "siz" deb murojaat qilib, qisqa xulosa yoz: 1) umumiy baho bir gapda, 2) kuchli tomonlari, 3) eng zaif mavzular va nima qilish kerak (aniq 2-3 qadam). Ba'zi mavzularda javoblar soni kam bo'lsa, buni aytib o't. Markdown belgilarsiz, oddiy matn, 120 so'zdan oshmasin.`,500);
+      setText(t); try{ localStorage.setItem("ai_summary",JSON.stringify({sig,text:t})); }catch{}
+    }catch(e){ setErr("AI xulosa hozir mavjud emas. Keyinroq urinib ko'ring."); }
+    setLoading(false);
+  };
+  useEffect(()=>{ run(false); },[sig]);
+  return (
+    <div style={{marginTop:26,background:"linear-gradient(135deg,#F0FDF4 0%,#ECFEFF 100%)",border:`1.5px solid ${C.borderGreen}`,borderRadius:20,padding:"20px 22px"}}>
+      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
+        <div style={{width:34,height:34,borderRadius:11,background:`linear-gradient(135deg,${C.primary},${C.accent})`,display:"flex",alignItems:"center",justifyContent:"center"}}><Zap size={17} color="#fff"/></div>
+        <div style={{flex:1}}><div style={{fontSize:15,fontWeight:900,color:C.text}}>AI xulosa</div><div style={{fontSize:11.5,color:C.textMid}}>Natijalaringizga qarab shaxsiy tahlil</div></div>
+        <button onClick={()=>run(true)} disabled={loading} style={{padding:"7px 13px",borderRadius:9,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontSize:12,fontWeight:800,cursor:loading?"not-allowed":"pointer",fontFamily:"inherit"}}>{loading?"Tayyorlanmoqda...":"Yangilash"}</button>
+      </div>
+      {err?<div style={{fontSize:13,color:C.danger}}>{err}</div>:loading&&!text?<div style={{fontSize:13,color:C.textMid}}>AI natijalaringizni tahlil qilmoqda...</div>:<div style={{fontSize:13.5,color:C.text,lineHeight:1.8,whiteSpace:"pre-wrap"}}>{text}</div>}
+    </div>
+  );
+}
+
 function AnalyticsScreen({session,analytics,setTab}){
   if(!session) return (
     <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
@@ -913,100 +941,91 @@ function AnalyticsScreen({session,analytics,setTab}){
   );
   const avg=Math.round(analytics.reduce((s,b)=>s+b.score,0)/analytics.length);
   const weak=analytics.filter(b=>b.status==="weak"); const med=analytics.filter(b=>b.status==="medium"); const good=analytics.filter(b=>b.status==="good");
-  const radarData=analytics.map(b=>({subject:b.short,score:b.score}));
+  const totalAns=analytics.reduce((s,b)=>s+b.attempted,0);
+  const radarData=analytics.map(b=>({subject:b.topic.length>14?b.topic.slice(0,13)+"…":b.topic,score:b.score}));
+  const focus=[...weak,...med];
+  const level=avg>=75?["A'lo natija","Shu tempni saqlang"]:avg>=60?["Yaxshi, lekin o'sish bor","Zaif joylarni mustahkamlang"]:["Mashq kerak","Eng zaif mavzulardan boshlang"];
+  const R=52, CIRC=2*Math.PI*R;
+  const card={background:"#fff",border:`1px solid ${C.border}`,borderRadius:18,boxShadow:"0 2px 14px rgba(15,81,50,0.06)"};
+  const sec=(icon,title,sub)=>(<div style={{display:"flex",alignItems:"center",gap:10,margin:"26px 0 12px"}}><div style={{width:32,height:32,borderRadius:10,background:C.mintBg,border:`1px solid ${C.borderGreen}`,display:"flex",alignItems:"center",justifyContent:"center"}}>{icon}</div><div><div style={{fontSize:15,fontWeight:900,color:C.text,lineHeight:1.2}}>{title}</div>{sub&&<div style={{fontSize:11.5,color:C.textMid}}>{sub}</div>}</div></div>);
+  const topicCard=(b,col,bg,bd)=>(
+    <div key={b.topic} style={{background:"#fff",border:`1.5px solid ${bd}`,borderRadius:16,padding:"14px 16px",display:"flex",gap:14,alignItems:"center"}}>
+      <div style={{position:"relative",width:58,height:58,flexShrink:0}}>
+        <svg width="58" height="58" viewBox="0 0 58 58"><circle cx="29" cy="29" r="24" fill="none" stroke={bg} strokeWidth="6"/><circle cx="29" cy="29" r="24" fill="none" stroke={col} strokeWidth="6" strokeLinecap="round" strokeDasharray={`${2*Math.PI*24*b.score/100} ${2*Math.PI*24}`} transform="rotate(-90 29 29)"/></svg>
+        <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:900,color:col}}>{b.score}%</div>
+      </div>
+      <div style={{flex:1,minWidth:0}}>
+        <div style={{fontSize:14,fontWeight:800,color:C.text,marginBottom:3}}>{b.topic}</div>
+        <div style={{fontSize:11.5,color:C.textMid,marginBottom:b.variants.length?7:0}}>{b.correct}/{b.attempted} to'g'ri{b.attempted<3?" · kam ma'lumot":""}</div>
+        {b.variants.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:5,alignItems:"center"}}><span style={{fontSize:10.5,color:C.textMid,fontWeight:700}}>Qaytaring:</span>{b.variants.map(v=><span key={v} style={{fontSize:10.5,fontWeight:800,color:col,background:bg,borderRadius:20,padding:"2px 9px"}}>{v}</span>)}</div>}
+      </div>
+    </div>
+  );
   return(
-    <div style={{padding:"24px 28px",overflowY:"auto"}}>
-      <div style={{marginBottom:18}}>
-        <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:8}}><BarChart3 size={14} color={C.accent}/><span style={{fontSize:11,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>O'quv tahlili · Real vaqt statistikasi</span></div>
-        <h1 style={{fontSize:22,fontWeight:900,color:C.text,marginBottom:6}}>Qaysi Mavzular Qiyin? — Grafik Tahlil</h1>
-        <p style={{color:C.textMid,fontSize:13.5}}>Har bir kimyo mavzusidan ko'rsatgan natijangiz va tavsiyalar</p>
+    <div style={{padding:"24px 28px 40px",overflowY:"auto",background:"linear-gradient(180deg,#F0FDF4 0%,#FAFCFB 220px)"}}>
+      <div style={{marginBottom:16}}>
+        <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:6}}><BarChart3 size={14} color={C.accent}/><span style={{fontSize:11,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>O'quv tahlili · Real vaqt</span></div>
+        <h1 style={{fontSize:24,fontWeight:900,color:C.text,margin:0}}>Mening natijalarim</h1>
       </div>
-      <div style={{background:`linear-gradient(135deg,${C.primary} 0%,${C.accent} 100%)`,borderRadius:14,padding:"18px 22px",display:"flex",alignItems:"center",gap:16,marginBottom:18}}>
-        <div style={{width:46,height:46,borderRadius:11,background:"rgba(255,255,255,0.15)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Zap size={21} color={C.mint}/></div>
-        <div>
-          <div style={{color:"#fff",fontWeight:800,fontSize:14.5,marginBottom:3}}>Tavsiya etilgan o'quv rejasi</div>
-          <div style={{color:"#D1FAE5",fontSize:12.5,lineHeight:1.65}}>{(()=>{const f=[...weak,...med].slice(0,4); if(!f.length) return analytics.length?"Ajoyib! Hozircha zaif mavzu yo'q. Yangi variantlarni yechib, darajangizni oshirishda davom eting.":"Savollarga javob bering — tavsiya shu yerda avtomatik paydo bo'ladi."; const a=f.slice(0,2).map(b=>b.topic).join(" · "), r=f.slice(2).map(b=>b.topic).join(" · "); return <><strong style={{color:C.mint}}>Bugun:</strong> {a}{f[0].variants.length?` (${f[0].variants[0]} dan boshlang)`:""}. {r&&<><strong style={{color:C.mint}}>Ertaga:</strong> {r}. </>}Har kuni 1–2 soat shu mavzularga e'tibor bering.</>;})()}</div>
+
+      <div style={{background:`linear-gradient(135deg,${C.primary} 0%,#0B7A5E 60%,${C.accent} 100%)`,borderRadius:22,padding:"24px 28px",display:"flex",alignItems:"center",gap:28,flexWrap:"wrap",boxShadow:"0 10px 30px rgba(15,81,50,0.25)",position:"relative",overflow:"hidden"}}>
+        <div style={{position:"absolute",right:-60,top:-60,width:220,height:220,borderRadius:"50%",background:"rgba(255,255,255,0.07)"}}/>
+        <div style={{position:"relative",width:130,height:130,flexShrink:0}}>
+          <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r={R} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="11"/><circle cx="65" cy="65" r={R} fill="none" stroke={C.mint} strokeWidth="11" strokeLinecap="round" strokeDasharray={`${CIRC*avg/100} ${CIRC}`} transform="rotate(-90 65 65)"/></svg>
+          <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",color:"#fff"}}><div style={{fontSize:34,fontWeight:900,lineHeight:1}}>{avg}%</div><div style={{fontSize:10.5,color:"#D1FAE5",marginTop:3}}>umumiy ball</div></div>
         </div>
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:18}}>
-        {[{icon:<Trophy size={17} color="#fff"/>,label:"Umumiy ball",val:`${avg}%`,sub:"O'rtacha",bg:avg>=75?C.primary:avg>=60?C.warning:C.danger},
-          {icon:<AlertTriangle size={17} color="#fff"/>,label:"Kuchsiz",val:weak.length,sub:"< 60% natija",bg:C.danger},
-          {icon:<Target size={17} color="#fff"/>,label:"O'rta",val:med.length,sub:"60–75%",bg:C.warning},
-          {icon:<CheckCircle2 size={17} color="#fff"/>,label:"Kuchli",val:good.length,sub:"> 75% natija",bg:C.primary}].map(s=>(
-          <div key={s.label} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:13,padding:"14px 16px",boxShadow:"0 1px 5px rgba(0,0,0,0.05)",position:"relative",overflow:"hidden"}}>
-            <div style={{position:"absolute",top:0,right:0,width:48,height:48,borderRadius:"0 13px 0 36px",background:s.bg,display:"flex",alignItems:"center",justifyContent:"center"}}>{s.icon}</div>
-            <div style={{fontSize:26,fontWeight:900,color:s.bg,marginBottom:2,lineHeight:1}}>{s.val}</div>
-            <div style={{fontSize:12.5,fontWeight:700,color:C.text,marginBottom:2}}>{s.label}</div>
-            <div style={{fontSize:10.5,color:C.textMid}}>{s.sub}</div>
-          </div>
-        ))}
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:14,marginBottom:18,alignItems:"start"}}>
-        {weak.length>0&&<div style={{background:C.dangerBg,border:"1px solid #FECACA",borderRadius:14,padding:"16px"}}>
-          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:13}}><AlertTriangle size={15} color={C.danger}/><div style={{fontSize:13,fontWeight:800,color:C.danger}}>Zudlik bilan mustahkamlang!</div></div>
-          {weak.map(b=>(
-            <div key={b.topic} style={{background:"#fff",borderRadius:10,padding:"11px 13px",marginBottom:7,border:"1px solid #FECACA"}}>
-              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:5}}><span style={{fontSize:12.5,fontWeight:800,color:C.text}}>{b.topic}</span><span style={{fontSize:13.5,fontWeight:900,color:C.danger}}>{b.score}%</span></div>
-              <div style={{background:"#F1F5F9",borderRadius:3,height:5,overflow:"hidden",marginBottom:5}}><div style={{width:`${b.score}%`,height:"100%",background:C.danger,borderRadius:3}}/></div>
-              <div style={{fontSize:10.5,color:C.textMid}}>{b.correct}/{b.attempted} to'g'ri{b.attempted<3?" · kam ma'lumot":""} · Qaytaring: <strong>{b.variants.join(", ")}</strong></div>
-            </div>
-          ))}
-        </div>}
-        <div>
-          {med.length>0&&<div style={{background:C.warningBg,border:"1px solid #FDE68A",borderRadius:14,padding:"14px",marginBottom:12}}>
-            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:11}}><Lightbulb size={14} color={C.warning}/><div style={{fontSize:12.5,fontWeight:800,color:C.warning}}>Mashq talab qiladi</div></div>
-            {med.map(b=>(
-              <div key={b.topic} style={{background:"#fff",borderRadius:10,padding:"10px 12px",border:"1px solid #FDE68A",marginBottom:6}}>
-                <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{fontSize:12,fontWeight:700,color:C.text}}>{b.topic}</span><span style={{fontSize:13,fontWeight:900,color:C.warning}}>{b.score}%</span></div>
-                <div style={{background:"#F1F5F9",borderRadius:3,height:4,overflow:"hidden",marginBottom:4}}><div style={{width:`${b.score}%`,height:"100%",background:C.warning,borderRadius:3}}/></div>
-                <div style={{fontSize:10.5,color:C.textMid}}>{b.correct}/{b.attempted} to'g'ri{b.attempted<3?" · kam ma'lumot":""}</div>
-              </div>
-            ))}
-          </div>}
-          {good.length>0&&<div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:14,padding:"14px"}}>
-            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:11}}><Trophy size={14} color={C.primary}/><div style={{fontSize:12.5,fontWeight:800,color:C.primary}}>Kuchli tomonlaringiz ✓</div></div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
-              {good.map(b=>(<div key={b.topic} style={{background:"#fff",borderRadius:9,padding:"9px 11px",border:`1px solid ${C.borderGreen}`}}>
-                <div style={{fontSize:11.5,fontWeight:700,color:C.text,marginBottom:3}}>{b.topic}</div>
-                <div style={{background:"#F1F5F9",borderRadius:3,height:4,overflow:"hidden",marginBottom:4}}><div style={{width:`${b.score}%`,height:"100%",background:C.primary,borderRadius:3}}/></div>
-                <div style={{fontSize:13,fontWeight:900,color:C.primary}}>{b.score}%</div>
-              </div>))}
-            </div>
-          </div>}
-        </div>
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"58% 42%",gap:14,marginBottom:18}}>
-        <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"18px 18px 14px",boxShadow:"0 1px 5px rgba(0,0,0,0.05)"}}>
-          <div style={{fontSize:13.5,fontWeight:800,color:C.text,marginBottom:3}}>Mavzular bo'yicha ball</div>
-          <div style={{fontSize:11,color:C.textMid,marginBottom:10}}>Past ball — ko'proq mashq talab qiladi</div>
-          <div style={{display:"flex",gap:12,marginBottom:10}}>
-            {[["< 60% — Kuchsiz",C.danger],["60–75% — O'rta",C.warning],["> 75% — Kuchli",C.primary]].map(([l,col])=>(
-              <div key={l} style={{display:"flex",alignItems:"center",gap:5}}><div style={{width:10,height:10,borderRadius:2,background:col}}/><span style={{fontSize:10.5,color:C.textMid}}>{l}</span></div>
+        <div style={{flex:1,minWidth:260,position:"relative"}}>
+          <div style={{fontSize:20,fontWeight:900,color:"#fff"}}>{level[0]}</div>
+          <div style={{fontSize:12.5,color:"#D1FAE5",marginBottom:14}}>{level[1]} · jami {totalAns} ta javob asosida</div>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:14}}>
+            {[["Kuchsiz",weak.length,"#FCA5A5"],["O'rta",med.length,"#FCD34D"],["Kuchli",good.length,C.mint]].map(([l,n,col])=>(
+              <div key={l} style={{background:"rgba(255,255,255,0.13)",borderRadius:12,padding:"7px 14px",display:"flex",alignItems:"center",gap:8}}><span style={{width:9,height:9,borderRadius:"50%",background:col}}/><span style={{fontSize:12.5,color:"#fff",fontWeight:700}}>{n} {l.toLowerCase()}</span></div>
             ))}
           </div>
-          <ResponsiveContainer width="100%" height={Math.max(230,analytics.length*40)}>
-            <BarChart data={analytics} layout="vertical" margin={{top:0,right:16,left:0,bottom:0}}>
-              <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#F1F5F9"/>
-              <XAxis type="number" domain={[0,100]} tickCount={6} tick={{fontSize:10,fill:C.textLight}} tickFormatter={v=>`${v}%`}/>
-              <YAxis type="category" dataKey="topic" width={150} tick={{fontSize:11,fill:C.text,fontWeight:600}}/>
-              <Tooltip content={<BTooltip data={analytics}/>}/>
-              <Bar dataKey="score" radius={[0,5,5,0]} maxBarSize={20}>{analytics.map((e,i)=><Cell key={i} fill={barCol(e.score)}/>)}</Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          <div style={{background:"rgba(255,255,255,0.12)",borderRadius:14,padding:"11px 14px",display:"flex",gap:10,alignItems:"flex-start"}}>
+            <Zap size={17} color={C.mint} style={{flexShrink:0,marginTop:1}}/>
+            <div style={{color:"#ECFDF5",fontSize:12.5,lineHeight:1.65}}><strong style={{color:"#fff"}}>Tavsiya:</strong> {(()=>{ const f=focus.slice(0,4); if(!f.length) return analytics.length?"Hozircha zaif mavzu yo'q. Yangi variantlarni yechib, darajangizni oshirishda davom eting.":"Savollarga javob bering — tavsiya shu yerda paydo bo'ladi."; return <><strong style={{color:C.mint}}>Bugun</strong> {f.slice(0,2).map(b=>b.topic).join(" va ")}{f[0].variants.length?` (${f[0].variants[0]} dan boshlang)`:""}.{f.length>2&&<> <strong style={{color:C.mint}}>Ertaga</strong> {f.slice(2).map(b=>b.topic).join(" va ")}.</>} Har kuni 1–2 soat shu mavzularga e'tibor bering.</>;})()}</div>
+          </div>
         </div>
-        <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"18px",boxShadow:"0 1px 5px rgba(0,0,0,0.05)"}}>
-          <div style={{fontSize:13.5,fontWeight:800,color:C.text,marginBottom:3}}>Qamrov Diagrammasi</div>
-          <div style={{fontSize:11,color:C.textMid,marginBottom:10}}>{analytics.length} soha bo'yicha umumiy ko'rinish</div>
-          <ResponsiveContainer width="100%" height={230}>
-            <RadarChart data={radarData} margin={{top:10,right:20,left:20,bottom:10}}>
+      </div>
+
+      {focus.length>0&&<>
+        {sec(<AlertTriangle size={16} color={C.danger}/>,"Diqqat talab qiladi","Shu mavzularni birinchi navbatda qayta ko'ring")}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(320px,1fr))",gap:12}}>
+          {weak.map(b=>topicCard(b,C.danger,"#FEE2E2","#FECACA"))}
+          {med.map(b=>topicCard(b,C.warning,"#FEF3C7","#FDE68A"))}
+        </div>
+      </>}
+
+      {good.length>0&&<>
+        {sec(<Trophy size={16} color={C.primary}/>,"Kuchli tomonlaringiz","Bu mavzularda ishonchli ketyapsiz")}
+        <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
+          {good.map(b=>(<div key={b.topic} style={{background:"#fff",border:`1.5px solid ${C.borderGreen}`,borderRadius:14,padding:"10px 16px",display:"flex",alignItems:"center",gap:10}}><CheckCircle2 size={17} color={C.primary}/><div><div style={{fontSize:13,fontWeight:800,color:C.text}}>{b.topic}</div><div style={{fontSize:11,color:C.textMid}}>{b.correct}/{b.attempted} to'g'ri · {b.score}%</div></div></div>))}
+        </div>
+      </>}
+
+      {sec(<BarChart3 size={16} color={C.primary}/>,"Barcha mavzular","Past ball — ko'proq mashq talab qiladi")}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:14}}>
+        <div style={{...card,padding:"18px 20px"}}>
+          {analytics.map(b=>(<div key={b.topic} style={{marginBottom:13}}>
+            <div style={{display:"flex",justifyContent:"space-between",marginBottom:5}}><span style={{fontSize:12.5,fontWeight:700,color:C.text}}>{b.topic}</span><span style={{fontSize:12.5,fontWeight:900,color:barCol(b.score)}}>{b.score}%</span></div>
+            <div style={{background:"#F1F5F9",borderRadius:8,height:9,overflow:"hidden"}}><div style={{width:`${Math.max(b.score,2)}%`,height:"100%",background:`linear-gradient(90deg,${barCol(b.score)}99,${barCol(b.score)})`,borderRadius:8}}/></div>
+          </div>))}
+        </div>
+        <div style={{...card,padding:"18px"}}>
+          <div style={{fontSize:13.5,fontWeight:800,color:C.text,marginBottom:2}}>Qamrov diagrammasi</div>
+          <div style={{fontSize:11,color:C.textMid}}>{analytics.length} soha bo'yicha umumiy ko'rinish</div>
+          <ResponsiveContainer width="100%" height={260}>
+            <RadarChart data={radarData} margin={{top:16,right:34,left:34,bottom:10}}>
               <PolarGrid stroke={C.border}/>
-              <PolarAngleAxis dataKey="subject" tick={{fontSize:9.5,fill:C.textMid,fontWeight:600}}/>
-              <PolarRadiusAxis angle={30} domain={[0,100]} tick={{fontSize:9,fill:C.textLight}}/>
-              <Radar name="Ball" dataKey="score" stroke={C.primary} fill={C.primary} fillOpacity={0.25} strokeWidth={2}/>
+              <PolarAngleAxis dataKey="subject" tick={{fontSize:10,fill:C.textMid,fontWeight:600}}/>
+              <PolarRadiusAxis angle={30} domain={[0,100]} tick={false} axisLine={false}/>
+              <Radar name="Ball" dataKey="score" stroke={C.accent} fill={C.accent} fillOpacity={0.28} strokeWidth={2.5}/>
             </RadarChart>
           </ResponsiveContainer>
         </div>
       </div>
+      <AiSummary analytics={analytics} avg={avg}/>
     </div>
   );
 }
