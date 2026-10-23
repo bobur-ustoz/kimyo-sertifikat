@@ -124,17 +124,17 @@ function topicCategory(topic) {
 async function fetchTopicList() {
   const { data } = await supabase.from("questions").select("topic");
   const c = {};
-  (data||[]).forEach(q=>{ if(!q.topic) return; const k=topicCategory(q.topic); (c[k] ??= {topic:k,count:0,names:new Set()}); c[k].count++; c[k].names.add(q.topic); });
+  (data||[]).forEach(q=>{ if(q.topic) c[q.topic]=(c[q.topic]||0)+1; });
   const order=[...TOPIC_CATEGORIES.map(x=>x[0]),"Boshqa mavzular"];
-  return Object.values(c).map(x=>({...x,names:[...x.names].sort()})).sort((a,b)=>order.indexOf(a.topic)-order.indexOf(b.topic));
+  return Object.entries(c).map(([topic,count])=>({topic,count,cat:topicCategory(topic)}))
+    .sort((a,b)=>order.indexOf(a.cat)-order.indexOf(b.cat)||a.topic.localeCompare(b.topic));
 }
 
-// Equal share per category (e.g. 4 categories, 30 questions -> 8/8/7/7); a category with too few questions hands its leftover to the others.
-async function buildTopicTest(categories, total) {
-  const { data } = await supabase.from("questions").select("*, option_groups(options), variants(variant_number)");
+// Equal share per selected topic (e.g. 4 topics, 30 questions -> 8/8/7/7); a topic with too few questions hands its leftover to the others.
+async function buildTopicTest(topics, total) {
+  const { data } = await supabase.from("questions").select("*, option_groups(options), variants(variant_number)").in("topic",topics);
   const shuffle = a => { const r=[...a]; for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; };
-  const topics = categories;
-  const pools = Object.fromEntries(topics.map(t=>[t,shuffle((data||[]).filter(q=>q.topic&&topicCategory(q.topic)===t).map(q=>({...q,variant_number:q.variants?.variant_number})))]));
+  const pools = Object.fromEntries(topics.map(t=>[t,shuffle((data||[]).filter(q=>q.topic===t).map(q=>({...q,variant_number:q.variants?.variant_number})))]));
   const take = Object.fromEntries(topics.map(t=>[t,0]));
   let left = Math.min(total, Object.values(pools).reduce((s,a)=>s+a.length,0));
   while(left>0){
@@ -1017,6 +1017,7 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const [to,setTo]=useState(4);
   const [topicList,setTopicList]=useState([]);
   const [selTopics,setSelTopics]=useState([]);
+  const [topicQ,setTopicQ]=useState("");
   const [total,setTotal]=useState(30);
   const [step,setStep]=useState("setup"); // setup | loading | testing | done
   const [testQs,setTestQs]=useState([]);
@@ -1033,7 +1034,7 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const buildTest = async () => {
     if(mode==="topic"){
       const qs=await buildTopicTest(selTopics,total);
-      return { qs, title:`Mavzular bo'yicha test (${selTopics.length} bo'lim)` };
+      return { qs, title:`Mavzular bo'yicha test (${selTopics.length} mavzu)` };
     }
     const { questions, variantNumbers } = await fetchVariantRangeQuestions(src.id, from, to);
     if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${src.name} — Aralash Test (${from}-${to}-Variant)` };
@@ -1149,11 +1150,27 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
             </div>
           </>)}
           {mode==="topic"&&(<>
-            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:6,display:"flex",alignItems:"center",gap:6}}><Tag size={13} color={C.primary}/> Mavzu bo'limlarini tanlang</div>
-            <div style={{fontSize:12,color:C.textMid,marginBottom:12}}>Savollar tanlangan bo'limlar o'rtasida teng taqsimlanadi.</div>
+            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:6,display:"flex",alignItems:"center",gap:6}}><Tag size={13} color={C.primary}/> Mavzularni tanlang</div>
+            <div style={{fontSize:12,color:C.textMid,marginBottom:12}}>Savollar tanlangan mavzular o'rtasida teng taqsimlanadi.</div>
             {!topicList.length?<div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Mavzular yuklanmoqda...</div>:(
-              <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:14}}>
-                {topicList.map(t=>{const on=selTopics.includes(t.topic); return <button key={t.topic} title={t.names.join(", ")} onClick={()=>setSelTopics(a=>on?a.filter(x=>x!==t.topic):[...a,t.topic])} style={{padding:"9px 14px",borderRadius:12,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.text,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit",textAlign:"left"}}><div>{on?"✓ ":""}{t.topic}</div><div style={{fontWeight:500,fontSize:10.5,color:C.textMid,marginTop:2}}>{t.count} ta savol</div></button>;})}}
+              <div style={{marginBottom:14}}>
+                {selTopics.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
+                  {selTopics.map(t=><button key={t} onClick={()=>setSelTopics(a=>a.filter(x=>x!==t))} style={{padding:"5px 10px",borderRadius:20,border:`1.5px solid ${C.primary}`,background:C.mintBg,color:C.primary,fontWeight:700,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>{t} ✕</button>)}
+                  <button onClick={()=>setSelTopics([])} style={{padding:"5px 10px",borderRadius:20,border:"none",background:"transparent",color:C.textMid,fontSize:12,cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>Tozalash</button>
+                </div>}
+                <input value={topicQ} onChange={e=>setTopicQ(e.target.value)} placeholder="Mavzu nomini yozib qidiring..." style={{...sel,cursor:"text",marginBottom:8}}/>
+                <div style={{maxHeight:300,overflowY:"auto",border:`1px solid ${C.border}`,borderRadius:10}}>
+                  {(()=>{ const q=topicQ.trim().toLowerCase(); const list=topicList.filter(t=>!q||t.topic.toLowerCase().includes(q)); if(!list.length) return <div style={{padding:14,fontSize:12.5,color:C.textMid}}>Bunday mavzu topilmadi.</div>;
+                    let lastCat=null; return list.map(t=>{ const on=selTopics.includes(t.topic); const head=t.cat!==lastCat; lastCat=t.cat; return (
+                      <div key={t.topic}>
+                        {head&&<div style={{padding:"7px 12px",background:"#F8FAFC",fontSize:10.5,fontWeight:800,color:C.textMid,textTransform:"uppercase",letterSpacing:"0.06em",borderBottom:`1px solid ${C.border}`}}>{t.cat}</div>}
+                        <label style={{display:"flex",alignItems:"center",gap:10,padding:"9px 12px",cursor:"pointer",background:on?C.mintBg:"#fff",borderBottom:`1px solid ${C.border}`}}>
+                          <input type="checkbox" checked={on} onChange={()=>setSelTopics(a=>on?a.filter(x=>x!==t.topic):[...a,t.topic])} style={{accentColor:C.primary,width:16,height:16}}/>
+                          <span style={{flex:1,fontSize:13,fontWeight:on?700:500,color:C.text}}>{t.topic}</span>
+                          <span style={{fontSize:11,color:C.textMid}}>{t.count} ta savol</span>
+                        </label>
+                      </div>); }); })()}
+                </div>
               </div>
             )}
             <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
@@ -1162,7 +1179,7 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
             </div>
             <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
               <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
-              <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{selTopics.length?<><strong>{selTopics.length} ta bo'lim</strong> tanlandi — har biridan taxminan <strong>{share}%</strong> ({Math.floor(total/selTopics.length)}–{Math.ceil(total/selTopics.length)} ta savol), jami <strong>{total} ta</strong> savol.</>:"Kamida bitta mavzuni tanlang."}</p>
+              <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{selTopics.length?<><strong>{selTopics.length} ta mavzu</strong> tanlandi — har biridan taxminan <strong>{share}%</strong> ({Math.floor(total/selTopics.length)}–{Math.ceil(total/selTopics.length)} ta savol), jami <strong>{total} ta</strong> savol.</>:"Kamida bitta mavzuni tanlang."}</p>
             </div>
           </>)}
           {!session&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>Test natijalarini saqlash uchun avval hisobingizga kiring.</div>}
