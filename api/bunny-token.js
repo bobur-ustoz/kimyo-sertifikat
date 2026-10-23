@@ -24,6 +24,21 @@ export default async function handler(req, res) {
   ]);
   if (topicHit || exampleHit) return res.status(200).json(signToken(videoId));
 
+  // Live-lesson recordings: signed-in students on a paid plan (or any student, when the lesson
+  // is marked for everyone) and admins.
+  const liveJwt = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+  if (liveJwt) {
+    const asLive = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { global: { headers: { Authorization: `Bearer ${liveJwt}` } } });
+    const { data: lesson } = await asLive.from("live_lessons").select("for_all").eq("recording_video_id", videoId).limit(1).maybeSingle();
+    if (lesson) {
+      const { data: u } = await anon.auth.getUser(liveJwt);
+      if (!u?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
+      const { data: prof } = await asLive.from("profiles").select("is_admin, plan").eq("id", u.user.id).maybeSingle();
+      if (prof?.is_admin || lesson.for_all || (prof?.plan || "free") !== "free") return res.status(200).json(signToken(videoId));
+      return res.status(403).json({ error: "Dars yozuvlari Standart obunachilar uchun" });
+    }
+  }
+
   // Which variant does this video belong to? The client never gets to say.
   const { data: question, error } = await anon
     .from("questions")

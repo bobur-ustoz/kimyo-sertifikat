@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Video, Plus, Trash2, Radio } from "lucide-react";
+import { Video, Plus, Trash2, Radio, Upload } from "lucide-react";
+import { uploadRawVideo } from "./uploadVideo";
 import { supabase } from "../lib/supabaseClient";
 import { C, card, inputStyle, btnPrimary, btnGhost, pill, pageTitle } from "./ui";
 import { LiveRoom, joinLesson, fmtWhen } from "../LiveLessons";
@@ -12,6 +13,18 @@ export default function LivePanel() {
   const [busy,setBusy]=useState("");
   const [error,setError]=useState("");
   const [copied,setCopied]=useState(false);
+  const [up,setUp]=useState({id:null,pct:0});
+  const uploadRec = async (l,file) => {
+    if(!file) return;
+    setError(""); setUp({id:l.id,pct:0});
+    try{
+      const videoId=await uploadRawVideo({file,title:`Jonli dars · ${l.title}`,onProgress:pct=>setUp({id:l.id,pct})});
+      const { error } = await supabase.from("live_lessons").update({recording_video_id:videoId}).eq("id",l.id);
+      if(error) throw new Error(error.message);
+      load();
+    }catch(e){ setError(e.message||"Yozuv yuklanmadi"); }
+    setUp({id:null,pct:0});
+  };
   const liveLink=`${window.location.origin}/#live`;
   const copyLink=()=>{ navigator.clipboard?.writeText(liveLink).then(()=>{ setCopied(true); setTimeout(()=>setCopied(false),2000); }); };
 
@@ -71,6 +84,10 @@ export default function LivePanel() {
           {l.status==="ended"&&<span style={pill("#F1F5F9",C.textMid,C.border)}>Tugagan</span>}
           {l.status!=="ended"&&<button style={btnPrimary} disabled={busy===l.id} onClick={()=>start(l)}><Radio size={13}/> {l.status==="live"?"Darsga qaytish":"Boshlash"}</button>}
           {l.status==="live"&&<button style={btnGhost} onClick={()=>end(l)}>Tugatish</button>}
+          {l.status!=="live"&&(up.id===l.id
+            ? <span style={{fontSize:12,fontWeight:700,color:C.primary}}>Yuklanmoqda {up.pct}%</span>
+            : <label style={{...btnGhost,cursor:"pointer"}}><Upload size={13}/> {l.recording_video_id?"Yozuvni almashtirish":"Yozuv yuklash"}<input type="file" accept="video/*" style={{display:"none"}} onChange={e=>{uploadRec(l,e.target.files?.[0]); e.target.value="";}}/></label>)}
+          {l.recording_video_id&&<span style={pill("#F0FDF4",C.primary,"#86EFAC")}>Yozuv bor</span>}
           <button style={btnGhost} onClick={()=>del(l)}><Trash2 size={13}/></button>
         </div>
       ))}

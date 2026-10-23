@@ -1563,7 +1563,7 @@ export default function App() {
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
-        {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab}/>}
+        {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} teachers={teachers} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}

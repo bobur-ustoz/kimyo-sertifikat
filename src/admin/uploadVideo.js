@@ -66,3 +66,36 @@ export async function uploadQuestionVideo({ question, title, onProgress }) {
 // variant every library entry was just "1-savol", dozens of times over.
 export const videoTitle = (teacher, variant, question) =>
   `${teacher?.name || "?"} · ${variant?.variant_number}-variant · ${question.question_number}-savol`;
+
+
+// Uploads a file to Bunny Stream and returns the new video id, without attaching it to a
+// question (used for live-lesson recordings, which are stored on the lesson itself).
+export async function uploadRawVideo({ file, title, onProgress }) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error("Sessiya topilmadi. Qayta kiring.");
+  const res = await fetch("/api/bunny-auth", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({ title }),
+  });
+  const auth = await res.json();
+  if (!res.ok) throw new Error(auth.error || "Yuklashga ruxsat olinmadi");
+  await new Promise((resolve, reject) => {
+    new Upload(file, {
+      endpoint: "https://video.bunnycdn.com/tusupload",
+      chunkSize: CHUNK_SIZE,
+      retryDelays: [0, 3000, 5000, 10000, 20000],
+      headers: {
+        AuthorizationSignature: auth.authorizationSignature,
+        AuthorizationExpire: String(auth.authorizationExpire),
+        VideoId: auth.videoId,
+        LibraryId: String(auth.libraryId),
+      },
+      metadata: { filetype: file.type, title },
+      onError: reject,
+      onProgress: (sent, total) => onProgress?.(Math.round((sent / total) * 100)),
+      onSuccess: resolve,
+    }).start();
+  });
+  return auth.videoId;
+}

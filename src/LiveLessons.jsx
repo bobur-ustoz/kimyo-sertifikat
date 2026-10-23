@@ -52,15 +52,18 @@ export function LiveRoom({url,token,host,title,onLeave}) {
   );
 }
 
-export default function LiveLessons({session,plan,setTab}) {
+export default function LiveLessons({session,plan,setTab,Player}) {
   const [lessons,setLessons]=useState([]);
   const [loading,setLoading]=useState(true);
   const [room,setRoom]=useState(null);
   const [busy,setBusy]=useState("");
   const [error,setError]=useState("");
   const [,tick]=useState(0);
+  const [recs,setRecs]=useState([]);
+  const [watch,setWatch]=useState(null);
 
   const load = () => supabase.from("live_lessons").select("*").neq("status","ended").order("starts_at").then(({data})=>{ setLessons(data||[]); setLoading(false); });
+  useEffect(()=>{ supabase.from("live_lessons").select("*").not("recording_video_id","is",null).order("starts_at",{ascending:false}).then(({data})=>setRecs(data||[])); },[]);
   useEffect(()=>{ load(); const t=setInterval(()=>{ load(); tick(n=>n+1); },20000); return ()=>clearInterval(t); },[]);
 
   const join = async l => {
@@ -72,6 +75,16 @@ export default function LiveLessons({session,plan,setTab}) {
 
   if(room) return <LiveRoom url={room.url} token={room.token} host={room.host} title={room.title} onLeave={()=>{setRoom(null);load();}}/>;
 
+  if(watch&&Player) return (
+    <div style={{padding:"24px 28px 40px",overflowY:"auto"}}>
+      <button onClick={()=>setWatch(null)} style={{padding:"8px 14px",borderRadius:9,border:`1px solid ${C.border}`,background:"#fff",color:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit",marginBottom:14}}>← Orqaga</button>
+      <h1 style={{fontSize:20,fontWeight:900,color:C.text,margin:"0 0 4px"}}>{watch.title}</h1>
+      <div style={{fontSize:12,color:C.textMid,marginBottom:14}}>{fmtWhen(watch.starts_at)}</div>
+      <div style={{position:"relative",paddingTop:"56.25%",background:"#0F172A",borderRadius:14,overflow:"hidden",maxWidth:900}}>
+        <Player key={watch.recording_video_id} videoId={watch.recording_video_id} session={session}/>
+      </div>
+    </div>
+  );
   const live=lessons.filter(l=>l.status==="live");
   const soon=lessons.filter(l=>l.status==="scheduled");
   const card={background:"#fff",border:`1px solid ${C.border}`,borderRadius:16,padding:"16px 18px",boxShadow:"0 2px 12px rgba(15,81,50,0.06)"};
@@ -113,6 +126,26 @@ export default function LiveLessons({session,plan,setTab}) {
         <div style={{display:"flex",flexDirection:"column",gap:12,maxWidth:820}}>
           {live.map(l=><Row key={l.id} l={l}/>)}
           {soon.map(l=><Row key={l.id} l={l}/>)}
+        </div>
+      )}
+      {recs.length>0&&(
+        <div style={{marginTop:28,maxWidth:820}}>
+          <div style={{fontSize:17,fontWeight:900,color:C.text,marginBottom:4}}>Dars yozuvlari</div>
+          <div style={{fontSize:12.5,color:C.textMid,marginBottom:12}}>O'tgan jonli darslarni istalgan vaqtda qayta ko'ring.</div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {recs.map(l=>(
+              <div key={l.id} style={{...card,display:"flex",alignItems:"center",gap:14,flexWrap:"wrap"}}>
+                <div style={{width:42,height:42,borderRadius:12,background:C.mintBg,display:"flex",alignItems:"center",justifyContent:"center"}}><Video size={19} color={C.primary}/></div>
+                <div style={{flex:1,minWidth:180}}>
+                  <div style={{fontSize:14.5,fontWeight:800,color:C.text}}>{l.title}</div>
+                  <div style={{fontSize:11.5,color:C.textMid}}>{fmtWhen(l.starts_at)}</div>
+                </div>
+                {locked(l)
+                  ? <button onClick={()=>setTab("obuna")} style={{display:"flex",alignItems:"center",gap:6,padding:"9px 14px",borderRadius:10,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}><Lock size={13}/> Standart kerak</button>
+                  : <button onClick={()=>setWatch(l)} style={{padding:"9px 18px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>Ko'rish</button>}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
