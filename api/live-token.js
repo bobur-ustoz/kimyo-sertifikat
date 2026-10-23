@@ -43,7 +43,6 @@ export default async function handler(req, res) {
   const isHost = !!profile?.is_admin;
   if (!isHost) {
     if (lesson.status !== "live") return res.status(403).json({ error: lesson.status === "ended" ? "Dars tugagan" : "Dars hali boshlanmadi" });
-    if (!lesson.for_all && (profile?.plan || "free") === "free") return res.status(403).json({ error: "Jonli darslar Standart obunachilar uchun" });
   }
 
   // The room is created the first time the host opens the lesson.

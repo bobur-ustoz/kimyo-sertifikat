@@ -70,7 +70,6 @@ export default function LivePanel() {
         </div>
         <input style={{...inputStyle,marginBottom:10}} placeholder="Qisqacha izoh (ixtiyoriy)" value={form.description} onChange={e=>setForm({...form,description:e.target.value})}/>
         <div style={{display:"flex",alignItems:"center",gap:14}}>
-          <label style={{fontSize:12.5,color:C.textMid,display:"flex",alignItems:"center",gap:6,cursor:"pointer"}}><input type="checkbox" checked={form.for_all} onChange={e=>setForm({...form,for_all:e.target.checked})}/> Hamma o'quvchi uchun (bepul rejadagilar ham)</label>
           <div style={{flex:1}}/>
           <button style={btnPrimary} onClick={add}><Plus size={14}/> Dars qo'shish</button>
         </div>
@@ -82,9 +81,8 @@ export default function LivePanel() {
           <Video size={18} color={C.primary}/>
           <div style={{flex:1,minWidth:200}}>
             <div style={{fontSize:14,fontWeight:800,color:C.text}}>{l.title}</div>
-            <div style={{fontSize:12,color:C.textMid}}>{fmtWhen(l.starts_at)} · {l.duration_min} daqiqa{l.for_all?" · hamma uchun":" · Standart"}</div>
+            <div style={{fontSize:12,color:C.textMid}}>{fmtWhen(l.starts_at)} · {l.duration_min} daqiqa</div>
           </div>
-          <button style={btnGhost} onClick={()=>setAccess(l,!l.for_all)} title="Kirish turini almashtirish">{l.for_all?"🔓 Hamma uchun → Pullik qilish":"🔒 Pullik → Hamma uchun qilish"}</button>
           {l.status==="live"&&<span style={pill("#FEE2E2",C.danger,"#FECACA")}>● JONLI</span>}
           {l.status==="ended"&&<span style={pill("#F1F5F9",C.textMid,C.border)}>Tugagan</span>}
           {l.status!=="ended"&&<button style={btnPrimary} disabled={busy===l.id} onClick={()=>start(l)}><Radio size={13}/> {l.status==="live"?"Darsga qaytish":"Boshlash"}</button>}

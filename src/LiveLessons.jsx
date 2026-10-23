@@ -88,7 +88,7 @@ export default function LiveLessons({session,plan,setTab,Player}) {
   const live=lessons.filter(l=>l.status==="live");
   const soon=lessons.filter(l=>l.status==="scheduled");
   const card={background:"#fff",border:`1px solid ${C.border}`,borderRadius:16,padding:"16px 18px",boxShadow:"0 2px 12px rgba(15,81,50,0.06)"};
-  const locked=l=>!l.for_all&&plan==="free";
+  const locked=()=>false;
 
   const Row = ({l}) => {
     const isLive=l.status==="live";
