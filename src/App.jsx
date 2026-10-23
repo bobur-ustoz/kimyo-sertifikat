@@ -594,6 +594,8 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
 function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,variant,purchases,onBuy}) {
   const [activeQ,setActiveQ]=useState(questions[0]?.question_number||1);
   const [analog,setAnalog]=useState(null);
+  const [analogPick,setAnalogPick]=useState(null);
+  useEffect(()=>{ setAnalogPick(null); },[activeQ]);
   const [analogLoading,setAnalogLoading]=useState(true);
   const total=questions.length; const ready=questions.filter(q=>q.video_ready).length;
   const curQ=questions.find(q=>q.question_number===activeQ);
@@ -710,13 +712,27 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
                 {(()=>{ const sp=splitOptions(analog.savol); return sp ? (<>
                   <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:12}}>{sp.stem}</p>
                   <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:8}}>
-                    {["A","B","C","D"].map(L=>(
-                      <div key={L} style={{display:"flex",alignItems:"center",gap:9,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(110,231,183,0.2)",borderRadius:9,padding:"9px 12px"}}>
-                        <span style={{width:22,height:22,borderRadius:"50%",background:"rgba(110,231,183,0.18)",color:C.mint,fontSize:11,fontWeight:800,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{L}</span>
-                        <span style={{color:"#E2E8F0",fontSize:13}}>{sp.opts[L]}</span>
-                      </div>
-                    ))}
+                    {["A","B","C","D"].map(L=>{
+                      const right=(String(analog.javob||"").match(/^\s*([ABCD])\b/)||[])[1];
+                      const done=!!analogPick, isRight=done&&L===right, isWrong=done&&L===analogPick&&L!==right;
+                      return (
+                        <button key={L} disabled={done||!right} onClick={()=>setAnalogPick(L)}
+                          style={{display:"flex",alignItems:"center",gap:9,textAlign:"left",fontFamily:"inherit",cursor:done||!right?"default":"pointer",
+                            background:isRight?"rgba(34,197,94,0.18)":isWrong?"rgba(239,68,68,0.18)":"rgba(255,255,255,0.06)",
+                            border:`1px solid ${isRight?"#4ADE80":isWrong?"#F87171":"rgba(110,231,183,0.2)"}`,borderRadius:9,padding:"9px 12px",opacity:done&&!isRight&&!isWrong?0.55:1}}>
+                          <span style={{width:22,height:22,borderRadius:"50%",background:isRight?"#16A34A":isWrong?"#DC2626":"rgba(110,231,183,0.18)",color:isRight||isWrong?"#fff":C.mint,fontSize:11,fontWeight:800,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{L}</span>
+                          <span style={{color:"#E2E8F0",fontSize:13,flex:1}}>{sp.opts[L]}</span>
+                          {isRight&&<CheckCircle2 size={16} color="#4ADE80"/>}
+                          {isWrong&&<XCircle size={16} color="#F87171"/>}
+                        </button>
+                      );
+                    })}
                   </div>
+                  {analogPick&&(()=>{ const right=(String(analog.javob||"").match(/^\s*([ABCD])\b/)||[])[1]; return (
+                    <div style={{marginTop:10,fontSize:12.5,fontWeight:700,color:analogPick===right?"#4ADE80":"#F87171"}}>
+                      {analogPick===right?"✓ To'g'ri!":`✕ Noto'g'ri. To'g'ri javob: ${right}`}
+                      <button onClick={()=>setAnalogPick(null)} style={{marginLeft:12,background:"none",border:"none",color:"#94A3B8",fontSize:11.5,textDecoration:"underline",cursor:"pointer",fontFamily:"inherit"}}>Qayta urinish</button>
+                    </div>); })()}
                 </>) : <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,margin:0}}>{analog.savol}</p>; })()}
               </div>
             )}
