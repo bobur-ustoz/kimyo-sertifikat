@@ -14,6 +14,7 @@ export default function LivePanel() {
   const [error,setError]=useState("");
   const [copied,setCopied]=useState(false);
   const [up,setUp]=useState({id:null,pct:0});
+  const [done,setDone]=useState("");
   const uploadRec = async (l,file) => {
     if(!file) return;
     setError(""); setUp({id:l.id,pct:0});
@@ -21,6 +22,7 @@ export default function LivePanel() {
       const videoId=await uploadRawVideo({file,title:`Jonli dars · ${l.title}`,onProgress:pct=>setUp({id:l.id,pct})});
       const { error } = await supabase.from("live_lessons").update({recording_video_id:videoId}).eq("id",l.id);
       if(error) throw new Error(error.message);
+      setDone(`"${l.title}" jonli dars yuklandi ✓ O'quvchilar uni Dars yozuvlari bo'limida ko'radi.`); setTimeout(()=>setDone(""),8000);
       load();
     }catch(e){ setError(e.message||"Yozuv yuklanmadi"); }
     setUp({id:null,pct:0});
@@ -73,6 +75,7 @@ export default function LivePanel() {
         </div>
         {error&&<div style={{fontSize:12.5,color:C.danger,marginTop:10}}>{error}</div>}
       </div>
+      {done&&<div style={{...card,marginBottom:12,background:"#F0FDF4",borderColor:"#86EFAC",color:C.primary,fontSize:13,fontWeight:700}}>{done}</div>}
       {rows.map(l=>(
         <div key={l.id} style={{...card,marginBottom:10,display:"flex",alignItems:"center",gap:12,flexWrap:"wrap"}}>
           <Video size={18} color={C.primary}/>
@@ -87,7 +90,7 @@ export default function LivePanel() {
           {l.status!=="live"&&(up.id===l.id
             ? <span style={{fontSize:12,fontWeight:700,color:C.primary}}>Yuklanmoqda {up.pct}%</span>
             : <label style={{...btnGhost,cursor:"pointer"}}><Upload size={13}/> {l.recording_video_id?"Yozuvni almashtirish":"Yozuv yuklash"}<input type="file" accept="video/*" style={{display:"none"}} onChange={e=>{uploadRec(l,e.target.files?.[0]); e.target.value="";}}/></label>)}
-          {l.recording_video_id&&<span style={pill("#F0FDF4",C.primary,"#86EFAC")}>Yozuv bor</span>}
+          {l.recording_video_id&&<span style={pill("#F0FDF4",C.primary,"#86EFAC")}>✓ Jonli dars yuklandi</span>}
           <button style={btnGhost} onClick={()=>del(l)}><Trash2 size={13}/></button>
         </div>
       ))}

@@ -140,6 +140,7 @@ export default function LiveLessons({session,plan,setTab,Player}) {
                   <div style={{fontSize:14.5,fontWeight:800,color:C.text}}>{l.title}</div>
                   <div style={{fontSize:11.5,color:C.textMid}}>{fmtWhen(l.starts_at)}</div>
                 </div>
+                <span style={{fontSize:10,fontWeight:800,color:C.primary,background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:20,padding:"3px 9px"}}>✓ Jonli dars yuklandi</span>
                 {locked(l)
                   ? <button onClick={()=>setTab("obuna")} style={{display:"flex",alignItems:"center",gap:6,padding:"9px 14px",borderRadius:10,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}><Lock size={13}/> Standart kerak</button>
                   : <button onClick={()=>setWatch(l)} style={{padding:"9px 18px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>Ko'rish</button>}
