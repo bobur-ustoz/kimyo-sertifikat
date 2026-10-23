@@ -98,7 +98,35 @@ function buildMixedTest(questions, variantNumbers) {
   return result;
 }
 
-async function downloadTestPDF(testQs, teacher, from, to) {
+function buildDtmTest(questions) {
+  const byPos = {};
+  questions.forEach(q=>{ (byPos[q.question_number] ??= []).push(q); });
+  return Object.keys(byPos).map(Number).sort((a,b)=>a-b).map(n=>byPos[n][Math.floor(Math.random()*byPos[n].length)]);
+}
+
+async function fetchTopicList() {
+  const { data } = await supabase.from("questions").select("topic");
+  const c = {};
+  (data||[]).forEach(q=>{ if(q.topic) c[q.topic]=(c[q.topic]||0)+1; });
+  return Object.entries(c).map(([topic,count])=>({topic,count})).sort((a,b)=>a.topic.localeCompare(b.topic));
+}
+
+// Equal share per topic (e.g. 4 topics, 30 questions -> 8/8/7/7); a topic with too few questions hands its leftover to the others.
+async function buildTopicTest(topics, total) {
+  const { data } = await supabase.from("questions").select("*, option_groups(options), variants(variant_number)").in("topic",topics);
+  const shuffle = a => { const r=[...a]; for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; };
+  const pools = Object.fromEntries(topics.map(t=>[t,shuffle((data||[]).filter(q=>q.topic===t).map(q=>({...q,variant_number:q.variants?.variant_number})))]));
+  const take = Object.fromEntries(topics.map(t=>[t,0]));
+  let left = Math.min(total, Object.values(pools).reduce((s,a)=>s+a.length,0));
+  while(left>0){
+    const open = topics.filter(t=>take[t]<pools[t].length);
+    if(!open.length) break;
+    shuffle(open).forEach(t=>{ if(left>0 && take[t]<pools[t].length){ take[t]++; left--; } });
+  }
+  return shuffle(topics.flatMap(t=>pools[t].slice(0,take[t])));
+}
+
+async function downloadTestPDF(testQs, teacher, from, to, title) {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF();
   const marginX = 15; let y = 20;
@@ -113,8 +141,8 @@ async function downloadTestPDF(testQs, teacher, from, to) {
       y+=lineH;
     });
   };
-  addLine(`${teacher.name} — Aralash Test (${from}-${to}-Variant)`,{size:14,style:"bold"});
-  addLine(`Milliy Sertifikat qolipi · ${testQs.length} ta savol`,{size:10});
+  addLine(title||`${teacher.name} — Aralash Test (${from}-${to}-Variant)`,{size:14,style:"bold"});
+  addLine(title?`${testQs.length} ta savol`:`Milliy Sertifikat qolipi · ${testQs.length} ta savol`,{size:10});
   y+=4;
   testQs.forEach((q,i)=>{
     addLine(`${i+1}. ${q.question_text||"(savol matni kiritilmagan)"}`,{size:11,style:"bold"});
@@ -128,7 +156,7 @@ async function downloadTestPDF(testQs, teacher, from, to) {
     }
     y+=3;
   });
-  doc.save(`${teacher.name}-test-${from}-${to}.pdf`);
+  doc.save(title?`${title.replace(/[^\w-]+/g,"_")}.pdf`:`${teacher.name}-test-${from}-${to}.pdf`);
 }
 
 // Analog worksheet as a PDF. The default PDF fonts lack subscripts/superscripts (H₂O, 10⁻²),
@@ -963,44 +991,52 @@ function AnalyticsScreen({session,analytics,setTab}){
 }
 
 // ── TEST GENERATOR (with AI Adaptive) ────────────────────────────
-function TestGenerator({teacher,plan,setTab,session}) {
+function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
+  const [mode,setMode]=useState(teacher?.section==="dtm"?"dtm":"milliy"); // milliy | dtm | topic
+  const [srcId,setSrcId]=useState(teacher?.id||"");
   const [from,setFrom]=useState(1);
   const [to,setTo]=useState(4);
+  const [topicList,setTopicList]=useState([]);
+  const [selTopics,setSelTopics]=useState([]);
+  const [total,setTotal]=useState(30);
   const [step,setStep]=useState("setup"); // setup | loading | testing | done
   const [testQs,setTestQs]=useState([]);
+  const [meta,setMeta]=useState({});
   const [idx,setIdx]=useState(0);
   const [error,setError]=useState("");
   const [pdfLoading,setPdfLoading]=useState(false);
   const sel={padding:"10px 14px",borderRadius:9,border:`1.5px solid ${C.border}`,fontSize:13.5,fontFamily:"inherit",color:C.text,background:"#fff",cursor:"pointer",outline:"none",width:"100%"};
   const allowed=canUse(plan,"adaptive");
+  const sources=teachers.filter(t=>mode==="dtm"?t.section==="dtm":t.section!=="dtm");
+  const src=sources.find(t=>t.id===srcId)||sources[0];
+  useEffect(()=>{ if(mode==="topic"&&!topicList.length) fetchTopicList().then(setTopicList); },[mode]);
 
   const buildTest = async () => {
-    const { questions, variantNumbers } = await fetchVariantRangeQuestions(teacher.id, from, to);
-    return buildMixedTest(questions, variantNumbers);
+    if(mode==="topic"){
+      const qs=await buildTopicTest(selTopics,total);
+      return { qs, title:`Mavzular bo'yicha test (${selTopics.length} mavzu)` };
+    }
+    const { questions, variantNumbers } = await fetchVariantRangeQuestions(src.id, from, to);
+    if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${src.name} — Aralash Test (${from}-${to}-Variant)` };
+    return { qs:buildMixedTest(questions, variantNumbers), title:null };
   };
+  const noQs = mode==="topic"?"Tanlangan mavzulardan savollar topilmadi.":"Tanlangan variantlar oralig'ida hali savollar kiritilmagan.";
+  const canGo = mode==="topic" ? selTopics.length>0 : (!!src && from<=to);
 
   const start = async () => {
     setStep("loading"); setError("");
-    const mixed = await buildTest();
-    if(!mixed.length){ setError("Tanlangan variantlar oralig'ida hali savollar kiritilmagan."); setStep("setup"); return; }
-    setTestQs(mixed); setIdx(0); setStep("testing");
+    const { qs, title } = await buildTest();
+    if(!qs.length){ setError(noQs); setStep("setup"); return; }
+    setMeta({title,from,to,teacher:src||{name:"Mavzular"}}); setTestQs(qs); setIdx(0); setStep("testing");
   };
 
   const downloadPdf = async () => {
     setPdfLoading(true); setError("");
-    const mixed = await buildTest();
-    if(!mixed.length){ setError("Tanlangan variantlar oralig'ida hali savollar kiritilmagan."); setPdfLoading(false); return; }
-    await downloadTestPDF(mixed, teacher, from, to);
+    const { qs, title } = await buildTest();
+    if(!qs.length){ setError(noQs); setPdfLoading(false); return; }
+    await downloadTestPDF(qs, src||{name:"Mavzular"}, from, to, title);
     setPdfLoading(false);
   };
-
-  if(!teacher) return (
-    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
-      <div style={{fontSize:48}}>👨‍🏫</div><div style={{fontSize:20,fontWeight:800,color:C.text}}>O'qituvchi tanlanmagan</div>
-      <div style={{fontSize:14,color:C.textMid}}>Test yaratish uchun avval o'qituvchini tanlang</div>
-      <button onClick={()=>setTab("collections")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kolleksiyalarni ko'rish</button>
-    </div>
-  );
 
   if(!allowed) return (
     <div style={{padding:"26px 30px"}}>
@@ -1021,10 +1057,10 @@ function TestGenerator({teacher,plan,setTab,session}) {
       <div style={{padding:"26px 30px"}}>
         <div style={{maxWidth:720}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:10}}>
-            <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length} · {q.variant_number}-Variantdan</div>
+            <div style={{fontSize:13,fontWeight:700,color:C.textMid}}>{idx+1}-savol / {testQs.length}{q.variant_number?` · ${q.variant_number}-Variantdan`:""}</div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
               <div style={{fontSize:11,color:C.textLight}}>{q.topic}</div>
-              <button onClick={()=>downloadTestPDF(testQs,teacher,from,to)} title="Testni PDF qilib yuklab olish" style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,borderRadius:7,fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Download size={11}/> PDF</button>
+              <button onClick={()=>downloadTestPDF(testQs,meta.teacher,meta.from,meta.to,meta.title)} title="Testni PDF qilib yuklab olish" style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,borderRadius:7,fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}><Download size={11}/> PDF</button>
             </div>
           </div>
           <div style={{background:"#F1F5F9",borderRadius:4,height:5,overflow:"hidden",marginBottom:18}}>
@@ -1056,37 +1092,69 @@ function TestGenerator({teacher,plan,setTab,session}) {
     </div>
   );
 
+  const heads={milliy:["Milliy Qolip","43 talik Milliy Sertifikat Qolipidagi Test"],dtm:["DTM","DTM Qolipidagi Test"],topic:["Mavzular bo'yicha","Mavzular bo'yicha Test"]};
+  const share=selTopics.length?Math.round(100/selTopics.length*10)/10:0;
   return (
     <div style={{padding:"26px 30px"}}>
-      <div style={{maxWidth:640}}>
-        <div style={{marginBottom:22}}>
-          <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:8}}><Wand2 size={14} color={C.accent}/><span style={{fontSize:10.5,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>Test Generator · Milliy Qolip</span></div>
-          <h1 style={{fontSize:22,fontWeight:900,color:C.text,lineHeight:1.25,marginBottom:8}}>43 talik Milliy Sertifikat Qolipidagi Test</h1>
-          <div style={{display:"flex",alignItems:"center",gap:7}}><div style={{width:22,height:22,borderRadius:6,background:teacher.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:900,color:"#fff"}}>{teacher.initials}</div><span style={{fontSize:13,color:C.textMid,fontWeight:600}}>{teacher.name} · {teacher.variants} ta variantdan generatsiya</span></div>
+      <div style={{maxWidth:680}}>
+        <div style={{marginBottom:18}}>
+          <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:8}}><Wand2 size={14} color={C.accent}/><span style={{fontSize:10.5,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>Test Generator · {heads[mode][0]}</span></div>
+          <h1 style={{fontSize:22,fontWeight:900,color:C.text,lineHeight:1.25}}>{heads[mode][1]}</h1>
+        </div>
+        <div style={{display:"flex",gap:6,marginBottom:14,background:"#F1F5F9",padding:4,borderRadius:11}}>
+          {[["milliy","Milliy Sertifikat"],["dtm","DTM"],["topic","Mavzular"]].map(([id,l])=>(
+            <button key={id} onClick={()=>{setMode(id);setSrcId("");setError("");}} style={{flex:1,padding:"9px",borderRadius:8,border:"none",background:mode===id?"#fff":"transparent",color:mode===id?C.primary:C.textMid,fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit",boxShadow:mode===id?"0 1px 4px rgba(0,0,0,0.1)":"none"}}>{l}</button>
+          ))}
         </div>
         <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
-          <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> Variant oralig'ini tanlang</div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
-            {[["Variant boshlanishi",from,setFrom],["Variant tugashi",to,setTo]].map(([l,v,fn])=>(
-              <div key={l}>
-                <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>{l}</label>
-                <input type="number" min={1} value={v} onChange={e=>fn(Math.max(1,Number(e.target.value)||1))} style={sel}/>
+          {mode!=="topic"&&(<>
+            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> {mode==="dtm"?"Yilni va variant oralig'ini tanlang":"O'qituvchi va variant oralig'ini tanlang"}</div>
+            {!sources.length?<div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Hozircha {mode==="dtm"?"DTM yillari":"o'qituvchilar"} qo'shilmagan.</div>:(
+              <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:14}}>
+                {sources.map(t=>{const on=src?.id===t.id; return <button key={t.id} onClick={()=>setSrcId(t.id)} style={{padding:"8px 14px",borderRadius:20,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}>{t.name}{t.variants?` · ${t.variants} variant`:""}</button>;})}
               </div>
-            ))}
-          </div>
-          <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
-            <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
-            <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>Tizim <strong>{from}-variantdan {to}-variantgacha</strong> masalalarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos tasodifiy aralashtirib beradi: 1–32-savollar A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish — har biri bitta variantdan butunligicha olinadi.</p>
-          </div>
+            )}
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
+              {[["Variant boshlanishi",from,setFrom],["Variant tugashi",to,setTo]].map(([l,v,fn])=>(
+                <div key={l}>
+                  <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>{l}</label>
+                  <input type="number" min={1} value={v} onChange={e=>fn(Math.max(1,Number(e.target.value)||1))} style={sel}/>
+                </div>
+              ))}
+            </div>
+            <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
+              <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
+              <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{mode==="dtm"
+                ?<>Tizim <strong>{src?.name||"tanlangan yil"}</strong>ning <strong>{from}–{to}-variantlaridan</strong> har bir o'rin uchun bittadan savolni tasodifiy tanlab, DTM testini tuzadi.</>
+                :<>Tizim <strong>{src?.name||"tanlangan o'qituvchi"}</strong>ning <strong>{from}–{to}-variantlaridan</strong> savollarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos aralashtiradi: 1–32 A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish.</>}</p>
+            </div>
+          </>)}
+          {mode==="topic"&&(<>
+            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:6,display:"flex",alignItems:"center",gap:6}}><Tag size={13} color={C.primary}/> Mavzularni tanlang</div>
+            <div style={{fontSize:12,color:C.textMid,marginBottom:12}}>Savollar tanlangan mavzular o'rtasida teng taqsimlanadi.</div>
+            {!topicList.length?<div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Mavzular yuklanmoqda...</div>:(
+              <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:14}}>
+                {topicList.map(t=>{const on=selTopics.includes(t.topic); return <button key={t.topic} onClick={()=>setSelTopics(a=>on?a.filter(x=>x!==t.topic):[...a,t.topic])} style={{padding:"8px 14px",borderRadius:20,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}>{on?"✓ ":""}{t.topic} <span style={{fontWeight:500,opacity:0.7}}>({t.count})</span></button>;})}
+              </div>
+            )}
+            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
+              <label style={{fontSize:11.5,fontWeight:700,color:C.textMid}}>Savollar soni</label>
+              <input type="number" min={5} max={60} value={total} onChange={e=>setTotal(Math.min(60,Math.max(5,Number(e.target.value)||30)))} style={{...sel,width:90}}/>
+            </div>
+            <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
+              <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
+              <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{selTopics.length?<><strong>{selTopics.length} ta mavzu</strong> tanlandi — har biridan taxminan <strong>{share}%</strong> ({Math.floor(total/selTopics.length)}–{Math.ceil(total/selTopics.length)} ta savol), jami <strong>{total} ta</strong> savol.</>:"Kamida bitta mavzuni tanlang."}</p>
+            </div>
+          </>)}
           {!session&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>Test natijalarini saqlash uchun avval hisobingizga kiring.</div>}
           {error&&<div style={{fontSize:12.5,color:C.danger,marginBottom:12}}>{error}</div>}
           <div style={{display:"flex",gap:8}}>
-            <button onClick={start} disabled={from>to||step==="loading"}
-              style={{flex:1,padding:"12px",borderRadius:10,background:step==="loading"?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:step==="loading"?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8,boxShadow:step==="loading"?"none":"0 5px 16px rgba(15,81,50,0.3)"}}>
-              {step==="loading"?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Yig'ilmoqda...</>):(<><Wand2 size={15}/> 43 talik Test Yaratish ({from}–{to})</>)}
+            <button onClick={start} disabled={!canGo||step==="loading"}
+              style={{flex:1,padding:"12px",borderRadius:10,background:!canGo||step==="loading"?C.textLight:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:800,cursor:!canGo||step==="loading"?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+              {step==="loading"?(<><div style={{width:16,height:16,border:"2.5px solid rgba(255,255,255,0.35)",borderTopColor:"#fff",borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/> Yig'ilmoqda...</>):(<><Wand2 size={15}/> Test Yaratish</>)}
             </button>
-            <button onClick={downloadPdf} disabled={from>to||pdfLoading}
-              style={{padding:"12px 18px",borderRadius:10,background:"#fff",color:C.primary,border:`1.5px solid ${C.borderGreen}`,fontSize:13.5,fontWeight:800,cursor:pdfLoading?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:7,flexShrink:0}}>
+            <button onClick={downloadPdf} disabled={!canGo||pdfLoading}
+              style={{padding:"12px 18px",borderRadius:10,background:"#fff",color:C.primary,border:`1.5px solid ${C.borderGreen}`,fontSize:13.5,fontWeight:800,cursor:!canGo||pdfLoading?"not-allowed":"pointer",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:7}}>
               {pdfLoading?(<div style={{width:15,height:15,border:`2.5px solid ${C.mintLight}`,borderTopColor:C.primary,borderRadius:"50%",animation:"spin 0.75s linear infinite"}}/>):(<Download size={15}/>)} PDF
             </button>
           </div>
@@ -1405,7 +1473,7 @@ export default function App() {
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
-        {tab==="generator"&&<TestGenerator teacher={teacher} plan={plan} setTab={setTab} session={session}/>}
+        {tab==="generator"&&<TestGenerator teacher={teacher} teachers={teachers} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>
