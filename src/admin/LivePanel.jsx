@@ -45,6 +45,7 @@ export default function LivePanel() {
     try{ const r=await joinLesson(l.id); setRoom({url:r.url,token:r.token,host:r.host,title:l.title}); }catch(e){ setError(e.message); }
     setBusy(""); load();
   };
+  const setAccess = async (l,forAll) => { await supabase.from("live_lessons").update({for_all:forAll}).eq("id",l.id); load(); };
   const end = async l => { await supabase.from("live_lessons").update({status:"ended"}).eq("id",l.id); load(); };
   const del = async l => { if(!confirm(`"${l.title}" darsini o'chiraymi?`)) return; await supabase.from("live_lessons").delete().eq("id",l.id); load(); };
 
@@ -83,6 +84,7 @@ export default function LivePanel() {
             <div style={{fontSize:14,fontWeight:800,color:C.text}}>{l.title}</div>
             <div style={{fontSize:12,color:C.textMid}}>{fmtWhen(l.starts_at)} · {l.duration_min} daqiqa{l.for_all?" · hamma uchun":" · Standart"}</div>
           </div>
+          <button style={btnGhost} onClick={()=>setAccess(l,!l.for_all)} title="Kirish turini almashtirish">{l.for_all?"🔓 Hamma uchun → Pullik qilish":"🔒 Pullik → Hamma uchun qilish"}</button>
           {l.status==="live"&&<span style={pill("#FEE2E2",C.danger,"#FECACA")}>● JONLI</span>}
           {l.status==="ended"&&<span style={pill("#F1F5F9",C.textMid,C.border)}>Tugagan</span>}
           {l.status!=="ended"&&<button style={btnPrimary} disabled={busy===l.id} onClick={()=>start(l)}><Radio size={13}/> {l.status==="live"?"Darsga qaytish":"Boshlash"}</button>}
