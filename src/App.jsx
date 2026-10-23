@@ -71,8 +71,10 @@ async function fetchPurchases(studentId) {
   return Object.fromEntries((data||[]).map(p=>[p.variant_id,p.status]));
 }
 
-async function fetchVariantRangeQuestions(teacherId, fromNum, toNum) {
-  const { data: variants } = await supabase.from("variants").select("id, variant_number").eq("teacher_id",teacherId).gte("variant_number",fromNum).lte("variant_number",toNum);
+async function fetchVariantRangeQuestions(teacherId, fromNum, toNum, only) {
+  let vq = supabase.from("variants").select("id, variant_number").eq("teacher_id",teacherId).gte("variant_number",fromNum).lte("variant_number",toNum);
+  if(only) vq = vq.in("variant_number",only);
+  const { data: variants } = await vq;
   const ids = (variants||[]).map(v=>v.id);
   if(!ids.length) return { questions:[], variantNumbers:[] };
   const { data: questions } = await supabase.from("questions").select("*, option_groups(options)").in("variant_id",ids);
@@ -1018,6 +1020,9 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const [topicList,setTopicList]=useState([]);
   const [selTopics,setSelTopics]=useState([]);
   const [topicQ,setTopicQ]=useState("");
+  const [varList,setVarList]=useState([]);
+  const [selVars,setSelVars]=useState([]);
+  const [varQ,setVarQ]=useState("");
   const [total,setTotal]=useState(30);
   const [step,setStep]=useState("setup"); // setup | loading | testing | done
   const [testQs,setTestQs]=useState([]);
@@ -1029,6 +1034,11 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
   const allowed=canUse(plan,"adaptive");
   const sources=teachers.filter(t=>mode==="dtm"?t.section==="dtm":t.section!=="dtm");
   const src=sources.find(t=>t.id===srcId)||sources[0];
+  useEffect(()=>{
+    setSelVars([]); setVarQ(""); setVarList([]);
+    if(!src?.id||mode==="topic") return;
+    supabase.from("variants").select("variant_number").eq("teacher_id",src.id).order("variant_number").then(({data})=>setVarList((data||[]).map(v=>v.variant_number)));
+  },[src?.id,mode]);
   useEffect(()=>{ if(mode==="topic"&&!topicList.length) fetchTopicList().then(setTopicList); },[mode]);
 
   const buildTest = async () => {
@@ -1036,12 +1046,12 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
       const qs=await buildTopicTest(selTopics,total);
       return { qs, title:`Mavzular bo'yicha test (${selTopics.length} mavzu)` };
     }
-    const { questions, variantNumbers } = await fetchVariantRangeQuestions(src.id, from, to);
-    if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${src.name} — Aralash Test (${from}-${to}-Variant)` };
-    return { qs:buildMixedTest(questions, variantNumbers), title:null };
+    const { questions, variantNumbers } = await fetchVariantRangeQuestions(src.id, 1, 9999, selVars);
+    if(mode==="dtm") return { qs:buildDtmTest(questions), title:`DTM ${src.name} — Aralash Test (${selVars.join(", ")}-Variant)` };
+    return { qs:buildMixedTest(questions, variantNumbers), title:`${src.name} — Aralash Test (${selVars.join(", ")}-Variant)` };
   };
   const noQs = mode==="topic"?"Tanlangan mavzulardan savollar topilmadi.":"Tanlangan variantlar oralig'ida hali savollar kiritilmagan.";
-  const canGo = mode==="topic" ? selTopics.length>0 : (!!src && from<=to);
+  const canGo = mode==="topic" ? selTopics.length>0 : (!!src && selVars.length>0);
 
   const start = async () => {
     setStep("loading"); setError("");
@@ -1128,25 +1138,35 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
         </div>
         <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
           {mode!=="topic"&&(<>
-            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> {mode==="dtm"?"Yilni va variant oralig'ini tanlang":"O'qituvchi va variant oralig'ini tanlang"}</div>
+            <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13,display:"flex",alignItems:"center",gap:6}}><Settings size={13} color={C.primary}/> {mode==="dtm"?"Yilni va variantlarni tanlang":"O'qituvchi va variantlarni tanlang"}</div>
             {!sources.length?<div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Hozircha {mode==="dtm"?"DTM yillari":"o'qituvchilar"} qo'shilmagan.</div>:(
               <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:14}}>
                 {sources.map(t=>{const on=src?.id===t.id; return <button key={t.id} onClick={()=>setSrcId(t.id)} style={{padding:"8px 14px",borderRadius:20,border:`1.5px solid ${on?C.primary:C.border}`,background:on?C.mintBg:"#fff",color:on?C.primary:C.textMid,fontWeight:700,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}>{t.name}{t.variants?` · ${t.variants} variant`:""}</button>;})}
               </div>
             )}
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
-              {[["Variant boshlanishi",from,setFrom],["Variant tugashi",to,setTo]].map(([l,v,fn])=>(
-                <div key={l}>
-                  <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,display:"block",marginBottom:6}}>{l}</label>
-                  <input type="number" min={1} value={v} onChange={e=>fn(Math.max(1,Number(e.target.value)||1))} style={sel}/>
-                </div>
-              ))}
+            <div style={{marginBottom:14}}>
+              {selVars.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
+                {selVars.map(n=><button key={n} onClick={()=>setSelVars(a=>a.filter(x=>x!==n))} style={{padding:"5px 10px",borderRadius:20,border:`1.5px solid ${C.primary}`,background:C.mintBg,color:C.primary,fontWeight:700,fontSize:12,cursor:"pointer",fontFamily:"inherit"}}>{n}-variant ✕</button>)}
+                <button onClick={()=>setSelVars([])} style={{padding:"5px 10px",borderRadius:20,border:"none",background:"transparent",color:C.textMid,fontSize:12,cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>Tozalash</button>
+              </div>}
+              <div style={{display:"flex",gap:8,marginBottom:8}}>
+                <input value={varQ} onChange={e=>setVarQ(e.target.value.replace(/\D/g,""))} placeholder="Variant raqamini yozib qidiring..." style={{...sel,cursor:"text"}}/>
+                <button onClick={()=>setSelVars(selVars.length===varList.length?[]:[...varList])} disabled={!varList.length} style={{padding:"0 14px",borderRadius:9,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit",whiteSpace:"nowrap"}}>{selVars.length===varList.length&&varList.length?"Bekor qilish":"Hammasi"}</button>
+              </div>
+              <div style={{maxHeight:260,overflowY:"auto",border:`1px solid ${C.border}`,borderRadius:10}}>
+                {(()=>{ const list=varList.filter(n=>!varQ||String(n).includes(varQ)); if(!list.length) return <div style={{padding:14,fontSize:12.5,color:C.textMid}}>{varList.length?"Bunday variant topilmadi.":"Variantlar yuklanmoqda..."}</div>;
+                  return list.map(n=>{ const on=selVars.includes(n); return (
+                    <label key={n} style={{display:"flex",alignItems:"center",gap:10,padding:"9px 12px",cursor:"pointer",background:on?C.mintBg:"#fff",borderBottom:`1px solid ${C.border}`}}>
+                      <input type="checkbox" checked={on} onChange={()=>setSelVars(a=>on?a.filter(x=>x!==n):[...a,n].sort((x,y)=>x-y))} style={{accentColor:C.primary,width:16,height:16}}/>
+                      <span style={{flex:1,fontSize:13,fontWeight:on?700:500,color:C.text}}>{n}-variant</span>
+                    </label>); }); })()}
+              </div>
             </div>
             <div style={{background:"#EFF6FF",border:"1px solid #BFDBFE",borderRadius:10,padding:"11px 14px",marginBottom:14,display:"flex",gap:9,alignItems:"flex-start"}}>
               <Info size={13} color="#2563EB" style={{flexShrink:0,marginTop:1}}/>
               <p style={{fontSize:12,color:"#1E40AF",lineHeight:1.65,margin:0}}>{mode==="dtm"
-                ?<>Tizim <strong>{src?.name||"tanlangan yil"}</strong>ning <strong>{from}–{to}-variantlaridan</strong> har bir o'rin uchun bittadan savolni tasodifiy tanlab, DTM testini tuzadi.</>
-                :<>Tizim <strong>{src?.name||"tanlangan o'qituvchi"}</strong>ning <strong>{from}–{to}-variantlaridan</strong> savollarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos aralashtiradi: 1–32 A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish.</>}</p>
+                ?<>Tizim <strong>{src?.name||"tanlangan yil"}</strong>ning <strong>tanlangan {selVars.length} ta variantidan</strong> har bir o'rin uchun bittadan savolni tasodifiy tanlab, DTM testini tuzadi.</>
+                :<>Tizim <strong>{src?.name||"tanlangan o'qituvchi"}</strong>ning <strong>tanlangan {selVars.length} ta variantidan</strong> savollarni o'zgartirmasdan, <strong>43 talik milliy sertifikat qolipiga</strong> mos aralashtiradi: 1–32 A/B/C/D, 33–35 umumiy javoblardan moslashtirish, 36–40 ochiq javob, 41–43 yozma ish.</>}</p>
             </div>
           </>)}
           {mode==="topic"&&(<>
