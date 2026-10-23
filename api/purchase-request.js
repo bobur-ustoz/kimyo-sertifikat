@@ -9,7 +9,7 @@
 // Vercel env vars: SUPABASE_SERVICE_ROLE_KEY, plus the Telegram ones in _telegram.js
 // (without them the request is saved and simply not announced).
 //
-// POST body: { variantId, contact, proofPath }
+// POST body: { variantId | lessonId, contact, proofPath }  (lessonId = a live-lesson recording)
 
 import { createClient } from "@supabase/supabase-js";
 import { escapeHtml, telegramConfigured, tg, fmtTime } from "./_telegram.js";
@@ -33,9 +33,10 @@ export default async function handler(req, res) {
   if (userErr || !userData?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
   const user = userData.user;
 
-  const { variantId, contact, proofPath } = req.body || {};
+  const { variantId, lessonId, contact, proofPath } = req.body || {};
   const phone = typeof contact === "string" ? contact.trim().slice(0, 40) : "";
-  if (!variantId || typeof variantId !== "string") return res.status(400).json({ error: "Variant ko'rsatilmagan" });
+  const isLesson = !!lessonId;
+  if (!isLesson && (!variantId || typeof variantId !== "string")) return res.status(400).json({ error: "Variant ko'rsatilmagan" });
   if (!phone) return res.status(400).json({ error: "Telefon raqamingizni kiriting" });
 
   // The receipt must sit in the student's own folder and be a plain image path.
@@ -52,14 +53,25 @@ export default async function handler(req, res) {
   const { data: files } = await admin.storage.from(BUCKET).list(user.id, { search: fileName, limit: 5 });
   if (!files?.some((f) => f.name === fileName)) return res.status(400).json({ error: "Chek rasmi topilmadi. Qayta yuklang." });
 
-  const { data: variant } = await admin.from("variants")
-    .select("id, variant_number, price, is_free, teachers(name)").eq("id", variantId).maybeSingle();
-  if (!variant) return res.status(404).json({ error: "Variant topilmadi" });
-  if (variant.is_free) return res.status(400).json({ error: "Bu variant bepul" });
+  // What is being bought: a variant, or the recording of a live lesson.
+  let target;   // { price, label, col, id }
+  if (isLesson) {
+    const { data: lesson } = await admin.from("live_lessons")
+      .select("id, title, price, recording_video_id").eq("id", lessonId).maybeSingle();
+    if (!lesson || !lesson.recording_video_id) return res.status(404).json({ error: "Dars yozuvi topilmadi" });
+    if (!(lesson.price > 0)) return res.status(400).json({ error: "Bu yozuv bepul" });
+    target = { price: lesson.price, label: `🎥 Dars yozuvi: ${escapeHtml(lesson.title)}`, col: "live_lesson_id", id: lesson.id };
+  } else {
+    const { data: variant } = await admin.from("variants")
+      .select("id, variant_number, price, is_free, teachers(name)").eq("id", variantId).maybeSingle();
+    if (!variant) return res.status(404).json({ error: "Variant topilmadi" });
+    if (variant.is_free) return res.status(400).json({ error: "Bu variant bepul" });
+    target = { price: variant.price, label: `📘 ${escapeHtml(variant.teachers?.name || "—")} · ${escapeHtml(variant.variant_number)}-variant`, col: "variant_id", id: variant.id };
+  }
 
   const { data: existing } = await admin.from("variant_purchases")
-    .select("id, status").eq("student_id", user.id).eq("variant_id", variantId).maybeSingle();
-  if (existing?.status === "paid") return res.status(409).json({ error: "Bu variant allaqachon ochilgan" });
+    .select("id, status").eq("student_id", user.id).eq(target.col, target.id).maybeSingle();
+  if (existing?.status === "paid") return res.status(409).json({ error: "Bu allaqachon ochilgan" });
   if (existing?.status === "pending") return res.status(409).json({ error: "So'rovingiz allaqachon yuborilgan va ko'rib chiqilmoqda" });
 
   const { count } = await admin.from("variant_purchases")
@@ -69,7 +81,7 @@ export default async function handler(req, res) {
   }
 
   const fresh = {
-    amount: variant.price, status: "pending", provider: "manual", contact: phone, proof_path: proofPath,
+    amount: target.price, status: "pending", provider: "manual", contact: phone, proof_path: proofPath,
     reject_reason: null, reviewed_by: null, reviewed_at: null, paid_at: null,
     tg_chat_id: null, tg_message_id: null, created_at: new Date().toISOString(),
   };
@@ -77,7 +89,7 @@ export default async function handler(req, res) {
   // A rejected or cancelled request is reopened; a paid or pending one was refused above.
   const { data: saved, error: saveErr } = existing
     ? await admin.from("variant_purchases").update(fresh).eq("id", existing.id).in("status", ["rejected", "cancelled"]).select("id").maybeSingle()
-    : await admin.from("variant_purchases").insert({ student_id: user.id, variant_id: variantId, ...fresh }).select("id").maybeSingle();
+    : await admin.from("variant_purchases").insert({ student_id: user.id, [target.col]: target.id, ...fresh }).select("id").maybeSingle();
   if (saveErr?.code === "23505") return res.status(409).json({ error: "So'rovingiz allaqachon yuborilgan" });
   if (saveErr || !saved) return res.status(500).json({ error: "So'rov saqlanmadi. Qayta urinib ko'ring." });
 
@@ -89,8 +101,8 @@ export default async function handler(req, res) {
       `👤 ${escapeHtml(user.user_metadata?.full_name || user.email || "—")}`,
       `✉️ ${escapeHtml(user.email || "—")}`,
       `📞 ${escapeHtml(phone)}`,
-      `📘 ${escapeHtml(variant.teachers?.name || "—")} · ${escapeHtml(variant.variant_number)}-variant`,
-      `💰 ${Number(variant.price || 0).toLocaleString("ru-RU")} so'm`,
+      target.label,
+      `💰 ${Number(target.price || 0).toLocaleString("ru-RU")} so'm`,
       `🕒 ${fmtTime()}`,
     ].join("\n");
 

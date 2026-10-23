@@ -21,7 +21,7 @@ export default function PurchasesPanel({ onBack }) {
 
   const [rows, reload] = useRows(() => {
     const q = supabase.from("variant_purchases")
-      .select("*, variants(variant_number, price, teachers(name))")
+      .select("*, variants(variant_number, price, teachers(name)), live_lessons(title)")
       .order("created_at", { ascending: false })
       .limit(200);
     return filter === "all" ? q : q.eq("status", filter);
@@ -50,7 +50,7 @@ export default function PurchasesPanel({ onBack }) {
   return (
     <div>
       <button style={{ ...btnGhost, marginBottom:14 }} onClick={onBack}><ChevronLeft size={14}/> Orqaga</button>
-      <h2 style={pageTitle}>Variant to'lovlari</h2>
+      <h2 style={pageTitle}>To'lovlar (variantlar va dars yozuvlari)</h2>
       <p style={pageSub}>O'quvchi chek yuboradi → Telegram'da tugma bilan yoki shu yerda "To'landi" bosasiz → variant darhol ochiladi. Ikkala yo'l bir xil jadvalni yangilaydi.</p>
 
       <div style={{display:"flex",gap:7,marginBottom:14,flexWrap:"wrap"}}>
@@ -73,7 +73,7 @@ export default function PurchasesPanel({ onBack }) {
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
                 <div style={{minWidth:0}}>
                   <div style={{fontSize:13.5,fontWeight:800,color:C.text}}>
-                    {r.variants?.teachers?.name || "—"} · {r.variants?.variant_number}-Variant
+                    {r.live_lessons ? `🎥 Dars yozuvi: ${r.live_lessons.title}` : `${r.variants?.teachers?.name || "—"} · ${r.variants?.variant_number}-Variant`}
                   </div>
                   <div style={{fontSize:11.5,color:C.textMid,marginTop:3}}>
                     {r.amount?.toLocaleString("ru-RU")} so'm · {r.contact || "telefon yo'q"} · {new Date(r.created_at).toLocaleString("uz-UZ")}

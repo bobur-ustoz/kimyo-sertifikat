@@ -214,7 +214,7 @@ async function callClaude(prompt, maxTokens) {
 // The student pays by card transfer, uploads the receipt photo and files a request.
 // The receipt goes to a private bucket and the request is created by the server
 // (/api/purchase-request), which also posts it to the admin on Telegram.
-function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTab}) {
+function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequested,setTab}) {
   const [contact,setContact]=useState("");
   const [file,setFile]=useState(null);
   const [preview,setPreview]=useState(null);
@@ -224,7 +224,7 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
   const [payErr,setPayErr]=useState("");
   const [reason,setReason]=useState("");      // why the admin rejected the last request
   const [copied,setCopied]=useState(false);
-  const price = variant.price ?? 5000;
+  const price = lesson ? lesson.price : (variant.price ?? 5000);
   const canPay = !!session && status!=="pending";
 
   useEffect(()=>{
@@ -242,9 +242,9 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
 
   useEffect(()=>{
     if(status!=="rejected"||!session) return;
-    supabase.from("variant_purchases").select("reject_reason").eq("student_id",session.user.id).eq("variant_id",variant.id).maybeSingle()
+    supabase.from("variant_purchases").select("reject_reason").eq("student_id",session.user.id).eq(lesson?"live_lesson_id":"variant_id",lesson?lesson.id:variant.id).maybeSingle()
       .then(({data})=>setReason(data?.reject_reason||""));
-  },[status,variant.id]);
+  },[status,lesson?.id,variant?.id]);
 
   useEffect(()=>()=>{ if(preview) URL.revokeObjectURL(preview); },[preview]);
 
@@ -272,7 +272,7 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
       const r = await fetch("/api/purchase-request",{
         method:"POST",
         headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},
-        body:JSON.stringify({variantId:variant.id,contact:contact.trim(),proofPath:path}),
+        body:JSON.stringify({...(lesson?{lessonId:lesson.id}:{variantId:variant.id}),contact:contact.trim(),proofPath:path}),
       });
       const d = await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(d.error||"So'rov yuborilmadi. Keyinroq urinib ko'ring.");
@@ -289,8 +289,8 @@ function PurchaseModal({variant,teacher,session,status,onClose,onRequested,setTa
       <div style={box} onClick={e=>e.stopPropagation()}>
         <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",marginBottom:14}}>
           <div>
-            <div style={{fontSize:17,fontWeight:900,color:C.text}}>{variant.number}-Variant</div>
-            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{teacher?.name} · {variant.total||43} ta video dars</div>
+            <div style={{fontSize:17,fontWeight:900,color:C.text}}>{lesson?lesson.title:`${variant.number}-Variant`}</div>
+            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{lesson?"Jonli dars yozuvi":`${teacher?.name} · ${variant.total||43} ta video dars`}</div>
           </div>
           <button onClick={onClose} style={{background:"none",border:"none",cursor:"pointer",color:C.textLight,padding:0}}><X size={18}/></button>
         </div>
@@ -1638,7 +1638,7 @@ export default function App() {
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
         {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
-        {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer}/>}
+        {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} teachers={teachers} plan={plan} setTab={setTab} session={session}/>}
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}

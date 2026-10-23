@@ -24,15 +24,22 @@ export default async function handler(req, res) {
   ]);
   if (topicHit || exampleHit) return res.status(200).json(signToken(videoId));
 
-  // Live-lesson recordings: any signed-in student (a per-recording payment may be added later).
+  // Live-lesson recordings: free ones for any signed-in student; priced ones need an approved
+  // purchase (or the admin).
   const liveJwt = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
   if (liveJwt) {
     const asLive = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { global: { headers: { Authorization: `Bearer ${liveJwt}` } } });
-    const { data: lesson } = await asLive.from("live_lessons").select("id").eq("recording_video_id", videoId).limit(1).maybeSingle();
+    const { data: lesson } = await asLive.from("live_lessons").select("id, price").eq("recording_video_id", videoId).limit(1).maybeSingle();
     if (lesson) {
       const { data: u } = await anon.auth.getUser(liveJwt);
       if (!u?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
-      return res.status(200).json(signToken(videoId));
+      if (!(lesson.price > 0)) return res.status(200).json(signToken(videoId));
+      const [{ data: prof }, { data: bought }] = await Promise.all([
+        asLive.from("profiles").select("is_admin").eq("id", u.user.id).maybeSingle(),
+        asLive.from("variant_purchases").select("status").eq("student_id", u.user.id).eq("live_lesson_id", lesson.id).maybeSingle(),
+      ]);
+      if (prof?.is_admin || bought?.status === "paid") return res.status(200).json(signToken(videoId));
+      return res.status(403).json({ locked: true, price: lesson.price, error: "Bu dars yozuvi pullik. Avval sotib oling." });
     }
   }
 

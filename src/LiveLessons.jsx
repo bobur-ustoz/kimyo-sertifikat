@@ -52,7 +52,7 @@ export function LiveRoom({url,token,host,title,onLeave}) {
   );
 }
 
-export default function LiveLessons({session,plan,setTab,Player}) {
+export default function LiveLessons({session,plan,setTab,Player,PurchaseModal}) {
   const [lessons,setLessons]=useState([]);
   const [loading,setLoading]=useState(true);
   const [room,setRoom]=useState(null);
@@ -61,6 +61,10 @@ export default function LiveLessons({session,plan,setTab,Player}) {
   const [,tick]=useState(0);
   const [recs,setRecs]=useState([]);
   const [watch,setWatch]=useState(null);
+  const [bought,setBought]=useState({});   // lesson id -> purchase status
+  const [buying,setBuying]=useState(null);
+  const loadBought = () => { if(!session) return setBought({}); supabase.from("variant_purchases").select("live_lesson_id,status").eq("student_id",session.user.id).not("live_lesson_id","is",null).then(({data})=>setBought(Object.fromEntries((data||[]).map(p=>[p.live_lesson_id,p.status])))); };
+  useEffect(()=>{ loadBought(); },[session?.user?.id]);
 
   const load = () => supabase.from("live_lessons").select("*").neq("status","ended").order("starts_at").then(({data})=>{ setLessons(data||[]); setLoading(false); });
   useEffect(()=>{ supabase.from("live_lessons").select("*").not("recording_video_id","is",null).order("starts_at",{ascending:false}).then(({data})=>setRecs(data||[])); },[]);
@@ -141,14 +145,19 @@ export default function LiveLessons({session,plan,setTab,Player}) {
                   <div style={{fontSize:11.5,color:C.textMid}}>{fmtWhen(l.starts_at)}</div>
                 </div>
                 <span style={{fontSize:10,fontWeight:800,color:C.primary,background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:20,padding:"3px 9px"}}>✓ Jonli dars yuklandi</span>
-                {locked(l)
-                  ? <button onClick={()=>setTab("obuna")} style={{display:"flex",alignItems:"center",gap:6,padding:"9px 14px",borderRadius:10,border:`1.5px solid ${C.borderGreen}`,background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}><Lock size={13}/> Standart kerak</button>
-                  : <button onClick={()=>setWatch(l)} style={{padding:"9px 18px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>Ko'rish</button>}
+                {(()=>{
+                  const st=bought[l.id]; const open=!(l.price>0)||st==="paid";
+                  if(open) return <button onClick={()=>setWatch(l)} style={{padding:"9px 18px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>Ko'rish</button>;
+                  if(st==="pending") return <span style={{fontSize:12,fontWeight:800,color:"#D97706",background:"#FFFBEB",border:"1px solid #FDE68A",borderRadius:10,padding:"8px 12px"}}>To'lov tekshirilmoqda</span>;
+                  return <button onClick={()=>setBuying(l)} style={{padding:"9px 16px",borderRadius:10,border:"none",background:C.primary,color:"#fff",fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit"}}>Sotib olish · {Number(l.price).toLocaleString("ru-RU")} so'm</button>;
+                })()}
               </div>
             ))}
           </div>
         </div>
       )}
+      {buying&&PurchaseModal&&<PurchaseModal lesson={buying} session={session} status={bought[buying.id]} setTab={setTab}
+        onClose={()=>setBuying(null)} onRequested={()=>{ loadBought(); setBuying(null); }}/>}
     </div>
   );
 }
