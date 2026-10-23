@@ -50,14 +50,14 @@ async function fetchQuestions(variantId) {
 }
 
 async function fetchAnalytics(studentId) {
-  const { data } = await supabase.from("answers").select("is_correct, questions(topic, variants(variant_number))").eq("student_id",studentId).eq("source","test");
+  const { data } = await supabase.from("answers").select("is_correct, questions(topic, variants(variant_number, teachers(name)))").eq("student_id",studentId);
   const byTopic = {};
   (data||[]).forEach(a=>{
     const topic = a.questions?.topic || "Boshqa";
     if(!byTopic[topic]) byTopic[topic] = {topic,attempted:0,correct:0,variants:new Set()};
     byTopic[topic].attempted++;
     if(a.is_correct) byTopic[topic].correct++;
-    else { const vn=a.questions?.variants?.variant_number; if(vn) byTopic[topic].variants.add(vn); }
+    else { const v=a.questions?.variants; if(v?.variant_number) byTopic[topic].variants.add(`${v.teachers?.name?v.teachers.name+" · ":""}${v.variant_number}-V`); }
   });
   return Object.values(byTopic).map(t=>{
     const score=Math.round((t.correct/t.attempted)*100);
@@ -924,7 +924,7 @@ function AnalyticsScreen({session,analytics,setTab}){
             <div key={b.topic} style={{background:"#fff",borderRadius:10,padding:"11px 13px",marginBottom:7,border:"1px solid #FECACA"}}>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:5}}><span style={{fontSize:12.5,fontWeight:800,color:C.text}}>{b.topic}</span><span style={{fontSize:13.5,fontWeight:900,color:C.danger}}>{b.score}%</span></div>
               <div style={{background:"#F1F5F9",borderRadius:3,height:5,overflow:"hidden",marginBottom:5}}><div style={{width:`${b.score}%`,height:"100%",background:C.danger,borderRadius:3}}/></div>
-              <div style={{fontSize:10.5,color:C.textMid}}>{b.correct}/{b.attempted} to'g'ri · Qaytaring: <strong>{b.variants.map(v=>`${v}-V`).join(", ")}</strong></div>
+              <div style={{fontSize:10.5,color:C.textMid}}>{b.correct}/{b.attempted} to'g'ri · Qaytaring: <strong>{b.variants.join(", ")}</strong></div>
             </div>
           ))}
         </div>
@@ -955,7 +955,7 @@ function AnalyticsScreen({session,analytics,setTab}){
         <div style={{width:46,height:46,borderRadius:11,background:"rgba(255,255,255,0.15)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Zap size={21} color={C.mint}/></div>
         <div>
           <div style={{color:"#fff",fontWeight:800,fontSize:14.5,marginBottom:3}}>Tavsiya etilgan o'quv rejasi</div>
-          <div style={{color:"#D1FAE5",fontSize:12.5,lineHeight:1.65}}><strong style={{color:C.mint}}>Bugun:</strong> Termokimyo (3–7–15-Variant) · Elektroliz (4–12-Variant). <strong style={{color:C.mint}}>Ertaga:</strong> Redoks reaksiyalari (2–9-Variant). Har kuni 1–2 soat shu mavzularga e'tibor bering.</div>
+          <div style={{color:"#D1FAE5",fontSize:12.5,lineHeight:1.65}}>{(()=>{const f=[...weak,...med].slice(0,4); if(!f.length) return analytics.length?"Ajoyib! Hozircha zaif mavzu yo'q. Yangi variantlarni yechib, darajangizni oshirishda davom eting.":"Savollarga javob bering — tavsiya shu yerda avtomatik paydo bo'ladi."; const a=f.slice(0,2).map(b=>b.topic).join(" · "), r=f.slice(2).map(b=>b.topic).join(" · "); return <><strong style={{color:C.mint}}>Bugun:</strong> {a}{f[0].variants.length?` (${f[0].variants[0]} dan boshlang)`:""}. {r&&<><strong style={{color:C.mint}}>Ertaga:</strong> {r}. </>}Har kuni 1–2 soat shu mavzularga e'tibor bering.</>;})()}</div>
         </div>
       </div>
     </div>
