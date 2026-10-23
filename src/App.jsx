@@ -130,6 +130,28 @@ async function downloadTestPDF(testQs, teacher, from, to) {
   doc.save(`${teacher.name}-test-${from}-${to}.pdf`);
 }
 
+// Analog worksheet as a PDF. The default PDF fonts lack subscripts/superscripts (H₂O, 10⁻²),
+// so a Unicode font served from /fonts is loaded on demand; if that fails the text is
+// flattened to plain ASCII so the file is still readable.
+async function loadPdfFont(doc, file, style) {
+  const bytes = new Uint8Array(await (await fetch(file)).arrayBuffer());
+  let bin = ""; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  const name = file.split("/").pop();
+  doc.addFileToVFS(name, btoa(bin)); doc.addFont(name, "DejaVu", style);
+}
+const SUP = {"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6","⁷":"7","⁸":"8","⁹":"9","⁻":"-","⁺":"+"};
+const SUB = {"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9","ₙ":"n"};
+const asciiFlat = t => String(t||"").replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+/g,m=>"^"+[...m].map(c=>SUP[c]).join("")).replace(/[₀₁₂₃₄₅₆₇₈₉ₙ]/g,c=>SUB[c]).replace(/[ʻʼ‘’`]/g,"'").replace(/[·•]/g,"*").replace(/[–—]/g,"-");
+
+async function downloadAnalogPDF({analog, teacher, variant, qNum, topic}) {
+  const [{ jsPDF }, { buildAnalogPdf }] = await Promise.all([import("jspdf"), import("./analogPdf")]);
+  const doc = new jsPDF();
+  let font = "helvetica", T = asciiFlat;
+  try { await loadPdfFont(doc, "/fonts/DejaVuSans.ttf", "normal"); await loadPdfFont(doc, "/fonts/DejaVuSans-Bold.ttf", "bold"); font = "DejaVu"; T = x => String(x||""); } catch {}
+  buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, topic });
+  doc.save(`analog-${variant}-variant-${qNum}-savol.pdf`);
+}
+
 async function callClaude(prompt, maxTokens) {
   const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
   const data = await res.json();
@@ -639,7 +661,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
         {curQ&&<QuizBlock question={curQ} session={session}/>}
 
         {/* Static PDF button */}
-        <div style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(15,81,50,0.28)",marginBottom:12}}>
+        <div role="button" tabIndex={0} onClick={()=>analog?downloadAnalogPDF({analog,teacher,variant:variantId,qNum:activeQ,topic:curTopic}):alert("Bu savol uchun analog hali tayyor emas.")} style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(15,81,50,0.28)",marginBottom:12}}>
           <div style={{width:42,height:42,borderRadius:10,flexShrink:0,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><Download size={18} color={C.mint}/></div>
           <div>
             <div style={{color:"#fff",fontWeight:800,fontSize:13.5}}>Analog misol yuklab olish (PDF)</div>
