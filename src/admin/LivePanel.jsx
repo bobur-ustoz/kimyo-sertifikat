@@ -27,13 +27,13 @@ export default function LivePanel() {
   };
   const start = async l => {
     setBusy(l.id); setError("");
-    try{ const r=await joinLesson(l.id); setRoom({url:r.url,title:l.title}); }catch(e){ setError(e.message); }
+    try{ const r=await joinLesson(l.id); setRoom({url:r.url,token:r.token,host:r.host,title:l.title}); }catch(e){ setError(e.message); }
     setBusy(""); load();
   };
   const end = async l => { await supabase.from("live_lessons").update({status:"ended"}).eq("id",l.id); load(); };
   const del = async l => { if(!confirm(`"${l.title}" darsini o'chiraymi?`)) return; await supabase.from("live_lessons").delete().eq("id",l.id); load(); };
 
-  if(room) return <LiveRoom url={room.url} title={room.title} onLeave={()=>{setRoom(null);load();}}/>;
+  if(room) return <LiveRoom url={room.url} token={room.token} host={room.host} title={room.title} onLeave={()=>{setRoom(null);load();}}/>;
 
   return (
     <div>

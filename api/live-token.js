@@ -71,5 +71,5 @@ export default async function handler(req, res) {
   const dom = await daily("/", dailyKey);
   const domain = dom.data?.domain_name;
   if (!domain) return res.status(502).json({ error: "Daily hisobi topilmadi" });
-  res.status(200).json({ url: `https://${domain}.daily.co/${roomName}?t=${tok.data.token}`, host: isHost });
+  res.status(200).json({ url: `https://${domain}.daily.co/${roomName}`, token: tok.data.token, host: isHost });
 }

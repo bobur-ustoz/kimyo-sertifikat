@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Video, Calendar, Clock, Lock, X, Radio } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
@@ -16,8 +16,29 @@ export async function joinLesson(lessonId) {
   return body;
 }
 
-// Full-screen video room, shared by students and the host.
-export function LiveRoom({url,title,onLeave}) {
+// Full-screen video room, shared by students and the host. Built on Daily's call frame so the
+// teacher's shared screen stays the main view for students: no participant strip, no layout switch.
+export function LiveRoom({url,token,host,title,onLeave}) {
+  const box=useRef(null);
+  const [err,setErr]=useState("");
+  useEffect(()=>{
+    let frame; let dead=false;
+    (async()=>{
+      try{
+        const { default: Daily } = await import("@daily-co/daily-js");
+        if(dead||!box.current) return;
+        frame = Daily.createFrame(box.current,{
+          iframeStyle:{width:"100%",height:"100%",border:"0"},
+          showLeaveButton:false, showFullscreenButton:true,
+          showParticipantsBar:!!host, showLayoutButton:!!host,
+          theme:{colors:{accent:"#0F5132",accentText:"#FFFFFF",background:"#0B1F17",mainAreaBg:"#0B1F17",baseText:"#FFFFFF"}},
+        });
+        frame.on("left-meeting",()=>onLeave());
+        await frame.join({url,token,startVideoOff:!host,startAudioOff:!host});
+      }catch(e){ setErr(e?.message||"Darsga ulanib bo'lmadi"); }
+    })();
+    return ()=>{ dead=true; try{ frame?.destroy(); }catch{} };
+  },[url,token]);
   return (
     <div style={{position:"fixed",inset:0,zIndex:1000,background:"#0B1F17",display:"flex",flexDirection:"column"}}>
       <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",background:C.primary}}>
@@ -25,7 +46,8 @@ export function LiveRoom({url,title,onLeave}) {
         <div style={{flex:1,color:"#fff",fontWeight:800,fontSize:14}}>{title}</div>
         <button onClick={onLeave} style={{display:"flex",alignItems:"center",gap:6,padding:"7px 14px",borderRadius:8,border:"none",background:"#fff",color:C.primary,fontWeight:800,fontSize:12.5,cursor:"pointer",fontFamily:"inherit"}}><X size={14}/> Chiqish</button>
       </div>
-      <iframe src={url} title={title} allow="camera; microphone; fullscreen; display-capture; autoplay" style={{flex:1,border:"none",width:"100%"}}/>
+      {err&&<div style={{padding:14,color:"#FCA5A5",fontSize:13}}>{err}</div>}
+      <div ref={box} style={{flex:1,minHeight:0}}/>
     </div>
   );
 }
@@ -43,12 +65,12 @@ export default function LiveLessons({session,plan,setTab}) {
 
   const join = async l => {
     setBusy(l.id); setError("");
-    try{ const r=await joinLesson(l.id); setRoom({url:r.url,title:l.title}); }
+    try{ const r=await joinLesson(l.id); setRoom({url:r.url,token:r.token,host:r.host,title:l.title}); }
     catch(e){ setError(e.message); }
     setBusy("");
   };
 
-  if(room) return <LiveRoom url={room.url} title={room.title} onLeave={()=>{setRoom(null);load();}}/>;
+  if(room) return <LiveRoom url={room.url} token={room.token} host={room.host} title={room.title} onLeave={()=>{setRoom(null);load();}}/>;
 
   const live=lessons.filter(l=>l.status==="live");
   const soon=lessons.filter(l=>l.status==="scheduled");
