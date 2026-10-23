@@ -1468,7 +1468,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
 
 // ── APP ───────────────────────────────────────────────────────────
 export default function App() {
-  const [tab,setTab]=useState("collections");
+  const [tab,setTab]=useState(()=>{ try{ return window.location.hash==="#live"?"live":"collections"; }catch{ return "collections"; } });
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
   const [mobileOpen,setMobileOpen]=useState(false);

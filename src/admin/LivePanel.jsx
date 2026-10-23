@@ -11,6 +11,9 @@ export default function LivePanel() {
   const [room,setRoom]=useState(null);
   const [busy,setBusy]=useState("");
   const [error,setError]=useState("");
+  const [copied,setCopied]=useState(false);
+  const liveLink=`${window.location.origin}/#live`;
+  const copyLink=()=>{ navigator.clipboard?.writeText(liveLink).then(()=>{ setCopied(true); setTimeout(()=>setCopied(false),2000); }); };
 
   const load = () => supabase.from("live_lessons").select("*").order("starts_at",{ascending:false}).then(({data})=>setRows(data||[]));
   useEffect(()=>{ load(); },[]);
@@ -36,6 +39,13 @@ export default function LivePanel() {
     <div>
       <div style={pageTitle}>Jonli darslar</div>
       <div style={{fontSize:12.5,color:C.textMid,marginBottom:14}}>Dars rejalashtiring, vaqti kelganda "Boshlash" bosing. O'quvchilar faqat siz boshlagandan keyin qo'shila oladi.</div>
+      <div style={{...card,marginBottom:12,display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+        <div style={{flex:1,minWidth:220}}>
+          <div style={{fontSize:12.5,fontWeight:800,color:C.text}}>O'quvchilar uchun link (Telegram kanalga qo'ying)</div>
+          <div style={{fontSize:12,color:C.textMid,wordBreak:"break-all"}}>{liveLink}</div>
+        </div>
+        <button style={btnGhost} onClick={copyLink}>{copied?"Nusxalandi ✓":"Linkni nusxalash"}</button>
+      </div>
       <div style={{...card,marginBottom:16}}>
         <div style={{display:"grid",gridTemplateColumns:"2fr 1fr 110px",gap:10,marginBottom:10}}>
           <input style={inputStyle} placeholder="Dars mavzusi (masalan: Redoks reaksiyalar)" value={form.title} onChange={e=>setForm({...form,title:e.target.value})}/>
