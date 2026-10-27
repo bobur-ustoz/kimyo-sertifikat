@@ -1,7 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
 import { canUseQuestion } from "./_access.js";
 
+// Vercel's default function timeout is short for a model call; allow up to a minute.
+export const config = { maxDuration: 60 };
+
 const MAX_QUESTION = 500;
+// New (uncached) AI answers one student may ask per hour: caps what a single account can spend.
+const MAX_NEW_PER_HOUR = 20;
 
 // Same question typed slightly differently (case, punctuation, apostrophes) must match.
 const normalize = (q) =>
@@ -68,6 +73,13 @@ export default async function handler(req, res) {
     return res.status(200).json({ answer: hit.answer, id: hit.id, approved: hit.status === "approved", cached: true });
   }
 
+  const since = new Date(Date.now() - 3600 * 1000).toISOString();
+  const { count: recent } = await admin.from("video_questions")
+    .select("id", { count: "exact", head: true }).eq("student_id", userData.user.id).gte("created_at", since);
+  if ((recent || 0) >= MAX_NEW_PER_HOUR) {
+    return res.status(429).json({ error: "Bir soatda juda ko'p savol berdingiz. Birozdan keyin qayta urinib ko'ring." });
+  }
+
   try {
     // The model sometimes spends its whole token budget before writing any text,
     // so an empty answer is retried once with a much larger budget.
@@ -87,12 +99,15 @@ export default async function handler(req, res) {
         }),
       });
       const data = await r.json();
+      // Busy (429) or overloaded (529): one short retry, then give a friendly message.
+      if (r.status === 429 || r.status === 529) return { busy: true, error: "AI hozir band. Bir necha soniyadan keyin qayta urinib ko'ring." };
       if (!r.ok) return { error: data.error?.message || "AI xatosi" };
       const text = (data.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n");
       return { answer: text.replace(/\*\*|__/g, "").trim() };
     };
 
     let out = await ask(2000);
+    if (out.busy) { await new Promise((r) => setTimeout(r, 2500)); out = await ask(2000); }
     if (!out.error && !out.answer) out = await ask(6000);
     if (out.error) return res.status(502).json({ error: out.error });
     const answer = out.answer;
