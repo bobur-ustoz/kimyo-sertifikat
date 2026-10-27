@@ -38,7 +38,7 @@ export default function LivePanel() {
     if(!form.title.trim()||!form.starts_at){ setError("Mavzu va vaqtni kiriting"); return; }
     const { error } = await supabase.from("live_lessons").insert({title:form.title.trim(),description:form.description.trim()||null,starts_at:new Date(form.starts_at).toISOString(),duration_min:Number(form.duration_min)||90,for_all:form.for_all,price:Number(form.price)||0});
     if(error){ setError(error.message); return; }
-    setForm({title:"",description:"",starts_at:"",duration_min:90,for_all:false,price:20000}); load();
+    setForm({title:"",description:"",starts_at:"",duration_min:90,for_all:false,price:""}); load();
   };
   const start = async l => {
     setBusy(l.id); setError("");
