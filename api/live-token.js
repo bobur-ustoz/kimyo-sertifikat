@@ -56,10 +56,12 @@ export default async function handler(req, res) {
   if (!roomName) {
     if (!isHost) return res.status(403).json({ error: "Dars hali boshlanmadi" });
     roomName = `noor-${lesson.id.slice(0, 8)}`;
-    const exp = Math.floor(new Date(lesson.starts_at).getTime() / 1000) + (lesson.duration_min + 240) * 60;
+    // The room closes shortly after the planned end and ejects everyone: tabs left open would
+    // otherwise keep burning participant-minutes (the free plan has a monthly allowance).
+    const exp = Math.floor(Date.now() / 1000) + (lesson.duration_min + 30) * 60;
     const made = await daily("/rooms", dailyKey, {
       name: roomName, privacy: "private",
-      properties: { exp, enable_chat: true, enable_screenshare: true, enable_prejoin_ui: true, enable_knocking: false, lang: "en" },
+      properties: { exp, eject_at_room_exp: true, enable_chat: true, enable_screenshare: true, enable_prejoin_ui: true, enable_knocking: false, lang: "en" },
     });
     if (!made.ok && made.status !== 400) return res.status(502).json({ error: made.data?.info || "Xona yaratilmadi" });
     await admin.from("live_lessons").update({ room_name: roomName }).eq("id", lesson.id);
@@ -67,7 +69,7 @@ export default async function handler(req, res) {
   if (isHost && lesson.status !== "live") await admin.from("live_lessons").update({ status: "live" }).eq("id", lesson.id);
 
   const name = profile?.full_name || (profile?.email || user.email || "O'quvchi").split("@")[0];
-  const exp = Math.floor(Date.now() / 1000) + (lesson.duration_min + 240) * 60;
+  const exp = Math.floor(Date.now() / 1000) + (lesson.duration_min + 30) * 60;
   const tok = await daily("/meeting-tokens", dailyKey, {
     properties: { room_name: roomName, is_owner: isHost, user_name: isHost ? `${name} (ustoz)` : name, exp, enable_screenshare: isHost },
   });
