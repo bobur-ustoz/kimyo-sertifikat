@@ -1,0 +1,345 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage[left=1.8cm,right=1.8cm,top=3.0cm,bottom=2.2cm,headheight=36pt,headsep=12pt]{geometry}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{fancyhdr}\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{longtable}
+\graphicspath{{../}}
+\definecolor{ygreen}{RGB}{46,139,87}\definecolor{dgreen}{RGB}{28,90,56}
+\renewcommand{\normalsize}{\fontsize{10.9}{13.4}\selectfont}
+\renewcommand{\familydefault}{\rmdefault}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.8cm}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\multicolsep}{3pt plus 1pt minus 1pt}
+\renewcommand{\textsubscript}[1]{\ensuremath{_{\text{\fontsize{8}{8}\selectfont #1}}}}
+\renewcommand{\textsuperscript}[1]{\ensuremath{^{\text{\fontsize{8}{8}\selectfont #1}}}}
+\newcommand{\qn}[1]{\textbf{\fontsize{11.5}{13}\selectfont #1}}
+\newcommand{\qsep}{\par\vspace{13pt}}
+\newcommand{\fwrule}{\par\vspace{5pt}\noindent\rule{\linewidth}{1.4pt}\par\vspace{7pt}}
+\newsavebox{\fitb}
+\newcommand{\fitbox}[1]{\sbox{\fitb}{#1}\ifdim\wd\fitb>\linewidth\resizebox{\linewidth}{!}{\usebox{\fitb}}\else\usebox{\fitb}\fi}
+\newcommand{\diqqat}[1]{\par\smallskip\noindent\textbf{Diqqat!} #1\par\medskip}
+\newcommand{\javob}{\par\nopagebreak[4]\smallskip\noindent\textbf{Javob:} \rule[-2pt]{7.5cm}{0.4pt}\par\smallskip\noindent\textbf{Diqqat!} Javobingizni javoblar varaqasiga ko`chirib yozing.\par\medskip}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1.6pt}\renewcommand{\headrule}{{\color{ygreen}\hrule height 1.6pt width\headwidth}}
+\newcommand{\hdrlogo}{\begin{tikzpicture}[baseline=0pt]\fill[ygreen,rounded corners=3pt] (0,0) rectangle (0.95,0.95);\node[white,font=\fontsize{24}{26}\bfseries\selectfont] at (0.475,0.47){K};\node[anchor=west,font=\fontsize{16}{18}\bfseries\selectfont,text=dgreen] at (1.15,0.66){KIMYO};\node[anchor=west,font=\footnotesize\scshape,text=gray] at (1.15,0.2){Milliy sertifikat\ \ 2026};\end{tikzpicture}}
+\newcommand{\hdrpill}[1]{\begin{tikzpicture}[baseline=0pt]\node[fill=ygreen,text=white,rounded corners=8pt,inner xsep=10pt,inner ysep=5pt,font=\fontsize{13}{15}\bfseries\selectfont] at (0,0.475){#1};\end{tikzpicture}}
+\fancyhead[L]{\hdrlogo}
+\fancyhead[R]{\hdrpill{13-variant}}
+
+\fancyfoot[C]{\thepage}
+\fancypagestyle{first}{\fancyhf{}\renewcommand{\headrulewidth}{1.6pt}\renewcommand{\headrule}{{\color{ygreen}\hrule height 1.6pt width\headwidth}}\fancyhead[L]{\hdrlogo}\fancyhead[R]{\hdrpill{13-variant}}\fancyfoot[C]{\thepage}}
+\begin{document}
+\normalsize
+\thispagestyle{first}
+\noindent\textit{Davriy jadvaldan foydalanish mumkin.}
+\par\smallskip
+\begin{multicols}{2}
+\noindent\qn{1.} Reaksiya tezligining haroratga bog`liqligi diagrammada ko`rsatilgan.
+\begin{center}\includegraphics[width=0.86\linewidth]{rasmlar/gen/vh_v13_0.png}\end{center}
+Haroratni 20 \textdegree{}C dan 50 \textdegree{}C gacha ko`tarilganda tezlik necha marta ortadi?
+
+\noindent A)~\textsl{8} \hfill B)~\textsl{6} \hfill C)~\textsl{16} \hfill D)~\textsl{4}\par
+\qsep
+\noindent\qn{2.} CO + Cl\textsubscript{2} $\rightleftarrows$ COCl\textsubscript{2} reaksiyasi 5 l hajmli idishda o`tkazildi. Ma'lumotlar jadvalda berilgan:
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\fitbox{\begin{tabular}{|c|c|c|c|}\hline
+\textbf{Modda} & \textbf{CO} & \textbf{Cl\textsubscript{2}} & \textbf{COCl\textsubscript{2}} \\ \hline
+Boshlang`ich, mol & 6 & 3 & 0 \\ \hline
+Muvozanatda, mol & --- & --- & 1 \\ \hline
+\end{tabular}}
+\end{center}
+Muvozanat \textbf{konstantasini (K) hisoblang.}
+
+\noindent A)~\textsl{1} \hfill B)~\textsl{0,5} \hfill C)~\textsl{0,25} \hfill D)~\textsl{2,5}\par
+\qsep
+\noindent\qn{3.} N\textsubscript{2} + 3H\textsubscript{2} $\rightleftarrows$ 2NH\textsubscript{3} reaksiyasida N\textsubscript{2} va H\textsubscript{2} stexiometrik nisbatda olingan umumiy 20 mol aralashma muvozanat qaror topganda doimiy T va \textit{V} da bosim 25\% ga kamaydi. Muvozanatdagi NH\textsubscript{3} ning \textbf{miqdorini (mol) aniqlang.}
+
+\noindent A)~\textsl{5} \hfill B)~\textsl{2,5} \hfill C)~\textsl{7,5} \hfill D)~\textsl{10}\par
+\qsep
+\noindent\qn{4.} Qaysi juftliklarda reaksiya boradi? 1) Cu va ZnSO\textsubscript{4}; 2) Fe va CuCl\textsubscript{2}; 3) Ag va CuSO\textsubscript{4}; 4) Zn va CuSO\textsubscript{4}
+
+\noindent A)~\textsl{2, 4} \hfill B)~\textsl{1, 2, 3} \hfill C)~\textsl{2} \hfill D)~\textsl{3}\par
+\qsep
+\noindent\qn{5.} 12 g NaOH ni to`liq neytrallash uchun 18,9 g HNO\textsubscript{3} sarflandi. HNO\textsubscript{3} ning ekvivalent \textbf{massasini (g/mol) aniqlang.}
+
+\noindent A)~\textsl{126} \hfill B)~\textsl{31,5} \hfill C)~\textsl{18,9} \hfill D)~\textsl{63}\par
+\qsep
+\noindent\qn{6.} AgNO\textsubscript{3} eritmasi inert elektrodlar yordamida 2 A tok kuchi bilan 965 s elektroliz qilindi. Katodda ajralgan Ag massasi (g) \textbf{ni toping.}
+
+\noindent A)~\textsl{2,16} \hfill B)~\textsl{4,32} \hfill C)~\textsl{1,08} \hfill D)~\textsl{0,043}\par
+\qsep
+\noindent\qn{7.} Xlor (\textit{Z} = 17) atomining tashqi energetik pog`onasidagi elektronlar \textbf{sonini aniqlang.}
+
+\noindent A)~\textsl{7} \hfill B)~\textsl{8} \hfill C)~\textsl{6} \hfill D)~\textsl{9}\par
+\qsep
+\noindent\qn{8.} Quyidagi tuzlarning qaysilari suvli eritmasi kislotali muhitga ega? 1) ZnCl\textsubscript{2}; 2) NH\textsubscript{4}Cl; 3) CH\textsubscript{3}COONa; 4) Na\textsubscript{2}CO\textsubscript{3}
+
+\noindent A)~\textsl{1, 4} \hfill B)~\textsl{1, 2} \hfill C)~\textsl{3} \hfill D)~\textsl{4}\par
+\qsep
+\noindent\qn{9.} Laboratoriyada NH\textsubscript{4}NO\textsubscript{3} eritmalari quyidagicha tayyorlangan:
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\fitbox{\begin{tabular}{|c|c|c|}\hline
+\textbf{Idish} & \textbf{Eritma massasi, g} & \textbf{$\omega$(NH\textsubscript{4}NO\textsubscript{3}), \%} \\ \hline
+A & 200 & 5 \\ \hline
+B & 300 & 40 \\ \hline
+\end{tabular}}
+\end{center}
+Bu ikki eritma bir idishga quyilib va ustiga 100 g suv qo`shilsa, yangi eritmadagi NH\textsubscript{4}NO\textsubscript{3} ning massa ulushi (\%) qancha bo`ladi?
+
+\noindent A)~\textsl{22,5} \hfill B)~\textsl{21,67} \hfill C)~\textsl{45} \hfill D)~\textsl{19}\par
+\qsep
+\noindent\qn{10.} CO\textsubscript{2} gazining 27 \textdegree{}C va 4 atm bosimdagi \textbf{zichligini (g/l) aniqlang.} (R = 0,082 l$\cdot$atm/(mol$\cdot$K))
+
+\noindent A)~\textsl{14,31} \hfill B)~\textsl{7,15} \hfill C)~\textsl{3,58} \hfill D)~\textsl{1,96}\par
+\qsep
+\noindent\qn{11.} HC$\equiv$C--CH=CH\textsubscript{2} molekulasida sp\textsuperscript{2} gibridlangan uglerod atomlari nechta?
+
+\noindent A)~\textsl{3} \hfill B)~\textsl{4} \hfill C)~\textsl{1} \hfill D)~\textsl{2}\par
+\qsep
+\noindent\qn{12.} NaCl ning suvli eritmasi inert elektrodlar bilan elektroliz qilinganda qaysi moddalar ajraladi?
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{Zn, H\textsubscript{2} va O\textsubscript{2}} & B)~\textsl{H\textsubscript{2}, Cl\textsubscript{2} va NaOH} \\
+C)~\textsl{H\textsubscript{2} va O\textsubscript{2}} & D)~\textsl{Ag va O\textsubscript{2}} \\
+\end{tabular}\par
+\qsep
+\noindent\qn{13.} Tabiiy elementning ikki izotopi: \textsuperscript{63}Cu (70\%) va \textsuperscript{65}Cu (30\%). Elementning o`rtacha nisbiy atom \textbf{massasini aniqlang.}
+
+\noindent A)~\textsl{63,6} \hfill B)~\textsl{64} \hfill C)~\textsl{64,4} \hfill D)~\textsl{63}\par
+\qsep
+\noindent\qn{14.} 2Mg + CO\textsubscript{2} $\to$ 2MgO + C reaksiyasida 4,4 g CO\textsubscript{2} ishtirok etdi. C \textbf{miqdorini (mol) toping.}
+
+\noindent A)~\textsl{0,2} \hfill B)~\textsl{0,05} \hfill C)~\textsl{0,15} \hfill D)~\textsl{0,1}\par
+\qsep
+\noindent\qn{15.} Reaksiya tenglamasi: H\textsubscript{2} + Cl\textsubscript{2} $\to$ 2HCl. Reaksiyaga 0,5 g H\textsubscript{2} kirishdi. HCl \textbf{hajmini (l, n.sh.) hisoblang.}
+
+\noindent A)~\textsl{2,8} \hfill B)~\textsl{22,4} \hfill C)~\textsl{11,2} \hfill D)~\textsl{5,6}\par
+\qsep
+\noindent\qn{16.} Ishqoriy metallar haqida qaysi fikrlar to`g`ri? 1) Litiy eng yengil metall; 2) Natriy suv bilan reaksiyada H\textsubscript{2} va NaOH hosil qiladi; 3) Natriyning olinishi suyuqlanma NaCl elektrolizi bilan; 4) Natriy atomining tashqi qavatida 2 ta elektron bor
+
+\noindent A)~\textsl{1, 2, 3} \hfill B)~\textsl{1, 3} \hfill C)~\textsl{1, 4} \hfill D)~\textsl{1, 2}\par
+\qsep
+\noindent\qn{17.} Alyuminiy va magniy dan iborat 10,5 g aralashma mo`l NaOH eritmasida eritildi. Ajralgan gazning \textbf{hajmini (l, n.sh.) aniqlang} (magniy ishqor bilan reaksiyaga kirishmaydi).
+
+\noindent A)~\textsl{20,16} \hfill B)~\textsl{5,04} \hfill C)~\textsl{8,71} \hfill D)~\textsl{10,08}\par
+\qsep
+\noindent\qn{18.} D-metallar va ularning birikmalari haqida qaysi fikrlar to`g`ri? 1) Fe(OH)\textsubscript{2} havoda qo`ng`ir rangga o`tadi; 2) Zn(OH)\textsubscript{2} amfoter xossaga ega; 3) Mis nam havoda (CuOH)\textsubscript{2}CO\textsubscript{3} qoplamasi bilan qoplanadi; 4) Temir sovuq konsentrlangan HNO\textsubscript{3} da passivlanadi
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{1, 2, 4} & B)~\textsl{1, 3, 4} \\
+C)~\textsl{1, 2, 3, 4} & D)~\textsl{2, 3, 4} \\
+\end{tabular}\par
+\qsep
+\noindent\qn{19.} Reaksiya tenglamasi: MgCl\textsubscript{2} + Na\textsubscript{2}CO\textsubscript{3} $\to$ MgCO\textsubscript{3} + 2NaCl. Reaksiyaga 47,5 g MgCl\textsubscript{2} kirishdi. MgCO\textsubscript{3} \textbf{massasini (g) hisoblang.}
+
+\noindent A)~\textsl{84} \hfill B)~\textsl{21} \hfill C)~\textsl{42} \hfill D)~\textsl{63}\par
+\qsep
+\noindent\qn{20.} Alkanlar va sikloalkanlar haqida qaysi fikrlar to`g`ri? 1) Sikloalkanlarning umumiy formulasi CnH\textsubscript{2}n; 2) Metanning katalitik oksidlanishidan formaldegid olinadi; 3) Metan suvda yaxshi eriydi; 4) Propan odatiy sharoitda gaz
+
+\noindent A)~\textsl{1, 3, 4} \hfill B)~\textsl{1, 3} \hfill C)~\textsl{1, 2, 4} \hfill D)~\textsl{2, 4}\par
+\qsep
+\noindent\qn{21.} CH\textsubscript{3}--CH(CH\textsubscript{3})--CH\textsubscript{2}--OH birikmaning sistematik nomi qaysi qatorda to`g`ri keltirilgan?
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{butanol-1} & B)~\textsl{2-metilpropanol-2} \\
+C)~\textsl{butanol-2} & D)~\textsl{2-metilpropanol-1} \\
+\end{tabular}\par
+\qsep
+\noindent\qn{22.} Arenlar, neft va tabiiy gaz haqida qaysi fikrlar to`g`ri? 1) Benzol bromli suvni rangsizlantirmaydi; 2) Naftalin -- bir halqali aren; 3) Toluol KMnO\textsubscript{4} bilan benzoy kislotagacha oksidlanadi; 4) Neft fraksiyalaridan gazolin 150 \textdegree{}C gacha haydaladi
+
+\noindent A)~\textsl{1, 3, 4} \hfill B)~\textsl{2, 4} \hfill C)~\textsl{1, 3} \hfill D)~\textsl{2, 3, 4}\par
+\qsep
+\noindent\qn{23.} Rasmda tasvirlangan molekuladagi sp\textsuperscript{3}-gibridlangan uglerod atomlari \textbf{sonini aniqlang.}
+\begin{center}\includegraphics[width=0.86\linewidth]{rasmlar/gen/struct_16944700_887.png}\end{center}
+
+\noindent A)~\textsl{7} \hfill B)~\textsl{5} \hfill C)~\textsl{8} \hfill D)~\textsl{6}\par
+\qsep
+\noindent\qn{24.} CH\textsubscript{3}CHO + H\textsubscript{2} $\to$ C\textsubscript{2}H\textsubscript{5}OH reaksiyasida 22,4 l (n.sh.) H\textsubscript{2} ishtirok etdi. C\textsubscript{2}H\textsubscript{5}OH \textbf{massasini (g) toping.}
+
+\noindent A)~\textsl{92} \hfill B)~\textsl{23} \hfill C)~\textsl{69} \hfill D)~\textsl{46}\par
+\qsep
+\noindent\qn{25.} Reaksiya tenglamasi: CH\textsubscript{3}COOH + NaHCO\textsubscript{3} $\to$ CH\textsubscript{3}COONa + CO\textsubscript{2} + H\textsubscript{2}O. Reaksiyaga 12 g CH\textsubscript{3}COOH kirishdi. CO\textsubscript{2} \textbf{hajmini (l, n.sh.) hisoblang.}
+
+\noindent A)~\textsl{8,96} \hfill B)~\textsl{2,24} \hfill C)~\textsl{6,72} \hfill D)~\textsl{4,48}\par
+\qsep
+\noindent\qn{26.} Murakkab efirlar va yog`lar haqida qaysi fikrlar to`g`ri? 1) Etilatsetat efir hidli suyuqlik; 2) Suyuq yog`larni gidrogenlab qattiq yog` olinadi; 3) Murakkab efirlarning gidrolizi ishqoriy muhitda qaytmas; 4) Yog`lar glitserin va yuqori yog` kislotalarning murakkab efirlari
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{1, 2, 4} & B)~\textsl{2, 3, 4} \\
+C)~\textsl{1, 2, 3, 4} & D)~\textsl{1, 2, 3} \\
+\end{tabular}\par
+\qsep
+\noindent\qn{27.} 1 mol glyukoza spirtli bijg`itilganda hosil bo`lgan etanol \textbf{massasini (g) aniqlang.}
+
+\noindent A)~\textsl{46} \hfill B)~\textsl{184} \hfill C)~\textsl{92} \hfill D)~\textsl{180}\par
+\qsep
+\noindent\qn{28.} Aminlar, aminokislotalar va oqsillar haqida qaysi fikrlar to`g`ri? 1) Oqsillar biuret reaksiyasini beradi; 2) Nitrobenzoldan anilin Zinin reaksiyasi bilan olinadi; 3) Dipeptidda 2 ta peptid bog` bor; 4) Aminokislotalar faqat kislotali xossaga ega
+
+\noindent A)~\textsl{1, 3, 4} \hfill B)~\textsl{1, 2} \hfill C)~\textsl{1, 3} \hfill D)~\textsl{2, 4}\par
+\qsep
+\noindent\qn{29.} 2,6 g C\textsubscript{2}H\textsubscript{2} dan quyidagi ikki bosqichda C\textsubscript{2}H\textsubscript{5}OH olinadi: 1) C\textsubscript{2}H\textsubscript{2} + H\textsubscript{2} $\to$ C\textsubscript{2}H\textsubscript{4} (unum 80\%); 2) C\textsubscript{2}H\textsubscript{4} + H\textsubscript{2}O $\to$ C\textsubscript{2}H\textsubscript{5}OH (unum 50\%). Oxirgi mahsulot C\textsubscript{2}H\textsubscript{5}OH ning \textbf{massasini (g) toping.}
+
+\noindent A)~\textsl{2,3} \hfill B)~\textsl{3,68} \hfill C)~\textsl{1,84} \hfill D)~\textsl{4,6}\par
+\qsep
+\noindent\qn{30.} Kimyo laboratoriyasida ishlash qoidalari haqida qaysi fikrlar to`g`ri? 1) Ishqor teriga tushsa, qo`l suv bilan yuviladi; 2) Zaharli gaz ajraladigan tajriba mo`rili shkafda o`tkaziladi; 3) Spirt lampa boshqa lampadan yoqilmaydi; 4) Konsentrlangan kislotani suvga ohista, aralashtirib quyiladi
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{1, 2, 3} & B)~\textsl{1, 2, 3, 4} \\
+C)~\textsl{1, 3, 4} & D)~\textsl{2, 3, 4} \\
+\end{tabular}\par
+\qsep
+\noindent\qn{31.} Quyidagi aralashmani ajratish uchun qaysi usul mos: osh tuzi eritmasidan tuz?
+\noindent A)~\textsl{sublimatsiya (yod haydaladi)}\par
+\noindent B)~\textsl{bug`latish}\par
+\noindent C)~\textsl{magnit yordamida ajratish (temir tortiladi)}\par
+\noindent D)~\textsl{filtrlash}\par
+\qsep
+\noindent\qn{32.} Rasmdagi usul bilan qaysi aralashmani ajratish mumkin?
+\begin{center}\includegraphics[width=0.86\linewidth]{rasmlar/darslik/d_distill.png}\end{center}
+
+\noindent\begin{tabular}{@{}p{0.47\linewidth}@{}p{0.47\linewidth}@{}}
+A)~\textsl{osh tuzi va qum} & B)~\textsl{suv va qum} \\
+C)~\textsl{suv va etanol} & D)~\textsl{suv va kerosin   ---} \\
+\end{tabular}\par
+\qsep
+\end{multicols}
+\medskip
+\noindent\setlength{\fboxsep}{0pt}\fbox{\begin{tabular}{p{0.74\linewidth}|p{0.2\linewidth}}
+\parbox[t]{0.72\linewidth}{\vspace{3pt}\textbf{Topshiriqlar (33--35) va javob variant (A--F)larini o`zaro to`g`ri moslashtiring.} NaBr va KI dan iborat 28,9 g aralashma suvda eritilib, mo`l AgNO\textsubscript{3} eritmasi qo`shildi; hosil bo`lgan cho`kmalarning umumiy massasi 49,35 g.
+\vspace{3pt}} & \parbox[t]{0.19\linewidth}{\vspace{3pt}A~\textsl{850}\\[3pt]
+B~\textsl{20,6}\\[3pt]
+C~\textsl{16,48}\\[3pt]
+D~\textsl{22,05}\\[3pt]
+E~\textsl{425}\\[3pt]
+F~\textsl{11,03}}\\ \hline
+\parbox[t]{0.72\linewidth}{\vspace{2pt}\textbf{33. Aralashmadagi NaBr massasini (g) aniqlang.}\vspace{2pt}} & \\ \hline
+\parbox[t]{0.72\linewidth}{\vspace{2pt}\textbf{34. Sarflangan 10\% li AgNO\textsubscript{3} eritmasining massasini (g) aniqlang (M(AgNO\textsubscript{3}) = 170 g/mol).}\vspace{2pt}} & \\ \hline
+\parbox[t]{0.72\linewidth}{\vspace{2pt}\textbf{35. Eritmada hosil bo`lgan nitratlarning umumiy massasini (g) aniqlang.}\vspace{2pt}} & 
+\end{tabular}}
+\par\bigskip
+\noindent\qn{36.} C + HNO\textsubscript{3} $\to$ CO\textsubscript{2} + NO\textsubscript{2} + H\textsubscript{2}O reaksiya tenglamasini tenglang. Reagentlar (chap qism) koeffitsiyentlari \textbf{yig`indisini toping.}
+\javob\qsep
+\noindent\qn{37.} 2NO + O\textsubscript{2} $\rightleftarrows$ 2NO\textsubscript{2} reaksiyada muvozanat holatida [NO] = 1, [O\textsubscript{2}] = 1, [NO\textsubscript{2}] = 1 mol/l. Muvozanat \textbf{konstantasini (K) hisoblang.}
+\javob\qsep
+\noindent\qn{38.} Alyuminiy (0,1 mol) va kalsiy (0,1 mol) aralashmasi mo`l xlorid kislotada eritildi. Ajralgan vodorodning \textbf{hajmini (l, n.sh.) aniqlang.}
+\javob\qsep
+\noindent\qn{39.} 180 g glyukoza spirtli bijg`ish natijasida etanolga (unum 80\%), hosil bo`lgan etanol esa sirka kislotagacha (unum 80\%) aylantirildi. Olingan kislotani to`liq neytrallash uchun NaOH ning \textbf{massasini (g) toping.}
+\javob\qsep
+\noindent\qn{40.} 17,8 g tristearin mo`l NaOH eritmasi bilan to`liq gidrolizlandi (sovun unumi 80\%). Hosil bo`lgan natriy stearat (M = 306 g/mol) \textbf{massasini (g) toping.}
+\javob\qsep
+\par\bigskip\begin{center}\textbf{\fontsize{13}{15}\selectfont YOZMA ISH}\end{center}
+\noindent\qn{41.} \textbf{Topshiriqni bajarish jarayonida barcha reaksiya tenglamalarini yozing. Miqdoriy va arifmetik hisoblashlarni (unga asos bo`lgan usul yoki formulani ko`rsatgan holda) uzviy ketma-ketlikda bajaring.}\par\smallskip
+Hajmi 2 l bo`lgan idishda 2NO + O\textsubscript{2} $\rightleftarrows$ 2NO\textsubscript{2} sistema muvozanat holatiga keldi. Muvozanat qaror topganda idishdagi moddalar miqdori: NO -- 2 mol, O\textsubscript{2} -- 0,5 mol; NO\textsubscript{2} -- 1 mol.\par
+\noindent 1)\ Muvozanat konstantasini (K) hisoblang.\par
+\noindent 2)\ Moddalarning boshlang`ich konsentratsiyalarini (mol/l) aniqlang. Boshlang`ich moddalarning umumiy miqdorini (mol) ham toping.\par
+\noindent 3)\ NO ning necha foizi reaksiyaga kirishgan?\par
+\noindent 4)\ Idish hajmi izotermik ravishda 2 marta kamaytirilsa, to`g`ri reaksiya tezligi (elementar reaksiya deb hisoblang) necha marta o`zgaradi? Teskari reaksiya uchun K' = 1/K ni ham hisoblang.\par
+\noindent 5)\ Bosim oshirilganda muvozanat qaysi tomonga siljiydi va K qiymati qanday o`zgaradi? Muvozanatdagi umumiy mol miqdorining boshlang`ich mol miqdoriga nisbatini toping. Muvozanat aralashmasining o`rtacha molyar massasini (g/mol) ham hisoblang.\par
+\diqqat{Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish usuli va shu usul asosidagi barcha hisoblash amallari javoblar varaqasida aks etishi lozim.}\qsep
+\noindent\qn{42.} Quyidagi o`zgarishlar zanjirida \textit{X}, \textit{Y}, \textit{Z} noma'lum organik moddalar:\par
+\[\setlength{\fboxsep}{0pt}\text{CH\textsubscript{3}CHO}\xrightarrow{\text{H\textsubscript{2}, Ni}}\text{\textit{X}}\xrightarrow{\text{H\textsubscript{2}SO\textsubscript{4} (kons.), 170 \textdegree{}C}}\text{\textit{Y}}\xrightarrow{\text{Br\textsubscript{2}}}\text{C\textsubscript{2}H\textsubscript{4}Br\textsubscript{2}}\]
+\noindent 1)\ CH\textsubscript{3}CHO $\to$ \textit{X} : reaksiya tenglamasini yozing; hosil bo`lgan moddani nomlang.\par
+\noindent 2)\ \textit{X} $\to$ \textit{Y} : reaksiya tenglamasini yozing; hosil bo`lgan moddani nomlang.\par
+\noindent 3)\ \textit{Y} $\to$ C\textsubscript{2}H\textsubscript{4}Br\textsubscript{2} : reaksiya tenglamasini yozing; hosil bo`lgan moddani nomlang.\par
+\diqqat{Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish usuli va shu usul asosidagi barcha hisoblash amallari javoblar varaqasida aks etishi lozim.}\qsep
+\noindent\qn{43.} \textbf{Topshiriqni bajarish jarayonida barcha reaksiya tenglamalarini yozing. Miqdoriy va arifmetik hisoblashlarni (unga asos bo`lgan usul yoki formulani ko`rsatgan holda) uzviy ketma-ketlikda bajaring.}\par\smallskip
+60 g pirit (FeS\textsubscript{2}) yondirildi: 4FeS\textsubscript{2} + 11O\textsubscript{2} $\to$ 2Fe\textsubscript{2}O\textsubscript{3} + 8SO\textsubscript{2} (unum 100\%). Hosil bo`lgan SO\textsubscript{2} katalizator ishtirokida SO\textsubscript{3} gacha oksidlandi (unum 80\%), SO\textsubscript{3} suvda eritildi.\par
+\noindent 1)\ Hosil bo`lgan SO\textsubscript{2} hajmini (l, n.sh.) va qattiq qoldiq Fe\textsubscript{2}O\textsubscript{3} massasini (g) hisoblang. Shuningdek SO\textsubscript{2} massasini (g) ham toping.\par
+\noindent 2)\ SO\textsubscript{3} ning massasini (g) toping (2SO\textsubscript{2} + O\textsubscript{2} $\rightleftarrows$ 2SO\textsubscript{3}).\par
+\noindent 3)\ Hosil bo`lgan H\textsubscript{2}SO\textsubscript{4} massasini (g) aniqlang.\par
+\noindent 4)\ Shu kislotani to`liq neytrallash uchun zarur NaOH massasini (g) va mo`l BaCl\textsubscript{2} bilan hosil bo`ladigan cho`kma massasini (g) toping.\par
+\noindent 5)\ Shu H\textsubscript{2}SO\textsubscript{4} dan 20\% li eritma tayyorlash uchun qancha suv (g) kerak?\par
+\diqqat{Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish usuli va shu usul asosidagi barcha hisoblash amallari javoblar varaqasida aks etishi lozim.}\qsep
+\newpage
+\noindent\textbf{\fontsize{13}{15}\selectfont 13-variant}\hfill \textbf{Javoblar kaliti}\par\smallskip\hrule\smallskip
+\textit{Faqat o`qituvchi uchun.}\par\medskip
+\noindent\textbf{1--32-savollar}\par\smallskip
+\noindent\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16}\\\hline
+\textsl{A} & \textsl{B} & \textsl{A} & \textsl{A} & \textsl{D} & \textsl{A} & \textsl{A} & \textsl{B} & \textsl{B} & \textsl{B} & \textsl{D} & \textsl{B} & \textsl{A} & \textsl{D} & \textsl{C} & \textsl{A}\\\hline
+\textbf{17} & \textbf{18} & \textbf{19} & \textbf{20} & \textbf{21} & \textbf{22} & \textbf{23} & \textbf{24} & \textbf{25} & \textbf{26} & \textbf{27} & \textbf{28} & \textbf{29} & \textbf{30} & \textbf{31} & \textbf{32}\\\hline
+\textsl{D} & \textsl{C} & \textsl{C} & \textsl{C} & \textsl{D} & \textsl{A} & \textsl{D} & \textsl{D} & \textsl{D} & \textsl{C} & \textsl{C} & \textsl{B} & \textsl{C} & \textsl{B} & \textsl{B} & \textsl{C}\\\hline
+\end{tabular}\par\medskip
+\noindent\textbf{33--35-savollar}\par\smallskip
+\noindent\begin{tabular}{|c|c|c|}\hline \textbf{No} & \textbf{Javob} & \textbf{Qiymat}\\\hline
+33 & \textsl{B} & 20,6\\\hline
+34 & \textsl{E} & 425\\\hline
+35 & \textsl{D} & 22,05\\\hline
+\end{tabular}\par\medskip
+\noindent\textbf{36--40-savollar}\par\smallskip
+\noindent\begin{tabular}{|c|c|}\hline \textbf{No} & \textbf{To`g`ri javob}\\\hline
+36 & 5\\\hline
+37 & 1\\\hline
+38 & 5,6\\\hline
+39 & 51,2\\\hline
+40 & 14,69\\\hline
+\end{tabular}\par\medskip
+\noindent\textbf{41--43-topshiriqlar: javoblar}\par\smallskip
+\noindent\textbf{41-topshiriq.}\par
+\noindent 1) 1\par
+\noindent 2) 4 mol\par
+\noindent 3) 33,3\%\par
+\noindent 4) 8 marta ortadi; 1\par
+\noindent 5) 0,875; 34,86 g/mol\par
+\noindent\textbf{42-topshiriq.}\par
+\noindent 1) CH\textsubscript{3}CHO + H\textsubscript{2}, Ni $\to$ C\textsubscript{2}H\textsubscript{5}OH (etanol)\par
+\noindent 2) C\textsubscript{2}H\textsubscript{5}OH + H\textsubscript{2}SO\textsubscript{4} (kons.), 170 \textdegree{}C $\to$ C\textsubscript{2}H\textsubscript{4} (etilen)\par
+\noindent 3) C\textsubscript{2}H\textsubscript{4} + Br\textsubscript{2} $\to$ C\textsubscript{2}H\textsubscript{4}Br\textsubscript{2} (1,2-dibrometan)\par
+\noindent\textbf{43-topshiriq.}\par
+\noindent 1) 22,4 l; 40 g; 64 g\par
+\noindent 2) 64 g\par
+\noindent 3) 78,4 g\par
+\noindent 4) 64 g; 186,4 g\par
+\noindent 5) 313,6 g\par
+\par\bigskip\noindent\textbf{Mavzular taqsimoti}\par\smallskip
+{\small\noindent\begin{longtable}{|c|p{7.2cm}|p{5.4cm}|c|}\hline \textbf{No} & \textbf{Mavzu} & \textbf{Tekshiriladigan ko`nikma} & \textbf{Ball}\\\hline
+1 & Tirkashev VI bob (Vant-Goff qoidasi, grafik) & Grafik tahlili & 1\\\hline
+2 & Tirkashev VI bob (muvozanat, jadval) & Jadval tahlili & 1\\\hline
+3 & Tirkashev VI bob; 11-sinf (muvozanat) & Hisoblash va masala yechish & 1\\\hline
+4 & Tashev; 9-sinf (kuchlanish qatori) & Bilim va tushunish & 1\\\hline
+5 & 11-sinf (ekvivalentlar qonuni) & Hisoblash va masala yechish & 1\\\hline
+6 & 11-sinf 8-bob (Faradey qonunlari); Tirkashev \textit{V} bob & Hisoblash va masala yechish & 1\\\hline
+7 & Tirkashev I bob; 8-sinf (elektron konfiguratsiya) & Bilim va tushunish & 1\\\hline
+8 & 9-sinf (gidroliz); Tirkashev IV bob & Bilim va tushunish & 1\\\hline
+9 & Tirkashev III bob (eritmalar, jadval) & Jadval tahlili & 1\\\hline
+10 & 11-sinf (Mendeleyev--Klapeyron) & Hisoblash va masala yechish & 1\\\hline
+11 & 10-sinf \S{}17 & Bilim va tushunish & 1\\\hline
+12 & 11-sinf 8-bob; Tirkashev \textit{V} bob (elektroliz) & Bilim va tushunish & 1\\\hline
+13 & 8-sinf (izotoplar) & Hisoblash va masala yechish & 1\\\hline
+14 & 9-sinf; Tirkashev (P/C/Si, hisob) & Hisoblash va masala yechish & 1\\\hline
+15 & 9-sinf; Tirkashev (galogenlar, hisob) & Hisoblash va masala yechish & 1\\\hline
+16 & 9-sinf (ishqoriy metallar); Tashev & Bilim va tushunish & 1\\\hline
+17 & 9-sinf (alyuminiy) & Hisoblash va masala yechish & 1\\\hline
+18 & 9-sinf; Tashev (Fe, Cu, Zn, Cr) & Bilim va tushunish & 1\\\hline
+19 & 9-sinf; Tirkashev (suv qattiqligi, hisob) & Hisoblash va masala yechish & 1\\\hline
+20 & 10-sinf (mavzuga oid paragraflar); Abdusamatov & Bilim va tushunish & 1\\\hline
+21 & 10-sinf (nomenklatura \S{}6, \S{}11, \S{}20, \S{}24--26) & Bilim va tushunish & 1\\\hline
+22 & 10-sinf (mavzuga oid paragraflar); Abdusamatov & Bilim va tushunish & 1\\\hline
+23 & 10-sinf (gibridlanish) & Rasm bo`yicha tahlil & 1\\\hline
+24 & 10-sinf (ald, hisob) & Hisoblash va masala yechish & 1\\\hline
+25 & 10-sinf (kis, hisob) & Hisoblash va masala yechish & 1\\\hline
+26 & 10-sinf (mavzuga oid paragraflar); Abdusamatov & Bilim va tushunish & 1\\\hline
+27 & 10-sinf \S{}30--31 (bijg`ish) & Hisoblash va masala yechish & 1\\\hline
+28 & 10-sinf (mavzuga oid paragraflar); Abdusamatov & Bilim va tushunish & 1\\\hline
+29 & 10-sinf (ikki bosqichli hisob) & Hisoblash va masala yechish & 1\\\hline
+30 & 7-sinf (xavfsizlik qoidalari); 10-sinf lab. & Bilim va tushunish & 1\\\hline
+31 & 7-sinf (aralashmalarni ajratish usullari) & Bilim va tushunish & 1\\\hline
+32 & 7-sinf (13-rasm) & Rasm bo`yicha tahlil & 1\\\hline
+33--35 & Aralash masala (moslashtirish) & Ko`p bosqichli hisob & 3\\\hline
+36--40 & Qisqa javobli masalalar & Hisoblash & 5\\\hline
+41--43 & Yozma ish & Usul va hisob (M, A) & 75\\\hline
+\end{longtable}}
+\end{document}

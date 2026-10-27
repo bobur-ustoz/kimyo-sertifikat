@@ -1,5 +1,14 @@
+import { createClient } from "@supabase/supabase-js";
+
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+
+  // Only signed-in users may spend the Claude budget.
+  const jwt = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+  if (!jwt) return res.status(401).json({ error: "Tizimga kiring" });
+  const anon = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
+  const { data: who, error: whoErr } = await anon.auth.getUser(jwt);
+  if (whoErr || !who?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
   const { prompt, maxTokens } = req.body || {};
   if (!prompt || typeof prompt !== "string") return res.status(400).json({ error: "Missing prompt" });
 
@@ -13,7 +22,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: "claude-sonnet-5",
-        max_tokens: maxTokens || 1000,
+        max_tokens: Math.min(Number(maxTokens) || 1000, 2000),
         messages: [{ role: "user", content: prompt }],
       }),
     });

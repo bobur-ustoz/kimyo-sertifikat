@@ -204,7 +204,10 @@ async function downloadAnalogPDF({analog, teacher, variant, qNum, topic}) {
 }
 
 async function callClaude(prompt, maxTokens) {
-  const res = await fetch("/api/claude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,maxTokens})});
+  const { data:{ session } } = await supabase.auth.getSession();
+  const headers = {"Content-Type":"application/json"};
+  if(session?.access_token) headers.Authorization = `Bearer ${session.access_token}`;
+  const res = await fetch("/api/claude",{method:"POST",headers,body:JSON.stringify({prompt,maxTokens})});
   const data = await res.json();
   if(!res.ok) throw new Error(data.error||"AI xatosi");
   return (data.text||"").replace(/```json\n?|\n?```/g,"").trim();

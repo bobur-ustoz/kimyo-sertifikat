@@ -6,9 +6,10 @@ import { writeErrorText } from "./writeError";
 import { C, btnGhost, sectionLabel } from "./ui";
 
 async function callClaude(prompt, maxTokens) {
+  const { data: { session } } = await supabase.auth.getSession();
   const res = await fetch("/api/claude", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}) },
     body: JSON.stringify({ prompt, maxTokens }),
   });
   const data = await res.json();

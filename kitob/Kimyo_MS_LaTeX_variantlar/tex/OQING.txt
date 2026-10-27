@@ -1,0 +1,1 @@
+Kompilyatsiya: pdflatex Kimyo_MS_02_variant.tex  (tex/ papkasida; rasmlar ../rasmlar/ dan olinadi). Ikki marta ishga tushiring.
