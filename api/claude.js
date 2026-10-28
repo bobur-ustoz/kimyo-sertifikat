@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { paidPlanActive } from "./_access.js";
 
 export const config = { maxDuration: 60 };
 
@@ -11,6 +12,12 @@ export default async function handler(req, res) {
   const anon = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
   const { data: who, error: whoErr } = await anon.auth.getUser(jwt);
   if (whoErr || !who?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
+  // AI is a Premium feature (admins use it for analog generation).
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    const adminDb = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+    const { data: prof } = await adminDb.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", who.user.id).maybeSingle();
+    if (!prof?.is_admin && !paidPlanActive(prof)) return res.status(403).json({ error: "AI Premium rejada mavjud." });
+  }
   const { prompt, maxTokens } = req.body || {};
   if (!prompt || typeof prompt !== "string") return res.status(400).json({ error: "Missing prompt" });
 

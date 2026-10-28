@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { canUseQuestion } from "./_access.js";
+import { canUseQuestion, paidPlanActive } from "./_access.js";
 
 // Reviewer-approved questions for one video, ready to show as quick buttons.
 // Only the question, answer and video position leave the server: never who asked.
@@ -20,6 +20,9 @@ export default async function handler(req, res) {
   if ([topicId, exampleId, questionId].filter(Boolean).length !== 1) return res.status(400).json({ error: "topicId, exampleId yoki questionId kerak" });
 
   const admin = createClient(url, serviceKey);
+  // The saved AI answers are part of the Premium assistant: the free plan gets none.
+  const { data: prof } = await admin.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userData.user.id).maybeSingle();
+  if (!prof?.is_admin && !paidPlanActive(prof)) return res.status(200).json({ items: [] });
   const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
   if (questionId) {
     const access = await canUseQuestion(admin, userData.user.id, questionId);

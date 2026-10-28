@@ -44,6 +44,14 @@ export function AskAI({session,target,setTab,time,playerRef}){
   const key = target.topicId||target.exampleId||target.questionId;
   const [faq,setFaq]=useState([]);
   const [allOpen,setAllOpen]=useState(false);
+  const [locked,setLocked]=useState(false);   // free plan: the assistant is a Premium feature
+  useEffect(()=>{
+    if(!session){ setLocked(false); return; }
+    supabase.from("profiles").select("plan,plan_expires_at,is_admin").eq("id",session.user.id).maybeSingle().then(({data})=>{
+      const active=!!data&&!!data.plan&&data.plan!=="free"&&(!data.plan_expires_at||new Date(data.plan_expires_at)>new Date());
+      setLocked(!!data&&!data.is_admin&&!active);
+    });
+  },[session?.user?.id]);
   useEffect(()=>{ setThread([]); setErr(""); setQ(""); setAllOpen(false); },[key]);
   useEffect(()=>{
     setFaq([]);
@@ -80,6 +88,16 @@ export function AskAI({session,target,setTab,time,playerRef}){
     <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:12,padding:"14px 16px",fontSize:13,color:C.textMid,display:"flex",alignItems:"center",gap:10,justifyContent:"space-between"}}>
       <span>Video bo'yicha savol berish uchun tizimga kiring.</span>
       <button onClick={()=>setTab("profile")} style={{padding:"8px 14px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Kirish</button>
+    </div>
+  );
+
+  if(locked) return (
+    <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:14,padding:"16px 18px",display:"flex",alignItems:"center",gap:12,justifyContent:"space-between",flexWrap:"wrap"}}>
+      <div>
+        <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:4}}><Sparkles size={15} color={C.accent}/><div style={{fontSize:14,fontWeight:800,color:C.text}}>Savol bering</div></div>
+        <div style={{fontSize:13,color:C.textMid}}>AI yordamchi Premium rejada mavjud.</div>
+      </div>
+      <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Premium'ga o'tish</button>
     </div>
   );
 
