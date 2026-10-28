@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
+import { premiumActive } from "./_access.js";
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
@@ -35,10 +36,10 @@ export default async function handler(req, res) {
       if (!u?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
       if (!(lesson.price > 0)) return res.status(200).json(signToken(videoId));
       const [{ data: prof }, { data: bought }] = await Promise.all([
-        asLive.from("profiles").select("is_admin").eq("id", u.user.id).maybeSingle(),
+        asLive.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", u.user.id).maybeSingle(),
         asLive.from("variant_purchases").select("status").eq("student_id", u.user.id).eq("live_lesson_id", lesson.id).maybeSingle(),
       ]);
-      if (prof?.is_admin || bought?.status === "paid") return res.status(200).json(signToken(videoId));
+      if (prof?.is_admin || premiumActive(prof) || bought?.status === "paid") return res.status(200).json(signToken(videoId));
       return res.status(403).json({ locked: true, price: lesson.price, error: "Bu dars yozuvi pullik. Avval sotib oling." });
     }
   }
@@ -74,13 +75,13 @@ export default async function handler(req, res) {
     global: { headers: { Authorization: `Bearer ${jwt}` } },
   });
   const [{ data: profile }, { data: purchase }] = await Promise.all([
-    asUser.from("profiles").select("is_admin").eq("id", userData.user.id).maybeSingle(),
+    asUser.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userData.user.id).maybeSingle(),
     asUser.from("variant_purchases").select("status").eq("student_id", userData.user.id).eq("variant_id", variant.id).maybeSingle(),
   ]);
 
   // No plan grants a blanket unlock: every non-free variant needs its own paid
   // purchase row (the Premium "everything free" tier has been removed).
-  const unlocked = profile?.is_admin || purchase?.status === "paid";
+  const unlocked = profile?.is_admin || premiumActive(profile) || purchase?.status === "paid";
   if (!unlocked) return res.status(403).json({ ...locked, error: "Bu variant hali sotib olinmagan." });
 
   res.status(200).json(signToken(videoId));

@@ -15,6 +15,7 @@ const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B
 const PLANS = [
   { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:false}] },
   { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true}] },
+  { id:"premium",name:"Premium",price:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Hammasi ochiq",features:[{t:"Barcha variantlar to'liq ochiq",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true},{t:"To'liq tahlil grafigi",ok:true}] },
 ];
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
@@ -22,7 +23,7 @@ const canUse = (plan,feature) => (feature==="analog"||feature==="adaptive") ? pl
 // A variant's videos are open when it is the teacher's free variant or the
 // student has paid for it. Mirrors api/bunny-token.js, which is the real gate
 // -- this only decides what the UI shows.
-const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || purchases?.[variant.id]==="paid");
+const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || plan==="premium" || purchases?.[variant.id]==="paid");
 const fmtSum = n => Number(n||0).toLocaleString("ru-RU").replace(/\u00a0/g," ");
 
 async function fetchTeachers() {
@@ -218,7 +219,7 @@ async function callClaude(prompt, maxTokens) {
 // The student pays by card transfer, uploads the receipt photo and files a request.
 // The receipt goes to a private bucket and the request is created by the server
 // (/api/purchase-request), which also posts it to the admin on Telegram.
-function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequested,setTab}) {
+function PurchaseModal({variant,lesson,planItem,teacher,session,status,onClose,onRequested,setTab}) {
   const [contact,setContact]=useState("");
   const [file,setFile]=useState(null);
   const [preview,setPreview]=useState(null);
@@ -228,7 +229,7 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
   const [payErr,setPayErr]=useState("");
   const [reason,setReason]=useState("");      // why the admin rejected the last request
   const [copied,setCopied]=useState(false);
-  const price = lesson ? lesson.price : (variant.price ?? 5000);
+  const price = planItem ? planItem.priceNum : lesson ? lesson.price : (variant.price ?? 5000);
   const canPay = !!session && status!=="pending";
 
   useEffect(()=>{
@@ -246,9 +247,9 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
 
   useEffect(()=>{
     if(status!=="rejected"||!session) return;
-    supabase.from("variant_purchases").select("reject_reason").eq("student_id",session.user.id).eq(lesson?"live_lesson_id":"variant_id",lesson?lesson.id:variant.id).maybeSingle()
+    supabase.from("variant_purchases").select("reject_reason").eq("student_id",session.user.id).eq(planItem?"plan_id":lesson?"live_lesson_id":"variant_id",planItem?planItem.id:lesson?lesson.id:variant.id).maybeSingle()
       .then(({data})=>setReason(data?.reject_reason||""));
-  },[status,lesson?.id,variant?.id]);
+  },[status,lesson?.id,variant?.id,planItem?.id]);
 
   useEffect(()=>()=>{ if(preview) URL.revokeObjectURL(preview); },[preview]);
 
@@ -276,7 +277,7 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
       const r = await fetch("/api/purchase-request",{
         method:"POST",
         headers:{"Content-Type":"application/json",Authorization:`Bearer ${session.access_token}`},
-        body:JSON.stringify({...(lesson?{lessonId:lesson.id}:{variantId:variant.id}),contact:contact.trim(),proofPath:path}),
+        body:JSON.stringify({...(planItem?{planId:planItem.id}:lesson?{lessonId:lesson.id}:{variantId:variant.id}),contact:contact.trim(),proofPath:path}),
       });
       const d = await r.json().catch(()=>({}));
       if(!r.ok) throw new Error(d.error||"So'rov yuborilmadi. Keyinroq urinib ko'ring.");
@@ -293,15 +294,15 @@ function PurchaseModal({variant,lesson,teacher,session,status,onClose,onRequeste
       <div style={box} onClick={e=>e.stopPropagation()}>
         <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",marginBottom:14}}>
           <div>
-            <div style={{fontSize:17,fontWeight:900,color:C.text}}>{lesson?lesson.title:`${variant.number}-Variant`}</div>
-            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{lesson?"Jonli dars + dars yozuvi":`${teacher?.name} · ${variant.total||43} ta video dars`}</div>
+            <div style={{fontSize:17,fontWeight:900,color:C.text}}>{planItem?`${planItem.name} reja`:lesson?lesson.title:`${variant.number}-Variant`}</div>
+            <div style={{fontSize:12.5,color:C.textMid,marginTop:3}}>{planItem?"1 oylik obuna":lesson?"Jonli dars + dars yozuvi":`${teacher?.name} · ${variant.total||43} ta video dars`}</div>
           </div>
           <button onClick={onClose} style={{background:"none",border:"none",cursor:"pointer",color:C.textLight,padding:0}}><X size={18}/></button>
         </div>
 
         <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"14px 16px",marginBottom:16,textAlign:"center"}}>
           <div style={{fontSize:26,fontWeight:900,color:C.primary}}>{fmtSum(price)} so'm</div>
-          <div style={{fontSize:11.5,color:C.textMid,marginTop:2}}>bir marta to'lanadi · umrbod ochiq qoladi</div>
+          <div style={{fontSize:11.5,color:C.textMid,marginTop:2}}>{planItem?"30 kunga amal qiladi":"bir marta to'lanadi · umrbod ochiq qoladi"}</div>
         </div>
 
         {!session ? (
@@ -366,8 +367,8 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
-  const planColors={free:"#475569",standart:"#0D9488"};
-  const planNames={free:"Bepul",standart:"Standart ⭐"};
+  const planColors={free:"#475569",standart:"#0D9488",premium:"#B45309"};
+  const planNames={free:"Bepul",standart:"Standart ⭐",premium:"Premium 👑"};
   // Falls back to Standart's look for any legacy plan value (e.g. an account
   // still marked "premium" from before that tier existed) instead of
   // rendering "undefined" in the sidebar.
@@ -1337,10 +1338,14 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
 function SubscriptionScreen({plan,session,setTab}) {
   const [hover,setHover]=useState(null);
   const [notice,setNotice]=useState("");
+  const [buyPlan,setBuyPlan]=useState(null);
+  const [planStatus,setPlanStatus]=useState({});
+  const loadPlanStatus = () => { if(!session) return setPlanStatus({}); supabase.from("variant_purchases").select("plan_id,status").eq("student_id",session.user.id).not("plan_id","is",null).then(({data})=>setPlanStatus(Object.fromEntries((data||[]).map(r=>[r.plan_id,r.status])))); };
+  useEffect(()=>{ loadPlanStatus(); },[session?.user?.id]);
   const handleClick = p => {
     if(p.id==="free") return;
     if(!session){ setTab("profile"); return; }
-    setNotice(`${p.name} rejasi uchun to'lov tizimi tez orada ulanadi. Hozircha administrator bilan bog'laning.`);
+    setBuyPlan({id:p.id,name:p.name,priceNum:p.id==="premium"?250000:49900});
   };
   return (
     <div style={{padding:"26px 30px"}}>
@@ -1358,7 +1363,7 @@ function SubscriptionScreen({plan,session,setTab}) {
         </div>
       )}
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:18,marginBottom:30,maxWidth:760,marginLeft:"auto",marginRight:"auto"}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",gap:18,marginBottom:30,maxWidth:1080,marginLeft:"auto",marginRight:"auto"}}>
         {PLANS.map(p=>{
           const current=plan===p.id; const isHov=hover===p.id;
           return (
@@ -1385,8 +1390,8 @@ function SubscriptionScreen({plan,session,setTab}) {
                     </div>
                   ))}
                 </div>
-                <button onClick={()=>handleClick(p)} disabled={current} style={{width:"100%",padding:"12px",borderRadius:11,background:current?"#F1F5F9":p.btnBg,color:current?C.textMid:p.btnColor,border:current?`1px solid ${C.border}`:"none",fontSize:13.5,fontWeight:800,cursor:current?"default":"pointer",fontFamily:"inherit",transition:"all 0.15s",opacity:current?0.7:1}}>
-                  {current?"Joriy rejangiz":p.price==="0"?"Bepul boshlash":!session?"Kirish va obuna bo'lish":"Obuna bo'lish"}
+                <button onClick={()=>handleClick(p)} disabled={current||planStatus[p.id]==="pending"} style={{width:"100%",padding:"12px",borderRadius:11,background:current?"#F1F5F9":p.btnBg,color:current?C.textMid:p.btnColor,border:current?`1px solid ${C.border}`:"none",fontSize:13.5,fontWeight:800,cursor:current?"default":"pointer",fontFamily:"inherit",transition:"all 0.15s",opacity:current?0.7:1}}>
+                  {current?"Joriy rejangiz":planStatus[p.id]==="pending"?"To'lov tekshirilmoqda":p.price==="0"?"Bepul boshlash":!session?"Kirish va obuna bo'lish":"Obuna bo'lish"}
                 </button>
               </div>
             </div>
@@ -1410,6 +1415,8 @@ function SubscriptionScreen({plan,session,setTab}) {
           ))}
         </div>
       </div>
+      {buyPlan&&<PurchaseModal planItem={buyPlan} session={session} status={planStatus[buyPlan.id]} setTab={setTab}
+        onClose={()=>setBuyPlan(null)} onRequested={()=>{ loadPlanStatus(); setBuyPlan(null); setNotice("Chekingiz yuborildi. Tasdiqlangach reja darhol ishga tushadi."); }}/>}
     </div>
   );
 }
@@ -1479,7 +1486,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
   const total=vList.reduce((s,v)=>s+v.ready,0);
   const allQ=vList.reduce((s,v)=>s+v.total,0);
   const maxV=vList.length||1;
-  const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"}};
+  const planInfo={free:{name:"Bepul",color:"#475569",bg:"#F1F5F9"},standart:{name:"Standart",color:C.accent,bg:"#F0FDFA"},premium:{name:"Premium",color:"#B45309",bg:"#FFFBEB"}};
   const pi=planInfo[plan]||planInfo.standart;
 
   if(!session) return (
@@ -1523,7 +1530,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{display:"flex",alignItems:"center",gap:12}}>
             <div style={{flex:1,background:pi.bg,borderRadius:10,padding:"12px 14px",border:`1px solid ${pi.color}30`}}>
               <div style={{fontSize:15,fontWeight:900,color:pi.color,marginBottom:2}}>{pi.name} reja</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":plan==="premium"?"Premium · hammasi ochiq":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
             </div>
             {plan==="free"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
@@ -1559,7 +1566,8 @@ export default function App() {
   const [profile,setProfile]=useState(null);
   const [purchases,setPurchases]=useState({});
   const [buying,setBuying]=useState(null);
-  const plan = profile?.plan || "free";
+  const planExpired = !!profile?.plan_expires_at && new Date(profile.plan_expires_at) < new Date();
+  const plan = planExpired ? "free" : (profile?.plan || "free");
 
   const reloadTeachers = () => fetchTeachers().then(setTeachers);
   useEffect(()=>{ reloadTeachers(); },[]);

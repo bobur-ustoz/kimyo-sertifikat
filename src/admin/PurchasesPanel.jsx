@@ -73,7 +73,7 @@ export default function PurchasesPanel({ onBack }) {
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,flexWrap:"wrap"}}>
                 <div style={{minWidth:0}}>
                   <div style={{fontSize:13.5,fontWeight:800,color:C.text}}>
-                    {r.live_lessons ? `🎥 Dars yozuvi: ${r.live_lessons.title}` : `${r.variants?.teachers?.name || "—"} · ${r.variants?.variant_number}-Variant`}
+                    {r.plan_id ? `⭐ Obuna: ${r.plan_id === "premium" ? "Premium" : "Standart"} (1 oy)` : r.live_lessons ? `🎥 Jonli dars: ${r.live_lessons.title}` : `${r.variants?.teachers?.name || "—"} · ${r.variants?.variant_number}-Variant`}
                   </div>
                   <div style={{fontSize:11.5,color:C.textMid,marginTop:3}}>
                     {r.amount?.toLocaleString("ru-RU")} so'm · {r.contact || "telefon yo'q"} · {new Date(r.created_at).toLocaleString("uz-UZ")}

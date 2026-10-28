@@ -18,6 +18,7 @@ const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
 const BUCKET = "payment-proofs";
 const MAX_PENDING_PER_STUDENT = 5;
+const PLANS = { standart: { name: "Standart", price: 49900 }, premium: { name: "Premium", price: 250000 } };
 const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
 
 export default async function handler(req, res) {
@@ -46,10 +47,12 @@ export default async function handler(req, res) {
   if (userErr || !userData?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
   const user = userData.user;
 
-  const { variantId, lessonId, contact, proofPath } = req.body || {};
+  const { variantId, lessonId, planId, contact, proofPath } = req.body || {};
   const phone = typeof contact === "string" ? contact.trim().slice(0, 40) : "";
   const isLesson = !!lessonId;
-  if (!isLesson && (!variantId || typeof variantId !== "string")) return res.status(400).json({ error: "Variant ko'rsatilmagan" });
+  const isPlan = !!planId;
+  if (isPlan && !PLANS[planId]) return res.status(400).json({ error: "Reja topilmadi" });
+  if (!isLesson && !isPlan && (!variantId || typeof variantId !== "string")) return res.status(400).json({ error: "Variant ko'rsatilmagan" });
   if (!phone) return res.status(400).json({ error: "Telefon raqamingizni kiriting" });
 
   // The receipt must sit in the student's own folder and be a plain image path.
@@ -68,7 +71,9 @@ export default async function handler(req, res) {
 
   // What is being bought: a variant, or the recording of a live lesson.
   let target;   // { price, label, col, id }
-  if (isLesson) {
+  if (isPlan) {
+    target = { price: PLANS[planId].price, label: `⭐ Obuna: ${PLANS[planId].name} (1 oy)`, col: "plan_id", id: planId };
+  } else if (isLesson) {
     const { data: lesson } = await admin.from("live_lessons")
       .select("id, title, price, status").eq("id", lessonId).maybeSingle();
     if (!lesson) return res.status(404).json({ error: "Dars topilmadi" });
@@ -85,7 +90,8 @@ export default async function handler(req, res) {
 
   const { data: existing } = await admin.from("variant_purchases")
     .select("id, status").eq("student_id", user.id).eq(target.col, target.id).maybeSingle();
-  if (existing?.status === "paid") return res.status(409).json({ error: "Bu allaqachon ochilgan" });
+  // A plan can be renewed every month; anything else that is paid stays paid.
+  if (existing?.status === "paid" && !isPlan) return res.status(409).json({ error: "Bu allaqachon ochilgan" });
   if (existing?.status === "pending") return res.status(409).json({ error: "So'rovingiz allaqachon yuborilgan va ko'rib chiqilmoqda" });
 
   const { count } = await admin.from("variant_purchases")
@@ -102,7 +108,7 @@ export default async function handler(req, res) {
 
   // A rejected or cancelled request is reopened; a paid or pending one was refused above.
   const { data: saved, error: saveErr } = existing
-    ? await admin.from("variant_purchases").update(fresh).eq("id", existing.id).in("status", ["rejected", "cancelled"]).select("id").maybeSingle()
+    ? await admin.from("variant_purchases").update(fresh).eq("id", existing.id).in("status", isPlan ? ["rejected", "cancelled", "paid"] : ["rejected", "cancelled"]).select("id").maybeSingle()
     : await admin.from("variant_purchases").insert({ student_id: user.id, [target.col]: target.id, ...fresh }).select("id").maybeSingle();
   if (saveErr?.code === "23505") return res.status(409).json({ error: "So'rovingiz allaqachon yuborilgan" });
   if (saveErr || !saved) return res.status(500).json({ error: "So'rov saqlanmadi. Qayta urinib ko'ring." });

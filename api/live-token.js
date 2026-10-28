@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { premiumActive } from "./_access.js";
 
 const DAILY = "https://api.daily.co/v1";
 
@@ -36,14 +37,14 @@ export default async function handler(req, res) {
   const admin = createClient(url, serviceKey);
   const [{ data: lesson }, { data: profile }] = await Promise.all([
     admin.from("live_lessons").select("*").eq("id", lessonId).maybeSingle(),
-    admin.from("profiles").select("is_admin, plan, full_name, email").eq("id", user.id).maybeSingle(),
+    admin.from("profiles").select("is_admin, plan, plan_expires_at, full_name, email").eq("id", user.id).maybeSingle(),
   ]);
   if (!lesson) return res.status(404).json({ error: "Dars topilmadi" });
 
   const isHost = !!profile?.is_admin;
   if (!isHost) {
     // A priced lesson needs an approved purchase (one payment covers the live class and the recording).
-    if (lesson.price > 0) {
+    if (lesson.price > 0 && !premiumActive(profile)) {
       const { data: bought } = await admin.from("variant_purchases").select("status")
         .eq("student_id", user.id).eq("live_lesson_id", lesson.id).maybeSingle();
       if (bought?.status !== "paid") return res.status(403).json({ error: "Bu jonli dars pullik. Avval sotib oling." });
