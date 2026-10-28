@@ -18,7 +18,7 @@ const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
 const BUCKET = "payment-proofs";
 const MAX_PENDING_PER_STUDENT = 5;
-const PLANS = { standart: { name: "Standart", price: 49900 }, premium: { name: "Premium", price: 250000 } };
+const PLANS = { standart: { name: "Standart", price: 49900 }, premium: { name: "Premium", price: 200000 } };
 const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
 
 export default async function handler(req, res) {

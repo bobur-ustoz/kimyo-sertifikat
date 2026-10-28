@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { canUseQuestion } from "./_access.js";
+import { canUseQuestion, paidPlanActive } from "./_access.js";
 
 // Vercel's default function timeout is short for a model call; allow up to a minute.
 export const config = { maxDuration: 60 };
@@ -47,6 +47,9 @@ export default async function handler(req, res) {
   if (q.length > MAX_QUESTION) return res.status(400).json({ error: `Savol ${MAX_QUESTION} belgidan oshmasin` });
 
   const admin = createClient(url, serviceKey);
+  // Asking the AI is a Premium feature (the free plan is video-only).
+  const { data: prof } = await admin.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userData.user.id).maybeSingle();
+  if (!prof?.is_admin && !paidPlanActive(prof)) return res.status(403).json({ error: "AI'ga savol berish Premium rejada. Obuna & Narxlar bo'limiga o'ting." });
   const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
   const target = topicId || exampleId || questionId;
   if (questionId) {

@@ -13,10 +13,10 @@ import { splitOptions } from "./analogPdf";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"Asosiy tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:false},{t:"43 talik Test Generator",ok:false},{t:"PDF yuklab olish",ok:false}] },
-  { id:"standart",name:"Standart",price:"49,900",period:"so'm / oy",color:"#0D9488",btnBg:"#0D9488",btnColor:"#fff",badge:"🔥 Eng yaxshi",features:[{t:"Har o'qituvchidan 1 ta to'liq variant",ok:true},{t:"Qolgan variantlar — 5 000 so'mdan",ok:true},{t:"Mavzular bo'yicha filtrlash",ok:true},{t:"To'liq tahlil grafigi",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true}] },
-  { id:"premium",name:"Premium",price:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Hammasi ochiq",features:[{t:"Barcha variantlar to'liq ochiq",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Analog Savol Generator",ok:true},{t:"43 talik Test Generator",ok:true},{t:"PDF yuklab olish",ok:true},{t:"To'liq tahlil grafigi",ok:true}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Video darslarni ko'rish (har o'qituvchidan 1 ta variant)",ok:true},{t:"AI Savol bering",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Test Generator",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar, DTM va jonli darslar",ok:false}] },
+  { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Test Generator",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
 ];
+
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
 const canUse = (plan,feature) => (feature==="analog"||feature==="adaptive") ? plan!=="free" : true;
@@ -808,7 +808,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
             <div style={{width:42,height:42,borderRadius:10,background:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Lock size={18} color={C.textLight}/></div>
             <div style={{flex:1}}>
               <div style={{fontWeight:800,fontSize:13.5,color:C.textMid,marginBottom:3}}>🤖 AI Analog Savol Generator</div>
-              <div style={{fontSize:12,color:C.textLight}}>Bu funksiya Standart rejada mavjud</div>
+              <div style={{fontSize:12,color:C.textLight}}>Bu funksiya Premium rejada mavjud</div>
             </div>
             <button onClick={()=>setTab("obuna")} style={{padding:"8px 16px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Obuna</button>
           </div>
@@ -1005,6 +1005,17 @@ function AiSummary({analytics,avg}) {
   );
 }
 
+function FeatureLock({title,setTab}) {
+  return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40,textAlign:"center"}}>
+      <Lock size={40} color={C.textLight}/>
+      <div style={{fontSize:20,fontWeight:800,color:C.text}}>{title} Premium rejada</div>
+      <div style={{fontSize:14,color:C.textMid,maxWidth:420}}>Bepul rejada faqat video darslarni ko'rish mumkin. Barcha imkoniyatlar uchun Premium'ga o'ting.</div>
+      <button onClick={()=>setTab("obuna")} style={{padding:"12px 28px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Obuna & Narxlar</button>
+    </div>
+  );
+}
+
 function AnalyticsScreen({session,analytics,setTab}){
   if(!session) return (
     <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
@@ -1186,8 +1197,8 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
       <div style={{maxWidth:640,background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:24,display:"flex",alignItems:"center",gap:16}}>
         <Lock size={28} color="#94A3B8"/>
         <div style={{flex:1}}>
-          <div style={{color:"#fff",fontWeight:800,fontSize:15}}>Test Generator Standart rejada mavjud</div>
-          <div style={{color:"#94A3B8",fontSize:12.5,marginTop:4}}>43 talik to'liq testni faqat Standart obunachilar generatsiya qila oladi</div>
+          <div style={{color:"#fff",fontWeight:800,fontSize:15}}>Test Generator Premium rejada mavjud</div>
+          <div style={{color:"#94A3B8",fontSize:12.5,marginTop:4}}>43 talik to'liq testni faqat Premium obunachilar generatsiya qila oladi</div>
         </div>
         <button onClick={()=>setTab("obuna")} style={{padding:"9px 16px",borderRadius:9,background:C.mint,color:C.primary,border:"none",fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>Obuna bo'lish</button>
       </div>
@@ -1345,7 +1356,7 @@ function SubscriptionScreen({plan,session,setTab}) {
   const handleClick = p => {
     if(p.id==="free") return;
     if(!session){ setTab("profile"); return; }
-    setBuyPlan({id:p.id,name:p.name,priceNum:p.id==="premium"?250000:49900});
+    setBuyPlan({id:p.id,name:p.name,priceNum:p.id==="premium"?200000:49900});
   };
   return (
     <div style={{padding:"26px 30px"}}>
@@ -1363,7 +1374,7 @@ function SubscriptionScreen({plan,session,setTab}) {
         </div>
       )}
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",gap:18,marginBottom:30,maxWidth:1080,marginLeft:"auto",marginRight:"auto"}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18,marginBottom:30,maxWidth:820,marginLeft:"auto",marginRight:"auto"}}>
         {PLANS.map(p=>{
           const current=plan===p.id; const isHov=hover===p.id;
           return (
@@ -1375,11 +1386,11 @@ function SubscriptionScreen({plan,session,setTab}) {
                 {current&&<div style={{position:"absolute",top:p.badge?42:14,right:14,display:"flex",alignItems:"center",gap:5,background:p.color,color:"#fff",fontSize:10,fontWeight:800,padding:"3px 9px",borderRadius:20}}><CheckCircle2 size={10}/> Joriy reja</div>}
                 <div style={{fontSize:28,fontWeight:900,marginBottom:3,color:p.color}}>{p.name}</div>
                 <div style={{display:"flex",alignItems:"baseline",gap:4,marginBottom:4}}>
-                  <span style={{fontSize:p.price==="0"?24:26,fontWeight:900,color:C.text}}>{p.price==="0"?"Bepul":p.price}</span>
+                  {p.oldPrice&&<span style={{fontSize:16,color:C.textLight,textDecoration:"line-through",marginRight:4}}>{p.oldPrice}</span>}<span style={{fontSize:p.price==="0"?24:26,fontWeight:900,color:C.text}}>{p.price==="0"?"Bepul":p.price}</span>
                   {p.price!=="0"&&<span style={{fontSize:13,color:C.textMid,fontWeight:500}}>{p.period}</span>}
                 </div>
                 {p.price==="0"&&<div style={{fontSize:12,color:C.textMid,marginBottom:16}}>Hech qanday to'lovsiz</div>}
-                {p.price!=="0"&&<div style={{fontSize:12,color:C.textMid,marginBottom:16}}>Har oy avtomatic yangilanadi</div>}
+                {p.price!=="0"&&<div style={{fontSize:12,color:C.textMid,marginBottom:16}}>30 kunga amal qiladi</div>}
                 <div style={{marginBottom:20}}>
                   {p.features.map((f,i)=>(
                     <div key={i} style={{display:"flex",alignItems:"center",gap:9,marginBottom:9}}>
@@ -1530,7 +1541,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{display:"flex",alignItems:"center",gap:12}}>
             <div style={{flex:1,background:pi.bg,borderRadius:10,padding:"12px 14px",border:`1px solid ${pi.color}30`}}>
               <div style={{fontSize:15,fontWeight:900,color:pi.color,marginBottom:2}}>{pi.name} reja</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · Cheklangan imkoniyatlar":plan==="premium"?"Premium · hammasi ochiq":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · faqat video darslar":plan==="premium"?"Premium · hammasi ochiq":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
             </div>
             {plan==="free"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
@@ -1649,7 +1660,7 @@ export default function App() {
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)} onBack={()=>{setTab(teacher.section==="dtm"?"dtm":"collections");setVarId(null);}}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
-        {tab==="analytics"&&<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>}
+        {tab==="analytics"&&(plan==="free"?<FeatureLock title="Tahlil & Grafik" setTab={setTab}/>:<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>)}
         {tab==="survey"&&<Survey session={session} setTab={setTab}/>}
         {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} teachers={teachers} plan={plan} setTab={setTab} session={session}/>}

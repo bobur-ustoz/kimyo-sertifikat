@@ -5,6 +5,10 @@
 export const premiumActive = (profile) =>
   profile?.plan === "premium" && (!profile.plan_expires_at || new Date(profile.plan_expires_at) > new Date());
 
+// Any paid plan that has not run out (Premium, or a legacy Standart account).
+export const paidPlanActive = (profile) =>
+  !!profile?.plan && profile.plan !== "free" && (!profile.plan_expires_at || new Date(profile.plan_expires_at) > new Date());
+
 export async function canUseQuestion(admin, userId, questionId) {
   const { data: q } = await admin.from("questions").select("variant_id, variants(is_free)").eq("id", questionId).maybeSingle();
   if (!q) return { ok: false, status: 404, error: "Savol topilmadi" };
