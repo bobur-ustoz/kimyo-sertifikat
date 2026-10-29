@@ -13,7 +13,7 @@ import { splitOptions } from "./analogPdf";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator",ok:true},{t:"Mavzular bo'limi",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator (faqat DTM bo'yicha)",ok:true},{t:"Mavzular bo'limi",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
   { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Mavzular bo'limi",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering (hamma videolarda)",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
 ];
 
@@ -1124,7 +1124,8 @@ function AnalyticsScreen({session,analytics,setTab}){
 
 // ── TEST GENERATOR (with AI Adaptive) ────────────────────────────
 function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
-  const [mode,setMode]=useState(teacher?.section==="dtm"?"dtm":"milliy"); // milliy | dtm | topic
+  const isFree = plan==="free";   // the free plan may only build DTM tests
+  const [mode,setMode]=useState(isFree||teacher?.section==="dtm"?"dtm":"milliy"); // milliy | dtm | topic
   const [srcIds,setSrcIds]=useState(teacher?[teacher.id]:[]);
   const [from,setFrom]=useState(1);
   const [to,setTo]=useState(4);
@@ -1257,7 +1258,7 @@ function TestGenerator({teacher,teachers=[],plan,setTab,session}) {
         </div>
         <div style={{display:"flex",gap:6,marginBottom:14,background:"#F1F5F9",padding:4,borderRadius:11}}>
           {[["milliy","Milliy Sertifikat"],["dtm","DTM"],["topic","Mavzular"]].map(([id,l])=>(
-            <button key={id} onClick={()=>{setMode(id);setSrcIds([]);setError("");}} style={{flex:1,padding:"9px",borderRadius:8,border:"none",background:mode===id?"#fff":"transparent",color:mode===id?C.primary:C.textMid,fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit",boxShadow:mode===id?"0 1px 4px rgba(0,0,0,0.1)":"none"}}>{l}</button>
+            <button key={id} onClick={()=>{ if(isFree&&id!=="dtm"){ setError("Milliy Sertifikat va Mavzular bo'yicha test Premium rejada. Bepulda faqat DTM bo'yicha test tuzish mumkin."); return; } setMode(id);setSrcIds([]);setError("");}} style={{flex:1,padding:"9px",borderRadius:8,border:"none",background:mode===id?"#fff":"transparent",color:mode===id?C.primary:C.textMid,fontWeight:800,fontSize:13,cursor:"pointer",fontFamily:"inherit",opacity:isFree&&id!=="dtm"?0.55:1,boxShadow:mode===id?"0 1px 4px rgba(0,0,0,0.1)":"none"}}>{l}{isFree&&id!=="dtm"?" 🔒":""}</button>
           ))}
         </div>
         <div style={{background:"#fff",borderRadius:14,padding:"20px",border:`1px solid ${C.border}`,boxShadow:"0 1px 6px rgba(0,0,0,0.05)"}}>
