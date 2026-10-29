@@ -738,8 +738,9 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
       .then(({data})=>{ setAnalog(data||null); setAnalogLoading(false); });
   },[curQ?.id]);
 
-  const allowed = canUse(plan,"analog");
   const unlocked = variantUnlocked(variant,plan,purchases);
+  // Analog questions are Premium, except inside DTM variants the student can open.
+  const allowed = canUse(plan,"analog") || (teacher?.section==="dtm" && unlocked);
   const pending = purchases?.[variant?.id]==="pending";
   return (
     <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
