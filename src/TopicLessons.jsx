@@ -201,7 +201,7 @@ function Analog({ex}){
   );
 }
 
-function TopicPage({topic,Player,session,setTab,onBack}){
+function TopicPage({topic,Player,session,setTab,onBack,plan}){
   const [examples,setExamples]=useState([]);
   const [active,setActive]=useState(null); // example_number, null = topic video
   const [time,setTime]=useState(0);
@@ -221,7 +221,7 @@ function TopicPage({topic,Player,session,setTab,onBack}){
 
       <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
       <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
-        {ex&&<Analog ex={ex}/>}
+        {ex&&plan!=="free"&&<Analog ex={ex}/>}
         <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
       </div>
 
@@ -249,14 +249,14 @@ function TopicPage({topic,Player,session,setTab,onBack}){
   );
 }
 
-export default function TopicLessons({Player,session,setTab}){
+export default function TopicLessons({Player,session,setTab,plan}){
   const [topics,setTopics]=useState(null);
   const [sel,setSel]=useState(null);
   useEffect(()=>{
     supabase.from("topics").select("id,name,bunny_video_id").order("sort_order").order("created_at")
       .then(({data})=>setTopics(data||[]));
   },[]);
-  if(sel) return <TopicPage topic={sel} Player={Player} session={session} setTab={setTab} onBack={()=>setSel(null)}/>;
+  if(sel) return <TopicPage topic={sel} Player={Player} session={session} setTab={setTab} plan={plan} onBack={()=>setSel(null)}/>;
   return (
     <div style={{padding:"26px 30px"}}>
       <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>Mavzular</h1>

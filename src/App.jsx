@@ -13,8 +13,8 @@ import { splitOptions } from "./analogPdf";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator (faqat DTM bo'yicha)",ok:true},{t:"Mavzular bo'limi",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
-  { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Mavzular bo'limi",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering (hamma videolarda)",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator (faqat DTM bo'yicha)",ok:true},{t:"Mavzular: faqat video ko'rish",ok:true},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
+  { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Mavzular: AI va analog misollar bilan",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering (hamma videolarda)",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
 ];
 
 
@@ -1661,7 +1661,7 @@ export default function App() {
         )}
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)} onBack={()=>{setTab(teacher.section==="dtm"?"dtm":"collections");setVarId(null);}}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
-        {tab==="topics"&&(plan==="free"?<FeatureLock title="Mavzular" setTab={setTab}/>:<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>)}
+        {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab} plan={plan}/>}
         {tab==="analytics"&&(plan==="free"?<FeatureLock title="Tahlil & Grafik" setTab={setTab}/>:<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>)}
         {tab==="survey"&&<Survey session={session} setTab={setTab}/>}
         {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}
