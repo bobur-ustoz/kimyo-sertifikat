@@ -207,6 +207,6 @@ def w43_alloy3(r):
      "%s + 2NaOH → %s↓ + 2NaCl; %s: **%s g**"%(B+'Cl2',hyd0,('4Fe(OH)2 + O2 + 2H2O → 4Fe(OH)3' if B=='Fe' else 'Mg(OH)2 o\'zgarmaydi'),f2(ppt)),
      "2Cu(NO3)2 → 2CuO + 4NO2 + O2: CuO %s mol = **%s g**; gazlar %s mol → **%s l**"%(f2(c),f2(c*80),f2(2.5*c,3),f2(2.5*c*22.4))]
     nhcl=2*(a*hA+b)
-    bands.append("Ushbu aralashma (butun massasi) to'liq reaksiyaga kirishishi uchun 20 % li HCl eritmasidan necha gramm kerak (mis reaksiyaga kirishmaydi)?"); sol.append("n(HCl) = 2·(%s + %s) = %s mol → m = %s·36,5/0,2 = **%s g**"%(fmt(a*hA,2),fmt(b,2),fmt(nhcl,2),fmt(nhcl,2),fmt(nhcl*36.5/0.2,1)))
+    bands.append("Ushbu aralashma (butun massasi) to'liq reaksiyaga kirishishi uchun 20 % li HCl eritmasidan necha gramm kerak?"); sol.append("n(HCl) = 2·(%s + %s) = %s mol → m = %s·36,5/0,2 = **%s g**"%(fmt(a*hA,2),fmt(b,2),fmt(nhcl,2),fmt(nhcl,2),fmt(nhcl*36.5/0.2,1)))
     return W("43",text,bands,sol,SC41)
 W43N=[w43_nit2,w43_anion,w43_alloy3]

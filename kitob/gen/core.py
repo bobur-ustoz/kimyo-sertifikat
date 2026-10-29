@@ -77,5 +77,6 @@ def numq(text,ans,wrongs,sol,src,nd=None,kind='calc',rng=None,unit=''):
         if len(ws)>=3: break
         t=fmt(round(b,nd if nd is not None else 4),nd)
         if t!=a and t not in ws and b>0: ws.append(t)
-    return Q(text,a,ws[:3],sol,src,kind)
+    q=Q(text,a,ws[:3],sol,src,kind); q.exact=abs(ans*100-round(ans*100))<1e-6
+    return q
 def pick(rng,seq): return seq[rng.randrange(len(seq))]

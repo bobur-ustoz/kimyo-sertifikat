@@ -22,7 +22,14 @@ export default async function handler(req, res) {
   const admin = createClient(url, serviceKey);
   // The saved AI answers are part of the Premium assistant: the free plan gets none.
   const { data: prof } = await admin.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userData.user.id).maybeSingle();
-  if (!prof?.is_admin && !paidPlanActive(prof)) return res.status(200).json({ items: [] });
+  if (!prof?.is_admin && !paidPlanActive(prof)) {
+    let freeDtm = false;
+    if (questionId) {
+      const { data: qv } = await admin.from("questions").select("variants(is_free, teachers(section))").eq("id", questionId).maybeSingle();
+      freeDtm = !!qv?.variants?.is_free && qv.variants.teachers?.section === "dtm";
+    }
+    if (!freeDtm) return res.status(200).json({ items: [] });
+  }
   const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
   if (questionId) {
     const access = await canUseQuestion(admin, userData.user.id, questionId);

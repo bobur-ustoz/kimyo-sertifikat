@@ -49,7 +49,15 @@ export default async function handler(req, res) {
   const admin = createClient(url, serviceKey);
   // Asking the AI is a Premium feature (the free plan is video-only).
   const { data: prof } = await admin.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userData.user.id).maybeSingle();
-  if (!prof?.is_admin && !paidPlanActive(prof)) return res.status(403).json({ error: "AI'ga savol berish Premium rejada. Obuna & Narxlar bo'limiga o'ting." });
+  if (!prof?.is_admin && !paidPlanActive(prof)) {
+    // Exception: the free DTM variant (2019) is open to everyone, AI included.
+    let freeDtm = false;
+    if (questionId) {
+      const { data: qv } = await admin.from("questions").select("variants(is_free, teachers(section))").eq("id", questionId).maybeSingle();
+      freeDtm = !!qv?.variants?.is_free && qv.variants.teachers?.section === "dtm";
+    }
+    if (!freeDtm) return res.status(403).json({ error: "AI'ga savol berish Premium rejada. Obuna & Narxlar bo'limiga o'ting." });
+  }
   const col = topicId ? "topic_id" : exampleId ? "example_id" : "question_id";
   const target = topicId || exampleId || questionId;
   if (questionId) {

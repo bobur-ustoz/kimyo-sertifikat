@@ -47,11 +47,17 @@ export function AskAI({session,target,setTab,time,playerRef}){
   const [locked,setLocked]=useState(false);   // free plan: the assistant is a Premium feature
   useEffect(()=>{
     if(!session){ setLocked(false); return; }
-    supabase.from("profiles").select("plan,plan_expires_at,is_admin").eq("id",session.user.id).maybeSingle().then(({data})=>{
+    (async()=>{
+      const { data } = await supabase.from("profiles").select("plan,plan_expires_at,is_admin").eq("id",session.user.id).maybeSingle();
       const active=!!data&&!!data.plan&&data.plan!=="free"&&(!data.plan_expires_at||new Date(data.plan_expires_at)>new Date());
-      setLocked(!!data&&!data.is_admin&&!active);
-    });
-  },[session?.user?.id]);
+      let freeDtm=false;
+      if(target.questionId){
+        const { data:qv } = await supabase.from("questions").select("variants(is_free,teachers(section))").eq("id",target.questionId).maybeSingle();
+        freeDtm=!!qv?.variants?.is_free&&qv.variants.teachers?.section==="dtm";
+      }
+      setLocked(!!data&&!data.is_admin&&!active&&!freeDtm);
+    })();
+  },[session?.user?.id,target.questionId]);
   useEffect(()=>{ setThread([]); setErr(""); setQ(""); setAllOpen(false); },[key]);
   useEffect(()=>{
     setFaq([]);

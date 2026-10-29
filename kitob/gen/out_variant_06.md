@@ -6,155 +6,141 @@
 
 ### UMUMIY KIMYO (1–13)
 
-**1.** Rasmda kristall panjara tuzilishi tasvirlangan.
+**1.** Quyidagi moddalarning qaysilarida ion bog' mavjud? 1) (NH4)2SO4; 2) NH4Cl; 3) H2O; 4) NaCl
+A) 1, 2, 4  B) 1, 2, 3  C) 3, 4  D) 1, 3
 
-![Kristall panjara](rasmlar/gen/la_142898.png)
+**2.** Rasmda kristall panjara tuzilishi tasvirlangan.
 
-Shunday panjarali moddalar uchun qaysi xususiyat xos?
-A) Yuqori suyuqlanish harorati, suyuqlanmasi elektr tokini o'tkazadi
-B) Past suyuqlanish harorati, uchuvchan
-C) Juda qattiq, suyuqlanish harorati juda yuqori
-D) Elektr tokini yaxshi o'tkazadi, plastik
+![Kristall panjara](rasmlar/gen/la_638325.png)
 
-**2.** 4 g metall oksidlanganda 5,6 g oksid hosil bo'ldi. Metallning ekvivalent massasini (g/mol) aniqlang.
-A) 40  B) 20  C) 10  D) 30
+Bu panjara qaysi turga kiradi?
+A) ion kristall panjara  B) molekulyar kristall panjara  C) atom kristall panjara  D) metall kristall panjara
 
-**3.** Radioaktiv izotop yadrolari sonining vaqtga bog'liqligi grafikda berilgan.
+**3.** CuCl2 ning suvli eritmasi inert elektrodlar bilan elektroliz qilinganda qaysi moddalar ajraladi?
+A) Zn, H2 va O2  B) H2, Cl2 va NaOH  C) Cu va Cl2  D) Ag va O2
+
+**4.** Kislorod (Z = 8) atomida nechta juftlashmagan elektron bor?
+A) 2  B) 3  C) 1  D) 4
+
+**5.** Quyidagi zarrachalardan qaysilari argon atomi bilan izoelektron? 1) Ca²⁺; 2) N³⁻; 3) Cl⁻; 4) Mg²⁺
+A) 3, 4  B) 1, 4  C) 1, 3  D) 1, 2, 3
+
+**6.** Radioaktiv izotop yadrolari sonining vaqtga bog'liqligi grafikda berilgan.
 
 ![Grafik: radioaktiv yemirilish](rasmlar/gen/de_v06_0.png)
 
-20 kundan keyin necha mln yadro yemirilgan bo'ladi?
-A) 20  B) 60  C) 40  D) 80
+4·T vaqtdan keyin dastlabki yadrolarning necha foizi qoladi?
+A) 25  B) 12,5  C) 3,12  D) 6,25
 
-**4.** C6H5CH3 molekulasidagi σ va π bog'lar sonini aniqlang.
-A) 15 va 3  B) 14 va 3  C) 15 va 4  D) 16 va 3
+**7.** Al + HNO3 → Al(NO3)3 + NO + H2O reaksiya tenglamasini tenglang va barcha koeffitsiyentlar yig'indisini aniqlang.
+A) 10  B) 8  C) 11  D) 9
 
-**5.** Jadvalda Mn elementining birikmalaridagi oksidlanish darajasi berilgan:
+**8.** Fe plastinka CuSO4 eritmasiga tushirildi. Reaksiya tugagach, plastinka massasi 0,8 g ga ortdi. Erigan Fe plastinka massasini (g) aniqlang.
+A) 6,4  B) 0,8  C) 11,2  D) 5,6
 
-| Modda | Oksidlanish darajasi |
-|---|---|
-| K2MnO4 | +6 |
-| MnO2 | +4 |
-| KMnO4 | +7 |
-| MnSO4 | +2 |
+**9.** Metallning 5,6 g massasi oksidlanganda 7,2 g oksid hosil bo'ldi. Shu metallning 11,2 g miqdori kislotadan qancha hajm (l, n.sh.) vodorodni siqib chiqaradi? (Ekvivalent hajm V_E(H2) = 11,2 l/mol)
+A) 2,24  B) 8,96  C) 4,48  D) 6,72
 
-Ushbu moddalardan nechtasida Mn elementi ham oksidlovchi, ham qaytaruvchi xossani namoyon qiladi? (Mn uchun eng past oksidlanish darajasi 0, eng yuqorisi +7)
-A) 3  B) 4  C) 5  D) 1
+**10.** Reaksiya tezligining harorat koeffitsiyenti γ = 4. 20 °C da reaksiya 32 minutda tugasa, 60 °C da necha sekundda tugaydi?
+A) 7,5  B) 491520  C) 30  D) 0,125
 
-**6.** Gazlar aralashmasi tarkibi jadvalda berilgan (n.sh.):
-
-| Gaz | Hajmi, l |
-|---|---|
-| H2 | 3 |
-| NH3 | 2 |
-| CH4 | 3 |
-
-Aralashmaning havoga nisbatan zichligini aniqlang (M(havo) = 29 g/mol).
-A) 0,76  B) 0,19  C) 0,38  D) 11
-
-**7.** K2CO3 ning suvli eritmasi inert elektrodlar bilan elektroliz qilinganda qaysi moddalar ajraladi?
-A) Zn, H2 va O2  B) H2 va O2  C) Cu va Cl2  D) Ag va O2
-
-**8.** S + HNO3 → H2SO4 + NO reaksiya tenglamasini tenglang va barcha koeffitsiyentlar yig'indisini aniqlang.
-A) 7  B) 5  C) 8  D) 6
-
-**9.** Zn plastinka 33,1 g Pb(NO3)2 ni tutgan eritmaga tushirildi va Pb to'liq ajralib chiqquncha ushlab turildi. Plastinka massasi necha gramm ortadi?
-A) 28,4  B) 7,1  C) 33,1  D) 14,2
-
-**10.** Massasi 7 g bo'lgan gaz 27 °C va 0,5 atm bosimda 12,3 l hajm egallaydi. Gazning vodorodga nisbatan zichligini aniqlang. (R = 0,082 l·atm/(mol·K))
-A) 14  B) 28  C) 7  D) 56
-
-**11.** Quyidagi zarrachalardan qaysilari argon atomi bilan izoelektron? 1) Ca²⁺; 2) K⁺; 3) Cl⁻; 4) Li⁺
-A) 1, 2  B) 1, 2, 3  C) 1, 2, 4  D) 1, 3
-
-**12.** 30-tartib raqamli element atomida n = 3 va l = 2 bo'lgan elektronlar sonini aniqlang.
-A) 11  B) 10  C) 9  D) 12
-
-**13.** X moddaning parchalanish reaksiyasida konsentratsiyaning vaqt bo'yicha o'zgarishi jadvalda berilgan:
+**11.** N2O5 moddaning parchalanish reaksiyasida konsentratsiyaning vaqt bo'yicha o'zgarishi jadvalda berilgan:
 
 | t, min | c, mol/l |
 |---|---|
-| 0 | 2,4 |
-| 2 | 1,92 |
-| 4 | 1,44 |
-| 6 | 0,96 |
+| 0 | 1,6 |
+| 2 | 1,36 |
+| 4 | 1,12 |
+| 6 | 0,88 |
 
-0-minutdan 2-minutgacha o'rtacha tezlikni mol/(l·min) hisoblang.
-A) 0,48  B) 0,12  C) 1,2  D) 0,24
+0-minutdan 6-minutgacha o'rtacha tezlikni mol/(l·min) hisoblang.
+A) 0,12  B) 0,24  C) 0,06  D) 0,72
+
+**12.** Noma'lum X tuzining eruvchanligi (g/100 g suv) haroratga bog'liq jadvalda keltirilgan:
+
+| t, °C | 0 | 20 | 40 | 60 |
+|---|---|---|---|---|
+| S, g/100 g suv | 22 | 30 | 40 | 55 |
+
+60 °C da tayyorlangan to'yingan 465 g eritma 20 °C gacha sovitildi. Cho'kmaga tushgan tuz massasini (g) aniqlang.
+A) 165  B) 75  C) 90  D) 150
+
+**13.** C2H6 ⇌ C2H4 + H2 reaksiyasi doimiy harorat va bosimda olib borildi; boshlang'ich modda qisman o'zgargach gazlar hajmi 6/5 marta ortdi. Boshlang'ich modda necha foizi o'zgarganini aniqlang.
+A) 10  B) 20  C) 40  D) 80
 
 
 ### ANORGANIK KIMYO (14–19)
 
 **14.** Qaysi juftliklar o'zaro reaksiyaga kirishadi? 1) SiO2 va H2O; 2) Ag va H2SO4(suyult.); 3) MgCl2 va KNO3; 4) Fe va HCl
-A) 2, 3  B) 1  C) 3, 4  D) 4
+A) 2, 3  B) 1  C) 4  D) 3, 4
 
-**15.** 37,8 g Zn(NO3)2 to'liq parchalanguncha qizdirildi. Qattiq qoldiq massasini (g) aniqlang.
-A) 16,2  B) 37,8  C) 32,4  D) 8,1
+**15.** 11,2 l (n.sh.) ammiakdan nitrat kislota olindi (jami unum 90 %). Barcha reaksiyalar 1 atm bosimda olib borildi. Kislota massasini (g) aniqlang.
+A) 31,5  B) 56,7  C) 14,18  D) 28,35
 
-**16.** 0,2 mol NaOH tutgan eritmadan 0,15 mol CO2 o'tkazildi. Hosil bo'lgan NaHCO3 massasini (g) aniqlang.
-A) 8,4  B) 4,2  C) 2,1  D) 8
+**16.** Probirkalardagi eritmalar: Na2SO4, Na2CO3, NaCl ni alohida probirkalarda ajratish uchun qaysi reagent(lar) yetarli? 1) BaCl2 va fenolftalein; 2) HCl va BaCl2; 3) fenolftalein; 4) lakmus va fenolftalein
+A) 4  B) 2, 3, 4  C) 3, 4  D) 1, 2
 
-**17.** Reaksiya tenglamasi: 2NaCl + H2SO4 → Na2SO4 + 2HCl. Reaksiyaga 196 g H2SO4 kirishdi. HCl massasini (g) hisoblang.
-A) 36,5  B) 292  C) 146  D) 73
+**17.** Si va SiO2 dan iborat 8,8 g aralashma mo'l NaOH eritmasi bilan qizdirilganda 4,48 l (n.sh.) vodorod ajraldi. Reagent (NaOH) eritmasining massa ulushi 50 % va zichligi 1,18 g/ml; u mo'l miqdorda olingan. Aralashmani to'liq eritish uchun sarflangan NaOH massasini (g) hisoblang.
+A) 8  B) 16  C) 32  D) 24
 
-**18.** Li va K dan iborat 6 g aralashma suv bilan reaksiyaga kirishdi. Ajralgan vodorodning hajmini (l, n.sh.) aniqlang.
-A) 4,48  B) 8,96  C) 2,24  D) 3
+**18.** Ca va CaC2 dan iborat aralashma suv bilan ta'sirlashganda 8,96 l (n.sh.) gaz aralashmasi ajraldi, uning vodorodga nisbatan zichligi 7. Dastlabki aralashmaning massasini (g) hisoblang.
+A) 41,6  B) 10,4  C) 20,8  D) 31,2
 
-**19.** Alyuminiy (0,2 mol) va magniy (0,2 mol) aralashmasi mo'l xlorid kislotada eritildi. Ajralgan vodorodning hajmini (l, n.sh.) aniqlang.
-A) 11,2  B) 8,96  C) 22,4  D) 5,6
+**19.** NO va O2 dan iborat 120 ml aralashma (hajmlar bir xil sharoitda) o'zaro ta'sirlashgandan so'ng hajmi 90 ml bo'lib qoldi (NO to'liq reaksiyaga kirishdi, kislorod ortiqcha). Dastlabki aralashmadagi NO ning hajmiy ulushini (%) aniqlang.
+A) 50  B) 66,67  C) 25  D) 100
 
 
 ### ORGANIK KIMYO (20–29)
 
-**20.** CH3–CH(CH3)–CH(C2H5)–CH2–CH3 birikmaning sistematik nomi qaysi qatorda to'g'ri keltirilgan?
-A) 2-metil-3-etilpentan  B) 3-izopropilpentan  C) 3-etil-2-metilpentan  D) 2,3-dietilbutan
+**20.** Alken, alkadiyen va alkinlar haqida qaysi fikrlar to'g'ri? 1) Alkinlar uchun umumiy formula CnH2n+2; 2) Kauchuk izoprenning polimeri; 3) Etilen bromli suvni rangsizlantiradi; 4) Alkenlarda π-bog' yo'q
+A) 1, 3, 4  B) 3, 4  C) 1, 3  D) 2, 3
 
-**21.** Alken, alkadiyen va alkinlar haqida qaysi fikrlar to'g'ri? 1) Asetilen Ag2O ning ammiakli eritmasi bilan cho'kma beradi (butin-2 beradi); 2) Etilen sanoatda kreking gazlaridan olinadi; 3) Alkinlar uchun umumiy formula CnH2n+2; 4) Kauchuk izoprenning polimeri
-A) 1, 3  B) 1, 4  C) 2, 4  D) 1, 3, 4
+**21.** Karbon kislotalar haqida qaysi fikrlar to'g'ri? 1) Benzoy kislota Na2CO3 bilan reaksiyaga kirishmaydi; 2) Chumoli kislota "kumush ko'zgu" reaksiyasini beradi; 3) Sirka angidrid ikki molekula sirka kislotadan suv chiqib hosil bo'ladi; 4) Sirka kislota karbonatlar bilan CO2 ajratadi
+A) 1, 3  B) 2, 3, 4  C) 1, 2, 4  D) 1, 3, 4
 
-**22.** 18,8 g fenoldan 2,4,6-tribromfenol olishda unum 75 % bo'lsa, mahsulot massasini (g) aniqlang.
-A) 66,2  B) 99,3  C) 14,1  D) 49,65
+**22.** Quyidagi birikmalardan qaysi biri spirt sinfiga kiradi?
+A) C6H5NH2  B) C2H5OH  C) CH3NO2  D) CH3COCH3
 
-**23.** C6H5OH + 3Br2 → C6H2Br3OH + 3HBr reaksiyasida 9,4 g C6H5OH ishtirok etdi. C6H2Br3OH miqdorini (mol) toping.
-A) 0,1  B) 0,2  C) 0,05  D) 0,15
+**23.** 78 g benzol nitrolandi (unum 80 %), hosil bo'lgan nitrobenzol Zinin reaksiyasi bo'yicha qaytarildi (unum 90 %). Barcha reaksiyalar 1,5 atm bosimda olib borildi. Olingan anilin massasini (g) hisoblang.
+A) 67  B) 133,9  C) 33,5  D) 93
 
-**24.** 11,6 g propanal Ag2O ning ammiakli eritmasi bilan to'liq oksidlanganda hosil bo'lgan kumush massasini (g) aniqlang.
-A) 21,6  B) 43,2  C) 86,4  D) 11,6
+**24.** Formaldegid va propanal aralashmasi (7,3 g) mo'l ammiakli kumush oksid eritmasi bilan qizdirilganda 43,2 g kumush ajraldi. Qizdirish 60 daqiqa davom etdi. Aralashmadagi propanalning massasini (g) aniqlang.
+A) 5,8  B) 1,5  C) 11,6  D) 3,7
 
-**25.** 60 g CH3COOH dan quyidagi ikki bosqichda Na2CO3 olinadi:
-1) CH3COOH + NaOH → CH3COONa + H2O (unum 90 %);
-2) CH3COONa + NaOH → CH4 + Na2CO3 (unum 50 %).
-Oxirgi mahsulot Na2CO3 ning massasini (g) toping.
-A) 53  B) 95,4  C) 47,7  D) 106
+**25.** 180 g glukoza spirtli bijg'ishga uchradi (unum 80 %). Ajralgan gaz mo'l ohakli suvdan o'tkazilganda necha gramm cho'kma hosil bo'ladi?
+A) 200  B) 80  C) 320  D) 160
 
-**26.** 60 g CH3COOH dan quyidagi ikki bosqichda CH3COONa olinadi:
-1) CH3COOH + C2H5OH → CH3COOC2H5 + H2O (unum 60 %);
-2) CH3COOC2H5 + NaOH → CH3COONa + C2H5OH (unum 50 %).
-Oxirgi mahsulot CH3COONa ning massasini (g) toping.
-A) 41  B) 24,6  C) 49,2  D) 82
+**26.** C2H4 va C3H8 aralashmasi tarkibida C2H4 va C3H8 ning massalari nisbati 14 : 33. Shu aralashmani yondirish uchun 47,04 l (n.sh.) kislorod sarflandi. Aralashmadagi C2H4 ning massasini (g) toping.
+A) 13,2  B) 5,6  C) 11,2  D) 9,4
 
-**27.** Uglevodlar haqida qaysi fikrlar to'g'ri? 1) Kraxmal va selluloza bir xil M ga ega; 2) Saxaroza Feling suyuqligini qaytaradi; 3) Maltoza gidrolizlanganda ikki molekula glyukoza hosil qiladi; 4) Glyukoza "kumush ko'zgu" reaksiyasini beradi
-A) 3, 4  B) 1, 3  C) 2  D) 2, 3
+**27.** 120 g CH3COOH dan quyidagi sxema bo'yicha 42,07 g glitsilglitsin olindi: CH3COOH → ClCH2COOH → H2N–CH2–COOH → dipeptid. Dastlabki 2 bosqichning unumi ketma-ket 75 %, 50 % ga teng. Oxirgi bosqichning unumini (%) aniqlang.
+A) 42  B) 15  C) 68  D) 85
 
-**28.** Quyidagi birikmalardan qaysi biri fenol sinfiga kiradi?
-A) H2NCH2COOH  B) CH3CHO  C) C6H12O6  D) C6H5OH
+**28.** 46 g C2H5OH dan quyidagi sxema bo'yicha 39,68 g etilenglikol olindi: C2H5OH → C2H4 → HOCH2–CH2OH. Dastlabki 1 bosqichning unumi ketma-ket 80 % ga teng. Barcha reaksiyalar 1 atm bosimda olib borildi. Oxirgi bosqichning unumini (%) aniqlang.
+A) 40  B) 20  C) 80  D) 64
 
-**29.** Izobutilen monomeridan olingan polimerning molyar massasi 140000 g/mol. Polimerlanish darajasini aniqlang.
-A) 5000  B) 1250  C) 2500  D) 2510
+**29.** 61,5 g C6H5NO2 dan quyidagi sxema bo'yicha 27,52 g fenilammoniy xlorid olindi: C6H5NO2 → C6H5NH2 → [C6H5NH3]Cl. Dastlabki 1 bosqichning unumi ketma-ket 50 % ga teng. Barcha reaksiyalar 1 atm bosimda olib borildi. Oxirgi bosqichning unumini (%) aniqlang.
+A) 42  B) 85  C) 15  D) 68
 
 
 ### KIMYOVIY TAHLIL (30–32)
 
-**30.** Rasmdagi tajribada etanolga konsentrlangan H2SO4 ning vazifasi nima?
+**30.** Kimyoviy laboratoriyada ajratgich voronka nima uchun ishlatiladi?
+A) aralashmaydigan suyuqliklarni ajratish
+B) gaz (H₂, CO₂, H₂S) olish
+C) vakuum ostida filtrlash
+D) eritmalarni bug'latish
+
+**31.** Rasmdagi asbobda 23 g etanol konsentrlangan H2SO4 bilan 170 °C da qizdirilib, 90 % unum bilan etilen olindi. Hosil bo'lgan etilen hajmini (l, n.sh.) aniqlang.
 
 ![Etilen olish](rasmlar/darslik/d_etilen.png)
-A) oksidlovchi, etilenni oksidlaydi  B) faqat erituvchi  C) reaksiyada ishtirok etmaydi  D) suv tortuvchi va katalizator
+A) 11,2  B) 20,16  C) 10,08  D) 5,04
 
-**31.** Kimyo laboratoriyasida ishlash qoidalari haqida qaysi fikrlar to'g'ri? 1) Zaharli gaz ajraladigan tajriba mo'rili shkafda o'tkaziladi; 2) Kimyoviy moddalar hidini bevosita nafas olib aniqlash kerak; 3) Suvni konsentrlangan kislotaga tez quyish mumkin; 4) Ortiqcha reaktiv idishga qaytariladi
-A) 1, 4  B) 1, 3  C) 1  D) 4
-
-**32.** 400 g 4 % li CuSO4 eritmasini CuSO4·5H2O dan tayyorlash uchun necha gramm kristallogidrat kerak?
-A) 16  B) 50  C) 12,5  D) 25
+**32.** Benzol va toluol eritmalarini (moddalarini) bir-biridan qaysi reagent yordamida farqlash mumkin?
+A) brom suvi
+B) FeCl3 eritmasi
+C) kislotali KMnO4 eritmasi (qizdirilganda)
+D) natriy gidroksid
 
 
 ---
@@ -162,57 +148,55 @@ A) 16  B) 50  C) 12,5  D) 25
 ## II QISM. MOSLASHTIRISH (33–35)
 
 **33–35.** Topshiriqlarga mos javoblarni A–F variantlaridan tanlang.
-CuO va Fe2O3 dan iborat 32 g aralashma qizdirilib, H2 oqimida to'liq qaytarildi; qoldiq (metallar) massasi 24 g.
+0,4 mol/l li AgNO3 eritmasining 500 ml i inert elektrodlar yordamida 5 A tok kuchi bilan 965 s elektroliz qilindi (eritma hajmi o'zgarmadi deb hisoblang), so'ngra eritmaga mo'l NaCl eritmasi qo'shildi.
 
-**33.** Aralashmadagi CuO massasini (g) aniqlang.
-**34.** Qaytarish uchun (20 % ortiqcha olingan) sarflangan H2 hajmini (l, n.sh.) aniqlang.
-**35.** Qaytarish natijasida hosil bo'lgan suv massasini (g) aniqlang.
+**33.** Katodda ajralgan kumush massasini (g) aniqlang.
+**34.** Elektrolizdan keyin (NaCl qo'shilishidan oldin) eritmaning pH ini toping.
+**35.** NaCl qo'shilganda hosil bo'lgan cho'kma massasini (g) hisoblang.
 
-A) 18  B) 9  C) 16  D) 13,44  E) 12,8  F) 24
+A) 0,5  B) 5,4  C) 1  D) 4,32  E) 21,53  F) 10,8
 
 ---
 
 ## III QISM. QISQA JAVOBLI (36–40) — javobni son bilan yozing
 
-**36.** KMnO4 + Na2SO3 + H2O → MnO2 + Na2SO4 + KOH reaksiya tenglamasini tenglang. Reagentlar (chap qism) koeffitsiyentlari yig'indisini toping.
+**36.** 15 % li va 10 % li tuz eritmalari massalar nisbati 1 : 1 bo'lgan holda aralashtirildi. Tajriba laboratoriyada, shisha idishda o'tkazildi. Hosil bo'lgan eritmaning massa ulushini (%) hisoblang.
 
-**37.** NaCl eritmasi inert elektrodlar yordamida 2 A tok kuchi bilan 3860 s elektroliz qilindi. Katodda ajralgan H2 massasi (g) ni toping.
+**37.** CuCl2 eritmasi inert elektrodlar yordamida 4 A tok kuchi bilan 965 s elektroliz qilindi. Katodda ajralgan Cu massasi (g) ni toping.
 
-**38.** Zn va ZnO dan iborat 22,7 g aralashma mo'l NaOH eritmasida eritilganda 2,24 l (n.sh.) vodorod ajraldi. Aralashmadagi ZnO massasini (g) aniqlang.
+**38.** Oksidlanish darajasi +2 bo'lgan noma'lum X metallning xloridi 11,1 g massada mo'l AgNO3 eritmasi bilan ta'sirlashganda 28,7 g cho'kma hosil bo'ldi. Reagent (AgNO3) eritmasining massa ulushi 50 % va zichligi 1,4 g/ml; u mo'l miqdorda olingan. X metallning nisbiy atom massasini toping.
 
-**39.** Etanol va fenoldan iborat 23,4 g aralashma natriy bilan to'liq reaksiyaga kirishganda 3,36 l (n.sh.) vodorod ajraldi. Shu aralashmaga mo'l bromli suv ta'sir ettirilganda hosil bo'ladigan cho'kma massasini (g) toping.
+**39.** 14,8 g metilatsetat mo'l NaOH bilan qizdirilganda uning 1/2 qismi gidrolizlandi. Hosil bo'lgan spirt to'liq yondirildi. Reagent (NaOH) eritmasining massa ulushi 36 % va zichligi 1,4 g/ml; u mo'l miqdorda olingan. Yondirishda ajralgan CO2 hajmini (l, n.sh.) toping.
 
-**40.** Etilen monomeridan olingan polimerning molyar massasi 56000 g/mol. Polimerlanish darajasini aniqlang.
+**40.** 61,5 g nitrobenzol anilinga qaytarildi (unum 90 %), hosil bo'lgan anilin mo'l bromli suv bilan reaksiyaga kirishdi (unum 80 %). Hosil bo'lgan 2,4,6-tribromanilin (M = 330 g/mol) massasini (g) toping.
 
 ---
 
 ## IV QISM. YOZMA ISH (41–43) — to'liq yechim ko'rsatiladi
 
 ### 41-topshiriq (umumiy kimyo; 5 band, 25 ball)
-300 g 20 % li NaCl eritmasi inert elektrodlar yordamida 5 A tok kuchi bilan 3860 s elektroliz qilindi.
-1) Katodda va anodda ajralgan gazlarning hajmlarini (l, n.sh.) hisoblang.
-2) Elektrolizdan keyingi eritma massasini (g) aniqlang. Ajralgan gazlarning umumiy massasini (g) ham hisoblang.
-3) Elektrolizdan keyingi eritmada NaOH ning massa ulushini (%) toping.
-4) Hosil bo'lgan NaOH ni to'liq neytrallash uchun 10 % li HCl eritmasidan necha gramm kerak? Hosil bo'lgan NaCl massasini (g) ham hisoblang.
-5) Anodda ajralgan xlor KI eritmasidan o'tkazilsa, ajralgan yod massasini (g) aniqlang. Anodda ajralgan xlorning massasini (g) ham toping.
+Mis va magniy kukunlaridan iborat aralashmada mis va magniyning mol nisbati 2 : 1. Aralashma havoda to'liq oksidlanganda uning massasi 4,8 g ga ortdi. Hosil bo'lgan oksidlar 10 % li sulfat kislotaning stexiometrik miqdorida eritildi. Olingan eritma inert elektrodlar yordamida 10 A tok kuchi bilan 7720 s elektroliz qilindi (jarayonda Cu²⁺ to'liq tugadi va suv ham elektrolizga uchradi).
+1) Barcha jarayonlarning reaksiya tenglamalarini yozing va tenglashtiring. Dastlabki aralashmadagi mis va magniyning massalarini (g) aniqlang.
+2) Oksidlanishga sarflangan kislorodning hajmini (l, n.sh.) va kislota eritmasining massasini (g) hisoblang.
+3) Oksidlar erigandan keyingi eritmada CuSO4 va MgSO4 ning massa ulushlarini (%) toping.
+4) Elektrolizda katodda ajralgan mis massasini (g) va vodorod hajmini (l, n.sh.) hisoblang. Anodda ajralgan gaz hajmini (l, n.sh.) toping.
+5) Elektroliz tugagach eritmadagi MgSO4 va H2SO4 ning massa ulushlarini (%) aniqlang.
 
-### 42-topshiriq (organik kimyo; 7 band, 25 ball; hisob-kitob yo'q)
-Reaksiya tenglamalarini tugallang va tenglang. Hosil bo'lgan organik moddalarning tuzilish formulalarini yozing va ularni nomlang.
-1) C6H5–CH3 + Cl2 —yorug'lik→
-2) CH3–CH2–OH + CuO —t→
-3) 2CH4 —1500 °C→
-4) CH3CHO + Ag2O —NH3, t→
-5) C2H5Br + KOH(spirtli) →
-6) n CH2=CH–CH=CH2 →
-7) CH3–CH=CH2 + HBr →
+### 42-topshiriq (organik kimyo; 4 band, 25 ball; hisob-kitob yo'q)
+Quyidagi o'zgarishlar zanjirida X, Y, Z noma'lum organik moddalar:
+CH4 —Cl2, yorug'lik→ X —Na→ Y —Cl2, yorug'lik→ Z —KOH (suvli)→ C2H5OH
+1) CH4 → X : reaksiya tenglamasini yozing; hosil bo'lgan moddani nomlang.
+2) X → Y : reaksiya tenglamasini yozing; hosil bo'lgan moddani nomlang.
+3) Y → Z : reaksiya tenglamasini yozing; hosil bo'lgan moddani nomlang.
+4) Z → C2H5OH : reaksiya tenglamasini yozing; hosil bo'lgan moddani nomlang.
 
 ### 43-topshiriq (anorganik kimyo yoki kimyoviy tahlil; 5 band, 25 ball)
-0,05 mol AlCl3 saqlagan eritmaga NaOH eritmasi qo'shildi. Avval 0,15 mol NaOH qo'shilganda cho'kma hosil bo'ldi, so'ng yana 0,05 mol NaOH qo'shilganda cho'kma to'liq erib ketdi (Na[Al(OH)4] hosil bo'ldi).
-1) Cho'kma hosil bo'lish va erish reaksiyalari tenglamalarini yozing. Cho'kma massasini (g) hisoblang.
-2) Jami sarflangan NaOH massasini (g) aniqlang.
-3) Hosil bo'lgan Na[Al(OH)4] eritmasidan mo'l CO2 o'tkazilganda cho'kadigan Al(OH)3 massasini (g) toping.
-4) Al(OH)3 cho'kmasi qizdirilganda hosil bo'ladigan oksid massasini (g) hisoblang.
-5) Na[Al(OH)4] eritmasining hajmi 500 ml bo'lsa, tuzning molyar konsentratsiyasini (mol/l) hisoblang.
+Alyuminiy va noma'lum X metalldan (X – oksidlanish darajasi +2 bo'lgan metall) iborat 19,5 g aralashma mo'l NaOH eritmasi bilan ta'sirlashganda 3,36 l (n.sh.) gaz ajraldi. Shunday massali ikkinchi namuna mo'l xlorid kislotada eritilganda 10,08 l (n.sh.) gaz ajraldi. Xlorid kislotali eritmaga mo'l NaOH eritmasi qo'shilib, cho'kma ajratildi, havoda to'liq oksidlanguncha tutildi va kuydirildi; filtratdan mo'l CO2 o'tkazildi. Reagent (NaOH) eritmasining massa ulushi 36 % va zichligi 1,05 g/ml; u mo'l miqdorda olingan. Hosil bo'lgan Al(OH)3 nitrat kislotada eritildi, eritma bug'latilib, qoldiq doimiy massagacha qizdirildi, ajralgan gazlar suvga yuttirildi.
+1) Barcha reaksiyalarning tenglamalarini yozing va tenglashtiring.
+2) Aralashmadagi Al va X ning miqdorlarini (mol) aniqlang va X metallni toping.
+3) Aralashmadagi metallarning massa ulushlarini (%) hisoblang. Al(OH)3 ni eritish uchun sarflangan HNO3 miqdorini (mol) toping.
+4) Kuydirishdan hosil bo'lgan qattiq moddaning formulasini aniqlang va massasini (g) hisoblang. Al(NO3)3 qizdirilganda ajralgan gazlar hajmini (l, n.sh.) hisoblang.
+5) Filtratdan CO2 o'tkazilganda hosil bo'lgan cho'kma massasini (g) toping. Gazlar suvga yuttirilganda hosil bo'lgan HNO3 massasini (g) aniqlang.
 
 
 ---
@@ -223,91 +207,88 @@ Reaksiya tenglamalarini tugallang va tenglang. Hosil bo'lgan organik moddalarnin
 ## Javoblar kaliti
 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| C | B | B | A | A | C | B | D | D | A | B | B | D | D | A | B |
+| A | B | C | A | C | D | D | D | C | A | A | B | B | C | D | D |
 
 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| C | A | A | C | C | D | A | B | C | B | A | D | C | D | C | D |
+| B | C | A | D | B | B | A | A | D | B | D | C | B | A | C | C |
 
-33 → **C** (16); 34 → **D** (13,44); 35 → **B** (9).
-36 → **6**; 37 → **0,08**; 38 → **16,2**; 39 → **66,2**; 40 → **2000**.
+33 → **B** (5,4); 34 → **C** (1); 35 → **E** (21,53).
+36 → **12,5**; 37 → **1,28**; 38 → **40**; 39 → **2,24**; 40 → **118,8**.
 
 ## 1–32 qisqa yechimlar
 | № | Tur | Javob | Yechim | Manba |
 |---|---|---|---|---|
-| 1 | rasm | C | Panjara turi bo'yicha: Juda qattiq, suyuqlanish harorati juda yuqori | 8-sinf (kristall panjaralar) |
-| 2 | hisob | B | m(O) = 1,6 g; E = m·8/m(O) = 20 | 11-sinf (ekvivalentlar qonuni) |
-| 3 | grafik | B | Qolgan 20 mln; yemirilgan 60 mln | 11-sinf (yadro) |
-| 4 | nazariy | A | σ: 15 (har bir oddiy, ikkilamchi va uchlamchi bog'da 1 ta σ; C–H lar 8); π: 3 | 10-sinf §17 (gibridlanish); Abdusamatov |
-| 5 | jadval | A | Eng past (0) – faqat qaytaruvchi, eng yuqori (+7) – faqat oksidlovchi, oraliq – ikkala xossa. Natija 3 | Tirkashev V bob (OQR, jadval) |
-| 6 | jadval | C | M(o'rt.) = 11 g/mol; D = 11/29 = 0,38 | 11-sinf (gaz aralashmalar, jadval) |
-| 7 | nazariy | B | Katod: aktivlik qatoriga qarab; anod: kislorodli kislota qoldig'i bo'lsa suv oksidlanadi (O2), Cl⁻ bo'lsa Cl2 | 11-sinf 8-bob; Tirkashev V bob (elektroliz) |
-| 8 | hisob | D | Tenglama: S + 2HNO3 → H2SO4 + 2NO. Yig'indi 6 | Tirkashev V bob; 11-sinf 7-bob (OQR tenglash) |
-| 9 | hisob | D | n(Pb(NO3)2) = 0,1 mol; Δm = 14,2 g (ortadi) | Tashev; 9-sinf (metallarning kuchlanish qatori) |
-| 10 | hisob | A | M = mRT/(PV) = 28; D(H2) = M/2 = 14 | 11-sinf (Mendeleyev–Klapeyron) |
-| 11 | nazariy | B | Ar: 18 e⁻; zarrachalardagi elektronlar: Ca²⁺ – 18, K⁺ – 18, Cl⁻ – 18, Li⁺ – 2 | Tirkashev I bob; 8-sinf (izoelektron) |
-| 12 | nazariy | B | Konfiguratsiya: 1s2 2s2 2p6 3s2 3p6 4s2 3d10 | Tirkashev I bob; 8-sinf (elektron konfiguratsiya) |
-| 13 | jadval | D | v = (2,4 − 1,92)/2 = 0,24 | Tirkashev VI bob (tezlik, jadval) |
-| 14 | nazariy | D | SiO2 + H2O – bormaydi; Ag + H2SO4(suyult.) – bormaydi; MgCl2 + KNO3 – bormaydi; Fe + HCl – boradi | 9-sinf; Tashev (anorganik birikmalar xossalari) |
-| 15 | hisob | A | Zn(NO3)2 qizdirilganda qoldiq ZnO: n = 0,2 mol → 16,2 g | Tashev (nitratlar termik parchalanishi) |
-| 16 | hisob | B | x + y = 0,15; 2x + y = 0,2 → NaHCO3 0,05 mol → 4,2 g | 9-sinf (uglerod (IV) oksid) |
-| 17 | hisob | C | n(H2SO4) = 2 mol; tenglamaga ko'ra n(HCl) = n(H2SO4)·2/1 = 4 mol → javob: 146 g | 9-sinf; Tirkashev (galogenlar, hisob) |
-| 18 | hisob | A | 2M + 2H2O → 2MOH + H2: n(Li) = 0,3, n(K) = 0,1 mol → n(H2) = 0,2 mol → 4,48 l | 9-sinf (ishqoriy metallar) |
-| 19 | hisob | A | 2Al → 3H2: 0,3 mol; Mg → H2: 0,2 mol; jami 0,5 mol = 11,2 l | 9-sinf |
-| 20 | nazariy | C | Asosiy zanjir eng uzun va funksional guruh/qo'shbog'ga yaqin uchdan raqamlanadi; o'rinbosarlar alifbo tartibida: 3-etil-2-metilpentan | 10-sinf (nomenklatura §6, §11, §20, §24–26) |
-| 21 | nazariy | C | 1) noto'g'ri; 2) to'g'ri; 3) noto'g'ri; 4) to'g'ri | 10-sinf (mavzuga oid paragraflar); Abdusamatov |
-| 22 | hisob | D | C6H5OH + 3Br2 → C6H2Br3OH + 3HBr: n = 0,2 mol → 66,2 g nazariy → 75 % = 49,65 g | 10-sinf §16, §23, §33 |
-| 23 | hisob | A | n(C6H5OH) = 0,1 mol; tenglamaga ko'ra n(C6H2Br3OH) = n(C6H5OH)·1/1 = 0,1 mol → javob: 0,1 mol | 10-sinf (spirt, hisob) |
-| 24 | hisob | B | propanal → 2 Ag: 0,4 mol → 43,2 g | 10-sinf §24; §26; §30 (kumush ko'zgu) |
-| 25 | hisob | C | n(CH3COOH) = 1 mol; n(CH3COONa) = 1·1/1·0,9 = 0,9 mol; n(Na2CO3) = 0,9·1/1·0,5 = 0,45 mol → 47,7 g | 10-sinf (ikki bosqichli hisob) |
-| 26 | hisob | B | n(CH3COOH) = 1 mol; n(CH3COOC2H5) = 1·1/1·0,6 = 0,6 mol; n(CH3COONa) = 0,6·1/1·0,5 = 0,3 mol → 24,6 g | 10-sinf (ikki bosqichli hisob) |
-| 27 | nazariy | A | 1) noto'g'ri; 2) noto'g'ri; 3) to'g'ri; 4) to'g'ri | 10-sinf (mavzuga oid paragraflar); Abdusamatov |
-| 28 | nazariy | D | H2NCH2COOH – aminokislota; C6H5OH – fenol; CH3CHO – aldegid; C6H12O6 – monosaxarid | 10-sinf (organik birikmalar sinflari) |
-| 29 | hisob | C | n = M(polimer)/M(monomer) = 140000/56 = 2500 | 10-sinf §35 |
-| 30 | rasm | D | C2H5OH → C2H4 + H2O (H2SO4 suvni tortib oladi) | 10-sinf (6-rasm) |
-| 31 | nazariy | C | 1) to'g'ri; 2) noto'g'ri; 3) noto'g'ri; 4) noto'g'ri | 7-sinf (xavfsizlik qoidalari); 10-sinf lab. |
-| 32 | hisob | D | m(tuz) = 16 g; kristallogidrat: 16·250/160 = 25 g | Tirkashev III bob; 7-sinf (eritma tayyorlash) |
+| 1 | nazariy | A | (NH4)2SO4: ion, kovalent qutbli, donor–akseptor; NH4Cl: ion, kovalent qutbli, donor–akseptor; H2O: kovalent qutbli; NaCl: ion | 8-sinf; Tirkashev II bob (kimyoviy bog'lanish) |
+| 2 | rasm | B | Panjara tugunlarida: molekulalar | 8-sinf (kristall panjaralar) |
+| 3 | nazariy | C | Katod: aktivlik qatoriga qarab; anod: kislorodli kislota qoldig'i bo'lsa suv oksidlanadi (O2), Cl⁻ bo'lsa Cl2 | 11-sinf 8-bob; Tirkashev V bob (elektroliz) |
+| 4 | nazariy | A | Konfiguratsiya: 1s2 2s2 2p4 | Tirkashev I bob; 8-sinf (elektron konfiguratsiya) |
+| 5 | nazariy | C | Ar: 18 e⁻; zarrachalardagi elektronlar: Ca²⁺ – 18, N³⁻ – 10, Cl⁻ – 18, Mg²⁺ – 10 | Tirkashev I bob; 8-sinf (izoelektron) |
+| 6 | grafik | D | 4 yarim yemirilish: 100/2^4 = 6,25 % | 11-sinf (yadro) |
+| 7 | hisob | D | Tenglama: Al + 4HNO3 → Al(NO3)3 + NO + 2H2O. Yig'indi 9 | Tirkashev V bob; 11-sinf 7-bob (OQR tenglash) |
+| 8 | hisob | D | Fe + CuSO4 → ...: 1 mol Fe erishida 64 g Cu ajraladi, plastinka massasi 1 mol uchun 8 g ga o'zgaradi; n = 0,1 mol; m(Fe) = 5,6 g | 9-sinf (metallarning kuchlanish qatori; plastinka massasi o'zgarishi) |
+| 9 | hisob | C | m(O) = 7,2 − 5,6 = 1,6 g; E(M) = m(M)/(m(O)/8) = 28 g/mol; V(H2) = (2·5,6/28)·11,2 = 4,48 l | 8-sinf (ekvivalentlar qonuni) |
+| 10 | hisob | A | 20 → 60 °C: Δt = 40, tezlik 4^4 = 256 marta ortadi; 32·60/256 = 7,5 s | 8-sinf; Tirkashev VI bob (Vant-Goff) |
+| 11 | jadval | A | v = (1,6 − 0,88)/6 = 0,12 | Tirkashev VI bob (tezlik, jadval) |
+| 12 | jadval | B | 60 °C: tuz 165 g, suv 300 g; 20 °C da 90 g eriydi → cho'kma 75 g | Tirkashev III bob (eruvchanlik, jadval) |
+| 13 | hisob | B | 1 mol olsak: 1 + 1·α = 1,2 → α = 0,2 = 20 % | 9-11-sinf (gaz hajmi o'zgarishi; parchalanish darajasi) |
+| 14 | nazariy | C | SiO2 + H2O – bormaydi; Ag + H2SO4(suyult.) – bormaydi; MgCl2 + KNO3 – bormaydi; Fe + HCl – boradi | 9-sinf; Tashev (anorganik birikmalar xossalari) |
+| 15 | hisob | D | NH3 → NO → NO2 → HNO3: n(HNO3) = 0,45 mol → 28,35 g Eslatma: «Barcha reaksiyalar 1 atm bosimda olib borildi» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | Tashev (HNO3 olinishi) |
+| 16 | nazariy | D | BaCl2 va fenolftalein – uchalasini ajratadi; HCl va BaCl2 – uchalasini ajratadi; fenolftalein – yetarli emas; lakmus va fenolftalein – yetarli emas | 9-sinf (ion reaksiyalar, anionlarni aniqlash) |
+| 17 | hisob | B | Faqat Si vodorod beradi: Si + 2NaOH + H2O → Na2SiO3 + 2H2: n(Si) = 4,48/(2·22,4) = 0,1 mol; m(SiO2) = 8,8 − 2,8 = 6 g; NaOH: SiO2 + 2NaOH → Na2SiO3 + H2O; jami 2(0,1 + 0,1) = 0,4 mol → 16 g Eslatma: «Reagent (NaOH) eritmasining massa ulushi 50 % va zichligi 1,18 g/ml; u mo'l miqdorda olingan» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | 9-sinf (kremniy va uning oksidi) |
+| 18 | hisob | C | Ca + 2H2O → Ca(OH)2 + H2; CaC2 + 2H2O → Ca(OH)2 + C2H2: x + y = 0,4; 2x + 26y = 14·0,4 = 5,6 → x = 0,2, y = 0,2; m = 40x + 64y = 20,8 g | 9-sinf; 10-sinf (kalsiy; karbidlar) |
+| 19 | hisob | A | 2NO + O2 → 2NO2: hajm kamayishi = NO hajmining yarmi: 120 − 90 = 30 ml = a/2 → a = 60 ml NO; φ = 50 % | 9-sinf (azot oksidlari; gaz hajmlari) |
+| 20 | nazariy | D | 1) noto'g'ri; 2) to'g'ri; 3) to'g'ri; 4) noto'g'ri | 10-sinf (mavzuga oid paragraflar); Abdusamatov |
+| 21 | nazariy | B | 1) noto'g'ri; 2) to'g'ri; 3) to'g'ri; 4) to'g'ri | 10-sinf (mavzuga oid paragraflar); Abdusamatov |
+| 22 | nazariy | B | C6H5NH2 – aromatik amin; CH3NO2 – nitrobirikma; C2H5OH – spirt; CH3COCH3 – keton | 10-sinf (organik birikmalar sinflari) |
+| 23 | hisob | A | C6H6 → C6H5NO2: 0,8 mol; → C6H5NH2: 0,72 mol; m = 67 g Eslatma: «Barcha reaksiyalar 1,5 atm bosimda olib borildi» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | 10-sinf (arenlar, anilin olinishi) |
+| 24 | hisob | A | HCHO → 4Ag, C2H5CHO → 2Ag. 30x + 58 y = 7,3; 4x + 2y = 43,2/108 = 0,4 → x = 0,05, y = 0,1; m = 5,8 g Eslatma: «Qizdirish 60 daqiqa davom etdi» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | 10-sinf (aldegidlarning kumush ko'zgu reaksiyasi) |
+| 25 | hisob | D | C6H12O6 → 2C2H5OH + 2CO2; n(CO2) = 2·1·0,8 = 1,6 mol; CO2 + Ca(OH)2 → CaCO3↓ + H2O; m = 160 g | 10-sinf (uglevodlar; glukozaning bijg'ishi) |
+| 26 | hisob | B | x = n(C2H4), y = n(C3H8): 1-shart: C2H4 va C3H8 ning massalari nisbati 14 : 33; 2-shart: Shu aralashmani yondirish uchun 47,04 l (n.sh.) kislorod sarflandi → tizimni yechamiz: x = 0,2 mol, y = 0,3 mol → 5,6 | 10-sinf (uglevodorodlarning yonishi) |
+| 27 | hisob | D | Oxirgi bosqichgacha olingan modda: 0,75 mol; nazariy mahsulot 0,375 mol, amalda 0,3187 mol (42,07 g) → η = 85 % | 10-sinf (aminokislotalar, peptidlar) |
+| 28 | hisob | C | Oxirgi bosqichgacha olingan modda: 0,8 mol; nazariy mahsulot 0,8 mol, amalda 0,64 mol (39,68 g) → η = 80 % Eslatma: «Barcha reaksiyalar 1 atm bosimda olib borildi» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | 10-sinf (spirtlar, alkenlar, ko'p atomli spirtlar) |
+| 29 | hisob | B | Oxirgi bosqichgacha olingan modda: 0,25 mol; nazariy mahsulot 0,25 mol, amalda 0,2125 mol (27,52 g) → η = 85 % Eslatma: «Barcha reaksiyalar 1 atm bosimda olib borildi» – chalg'ituvchi ma'lumot, hisobga olinmaydi. | 10-sinf (nitrobirikmalar, aminlar) |
+| 30 | nazariy | A | ajratgich voronka – aralashmaydigan suyuqliklarni ajratish | 7-sinf (laboratoriya jihozlari) |
+| 31 | rasm | C | n(C2H5OH) = 0,5 mol; V = 0,5·22,4·0,9 = 10,08 l | 10-sinf (etilen olinishi, 6-rasm) |
+| 32 | nazariy | C | toluol KMnO4 ni rangsizlantirib, benzoy kislotagacha oksidlanadi; benzol brom suvi bilan ham reaksiyaga kirishmaydi. | 9-sinf; 10-sinf (sifat reaksiyalari; moddalarni farqlash) |
 
 ## 33–35
-**33.** 80x + 160y = 32; 64x + 112y = 24 → x = 0,2 mol; m(CuO) = 16 g → **C**
-**34.** n(H2) = x + 3y = 0,5 mol → 11,2 l; 20 % ortiqcha olingan: hajm · 1,2 → 13,44 → **D**
-**35.** n(H2O) = 0,5 mol → 9 g → **B**
+**33.** n(e⁻) = 5·965/96500 = 0,05 mol = n(Ag) → 5,4 g → **B**
+**34.** 4AgNO3 + 2H2O → 4Ag + O2 + 4HNO3: H⁺ = 0,05 mol → [H⁺] = 0,05/0,5 = 0,1 mol/l → pH = 1 → **C**
+**35.** Qolgan Ag⁺ = 0,2 − 0,05 = 0,15 mol → AgCl: 21,53 g → **E**
 
 ## 36–40
-**36.** Elektron balans: Mn⁺⁷ + 3e⁻ → Mn⁺⁴ (2); S⁺⁴ − 2e⁻ → S⁺⁶ (3); tenglama: 2KMnO4 + 3Na2SO3 + H2O → 2MnO2 + 3Na2SO4 + 2KOH; oksidlovchi KMnO4 (2), qaytaruvchi Na2SO3 (3) → yig'indi 6 → **6**
-**37.** Q = I·t = 7720 C; n(e⁻) = 0,08 mol → 0,08 → **0,08**
-**38.** Zn + 2NaOH + 2H2O → Na2[Zn(OH)4] + H2: n(Zn) = 0,1 mol (6,5 g); ZnO = 22,7 − 6,5 = 16,2 g → **16,2**
-**39.** x + y = 2·3,36/22,4 = 0,3; 46x + 94y = 23,4 → fenol y = 0,2 mol; C6H5OH + 3Br2 → C6H2Br3OH↓: 0,2·331 = 66,2 g → **66,2**
-**40.** n = M(polimer)/M(monomer) = 56000/28 = 2000 → **2000**
+**36.** m1 = 1·u, m2 = 1·u: ω = (1·15 + 1·10)/(1 + 1) = 12,5 % Eslatma: «Tajriba laboratoriyada, shisha idishda o'tkazildi» – chalg'ituvchi ma'lumot. → **12,5**
+**37.** Q = I·t = 3860 C; n(e⁻) = 0,04 mol → 1,28 → **1,28**
+**38.** n(Cl⁻) = 28,7/143,5 = 0,2 mol; n(XCl2) = 0,1 mol; M = 11,1/0,1 = 111; Ar(X) = 111 − 71 = 40 Eslatma: «Reagent (AgNO3) eritmasining massa ulushi 50 % va zichligi 1,4 g/ml; u mo'l miqdorda olingan» – chalg'ituvchi ma'lumot. → **40**
+**39.** n(efir) = 14,8/74 = 0,2 mol; gidrolizlangani 1/2·0,2 = 0,1 mol → spirt (1 C) 0,1 mol → CO2 = 2,24 l Eslatma: «Reagent (NaOH) eritmasining massa ulushi 36 % va zichligi 1,4 g/ml; u mo'l miqdorda olingan» – chalg'ituvchi ma'lumot. → **2,24**
+**40.** n(C6H5NO2) = 0,5 mol → C6H5NH2: 0,5·0,9 = 0,45 mol → C6H2Br3NH2: ·0,8 = 0,36 mol → 0,36·330 = 118,8 g → **118,8**
 
 ---
 
 ## 41-topshiriq — yechim va baholash (M — usul, A — hisob)
-**1-band (M 6 + A 3 = 9 ball).** Q = 5·3860 = 19300 C = 0,2 mol e⁻; katod: 2H2O + 2e⁻ → H2 + 2OH⁻: n(H2) = 0,1 mol → **2,24 l**; anod: 2Cl⁻ − 2e⁻ → Cl2: n(Cl2) = 0,1 mol → **2,24 l**
-**2-band (M 2 + A 1 = 3 ball).** 2NaCl + 2H2O → H2 + Cl2 + 2NaOH: m = 300 − 0,2 (H2) − 7,1 (Cl2) = **292,7 g**; m = 0,2 + 7,1 = **7,3 g**
-**3-band (M 3 + A 3 = 6 ball).** n(NaOH) = n(e⁻) = 0,2 mol = 8 g → ω = **2,73 %**
-**4-band (M 2 + A 2 = 4 ball).** NaOH + HCl → NaCl + H2O: HCl 0,2 mol = 7,3 g; eritma 7,3/0,1 = **73 g**; m(NaCl) = 0,2·58,5 = **11,7 g**
-**5-band (M 2 + A 1 = 3 ball).** Cl2 + 2KI → 2KCl + I2: n(I2) = 0,1 mol → **25,4 g**; m(Cl2) = 0,1·71 = **7,1 g**
+**1-band (M 6 + A 3 = 9 ball).** 2Cu + O2 → 2CuO; 2Mg + O2 → 2MgO; CuO + H2SO4 → CuSO4 + H2O; MgO + H2SO4 → MgSO4 + H2O; 2CuSO4 + 2H2O → 2Cu + O2 + 2H2SO4; 2H2O → 2H2 + O2; 64x + 24y = 15,2; 80x + 40y = 20 → x = 0,2, y = 0,1: m(Cu) = **12,8 g**, m(Mg) = **2,4 g**
+**2-band (M 2 + A 1 = 3 ball).** m(O2) = 20 − 15,2 = 4,8 g → **3,36 l**; n(H2SO4) = x + y = 0,3 mol → 29,4 g 10 % li eritma = **294 g**; eritma = 20 + 294 = 314 g
+**3-band (M 3 + A 3 = 6 ball).** CuSO4: 32 g → ω = **10,19 %**; MgSO4: 12 g → ω = **3,82 %**
+**4-band (M 2 + A 2 = 4 ball).** Q = 10·7720 = 77200 C → n(e) = 0,8 mol; Cu²⁺ ga 2·0,2 = 0,4 mol e⁻ → Cu **12,8 g**; qolgan 0,4 mol e⁻ → H2 = **0,2 mol = 4,48 l**; Anodda barcha e⁻ O2 ga: n(O2) = 0,8/4 = 0,2 mol → **4,48 l**
+**5-band (M 2 + A 1 = 3 ball).** Massa yo'qotilishi: Cu 12,8 + H2 0,4 + O2 6,4 = 19,6 g; eritma 294,4 g; MgSO4 → **4,08 %**; H2SO4 (CuSO4 elektrolizidan) 0,2 mol = 19,6 g → **6,66 %**
 Jami: M 15 + A 10 = 25 ball.
 
 ---
 
 ## 42-topshiriq — yechim va baholash (M — usul, A — hisob)
-1) C6H5–CH3 + Cl2 —yorug'lik→ C6H5CH2Cl + HCl — benzilxlorid (4 ball)
-2) CH3–CH2–OH + CuO —t→ CH3CHO + Cu + H2O — etanal (3 ball)
-3) 2CH4 —1500 °C→ C2H2 + 3H2 — asetilen (3 ball)
-4) CH3CHO + Ag2O —NH3, t→ CH3COOH + 2Ag↓ — etan (sirka) kislota (4 ball)
-5) C2H5Br + KOH(spirtli) → CH2=CH2 + KBr + H2O — etilen (3 ball)
-6) n CH2=CH–CH=CH2 → (–CH2–CH=CH–CH2–)n — polibutadiyen (4 ball)
-7) CH3–CH=CH2 + HBr → CH3–CHBr–CH3 — 2-brompropan (Markovnikov) (4 ball)
+1) CH4 + Cl2, yorug'lik → CH3Cl (xlormetan)
+2) CH3Cl + Na → C2H6 (etan)
+3) C2H6 + Cl2, yorug'lik → C2H5Cl (xloretan)
+4) C2H5Cl + KOH (suvli) → C2H5OH (etanol)
 Jami 25 ball.
 
 ---
 
 ## 43-topshiriq — yechim va baholash (M — usul, A — hisob)
-**1-band (M 6 + A 3 = 9 ball).** AlCl3 + 3NaOH → Al(OH)3↓ + 3NaCl; Al(OH)3 + NaOH → Na[Al(OH)4]; n(Al(OH)3) = 0,05 mol → **3,9 g**
-**2-band (M 2 + A 1 = 3 ball).** n(NaOH) = 0,15 + 0,05 = 0,2 mol → **8 g**
-**3-band (M 3 + A 3 = 6 ball).** Na[Al(OH)4] + CO2 → Al(OH)3↓ + NaHCO3: **3,9 g**
-**4-band (M 2 + A 2 = 4 ball).** 2Al(OH)3 → Al2O3 + 3H2O: n(Al2O3) = 0,025 mol → **2,55 g**
-**5-band (M 2 + A 1 = 3 ball).** C = 0,05/0,5 = **0,1 mol/l**
+**1-band (M 6 + A 3 = 9 ball).** 2Al + 2NaOH + 6H2O → 2Na[Al(OH)4] + 3H2↑; 2Al + 6HCl → 2AlCl3 + 3H2↑; X + 2HCl → XCl2 + H2↑; AlCl3 + 4NaOH → Na[Al(OH)4] + 3NaCl; XCl2 + 2NaOH → X(OH)2↓ + 2NaCl; 4Fe(OH)2 + O2 + 2H2O → 4Fe(OH)3; 2Fe(OH)3 → Fe2O3 + 3H2O; Na[Al(OH)4] + CO2 → Al(OH)3↓ + NaHCO3
+**2-band (M 2 + A 1 = 3 ball).** NaOH da faqat Al: n(Al) = 3,36/(1,5·22,4) = **0,1 mol**; HCl da: 10,08/22,4 = 0,45 mol = 1,5·0,1 + n(X) → n(X) = **0,3 mol**; M = (19,5 − 2,7)/0,3 = 56 → **Fe**
+**3-band (M 3 + A 3 = 6 ball).** ω(Al) = 2,7/19,5 = **13,8 %**; ω(Fe) = **86,2 %**; Al(OH)3 + 3HNO3 → Al(NO3)3 + 3H2O: n(HNO3) = 3·0,1 = **0,3 mol**
+**4-band (M 2 + A 2 = 4 ball).** Cho'kma Fe(OH)2 (havoda Fe(OH)3 ga o'tadi) (amfoter Al(OH)3 ishqorda eriydi) → kuydirilganda **Fe2O3**: m = **24 g**; 4Al(NO3)3 → 2Al2O3 + 12NO2 + 3O2: NO2 = 0,3 mol, O2 = 0,075 mol → **8,4 l**
+**5-band (M 2 + A 1 = 3 ball).** n(Na[Al(OH)4]) = n(Al) = 0,1 mol → Al(OH)3 = **7,8 g**; 4NO2 + O2 + 2H2O → 4HNO3: n = 0,3 mol → **18,9 g**
 Jami: M 15 + A 10 = 25 ball.

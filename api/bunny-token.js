@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
-import { premiumActive } from "./_access.js";
+import { premiumActive, paidPlanActive } from "./_access.js";
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
@@ -18,12 +18,21 @@ export default async function handler(req, res) {
   const { videoId } = req.body || {};
   if (!videoId) return res.status(400).json({ error: "Missing videoId" });
 
-  // Topic lessons (Mavzular) are public to read, so their videos need no purchase.
+  // Topic lessons (Mavzular) are a Premium section: signed-in Premium students and admins only.
   const [{ data: topicHit }, { data: exampleHit }] = await Promise.all([
     anon.from("topics").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
     anon.from("topic_examples").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
   ]);
-  if (topicHit || exampleHit) return res.status(200).json(signToken(videoId));
+  if (topicHit || exampleHit) {
+    const tj = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+    if (!tj) return res.status(401).json({ locked: true, error: "Mavzular Premium rejada. Avval hisobingizga kiring." });
+    const { data: tu } = await anon.auth.getUser(tj);
+    if (!tu?.user) return res.status(401).json({ locked: true, error: "Sessiya eskirgan. Qayta kiring." });
+    const asT = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { global: { headers: { Authorization: `Bearer ${tj}` } } });
+    const { data: tp } = await asT.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", tu.user.id).maybeSingle();
+    if (tp?.is_admin || paidPlanActive(tp)) return res.status(200).json(signToken(videoId));
+    return res.status(403).json({ locked: true, error: "Mavzular Premium rejada." });
+  }
 
   // Live-lesson recordings: free ones for any signed-in student; priced ones need an approved
   // purchase (or the admin).

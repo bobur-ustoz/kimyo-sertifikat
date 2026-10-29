@@ -13,13 +13,13 @@ import { splitOptions } from "./analogPdf";
 const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
-  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Video darslarni ko'rish (har o'qituvchidan 1 ta variant)",ok:true},{t:"AI Savol bering",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Test Generator",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar, DTM va jonli darslar",ok:false}] },
-  { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Test Generator",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
+  { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator",ok:true},{t:"Mavzular bo'limi",ok:false},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
+  { id:"premium",name:"Premium",price:"200,000",oldPrice:"250,000",period:"so'm / oy",color:"#B45309",btnBg:"#B45309",btnColor:"#fff",badge:"👑 Aksiya: hammasi ochiq",features:[{t:"Barcha variantlar va DTM to'liq ochiq",ok:true},{t:"Mavzular bo'limi",ok:true},{t:"Barcha jonli darslar va yozuvlar",ok:true},{t:"AI Savol bering (hamma videolarda)",ok:true},{t:"Analog savollar va PDF",ok:true},{t:"Tahlil & Grafik va AI xulosa",ok:true}] },
 ];
 
 
 const barCol = s => s>=75?C.primary:s>=60?C.warning:C.danger;
-const canUse = (plan,feature) => (feature==="analog"||feature==="adaptive") ? plan!=="free" : true;
+const canUse = (plan,feature) => feature==="analog" ? plan!=="free" : true;
 // A variant's videos are open when it is the teacher's free variant or the
 // student has paid for it. Mirrors api/bunny-token.js, which is the real gate
 // -- this only decides what the UI shows.
@@ -1541,7 +1541,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{display:"flex",alignItems:"center",gap:12}}>
             <div style={{flex:1,background:pi.bg,borderRadius:10,padding:"12px 14px",border:`1px solid ${pi.color}30`}}>
               <div style={{fontSize:15,fontWeight:900,color:pi.color,marginBottom:2}}>{pi.name} reja</div>
-              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · faqat video darslar":plan==="premium"?"Premium · hammasi ochiq":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
+              <div style={{fontSize:11.5,color:C.textMid}}>{plan==="free"?"Bepul · video va test":plan==="premium"?"Premium · hammasi ochiq":"49,900 so'm/oy · AI Analog va Test Generator"}</div>
             </div>
             {plan==="free"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
@@ -1659,7 +1659,7 @@ export default function App() {
         )}
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)} onBack={()=>{setTab(teacher.section==="dtm"?"dtm":"collections");setVarId(null);}}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
-        {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>}
+        {tab==="topics"&&(plan==="free"?<FeatureLock title="Mavzular" setTab={setTab}/>:<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab}/>)}
         {tab==="analytics"&&(plan==="free"?<FeatureLock title="Tahlil & Grafik" setTab={setTab}/>:<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>)}
         {tab==="survey"&&<Survey session={session} setTab={setTab}/>}
         {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}

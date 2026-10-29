@@ -1,7 +1,7 @@
 import sys, random, re, json, os
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from core import *
-import short2, harder, hardness, um, um2, an, org, pic, pic2, pic3, pic4, pic5, pic6, tail, more, more2, more3, more4, more5, more6, tah
+import more7, more8, more9, more10, more11, more12, more13, more14, more15, more16, more17, more18, short2, harder, hardness, um, um2, an, org, pic, pic2, pic3, pic4, pic5, pic6, tail, more, more2, more3, more4, more5, more6, tah
 from collections import Counter
 K='/Users/macbook/kimyo-sertifikat/kitob/'
 exec(open('/tmp/plan.py').read())   # rows (13 umumiy topics per variant), pool
@@ -50,7 +50,36 @@ for _i,_k in enumerate(['alkan','alken','aren','spirt','ald','kis','efir','ugl',
 UMG['mol/stexiometriya']+=[more2.tbl_gas,more2.c_vol2]
 UMG['OQR']+=[more2.tbl_oqr]; UMG['kuchlanish qatori']+=[more2.tbl_series]; UMG["bog'lanish/gibridlanish"]+=[more2.tbl_bond]; UMG['kvant/yadro']+=[more2.tbl_nuclide]
 UMG['qonunlar/gaz/ekvivalent']+=[more2.c_ekv2,more2.c_pv2]
-THEORY={more2.t_qnum2,um.t_jism,um.t_valent,um.t_config,um.t_qnum,um.t_decay,um.t_isoel,um2.t_sigpi,um2.t_hyb,um2.t_bondtype,um2.t_lech,um2.t_hydr,um2.t_os,um2.t_onlyox,um2.t_elec,um2.t_act,an.t_iaf,an.t_df,an.t_oxcls,an.t_salt,an.t_react,an.t_fert,an.t_nob,an.t_nitrate_prod,an.t_genetic,org.t_nom,org.t_isom,org.t_class,org.t_oprod}
+UMG['dissotsilanish/pH/gidroliz']+=[more7.t_hydr2]
+ANG['oksid/asos/kislota/tuz']+=[more7.t_seq,more7.t_sep_in]
+ANG['d-metallar (Fe,Cu,Zn,Cr)']+=[more7.t_seq]
+ANG['IIA/IIIA metallar (Ca,Mg,Al)']+=[more7.t_seq]
+ANG['galogenlar']+=[more7.t_sep_in]
+for _i,_fs in more8.HARD_ORG.items(): ORG[_i]=ORG[_i]+_fs
+for _t,_fs in more9.HARD_INORG.items(): ANG[_t]=ANG[_t]+_fs
+for _t,_fs in more12.HARD_INORG3.items(): ANG[_t]=ANG[_t]+_fs; more9.HARD_INORG.setdefault(_t,[]).extend(_fs)
+for _t,_fs in more12.HARD_UM.items(): UMG[_t]=UMG[_t]+_fs
+for _t,_fs in more14.HARD_UM14.items():
+    UMG[_t]=UMG[_t]+_fs; more12.HARD_UM.setdefault(_t,[]).extend(_fs)
+for _t,_fs in more14.HARD_AN14.items():
+    if _fs: ANG[_t]=ANG[_t]+_fs; more9.HARD_INORG.setdefault(_t,[]).extend(_fs)
+for _fs_ in (more9.c_metal_mix,more9.c_carbonates): UMG['mol/stexiometriya']=UMG['mol/stexiometriya']+[_fs_]
+more12.HARD_UM.setdefault('mol/stexiometriya',[]).extend([more9.c_metal_mix,more9.c_carbonates])
+UMG['kuchlanish qatori']=UMG['kuchlanish qatori']+[more9.c_plate]; more12.HARD_UM.setdefault('kuchlanish qatori',[]).append(more9.c_plate)
+UMG['mol/stexiometriya']=UMG['mol/stexiometriya']+[more15.rel_carb,more15.rel_met]; more12.HARD_UM.setdefault('mol/stexiometriya',[]).extend([more15.rel_carb,more15.rel_met])
+ANG['IIA/IIIA metallar (Ca,Mg,Al)']=ANG['IIA/IIIA metallar (Ca,Mg,Al)']+[more15.rel_carb,more15.rel_met]; more9.HARD_INORG.setdefault('IIA/IIIA metallar (Ca,Mg,Al)',[]).extend([more15.rel_carb,more15.rel_met])
+more8.HARD_ORG[1].append(more15.rel_alk); more8.HARD_ORG[3].append(more15.rel_alc); ORG[1]=ORG[1]+[more15.rel_alk]; ORG[3]=ORG[3]+[more15.rel_alc]
+def _addpool(d_um=None,d_an=None):
+    for t_,fs_ in (d_um or {}).items():
+        UMG[t_]=UMG[t_]+fs_; more12.HARD_UM.setdefault(t_,[]).extend(fs_)
+    for t_,fs_ in (d_an or {}).items():
+        ANG[t_]=ANG[t_]+fs_; more9.HARD_INORG.setdefault(t_,[]).extend(fs_)
+_addpool({'qonunlar/gaz/ekvivalent':[more15.rel_gas],'atom/davriy/izoelektron':[more15.rel_gas]},
+         {'d-metallar (Fe,Cu,Zn,Cr)':[more15.rel_oxr],'S/SO2/H2SO4':[more15.rel_sulf],'galogenlar':[more15.rel_chlo],'oksid/asos/kislota/tuz':[more15.rel_sulf,more15.rel_chlo,more15.rel_oxr]})
+more8.HARD_ORG[0].append(more15.rel_hc); more8.HARD_ORG[1].append(more15.rel_hc); ORG[0]=ORG[0]+[more15.rel_hc]
+REL_SH={37:[more15.s_hydrate_conc,more17.g_evap,more17.g_equil_frac],38:[more15.s_unknown_chloride,more17.g_gas_expansion],36:[more17.g_mix_solutions],39:list(more18.SH_ORG),40:list(more18.SH_ORG)}
+ORG[3]+=[more7.t_sep_org]; ORG[4]+=[more7.t_sep_org]; ORG[5]+=[more7.t_sep_org]
+THEORY={more14.t_hydr_shift,more7.t_seq,more7.t_sep_in,more7.t_sep_org,more7.t_hydr2,more2.t_qnum2,um.t_jism,um.t_valent,um.t_config,um.t_qnum,um.t_decay,um.t_isoel,um2.t_sigpi,um2.t_hyb,um2.t_bondtype,um2.t_lech,um2.t_hydr,um2.t_os,um2.t_onlyox,um2.t_elec,um2.t_act,an.t_iaf,an.t_df,an.t_oxcls,an.t_salt,an.t_react,an.t_fert,an.t_nob,an.t_nitrate_prod,an.t_genetic,org.t_nom,org.t_isom,org.t_class,org.t_oprod}
 def is_theory(f):
     if f in THEORY: return True
     return getattr(f,'__name__','').startswith('<lambda>')
@@ -66,7 +95,7 @@ def choose(r,funcs,want_theory):
     fresh=[f for f in funcs if f not in USEDF] or funcs
     cand=[f for f in fresh if is_theory(f)==want_theory] or fresh
     f=r.choice(cand); USEDF.add(f); return f
-GFP=set(); DUPS=[]
+GFP=set(); DUPS=[]; GFPC={}
 def fp(t):
     t=re.sub(r'\d+(?:[.,]\d+)?','#',t.lower()); t=re.sub(r'[^a-z# ]',' ',t); return re.sub(r'\s+',' ',t).strip()
 def gen_valid(r,f,used,alts=()):
@@ -79,13 +108,15 @@ def gen_valid(r,f,used,alts=()):
             GFP.add(k); used.add(q.text[-90:]+'|'+str(q.ans)); return q
     q=_try(r,f,used,force=True); DUPS.append((getattr(f,'__name__','?'),q.text[:60])); used.add(q.text[-90:]+'|'+str(q.ans)); return q
 def _try(r,f,used,force=False):
-    for _ in range(40 if not force else 400):
+    for _i in range(40 if not force else 400):
         q=f(r)
+        if getattr(q,'exact',True) is False and _i<25: continue   # javob tekis bo'linadigan son bo'lsin (cheksiz kasr emas)
         key=q.text[-90:]+'|'+str(q.ans)
         if key in used: continue
         if q.ans in q.dis or len(set(q.dis))!=3 or len(q.dis)!=3: continue
         if q.ans in ('',None): continue
         if q.text and q.text[0].islower() and not q.text.startswith('pH'): q.text=q.text[0].upper()+q.text[1:]
+        q.gen=getattr(f,'__name__','?')
         return q
     return None
 def gen_valid_old(r,f,used):
@@ -140,28 +171,17 @@ def build(v,seed=None):
     for i,tpc in enumerate(base):
         f=choose(ra,ANG[tpc],pat2[i]); qs[14+i]=gen_valid(ra,f,used,[g for g in ANG[tpc] if g is not f])
     ro=random.Random(3000+v)
-    # organik 20-29
-    pat3=[True]*5+[False]*5; ro.shuffle(pat3)
+    # organik 20-29: hisob masalalari kamida 2 bosqichli (4 tasi 2 bosqichli, 3 tasi 3-5 bosqichli), 3 tasi nazariy
+    pat3=[True]*3+[False]*7; ro.shuffle(pat3)
+    calc_idx=[i for i in range(10) if not pat3[i]]
+    chain_slots=set(ro.sample(calc_idx,3))
     for i in range(10):
-        f=choose(ro,ORG[i],pat3[i]); qs[20+i]=gen_valid(ro,f,used,[g for g in ORG[i] if g is not f])
-    # aniq 3 ta qiyin savol (30 %)
-    def hardn(): return [i for i in range(20,30) if hardness.level(qs[i].text)=='qiyin']
-    for _g in range(40):
-        h=hardn()
-        if len(h)==3: break
-        if len(h)<3:
-            cand=[i for i in range(20,30) if i not in h and (i-20) in RX2]
-            if not cand: break
-            i=ro.choice(cand)
-            for _t in range(15):
-                q=gen_valid(ro,RX2[i-20],used)
-                if hardness.level(q.text)=='qiyin': qs[i]=q; break
+        if pat3[i]:
+            th=[g for g in ORG[i] if is_theory(g)]; thf=[g for g in th if g not in USEDF] or th
+            f=ro.choice(thf); USEDF.add(f); qs[20+i]=gen_valid(ro,f,used,[g for g in th if g is not f])
         else:
-            i=ro.choice(h)
-            alts=[g for g in ORG[i-20] if g is not RX2.get(i-20)]
-            for _t in range(15):
-                q=gen_valid(ro,ro.choice(alts),used)
-                if hardness.level(q.text)!='qiyin': qs[i]=q; break
+            pool=more12.ORG34 if (i in chain_slots or i not in more8.HARD_ORG) else more8.HARD_ORG[i]
+            f=ro.choice(pool); qs[20+i]=gen_valid(ro,f,used,[g for g in pool if g is not f])
     rt=random.Random(4000+v)
     # tahlil 30-32
     avail=[p for p in PALL if p not in USEDP] or PALL
@@ -175,14 +195,156 @@ def build(v,seed=None):
     availT=[p for p in TALL if p not in USEDT] or TALL
     tfig=rt.choice(availT); USEDT.add(tfig)
     tpool=[pic.t_qualtab,pic.t_safety,pic.c_prep,more2.c_prep2]+list(tah.TAHLIL)
-    items=[tfig]+rt.sample(tpool,2)
+    NEWQ=list(more13.NEWQ)+[more7.t_sep_in,more7.t_sep_org,more7.t_seq]
+    _q1=rt.choice(NEWQ); _rest=[g for g in NEWQ+tpool if g is not _q1]; _q2=rt.choice(_rest)
+    items=[tfig,_q1,_q2]
     rng={'U':[i for i in range(1,14) if i!=gslot+1 and qs[i].kind not in ('graph','table')],'A':list(range(14,20)),'O':list(range(20,30))}[psec]
     sl=rt.choice(rng); qs[sl]=gen_valid(rt,picf,used)
     rt.shuffle(items)
     for i,f in enumerate(items): qs[30+i]=gen_valid(rt,f,used,[g for g in tpool if g not in items])
+    # Samarqand darajasiga yaqinlashtirish: "oson" savollar ulushini cheklash (rasm/grafik/jadval o'zgarmaydi)
+    r2=random.Random(6000+v)
+    def _pool(i):
+        if i<=13: return UMG[topics[i-1]]
+        if i<=19: return ANG[base[i-14]]
+        return ORG[i-20]
+    HDQ=set()
+    NEWSET={n_ for m_ in (more7,more8,more9,more10,more11,more12,more13,more14) for n_,v_ in vars(m_).items() if callable(v_)}
+    def _single(q):
+        g=getattr(q,'gen','') or ''
+        return (g.startswith('rx_') or g.startswith('c_')) and g not in NEWSET
+    for a_,b_,cap in ((1,13,2),(14,19,1)):
+        fails=0
+        for _g in range(40):
+            easy=[i for i in range(a_,b_+1) if _single(qs[i]) and id(qs[i]) not in HDQ]
+            cand=[i for i in easy if qs[i].kind not in ('graph','table','picture') and not getattr(qs[i],'tag','')=='pic']
+            if len(easy)<=cap or not cand: break
+            i=r2.choice(cand); pl=_pool(i); hp=None
+            if i>=20: hp=more8.HARD_ORG.get(i-20)
+            elif i>=14: hp=more9.HARD_INORG.get(base[i-14])
+            else: hp=more12.HARD_UM.get(topics[i-1])
+            useH=bool(hp) and r2.random()<0.9
+            if useH: pl=hp
+            ok=False
+            for _t in range(80):
+                q=_try(r2,r2.choice(pl),used)
+                if q is None: continue
+                _k=fp(q.text)
+                if _k in GFP and not (useH and GFPC.get(_k,0)<2): continue
+                _lv=hardness.level(q.text)
+                _g=getattr(q,'gen','') or ''
+                acc=(_lv!='qiyin') if useH else (not (_g.startswith('rx_') or _g.startswith('c_')) or _g in NEWSET)
+                if acc:
+                    GFP.add(_k); used.add(q.text[-90:]+'|'+str(q.ans)); qs[i]=q
+                    if useH: HDQ.add(id(q)); GFPC[_k]=GFPC.get(_k,0)+1
+                    ok=True; break
+            if not ok:
+                fails+=1
+                if fails>14: break
+    # Samarqand kabi bilvosita (nisbat/farq/marta/proton/atomlar) shartli masalalar ulushi ~35-40 %
+    _RELRX=re.compile(r"marta|nisbat|farq|yig'indi|teng bo'lsa|teng ikki|qismi|ga kam|ga ko'p|ga ortiq|noma'lum|\bx\b|\by\b|ikki baravar|proton|atomlar|[0-9]/[0-9]")
+    def _isrel(q): return bool(_RELRX.search(re.sub(r'\s+',' ',q.text.lower().replace('‘',"'").replace('’',"'"))))
+    _RP={(1,13):list(more17.IND_UM),(14,19):list(more17.IND_AN)}
+    _OKT={'mol/stexiometriya','qonunlar/gaz/ekvivalent','eritma %/M/eruvchanlik','atom/davriy/izoelektron',"bog'lanish/gibridlanish",'tushuncha/valentlik'}
+    for (a_,b_),tgt in (((1,13),3),((14,19),2)):
+        for _g in range(30):
+            if sum(1 for i in range(a_,b_+1) if _isrel(qs[i]))>=tgt: break
+            cand=[i for i in range(a_,b_+1) if qs[i].kind=='calc' and not _isrel(qs[i]) and (a_!=1 or topics[i-1] in _OKT)]
+            if not cand: break
+            i=r2.choice(cand); okk=False
+            for _t in range(60):
+                q=_try(r2,r2.choice(_RP[(a_,b_)]),used)
+                if q is None: continue
+                _k=fp(q.text)
+                if _k in GFP and GFPC.get(_k,0)>=2: continue
+                GFP.add(_k); GFPC[_k]=GFPC.get(_k,0)+1; used.add(q.text[-90:]+'|'+str(q.ans)); qs[i]=q; HDQ.add(id(q)); okk=True; break
+            if not okk: break
+    # aralashma (x, y) masalalari ko'p bo'lmasin: 1-32 da eng ko'pi bilan 4 ta
+    _MIXP=('rel_mix_','c_metal_mix','c_carbonates','c_metal_inert','c_fe_oxides','c_halide_mix','c_ald_ag','c_acid_mix','c_ester_mix','c_amine_mix','c_alcohol_mix','c_arene_mix','c_alkene_alkane','c_organic_ca','c_alkene_hydration','i_nitrate_mix','i_si_sio2','i_na_na2o','i_amph_mix','i_ca_cac2','c_gasmix')
+    def _ismix(q): return (getattr(q,'gen','') or '').startswith(_MIXP)
+    NONMIX={'U':[more14.u_dilute_chain,more14.u_alpha_particles,more14.u_isotope_mass,more14.u_decay,more14.u_equilibrium,more14.u_rate_comb,more14.u_titration,more14.u_koh_electrolysis,more14.u_equiv_chain,more14.u_ph_mix,more14.u_oxide_formula,more12.q_nitrate_hno3,more12.q_hydrate_heat,more12.q_nacl_hcl]+list(more17.IND_UM),
+            'A':[more14.i_mg_air,more14.i_no_o2,more14.i_ammofos,more14.i_so2_equil,more14.i_pyrite_partial,more14.i_h2s_o2,more14.i_cl2_alkali,more12.q_nh3_water,more12.q_kclo3_so2,more12.q_cu_o2_h2so4,more9.c_hno3_chain,more9.c_plate,more9.c_cu_h2so4,more9.c_co2_naoh,more9.c_h3po4,more9.c_joint_hydrolysis,more9.c_hardness,more9.c_nitrate_loss]+list(more17.IND_AN),
+            'O':[more12.c_chain,more12.c_chain,more12.c_glu_ester,more8.c_halo_formula,more8.c_decomp,more8.c_hydrogenation,more8.c_nitro_chain,more8.c_ethanol_parallel,more8.c_starch_chain,more8.c_amine_comb,more8.c_glucose_chain,more8.c_chain_alkyne]}
+    r3=random.Random(8000+v)
+    _mx=[i for i in range(1,33) if _ismix(qs[i]) and qs[i].kind=='calc']
+    if len(_mx)>4:
+        r3.shuffle(_mx)
+        for i in _mx[4:]:
+            _pool=NONMIX['U' if i<=13 else 'A' if i<=19 else 'O']
+            for _t in range(120):
+                q=_try(r3,r3.choice(_pool),used)
+                if q is None or _ismix(q): continue
+                _k=fp(q.text)
+                if _k in GFP and GFPC.get(_k,0)>=2: continue
+                GFP.add(_k); GFPC[_k]=GFPC.get(_k,0)+1; used.add(q.text[-90:]+'|'+str(q.ans)); qs[i]=q; break
+    # bir variantda bir xil generator (va bir xil zanjir) takrorlanmasin
+    _seen=set()
+    for i in range(1,33):
+        q0=qs[i]; g0=getattr(q0,'gen','') or ''
+        if q0.kind!='calc' or not g0: continue
+        key0=(g0,getattr(q0,'ck',None))
+        if key0 in _seen:
+            _pool=NONMIX['U' if i<=13 else 'A' if i<=19 else 'O']
+            for _t in range(150):
+                q=_try(r3,r3.choice(_pool),used)
+                if q is None: continue
+                k1=((getattr(q,'gen','') or ''),getattr(q,'ck',None))
+                if k1 in _seen or k1[0]==g0 and k1[1]==key0[1]: continue
+                _k=fp(q.text)
+                if _k in GFP and GFPC.get(_k,0)>=2: continue
+                GFP.add(_k); GFPC[_k]=GFPC.get(_k,0)+1; used.add(q.text[-90:]+'|'+str(q.ans)); qs[i]=q; key0=k1; break
+        _seen.add(key0)
+    # har bo'lim ichida savollar oson -> qiyin tartibida (boshlanishi yengil, motivatsiya uchun)
+    _rk={'oson':0,'o‘rta':1,'qiyin':2}
+    for a_,b_ in ((1,13),(14,19),(20,29)):
+        _seq=sorted(range(a_,b_+1),key=lambda i:(max(_rk[hardness.level(qs[i].text)],1 if id(qs[i]) in HDQ else 0),i))
+        _old={i:qs[i] for i in range(a_,b_+1)}
+        for i,j in zip(range(a_,b_+1),_seq): qs[i]=_old[j]
     # key letters
     letters=list('ABCD')*8; r.shuffle(letters)
     return qs,letters,r,used,base
+
+def _insert_before_ask(text,sentence):
+    # oxirgi gapdan (savol) oldin chalg'ituvchi gapni joylaymiz
+    i=text.rfind('. ',0,len(text)-1)
+    if i<0 or '\n' in text[i:]: return text.rstrip()+' '+sentence
+    return text[:i+2]+sentence+' '+text[i+2:]
+def make_decoy(text,r):
+    """Haqiqiy, lekin masala javobiga ta'sir qilmaydigan ma'lumot. (matn, tur) yoki None."""
+    t=text
+    if '![' in t or '|---' in t: return None
+    m=re.search(r"mo'l (?:konsentrlangan |suyultirilgan )?(xlorid kislota|sulfat kislota|brom suvi|NaOH|KOH|HCl|H2SO4|AgNO3|BaCl2|ammiakli kumush oksid|ohakli suv)",t)
+    kinds=[]
+    if m: kinds.append(('reagent',"Reagent (%s) eritmasining massa ulushi %d %% va zichligi %s g/ml; u mo'l miqdorda olingan."%(m.group(1),r.choice([10,20,36,50]),fmt(r.choice([1.05,1.12,1.18,1.3,1.4]),2))))
+    if re.search(r"aralashma",t) and re.search(r"(CaCO3|MgCO3|BaCO3|Na2CO3|K2CO3|SrCO3|CuO|Fe2O3|PbO|Fe3O4|MgSO4|K2SO4|Na2SO4|Al2\(SO4\)3|Fe2\(SO4\)3|NaCl|KCl|AlCl3|FeCl3|CaCl2|MgCl2|\bMg |\bAl |\bZn |\bFe |Si va SiO2|Na2O)",t) and not re.search(r"\bC\d*H|OH\b|CH3|n\.sh\.\) (gaz|H2)",t.split('aralashma')[0]):
+        kinds.append(('zichlik',"Aralashmaning zichligi %s g/sm³ ga teng."%fmt(r.choice([2.3,2.8,3.1,3.9,4.6,5.2]),1)))
+    if 'qizdir' in t: kinds.append(('vaqt',"Qizdirish %d daqiqa davom etdi."%r.choice([15,20,30,45,60])))
+    if 'elektroliz' in t and 'konsentratsiya' not in t: kinds.append(('hajm',"Elektrolizyorning hajmi %d l."%r.choice([2,3,5])))
+    if 'unum' in t: kinds.append(('bosim',"Barcha reaksiyalar %s atm bosimda olib borildi."%r.choice(['1','1,5','2'])))
+    if not kinds: return None
+    k,s=r.choice(kinds)
+    return _insert_before_ask(t,s),k,s
+
+def strip_hint(t):
+    out=[];i=0
+    while i<len(t):
+        if t[i]=='(' and i>0 and t[i-1]==' ':
+            d=0;j=i
+            while j<len(t):
+                d+= (t[j]=='(')-(t[j]==')')
+                if d==0: break
+                j+=1
+            seg=t[i:j+1]
+            if d==0 and ('→' in seg or '⇌' in seg):
+                if out and out[-1]==' ': out.pop()
+                i=j+1; continue
+        out.append(t[i]); i+=1
+    return ''.join(out)
+def decoy_fallback(text,r):
+    opts=["Tajriba %d daqiqa davom etdi."%r.choice([10,20,40]),"Tajriba laboratoriyada, %s idishda o'tkazildi."%r.choice(['shisha','chinni','kvars'])]
+    if not re.search(r"n\.sh\.|hajm",text): opts+=["Tajriba hajmi %d ml bo'lgan kolbada o'tkazildi."%r.choice([250,500,1000])]
+    s=r.choice(opts)
+    return _insert_before_ask(text,s),'idish/vaqt',s
 def render_q(n,q,L):
     d=q.dis[:]; opts=d[:]
     # random distractor placement was random already; place answer at L
@@ -195,7 +357,7 @@ def make3335_new(r,v):
     import tail
     allst=[('o',f) for f in tail.STORIES]+[('n',f) for f in more.STORIES2]
     for _ in range(60):
-        kind,f=r.choice(allst); x=f(r)
+        kind,f=(('n',r.choice(more18.NEWST2)) if r.random()<0.9 else ('n',r.choice(more17.NEWST))); x=f(r)
         if kind=='o': txt,qs,vals,sid,sol,src=x
         else: txt,qs,vals,sol,src=x
         qs,vals,sol=harder.apply(f.__name__,qs,vals,sol); qs,vals,sol=harder.apply1(f.__name__,txt,qs,vals,sol)
@@ -212,6 +374,14 @@ def more6w42(r):
     return w
 def make_variant(v):
     qs,letters,r,used,base=build(v)
+    rd=random.Random(7000+v); DEC={}
+    for n_ in range(1,33):
+        q_=qs[n_]
+        if q_.kind!='calc' or rd.random()>0.45: continue
+        res=make_decoy(q_.text,rd)
+        if res:
+            q_.text,k_,s_=res; q_.sol=q_.sol+" Eslatma: «%s» – chalg'ituvchi ma'lumot, hisobga olinmaydi."%s_.rstrip('.'); DEC[n_]=k_
+    for n_ in range(1,33): qs[n_].text=strip_hint(qs[n_].text)
     key={}; tests=[]
     for n in range(1,33):
         q=qs[n]; L=letters[n-1]; key[n]=L; tests.append((n,render_q(n,q,L)))
@@ -222,7 +392,7 @@ def make_variant(v):
     old={36:[um2.c_oqrsum],37:[um2.c_farad,um2.c_sol,um2.c_mix,um.c_gasvol,um2.c_molar,um2.c_oleum,um2.c_K,um2.c_ph],38:[an.c_almg,an.c_alnaoh,an.c_cucuo,an.c_znzno,an.c_pyrite,an.c_nitr,an.c_co2naoh,an.c_halo],39:[org.c_formula,org.c_alkenemix,org.c_alcna,org.c_ag,org.c_acid,org.c_benz],40:[org.c_ester,org.c_fat,org.c_carb,org.c_amine,org.c_poly,org.c_aldid,org.c_ester_hyd,org.c_carbide]}
     new={36:list(short2.H36),37:list(short2.H37),38:list(short2.H38),39:list(short2.H39),40:list(short2.H40)}
     rs=random.Random(5000+v)
-    pools={n:(new[n] if rs.random()<SHP else old[n]) for n in range(36,41)}
+    pools={n:(REL_SH[n] if (n in REL_SH and rs.random()<(0.9 if n in (39,40) else 0.5)) else (new[n] if rs.random()<SHP else old[n])) for n in range(36,41)}
     for n in range(36,41):
         av=[g for g in pools[n] if g not in USEDS] or pools[n]
         f=r.choice(av); USEDS.add(f); q=gen_valid(r,f,used,[g for g in pools[n] if g is not f]); sh.append((n,q))
@@ -230,11 +400,29 @@ def make_variant(v):
         av=[f for f in lst if f not in USEDW] or lst
         for i in range(80):
             f=r.choice(av); w=f(r); k=fp(w.text)
-            if k not in GFP or i==79: GFP.add(k); USEDW.add(f); return w
+            if k not in GFP or i==79: GFP.add(k); USEDW.add(f); w.gen=getattr(f,'__name__','?'); return w
     W41L=list(tail.W41)+[f for f in more3.W41N if f is not more3.w41_alloy]+list(more4.W41M)
+    _weak={more3.w41_molar,more3.w41_gasmix,more3.w41_equiv,more3.w41_isotope,more3.w41_vant} if hasattr(more3,'w41_molar') else set()
+    _weak|={getattr(m_,n_) for m_ in (tail,more3,more4) for n_ in ('w41_molar','w41_gasmix','w41_equiv','w41_isotope','w41_vant') if hasattr(m_,n_)}
+    W41L=[f for f in W41L if f not in _weak]
     W43L=list(tail.W43)+list(more3.W43N)+[more3.w41_alloy]+list(more5.W43M)
-    w41=pickw(W41L); w42=(tail.w42(r,v) if v%6==0 else more6w42(r)); w43=pickw(W43L); w41.title='41'; w43.title='43'
-    return dict(v=v,qs=qs,key=key,tests=tests,s=s,sh=sh,w41=w41,w42=w42,w43=w43,base=base)
+    _weak43={getattr(m_,n_) for m_ in (tail,more3,more4,more5) for n_ in ('w43_al','w43_fe','w43_hard','w43_carb','w43_halo','w43_p_chain') if hasattr(m_,n_)}
+    W43L=[f for f in W43L if f not in _weak43]
+    _N41=[more10.w41_iron,more10.w41_kmno4,more15.w41_hydrate_id]+list(more12.NEW41B)+list(more16.NEW41C); _N43=list(more12.NEW43)+[more16.w43_thermite,more16.w43_no2o2]+list(more16.NEW43C); _T43=[getattr(m_,n_) for m_ in (tail,more3,more4,more5) for n_ in ('w43_metals','w43_anion','w43_tahlil','w43_gasid') if hasattr(m_,n_)]; w41=pickw([_N41[(v-1)%len(_N41)]]); w42=(more6w42(r) if v%5==1 else more11.w42_complete(r)); w43=pickw([_N43[(v-1)%len(_N43)]]) if v%10 else pickw(_T43); w41.title='41'; w43.title='43'
+    for n_,q_ in sh:
+        if n_==38 or rd.random()<0.75:
+            res=make_decoy(q_.text,rd) or decoy_fallback(q_.text,rd)
+            if res: q_.text,k_,s_=res; q_.sol=q_.sol+" Eslatma: «%s» – chalg'ituvchi ma'lumot."%s_.rstrip('.'); DEC[n_]=k_
+        q_.text=strip_hint(q_.text)
+    for n_ in range(1,33): qs[n_].text=strip_hint(qs[n_].text)
+    s['text']=strip_hint(s['text'])
+    w41.text=strip_hint(w41.text); w43.text=strip_hint(w43.text)
+    for w_ in (w41,w43): w_.bands=[strip_hint(x_) for x_ in w_.bands]
+    for w_,nm_ in ((w41,41),(w43,43)):
+        if rd.random()<0.6:
+            res=make_decoy(w_.text,rd)
+            if res: w_.text,k_,s_=res; DEC[nm_]=k_
+    return dict(v=v,qs=qs,key=key,tests=tests,s=s,sh=sh,w41=w41,w42=w42,w43=w43,base=base,dec=DEC)
 def short_text(q):
     t=q.text
     return t
@@ -319,11 +507,14 @@ def md_variant(V):
     return md
 if __name__=='__main__':
     which=[int(x) for x in sys.argv[1:]] or list(range(1,21))
+    AUD=[]
     for v in which:
         V=make_variant(v)
+        AUD.append(dict(v=v,dec={str(k):x for k,x in V['dec'].items()},gens={n:getattr(V['qs'][n],'gen','?') for n in V['qs']},sh={n:getattr(q,'gen','?') for n,q in V['sh']},w41=getattr(V['w41'],'gen','?'),w42=getattr(V['w42'],'gen','chain/complete'),w43=getattr(V['w43'],'gen','?'),b41=len(V['w41'].bands),b42=len(V['w42'].bands),b43=len(V['w43'].bands)))
         md=md_variant(V)
         open(K+'MS_variant_%02d.md'%v if False else K+'gen/out_variant_%02d.md'%v,'w',encoding='utf8').write(md)
         print(v,len(md))
+    json.dump(AUD,open(K+'gen/audit.json','w'))
     import collections as _c
     M=_c.defaultdict(_c.Counter)
     for v,l in LOG:

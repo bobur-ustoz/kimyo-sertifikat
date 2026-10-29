@@ -73,7 +73,9 @@ def c_benz(r):
     return numq("%s g %s olishda unum %d %% bo'lsa, mahsulot massasini (g) aniqlang."%(fmt(n*m1,2),name,y),n*m2*y/100,[n*m2,n*m2*2*y/100,n*m1*y/100,n*m2/ (y/100)],"%s: n = %s mol → %s g nazariy → %d %% = %s g"%(eq,fmt(n),fmt(n*m2,2),y,fmt(n*m2*y/100,2)),"10-sinf §16, §23, §33",2)
 def c_alcna(r):
     a=r.choice([0.1,0.2]); b=r.choice([0.1,0.2]); sp=[('CH3OH',32),('C2H5OH',46),('C3H7OH',60)]; s1,s2=r.sample(sp,2); mix=a*s1[1]+b*s2[1]; V=(a+b)/2*22.4
-    if r.random()<0.5: return numq("%s va %s dan iborat %s g aralashma natriy bilan to'liq reaksiyaga kirishganda ajraladigan vodorod hajmini (l, n.sh.) toping."%(s1[0],s2[0],fmt(mix,2)),V,[V*2,V/2,(a+b)*22.4,mix/ (s1[1]+s2[1])*11.2],"2ROH + 2Na → 2RONa + H2: n(spirt) = %s mol → n(H2) = %s mol → %s l"%(fmt(a+b),fmt((a+b)/2),fmt(V,2)),"10-sinf §21 (spirtlar)",2)
+    import math as _m
+    _g=_m.gcd(round(a*10),round(b*10)); _p,_q=round(a*10)//_g,round(b*10)//_g
+    if r.random()<0.5: return numq("%s va %s dan iborat %s g aralashmada ularning mol nisbati %d : %d. Aralashma natriy bilan to'liq reaksiyaga kirishganda ajraladigan vodorod hajmini (l, n.sh.) toping."%(s1[0],s2[0],fmt(mix,2),_p,_q),V,[V*2,V/2,(a+b)*22.4,mix/ (s1[1]+s2[1])*11.2],"2ROH + 2Na → 2RONa + H2: n(spirt) = %s mol → n(H2) = %s mol → %s l"%(fmt(a+b),fmt((a+b)/2),fmt(V,2)),"10-sinf §21 (spirtlar)",2)
     return numq("%s va %s dan iborat %s g aralashma natriy bilan to'liq reaksiyaga kirishganda %s l (n.sh.) vodorod ajraldi. Aralashmadagi %s massasini (g) toping."%(s1[0],s2[0],fmt(mix,2),fmt(V,2),s1[0]),a*s1[1],[b*s2[1],a*s2[1],mix,a*s1[1]*2],"x + y = %s; %d x + %d y = %s → x = %s mol %s = %s g"%(fmt(a+b),s1[1],s2[1],fmt(mix,2),fmt(a),s1[0],fmt(a*s1[1],2)),"10-sinf §21",2)
 def c_ag(r):
     f,m,k=pick(r,[('HCHO',30,4),('CH3CHO',44,2),('C2H5CHO',58,2),('HCOOH',46,2),('C6H12O6',180,2)]); n=r.choice([0.1,0.2,0.05]);

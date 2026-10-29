@@ -106,7 +106,7 @@ def st_metals(r):
     else: msalt=nB*B[5]*M(B[4])+(nA*A[5]*M(A[4]) if A[4] else 0); sn=B[4]
     nm={'Zn':'rux','Mg':'magniy','Fe':'temir','Al':'alyuminiy','Cu':'mis'}
     names=nm[A[0]]+' va '+nm[B[0]]
-    note=" (mis kislota bilan reaksiyaga kirishmaydi)" if inert else ""
+    note=""
     txt="%s (%s va %s) dan iborat %s g qotishma mo'l %s eritmasida eritilganda %s l (n.sh.) gaz ajraldi%s."%(names.capitalize(),A[0],B[0],fmt(m,2),acid,fmt(hv,2),note)
     qs=["Qotishmadagi %s massasini (g) aniqlang."%A[0],"Reaksiya uchun sarflangan %s massasini (g) aniqlang."%acid,"Eritmadagi tuzlarning umumiy massasini (g) aniqlang."]
     vals=[nA*A[1],mAcid,msalt]

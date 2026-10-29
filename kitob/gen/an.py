@@ -37,7 +37,7 @@ NAME2={'Mg':'magniy','Zn':'rux','Ca':'kalsiy','Fe':'temir','Cu':'mis'}
 def c_alnaoh(r):
     me=r.choice([('Cu',64),('Fe',56),('Mg',24)]); a=r.choice([0.1,0.2,0.3]); b=r.choice([0.1,0.2]); mix=a*27+b*me[1]; V=a*1.5*22.4
     ask=r.choice(['V','w'])
-    if ask=='V': return numq("Alyuminiy va %s dan iborat %s g aralashma mo'l NaOH eritmasida eritildi. Ajralgan gazning hajmini (l, n.sh.) aniqlang (%s ishqor bilan reaksiyaga kirishmaydi)."%(NAME2[me[0]],fmt(mix,2),NAME2[me[0]]),V,[V*2,V/2,mix/27*22.4,a*22.4],"2Al + 2NaOH + 6H2O → 2Na[Al(OH)4] + 3H2: n(Al) = %s mol → n(H2) = %s mol → %s l"%(fmt(a),fmt(a*1.5),fmt(V,2)),"9-sinf (alyuminiy)",2)
+    if ask=='V': return numq("Alyuminiy va %s dan iborat %s g aralashma mo'l NaOH eritmasida eritildi. Ajralgan gazning hajmini (l, n.sh.) aniqlang."%(NAME2[me[0]],fmt(mix,2)),V,[V*2,V/2,mix/27*22.4,a*22.4],"2Al + 2NaOH + 6H2O → 2Na[Al(OH)4] + 3H2: n(Al) = %s mol → n(H2) = %s mol → %s l"%(fmt(a),fmt(a*1.5),fmt(V,2)),"9-sinf (alyuminiy)",2)
     w=b*me[1]/mix*100
     return numq("Alyuminiy va %s dan iborat %s g aralashma mo'l NaOH eritmasida eritilganda %s l (n.sh.) gaz ajraldi. Aralashmadagi %s ning massa ulushini (%%) aniqlang."%(NAME2[me[0]],fmt(mix,2),fmt(V,2),NAME2[me[0]]),w,[100-w,w/2,a*27/mix*100*0.9,b*me[1]],"n(H2) = %s → n(Al) = %s mol (%s g); qolgan %s g %s → %s %%"%(fmt(V/22.4,2),fmt(a),fmt(a*27,2),fmt(b*me[1],2),me[0],fmt(w,1)),"9-sinf (alyuminiy)",1)
 def c_co2ca(r):
