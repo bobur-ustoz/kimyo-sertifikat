@@ -108,6 +108,19 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
               Dastlabki 10 savol bepul
             </label>
 
+            {(() => {
+              const left = v.free_until ? new Date(v.free_until) - Date.now() : 0;
+              return left > 0 ? (
+                <div style={{background:C.mintBg,border:`1px solid #86EFAC`,borderRadius:8,padding:"6px 9px",marginBottom:8,fontSize:11.5,color:C.primary,fontWeight:700}}>
+                  Hamma uchun ochiq: {Math.floor(left/3600000)} soat {Math.round((left%3600000)/60000)} daq qoldi
+                  <button style={{...btnGhost,marginLeft:8,padding:"2px 8px",fontSize:11}} onClick={() => update(v, { free_until: null })}>Yopish</button>
+                </div>
+              ) : (
+                <button style={{...btnGhost,width:"100%",justifyContent:"center",marginBottom:8}}
+                  onClick={() => update(v, { free_until: new Date(Date.now() + 24*3600*1000).toISOString() })}>24 soat ochish</button>
+              );
+            })()}
+
             {!v.is_free && (
               <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
                 <input style={{ ...inputStyle, padding:"6px 9px", fontSize:12 }} type="number" min={0} step={1000}

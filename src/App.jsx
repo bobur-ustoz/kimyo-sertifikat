@@ -28,7 +28,9 @@ const canUse = (plan,feature) => feature==="analog" ? plan!=="free" : true;
 // A variant marked "bepul" is a preview: its first FREE_PREVIEW questions are open to everyone,
 // the rest need Premium or a purchase.
 const FREE_PREVIEW = 10;
-const variantFull = (variant,plan,purchases) => !!variant && (plan==="premium" || purchases?.[variant.id]==="paid");
+// free_until: an admin opened the whole variant for a limited time (e.g. 24 h).
+const openNow = (variant) => !!variant?.free_until && new Date(variant.free_until) > new Date();
+const variantFull = (variant,plan,purchases) => !!variant && (plan==="premium" || purchases?.[variant.id]==="paid" || openNow(variant));
 const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || variantFull(variant,plan,purchases));
 const fmtSum = n => Number(n||0).toLocaleString("ru-RU").replace(/\u00a0/g," ");
 
@@ -50,7 +52,7 @@ async function fetchVariants(teacherId) {
   }
   // is_free/price are absent until the paid-access migration runs; treat that
   // state as "open", which is what the site did before variants were sellable.
-  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0, is_free:v.is_free ?? true, price:v.price ?? 5000 }));
+  return (vRows||[]).map(v=>({ id:v.id, number:v.variant_number, total:v.total_questions, ready:readyMap[v.id]||0, is_free:v.is_free ?? true, price:v.price ?? 5000, free_until:v.free_until||null }));
 }
 
 async function fetchQuestions(variantId) {
@@ -566,7 +568,9 @@ function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy,onBack}) {
               {unlocked
                 ? dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>
                 : <div style={{position:"absolute",top:10,right:10}}><Lock size={14} color={C.textLight}/></div>}
-              {v.is_free ? (
+              {openNow(v) ? (
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Vaqtincha hamma uchun ochiq</div>
+              ) : v.is_free ? (
                 <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Dastlabki {FREE_PREVIEW} savol bepul</div>
               ) : unlocked ? (
                 <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><CheckCircle2 size={8}/> Ochiq</div>

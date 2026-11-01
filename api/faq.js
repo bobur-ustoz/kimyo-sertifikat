@@ -28,8 +28,8 @@ export default async function handler(req, res) {
   if (!prof?.is_admin && !paidPlanActive(prof)) {
     let freeDtm = false;
     if (questionId) {
-      const { data: qv } = await admin.from("questions").select("question_number, variants(is_free, teachers(section))").eq("id", questionId).maybeSingle();
-      freeDtm = !!qv?.variants?.is_free && qv.question_number <= 10 && qv.variants.teachers?.section === "dtm";
+      const { data: qv } = await admin.from("questions").select("question_number, variants(is_free, free_until, teachers(section))").eq("id", questionId).maybeSingle();
+      freeDtm = (!!qv?.variants?.is_free && qv.question_number <= 10 || !!qv?.variants?.free_until && new Date(qv.variants.free_until) > new Date()) && qv.variants.teachers?.section === "dtm";
     }
     if (!freeDtm) return res.status(200).json({ items: [] });
   }
