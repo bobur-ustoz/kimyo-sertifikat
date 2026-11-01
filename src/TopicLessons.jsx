@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Tag, Play, ChevronLeft, ChevronRight, Send, Sparkles, Download, CheckCircle2, XCircle } from "lucide-react";
+import { Tag, Play, ChevronLeft, ChevronRight, Send, Sparkles, Download, CheckCircle2, XCircle, Lock } from "lucide-react";
 import { splitOptions } from "./analogPdf";
 import { supabase } from "./lib/supabaseClient";
 import { C } from "./adminStyles";
@@ -254,6 +254,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
       .then(({data})=>setExamples(data||[]));
   },[topic.id]);
   const ex = examples.find(e=>e.example_number===active);
+  const exLocked = !!ex && plan==="free";   // example videos are Premium; the topic lesson stays open
   const readyN=examples.filter(e=>e.bunny_video_id).length;
   return (
     <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
@@ -263,9 +264,20 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
           <ChevronRight size={13}/><span style={{color:C.primary,fontWeight:700}}>{topic.name}</span>
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{ex?`${ex.example_number}-Misol`:"Mavzu darsi"}</span>
         </div>
-        <VideoBox Player={Player} session={session} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
+        {exLocked ? (
+          <div style={{position:"relative",paddingTop:"56.25%",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",borderRadius:14,overflow:"hidden"}}>
+            <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center"}}>
+              <div style={{width:54,height:54,borderRadius:"50%",background:"rgba(255,255,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}}><Lock size={22} color={C.mint}/></div>
+              <div style={{color:"#fff",fontSize:15,fontWeight:800}}>Misollar videosi Premium rejada</div>
+              <div style={{color:"#94A3B8",fontSize:12.5,marginTop:5,maxWidth:340,lineHeight:1.6}}>Mavzu darsi hamma uchun ochiq. Misollarning video tahlili, AI va analog savollar Premium bilan ochiladi.</div>
+              <button onClick={()=>setTab("obuna")} style={{marginTop:16,padding:"10px 20px",borderRadius:10,background:C.mint,color:C.primary,border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Premium olish</button>
+            </div>
+          </div>
+        ) : (
+          <VideoBox Player={Player} session={session} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
+        )}
         <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
-          <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
+          {!exLocked&&<AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>}
           <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"12px 14px",display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
             <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>Mavzu: <b style={{color:C.primary}}>{topic.name}</b></span>
             <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>{ex?<>Misol: <b style={{color:C.primary}}>{ex.example_number}-misol</b></>:<>Turi: <b style={{color:C.primary}}>Mavzu darsi</b></>}</span>
@@ -283,7 +295,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
           <button key={it.key} onClick={it.go} disabled={!it.ready}
             style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:it.on?C.primary:"transparent",border:it.on?"none":`1px solid ${it.ready?"#BBF7D0":C.border}`,cursor:it.ready?"pointer":"default",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,opacity:it.ready?1:0.55}}>
             <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:it.on?"rgba(255,255,255,0.18)":it.ready?C.mintBg:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:800,color:it.on?C.mint:it.ready?C.primary:C.textMid}}>
-              {it.num===null?<Play size={9} fill="currentColor"/>:(it.ready&&!it.on?"✓":it.num)}
+              {it.num===null?<Play size={9} fill="currentColor"/>:(plan==="free"?"🔒":it.ready&&!it.on?"✓":it.num)}
             </div>
             <div style={{minWidth:0,flex:1}}>
               <div style={{fontSize:10.5,fontWeight:700,color:it.on?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.label}</div>

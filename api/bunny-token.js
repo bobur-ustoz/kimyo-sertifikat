@@ -18,12 +18,24 @@ export default async function handler(req, res) {
   const { videoId } = req.body || {};
   if (!videoId) return res.status(400).json({ error: "Missing videoId" });
 
-  // Topic lessons (Mavzular): the videos are open to everyone; the extras (AI, analog) are Premium.
+  // Topic lessons (Mavzular): the lesson video is open to everyone; the 20 example videos,
+  // AI and analog are Premium.
   const [{ data: topicHit }, { data: exampleHit }] = await Promise.all([
     anon.from("topics").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
     anon.from("topic_examples").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
   ]);
-  if (topicHit || exampleHit) return res.status(200).json(signToken(videoId));
+  if (topicHit) return res.status(200).json(signToken(videoId));
+  if (exampleHit) {
+    const jwt = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
+    const premiumOnly = { locked: true, error: "Misollar videosi Premium rejada." };
+    if (!jwt) return res.status(401).json(premiumOnly);
+    const { data: u } = await anon.auth.getUser(jwt);
+    if (!u?.user) return res.status(401).json({ error: "Sessiya eskirgan. Qayta kiring." });
+    const asUser = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { global: { headers: { Authorization: `Bearer ${jwt}` } } });
+    const { data: prof } = await asUser.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", u.user.id).maybeSingle();
+    if (prof?.is_admin || premiumActive(prof)) return res.status(200).json(signToken(videoId));
+    return res.status(403).json(premiumOnly);
+  }
 
   // Live-lesson recordings: free ones for any signed-in student; priced ones need an approved
   // purchase (or the admin).
