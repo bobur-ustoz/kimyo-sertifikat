@@ -4,11 +4,11 @@ import { splitOptions } from "./analogPdf";
 import { supabase } from "./lib/supabaseClient";
 import { C } from "./adminStyles";
 
-function VideoBox({Player,videoId,onTime,playerRef}){
+function VideoBox({Player,videoId,onTime,playerRef,session}){
   return (
     <div style={{position:"relative",paddingTop:"56.25%",background:"#0F172A",borderRadius:14,overflow:"hidden"}}>
       {videoId
-        ? <Player key={videoId} videoId={videoId} onTime={onTime} playerRef={playerRef}/>
+        ? <Player key={videoId} videoId={videoId} session={session} onTime={onTime} playerRef={playerRef}/>
         : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:13}}>Video tez orada qo'shiladi</div>}
     </div>
   );
@@ -263,7 +263,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
           <ChevronRight size={13}/><span style={{color:C.primary,fontWeight:700}}>{topic.name}</span>
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{ex?`${ex.example_number}-Misol`:"Mavzu darsi"}</span>
         </div>
-        <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
+        <VideoBox Player={Player} session={session} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
         <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
           <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
           <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"12px 14px",display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
