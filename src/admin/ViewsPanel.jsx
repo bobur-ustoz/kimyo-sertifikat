@@ -12,6 +12,7 @@ export default function ViewsPanel() {
   const [data, setData] = useState(null);
   const [by, setBy] = useState("video");
   const [open, setOpen] = useState(null);
+  const [work, setWork] = useState(null);   // variant answers per student (admin_variant_activity)
 
   useEffect(() => {
     (async () => {
@@ -37,6 +38,10 @@ export default function ViewsPanel() {
       const unseen = (q.data || []).filter((x) => x.bunny_video_id && !seen.has("question:" + x.id)).length;
       setData({ rows, label, unseen, error: v.error?.message });
     })();
+  }, []);
+
+  useEffect(() => {
+    supabase.rpc("admin_variant_activity").then(({ data: d, error }) => setWork(error ? { error: error.message } : d || []));
   }, []);
 
   if (!data) return <div style={{ fontSize: 13, color: C.textMid }}>Yuklanmoqda...</div>;
@@ -67,7 +72,9 @@ export default function ViewsPanel() {
       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
         <button style={tab(by === "video")} onClick={() => { setBy("video"); setOpen(null); }}>Videolar bo'yicha</button>
         <button style={tab(by === "student")} onClick={() => { setBy("student"); setOpen(null); }}>O'quvchilar bo'yicha</button>
+        <button style={tab(by === "work")} onClick={() => { setBy("work"); setOpen(null); }}>Variant ishlaganlar</button>
       </div>
+      {by === "work" ? <WorkList work={work} open={open} setOpen={setOpen}/> : (
       <div style={card}>
         {list.map((g) => (
           <div key={g.key} style={{ borderBottom: `1px solid ${C.border}` }}>
@@ -93,6 +100,46 @@ export default function ViewsPanel() {
           </div>
         ))}
       </div>
+      )}
+    </div>
+  );
+}
+
+// Variants the students actually worked on (answered questions), with when they started / last answered.
+function WorkList({ work, open, setOpen }) {
+  if (!work) return <div style={{ fontSize: 13, color: C.textMid }}>Yuklanmoqda...</div>;
+  if (work.error) return <div style={{ ...card, color: C.danger, fontSize: 13 }}>Ma'lumot olinmadi ({work.error}). Migratsiya (admin_variant_activity) hali ishga tushirilmagan.</div>;
+  if (!work.length) return <div style={{ ...card, fontSize: 13, color: C.textMid }}>Hali hech kim variant savollariga javob bermagan.</div>;
+  const m = {};
+  work.forEach((r) => {
+    const g = (m[r.variant_id] ||= { key: r.variant_id, name: `${r.teacher_name} · ${r.variant_number}-variant`, people: [], answered: 0, last: r.last_at });
+    g.people.push(r); g.answered += r.answered;
+    if (r.last_at > g.last) g.last = r.last_at;
+  });
+  const list = Object.values(m).sort((a, b) => b.people.length - a.people.length);
+  return (
+    <div style={card}>
+      {list.map((g) => (
+        <div key={g.key} style={{ borderBottom: `1px solid ${C.border}` }}>
+          <div onClick={() => setOpen(open === g.key ? null : g.key)} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", cursor: "pointer" }}>
+            <div style={{ flex: 1, fontSize: 13, fontWeight: 700, color: C.text }}>{g.name}</div>
+            <div style={{ fontSize: 12, color: C.textMid, width: 110, textAlign: "right" }}>{g.people.length} o'quvchi</div>
+            <div style={{ fontSize: 12, color: C.textMid, width: 90, textAlign: "right" }}>{g.answered} javob</div>
+            <div style={{ fontSize: 11, color: C.textLight, width: 90, textAlign: "right" }}>{when(g.last)}</div>
+          </div>
+          {open === g.key && (
+            <div style={{ background: C.bgSoft, borderRadius: 8, padding: "6px 12px", marginBottom: 8 }}>
+              {g.people.sort((a, b) => b.answered - a.answered).map((r) => (
+                <div key={r.student_id} style={{ display: "flex", gap: 12, padding: "4px 0", fontSize: 12, color: C.textMid }}>
+                  <div style={{ flex: 1, color: C.text }}>{r.student_name || r.student_email || r.student_id.slice(0, 8)}</div>
+                  <div style={{ width: 110, textAlign: "right", fontWeight: 700 }}>{r.correct}/{r.answered} to'g'ri</div>
+                  <div style={{ width: 170, textAlign: "right" }}>{when(r.first_at)} → {when(r.last_at)}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
