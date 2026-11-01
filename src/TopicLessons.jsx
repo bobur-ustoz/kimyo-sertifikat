@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Tag, Play, ChevronLeft, Send, Sparkles, Download, CheckCircle2, XCircle } from "lucide-react";
+import { Tag, Play, ChevronLeft, ChevronRight, Send, Sparkles, Download, CheckCircle2, XCircle } from "lucide-react";
 import { splitOptions } from "./analogPdf";
 import { supabase } from "./lib/supabaseClient";
 import { C } from "./adminStyles";
@@ -254,38 +254,45 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
       .then(({data})=>setExamples(data||[]));
   },[topic.id]);
   const ex = examples.find(e=>e.example_number===active);
+  const readyN=examples.filter(e=>e.bunny_video_id).length;
   return (
-    <div style={{padding:"26px 30px",maxWidth:900}}>
-      <button onClick={onBack} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 12px",borderRadius:9,background:"#fff",border:`1px solid ${C.border}`,color:C.textMid,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",marginBottom:16}}><ChevronLeft size={14}/> Mavzular</button>
-      <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:4}}>{topic.name}</h1>
-      <p style={{fontSize:13,color:C.textMid,marginBottom:16}}>{ex?`${ex.example_number}-misol tahlili`:"Mavzu darsi"}</p>
-
-      <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
-      <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
-        {ex&&plan!=="free"&&<Analog ex={ex} topicName={topic.name} onPdf={onPdf}/>}
-        <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
-      </div>
-
-      <div style={{display:"flex",alignItems:"center",gap:9,margin:"28px 0 12px"}}>
-        <div style={{width:4,height:22,background:C.primary,borderRadius:2}}/>
-        <h2 style={{fontSize:15.5,fontWeight:800,color:C.text}}>To'plam: {examples.length||20} ta misol tahlili</h2>
-      </div>
-      {examples.length===0 ? (
-        <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:14,padding:28,textAlign:"center",color:C.textMid,fontSize:13}}>Misollar tez orada qo'shiladi.</div>
-      ) : (
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(110px,1fr))",gap:10}}>
-          <button onClick={()=>setActive(null)} style={{padding:"12px 8px",borderRadius:12,border:`2px solid ${active===null?C.primary:C.border}`,background:active===null?C.primary:"#fff",color:active===null?"#fff":C.text,fontSize:12.5,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>Mavzu darsi</button>
-          {examples.map(e=>{
-            const on=active===e.example_number;
-            return (
-              <button key={e.id} onClick={()=>{setActive(e.example_number);window.scrollTo({top:0,behavior:"smooth"});}} disabled={!e.bunny_video_id}
-                style={{padding:"12px 8px",borderRadius:12,border:`2px solid ${on?C.primary:C.border}`,background:on?C.primary:"#fff",color:on?"#fff":e.bunny_video_id?C.text:C.textLight,fontSize:12.5,fontWeight:800,cursor:e.bunny_video_id?"pointer":"default",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:6,opacity:e.bunny_video_id?1:0.55}}>
-                <Play size={11} fill="currentColor"/> {e.example_number}-misol
-              </button>
-            );
-          })}
+    <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
+      <div style={{flex:1,minWidth:0,overflowY:"auto",padding:"20px 22px 24px 26px"}}>
+        <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:13,fontSize:12.5,color:C.textMid,flexWrap:"wrap"}}>
+          <button onClick={onBack} style={{background:"none",border:"none",cursor:"pointer",color:C.accent,fontWeight:600,fontFamily:"inherit",fontSize:12.5,padding:0}}>Mavzular</button>
+          <ChevronRight size={13}/><span style={{color:C.primary,fontWeight:700}}>{topic.name}</span>
+          <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{ex?`${ex.example_number}-Misol`:"Mavzu darsi"}</span>
         </div>
-      )}
+        <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
+        <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
+          <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
+          <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"12px 14px",display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+            <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>Mavzu: <b style={{color:C.primary}}>{topic.name}</b></span>
+            <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>{ex?<>Misol: <b style={{color:C.primary}}>{ex.example_number}-misol</b></>:<>Turi: <b style={{color:C.primary}}>Mavzu darsi</b></>}</span>
+          </div>
+          {ex&&plan!=="free"&&<Analog ex={ex} topicName={topic.name} onPdf={onPdf}/>}
+        </div>
+      </div>
+
+      <div className="video-sidebar" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
+        <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>Mavzu · Misollar</div>
+        <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{examples.length?`${readyN}/${examples.length} video tayyor`:"Misollar tez orada qo'shiladi"}</div>
+        {[{key:"lesson",num:null,label:"Mavzu darsi",sub:"Nazariy video",ready:!!topic.bunny_video_id,on:active===null,go:()=>setActive(null)},
+          ...examples.map(e=>({key:e.id,num:e.example_number,label:`${e.example_number}-Misol`,sub:e.analog_savol?"Video tahlil + analog":"Video tahlil",ready:!!e.bunny_video_id,on:active===e.example_number,go:()=>setActive(e.example_number)}))
+        ].map(it=>(
+          <button key={it.key} onClick={it.go} disabled={!it.ready}
+            style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:it.on?C.primary:"transparent",border:it.on?"none":`1px solid ${it.ready?"#BBF7D0":C.border}`,cursor:it.ready?"pointer":"default",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,opacity:it.ready?1:0.55}}>
+            <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:it.on?"rgba(255,255,255,0.18)":it.ready?C.mintBg:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:800,color:it.on?C.mint:it.ready?C.primary:C.textMid}}>
+              {it.num===null?<Play size={9} fill="currentColor"/>:(it.ready&&!it.on?"✓":it.num)}
+            </div>
+            <div style={{minWidth:0,flex:1}}>
+              <div style={{fontSize:10.5,fontWeight:700,color:it.on?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.label}</div>
+              <div style={{fontSize:9,color:it.on?"#A7F3D0":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.sub}</div>
+            </div>
+            {it.on&&<div style={{width:6,height:6,borderRadius:"50%",background:C.mint,flexShrink:0,boxShadow:"0 0 0 3px rgba(110,231,183,0.3)"}}/>}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
