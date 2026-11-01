@@ -715,6 +715,20 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
       const sec=Math.round(pending); pending=0;
       supabase.rpc("track_video_view",{p_video_id:videoId,p_open:false,p_seconds:sec}).then(()=>{},()=>{});
     };
+    // Closing the tab or switching away must not lose the seconds played since the last flush:
+    // a keepalive request survives the page going away, an ordinary one does not.
+    const flushOnLeave=()=>{
+      if(!track||pending<=0||!session?.access_token) return;
+      const sec=Math.round(pending); pending=0;
+      try{
+        fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/rpc/track_video_view`,{method:"POST",keepalive:true,
+          headers:{"Content-Type":"application/json",apikey:import.meta.env.VITE_SUPABASE_ANON_KEY,Authorization:`Bearer ${session.access_token}`},
+          body:JSON.stringify({p_video_id:videoId,p_open:false,p_seconds:sec})}).catch(()=>{});
+      }catch{}
+    };
+    const onHide=()=>{ if(document.visibilityState==="hidden") flushOnLeave(); };
+    document.addEventListener("visibilitychange",onHide);
+    window.addEventListener("pagehide",flushOnLeave);
     if(track) supabase.rpc("track_video_view",{p_video_id:videoId,p_open:true,p_seconds:0}).then(()=>{},()=>{});
     loadPlayerJs().then(()=>{
       if(!live||!frameRef.current) return;
@@ -730,9 +744,9 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
         pl.on("pause",()=>{ last=null; flush(); });
         pl.on("ended",()=>{ last=null; flush(); });
       });
-      if(track) timer=setInterval(flush,30000);
+      if(track) timer=setInterval(flush,15000);
     }).catch(()=>{});
-    return ()=>{ live=false; clearInterval(timer); flush(); if(playerRef) playerRef.current=null; };
+    return ()=>{ live=false; clearInterval(timer); flush(); document.removeEventListener("visibilitychange",onHide); window.removeEventListener("pagehide",flushOnLeave); if(playerRef) playerRef.current=null; };
   },[src]);
   if(err) return <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,color:"#94A3B8",fontSize:12.5,padding:20,textAlign:"center"}}><Lock size={20} color="#64748B"/>{err}</div>;
   if(!src) return <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:12}}>Yuklanmoqda…</div>;

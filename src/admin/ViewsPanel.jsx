@@ -10,6 +10,9 @@ const when = (t) => {
   const pad = (n) => String(n).padStart(2, "0");
   return `${d.getUTCDate()}-${MONTHS[d.getUTCMonth()]} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
 };
+// How much was actually watched: opening a video is not the same as watching it.
+const status = (sec) => sec >= 60 ? { t: "Ko'rdi", bg: "#DCFCE7", fg: "#166534" } : sec >= 10 ? { t: "Qisman", bg: "#FEF3C7", fg: "#92400E" } : { t: "Faqat ochdi", bg: "#F1F5F9", fg: "#64748B" };
+const Badge = ({ sec }) => { const st = status(sec); return <span style={{ background: st.bg, color: st.fg, borderRadius: 20, padding: "2px 9px", fontSize: 11, fontWeight: 800, whiteSpace: "nowrap" }}>{st.t}</span>; };
 const tab = (on) => ({ padding: "7px 14px", borderRadius: 8, border: `1px solid ${on ? C.primary : C.border}`, background: on ? C.primary : "#fff", color: on ? "#fff" : C.textMid, fontSize: 12.5, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" });
 
 // Admin view of who watched what: by video (which ones are watched, by how many students) and
@@ -86,7 +89,7 @@ export default function ViewsPanel() {
           <div key={g.key} style={{ borderBottom: `1px solid ${C.border}` }}>
             <div onClick={() => setOpen(open === g.key ? null : g.key)} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", cursor: "pointer" }}>
               <div style={{ flex: 1, fontSize: 13, fontWeight: 700, color: C.text }}>{g.name}</div>
-              <div style={{ fontSize: 12, color: C.textMid, width: 110, textAlign: "right" }}>{by === "video" ? `${g.people.length} o'quvchi` : `${g.people.length} video`}</div>
+              <div style={{ fontSize: 12, color: C.textMid, width: 170, textAlign: "right" }}>{by === "video" ? `${g.people.length} o'quvchi · ${g.people.filter((r) => r.seconds >= 60).length} ko'rdi` : `${g.people.length} video · ${g.people.filter((r) => r.seconds >= 60).length} ko'rdi`}</div>
               <div style={{ fontSize: 12, color: C.textMid, width: 70, textAlign: "right" }}>{g.opens} marta</div>
               <div style={{ fontSize: 12, fontWeight: 800, color: C.primary, width: 70, textAlign: "right" }}>{mins(g.seconds)}</div>
               <div style={{ fontSize: 11, color: C.textLight, width: 90, textAlign: "right" }}>{when(g.last)}</div>
@@ -96,6 +99,7 @@ export default function ViewsPanel() {
                 {g.people.sort((a, b) => b.seconds - a.seconds).map((r) => (
                   <div key={r.student_id + r.video_id} style={{ display: "flex", gap: 12, padding: "4px 0", fontSize: 12, color: C.textMid }}>
                     <div style={{ flex: 1, color: C.text }}>{by === "video" ? (r.student_name || r.student_email || r.student_id.slice(0, 8)) : (label[r.kind + ":" + r.ref_id] || "(o'chirilgan video)")}</div>
+                    <div style={{ width: 90, textAlign: "right" }}><Badge sec={r.seconds}/></div>
                     <div style={{ width: 70, textAlign: "right" }}>{r.opens} marta</div>
                     <div style={{ width: 70, textAlign: "right", fontWeight: 700 }}>{mins(r.seconds)}</div>
                     <div style={{ width: 90, textAlign: "right" }}>{when(r.last_at)}</div>
