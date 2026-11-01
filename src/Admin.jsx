@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare, Download, Video, ClipboardList } from "lucide-react";
+import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare, Download, Video, ClipboardList, Eye } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import Login from "./admin/Login";
 import TeachersPanel from "./admin/TeachersPanel";
@@ -8,6 +8,7 @@ import QuestionsPanel from "./admin/QuestionsPanel";
 import PurchasesPanel from "./admin/PurchasesPanel";
 import LivePanel from "./admin/LivePanel";
 import SurveyResults from "./admin/SurveyResults";
+import ViewsPanel from "./admin/ViewsPanel";
 import { C } from "./admin/ui";
 import TopicsAdmin from "./AdminTopics";
 import QuestionsReview from "./AdminQuestions";
@@ -93,6 +94,9 @@ export default function Admin() {
           {isAdmin && <button style={headerBtn(screen === "survey")} onClick={() => setScreen("survey")}>
             <ClipboardList size={13}/> So'rov
           </button>}
+          {isAdmin && <button style={headerBtn(screen === "views")} onClick={() => setScreen("views")}>
+            <Eye size={13}/> Ko'rishlar
+          </button>}
           {isAdmin && <button style={headerBtn(screen === "live")} onClick={() => setScreen("live")}>
             <Video size={13}/> Jonli dars
           </button>}
@@ -114,6 +118,7 @@ export default function Admin() {
           : !isAdmin ? null
           : screen === "topics" ? <TopicsAdmin/>
           : screen === "survey" ? <SurveyResults/>
+          : screen === "views" ? <ViewsPanel/>
           : screen === "live" ? <LivePanel/>
           : screen === "purchases" ? <PurchasesPanel onBack={() => setScreen("content")}/>
           : content}

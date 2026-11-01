@@ -703,18 +703,36 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
       .catch(()=>{ if(!cancelled) setErr("Video ochilmadi"); });
     return ()=>{cancelled=true;};
   },[videoId,session?.access_token]);
-  // Optional: report the playback position and let the page seek. If player.js
-  // cannot load, the video still plays; only the time-aware extras stay off.
+  // Report the playback position (onTime), let the page seek (playerRef) and, for a signed-in
+  // student, log the view for the admin: one "open" on load, then the seconds actually played.
+  // If player.js cannot load, the video still plays; only these extras stay off.
   useEffect(()=>{
-    if(!src||(!onTime&&!playerRef)) return;
-    let live=true;
+    const track=!!session?.user;
+    if(!src||(!onTime&&!playerRef&&!track)) return;
+    let live=true, pending=0, last=null, timer=null;
+    const flush=()=>{
+      if(!track||pending<=0) return;
+      const sec=Math.round(pending); pending=0;
+      supabase.rpc("track_video_view",{p_video_id:videoId,p_open:false,p_seconds:sec}).then(()=>{},()=>{});
+    };
+    if(track) supabase.rpc("track_video_view",{p_video_id:videoId,p_open:true,p_seconds:0}).then(()=>{},()=>{});
     loadPlayerJs().then(()=>{
       if(!live||!frameRef.current) return;
       const pl=new window.playerjs.Player(frameRef.current);
       if(playerRef) playerRef.current=pl;
-      pl.on("ready",()=>{ pl.on("timeupdate",d=>onTime?.(d.seconds)); });
+      pl.on("ready",()=>{
+        pl.on("timeupdate",d=>{
+          onTime?.(d.seconds);
+          // Count only normal forward playback; a seek jumps further than a tick.
+          if(last!==null){ const dt=d.seconds-last; if(dt>0&&dt<2) pending+=dt; }
+          last=d.seconds;
+        });
+        pl.on("pause",()=>{ last=null; flush(); });
+        pl.on("ended",()=>{ last=null; flush(); });
+      });
+      if(track) timer=setInterval(flush,30000);
     }).catch(()=>{});
-    return ()=>{ live=false; if(playerRef) playerRef.current=null; };
+    return ()=>{ live=false; clearInterval(timer); flush(); if(playerRef) playerRef.current=null; };
   },[src]);
   if(err) return <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,color:"#94A3B8",fontSize:12.5,padding:20,textAlign:"center"}}><Lock size={20} color="#64748B"/>{err}</div>;
   if(!src) return <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#94A3B8",fontSize:12}}>Yuklanmoqda…</div>;
