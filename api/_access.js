@@ -10,9 +10,9 @@ export const paidPlanActive = (profile) =>
   !!profile?.plan && profile.plan !== "free" && (!profile.plan_expires_at || new Date(profile.plan_expires_at) > new Date());
 
 export async function canUseQuestion(admin, userId, questionId) {
-  const { data: q } = await admin.from("questions").select("variant_id, variants(is_free)").eq("id", questionId).maybeSingle();
+  const { data: q } = await admin.from("questions").select("variant_id, question_number, variants(is_free)").eq("id", questionId).maybeSingle();
   if (!q) return { ok: false, status: 404, error: "Savol topilmadi" };
-  if (q.variants?.is_free) return { ok: true };
+  if (q.variants?.is_free && q.question_number <= 10) return { ok: true };
   const [{ data: profile }, { data: purchase }] = await Promise.all([
     admin.from("profiles").select("is_admin, plan, plan_expires_at").eq("id", userId).maybeSingle(),
     admin.from("variant_purchases").select("status").eq("student_id", userId).eq("variant_id", q.variant_id).maybeSingle(),

@@ -25,7 +25,11 @@ const canUse = (plan,feature) => feature==="analog" ? plan!=="free" : true;
 // A variant's videos are open when it is the teacher's free variant or the
 // student has paid for it. Mirrors api/bunny-token.js, which is the real gate
 // -- this only decides what the UI shows.
-const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || plan==="premium" || purchases?.[variant.id]==="paid");
+// A variant marked "bepul" is a preview: its first FREE_PREVIEW questions are open to everyone,
+// the rest need Premium or a purchase.
+const FREE_PREVIEW = 10;
+const variantFull = (variant,plan,purchases) => !!variant && (plan==="premium" || purchases?.[variant.id]==="paid");
+const variantUnlocked = (variant,plan,purchases) => !!variant && (variant.is_free || variantFull(variant,plan,purchases));
 const fmtSum = n => Number(n||0).toLocaleString("ru-RU").replace(/\u00a0/g," ");
 
 async function fetchTeachers() {
@@ -563,7 +567,7 @@ function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy,onBack}) {
                 ? dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>
                 : <div style={{position:"absolute",top:10,right:10}}><Lock size={14} color={C.textLight}/></div>}
               {v.is_free ? (
-                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Bepul variant</div>
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Dastlabki {FREE_PREVIEW} savol bepul</div>
               ) : unlocked ? (
                 <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><CheckCircle2 size={8}/> Ochiq</div>
               ) : (
@@ -810,7 +814,8 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
   const prevQ = idxQ>0 ? questions[idxQ-1] : null;
   const nextQ = idxQ>=0 && idxQ<questions.length-1 ? questions[idxQ+1] : null;
   useEffect(()=>{ document.getElementById("qchip-"+activeQ)?.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"}); },[activeQ]);
-  const unlocked = variantUnlocked(variant,plan,purchases);
+  const full = variantFull(variant,plan,purchases);
+  const unlocked = full || (!!variant?.is_free && activeQ<=FREE_PREVIEW);
   // Analog questions are Premium, except inside DTM variants the student can open.
   const allowed = canUse(plan,"analog") || (teacher?.section==="dtm" && unlocked);
   const pending = purchases?.[variant?.id]==="pending";
@@ -824,7 +829,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
         </div>
         <div className="q-strip" style={{gap:7,overflowX:"auto",padding:"2px 2px 12px",margin:"0 -2px",scrollbarWidth:"none"}}>
           {questions.map(q=>{
-            const on=q.question_number===activeQ; const lockedQ=!unlocked;
+            const on=q.question_number===activeQ; const lockedQ=!full&&(!variant?.is_free||q.question_number>FREE_PREVIEW);
             return (
               <button key={q.id} id={"qchip-"+q.question_number} onClick={()=>setActiveQ(q.question_number)} aria-label={`${q.question_number}-savol`} aria-current={on?"true":undefined}
                 style={{flexShrink:0,minWidth:42,height:42,borderRadius:21,padding:"0 12px",fontFamily:"inherit",fontSize:14,fontWeight:800,cursor:"pointer",
@@ -838,11 +843,11 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
           {!unlocked ? (
             <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24,textAlign:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)"}}>
               <div style={{width:54,height:54,borderRadius:"50%",background:"rgba(255,255,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:14}}><Lock size={22} color={C.mint}/></div>
-              <div style={{color:"#fff",fontSize:15,fontWeight:800}}>{variantId}-Variant videolari yopiq</div>
+              <div style={{color:"#fff",fontSize:15,fontWeight:800}}>{variant?.is_free?`${activeQ}-savol videosi yopiq`:`${variantId}-Variant videolari yopiq`}</div>
               <div style={{color:"#94A3B8",fontSize:12.5,marginTop:5,maxWidth:340,lineHeight:1.6}}>
                 {pending
                   ? "So'rovingiz yuborilgan. Administrator to'lovni tasdiqlagach video ochiladi."
-                  : `Bu variantni ${fmtSum(variant?.price)} so'mga bir marta sotib olsangiz, barcha ${total} ta video darsi umrbod ochiq qoladi.`}
+                  : `${variant?.is_free?`Bepul faqat dastlabki ${FREE_PREVIEW} ta savol. `:""}Bu variantni ${fmtSum(variant?.price)} so'mga bir marta sotib olsangiz, barcha ${total} ta video darsi umrbod ochiq qoladi.`}
               </div>
               {!pending&&(
                 <div style={{display:"flex",gap:9,marginTop:16,flexWrap:"wrap",justifyContent:"center"}}>
@@ -964,11 +969,12 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
         <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{ready}/{total} video tayyor</div>
         {questions.map(q=>{
           const isA=q.question_number===activeQ; const isW=q.video_ready;
+          const lockedQ=!full&&q.question_number>FREE_PREVIEW;
           return (
             <button key={q.id} onClick={()=>setActiveQ(q.question_number)}
               style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:isA?C.primary:"transparent",border:isA?"none":`1px solid ${isW?"#BBF7D0":C.border}`,cursor:"pointer",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7}}>
               <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:isA?"rgba(255,255,255,0.18)":isW?C.mintBg:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:800,color:isA?C.mint:isW?C.primary:C.textMid}}>
-                {isW&&!isA?"✓":q.question_number}
+                {lockedQ?"🔒":isW&&!isA?"✓":q.question_number}
               </div>
               <div style={{minWidth:0,flex:1}}>
                 <div style={{fontSize:10.5,fontWeight:700,color:isA?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.question_number}-Savol</div>

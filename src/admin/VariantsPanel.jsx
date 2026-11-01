@@ -99,13 +99,13 @@ export default function VariantsPanel({ teacher, onBack, onSelect }) {
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}>
               <div style={{fontWeight:800,fontSize:14,color:C.text}}>{v.variant_number}-Variant</div>
               <span style={v.is_free ? pill(C.mintBg, C.primary, "#86EFAC") : pill("#FFFBEB", "#B45309", "#FDE68A")}>
-                {v.is_free ? "BEPUL" : "PULLIK"}
+                {v.is_free ? "10 TA BEPUL" : "YOPIQ"}
               </span>
             </div>
 
             <label style={{display:"flex",alignItems:"center",gap:6,fontSize:11.5,color:C.textMid,marginBottom:8,cursor:"pointer"}}>
               <input type="checkbox" checked={!!v.is_free} onChange={() => update(v, { is_free: !v.is_free })}/>
-              Bepul ko'rsatilsin
+              Dastlabki 10 savol bepul
             </label>
 
             {!v.is_free && (

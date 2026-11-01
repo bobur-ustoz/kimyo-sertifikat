@@ -84,7 +84,6 @@ export default async function handler(req, res) {
     const { data: variant } = await admin.from("variants")
       .select("id, variant_number, price, is_free, teachers(name)").eq("id", variantId).maybeSingle();
     if (!variant) return res.status(404).json({ error: "Variant topilmadi" });
-    if (variant.is_free) return res.status(400).json({ error: "Bu variant bepul" });
     target = { price: variant.price, label: `📘 ${escapeHtml(variant.teachers?.name || "—")} · ${escapeHtml(variant.variant_number)}-variant`, col: "variant_id", id: variant.id };
   }
 

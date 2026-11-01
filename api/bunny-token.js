@@ -59,7 +59,7 @@ export default async function handler(req, res) {
   // Which variant does this video belong to? The client never gets to say.
   const { data: question, error } = await anon
     .from("questions")
-    .select("variants(id, is_free, price, variant_number)")
+    .select("question_number, variants(id, is_free, price, variant_number)")
     .eq("bunny_video_id", videoId)
     .limit(1)
     .maybeSingle();
@@ -72,7 +72,8 @@ export default async function handler(req, res) {
   const variant = question?.variants;
   if (!variant) return res.status(404).json({ error: "Video topilmadi" });
 
-  if (variant.is_free) return res.status(200).json(signToken(videoId));
+  // A free variant is a preview: only its first 10 questions are open to everyone.
+  if (variant.is_free && question.question_number <= 10) return res.status(200).json(signToken(videoId));
 
   const locked = { locked: true, price: variant.price, variantNumber: variant.variant_number };
 
