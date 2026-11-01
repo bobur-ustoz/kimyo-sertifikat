@@ -15,7 +15,7 @@ export function splitOptions(text) {
   return ["A", "B", "C", "D"].every(l => opts[l]) ? { stem, opts } : null;
 }
 
-export function buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, topic }) {
+export function buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, topic, unit = "savol" }) {
   const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), mx = 18, tw = W - mx * 2;
   let y = 0;
   const fill = c => doc.setFillColor(...c), ink = c => doc.setTextColor(...c), stroke = c => doc.setDrawColor(...c);
@@ -45,10 +45,10 @@ export function buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, t
   const sectionLabel = (label, color = TEAL) => { fill(color); doc.roundedRect(mx, y - 3.2, 3, 4.6, 1.2, 1.2, "F"); txt(label, mx + 6, y + 0.6, 9.5, { bold: true, color }); y += 8; };
 
   // ---------- page 1: the task ----------
-  const TAG1 = `ANALOG · ${qNum}-savol`;
+  const TAG1 = `ANALOG · ${qNum}-${unit}`;
   header(TAG1);
   txt("Analog misol", mx, y, 22, { bold: true, color: GREEN }); y += 10;
-  let cx = mx; cx = chip(`${teacher.name}`, cx); cx = chip(`${variant}-variant`, cx); cx = chip(`${qNum}-savol`, cx);
+  let cx = mx; cx = chip(`${teacher.name}`, cx); if (variant != null) cx = chip(`${variant}-variant`, cx); cx = chip(`${qNum}-${unit}`, cx);
   if (topic) chip(topic, cx);
   y += 18;
 

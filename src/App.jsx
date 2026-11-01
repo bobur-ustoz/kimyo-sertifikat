@@ -196,13 +196,13 @@ const SUP = {"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6",
 const SUB = {"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9","ₙ":"n"};
 const asciiFlat = t => String(t||"").replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+/g,m=>"^"+[...m].map(c=>SUP[c]).join("")).replace(/[₀₁₂₃₄₅₆₇₈₉ₙ]/g,c=>SUB[c]).replace(/[ʻʼ‘’`]/g,"'").replace(/[·•]/g,"*").replace(/[–—]/g,"-");
 
-async function downloadAnalogPDF({analog, teacher, variant, qNum, topic}) {
+async function downloadAnalogPDF({analog, teacher, variant, qNum, topic, unit}) {
   const [{ jsPDF }, { buildAnalogPdf }] = await Promise.all([import("jspdf"), import("./analogPdf")]);
   const doc = new jsPDF();
   let font = "helvetica", T = asciiFlat;
   try { await loadPdfFont(doc, "/fonts/DejaVuSans.ttf", "normal"); await loadPdfFont(doc, "/fonts/DejaVuSans-Bold.ttf", "bold"); font = "DejaVu"; T = x => String(x||""); } catch {}
-  buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, topic });
-  doc.save(`analog-${variant}-variant-${qNum}-savol.pdf`);
+  buildAnalogPdf(doc, { font, T, analog, teacher, variant, qNum, topic, unit });
+  doc.save(variant != null ? `analog-${variant}-variant-${qNum}-savol.pdf` : `analog-${(topic||"mavzu").replace(/[^A-Za-z0-9]+/g,"-")}-${qNum}-${unit||"misol"}.pdf`);
 }
 
 async function callClaude(prompt, maxTokens) {
@@ -1661,7 +1661,7 @@ export default function App() {
         )}
         {tab==="variants"&&teacher&&!varId&&<VariantsGrid teacher={teacher} onOpen={id=>setVarId(id)} variants={variants} plan={plan} purchases={purchases} onBuy={v=>setBuying(v)} onBack={()=>{setTab(teacher.section==="dtm"?"dtm":"collections");setVarId(null);}}/>}
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
-        {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab} plan={plan}/>}
+        {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab} plan={plan} onPdf={downloadAnalogPDF}/>}
         {tab==="analytics"&&(plan==="free"?<FeatureLock title="Tahlil & Grafik" setTab={setTab}/>:<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>)}
         {tab==="survey"&&<Survey session={session} setTab={setTab}/>}
         {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Tag, Play, ChevronLeft, Send, Sparkles } from "lucide-react";
+import { Tag, Play, ChevronLeft, Send, Sparkles, Download, CheckCircle2, XCircle } from "lucide-react";
+import { splitOptions } from "./analogPdf";
 import { supabase } from "./lib/supabaseClient";
 import { C } from "./adminStyles";
 
@@ -181,27 +182,67 @@ export function AskAI({session,target,setTab,time,playerRef}){
   );
 }
 
-function Analog({ex}){
-  const [show,setShow]=useState(false);
-  useEffect(()=>setShow(false),[ex.id]);
+function Analog({ex,topicName,onPdf}){
+  const [pick,setPick]=useState(null);
+  useEffect(()=>setPick(null),[ex.id]);
   if(!ex.analog_savol) return null;
+  const sp=splitOptions(ex.analog_savol);
+  const right=(String(ex.analog_javob||"").match(/^\s*([ABCD])\b/)||[])[1];
+  const pdf=()=>onPdf?.({analog:{savol:ex.analog_savol,javob:ex.analog_javob},teacher:{name:"Mavzular"},variant:null,qNum:ex.example_number,unit:"misol",topic:topicName});
   return (
-    <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:16}}>
-      <div style={{fontSize:10.5,fontWeight:800,color:C.accent,textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:6}}>Analog misol</div>
-      <p style={{fontSize:13.5,color:C.text,lineHeight:1.65,whiteSpace:"pre-wrap",marginBottom:10}}>{ex.analog_savol}</p>
-      {show ? (
-        <div style={{background:C.mintBg,borderRadius:10,padding:"10px 12px"}}>
-          {ex.analog_yechim&&<p style={{fontSize:12.5,color:C.textMid,lineHeight:1.65,whiteSpace:"pre-wrap",marginBottom:8}}>{ex.analog_yechim}</p>}
-          {ex.analog_javob&&<div style={{fontSize:13,fontWeight:800,color:C.text}}>Javob: {ex.analog_javob}</div>}
+    <>
+      <div role="button" tabIndex={0} onClick={pdf} style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(15,81,50,0.28)"}}>
+        <div style={{width:42,height:42,borderRadius:10,flexShrink:0,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><Download size={18} color={C.mint}/></div>
+        <div>
+          <div style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Analog misol yuklab olish (PDF)</div>
+          <div style={{color:"#D1FAE5",fontSize:12}}>Ushbu misolga mos o'xshash analog misollar yordamida o'zingizni sinang.</div>
         </div>
-      ) : (
-        <button onClick={()=>setShow(true)} style={{padding:"8px 14px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>Yechimni ko'rsat</button>
-      )}
-    </div>
+      </div>
+      <div style={{background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:18}}>
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+          <div style={{width:40,height:40,borderRadius:10,background:"rgba(255,255,255,0.08)",display:"flex",alignItems:"center",justifyContent:"center"}}><Sparkles size={18} color={C.mint}/></div>
+          <div>
+            <div style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Analog savol</div>
+            <div style={{color:"#94A3B8",fontSize:12}}>Mavzu: <span style={{color:C.mint,fontWeight:700}}>{topicName}</span> · {ex.example_number}-misolga o'xshash</div>
+          </div>
+        </div>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:14,border:"1px solid rgba(110,231,183,0.2)"}}>
+          <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}><Sparkles size={13} color={C.mint}/><span style={{color:C.mint,fontSize:11,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em"}}>Analog savol</span></div>
+          {sp?(<>
+            <p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,marginBottom:12}}>{sp.stem}</p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:8}}>
+              {["A","B","C","D"].map(L=>{
+                const done=!!pick, isRight=done&&L===right, isWrong=done&&L===pick&&L!==right;
+                return (
+                  <button key={L} disabled={done||!right} onClick={()=>setPick(L)}
+                    style={{display:"flex",alignItems:"center",gap:9,textAlign:"left",fontFamily:"inherit",cursor:done||!right?"default":"pointer",
+                      background:isRight?"rgba(34,197,94,0.18)":isWrong?"rgba(239,68,68,0.18)":"rgba(255,255,255,0.06)",
+                      border:`1px solid ${isRight?"#4ADE80":isWrong?"#F87171":"rgba(110,231,183,0.2)"}`,borderRadius:9,padding:"9px 12px",opacity:done&&!isRight&&!isWrong?0.55:1}}>
+                    <span style={{width:22,height:22,borderRadius:"50%",background:isRight?"#16A34A":isWrong?"#DC2626":"rgba(110,231,183,0.18)",color:isRight||isWrong?"#fff":C.mint,fontSize:11,fontWeight:800,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{L}</span>
+                    <span style={{color:"#E2E8F0",fontSize:13,flex:1}}>{sp.opts[L]}</span>
+                    {isRight&&<CheckCircle2 size={16} color="#4ADE80"/>}
+                    {isWrong&&<XCircle size={16} color="#F87171"/>}
+                  </button>
+                );
+              })}
+            </div>
+            {pick&&(
+              <>
+                <div style={{marginTop:10,fontSize:12.5,fontWeight:700,color:pick===right?"#4ADE80":"#F87171"}}>
+                  {pick===right?"✓ To'g'ri!":`✕ Noto'g'ri. To'g'ri javob: ${right}`}
+                  <button onClick={()=>setPick(null)} style={{marginLeft:12,background:"none",border:"none",color:"#94A3B8",fontSize:11.5,textDecoration:"underline",cursor:"pointer",fontFamily:"inherit"}}>Qayta urinish</button>
+                </div>
+                {ex.analog_yechim&&<p style={{marginTop:10,background:"rgba(255,255,255,0.06)",borderRadius:9,padding:"10px 12px",color:"#CBD5E1",fontSize:12.5,lineHeight:1.65,whiteSpace:"pre-wrap"}}>{ex.analog_yechim}</p>}
+              </>
+            )}
+          </>):<p style={{color:"#E2E8F0",fontSize:13.5,lineHeight:1.7,margin:0,whiteSpace:"pre-wrap"}}>{ex.analog_savol}</p>}
+        </div>
+      </div>
+    </>
   );
 }
 
-function TopicPage({topic,Player,session,setTab,onBack,plan}){
+function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
   const [examples,setExamples]=useState([]);
   const [active,setActive]=useState(null); // example_number, null = topic video
   const [time,setTime]=useState(0);
@@ -221,7 +262,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan}){
 
       <VideoBox Player={Player} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
       <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
-        {ex&&plan!=="free"&&<Analog ex={ex}/>}
+        {ex&&plan!=="free"&&<Analog ex={ex} topicName={topic.name} onPdf={onPdf}/>}
         <AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>
       </div>
 
@@ -249,14 +290,14 @@ function TopicPage({topic,Player,session,setTab,onBack,plan}){
   );
 }
 
-export default function TopicLessons({Player,session,setTab,plan}){
+export default function TopicLessons({Player,session,setTab,plan,onPdf}){
   const [topics,setTopics]=useState(null);
   const [sel,setSel]=useState(null);
   useEffect(()=>{
     supabase.from("topics").select("id,name,bunny_video_id").order("sort_order").order("created_at")
       .then(({data})=>setTopics(data||[]));
   },[]);
-  if(sel) return <TopicPage topic={sel} Player={Player} session={session} setTab={setTab} plan={plan} onBack={()=>setSel(null)}/>;
+  if(sel) return <TopicPage topic={sel} Player={Player} session={session} setTab={setTab} plan={plan} onPdf={onPdf} onBack={()=>setSel(null)}/>;
   return (
     <div style={{padding:"26px 30px"}}>
       <h1 style={{fontSize:24,fontWeight:900,color:C.text,marginBottom:6}}>Mavzular</h1>
