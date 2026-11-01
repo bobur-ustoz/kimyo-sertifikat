@@ -250,10 +250,18 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
   useEffect(()=>{ setTime(0); },[active]);
   useEffect(()=>{
     setActive(null);
-    supabase.from("topic_examples").select("id,example_number,bunny_video_id,analog_savol,analog_yechim,analog_javob").eq("topic_id",topic.id).order("example_number")
+    supabase.from("topic_examples").select("id,example_number,bunny_video_id").eq("topic_id",topic.id).order("example_number")
       .then(({data})=>setExamples(data||[]));
   },[topic.id]);
-  const ex = examples.find(e=>e.example_number===active);
+  const exBase = examples.find(e=>e.example_number===active);
+  // The analog text sits in its own table that only paid plans can read.
+  const [analogs,setAnalogs]=useState({});
+  useEffect(()=>{
+    if(!exBase||plan==="free"||analogs[exBase.id]!==undefined) return;
+    supabase.from("topic_example_analogs").select("analog_savol,analog_yechim,analog_javob").eq("example_id",exBase.id).maybeSingle()
+      .then(({data})=>setAnalogs(a=>({...a,[exBase.id]:data||null})));
+  },[exBase?.id,plan]);
+  const ex = exBase ? {...exBase,...(analogs[exBase.id]||{})} : undefined;
   const exLocked = !!ex && plan==="free";   // example videos are Premium; the topic lesson stays open
   const readyN=examples.filter(e=>e.bunny_video_id).length;
   return (
@@ -290,7 +298,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
         <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>Mavzu · Misollar</div>
         <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{examples.length?`${readyN}/${examples.length} video tayyor`:"Misollar tez orada qo'shiladi"}</div>
         {[{key:"lesson",num:null,label:"Mavzu darsi",sub:"Nazariy video",ready:!!topic.bunny_video_id,on:active===null,go:()=>setActive(null)},
-          ...examples.map(e=>({key:e.id,num:e.example_number,label:`${e.example_number}-Misol`,sub:e.analog_savol?"Video tahlil + analog":"Video tahlil",ready:!!e.bunny_video_id,on:active===e.example_number,go:()=>setActive(e.example_number)}))
+          ...examples.map(e=>({key:e.id,num:e.example_number,label:`${e.example_number}-Misol`,sub:"Video tahlil + analog",ready:!!e.bunny_video_id,on:active===e.example_number,go:()=>setActive(e.example_number)}))
         ].map(it=>(
           <button key={it.key} onClick={it.go} disabled={!it.ready}
             style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:it.on?C.primary:"transparent",border:it.on?"none":`1px solid ${it.ready?"#BBF7D0":C.border}`,cursor:it.ready?"pointer":"default",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,opacity:it.ready?1:0.55}}>

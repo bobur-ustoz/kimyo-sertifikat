@@ -108,12 +108,17 @@ function ExampleRow({ex,topicName,onChanged}){
   const [dirty,setDirty]=useState(false);
   const [open,setOpen]=useState(false);
   const set=(k,v)=>{setF(p=>({...p,[k]:v}));setDirty(true);};
+  // The analog text lives in topic_example_analogs (readable only by paid plans and admins).
+  useEffect(()=>{
+    supabase.from("topic_example_analogs").select("analog_savol,analog_yechim,analog_javob").eq("example_id",ex.id).maybeSingle()
+      .then(({data})=>{ if(data) setF(p=>({...p,...data})); });
+  },[ex.id]);
   const saveVideo = async videoId => {
     await supabase.from("topic_examples").update({bunny_video_id:videoId}).eq("id",ex.id);
     setF(p=>({...p,bunny_video_id:videoId})); onChanged();
   };
   const saveAnalog = async () => {
-    await supabase.from("topic_examples").update({analog_savol:f.analog_savol||null,analog_yechim:f.analog_yechim||null,analog_javob:f.analog_javob||null}).eq("id",ex.id);
+    await supabase.from("topic_example_analogs").upsert({example_id:ex.id,analog_savol:f.analog_savol||null,analog_yechim:f.analog_yechim||null,analog_javob:f.analog_javob||null,updated_at:new Date().toISOString()});
     setDirty(false); onChanged();
   };
   return (
