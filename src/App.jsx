@@ -680,6 +680,16 @@ const loadPlayerJs=()=>{
   return playerJsLoading;
 };
 
+// Anonymous id of this browser, so the admin can tell how many different guests watched.
+const guestDeviceId=()=>{
+  try{
+    let id=localStorage.getItem("nooa_device");
+    if(!id){ id=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()); localStorage.setItem("nooa_device",id); }
+    return id;
+  }catch{ return "tmp-"+Math.random().toString(36).slice(2); }
+};
+const guestKind=()=>/iPhone|iPad|iPod/.test(navigator.userAgent)?"iPhone":/Android/.test(navigator.userAgent)?"Android":"Kompyuter";
+
 function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
   const frameRef=useRef(null);
   const [src,setSrc]=useState(null);
@@ -703,33 +713,35 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
       .catch(()=>{ if(!cancelled) setErr("Video ochilmadi"); });
     return ()=>{cancelled=true;};
   },[videoId,session?.access_token]);
-  // Report the playback position (onTime), let the page seek (playerRef) and, for a signed-in
-  // student, log the view for the admin: one "open" on load, then the seconds actually played.
+  // Report the playback position (onTime), let the page seek (playerRef) and log the view for the
+  // admin: one "open" on load, then the seconds actually played. A signed-in student is logged by
+  // account, a guest (free videos are open without signing in) by an anonymous device id.
   // If player.js cannot load, the video still plays; only these extras stay off.
   useEffect(()=>{
-    const track=!!session?.user;
-    if(!src||(!onTime&&!playerRef&&!track)) return;
+    if(!src) return;
+    const user=!!session?.user;
+    const device=user?null:guestDeviceId();
     let live=true, pending=0, last=null, timer=null;
-    const flush=()=>{
-      if(!track||pending<=0) return;
-      const sec=Math.round(pending); pending=0;
-      supabase.rpc("track_video_view",{p_video_id:videoId,p_open:false,p_seconds:sec}).then(()=>{},()=>{});
-    };
-    // Closing the tab or switching away must not lose the seconds played since the last flush:
-    // a keepalive request survives the page going away, an ordinary one does not.
-    const flushOnLeave=()=>{
-      if(!track||pending<=0||!session?.access_token) return;
-      const sec=Math.round(pending); pending=0;
+    const send=(open,sec,leave)=>{
+      const fn=user?"track_video_view":"track_guest_view";
+      const body=user?{p_video_id:videoId,p_open:open,p_seconds:sec}:{p_device:device,p_video_id:videoId,p_open:open,p_seconds:sec,p_ua:guestKind()};
+      if(!leave){ supabase.rpc(fn,body).then(()=>{},()=>{}); return; }
+      // Closing the tab must not lose the seconds played since the last flush: a keepalive
+      // request survives the page going away, an ordinary one does not.
+      const token=user?session?.access_token:import.meta.env.VITE_SUPABASE_ANON_KEY;
+      if(!token) return;
       try{
-        fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/rpc/track_video_view`,{method:"POST",keepalive:true,
-          headers:{"Content-Type":"application/json",apikey:import.meta.env.VITE_SUPABASE_ANON_KEY,Authorization:`Bearer ${session.access_token}`},
-          body:JSON.stringify({p_video_id:videoId,p_open:false,p_seconds:sec})}).catch(()=>{});
+        fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/rpc/${fn}`,{method:"POST",keepalive:true,
+          headers:{"Content-Type":"application/json",apikey:import.meta.env.VITE_SUPABASE_ANON_KEY,Authorization:`Bearer ${token}`},
+          body:JSON.stringify(body)}).catch(()=>{});
       }catch{}
     };
+    const flush=()=>{ if(pending<=0) return; const sec=Math.round(pending); pending=0; send(false,sec,false); };
+    const flushOnLeave=()=>{ if(pending<=0) return; const sec=Math.round(pending); pending=0; send(false,sec,true); };
     const onHide=()=>{ if(document.visibilityState==="hidden") flushOnLeave(); };
     document.addEventListener("visibilitychange",onHide);
     window.addEventListener("pagehide",flushOnLeave);
-    if(track) supabase.rpc("track_video_view",{p_video_id:videoId,p_open:true,p_seconds:0}).then(()=>{},()=>{});
+    send(true,0,false);
     loadPlayerJs().then(()=>{
       if(!live||!frameRef.current) return;
       const pl=new window.playerjs.Player(frameRef.current);
@@ -744,7 +756,7 @@ function BunnyPlayer({videoId,session,onLocked,onTime,playerRef}){
         pl.on("pause",()=>{ last=null; flush(); });
         pl.on("ended",()=>{ last=null; flush(); });
       });
-      if(track) timer=setInterval(flush,15000);
+      timer=setInterval(flush,15000);
     }).catch(()=>{});
     return ()=>{ live=false; clearInterval(timer); flush(); document.removeEventListener("visibilitychange",onHide); window.removeEventListener("pagehide",flushOnLeave); if(playerRef) playerRef.current=null; };
   },[src]);

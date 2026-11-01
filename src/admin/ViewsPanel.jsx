@@ -25,7 +25,7 @@ export default function ViewsPanel() {
 
   useEffect(() => {
     (async () => {
-      const [v, q, vr, t, tp, ex, ll] = await Promise.all([
+      const [v, q, vr, t, tp, ex, ll, gv] = await Promise.all([
         supabase.from("video_views").select("*").order("last_at", { ascending: false }).limit(20000),
         supabase.from("questions").select("id,question_number,variant_id,bunny_video_id").limit(5000),
         supabase.from("variants").select("id,variant_number,teacher_id"),
@@ -33,6 +33,7 @@ export default function ViewsPanel() {
         supabase.from("topics").select("id,name"),
         supabase.from("topic_examples").select("id,example_number,topic_id"),
         supabase.from("live_lessons").select("id,title"),
+        supabase.from("guest_views").select("*").order("last_at", { ascending: false }).limit(20000),
       ]);
       const teacher = Object.fromEntries((t.data || []).map((x) => [x.id, x.name]));
       const variant = Object.fromEntries((vr.data || []).map((x) => [x.id, x]));
@@ -42,7 +43,9 @@ export default function ViewsPanel() {
       (ex.data || []).forEach((x) => { label["example:" + x.id] = `Mavzu: ${topic[x.topic_id] || "?"} · ${x.example_number}-misol`; });
       (tp.data || []).forEach((x) => { label["topic:" + x.id] = `Mavzu darsi: ${x.name}`; });
       (ll.data || []).forEach((x) => { label["live:" + x.id] = `Jonli dars: ${x.title || ""}`; });
-      const rows = v.data || [];
+      // Guests (not signed in) are anonymous: one pseudo-student per browser.
+      const guests = (gv.data || []).map((g) => ({ ...g, student_id: "g:" + g.device_id, student_name: `Mehmon ${g.device_id.slice(0, 4)} (${g.device_kind || "?"})`, student_email: null, guest: true }));
+      const rows = [...(v.data || []), ...guests];
       const seen = new Set(rows.map((r) => r.kind + ":" + r.ref_id));
       const unseen = (q.data || []).filter((x) => x.bunny_video_id && !seen.has("question:" + x.id)).length;
       setData({ rows, label, unseen, error: v.error?.message });
@@ -70,13 +73,14 @@ export default function ViewsPanel() {
   const list = by === "video"
     ? group((r) => r.kind + ":" + r.ref_id, (r) => label[r.kind + ":" + r.ref_id] || "(o'chirilgan video)").sort((a, b) => b.people.length - a.people.length || b.seconds - a.seconds)
     : group((r) => r.student_id, (r) => r.student_name || r.student_email || r.student_id.slice(0, 8)).sort((a, b) => b.seconds - a.seconds);
-  const students = new Set(rows.map((r) => r.student_id)).size;
+  const students = new Set(rows.filter((r) => !r.guest).map((r) => r.student_id)).size;
+  const guestCount = new Set(rows.filter((r) => r.guest).map((r) => r.student_id)).size;
 
   return (
     <div>
       <div style={pageTitle}>Ko'rishlar</div>
       <div style={{ fontSize: 12.5, color: C.textMid, marginBottom: 14 }}>
-        {rows.length ? `${students} ta o'quvchi · ${rows.length} ta video ko'rilgan · variant savollaridan ${unseen} tasini hech kim ko'rmagan` : "Hali ko'rish yozuvlari yo'q. Yangi kod deploy bo'lgach, o'quvchilar video ochganda shu yerda paydo bo'ladi."}
+        {rows.length ? `${students} ta o'quvchi${guestCount ? ` + ${guestCount} ta mehmon (kirmagan)` : ""} · ${rows.length} ta ko'rish yozuvi · variant savollaridan ${unseen} tasini hech kim ko'rmagan` : "Hali ko'rish yozuvlari yo'q. Yangi kod deploy bo'lgach, o'quvchilar video ochganda shu yerda paydo bo'ladi."}
       </div>
       <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
         <button style={tab(by === "video")} onClick={() => { setBy("video"); setOpen(null); }}>Videolar bo'yicha</button>
