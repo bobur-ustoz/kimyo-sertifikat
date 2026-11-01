@@ -3,7 +3,13 @@ import { supabase } from "../lib/supabaseClient";
 import { C, card, pageTitle } from "./ui";
 
 const mins = (s) => (s < 60 ? `${s} s` : `${Math.round(s / 60)} daq`);
-const when = (t) => new Date(t).toLocaleString("uz-UZ", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+const MONTHS = ["yan", "fev", "mar", "apr", "may", "iyn", "iyl", "avg", "sen", "okt", "noy", "dek"];
+// "1-noy 14:03", in Uzbekistan time whatever the admin's computer clock says.
+const when = (t) => {
+  const d = new Date(new Date(t).getTime() + 5 * 3600 * 1000);
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getUTCDate()}-${MONTHS[d.getUTCMonth()]} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
+};
 const tab = (on) => ({ padding: "7px 14px", borderRadius: 8, border: `1px solid ${on ? C.primary : C.border}`, background: on ? C.primary : "#fff", color: on ? "#fff" : C.textMid, fontSize: 12.5, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" });
 
 // Admin view of who watched what: by video (which ones are watched, by how many students) and
