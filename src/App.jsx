@@ -153,12 +153,16 @@ async function buildTopicTest(topics, total) {
 async function downloadTestPDF(testQs, teacher, from, to, title) {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF();
+  // Same Unicode font as the analog worksheet: the default PDF fonts cannot draw H₂O, 10⁻² or ʻ,
+  // and a line with such a character comes out letter-spaced and cut off at the margin.
+  let font = "helvetica", T = x => asciiFlat(x);
+  try { await loadPdfFont(doc, "/fonts/DejaVuSans.ttf", "normal"); await loadPdfFont(doc, "/fonts/DejaVuSans-Bold.ttf", "bold"); font = "DejaVu"; T = x => String(x||"").replace(/[ʻʼ‘’`]/g,"'"); } catch {}
   const marginX = 15; let y = 20;
   const pageH = doc.internal.pageSize.getHeight();
   const lineH = 6;
   const addLine = (text,{size=11,style="normal",indent=0}={}) => {
-    doc.setFontSize(size); doc.setFont("helvetica",style);
-    const lines = doc.splitTextToSize(text, 180-indent);
+    doc.setFontSize(size); doc.setFont(font,style);
+    const lines = doc.splitTextToSize(T(text), 180-indent);
     lines.forEach(l=>{
       if(y>pageH-15){ doc.addPage(); y=20; }
       doc.text(l, marginX+indent, y);
