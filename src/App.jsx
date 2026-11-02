@@ -150,7 +150,25 @@ async function buildTopicTest(topics, total) {
   return shuffle(topics.flatMap(t=>pools[t].slice(0,take[t])));
 }
 
+// Test PDF in the look of the printed books (Latin Modern, two columns, nooracademy header).
+// If the fonts cannot be loaded it falls back to the plain single-column layout below.
 async function downloadTestPDF(testQs, teacher, from, to, title) {
+  try {
+    const [{ jsPDF }, { buildTestPdf }] = await Promise.all([import("jspdf"), import("./testPdf")]);
+    const doc = new jsPDF();
+    await Promise.all([
+      loadPdfFont(doc, "/fonts/LMRoman-Regular.ttf", "normal", "LM"),
+      loadPdfFont(doc, "/fonts/LMRoman-Bold.ttf", "bold", "LM"),
+      loadPdfFont(doc, "/fonts/LMRoman-Slanted.ttf", "normal", "LMSl"),
+      loadPdfFont(doc, "/fonts/DejaVuSans.ttf", "normal", "DejaVu"),
+    ]);
+    buildTestPdf(doc, { questions: testQs, brand: "nooracademy", label: "Aralash test",
+      subtitle: `${title || `${teacher.name} — Aralash Test (${from}-${to}-Variant)`} · ${testQs.length} ta savol` });
+    doc.save(title ? `${title.replace(/[^\w-]+/g,"_")}.pdf` : `${teacher.name}-test-${from}-${to}.pdf`);
+  } catch { await downloadTestPDFPlain(testQs, teacher, from, to, title); }
+}
+
+async function downloadTestPDFPlain(testQs, teacher, from, to, title) {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF();
   // Same Unicode font as the analog worksheet: the default PDF fonts cannot draw H₂O, 10⁻² or ʻ,
@@ -190,11 +208,11 @@ async function downloadTestPDF(testQs, teacher, from, to, title) {
 // Analog worksheet as a PDF. The default PDF fonts lack subscripts/superscripts (H₂O, 10⁻²),
 // so a Unicode font served from /fonts is loaded on demand; if that fails the text is
 // flattened to plain ASCII so the file is still readable.
-async function loadPdfFont(doc, file, style) {
+async function loadPdfFont(doc, file, style, family = "DejaVu") {
   const bytes = new Uint8Array(await (await fetch(file)).arrayBuffer());
   let bin = ""; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
   const name = file.split("/").pop();
-  doc.addFileToVFS(name, btoa(bin)); doc.addFont(name, "DejaVu", style);
+  doc.addFileToVFS(name, btoa(bin)); doc.addFont(name, family, style);
 }
 const SUP = {"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6","⁷":"7","⁸":"8","⁹":"9","⁻":"-","⁺":"+"};
 const SUB = {"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9","ₙ":"n"};
