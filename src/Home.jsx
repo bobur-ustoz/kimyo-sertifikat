@@ -94,7 +94,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))", border:`1px solid ${B.line}`, borderRadius:14, marginTop:18, overflow:"hidden" }}>
-        {[[`${videos || 60}+`, "savolning video tahlili"], ["2019", "DTM baza savollari"], ["AI", "yordamchi, videodan so'rang"], ["10", "savol butunlay bepul"]].map(([n, l], i) => (
+        {[[`${videos || 60}+`, "savolning video tahlili"], ["10 yil", "ustozning o'qitish tajribasi"], ["~100", "o'quvchi Milliy sertifikat olgan"], ["10", "savol butunlay bepul"]].map(([n, l], i) => (
           <div key={l} style={{ padding:"14px 18px", borderLeft:i ? `1px solid ${B.line}` : "none" }}>
             <div style={{ fontSize:24, fontWeight:800, color:B.blue }}>{n}</div>
             <div style={{ fontSize:12.5, color:B.mid }}>{l}</div>
@@ -128,7 +128,10 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
         <div style={{ flex:1, minWidth:240 }}>
           <div style={{ fontSize:12, color:B.blue, fontWeight:700, letterSpacing:"0.05em" }}>SIZNING USTOZINGIZ</div>
           <div style={{ fontSize:22, fontWeight:800, margin:"2px 0 6px" }}>Bobur Jumanazarov</div>
-          <div style={{ fontSize:14, color:B.mid, lineHeight:1.65 }}>Kimyo o'qituvchisi. Har bir masalani o'zi yechib, qadamma-qadam tushuntiradi. O'quvchilar eng ko'p qiynalgan misollar so'rov orqali aniqlanadi va shu mavzular qayta tahlil qilinadi.</div>
+          <div style={{ fontSize:14, color:B.mid, lineHeight:1.65 }}>Kimyo o'qituvchisi, 10 yillik tajribaga ega. Shu vaqt ichida 100 ga yaqin o'quvchisi Milliy sertifikat olgan. Har bir masalani o'zi yechib, qadamma-qadam tushuntiradi. O'quvchilar eng ko'p qiynalgan misollar so'rov orqali aniqlanadi va shu mavzular qayta tahlil qilinadi.</div>
+          <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginTop:12 }}>
+            {["10 yillik tajriba", "100 ga yaqin o'quvchi Milliy sertifikat olgan", "Kimyo o'qituvchisi"].map(t => <span key={t} style={{ background:"#fff", border:`1px solid ${B.line}`, color:B.text, fontSize:12.5, fontWeight:600, padding:"5px 11px", borderRadius:999 }}>{t}</span>)}
+          </div>
         </div>
       </div>
 
