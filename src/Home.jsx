@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame, ShieldCheck, Send, CalendarCheck, Smartphone, PlayCircle, PencilLine, Repeat } from "lucide-react";
+import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame, ShieldCheck, Send, CalendarCheck, Smartphone, PlayCircle, PencilLine, Repeat, CheckCircle2 } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
 // Home page, laid out like a course catalogue: a rotating banner, then three panels of cards.
@@ -55,7 +55,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
   const slides = [
     { kicker:"DTM · KIMYO", title:"Masalalarning videoli yechimini ustozdan o'rganing",
       text:`${videos || 60} dan ortiq savol tahlili va AI yordamchi. Har yilning birinchi variantidan 10 savol bepul.`, cta:"Bepul boshlash", go:openDtm, photo:true },
-    { kicker:"YANGI", title:"2019 yil · 2-variant qo'shildi",
+    { kicker:"YANGI", title:"2019 yil · 2\u2011variant qo'shildi",
       text:"30 savoldan 29 tasi ustozning videoli tahlili bilan. Premium bilan to'liq ochiladi.", cta:"Variantlarni ko'rish", go:openDtm },
     { kicker:"MAVZULAR", title:"Mavzu darsi hamma uchun ochiq",
       text:"Kimyoning asosiy tushunchalari: nazariy dars bepul, 20 ta misol tahlili Premiumda.", cta:"Mavzularga o'tish", go:() => setTab("topics") },
@@ -123,15 +123,29 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
         </Panel>
       </div>
 
-      <div style={{ display:"flex", gap:20, alignItems:"center", flexWrap:"wrap", background:B.tint, border:`1px solid ${B.line}`, borderRadius:16, padding:20, marginTop:26 }}>
-        <img src="/ustoz.jpg" alt="Kimyo o'qituvchisi" style={{ width:120, height:120, borderRadius:"50%", objectFit:"cover", objectPosition:"56% 20%", flexShrink:0 }}/>
-        <div style={{ flex:1, minWidth:240 }}>
-          <div style={{ fontSize:12, color:B.blue, fontWeight:700, letterSpacing:"0.05em" }}>SIZNING USTOZINGIZ</div>
-          <div style={{ fontSize:22, fontWeight:800, margin:"2px 0 6px" }}>Bobur Jumanazarov</div>
-          <div style={{ fontSize:14, color:B.mid, lineHeight:1.65 }}>Kimyo o'qituvchisi, 10 yillik tajribaga ega. Shu vaqt ichida 100 ga yaqin o'quvchisi Milliy sertifikat olgan. Har bir masalani o'zi yechib, qadamma-qadam tushuntiradi. O'quvchilar eng ko'p qiynalgan misollar so'rov orqali aniqlanadi va shu mavzular qayta tahlil qilinadi.</div>
-          <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginTop:12 }}>
-            {["10 yillik tajriba", "100 ga yaqin o'quvchi Milliy sertifikat olgan", "Kimyo o'qituvchisi"].map(t => <span key={t} style={{ background:"#fff", border:`1px solid ${B.line}`, color:B.text, fontSize:12.5, fontWeight:600, padding:"5px 11px", borderRadius:999 }}>{t}</span>)}
+      <div style={{ background:B.tint, border:`1px solid ${B.line}`, borderRadius:16, padding:"22px clamp(16px,3vw,26px)", marginTop:26 }}>
+        <div style={{ display:"flex", gap:20, alignItems:"center", flexWrap:"wrap" }}>
+          <img src="/ustoz.jpg" alt="Bobur Jumanazarov" style={{ width:112, height:112, borderRadius:"50%", objectFit:"cover", objectPosition:"56% 20%", border:"3px solid #fff", boxShadow:"0 0 0 1px "+B.line, flexShrink:0 }}/>
+          <div style={{ flex:1, minWidth:240 }}>
+            <div style={{ fontSize:12, color:B.blue, fontWeight:700, letterSpacing:"0.05em" }}>SIZNING USTOZINGIZ</div>
+            <div style={{ fontSize:24, fontWeight:800, margin:"2px 0 4px" }}>Bobur Jumanazarov</div>
+            <div style={{ fontSize:15, color:B.mid, lineHeight:1.55 }}>Kimyo fani o'qituvchisi. 10 yildan beri o'quvchilarni imtihonga tayyorlaydi.</div>
           </div>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(130px,1fr))", gap:10, marginTop:18 }}>
+          {[["10 yil", "o'qitish tajribasi"], ["~100", "o'quvchi Milliy sertifikat olgan"]].map(([n, l]) => (
+            <div key={l} style={{ background:"#fff", border:`1px solid ${B.line}`, borderRadius:12, padding:"12px 14px" }}>
+              <div style={{ fontSize:26, fontWeight:800, color:B.blue, lineHeight:1.1 }}>{n}</div>
+              <div style={{ fontSize:13, color:B.mid, marginTop:3, lineHeight:1.4 }}>{l}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display:"grid", gap:9, marginTop:16 }}>
+          {["Har bir masalani o'zi yechib, qadamma-qadam tushuntiradi.", "Eng qiyin misollar o'quvchilar so'rovi asosida qayta tahlil qilinadi.", "Tushunmagan joyingizni AI yordamchidan so'rashingiz mumkin."].map(t => (
+            <div key={t} style={{ display:"flex", gap:10, alignItems:"flex-start", fontSize:14.5, color:B.text, lineHeight:1.5 }}>
+              <CheckCircle2 size={19} color={B.ok} style={{ flexShrink:0, marginTop:1 }}/>{t}
+            </div>
+          ))}
         </div>
       </div>
 
