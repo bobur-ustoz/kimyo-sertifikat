@@ -5,7 +5,7 @@
 const GREEN = [15, 81, 50], INK = [20, 20, 20], GRAY = [90, 100, 96], RULE = [150, 150, 150];
 const PT = 0.3528;                      // 1 pt in mm
 
-const SUB = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9", "ₙ": "n", "₊": "+", "₋": "−" };
+const SUB = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9", "ₐ": "a", "ₑ": "e", "ₒ": "o", "ₓ": "x", "ₕ": "h", "ₖ": "k", "ₗ": "l", "ₘ": "m", "ₙ": "n", "ₚ": "p", "ₛ": "s", "ₜ": "t", "₊": "+", "₋": "−" };
 const SUP = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "−", "⁺": "+", "ⁿ": "n" };
 // Glyphs Latin Modern has no outline for: drawn in the fallback font.
 const FALLBACK = /[Α-ωΔ≤≥≈⇄↔⇌∆∞√∑∫∂≠≡⁄·]/;
@@ -16,17 +16,42 @@ const typo = (s) => String(s ?? "")
   .replace(/[ʻʼ'`´]/g, "’")
   .replace(/[ \t\r\n]+/g, " ");
 
+const ELEMENTS = new Set("H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu R".split(" "));
+// A chemical formula or element symbol (NaOH, H₂SO₄, Cu(OH)₂, Fe, CO₂, ²²⁶Ra, KMnO₄): every capital + lowercase
+// pair must be a real element, so words like "Bu" or "Natriy" are left alone. Such "substances" are slanted.
+const SUBC = Object.keys(SUB).join(""), SUPC = Object.keys(SUP).join("");
+const PIECE = new RegExp(`([${SUPC}]*)([A-Z][a-z]?)([${SUBC}]*\\d*)|[()\\[\\]]|[${SUBC}${SUPC}]+|\\d+|[·+−-]`, "g");
+const ROMAN = /^(?:I{1,3}|IV|VI{0,3}|IX|X)$/;      // "III valentli" is a number, not iodine
+const isFormula = (w) => {
+  if (!w || !/[A-Z]/.test(w) || ROMAN.test(w)) return false;
+  let rest = w, hasEl = false;
+  rest = rest.replace(PIECE, (m, sup, el) => { if (el) { if (!ELEMENTS.has(el)) return "\u0000"; hasEl = true; } return ""; });
+  return hasEl && rest === "";
+};
+
 // text -> words, each word a list of runs { t, k: "n" | "sub" | "sup", f: "LM" | "DejaVu", b: bold, s: slanted }
 function words(text, base) {
-  const out = []; let cur = [];
-  const push = (t, k, f) => { if (!t) return; const l = cur[cur.length - 1]; if (l && l.k === k && l.f === f) l.t += t; else cur.push({ t, k, f, b: base.b, s: base.s }); };
-  for (const ch of typo(text)) {
-    if (ch === " ") { if (cur.length) out.push(cur); cur = []; continue; }
-    if (SUB[ch]) push(SUB[ch], "sub", "LM");
-    else if (SUP[ch]) push(SUP[ch], "sup", "LM");
-    else push(ch, "n", FALLBACK.test(ch) ? "DejaVu" : "LM");
+  const out = [];
+  for (const chunk of typo(text).split(" ")) {
+    if (!chunk) continue;
+    // punctuation around a formula stays upright: "(NaOH)," -> ( NaOH ) ,
+    let lead = "", core = chunk, trail = "";
+    let m = core.match(/^(.*?)([.,;:?!»”’]*)$/); core = m[1]; trail = m[2];
+    if (!isFormula(core)) {
+      if (core.endsWith(")") && isFormula(core.slice(0, -1))) { trail = ")" + trail; core = core.slice(0, -1); }
+      if (core.startsWith("(") && isFormula(core.slice(1))) { lead = "("; core = core.slice(1); }
+    }
+    const slant = !base.s && !base.plain && isFormula(core);
+    const cur = [];
+    const push = (t, k, f, sl) => { if (!t) return; const l = cur[cur.length - 1]; if (l && l.k === k && l.f === f && l.s === sl) l.t += t; else cur.push({ t, k, f, b: base.b, s: sl }); };
+    const emit = (str, sl) => { for (const ch of str) {
+      if (SUB[ch]) push(SUB[ch], "sub", "LM", sl);
+      else if (SUP[ch]) push(SUP[ch], "sup", "LM", sl);
+      else push(ch, "n", FALLBACK.test(ch) ? "DejaVu" : "LM", sl);
+    } };
+    emit(lead, !!base.s); emit(core, !!base.s || slant); emit(trail, !!base.s);
+    if (cur.length) out.push(cur);
   }
-  if (cur.length) out.push(cur);
   return out;
 }
 
@@ -78,7 +103,7 @@ export function buildTestPdf(doc, { questions, brand = "nooracademy", label = "A
       });
     };
     // number (bold) + stem, as "29.  text"
-    const num = words(`${n}.`, { b: true });
+    const num = words(`${n}.`, { b: true, plain: true });
     const numW = wordW(num[0], SIZE) + 1.6;
     const stem = words(q.question_text || "(savol matni kiritilmagan)", {});
     { // first line starts after the bold number
@@ -97,7 +122,7 @@ export function buildTestPdf(doc, { questions, brand = "nooracademy", label = "A
         ? ["a", "b", "c", "d"].map((l) => [l.toUpperCase(), q[`option_${l}`]]).filter(([, t]) => t != null && t !== "")
         : [];
     if (opts.length) {
-      const cell = (L, t) => ({ lab: words(`${L})`, {})[0], ws: words(t, { s: true }) });
+      const cell = (L, t) => ({ lab: words(`${L})`, { plain: true })[0], ws: words(t, { s: true }) });
       const cells = opts.map(([L, t]) => cell(L, t));
       const labW = (c) => wordW(c.lab, SIZE) + 1.4;
       const oneW = (c) => labW(c) + c.ws.reduce((a, w, i) => a + wordW(w, SIZE) + (i ? spaceW(SIZE, true) : 0), 0);
