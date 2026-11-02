@@ -85,7 +85,7 @@ export function AskAI({session,target,setTab,time,playerRef}){
     try{
       const { data:{session:s} } = await supabase.auth.getSession();
       if(!s) throw new Error("Sessiya tugagan. Sahifani yangilab, qayta kiring.");
-      const r = await fetch("/api/flag-answer",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({questionId:m.id})});
+      const r = await fetch("/api/faq",{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${s.access_token}`},body:JSON.stringify({action:"flag",questionId:m.id})});
       if(!r.ok) throw new Error();
       setThread(t=>t.map((x,j)=>j===i?{...x,flag:"done"}:x));
     }catch{ setThread(t=>t.map((x,j)=>j===i?{...x,flag:null}:x)); setErr("Xabar yuborilmadi. Keyinroq urinib ko'ring."); }

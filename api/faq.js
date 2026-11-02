@@ -1,10 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import { canUseQuestion, paidPlanActive } from "./_access.js";
+import { flagAnswer } from "./_flag.js";
 
 // Reviewer-approved questions for one video, ready to show as quick buttons.
 // Only the question, answer and video position leave the server: never who asked.
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+  // One function for both (Vercel Hobby allows 12): { action: "flag", questionId } reports an AI answer.
+  if (req.body?.action === "flag") return flagAnswer(req, res);
 
   const url = process.env.VITE_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;

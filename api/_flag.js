@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 // A student reports an AI answer as wrong. The answer stops being served from the
 // cache immediately and shows up as "flagged" for a reviewer. Answers a reviewer
 // already approved cannot be flagged this way.
-export default async function handler(req, res) {
+export async function flagAnswer(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   const url = process.env.VITE_SUPABASE_URL;
