@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Flame, Zap, X, Lock, CheckCircle2, FlaskConical } from "lucide-react";
+import { Flame, Heart, X, Lock, CheckCircle2, FlaskConical } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
 // Organika: a free 24-day organic chemistry game. All checking happens on the server (api/oyin.js);
 // this file only draws the questions it receives and sends the student's answer back.
 // Three question types: choice (pick an option), write (type a reaction), build (assemble an alkane).
+
+// The server counts points (10 per correct answer); the student sees them as hearts (1 per correct answer).
+const hearts = (n) => Math.round((n || 0) / 10);
 
 const G = { bg:"#EAF4EE", card:"#fff", ink:"#0F2F26", muted:"#5B7D70", line:"#D3E4DB", green:"#0C8E5E", greenD:"#086944", greenSoft:"#D8F2E6",
   sun:"#F5A400", sunD:"#B87800", sunSoft:"#FFF0CC", coral:"#E8434B", coralD:"#B02A31", coralSoft:"#FFE0E1", violet:"#6A55E0", violetSoft:"#E6E1FF" };
@@ -208,7 +211,7 @@ function Question({ item, onAnswer, locked, result }) {
       <div><span className={"lvl l" + lvl}>{["", "1-daraja", "2-daraja", "3-daraja · qiyin"][lvl]}</span>{item.review && <span className="lvl rev">Takror</span>}</div>
       <div className="prompt" dangerouslySetInnerHTML={{ __html: q.p }} />
       {item.canStake && !locked && (
-        <label className="stake"><input type="checkbox" checked={stake} onChange={(e) => setStake(e.target.checked)} /> Stavka: to'g'ri +20, xato −10 reyting</label>
+        <label className="stake"><input type="checkbox" checked={stake} onChange={(e) => setStake(e.target.checked)} /> Stavka: to'g'ri +2 ♥, xato reytingdan −1</label>
       )}
       {q.type === "choice" && (
         <>
@@ -295,7 +298,7 @@ export default function Oyin({ session, setTab }) {
       <button className="btn" onClick={() => setTab("profile")}>Kirish / Ro'yxatdan o'tish</button>
     </div></>);
 
-  const chips = state && <div className="chips"><div className="chip" style={{ color: G.coral }}><Flame size={17} />{state.player.streak}</div><div className="chip" style={{ color: G.sun }}><Zap size={17} />{state.player.xp}</div></div>;
+  const chips = state && <div className="chips"><div className="chip" style={{ color: G.coral }}><Flame size={17} />{state.player.streak}</div><div className="chip" style={{ color: G.coral }}><Heart size={17} fill="currentColor" />{hearts(state.player.xp)}</div></div>;
 
   if (view === "quiz" && today) {
     const item = today.items[pos];
@@ -303,19 +306,19 @@ export default function Oyin({ session, setTab }) {
       <div className="qtop">
         <button className="x" aria-label="Chiqish" onClick={() => { setView("home"); loadState(); }}><X size={22} /></button>
         <div className="segs">{today.items.map((it, i) => <div key={i} className={"seg " + (it.answered ? (it.answered.ok ? "ok" : "no") : i === pos ? "cur" : "")} />)}</div>
-        <div className="chip" style={{ color: G.sun }}><Zap size={16} />{state?.player.xp ?? 0}</div>
+        <div className="chip" style={{ color: G.coral }}><Heart size={16} fill="currentColor" />{hearts(state?.player.xp)}</div>
       </div>
       {err && <div className="card" style={{ color: G.coral }}>{err}</div>}
       <Question key={item.question.id} item={item} onAnswer={answer} locked={!!res || busy} result={res} />
       {res && (
         <div className={"sheet " + (res.ok ? "ok" : "no")}>
-          <h3>{res.ok ? "To'g'ri!" : "Hali emas"}{res.xp > 0 ? ` +${res.xp} XP` : ""}</h3>
+          <h3>{res.ok ? "To'g'ri!" : "Hali emas"}{res.xp > 0 ? ` +${hearts(res.xp)} ♥` : ""}</h3>
           <p>
             {!res.ok && res.reveal.message && <>{res.reveal.message} </>}
             {!res.ok && res.reveal.got && <>Siz yig'gan modda: <b>{res.reveal.got}</b>. </>}
             {!res.ok && item.question.type === "write" && <>To'g'ri tenglama: <b><Eq s={res.reveal.correct} /></b><br /></>}
             {!res.ok && item.question.type === "build" && <>To'g'ri javob: <b>{res.reveal.correct.name}</b> ({res.reveal.correct.formula}).<br /></>}
-            {res.stakeLost && <>Stavka yutqazildi: reyting −10. </>}{res.shieldUsed && <>Qalqon stavkani saqladi. </>}
+            {res.stakeLost && <>Stavka yutqazildi: reytingdan −1. </>}{res.shieldUsed && <>Qalqon stavkani saqladi. </>}
             {res.trapHit && res.reveal.trapWhy && <><b>Tuzoq!</b> <span dangerouslySetInnerHTML={{ __html: res.reveal.trapWhy }} /><br /></>}
             <span dangerouslySetInnerHTML={{ __html: res.reveal.explanation }} />
           </p>
@@ -331,8 +334,8 @@ export default function Oyin({ session, setTab }) {
       <h2>{today?.day}-kun tugadi!</h2>
       <div className="stats">
         <div className="stat"><b>{fin.correct}/{fin.total}</b><span>to'g'ri javob</span></div>
-        <div className="stat"><b>{fin.bonus ? "+" + fin.bonus : "0"}</b><span>{fin.bonus ? "kunlik bonus" : "bonus (tuzoqqa tushildi)"}</span></div>
-        <div className="stat"><b>{state?.player.xp ?? 0}</b><span>jami XP</span></div>
+        <div className="stat"><b>{fin.bonus ? "+" + hearts(fin.bonus) : "0"}</b><span>{fin.bonus ? "kunlik bonus ♥" : "bonus (tuzoqqa tushildi)"}</span></div>
+        <div className="stat"><b>{hearts(state?.player.xp)}</b><span>jami yurakcha ♥</span></div>
         <div className="stat"><b>{state?.player.streak ?? 0}</b><span>kun ketma-ket</span></div>
       </div>
       <button className="btn" onClick={() => { setView("home"); loadState(); }}>Kunlar ro'yxati</button>
