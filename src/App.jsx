@@ -1458,74 +1458,86 @@ function SubscriptionScreen({plan,session,setTab}) {
     if(!session){ setTab("profile"); return; }
     setBuyPlan({id:p.id,name:p.name,priceNum:p.id==="premium"?200000:49900});
   };
+  const prem=PLANS.find(x=>x.id==="premium");
+  const isPrem=plan==="premium"; const pend=planStatus.premium==="pending";
+  const ctaLabel=isPrem?"Joriy rejangiz":pend?"To'lov tekshirilmoqda":!session?"Kirish va Premium olish":"Premium olish";
+  const feat=[[Award,"Barcha variantlar","Har yilning hamma variantlari to'liq ochiq, videosi bilan."],[Video,"20 ta misol tahlili","Mavzular bo'limidagi har misolning ustoz tushuntirishi."],[Sparkles,"AI yordamchi","Har bir videodan savol bering, javobni darrov oling."],[Download,"Analog savol va PDF","Har masalaga o'xshash yangi savol, PDF ish varag'i."],[Video,"Jonli darslar","Hamma jonli darslar va ularning yozuvlari."],[BarChart3,"Tahlil va AI xulosa","Qaysi mavzuda kuchli, qaysida zaif ekaningizni ko'ring."]];
+  const rows=[["Har yilning 1-varianti","Dastlabki 10 savol","Hammasi"],["Boshqa variantlar","Yopiq (alohida sotib olinadi)","Hammasi ochiq"],["Mavzu darslari","Ochiq","Ochiq"],["20 ta misol tahlili","Yopiq","Ochiq"],["AI yordamchi","Bepul savollarda","Hamma videoda"],["Analog savol va PDF","Yo'q","Bor"],["Tahlil va grafik","Yo'q","Bor"]];
+  const wrap={maxWidth:900,margin:"0 auto"};
   return (
-    <div style={{padding:"26px 30px"}}>
-      <div style={{textAlign:"center",marginBottom:30}}>
-        <div style={{display:"inline-flex",alignItems:"center",gap:7,background:C.mintBg,border:`1px solid ${C.borderGreen}`,padding:"6px 16px",borderRadius:20,marginBottom:14}}>
-          <Star size={13} color={C.primary}/><span style={{fontSize:11.5,fontWeight:700,color:C.primary,textTransform:"uppercase",letterSpacing:"0.09em"}}>Obuna rejalari · 2026</span>
-        </div>
-        <h1 style={{fontSize:26,fontWeight:900,color:C.text,marginBottom:8}}>O'zingizga mos rejani tanlang</h1>
-        <p style={{color:C.textMid,fontSize:14,maxWidth:500,margin:"0 auto"}}>Milliy sertifikat imtihoniga tayyorlanishni yangi bosqichga olib chiqing. AI vositalar va sifatli kontent bilan.</p>
-      </div>
+    <div style={{padding:"22px clamp(14px,3vw,30px) 40px"}}>
       {notice&&(
-        <div style={{background:C.warningBg,border:`1px solid #FDE68A`,borderRadius:12,padding:"12px 16px",marginBottom:20,display:"flex",alignItems:"center",gap:10,maxWidth:640,marginLeft:"auto",marginRight:"auto"}}>
-          <Info size={15} color={C.warning}/><span style={{fontSize:12.5,color:"#92400E",flex:1}}>{notice}</span>
-          <button onClick={()=>setNotice("")} style={{background:"none",border:"none",cursor:"pointer",color:"#92400E"}}><X size={14}/></button>
+        <div style={{...wrap,background:C.warningBg,border:`1px solid #FDE68A`,borderRadius:12,padding:"12px 16px",marginBottom:16,display:"flex",alignItems:"center",gap:10}}>
+          <Info size={15} color={C.warning}/><span style={{fontSize:13,color:"#7C3A00",flex:1}}>{notice}</span>
+          <button onClick={()=>setNotice("")} style={{background:"none",border:"none",cursor:"pointer",color:"#7C3A00"}}><X size={14}/></button>
         </div>
       )}
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18,marginBottom:30,maxWidth:820,marginLeft:"auto",marginRight:"auto"}}>
-        {PLANS.map(p=>{
-          const current=plan===p.id; const isHov=hover===p.id;
-          return (
-            <div key={p.id}
-              onMouseEnter={()=>setHover(p.id)} onMouseLeave={()=>setHover(null)}
-              style={{background:"#fff",borderRadius:18,border:current?`2px solid ${p.color}`:`1px solid ${C.border}`,padding:"26px 22px",transition:"all 0.2s",boxShadow:current?`0 8px 32px ${p.color}22`:(isHov?"0 8px 28px rgba(0,0,0,0.1)":"0 1px 5px rgba(0,0,0,0.05)"),transform:current||isHov?"translateY(-4px)":"translateY(0)",position:"relative",overflow:"hidden"}}>
-              {p.badge&&<div style={{position:"absolute",top:0,left:0,right:0,padding:"7px",background:p.color,color:"#fff",textAlign:"center",fontSize:11.5,fontWeight:800}}>{p.badge}</div>}
-              <div style={{paddingTop:p.badge?24:0}}>
-                {current&&<div style={{position:"absolute",top:p.badge?42:14,right:14,display:"flex",alignItems:"center",gap:5,background:p.color,color:"#fff",fontSize:10,fontWeight:800,padding:"3px 9px",borderRadius:20}}><CheckCircle2 size={10}/> Joriy reja</div>}
-                <div style={{fontSize:28,fontWeight:900,marginBottom:3,color:p.color}}>{p.name}</div>
-                <div style={{display:"flex",alignItems:"baseline",gap:4,marginBottom:4}}>
-                  {p.oldPrice&&<span style={{fontSize:16,color:C.textLight,textDecoration:"line-through",marginRight:4}}>{p.oldPrice}</span>}<span style={{fontSize:p.price==="0"?24:26,fontWeight:900,color:C.text}}>{p.price==="0"?"Bepul":p.price}</span>
-                  {p.price!=="0"&&<span style={{fontSize:13,color:C.textMid,fontWeight:500}}>{p.period}</span>}
-                </div>
-                {p.price==="0"&&<div style={{fontSize:12,color:C.textMid,marginBottom:16}}>Hech qanday to'lovsiz</div>}
-                {p.price!=="0"&&<div style={{fontSize:12,color:C.textMid,marginBottom:16}}>30 kunga amal qiladi</div>}
-                <div style={{marginBottom:20}}>
-                  {p.features.map((f,i)=>(
-                    <div key={i} style={{display:"flex",alignItems:"center",gap:9,marginBottom:9}}>
-                      <div style={{width:18,height:18,borderRadius:"50%",flexShrink:0,background:f.ok?`${p.color}18`:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center"}}>
-                        {f.ok?<CheckCircle2 size={11} color={p.color}/>:<XCircle size={11} color="#CBD5E1"/>}
-                      </div>
-                      <span style={{fontSize:12.5,color:f.ok?C.text:C.textLight,fontWeight:f.ok?500:400}}>{f.t}</span>
-                    </div>
-                  ))}
-                </div>
-                <button onClick={()=>handleClick(p)} disabled={current||planStatus[p.id]==="pending"} style={{width:"100%",padding:"12px",borderRadius:11,background:current?"#F1F5F9":p.btnBg,color:current?C.textMid:p.btnColor,border:current?`1px solid ${C.border}`:"none",fontSize:13.5,fontWeight:800,cursor:current?"default":"pointer",fontFamily:"inherit",transition:"all 0.15s",opacity:current?0.7:1}}>
-                  {current?"Joriy rejangiz":planStatus[p.id]==="pending"?"To'lov tekshirilmoqda":p.price==="0"?"Bepul boshlash":!session?"Kirish va obuna bo'lish":"Obuna bo'lish"}
-                </button>
-              </div>
-            </div>
-          );
-        })}
+      <div style={{...wrap,background:C.navy,color:"#fff",borderRadius:20,padding:"clamp(22px,4vw,38px)",display:"flex",gap:24,flexWrap:"wrap",alignItems:"center"}}>
+        <div style={{flex:"1 1 340px",minWidth:0}}>
+          <div style={{fontSize:12,color:"#8FB4FF",fontWeight:700,letterSpacing:"0.08em"}}>PREMIUM</div>
+          <h1 style={{fontSize:"clamp(26px,4vw,36px)",lineHeight:1.15,fontWeight:900,margin:"8px 0 10px"}}>Imtihonga to'liq tayyor bo'ling</h1>
+          <p style={{fontSize:15,color:"#C7D8F5",lineHeight:1.6,maxWidth:440}}>Hamma variantlar, misollar tahlili, AI yordamchi va tahlil bitta obunada.</p>
+          <div style={{display:"flex",alignItems:"baseline",gap:10,margin:"20px 0 4px",flexWrap:"wrap"}}>
+            <span style={{fontSize:18,color:"#8FA6CC",textDecoration:"line-through"}}>250 000</span>
+            <span style={{fontSize:38,fontWeight:900}}>200 000</span>
+            <span style={{fontSize:14,color:"#C7D8F5"}}>so'm / 30 kun</span>
+          </div>
+          <button onClick={()=>handleClick(prem)} disabled={isPrem||pend} style={{marginTop:12,padding:"14px 28px",borderRadius:10,border:"none",background:isPrem||pend?"rgba(255,255,255,0.18)":"#fff",color:isPrem||pend?"#C7D8F5":C.primary,fontSize:16,fontWeight:800,cursor:isPrem||pend?"default":"pointer",fontFamily:"inherit"}}>{ctaLabel}</button>
+          <div style={{fontSize:13,color:"#9FB6DC",marginTop:12,lineHeight:1.6}}>Karta o'tkazmasi va chek yuborish orqali. Ustoz tasdiqlagach hammasi ochiladi.<br/>30 kunga olinadi, o'zi uzaytirilmaydi.</div>
+        </div>
+        <div style={{flex:"0 1 220px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:8}}>
+          <img src="/ustoz.jpg" alt="Bobur Jumanazarov" style={{width:130,height:130,borderRadius:"50%",objectFit:"cover",objectPosition:"56% 20%",border:"3px solid rgba(255,255,255,0.9)"}}/>
+          <div style={{fontSize:15,fontWeight:800}}>Bobur Jumanazarov</div>
+          <div style={{fontSize:12.5,color:"#9FB6DC",lineHeight:1.5}}>10 yillik tajriba. 100 ga yaqin o'quvchi Milliy sertifikat olgan.</div>
+        </div>
       </div>
 
-      <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:16,padding:"22px 28px"}}>
-        <div style={{fontSize:15,fontWeight:800,color:C.primary,marginBottom:16,display:"flex",alignItems:"center",gap:8}}><Award size={16}/> Ko'p so'raladigan savollar</div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-          {[
-            ["To'lov qanday amalga oshiriladi?","Payme, Uzcard, Humo va boshqa qulay usullar orqali to'lashingiz mumkin. Xavfsiz va tez."],
-            ["Obunani bekor qilish mumkinmi?","Ha, istalgan vaqtda bekor qilishingiz mumkin. Hech qanday jarima yo'q."],
-            ["AI funksiyalar qanday ishlaydi?","Claude AI texnologiyasi asosida ishlaydi. Har savol uchun noyob analog va adaptive test yaratadi."],
-            ["Demo versiya bormi?","Bepul reja orqali platformani sinab ko'rishingiz mumkin. Har o'qituvchidan 1 ta variant to'liq ochiq."],
-          ].map(([q,a])=>(
-            <div key={q} style={{background:"#fff",borderRadius:12,padding:"14px 16px",border:`1px solid ${C.borderGreen}`}}>
-              <div style={{fontSize:13,fontWeight:700,color:C.primary,marginBottom:5}}>{q}</div>
-              <div style={{fontSize:12,color:C.textMid,lineHeight:1.6}}>{a}</div>
+      <div style={{...wrap,marginTop:30}}>
+        <div style={{fontSize:20,fontWeight:900,marginBottom:14,color:C.text}}>Premiumda nimalar bor</div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",gap:12}}>
+          {feat.map(([Ic,t,d],i)=>(
+            <div key={i} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:16,display:"flex",gap:12}}>
+              <div style={{width:42,height:42,borderRadius:10,background:C.mintLight,color:C.primary,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Ic size={21}/></div>
+              <div><div style={{fontSize:15,fontWeight:800,color:C.text,marginBottom:3}}>{t}</div><div style={{fontSize:13.5,color:C.textMid,lineHeight:1.55}}>{d}</div></div>
             </div>
           ))}
         </div>
       </div>
+
+      <div style={{...wrap,marginTop:30}}>
+        <div style={{fontSize:20,fontWeight:900,marginBottom:14,color:C.text}}>Bepul va Premium</div>
+        <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,overflow:"hidden"}}>
+          <div style={{display:"flex",background:C.mintBg,fontSize:13,fontWeight:800,color:C.text}}>
+            <div style={{padding:"12px 14px",flex:"1.3 1 0"}}/><div style={{padding:"12px 14px",flex:"1 1 0"}}>Bepul</div><div style={{padding:"12px 14px",flex:"1 1 0",color:C.primary}}>Premium</div>
+          </div>
+          {rows.map(([k,f,pm],i)=>(
+            <div key={k} style={{display:"flex",borderTop:`1px solid ${C.border}`,fontSize:13.5}}>
+              <div style={{padding:"12px 14px",flex:"1.3 1 0",minWidth:0,fontWeight:700,color:C.text}}>{k}</div>
+              <div style={{padding:"12px 14px",flex:"1 1 0",minWidth:0,color:f==="Yo'q"||f.startsWith("Yopiq")?C.textLight:C.textMid}}>{f}</div>
+              <div style={{padding:"12px 14px",flex:"1 1 0",minWidth:0,fontWeight:700,color:C.ok}}>{pm}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{...wrap,marginTop:30}}>
+        <div style={{fontSize:20,fontWeight:900,marginBottom:14,color:C.text}}>Ko'p so'raladigan savollar</div>
+        <div style={{display:"grid",gap:8}}>
+          {[
+            ["To'lov qanday amalga oshiriladi?","Premium narxini ko'rsatilgan kartaga o'tkazasiz va chek rasmini saytga yuklaysiz. Ustoz tasdiqlagach hamma narsa ochiladi. Sizdan parol yoki karta raqami so'ralmaydi."],
+            ["Obuna avtomatik uzaytiriladimi?","Yo'q. Premium 30 kunga olinadi va muddat tugagach o'zi to'xtaydi. Davom etish yoki etmaslik sizning ixtiyoringizda."],
+            ["Nimalar bepul?","Har yilning 1-variantidan dastlabki 10 savol, mavzu darslari va shu savollarda AI yordamchi. Boshqa variantni alohida sotib olish ham mumkin."],
+            ["AI yordamchi qanday ishlaydi?","Videoni ko'rayotib tushunmagan joyingiz haqida yozasiz, javob shu masalaga qarab beriladi."],
+          ].map(([q,a])=>(
+            <details key={q} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 16px"}}>
+              <summary style={{fontSize:15,fontWeight:700,cursor:"pointer",color:C.text}}>{q}</summary>
+              <div style={{fontSize:14,color:C.textMid,lineHeight:1.65,marginTop:8}}>{a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+
       {buyPlan&&<PurchaseModal planItem={buyPlan} session={session} status={planStatus[buyPlan.id]} setTab={setTab}
         onClose={()=>setBuyPlan(null)} onRequested={()=>{ loadPlanStatus(); setBuyPlan(null); setNotice("Chekingiz yuborildi. Tasdiqlangach reja darhol ishga tushadi."); }}/>}
     </div>
