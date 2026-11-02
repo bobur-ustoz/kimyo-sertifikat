@@ -11,6 +11,7 @@ create table if not exists testimonials (
   video_url text,              -- YouTube / Telegram link
   verified boolean not null default false,   -- the owner has seen the proof
   published boolean not null default false,
+  featured boolean not null default false,    -- shown in the home banner (up to 2)
   sort_order integer not null default 0,
   created_at timestamptz not null default now()
 );

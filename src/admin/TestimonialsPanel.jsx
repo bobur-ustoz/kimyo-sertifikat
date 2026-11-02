@@ -7,7 +7,7 @@ import { C, card, inputStyle, btnPrimary, btnGhost, pageTitle, pageSub, errorBox
 
 export const testimonialUrl = (path) => path ? supabase.storage.from("testimonials").getPublicUrl(path).data.publicUrl : null;
 
-const blank = { name: "", result: "", quote: "", video_url: "", verified: false, published: true };
+const blank = { name: "", result: "", quote: "", video_url: "", verified: false, published: true, featured: false };
 
 // Admin: the teacher's students who got the certificate. A card is shown on the home page only
 // when "published" is on. "verified" means the owner has seen the proof (certificate / screenshot).
@@ -68,6 +68,7 @@ export default function TestimonialsPanel() {
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", fontSize: 12.5, color: C.textMid }}>
             <label style={{ display: "flex", gap: 6, alignItems: "center", cursor: "pointer" }}><input type="checkbox" checked={f.verified} onChange={(e) => set("verified", e.target.checked)} /> Sertifikat ko'rilgan (tekshirilgan)</label>
             <label style={{ display: "flex", gap: 6, alignItems: "center", cursor: "pointer" }}><input type="checkbox" checked={f.published} onChange={(e) => set("published", e.target.checked)} /> Saytda ko'rsatilsin</label>
+            <label style={{ display: "flex", gap: 6, alignItems: "center", cursor: "pointer" }}><input type="checkbox" checked={f.featured} onChange={(e) => set("featured", e.target.checked)} /> Bannerda ko'rsatilsin (eng yaxshi 2 tasi)</label>
           </div>
           <button style={{ ...btnPrimary, justifySelf: "start" }} disabled={busy} onClick={add}><Plus size={14} /> {busy ? "Yuklanmoqda…" : "Fikr qo'shish"}</button>
         </div>
@@ -79,9 +80,10 @@ export default function TestimonialsPanel() {
           {r.photo_path ? <img src={testimonialUrl(r.photo_path)} alt="" style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover" }} /> : <div style={{ width: 52, height: 52, borderRadius: "50%", background: C.bgSoft }} />}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontWeight: 800, fontSize: 14, color: C.text }}>{r.name} {r.verified && <BadgeCheck size={14} color="#15803D" style={{ verticalAlign: "-2px" }} />}</div>
-            <div style={{ fontSize: 12, color: C.textMid }}>{r.result || "—"}{r.video_url ? " · video bor" : ""}{r.proof_path ? " · isbot rasmi bor" : ""}</div>
+            <div style={{ fontSize: 12, color: C.textMid }}>{r.result || "—"}{r.video_url ? " · video bor" : ""}{r.featured ? " · bannerda" : ""}{r.proof_path ? " · isbot rasmi bor" : ""}</div>
             <div style={{ fontSize: 12.5, color: C.text, marginTop: 3 }}>{(r.quote || "").slice(0, 140)}</div>
           </div>
+          <button style={{ ...btnGhost, fontWeight: 700, color: r.featured ? C.primary : C.textLight }} title="Bosh sahifa bannerida ko'rsatish" onClick={() => patch(r, { featured: !r.featured })}>{r.featured ? "Bannerda" : "Banner"}</button>
           <button style={btnGhost} title="Tekshirilgan belgisi" onClick={() => patch(r, { verified: !r.verified })}><BadgeCheck size={14} color={r.verified ? "#15803D" : C.textLight} /></button>
           <button style={btnGhost} title={r.published ? "Yashirish" : "Ko'rsatish"} onClick={() => patch(r, { published: !r.published })}>{r.published ? <Eye size={14} /> : <EyeOff size={14} />}</button>
           <button style={{ ...btnGhost, color: C.danger }} onClick={() => del(r)}><Trash2 size={14} /></button>

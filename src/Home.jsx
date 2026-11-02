@@ -42,7 +42,7 @@ function Testimonials({ items }) {
   const [open, setOpen] = useState(null);   // { kind: "video"|"image", src }
   if (!items.length) return null;
   return (
-    <div style={{ marginTop:30 }}>
+    <div id="natijalar" style={{ marginTop:30, scrollMarginTop:16 }}>
       <div style={{ fontSize:20, fontWeight:800, marginBottom:4 }}>Ustozning o'quvchilari natijalari</div>
       <div style={{ fontSize:14, color:B.mid, marginBottom:14 }}>Milliy sertifikat olgan o'quvchilar o'z so'zlari bilan.</div>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))", gap:14 }}>
@@ -102,7 +102,9 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
   useEffect(() => {
     supabase.from("testimonials").select("*").eq("published", true).order("sort_order").then(({ data }) => setTestimonials(data || []), () => {});
   }, []);
-  useEffect(() => { const t = setInterval(() => setSlide(s => (s + 1) % 3), 7000); return () => clearInterval(t); }, []);
+  const featured = testimonials.filter(t => t.featured).slice(0, 2);
+  const nSlides = 3 + (featured.length ? 1 : 0);
+  useEffect(() => { const t = setInterval(() => setSlide(s => (s + 1) % nSlides), 7000); return () => clearInterval(t); }, [nSlides]);
   useEffect(() => {
     (async () => {
       const [{ data: tp }, { data: ex }] = await Promise.all([
@@ -122,8 +124,11 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
       text:"30 savoldan 29 tasi ustozning videoli tahlili bilan. Premium bilan to'liq ochiladi.", cta:"Variantlarni ko'rish", go:openDtm },
     { kicker:"MAVZULAR", title:"Mavzu darsi hamma uchun ochiq",
       text:"Kimyoning asosiy tushunchalari: nazariy dars bepul, 20 ta misol tahlili Premiumda.", cta:"Mavzularga o'tish", go:() => setTab("topics") },
+    ...(featured.length ? [{ kicker:"NATIJALAR", title:"Ustozning ~100 o'quvchisi Milliy sertifikat olgan",
+      text:"O'quvchilarning natijalari va fikrlarini o'zlari aytgan so'zlar bilan ko'ring.", cta:"Natijalarni ko'rish",
+      go:() => document.getElementById("natijalar")?.scrollIntoView({ behavior:"smooth", block:"start" }), students:featured }] : []),
   ];
-  const s = slides[slide];
+  const s = slides[slide % slides.length];
 
   return (
     <div style={{ padding:"22px clamp(14px,3vw,32px) 40px", background:"#fff", minHeight:"100%", color:B.text }}>
@@ -136,7 +141,20 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
             <button onClick={s.go} style={{ ...btn(false), background:"#fff", color:B.blue, border:"none", marginTop:18 }}>{s.cta} <ArrowRight size={15}/></button>
           </div>
           <div style={{ flex:"1 1 45%", position:"relative", minWidth:0 }}>
-            {s.photo
+            {s.students
+              ? <div style={{ position:"absolute", inset:0, display:"flex", flexDirection:"column", justifyContent:"center", gap:10, padding:"20px 22px 20px 6px" }}>
+                  {s.students.map(t => (
+                    <div key={t.id} style={{ background:"rgba(255,255,255,0.97)", color:B.text, borderRadius:14, padding:"10px 12px", display:"flex", gap:10, alignItems:"center" }}>
+                      {t.photo_path ? <img src={pubUrl(t.photo_path)} alt={t.name} style={{ width:44, height:44, borderRadius:"50%", objectFit:"cover", flexShrink:0 }}/>
+                        : <div style={{ width:44, height:44, borderRadius:"50%", background:B.panel, color:B.blue, display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, flexShrink:0 }}>{t.name.slice(0,1)}</div>}
+                      <div style={{ minWidth:0 }}>
+                        <div style={{ fontSize:14, fontWeight:800, lineHeight:1.2 }}>{t.name}</div>
+                        {t.result && <div style={{ fontSize:12, color:B.ok, fontWeight:700, lineHeight:1.3 }}>{t.result}</div>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+            : s.photo
               ? <img src="/ustoz.jpg" alt="Kimyo o'qituvchisi" style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"56% 22%", maskImage:"linear-gradient(to right,transparent 0,#000 38%)", WebkitMaskImage:"linear-gradient(to right,transparent 0,#000 38%)" }}/>
               : <>
                   <div style={{ position:"absolute", right:-40, top:-40, width:240, height:240, borderRadius:"50%", background:"#7C5CFF" }}/>
