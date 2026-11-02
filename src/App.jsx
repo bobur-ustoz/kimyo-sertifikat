@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import LiveLessons from "./LiveLessons";
 import Survey from "./Survey";
-import { ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
+import Home from "./Home";
+import { Home as HomeIcon, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
 import { RESET_PATH } from "./ResetPassword";
@@ -385,7 +386,7 @@ function PurchaseModal({variant,lesson,planItem,teacher,session,status,onClose,o
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
 function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose,variants}) {
-  const TABS=[{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"live",label:"Jonli dars",icon:Video},{id:"survey",label:"So'rov",icon:ClipboardList},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
+  const TABS=[{id:"home",label:"Bosh sahifa",icon:HomeIcon},{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"live",label:"Jonli dars",icon:Video},{id:"survey",label:"So'rov",icon:ClipboardList},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
@@ -1633,7 +1634,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
 
 // ── APP ───────────────────────────────────────────────────────────
 export default function App() {
-  const [tab,setTab]=useState(()=>{ try{ return window.location.hash==="#live"?"live":window.location.hash==="#survey"?"survey":"collections"; }catch{ return "collections"; } });
+  const [tab,setTab]=useState(()=>{ try{ return window.location.hash==="#live"?"live":window.location.hash==="#survey"?"survey":"home"; }catch{ return "home"; } });
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
   const [mobileOpen,setMobileOpen]=useState(false);
@@ -1717,6 +1718,7 @@ export default function App() {
       <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)} variants={variants}/>
       <main className="app-main" style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column",minWidth:0}}>
         {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section!=="dtm")}/>}
+        {tab==="home"&&<Home teachers={teachers} setTab={setTab} pick={pick} plan={plan}/>}
         {tab==="dtm"&&<TeachersGrid mode="dtm" onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section==="dtm")}/>}
         {tab==="variants"&&!teacher&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>
