@@ -4,7 +4,7 @@ import LiveLessons from "./LiveLessons";
 import Survey from "./Survey";
 import Home from "./Home";
 import { C } from "./theme";
-import { Home as HomeIcon, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
+import { Home as HomeIcon, ChevronLeft, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
 import { RESET_PATH } from "./ResetPassword";
@@ -805,6 +805,10 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
       .then(({data})=>{ setAnalog(data||null); setAnalogLoading(false); });
   },[curQ?.id]);
 
+  const idxQ = questions.findIndex(q=>q.question_number===activeQ);
+  const prevQ = idxQ>0 ? questions[idxQ-1] : null;
+  const nextQ = idxQ>=0 && idxQ<questions.length-1 ? questions[idxQ+1] : null;
+  useEffect(()=>{ document.getElementById("qchip-"+activeQ)?.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"}); },[activeQ]);
   const unlocked = variantUnlocked(variant,plan,purchases);
   // Analog questions are Premium, except inside DTM variants the student can open.
   const allowed = canUse(plan,"analog") || (teacher?.section==="dtm" && unlocked);
@@ -816,6 +820,18 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
           <button onClick={onBack} style={{background:"none",border:"none",cursor:"pointer",color:C.accent,fontWeight:600,fontFamily:"inherit",fontSize:12.5,padding:0}}>Variantlar</button>
           <ChevronRight size={13}/><span style={{color:C.primary,fontWeight:700}}>{variantId}-Variant</span>
           <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{activeQ}-Savol</span>
+        </div>
+        <div className="q-strip" style={{gap:7,overflowX:"auto",padding:"2px 2px 12px",margin:"0 -2px",scrollbarWidth:"none"}}>
+          {questions.map(q=>{
+            const on=q.question_number===activeQ; const lockedQ=!unlocked;
+            return (
+              <button key={q.id} id={"qchip-"+q.question_number} onClick={()=>setActiveQ(q.question_number)} aria-label={`${q.question_number}-savol`} aria-current={on?"true":undefined}
+                style={{flexShrink:0,minWidth:42,height:42,borderRadius:21,padding:"0 12px",fontFamily:"inherit",fontSize:14,fontWeight:800,cursor:"pointer",
+                  background:on?C.primary:"#fff",color:on?"#fff":q.video_ready?C.text:C.textLight,border:on?"none":`1.5px solid ${q.video_ready?C.borderGreen:C.border}`,display:"flex",alignItems:"center",justifyContent:"center",gap:4}}>
+                {lockedQ&&!on?<Lock size={13}/>:q.question_number}
+              </button>
+            );
+          })}
         </div>
         <div style={{background:"#0A0F1E",borderRadius:14,overflow:"hidden",aspectRatio:"16/9",width:"100%",position:"relative",marginBottom:15,boxShadow:"0 10px 36px rgba(0,0,0,0.22)"}}>
           {!unlocked ? (
@@ -845,6 +861,10 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
               {!curQ?.video_ready&&<div style={{color:"#94A3B8",fontSize:11,marginTop:10,background:"rgba(255,255,255,0.06)",padding:"4px 12px",borderRadius:20}}>Video hali tayyor emas</div>}
             </a>
           )}
+        </div>
+        <div style={{display:"flex",gap:10,justifyContent:"space-between",margin:"0 0 15px"}}>
+          <button onClick={()=>prevQ&&setActiveQ(prevQ.question_number)} disabled={!prevQ} style={{flex:1,padding:"11px 14px",borderRadius:10,border:`1.5px solid ${C.border}`,background:"#fff",color:prevQ?C.text:C.textLight,fontSize:14,fontWeight:700,cursor:prevQ?"pointer":"default",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:6,opacity:prevQ?1:0.55}}><ChevronLeft size={16}/> Oldingi</button>
+          <button onClick={()=>nextQ&&setActiveQ(nextQ.question_number)} disabled={!nextQ} style={{flex:1,padding:"11px 14px",borderRadius:10,border:"none",background:nextQ?C.primary:C.border,color:nextQ?"#fff":C.textLight,fontSize:14,fontWeight:700,cursor:nextQ?"pointer":"default",fontFamily:"inherit",display:"flex",alignItems:"center",justifyContent:"center",gap:6}}>Keyingi <ChevronRight size={16}/></button>
         </div>
         {unlocked&&curQ&&<div style={{marginBottom:15}}><AskAI key={curQ.id} session={session} setTab={setTab} target={{questionId:curQ.id}}/></div>}
         <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:11,padding:"10px 15px",marginBottom:12,display:"flex",flexWrap:"wrap",gap:7}}>
@@ -938,13 +958,13 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
         )}
       </div>
 
-      <div className="video-sidebar" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
+      <div className="video-sidebar variant-list" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
         <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>{variantId}-Variant · Savollar</div>
         <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{ready}/{total} video tayyor</div>
         {questions.map(q=>{
           const isA=q.question_number===activeQ; const isW=q.video_ready;
           return (
-            <button key={q.id} onClick={()=>{setActiveQ(q.question_number);setAiState("idle");setAiResult(null);}}
+            <button key={q.id} onClick={()=>setActiveQ(q.question_number)}
               style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:isA?C.primary:"transparent",border:isA?"none":`1px solid ${isW?"#BBF7D0":C.border}`,cursor:"pointer",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7}}>
               <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:isA?"rgba(255,255,255,0.18)":isW?C.mintBg:"#F1F5F9",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,fontWeight:800,color:isA?C.mint:isW?C.primary:C.textMid}}>
                 {isW&&!isA?"✓":q.question_number}
@@ -1697,10 +1717,14 @@ export default function App() {
         .hamburger-btn{display:none;position:fixed;top:14px;left:14px;z-index:300;width:40px;height:40px;border-radius:10px;background:${C.primary};border:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.18);}
         .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.45);z-index:150;}
         .bottom-nav{display:none;}
+        .q-strip{display:none;}
         @media (max-width:900px){
           .app-sidebar{transform:translateX(-100%);transition:transform 0.25s ease;}
           .app-sidebar.open{transform:translateX(0);}
           .app-main{margin-left:0 !important;padding-top:58px;padding-bottom:calc(64px + env(safe-area-inset-bottom));}
+          .q-strip{display:flex;}
+          .video-layout>div:first-child{padding-top:62px !important;padding-left:16px !important;padding-right:16px !important;}
+          .variant-list{display:none !important;}
           .bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:120;height:calc(60px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#fff;border-top:1px solid ${C.border};box-shadow:0 -2px 12px rgba(0,36,87,0.06);}
           .hamburger-btn{display:flex;}
           .sidebar-close-btn{display:flex !important;}
