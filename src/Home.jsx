@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame, ShieldCheck, Send, CalendarCheck, Smartphone, PlayCircle, PencilLine, Repeat, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame, ShieldCheck, Send, CalendarCheck, Smartphone, PlayCircle, PencilLine, Repeat, CheckCircle2, BadgeCheck, X } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
 // Home page, laid out like a course catalogue: a rotating banner, then three panels of cards.
@@ -33,12 +33,75 @@ function Panel({ title, tint = B.panel, color = B.blue, onMore, children }) {
   );
 }
 
+const pubUrl = (path) => path ? supabase.storage.from("testimonials").getPublicUrl(path).data.publicUrl : null;
+const ytId = (u) => { const m = String(u || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); return m ? m[1] : null; };
+
+// The teacher's students who got the certificate. A card appears only when the admin published it;
+// with none published the whole block stays hidden.
+function Testimonials({ items }) {
+  const [open, setOpen] = useState(null);   // { kind: "video"|"image", src }
+  if (!items.length) return null;
+  return (
+    <div style={{ marginTop:30 }}>
+      <div style={{ fontSize:20, fontWeight:800, marginBottom:4 }}>Ustozning o'quvchilari natijalari</div>
+      <div style={{ fontSize:14, color:B.mid, marginBottom:14 }}>Milliy sertifikat olgan o'quvchilar o'z so'zlari bilan.</div>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))", gap:14 }}>
+        {items.map(t => {
+          const vid = ytId(t.video_url);
+          return (
+            <div key={t.id} style={{ border:`1px solid ${B.line}`, borderRadius:16, overflow:"hidden", background:"#fff", display:"flex", flexDirection:"column" }}>
+              {t.video_url && (
+                <div onClick={() => vid ? setOpen({ kind:"video", src:`https://www.youtube.com/embed/${vid}?autoplay=1` }) : window.open(t.video_url, "_blank", "noopener")}
+                  style={{ position:"relative", paddingTop:"56.25%", background:B.navy, cursor:"pointer" }}>
+                  {vid && <img src={`https://img.youtube.com/vi/${vid}/hqdefault.jpg`} alt="" style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover" }}/>}
+                  <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center" }}>
+                    <div style={{ width:56, height:56, borderRadius:"50%", background:"rgba(255,255,255,0.95)", display:"flex", alignItems:"center", justifyContent:"center" }}><PlayCircle size={32} color={B.blue}/></div>
+                  </div>
+                </div>
+              )}
+              <div style={{ padding:16, display:"flex", flexDirection:"column", gap:10, flex:1 }}>
+                <div style={{ display:"flex", gap:12, alignItems:"center" }}>
+                  {t.photo_path ? <img src={pubUrl(t.photo_path)} alt={t.name} style={{ width:48, height:48, borderRadius:"50%", objectFit:"cover", flexShrink:0 }}/>
+                    : <div style={{ width:48, height:48, borderRadius:"50%", background:B.panel, color:B.blue, display:"flex", alignItems:"center", justifyContent:"center", fontWeight:800, flexShrink:0 }}>{t.name.slice(0,1)}</div>}
+                  <div style={{ minWidth:0 }}>
+                    <div style={{ fontSize:15, fontWeight:800 }}>{t.name}</div>
+                    {t.result && <div style={{ fontSize:13, color:B.ok, fontWeight:700 }}>{t.result}</div>}
+                  </div>
+                </div>
+                {t.quote && <div style={{ fontSize:14, color:B.text, lineHeight:1.6 }}>«{t.quote}»</div>}
+                <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginTop:"auto" }}>
+                  {t.proof_path && <button onClick={() => setOpen({ kind:"image", src:pubUrl(t.proof_path) })} style={{ ...btn(false), padding:"6px 12px", fontSize:12.5 }}>Isbotni ko'rish</button>}
+                  {t.verified && <span style={{ display:"inline-flex", alignItems:"center", gap:5, background:B.okBg, color:B.ok, fontSize:12.5, fontWeight:700, padding:"6px 10px", borderRadius:999 }}><BadgeCheck size={14}/> Sertifikat ko'rilgan</span>}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {open && (
+        <div onClick={() => setOpen(null)} style={{ position:"fixed", inset:0, background:"rgba(0,20,50,0.78)", zIndex:500, display:"flex", alignItems:"center", justifyContent:"center", padding:16 }}>
+          <div onClick={e => e.stopPropagation()} style={{ width:"min(900px,100%)", position:"relative" }}>
+            <button onClick={() => setOpen(null)} aria-label="Yopish" style={{ position:"absolute", right:0, top:-42, background:"#fff", border:"none", borderRadius:999, width:34, height:34, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center" }}><X size={18}/></button>
+            {open.kind === "video"
+              ? <div style={{ position:"relative", paddingTop:"56.25%" }}><iframe src={open.src} title="Video fikr" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen style={{ position:"absolute", inset:0, width:"100%", height:"100%", border:"none", borderRadius:12 }}/></div>
+              : <img src={open.src} alt="Isbot" style={{ width:"100%", maxHeight:"85vh", objectFit:"contain", borderRadius:12, background:"#fff" }}/>}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home({ teachers, setTab, pick, plan, session }) {
   const dtm = teachers.find(t => t.section === "dtm");
   const videos = teachers.reduce((n, t) => n + (t.videoCount || 0), 0);
   const [slide, setSlide] = useState(0);
   const [topics, setTopics] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
 
+  useEffect(() => {
+    supabase.from("testimonials").select("*").eq("published", true).order("sort_order").then(({ data }) => setTestimonials(data || []), () => {});
+  }, []);
   useEffect(() => { const t = setInterval(() => setSlide(s => (s + 1) % 3), 7000); return () => clearInterval(t); }, []);
   useEffect(() => {
     (async () => {
@@ -94,7 +157,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
       </div>
 
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))", border:`1px solid ${B.line}`, borderRadius:14, marginTop:18, overflow:"hidden" }}>
-        {[[`${videos || 60}+`, "savolning video tahlili"], ["10 yil", "ustozning o'qitish tajribasi"], ["~100", "o'quvchi Milliy sertifikat olgan"], ["10", "savol butunlay bepul"]].map(([n, l], i) => (
+        {[[`${videos || 60}+`, "savolning video tahlili"], ["10 yil", "ustozning o'qitish tajribasi"], ["~100", "ustozning o'quvchisi Milliy sertifikat olgan"], ["10", "savol butunlay bepul"]].map(([n, l], i) => (
           <div key={l} style={{ padding:"14px 18px", borderLeft:i ? `1px solid ${B.line}` : "none" }}>
             <div style={{ fontSize:24, fontWeight:800, color:B.blue }}>{n}</div>
             <div style={{ fontSize:12.5, color:B.mid }}>{l}</div>
@@ -133,7 +196,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
           </div>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(130px,1fr))", gap:10, marginTop:18 }}>
-          {[["10 yil", "o'qitish tajribasi"], ["~100", "o'quvchi Milliy sertifikat olgan"]].map(([n, l]) => (
+          {[["10 yil", "o'qitish tajribasi"], ["~100", "ustozning o'quvchisi Milliy sertifikat olgan"]].map(([n, l]) => (
             <div key={l} style={{ background:"#fff", border:`1px solid ${B.line}`, borderRadius:12, padding:"12px 14px" }}>
               <div style={{ fontSize:26, fontWeight:800, color:B.blue, lineHeight:1.1 }}>{n}</div>
               <div style={{ fontSize:13, color:B.mid, marginTop:3, lineHeight:1.4 }}>{l}</div>
@@ -148,6 +211,8 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
           ))}
         </div>
       </div>
+
+      <Testimonials items={testimonials}/>
 
       <div style={{ fontSize:20, fontWeight:800, margin:"30px 0 12px" }}>Qanday ishlaydi</div>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))", gap:12 }}>
