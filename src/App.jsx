@@ -1718,7 +1718,7 @@ export default function App() {
       <Sidebar tab={tab} setTab={setTab} teacher={teacher} setTeacher={setTeacher} setVarId={setVarId} plan={plan} mobileOpen={mobileOpen} onClose={()=>setMobileOpen(false)} variants={variants}/>
       <main className="app-main" style={{marginLeft:258,flex:1,minHeight:"100vh",overflowY:"auto",display:"flex",flexDirection:"column",minWidth:0}}>
         {tab==="collections"&&<TeachersGrid onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section!=="dtm")}/>}
-        {tab==="home"&&<Home teachers={teachers} setTab={setTab} pick={pick} plan={plan}/>}
+        {tab==="home"&&<Home teachers={teachers} setTab={setTab} pick={pick} plan={plan} session={session}/>}
         {tab==="dtm"&&<TeachersGrid mode="dtm" onSelect={pick} plan={plan} teachers={teachers.filter(t=>t.section==="dtm")}/>}
         {tab==="variants"&&!teacher&&(
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,flexDirection:"column",gap:14,padding:40}}>

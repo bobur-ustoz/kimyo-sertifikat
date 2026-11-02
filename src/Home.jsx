@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame } from "lucide-react";
+import { ArrowRight, Atom, FileText, Sparkles, Clock, Flame, ShieldCheck, Send, CalendarCheck, Smartphone, PlayCircle, PencilLine, Repeat } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
 // Home page, laid out like a course catalogue: a rotating banner, then three panels of cards.
@@ -33,7 +33,7 @@ function Panel({ title, tint = B.panel, color = B.blue, onMore, children }) {
   );
 }
 
-export default function Home({ teachers, setTab, pick, plan }) {
+export default function Home({ teachers, setTab, pick, plan, session }) {
   const dtm = teachers.find(t => t.section === "dtm");
   const videos = teachers.reduce((n, t) => n + (t.videoCount || 0), 0);
   const [slide, setSlide] = useState(0);
@@ -89,8 +89,17 @@ export default function Home({ teachers, setTab, pick, plan }) {
           <div style={{ fontSize:12, color:"#C2410C", fontWeight:700, letterSpacing:"0.05em" }}>PREMIUM</div>
           <div style={{ fontSize:20, lineHeight:1.25, fontWeight:800, margin:"6px 0 8px" }}>Hamma variant, AI va tahlil bitta obunada</div>
           <div style={{ fontSize:13, color:"#7A4A2A", marginBottom:14 }}><span style={{ textDecoration:"line-through" }}>250 000</span> <b style={{ fontSize:18, color:B.text }}>200 000</b> so'm / 30 kun</div>
-          <button onClick={() => setTab("obuna")} style={btn(true)}>{plan === "free" ? "Premium olish" : "Obunani ko'rish"}</button>
+          <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}><button onClick={() => setTab("obuna")} style={btn(true)}>{plan === "free" ? "Premium olish" : "Obunani ko'rish"}</button>{!session && <button onClick={() => setTab("profile")} style={btn(false)}>Kirish</button>}</div>
         </div>
+      </div>
+
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))", border:`1px solid ${B.line}`, borderRadius:14, marginTop:18, overflow:"hidden" }}>
+        {[[`${videos || 60}+`, "savolning video tahlili"], ["2019", "DTM baza savollari"], ["AI", "yordamchi, videodan so'rang"], ["10", "savol butunlay bepul"]].map(([n, l], i) => (
+          <div key={l} style={{ padding:"14px 18px", borderLeft:i ? `1px solid ${B.line}` : "none" }}>
+            <div style={{ fontSize:24, fontWeight:800, color:B.blue }}>{n}</div>
+            <div style={{ fontSize:12.5, color:B.mid }}>{l}</div>
+          </div>
+        ))}
       </div>
 
       <div style={{ fontSize:20, fontWeight:800, margin:"26px 0 12px" }}>Yangi va mashhur</div>
@@ -114,13 +123,58 @@ export default function Home({ teachers, setTab, pick, plan }) {
         </Panel>
       </div>
 
-      <div style={{ display:"flex", gap:12, alignItems:"center", background:B.tint, border:`1px solid ${B.line}`, borderRadius:14, padding:"14px 18px", marginTop:22, flexWrap:"wrap" }}>
-        <Flame size={22} color={B.blue}/>
-        <div style={{ flex:1, minWidth:220 }}>
-          <div style={{ fontSize:15, fontWeight:800 }}>Pul to'lamasdan sinab ko'ring</div>
-          <div style={{ fontSize:13, color:B.mid }}>Har yilning 1-variantidan dastlabki 10 savol va mavzu darslari bepul. Yoqsa, Premiumga o'tasiz.</div>
+      <div style={{ display:"flex", gap:20, alignItems:"center", flexWrap:"wrap", background:B.tint, border:`1px solid ${B.line}`, borderRadius:16, padding:20, marginTop:26 }}>
+        <img src="/ustoz.jpg" alt="Kimyo o'qituvchisi" style={{ width:120, height:120, borderRadius:"50%", objectFit:"cover", objectPosition:"56% 20%", flexShrink:0 }}/>
+        <div style={{ flex:1, minWidth:240 }}>
+          <div style={{ fontSize:12, color:B.blue, fontWeight:700, letterSpacing:"0.05em" }}>SIZNING USTOZINGIZ</div>
+          <div style={{ fontSize:22, fontWeight:800, margin:"2px 0 6px" }}>Bobur Jumanazarov</div>
+          <div style={{ fontSize:14, color:B.mid, lineHeight:1.65 }}>Kimyo o'qituvchisi. Har bir masalani o'zi yechib, qadamma-qadam tushuntiradi. O'quvchilar eng ko'p qiynalgan misollar so'rov orqali aniqlanadi va shu mavzular qayta tahlil qilinadi.</div>
         </div>
-        <button onClick={openDtm} style={btn(true)}>Boshlash</button>
+      </div>
+
+      <div style={{ fontSize:20, fontWeight:800, margin:"30px 0 12px" }}>Qanday ishlaydi</div>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))", gap:12 }}>
+        {[[<PencilLine size={22}/>, "1-qadam", "Savolni ishlang", "Variantdan savol tanlab, javobni belgilang. To'g'ri yoki noto'g'riligini darrov ko'rasiz."],
+          [<PlayCircle size={22}/>, "2-qadam", "Videoni ko'ring", "Ustoz masalani qanday yechishini bosqichma-bosqich ko'rsatadi. Tushunmasangiz, AI'dan so'rang."],
+          [<Repeat size={22}/>, "3-qadam", "Mustahkamlang", "Analog savol va Test Generator bilan takrorlang, natijangizni tahlil bo'limida kuzating."]].map(([ic, k, t, d]) => (
+          <div key={k} style={{ border:`1px solid ${B.line}`, borderRadius:14, padding:16 }}>
+            <div style={{ width:42, height:42, borderRadius:10, background:B.panel, color:B.blue, display:"flex", alignItems:"center", justifyContent:"center" }}>{ic}</div>
+            <div style={{ fontSize:12, color:B.blue, fontWeight:700, margin:"10px 0 2px" }}>{k}</div>
+            <div style={{ fontSize:16, fontWeight:800, marginBottom:4 }}>{t}</div>
+            <div style={{ fontSize:13.5, color:B.mid, lineHeight:1.55 }}>{d}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ fontSize:20, fontWeight:800, margin:"30px 0 12px" }}>Ishonchli va qulay</div>
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))", gap:12 }}>
+        {[[<ShieldCheck size={22}/>, "Xavfsiz to'lov", "Karta o'tkazmasi qilib, chekni yuborasiz, ustoz tasdiqlaydi. Sizdan parol yoki karta raqami so'ralmaydi."],
+          [<CalendarCheck size={22}/>, "Majburiy emas", "Premium 30 kunga olinadi va o'zi uzaytirilmaydi. Davom etish yoki to'xtatish o'zingizning ixtiyoringizda."],
+          [<Send size={22}/>, "Telegram orqali tasdiq", "To'lovingiz ustoz tomonidan tasdiqlanadi va kontent ochiladi. Holatni sayt ichida ko'rasiz."],
+          [<Smartphone size={22}/>, "Telefonda ham", "Sayt telefon, planshet va kompyuterda bir xil qulay ishlaydi."]].map(([ic, t, d]) => (
+          <div key={t} style={{ display:"flex", gap:12, border:`1px solid ${B.line}`, borderRadius:14, padding:14 }}>
+            <div style={{ color:B.blue, flexShrink:0, marginTop:2 }}>{ic}</div>
+            <div><div style={{ fontSize:15, fontWeight:800, marginBottom:3 }}>{t}</div><div style={{ fontSize:13.5, color:B.mid, lineHeight:1.55 }}>{d}</div></div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ fontSize:20, fontWeight:800, margin:"30px 0 12px" }}>Ko'p so'raladigan savollar</div>
+      <div style={{ display:"grid", gap:8 }}>
+        {[["Nimalar bepul?", "Har yilning 1-variantidan dastlabki 10 savol, mavzu darslari, hamda AI yordamchi shu savollarda. Qolgan variantlar va misollar Premiumda."],
+          ["To'lov qanday amalga oshiriladi?", "Premium narxini ko'rsatilgan kartaga o'tkazasiz, chek rasmini saytga yuklaysiz. Ustoz tasdiqlagach hammasi ochiladi."],
+          ["Variantni alohida sotib olsam bo'ladimi?", "Ha, variantni alohida sotib olish mumkin, narxi variantning o'zida ko'rsatilgan. Premium esa hamma variantni ochadi."]].map(([q, a]) => (
+          <details key={q} style={{ border:`1px solid ${B.line}`, borderRadius:12, padding:"12px 16px" }}>
+            <summary style={{ fontSize:15, fontWeight:700, cursor:"pointer" }}>{q}</summary>
+            <div style={{ fontSize:14, color:B.mid, lineHeight:1.6, marginTop:8 }}>{a}</div>
+          </details>
+        ))}
+      </div>
+
+      <div style={{ background:B.navy, color:"#fff", borderRadius:16, padding:"24px 22px", marginTop:30, textAlign:"center" }}>
+        <div style={{ fontSize:20, fontWeight:800 }}>Birinchi savolni hozir ishlab ko'ring</div>
+        <div style={{ fontSize:14, color:"#C7D8F5", margin:"6px 0 16px" }}>Karta shart emas. Ro'yxatdan o'tish bir daqiqa.</div>
+        <button onClick={openDtm} style={{ ...btn(false), background:"#fff", color:B.blue, border:"none" }}>Bepul boshlash <ArrowRight size={15}/></button>
       </div>
     </div>
   );
