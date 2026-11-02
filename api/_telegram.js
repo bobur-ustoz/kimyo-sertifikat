@@ -20,8 +20,8 @@ export const adminIds = () =>
 
 // Calls a Bot API method. Never throws: callers treat Telegram as best effort
 // and use the returned { ok } to decide what to tell the student.
-export async function tg(method, payload, { form } = {}) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+// `token` lets a second bot (the Organika game bot) reuse this helper.
+export async function tg(method, payload, { form, token = process.env.TELEGRAM_BOT_TOKEN } = {}) {
   if (!token) return { ok: false, description: "bot token missing" };
   try {
     const r = await fetch(`https://api.telegram.org/bot${token}/${method}`, form

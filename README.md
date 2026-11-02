@@ -193,3 +193,32 @@ Tekshirish: `https://api.telegram.org/bot<TOKEN>/getWebhookInfo`.
 
 ### Rad etish sababi
 ❌ bosilgach bot "sabab yozing" deb so'raydi: shu xabarga **reply** qilib yozing (ixtiyoriy). Sabab o'quvchiga saytda ko'rinadi; rad etilgan o'quvchi chekni qayta yuborishi mumkin.
+
+## 🧪 Organika bot (o'yin boti)
+
+Telegramda organik kimyoni o'yin shaklida o'rgatadi: bob xaritasi, XP, ❤️ jon, 🔥 seriya, boss sinovi. To'lov botidan **alohida bot** (bitta tokenga bitta webhook ulanadi). To'liq reja: `ORGANIKA_BOT_REJA.md`.
+
+**Hozirgi holat (1-bosqich):** kirish testi + 1-bob (Alkanlar: nomlanish, olinishi, xossalari, boss). Jamoalar keyingi bosqichda.
+
+### Sozlash (bir marta)
+1. @BotFather'da yangi bot yarating, tokenni oling.
+2. Supabase SQL editorida ketma-ket ishga tushiring:
+   - `supabase/migrations/20261103000000_organika_bot.sql`
+   - `supabase/seed/organika_bob_01.sql`
+3. Vercel muhit o'zgaruvchilari: `ORGANIKA_BOT_TOKEN` (BotFather tokeni) va `ORGANIKA_WEBHOOK_SECRET` (uzun tasodifiy qator). `SUPABASE_SERVICE_ROLE_KEY` avvaldan bor.
+4. Deploydan keyin webhook'ni ulang (`<SECRET>` Vercel'dagi qiymat bilan bir xil):
+
+```bash
+curl "https://api.telegram.org/bot<TOKEN>/setWebhook" \
+  -d "url=https://kimyo-sertifikat.vercel.app/api/organika-webhook" \
+  -d "secret_token=<SECRET>" \
+  -d 'allowed_updates=["callback_query","message"]'
+```
+
+### Savollarni tahrirlash
+Savollar `supabase/seed/organika_bob_NN.json` faylida: har savolda **to'g'ri** javob (`ok`) va 3 ta noto'g'ri (`no`). Variantlar tartibi avtomatik aralashadi:
+
+```bash
+node supabase/seed/build_seed.mjs supabase/seed/organika_bob_01.json > supabase/seed/organika_bob_01.sql
+```
+SQL'ni qayta ishga tushirsangiz savollar ko'paymaydi, o'zgarganlari yangilanadi.
