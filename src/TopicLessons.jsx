@@ -312,9 +312,12 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
 export default function TopicLessons({Player,session,setTab,plan,onPdf}){
   const [topics,setTopics]=useState(null);
   const [sel,setSel]=useState(null);
+  const [withVideo,setWithVideo]=useState(new Set());   // topics that have at least one example video
   useEffect(()=>{
     supabase.from("topics").select("id,name,bunny_video_id").order("sort_order").order("created_at")
       .then(({data})=>setTopics(data||[]));
+    supabase.from("topic_examples").select("topic_id").not("bunny_video_id","is",null).limit(2000)
+      .then(({data})=>setWithVideo(new Set((data||[]).map(r=>r.topic_id))));
   },[]);
   if(sel) return <TopicPage topic={sel} Player={Player} session={session} setTab={setTab} plan={plan} onPdf={onPdf} onBack={()=>setSel(null)}/>;
   return (
@@ -325,13 +328,19 @@ export default function TopicLessons({Player,session,setTab,plan,onPdf}){
         : topics.length===0 ? <div style={{background:"#fff",border:`1px dashed ${C.border}`,borderRadius:16,padding:40,textAlign:"center",color:C.textMid}}>Hali mavzular qo'shilmagan.</div>
         : (
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(210px,1fr))",gap:12}}>
-            {topics.map(t=>(
-              <div key={t.id} onClick={()=>setSel(t)} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:16,cursor:"pointer",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
-                <Tag size={22} color={C.primary} style={{marginBottom:8}}/>
-                <div style={{fontSize:13.5,fontWeight:800,color:C.text,marginBottom:8,lineHeight:1.3}}>{t.name}</div>
-                <div style={{display:"inline-flex",background:C.mintBg,color:C.primary,fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>{t.bunny_video_id?"Video dars bor":"Tez orada"}</div>
+            {topics.map(t=>{
+              // Nothing uploaded yet (no lesson video and no example video): shown dimmed, not opened.
+              const soon=!t.bunny_video_id&&!withVideo.has(t.id);
+              return (
+              <div key={t.id} onClick={soon?undefined:()=>setSel(t)} style={{background:soon?"#F8FAFC":"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:16,cursor:soon?"default":"pointer",opacity:soon?0.75:1,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
+                <Tag size={22} color={soon?C.textLight:C.primary} style={{marginBottom:8}}/>
+                <div style={{fontSize:13.5,fontWeight:800,color:soon?C.textMid:C.text,marginBottom:8,lineHeight:1.3}}>{t.name}</div>
+                {soon
+                  ? <div style={{display:"inline-flex",background:"#FFFBEB",color:"#B45309",border:"1px solid #FDE68A",fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>⏳ Tez orada</div>
+                  : <div style={{display:"inline-flex",background:C.mintBg,color:C.primary,fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>{t.bunny_video_id?"Video dars bor":"Misollar tayyor"}</div>}
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
     </div>
