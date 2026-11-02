@@ -1696,10 +1696,12 @@ export default function App() {
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');*{box-sizing:border-box;margin:0;padding:0;}html,body,#root{overflow-x:hidden;}::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:#F1F5F9;}::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px;}@keyframes spin{to{transform:rotate(360deg);}}button:focus-visible{outline:2px solid #0F5132;outline-offset:2px;}
         .hamburger-btn{display:none;position:fixed;top:14px;left:14px;z-index:300;width:40px;height:40px;border-radius:10px;background:${C.primary};border:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.18);}
         .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.45);z-index:150;}
+        .bottom-nav{display:none;}
         @media (max-width:900px){
           .app-sidebar{transform:translateX(-100%);transition:transform 0.25s ease;}
           .app-sidebar.open{transform:translateX(0);}
-          .app-main{margin-left:0 !important;padding-top:58px;}
+          .app-main{margin-left:0 !important;padding-top:58px;padding-bottom:calc(64px + env(safe-area-inset-bottom));}
+          .bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:120;height:calc(60px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#fff;border-top:1px solid ${C.border};box-shadow:0 -2px 12px rgba(0,36,87,0.06);}
           .hamburger-btn{display:flex;}
           .sidebar-close-btn{display:flex !important;}
           .sidebar-overlay{display:block;}
@@ -1737,6 +1739,19 @@ export default function App() {
         {tab==="obuna"&&<SubscriptionScreen plan={plan} session={session} setTab={setTab}/>}
         {tab==="profile"&&<ProfileScreen teacher={teacher} plan={plan} session={session} setTab={setTab} variants={variants}/>}
       </main>
+      <nav className="bottom-nav" aria-label="Asosiy menyu">
+        {[{id:"home",label:"Bosh",icon:HomeIcon},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"generator",label:"Test",icon:Wand2},{id:"profile",label:"Profil",icon:User}].map(t=>{
+          const cur=tab==="variants"?(teacher?.section==="dtm"?"dtm":"collections"):tab; const on=cur===t.id; const Ic=t.icon;
+          return (
+            <button key={t.id} onClick={()=>{setTab(t.id);setVarId(null);setMobileOpen(false);}} aria-current={on?"page":undefined}
+              style={{flex:1,minWidth:0,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,color:on?C.primary:C.textMid,fontSize:11,fontWeight:on?800:600,position:"relative"}}>
+              {on&&<span style={{position:"absolute",top:0,width:28,height:3,borderRadius:"0 0 3px 3px",background:C.primary}}/>}
+              <Ic size={22} strokeWidth={on?2.4:1.9}/>{t.label}
+            </button>
+          );
+        })}
+      </nav>
+
       {buying&&(
         <PurchaseModal variant={buying} teacher={teacher} session={session} status={purchases[buying.id]}
           onClose={()=>setBuying(null)} setTab={setTab}
