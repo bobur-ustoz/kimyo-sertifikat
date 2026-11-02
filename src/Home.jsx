@@ -103,7 +103,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
     supabase.from("testimonials").select("*").eq("published", true).order("sort_order").then(({ data }) => setTestimonials(data || []), () => {});
   }, []);
   const featured = testimonials.filter(t => t.featured).slice(0, 2);
-  const nSlides = 3 + (featured.length ? 1 : 0);
+  const nSlides = 4 + (featured.length ? 1 : 0);
   useEffect(() => { const t = setInterval(() => setSlide(s => (s + 1) % nSlides), 7000); return () => clearInterval(t); }, [nSlides]);
   useEffect(() => {
     (async () => {
@@ -124,6 +124,8 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
       text:"30 savoldan 29 tasi ustozning videoli tahlili bilan. Premium bilan to'liq ochiladi.", cta:"Variantlarni ko'rish", go:openDtm },
     { kicker:"MAVZULAR", title:"Mavzu darsi hamma uchun ochiq",
       text:"Kimyoning asosiy tushunchalari: nazariy dars bepul, 20 ta misol tahlili Premiumda.", cta:"Mavzularga o'tish", go:() => setTab("topics") },
+    { kicker:"ORGANIKA O'YINI", title:"24 kunda organik kimyo. Bepul o'yin",
+      text:"Har kuni yangi mavzu va 30 ta savol: molekula yig'ing, reaksiya yozing, yurakchalar to'plang va seriyani saqlang.", cta:"O'ynashni boshlash", go:() => setTab("oyin"), game:true },
     ...(featured.length ? [{ kicker:"NATIJALAR", title:"Ustozning ~100 o'quvchisi Milliy sertifikat olgan",
       text:"O'quvchilarning natijalari va fikrlarini o'zlari aytgan so'zlar bilan ko'ring.", cta:"Natijalarni ko'rish",
       go:() => document.getElementById("natijalar")?.scrollIntoView({ behavior:"smooth", block:"start" }), students:featured }] : []),
@@ -141,7 +143,15 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
             <button onClick={s.go} style={{ ...btn(false), background:"#fff", color:B.blue, border:"none", marginTop:18 }}>{s.cta} <ArrowRight size={15}/></button>
           </div>
           <div style={{ flex:"1 1 45%", position:"relative", minWidth:0 }}>
-            {s.students
+            {s.game
+              ? <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center" }}>
+                  <svg viewBox="0 0 220 200" width="86%" style={{ maxWidth:260 }} aria-hidden="true">
+                    <g stroke="#8FB4FF" strokeWidth="5" strokeLinecap="round"><line x1="40" y1="130" x2="85" y2="85"/><line x1="85" y1="85" x2="140" y2="115"/><line x1="140" y1="115" x2="185" y2="70"/><line x1="85" y1="85" x2="85" y2="35"/></g>
+                    {[[40,130,"CH3"],[85,85,"CH"],[140,115,"CH2"],[185,70,"CH3"],[85,35,"CH3"]].map(([x,y,l]) => <g key={x+"-"+y}><circle cx={x} cy={y} r="22" fill="#fff"/><text x={x} y={y+5} textAnchor="middle" fontSize="13" fontWeight="800" fill="#002457" fontFamily="system-ui,sans-serif">{l}</text></g>)}
+                    <path d="M170 165c-9-7-17-13-17-21a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 8-8 14-17 21Z" fill="#E8434B"/>
+                  </svg>
+                </div>
+            : s.students
               ? <div style={{ position:"absolute", inset:0, display:"flex", flexDirection:"column", justifyContent:"center", gap:10, padding:"20px 22px 20px 6px" }}>
                   {s.students.map(t => (
                     <div key={t.id} style={{ background:"rgba(255,255,255,0.97)", color:B.text, borderRadius:14, padding:"10px 12px", display:"flex", gap:10, alignItems:"center" }}>
@@ -191,6 +201,7 @@ export default function Home({ teachers, setTab, pick, plan, session }) {
           <Card tile="#7C5CFF" icon={<Sparkles size={24}/>} label="AI yordamchi" title="Videodan savol bering" note="Savolga javob oling" noteColor={B.ok} onClick={openDtm}/>
         </Panel>
         <Panel title="Yangi qo'shilganlar" tint="#F1EBFF" color="#5B3FD6" onMore={openDtm}>
+          <Card tile="#0C8E5E" icon={<Atom size={24}/>} label="O'yin" title="Organika: 24 kunlik o'yin" note="Bepul" noteColor={B.ok} onClick={() => setTab("oyin")}/>
           <Card tile="#16A34A" icon="V2" label="2019 yil" title="2-variant, 29 video" note="Premium" noteColor={B.pro} onClick={openDtm}/>
           <Card tile="#0891B2" icon="20" label="Mavzu misollari" title="20 ta misol tahlili" note="Premium" noteColor={B.pro} onClick={() => setTab("topics")}/>
           <Card tile="#F59E0B" icon={<FileText size={24}/>} label="Test Generator" title="Kitob ko'rinishida PDF test" note="Bepul sinab ko'ring" noteColor={B.ok} onClick={() => setTab("generator")}/>
