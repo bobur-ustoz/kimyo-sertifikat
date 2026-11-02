@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { C } from "./theme";
 import { Video, Calendar, Clock, Lock, X, Radio } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
-const C = { primary:"#0F5132", accent:"#0D9488", mint:"#6EE7B7", mintBg:"#F0FDF4", mintLight:"#D1FAE5", borderGreen:"#86EFAC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626" };
 
 export const fmtWhen = iso => new Date(iso).toLocaleString("uz-UZ",{day:"numeric",month:"long",hour:"2-digit",minute:"2-digit"});
 
@@ -31,7 +31,7 @@ export function LiveRoom({url,token,host,title,onLeave}) {
           iframeStyle:{width:"100%",height:"100%",border:"0"},
           showLeaveButton:false, showFullscreenButton:true,
           showParticipantsBar:!!host, showLayoutButton:!!host,
-          theme:{colors:{accent:"#0F5132",accentText:"#FFFFFF",background:"#0B1F17",mainAreaBg:"#0B1F17",baseText:"#FFFFFF"}},
+          theme:{colors:{accent:"#0056D2",accentText:"#FFFFFF",background:"#0B1B33",mainAreaBg:"#0B1B33",baseText:"#FFFFFF"}},
         });
         frame.on("left-meeting",()=>onLeave());
         await frame.join({url,token,startVideoOff:!host,startAudioOff:!host});
@@ -40,7 +40,7 @@ export function LiveRoom({url,token,host,title,onLeave}) {
     return ()=>{ dead=true; try{ frame?.destroy(); }catch{} };
   },[url,token]);
   return (
-    <div style={{position:"fixed",inset:0,zIndex:1000,background:"#0B1F17",display:"flex",flexDirection:"column"}}>
+    <div style={{position:"fixed",inset:0,zIndex:1000,background:"#0B1B33",display:"flex",flexDirection:"column"}}>
       <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",background:C.primary}}>
         <Radio size={16} color={C.mint}/>
         <div style={{flex:1,color:"#fff",fontWeight:800,fontSize:14}}>{title}</div>

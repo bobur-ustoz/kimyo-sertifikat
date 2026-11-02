@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import LiveLessons from "./LiveLessons";
 import Survey from "./Survey";
 import Home from "./Home";
+import { C } from "./theme";
 import { Home as HomeIcon, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
 import { supabase } from "./lib/supabaseClient";
@@ -11,7 +12,6 @@ import { resetErrorText, signInErrorText } from "./lib/authErrors";
 import TopicLessons, { AskAI } from "./TopicLessons";
 import { splitOptions } from "./analogPdf";
 
-const C = { primary:"#0F5132",primaryHov:"#166534",accent:"#0D9488",mint:"#6EE7B7",mintLight:"#D1FAE5",mintBg:"#F0FDF4",bgSoft:"#F8FAFC",text:"#0F172A",textMid:"#475569",textLight:"#94A3B8",border:"#E2E8F0",borderGreen:"#86EFAC",danger:"#DC2626",dangerBg:"#FEF2F2",warning:"#D97706",warningBg:"#FFFBEB" };
 
 const PLANS = [
   { id:"free",name:"Bepul",price:"0",period:"har doim",color:"#475569",btnBg:"#F1F5F9",btnColor:"#475569",features:[{t:"Bepul variantlarning video darslari",ok:true},{t:"DTM 2019: AI Savol bering",ok:true},{t:"Test Generator (faqat DTM bo'yicha)",ok:true},{t:"Mavzular: faqat video ko'rish",ok:true},{t:"Analog savollar va PDF",ok:false},{t:"Tahlil & Grafik",ok:false},{t:"Barcha variantlar va jonli darslar",ok:false}] },
@@ -390,7 +390,7 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
-  const planColors={free:"#475569",standart:"#0D9488",premium:"#B45309"};
+  const planColors={free:"#475569",standart:"#0056D2",premium:"#B45309"};
   const planNames={free:"Bepul",standart:"Standart ⭐",premium:"Premium 👑"};
   // Falls back to Standart's look for any legacy plan value (e.g. an account
   // still marked "premium" from before that tier existed) instead of
@@ -398,8 +398,8 @@ function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose
   const planColor=planColors[plan]||planColors.standart;
   const planName=planNames[plan]||planNames.standart;
   return (
-    <div className={`app-sidebar${mobileOpen?" open":""}`} style={{width:258,maxWidth:"82vw",minHeight:"100vh",background:"#FAFFFE",borderRight:`1px solid ${C.border}`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,zIndex:200}}>
-      <div style={{background:C.primary,padding:"18px 18px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+    <div className={`app-sidebar${mobileOpen?" open":""}`} style={{width:258,maxWidth:"82vw",minHeight:"100vh",background:"#FFFFFF",borderRight:`1px solid ${C.border}`,display:"flex",flexDirection:"column",position:"fixed",top:0,left:0,zIndex:200}}>
+      <div style={{background:C.navy,padding:"18px 18px 14px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:10}}>
           <div style={{width:40,height:40,borderRadius:10,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><FlaskConical size={21} color={C.mint}/></div>
           <div>
@@ -555,16 +555,16 @@ function VariantsGrid({teacher,onOpen,variants,plan,purchases,onBuy,onBack}) {
           const unlocked=variantUnlocked(v,plan,purchases); const pending=purchases?.[v.id]==="pending";
           return (
             <div key={v.id} onClick={()=>unlocked?onOpen(v.number):onBuy(v)}
-              style={{background:"#fff",borderRadius:14,padding:"16px 15px",border:dn?`2px solid ${C.primary}`:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)",position:"relative"}}
-              onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 26px rgba(15,81,50,0.16)";}}
-              onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow=dn?"0 4px 16px rgba(15,81,50,0.13)":"0 1px 4px rgba(0,0,0,0.05)";}}>
+              style={{background:"#fff",borderRadius:14,padding:"16px 15px",border:dn?`2px solid ${C.primary}`:`1px solid ${C.border}`,cursor:"pointer",transition:"all 0.2s",boxShadow:dn?"0 4px 16px rgba(0,86,210,0.13)":"0 1px 4px rgba(0,0,0,0.05)",position:"relative"}}
+              onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 26px rgba(0,86,210,0.16)";}}
+              onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow=dn?"0 4px 16px rgba(0,86,210,0.13)":"0 1px 4px rgba(0,0,0,0.05)";}}>
               {unlocked
                 ? dn&&<div style={{position:"absolute",top:10,right:10}}><CheckCircle2 size={15} color={C.primary}/></div>
                 : <div style={{position:"absolute",top:10,right:10}}><Lock size={14} color={C.textLight}/></div>}
               {v.is_free ? (
-                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Bepul variant</div>
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Award size={8}/> Bepul variant</div>
               ) : unlocked ? (
-                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.mintBg,color:C.primary,border:`1px solid ${C.borderGreen}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><CheckCircle2 size={8}/> Ochiq</div>
+                <div style={{display:"inline-flex",alignItems:"center",gap:4,background:C.okBg,color:C.ok,border:`1px solid ${C.okBorder}`,fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><CheckCircle2 size={8}/> Ochiq</div>
               ) : (
                 <div style={{display:"inline-flex",alignItems:"center",gap:4,background:"#FFFBEB",color:"#B45309",border:"1px solid #FDE68A",fontSize:9.5,fontWeight:700,padding:"3px 8px",borderRadius:20,marginBottom:9}}><Lock size={8}/> {fmtSum(v.price)} so'm</div>
               )}
@@ -669,7 +669,7 @@ function QuizBlock({question,session,source="practice"}){
           const isSel=selected===letter; const isCorrect=letter===question.correct_option;
           const revealed=!!selected;
           let bg="#fff",border=C.border,color=C.text;
-          if(revealed&&isCorrect){ bg=C.mintBg; border=C.borderGreen; color=C.primary; }
+          if(revealed&&isCorrect){ bg=C.okBg; border=C.okBorder; color=C.ok; }
           else if(revealed&&isSel&&!isCorrect){ bg=C.dangerBg; border="#FCA5A5"; color=C.danger; }
           return (
             <button key={letter} disabled={!session||!!selected||saving} onClick={()=>answer(letter)}
@@ -839,7 +839,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
             <a href={curQ?.video_url||undefined} target="_blank" rel="noreferrer" style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",cursor:curQ?.video_url?"pointer":"default",textDecoration:"none"}}
               onClick={e=>{if(!curQ?.video_url)e.preventDefault();}}>
               <div style={{position:"absolute",top:18,left:28,opacity:0.1,fontSize:54,userSelect:"none"}}>⬡</div>
-              <div style={{width:62,height:62,borderRadius:"50%",background:curQ?.video_ready?C.primary:"#334155",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:curQ?.video_ready?"0 0 0 14px rgba(15,81,50,0.2),0 0 0 28px rgba(15,81,50,0.08)":"none"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
+              <div style={{width:62,height:62,borderRadius:"50%",background:curQ?.video_ready?C.primary:"#334155",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:curQ?.video_ready?"0 0 0 14px rgba(0,86,210,0.2),0 0 0 28px rgba(0,86,210,0.08)":"none"}}><Play size={24} color="#fff" fill="#fff" style={{marginLeft:3}}/></div>
               <div style={{color:"#e2e8f0",fontSize:13,marginTop:16,fontWeight:600}}>{teacher.name} · {variantId}-Variant · {activeQ}-Savol</div>
               <div style={{color:C.mint,fontSize:11.5,marginTop:4}}>{curTopic||"Mavzu kiritilmagan"}</div>
               {!curQ?.video_ready&&<div style={{color:"#94A3B8",fontSize:11,marginTop:10,background:"rgba(255,255,255,0.06)",padding:"4px 12px",borderRadius:20}}>Video hali tayyor emas</div>}
@@ -862,11 +862,11 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
         {curQ&&<QuizBlock question={curQ} session={session}/>}
 
         {/* Static PDF button */}
-        <div role="button" tabIndex={0} onClick={()=>analog?downloadAnalogPDF({analog,teacher,variant:variantId,qNum:activeQ,topic:curTopic}):alert("Bu savol uchun analog hali tayyor emas.")} style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(15,81,50,0.28)",marginBottom:12}}>
+        <div role="button" tabIndex={0} onClick={()=>analog?downloadAnalogPDF({analog,teacher,variant:variantId,qNum:activeQ,topic:curTopic}):alert("Bu savol uchun analog hali tayyor emas.")} style={{background:C.primary,borderRadius:13,padding:"14px 18px",display:"flex",alignItems:"center",gap:13,cursor:"pointer",boxShadow:"0 6px 20px rgba(0,86,210,0.28)",marginBottom:12}}>
           <div style={{width:42,height:42,borderRadius:10,flexShrink:0,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><Download size={18} color={C.mint}/></div>
           <div>
             <div style={{color:"#fff",fontWeight:800,fontSize:13.5}}>Analog misol yuklab olish (PDF)</div>
-            <div style={{color:"#A7F3D0",fontSize:11.5,marginTop:3}}>Ushbu savolga mos o'xshash analog misollar yordamida o'zingizni sinang.</div>
+            <div style={{color:"#BBD3FF",fontSize:11.5,marginTop:3}}>Ushbu savolga mos o'xshash analog misollar yordamida o'zingizni sinang.</div>
           </div>
         </div>
 
@@ -951,7 +951,7 @@ function VideoPlayer({variantId,teacher,onBack,plan,setTab,questions,session,var
               </div>
               <div style={{minWidth:0,flex:1}}>
                 <div style={{fontSize:10.5,fontWeight:700,color:isA?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.question_number}-Savol</div>
-                <div style={{fontSize:9,color:isA?"#A7F3D0":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.topic||"—"}</div>
+                <div style={{fontSize:9,color:isA?"#BBD3FF":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{q.topic||"—"}</div>
               </div>
               {isA&&<div style={{width:6,height:6,borderRadius:"50%",background:C.mint,flexShrink:0,boxShadow:"0 0 0 3px rgba(110,231,183,0.3)"}}/>}
             </button>
@@ -999,7 +999,7 @@ function TopicsDirectory({onGoVariant,teacher,setTab,questions}) {
       ) : (<>
       <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:24}}>
         {topicsList.map(c=>{const on=activeSel===c.name;return(
-          <div key={c.name} onClick={()=>setSel(c.name)} style={{background:on?C.primary:"#fff",border:on?`2px solid ${C.primary}`:`1px solid ${C.border}`,borderRadius:14,padding:"16px",cursor:"pointer",transition:"all 0.18s",boxShadow:on?"0 6px 20px rgba(15,81,50,0.2)":"0 1px 4px rgba(0,0,0,0.04)"}}>
+          <div key={c.name} onClick={()=>setSel(c.name)} style={{background:on?C.primary:"#fff",border:on?`2px solid ${C.primary}`:`1px solid ${C.border}`,borderRadius:14,padding:"16px",cursor:"pointer",transition:"all 0.18s",boxShadow:on?"0 6px 20px rgba(0,86,210,0.2)":"0 1px 4px rgba(0,0,0,0.04)"}}>
             <div style={{fontSize:26,marginBottom:8}}><Tag size={22} color={on?"#fff":teacher.color}/></div>
             <div style={{fontSize:12,fontWeight:800,color:on?"#fff":C.text,marginBottom:6,lineHeight:1.3}}>{c.name}</div>
             <div style={{display:"inline-flex",background:on?"rgba(255,255,255,0.16)":C.mintBg,color:on?C.mint:C.primary,fontSize:10.5,fontWeight:700,padding:"3px 8px",borderRadius:20}}>{c.qs.length} masala</div>
@@ -1062,7 +1062,7 @@ function AiSummary({analytics,avg}) {
   };
   useEffect(()=>{ run(false); },[sig]);
   return (
-    <div style={{marginTop:26,background:"linear-gradient(135deg,#F0FDF4 0%,#ECFEFF 100%)",border:`1.5px solid ${C.borderGreen}`,borderRadius:20,padding:"20px 22px"}}>
+    <div style={{marginTop:26,background:"linear-gradient(135deg,#F0F6FF 0%,#E3EEFF 100%)",border:`1.5px solid ${C.borderGreen}`,borderRadius:20,padding:"20px 22px"}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
         <div style={{width:34,height:34,borderRadius:11,background:`linear-gradient(135deg,${C.primary},${C.accent})`,display:"flex",alignItems:"center",justifyContent:"center"}}><Zap size={17} color="#fff"/></div>
         <div style={{flex:1}}><div style={{fontSize:15,fontWeight:900,color:C.text}}>AI xulosa</div><div style={{fontSize:11.5,color:C.textMid}}>Natijalaringizga qarab shaxsiy tahlil</div></div>
@@ -1106,7 +1106,7 @@ function AnalyticsScreen({session,analytics,setTab}){
   const focus=[...weak,...med];
   const level=avg>=75?["A'lo natija","Shu tempni saqlang"]:avg>=60?["Yaxshi, lekin o'sish bor","Zaif joylarni mustahkamlang"]:["Mashq kerak","Eng zaif mavzulardan boshlang"];
   const R=52, CIRC=2*Math.PI*R;
-  const card={background:"#fff",border:`1px solid ${C.border}`,borderRadius:18,boxShadow:"0 2px 14px rgba(15,81,50,0.06)"};
+  const card={background:"#fff",border:`1px solid ${C.border}`,borderRadius:18,boxShadow:"0 2px 14px rgba(0,86,210,0.06)"};
   const sec=(icon,title,sub)=>(<div style={{display:"flex",alignItems:"center",gap:10,margin:"26px 0 12px"}}><div style={{width:32,height:32,borderRadius:10,background:C.mintBg,border:`1px solid ${C.borderGreen}`,display:"flex",alignItems:"center",justifyContent:"center"}}>{icon}</div><div><div style={{fontSize:15,fontWeight:900,color:C.text,lineHeight:1.2}}>{title}</div>{sub&&<div style={{fontSize:11.5,color:C.textMid}}>{sub}</div>}</div></div>);
   const topicCard=(b,col,bg,bd)=>(
     <div key={b.topic} style={{background:"#fff",border:`1.5px solid ${bd}`,borderRadius:16,padding:"14px 16px",display:"flex",gap:14,alignItems:"center"}}>
@@ -1122,21 +1122,21 @@ function AnalyticsScreen({session,analytics,setTab}){
     </div>
   );
   return(
-    <div style={{padding:"24px 28px 40px",overflowY:"auto",background:"linear-gradient(180deg,#F0FDF4 0%,#FAFCFB 220px)"}}>
+    <div style={{padding:"24px 28px 40px",overflowY:"auto",background:"linear-gradient(180deg,#F0F6FF 0%,#FAFCFF 220px)"}}>
       <div style={{marginBottom:16}}>
         <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:6}}><BarChart3 size={14} color={C.accent}/><span style={{fontSize:11,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:"0.09em"}}>O'quv tahlili · Real vaqt</span></div>
         <h1 style={{fontSize:24,fontWeight:900,color:C.text,margin:0}}>Mening natijalarim</h1>
       </div>
 
-      <div style={{background:`linear-gradient(135deg,${C.primary} 0%,#0B7A5E 60%,${C.accent} 100%)`,borderRadius:22,padding:"24px 28px",display:"flex",alignItems:"center",gap:28,flexWrap:"wrap",boxShadow:"0 10px 30px rgba(15,81,50,0.25)",position:"relative",overflow:"hidden"}}>
+      <div style={{background:`linear-gradient(135deg,${C.navy} 0%,${C.primary} 100%)`,borderRadius:22,padding:"24px 28px",display:"flex",alignItems:"center",gap:28,flexWrap:"wrap",boxShadow:"0 10px 30px rgba(0,86,210,0.25)",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",right:-60,top:-60,width:220,height:220,borderRadius:"50%",background:"rgba(255,255,255,0.07)"}}/>
         <div style={{position:"relative",width:130,height:130,flexShrink:0}}>
           <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r={R} fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="11"/><circle cx="65" cy="65" r={R} fill="none" stroke={C.mint} strokeWidth="11" strokeLinecap="round" strokeDasharray={`${CIRC*avg/100} ${CIRC}`} transform="rotate(-90 65 65)"/></svg>
-          <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",color:"#fff"}}><div style={{fontSize:34,fontWeight:900,lineHeight:1}}>{avg}%</div><div style={{fontSize:10.5,color:"#D1FAE5",marginTop:3}}>umumiy ball</div></div>
+          <div style={{position:"absolute",inset:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",color:"#fff"}}><div style={{fontSize:34,fontWeight:900,lineHeight:1}}>{avg}%</div><div style={{fontSize:10.5,color:"#DCE8FF",marginTop:3}}>umumiy ball</div></div>
         </div>
         <div style={{flex:1,minWidth:260,position:"relative"}}>
           <div style={{fontSize:20,fontWeight:900,color:"#fff"}}>{level[0]}</div>
-          <div style={{fontSize:12.5,color:"#D1FAE5",marginBottom:14}}>{level[1]} · jami {totalAns} ta javob asosida</div>
+          <div style={{fontSize:12.5,color:"#DCE8FF",marginBottom:14}}>{level[1]} · jami {totalAns} ta javob asosida</div>
           <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:14}}>
             {[["Kuchsiz",weak.length,"#FCA5A5"],["O'rta",med.length,"#FCD34D"],["Kuchli",good.length,C.mint]].map(([l,n,col])=>(
               <div key={l} style={{background:"rgba(255,255,255,0.13)",borderRadius:12,padding:"7px 14px",display:"flex",alignItems:"center",gap:8}}><span style={{width:9,height:9,borderRadius:"50%",background:col}}/><span style={{fontSize:12.5,color:"#fff",fontWeight:700}}>{n} {l.toLowerCase()}</span></div>
@@ -1588,7 +1588,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{flex:1,minWidth:0}}>
             <div style={{fontSize:10,color:C.mint,fontWeight:800,marginBottom:4,letterSpacing:"0.04em"}}>nooracademy · 2026</div>
             <div style={{fontSize:16,fontWeight:900,marginBottom:3,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{session.user.email}</div>
-            <div style={{fontSize:12.5,color:"#D1FAE5"}}>{teacher?`${teacher.name} kursi`:"O'qituvchi tanlanmagan"}</div>
+            <div style={{fontSize:12.5,color:"#DCE8FF"}}>{teacher?`${teacher.name} kursi`:"O'qituvchi tanlanmagan"}</div>
             <div style={{display:"inline-flex",alignItems:"center",gap:5,marginTop:6,background:"rgba(255,255,255,0.15)",padding:"4px 12px",borderRadius:20}}>
               <div style={{width:7,height:7,borderRadius:"50%",background:pi.color==="#475569"?"#CBD5E1":C.mint}}/>
               <span style={{fontSize:11,fontWeight:700}}>{pi.name} reja</span>

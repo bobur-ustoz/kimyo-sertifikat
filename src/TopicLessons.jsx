@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Tag, Play, ChevronLeft, ChevronRight, Send, Sparkles, Download, CheckCircle2, XCircle, Lock } from "lucide-react";
 import { splitOptions } from "./analogPdf";
 import { supabase } from "./lib/supabaseClient";
-import { C } from "./adminStyles";
+import { C } from "./theme";
 
 function VideoBox({Player,videoId,onTime,playerRef,session}){
   return (
@@ -195,7 +195,7 @@ function Analog({ex,topicName,onPdf}){
         <div style={{width:42,height:42,borderRadius:10,flexShrink:0,background:"rgba(255,255,255,0.14)",display:"flex",alignItems:"center",justifyContent:"center"}}><Download size={18} color={C.mint}/></div>
         <div>
           <div style={{color:"#fff",fontWeight:800,fontSize:14.5}}>Analog misol yuklab olish (PDF)</div>
-          <div style={{color:"#D1FAE5",fontSize:12}}>Ushbu misolga mos o'xshash analog misollar yordamida o'zingizni sinang.</div>
+          <div style={{color:"#DCE8FF",fontSize:12}}>Ushbu misolga mos o'xshash analog misollar yordamida o'zingizni sinang.</div>
         </div>
       </div>
       <div style={{background:"linear-gradient(135deg,#0F172A 0%,#1a2744 100%)",borderRadius:14,padding:18}}>
@@ -299,7 +299,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
             </div>
             <div style={{minWidth:0,flex:1}}>
               <div style={{fontSize:10.5,fontWeight:700,color:it.on?"#fff":C.text,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.label}</div>
-              <div style={{fontSize:9,color:it.on?"#A7F3D0":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.sub}</div>
+              <div style={{fontSize:9,color:it.on?"#BBD3FF":C.textLight,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{it.sub}</div>
             </div>
             {it.on&&<div style={{width:6,height:6,borderRadius:"50%",background:C.mint,flexShrink:0,boxShadow:"0 0 0 3px rgba(110,231,183,0.3)"}}/>}
           </button>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { C } from "./theme";
 import { CheckCircle2, ClipboardList } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 
-const C = { primary:"#0F5132", accent:"#0D9488", mintBg:"#F0FDF4", borderGreen:"#86EFAC", text:"#0F172A", textMid:"#475569", textLight:"#94A3B8", border:"#E2E8F0", danger:"#DC2626", dangerBg:"#FEF2F2" };
 
 // The 2019 variant 1 survey: the student taps the questions that were hard for them.
 export async function loadSurveyQuestions() {
