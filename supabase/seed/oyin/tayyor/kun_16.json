@@ -1,0 +1,1030 @@
+{
+ "version": 2,
+ "day": 16,
+ "topic": "To'yingan dikarbon kislotalar",
+ "substances": [
+  "oksalat kislota",
+  "malon kislota",
+  "qahrabo kislota",
+  "adipin kislota"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Disianning (C₂N₂) to'liq gidrolizini yozing",
+     "re": [
+      "C2N2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H2O4",
+      "NH3"
+     ],
+     "ans": "C2N2+4H2O→C2H2O4+2NH3",
+     "w": "Ikkala nitril guruhi COOH ga gidrolizlanadi: oksalat kislota.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malononitrilning to'liq gidrolizini yozing",
+     "re": [
+      "C3H2N2",
+      "H2O"
+     ],
+     "pr": [
+      "C3H4O4",
+      "NH3"
+     ],
+     "ans": "C3H2N2+4H2O→C3H4O4+2NH3",
+     "w": "Ikkala nitril guruhi COOH ga o'tadi: malon kislota.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Dimetil oksalatning to'liq gidrolizini yozing",
+     "re": [
+      "C4H6O4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H2O4",
+      "CH3OH"
+     ],
+     "ans": "C4H6O4+2H2O→C2H2O4+2CH3OH",
+     "w": "Murakkab efir kislota va spirtga gidrolizlanadi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Dietil malonatning to'liq gidrolizini yozing",
+     "re": [
+      "C7H12O4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H4O4",
+      "C2H5OH"
+     ],
+     "ans": "C7H12O4+2H2O→C3H4O4+2C2H5OH",
+     "w": "Malon kislota va ikki molekula etanol hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Propandiol-1,3 ni konsentrlangan HNO₃ bilan oksidlang (NO ajraladi): malon kislota",
+     "re": [
+      "C3H8O2",
+      "HNO3"
+     ],
+     "pr": [
+      "C3H4O4",
+      "NO",
+      "H2O"
+     ],
+     "ans": "3C3H8O2+8HNO3→3C3H4O4+8NO+10H2O",
+     "w": "Ikkala CH₂OH guruhi COOH ga oksidlanadi (8 e).",
+     "uses": [
+      "malon kislota"
+     ]
+    },
+    {
+     "p": "Butandiol-1,4 ni konsentrlangan HNO₃ bilan oksidlang (NO ajraladi): qahrabo kislota",
+     "re": [
+      "C4H10O2",
+      "HNO3"
+     ],
+     "pr": [
+      "C4H6O4",
+      "NO",
+      "H2O"
+     ],
+     "ans": "3C4H10O2+8HNO3→3C4H6O4+8NO+10H2O",
+     "w": "Ikkala CH₂OH guruhi COOH ga oksidlanadi.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislotaning tuzilish formulasi qaysi?",
+     "ok": "HOOC–COOH",
+     "no": [
+      "HOOC–CH₂–COOH",
+      "CH₃COOH",
+      "HOOC–(CH₂)₂–COOH"
+     ],
+     "w": "Ikkita karboksil guruhi to'g'ridan-to'g'ri bog'langan.",
+     "uses": [
+      "oksalat kislota"
+     ],
+     "trap": {
+      "opt": "HOOC–CH₂–COOH",
+      "why": "Bu malon kislota: oraliqda CH₂ bor."
+     }
+    },
+    {
+     "p": "Malon kislotaning tuzilish formulasi qaysi?",
+     "ok": "HOOC–CH₂–COOH",
+     "no": [
+      "HOOC–COOH",
+      "HOOC–(CH₂)₂–COOH",
+      "CH₃–CH(COOH)₂"
+     ],
+     "w": "Ikki karboksil orasida bitta CH₂ guruhi.",
+     "uses": [
+      "malon kislota"
+     ],
+     "trap": {
+      "opt": "HOOC–COOH",
+      "why": "Bu oksalat kislota: oraliq uglerod yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Eng oddiy dikarbon kislota qaysi?",
+     "ok": "Oksalat (shavel) kislota",
+     "no": [
+      "Malon kislota",
+      "Qahrabo kislota",
+      "Adipin kislota"
+     ],
+     "w": "Faqat ikkita uglerod: HOOC–COOH.",
+     "uses": [
+      "oksalat kislota"
+     ],
+     "trap": {
+      "opt": "Malon kislota",
+      "why": "Malon kislota uch uglerodli."
+     }
+    },
+    {
+     "p": "Adipin kislota qaysi polimerning monomeri?",
+     "ok": "Neylon (poliamid 6,6)",
+     "no": [
+      "Kapron",
+      "Lavsan",
+      "Polietilen"
+     ],
+     "w": "Adipin kislota geksametilendiamin bilan neylon hosil qiladi.",
+     "uses": [
+      "adipin kislota"
+     ],
+     "trap": {
+      "opt": "Kapron",
+      "why": "Kapron kaprolaktamdan olinadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Xlorsirka kislotaga kaliy sianid ta'sir ettiring",
+     "re": [
+      "C2H3ClO2",
+      "KCN"
+     ],
+     "pr": [
+      "C3H3NO2",
+      "KCl"
+     ],
+     "ans": "C2H3ClO2+KCN→C3H3NO2+KCl",
+     "w": "Xlor CN ga almashinadi: siansirka kislota.",
+     "uses": [
+      "malon kislota"
+     ]
+    },
+    {
+     "p": "Siansirka kislotani gidrolizlang (H⁺, qizdirish)",
+     "re": [
+      "C3H3NO2",
+      "H2O"
+     ],
+     "pr": [
+      "C3H4O4",
+      "NH3"
+     ],
+     "ans": "C3H3NO2+2H2O→C3H4O4+NH3",
+     "w": "Nitril guruhi COOH ga o'tadi: malon kislota.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2-dibrometanga kaliy sianid ta'sir ettiring",
+     "re": [
+      "C2H4Br2",
+      "KCN"
+     ],
+     "pr": [
+      "C4H4N2",
+      "KBr"
+     ],
+     "ans": "C2H4Br2+2KCN→C4H4N2+2KBr",
+     "w": "Ikki brom CN ga almashinadi: suksinonitril.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    },
+    {
+     "p": "Suksinonitrilni to'liq gidrolizlang (H⁺, qizdirish)",
+     "re": [
+      "C4H4N2",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O4",
+      "NH3"
+     ],
+     "ans": "C4H4N2+4H2O→C4H6O4+2NH3",
+     "w": "Ikkala nitril COOH ga o'tadi: qahrabo kislota.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Oksalat kislota tabiatda qayerda ko'p uchraydi?",
+     "ok": "Shovul va rovoch o'simliklarida",
+     "no": [
+      "Sutda",
+      "Asalda",
+      "Tuxumda"
+     ],
+     "w": "Shovul kislotasi deb ham ataladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Qahrabo kislota nomini qaysi moddadan olgan?",
+     "ok": "Qahrabo (amber)",
+     "no": [
+      "Suyak",
+      "Yog'och",
+      "Tuz"
+     ],
+     "w": "Qahrabo smolasini quruq haydashdan topilgan.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Oksalat kislotaga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C2H2O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C2Na2O4",
+      "H2O"
+     ],
+     "ans": "C2H2O4+2NaOH→C2Na2O4+2H2O",
+     "w": "Ikkala karboksil neytrallanadi: natriy oksalat.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malon kislotaga ortiqcha KOH ta'sir ettiring",
+     "re": [
+      "C3H4O4",
+      "KOH"
+     ],
+     "pr": [
+      "C3H2K2O4",
+      "H2O"
+     ],
+     "ans": "C3H4O4+2KOH→C3H2K2O4+2H2O",
+     "w": "Kaliy malonat hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Qahrabo kislotaga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C4H6O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C4H4Na2O4",
+      "H2O"
+     ],
+     "ans": "C4H6O4+2NaOH→C4H4Na2O4+2H2O",
+     "w": "Natriy suksinat hosil bo'ladi.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    },
+    {
+     "p": "Adipin kislotaga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C6H10O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H8Na2O4",
+      "H2O"
+     ],
+     "ans": "C6H10O4+2NaOH→C6H8Na2O4+2H2O",
+     "w": "Natriy adipinat hosil bo'ladi.",
+     "uses": [
+      "adipin kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislotaga rux ta'sir ettiring",
+     "re": [
+      "C2H2O4",
+      "Zn"
+     ],
+     "pr": [
+      "C2O4Zn",
+      "H2"
+     ],
+     "ans": "C2H2O4+Zn→C2O4Zn+H2",
+     "w": "Rux oksalat va vodorod hosil bo'ladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malon kislotaga magniy ta'sir ettiring",
+     "re": [
+      "C3H4O4",
+      "Mg"
+     ],
+     "pr": [
+      "C3H2MgO4",
+      "H2"
+     ],
+     "ans": "C3H4O4+Mg→C3H2MgO4+H2",
+     "w": "Magniy malonat va vodorod hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-4",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Oksalat kislotaga 1 mol NaOH ta'sir ettiring (nordon tuz)",
+     "re": [
+      "C2H2O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C2HNaO4",
+      "H2O"
+     ],
+     "ans": "C2H2O4+NaOH→C2HNaO4+H2O",
+     "w": "Faqat bitta karboksil neytrallanadi: gidrooksalat.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malon kislotaga 1 mol NaOH ta'sir ettiring (nordon tuz)",
+     "re": [
+      "C3H4O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H3NaO4",
+      "H2O"
+     ],
+     "ans": "C3H4O4+NaOH→C3H3NaO4+H2O",
+     "w": "Natriy gidromalonat hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "e-1",
+   "group": "Efir va amid",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislota va ortiqcha metanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C2H2O4",
+      "CH3OH"
+     ],
+     "pr": [
+      "C4H6O4",
+      "H2O"
+     ],
+     "ans": "C2H2O4+2CH3OH→C4H6O4+2H2O",
+     "w": "Dimetil oksalat hosil bo'ladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malon kislota va ortiqcha etanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C3H4O4",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C7H12O4",
+      "H2O"
+     ],
+     "ans": "C3H4O4+2C2H5OH→C7H12O4+2H2O",
+     "w": "Dietil malonat hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "e-2",
+   "group": "Efir va amid",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislotaga ammiak ta'sir ettiring (ortiqcha)",
+     "re": [
+      "C2H2O4",
+      "NH3"
+     ],
+     "pr": [
+      "C2H8N2O4"
+     ],
+     "ans": "C2H2O4+2NH3→C2H8N2O4",
+     "w": "Ammoniy oksalat tuzi hosil bo'ladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Qahrabo kislotaga ammiak ta'sir ettiring (ortiqcha)",
+     "re": [
+      "C4H6O4",
+      "NH3"
+     ],
+     "pr": [
+      "C4H12N2O4"
+     ],
+     "ans": "C4H6O4+2NH3→C4H12N2O4",
+     "w": "Ammoniy suksinat hosil bo'ladi.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "e-3",
+   "group": "Efir va amid",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Oksalat kislotaga ortiqcha PCl₅ ta'sir ettiring",
+     "re": [
+      "C2H2O4",
+      "PCl5"
+     ],
+     "pr": [
+      "C2Cl2O2",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C2H2O4+2PCl5→C2Cl2O2+2POCl3+2HCl",
+     "w": "Ikkala OH xlorga almashinadi: oksalilxlorid.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Malon kislotaga ortiqcha tionilxlorid ta'sir ettiring",
+     "re": [
+      "C3H4O4",
+      "SOCl2"
+     ],
+     "pr": [
+      "C3H2Cl2O2",
+      "SO2",
+      "HCl"
+     ],
+     "ans": "C3H4O4+2SOCl2→C3H2Cl2O2+2SO2+2HCl",
+     "w": "Malonilxlorid hosil bo'ladi.",
+     "uses": [
+      "malon kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-1",
+   "group": "Qizdirish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislotaning konsentrlangan H₂SO₄ bilan qizdirilganda parchalanishini yozing",
+     "re": [
+      "C2H2O4"
+     ],
+     "pr": [
+      "CO2",
+      "CO",
+      "H2O"
+     ],
+     "ans": "C2H2O4→CO2+CO+H2O",
+     "w": "Gazlar va suv ajraladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Oksalat kislotaning qizdirilganda chumoli kislota va CO₂ ga parchalanishini yozing",
+     "re": [
+      "C2H2O4"
+     ],
+     "pr": [
+      "CH2O2",
+      "CO2"
+     ],
+     "ans": "C2H2O4→CH2O2+CO2",
+     "w": "Bitta karboksil CO₂ holida ajraladi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Qizdirish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malon kislotaning qizdirilganda dekarboksillanishini yozing",
+     "re": [
+      "C3H4O4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "CO2"
+     ],
+     "ans": "C3H4O4→C2H4O2+CO2",
+     "w": "Bitta karboksil CO₂ holida ketadi: sirka kislota.",
+     "uses": [
+      "malon kislota"
+     ]
+    },
+    {
+     "p": "Metilmalon kislotaning qizdirilganda dekarboksillanishini yozing",
+     "re": [
+      "C4H6O4"
+     ],
+     "pr": [
+      "C3H6O2",
+      "CO2"
+     ],
+     "ans": "C4H6O4→C3H6O2+CO2",
+     "w": "Propion kislota va CO₂ hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Qizdirish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Qahrabo kislotaning qizdirilganda angidridga aylanishini yozing",
+     "re": [
+      "C4H6O4"
+     ],
+     "pr": [
+      "C4H4O3",
+      "H2O"
+     ],
+     "ans": "C4H6O4→C4H4O3+H2O",
+     "w": "Besh a'zoli halqa: suksinil angidrid.",
+     "uses": [
+      "qahrabo kislota"
+     ]
+    },
+    {
+     "p": "Adipin kislotaning Ba(OH)₂ ishtirokida qizdirilishini yozing (siklopentanon)",
+     "re": [
+      "C6H10O4"
+     ],
+     "pr": [
+      "C5H8O",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C6H10O4→C5H8O+CO2+H2O",
+     "w": "Halqa yopiladi, CO₂ va suv ajraladi.",
+     "uses": [
+      "adipin kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-4",
+   "group": "Qizdirish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Qizdirilganda CO₂ ajratib, bir asosli kislota beradigan dikarbon kislota qaysi?",
+     "ok": "Malon kislota",
+     "no": [
+      "Qahrabo kislota",
+      "Adipin kislota",
+      "Metan kislota"
+     ],
+     "w": "Ikki karboksil bitta uglerod orqali bog'langan: bittasi osongina CO₂ ga ketadi.",
+     "uses": [
+      "malon kislota"
+     ],
+     "trap": {
+      "opt": "Qahrabo kislota",
+      "why": "Qahrabo kislota qizdirilganda angidrid hosil qiladi."
+     }
+    },
+    {
+     "p": "Qahrabo kislota qizdirilganda nima hosil bo'ladi?",
+     "ok": "Besh a'zoli halqali angidrid",
+     "no": [
+      "Keton",
+      "Sirka kislota va CO₂",
+      "Hech narsa"
+     ],
+     "w": "Ikki karboksil orasida to'rt uglerod, besh a'zoli halqa barqaror.",
+     "uses": [
+      "qahrabo kislota"
+     ],
+     "trap": {
+      "opt": "Sirka kislota va CO₂",
+      "why": "Bu malon kislotaning qizdirish natijasi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Oksalat kislotani KMnO₄ bilan kislotali muhitda oksidlang (H₂SO₄)",
+     "re": [
+      "C2H2O4",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "CO2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C2H2O4+2KMnO4+3H2SO4→10CO2+2MnSO4+K2SO4+8H2O",
+     "w": "Har oksalat 2 e beradi, Mn⁺⁷ 5 e oladi: 5 : 2.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    },
+    {
+     "p": "Oksalat kislotaning kislorod bilan to'liq yonishini yozing",
+     "re": [
+      "C2H2O4",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H2O4+O2→4CO2+2H2O",
+     "w": "Oksalat kislota CO₂ va H₂O ga yonadi.",
+     "uses": [
+      "oksalat kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Oksalat kislota KMnO₄ ni rangsizlantirganda qaysi gaz ajraladi?",
+     "ok": "CO₂",
+     "no": [
+      "CO",
+      "H₂",
+      "O₂"
+     ],
+     "w": "Oksalat to'liq CO₂ gacha oksidlanadi.",
+     "uses": [
+      "oksalat kislota"
+     ],
+     "trap": {
+      "opt": "CO",
+      "why": "To'liq oksidlanishda CO₂ hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Malon kislota yonganda hosil bo'lgan CO₂ va H₂O ning mol nisbati qanday?",
+     "ok": "3 : 2",
+     "no": [
+      "2 : 3",
+      "3 : 4",
+      "1 : 1"
+     ],
+     "w": "C₃H₄O₄ dan 3 CO₂ va 2 H₂O.",
+     "uses": [
+      "malon kislota"
+     ],
+     "trap": {
+      "opt": "3 : 4",
+      "why": "Vodorod 4 ta: suv 2 mol."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C6H12",
+      "Cl2"
+     ],
+     "pr": [
+      "C6H11Cl",
+      "HCl"
+     ],
+     "ans": "C6H12+Cl2→C6H11Cl+HCl",
+     "w": "Siklogeksandagi vodorod xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C6H12",
+       "C6H11Cl",
+       "C6H12O",
+       "C6H10O4"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (qizdirish)",
+     "re": [
+      "CHNaO2"
+     ],
+     "pr": [
+      "C2Na2O4",
+      "H2"
+     ],
+     "ans": "2CHNaO2→C2Na2O4+H2",
+     "w": "Natriy formiat qizdirilganda natriy oksalat va vodorod beradi.",
+     "chain": {
+      "all": [
+       "CHNaO2",
+       "C2Na2O4",
+       "C2H2O4",
+       "C2CaO4"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "oksalat kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH ning suvdagi eritmasi)",
+     "re": [
+      "C6H11Cl",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H12O",
+      "NaCl"
+     ],
+     "ans": "C6H11Cl+NaOH→C6H12O+NaCl",
+     "w": "Xlor OH ga almashinadi: siklogeksanol.",
+     "chain": {
+      "all": [
+       "C6H12",
+       "C6H11Cl",
+       "C6H12O",
+       "C6H10O4"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C2Na2O4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H2O4",
+      "Na2SO4"
+     ],
+     "ans": "C2Na2O4+H2SO4→C2H2O4+Na2SO4",
+     "w": "Kuchli kislota zaif kislotani siqib chiqaradi.",
+     "chain": {
+      "all": [
+       "CHNaO2",
+       "C2Na2O4",
+       "C2H2O4",
+       "C2CaO4"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "oksalat kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (konsentrlangan HNO₃, NO ajraladi)",
+     "re": [
+      "C6H12O",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H10O4",
+      "NO",
+      "H2O"
+     ],
+     "ans": "3C6H12O+8HNO3→3C6H10O4+8NO+7H2O",
+     "w": "Halqa ochilib adipin kislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H12",
+       "C6H11Cl",
+       "C6H12O",
+       "C6H10O4"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "adipin kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (ohakli suv)",
+     "re": [
+      "C2H2O4",
+      "Ca(OH)2"
+     ],
+     "pr": [
+      "C2CaO4",
+      "H2O"
+     ],
+     "ans": "C2H2O4+Ca(OH)2→C2CaO4+2H2O",
+     "w": "Kalsiy oksalat cho'kmasi: oksalat kislotaning sifat reaksiyasi.",
+     "chain": {
+      "all": [
+       "CHNaO2",
+       "C2Na2O4",
+       "C2H2O4",
+       "C2CaO4"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "oksalat kislota"
+     ]
+    }
+   ]
+  }
+ ]
+}

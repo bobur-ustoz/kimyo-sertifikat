@@ -1,0 +1,1027 @@
+{
+ "version": 2,
+ "day": 9,
+ "topic": "Ikki atomli spirtlar",
+ "substances": [
+  "etilenglikol",
+  "propilenglikol"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "1,2-dibrometanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C2H4Br2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H6O2",
+      "NaBr"
+     ],
+     "ans": "C2H4Br2+2NaOH→C2H6O2+2NaBr",
+     "w": "Ikkala brom OH ga almashinadi: etilenglikol.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "1,2-dibrompropanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C3H6Br2",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O2",
+      "NaBr"
+     ],
+     "ans": "C3H6Br2+2NaOH→C3H8O2+2NaBr",
+     "w": "Ikkala brom OH ga almashinadi: propilenglikol.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilen oksidning gidratlanishini yozing (H⁺, suv)",
+     "re": [
+      "C2H4O",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6O2"
+     ],
+     "ans": "C2H4O+H2O→C2H6O2",
+     "w": "Uch a'zoli halqa ochiladi: etilenglikol.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilen oksidning gidratlanishini yozing (H⁺, suv)",
+     "re": [
+      "C3H6O",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O2"
+     ],
+     "ans": "C3H6O+H2O→C3H8O2",
+     "w": "Halqa ochiladi: propilenglikol.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner)",
+     "re": [
+      "C2H4",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6O2",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C2H4+2KMnO4+4H2O→3C2H6O2+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikki OH birikadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propenning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner)",
+     "re": [
+      "C3H6",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O2",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C3H6+2KMnO4+4H2O→3C3H8O2+2MnO2+2KOH",
+     "w": "Propilenglikol hosil bo'ladi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenglikolning tuzilish formulasi qaysi?",
+     "ok": "HOCH₂–CH₂OH",
+     "no": [
+      "CH₃CH₂OH",
+      "HOCH₂–CH(OH)–CH₂OH",
+      "CH₃–CH(OH)₂"
+     ],
+     "w": "Ikki OH guruhi turli uglerodlarda.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "CH₃–CH(OH)₂",
+      "why": "Bitta uglerodda ikkita OH beqaror: suv ajralib aldegid hosil bo'ladi."
+     }
+    },
+    {
+     "p": "\"Glikol\" so'zi qanday spirtni bildiradi?",
+     "ok": "Ikki atomli spirt",
+     "no": [
+      "Uch atomli spirt",
+      "To'yinmagan spirt",
+      "Murakkab efir"
+     ],
+     "w": "Glikollarda ikkita OH guruhi bor.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2-dixloretanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir etganda qaysi modda hosil bo'ladi?",
+     "ok": "Etilenglikol",
+     "no": [
+      "Etanol",
+      "Etilen",
+      "Sirka aldegid"
+     ],
+     "w": "Ikkala xlor OH ga almashinadi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Etilen",
+      "why": "Etilen spirtli ishqor ta'sirida hosil bo'lardi."
+     }
+    },
+    {
+     "p": "Eng oddiy glikol qaysi?",
+     "ok": "Etilenglikol",
+     "no": [
+      "Propilenglikol",
+      "Glitserin",
+      "Etanol"
+     ],
+     "w": "Ikki uglerodli, ikki OH guruhli.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Glitserin",
+      "why": "Glitserin uch atomli spirt."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenning kislorod bilan katalitik oksidlanishini yozing (Ag, 250 °C): etilen oksid hosil bo'ladi",
+     "re": [
+      "C2H4",
+      "O2"
+     ],
+     "pr": [
+      "C2H4O"
+     ],
+     "ans": "2C2H4+O2→2C2H4O",
+     "w": "Kislorod qo'shbog'ga birikib uch a'zoli halqa hosil qiladi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Etilenga xlorli suv (HOCl) ta'sir ettiring",
+     "re": [
+      "C2H4",
+      "HOCl"
+     ],
+     "pr": [
+      "C2H5ClO"
+     ],
+     "ans": "C2H4+HOCl→C2H5ClO",
+     "w": "2-xloretanol (xlorgidrin) hosil bo'ladi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glioksalni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C2H2O2",
+      "H2"
+     ],
+     "pr": [
+      "C2H6O2"
+     ],
+     "ans": "C2H2O2+2H2→C2H6O2",
+     "w": "Ikkala aldegid guruhi spirtga qaytariladi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Metilglioksalni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C3H4O2",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O2"
+     ],
+     "ans": "C3H4O2+2H2→C3H8O2",
+     "w": "Karbonil guruhlari qaytariladi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenglikol sanoatda qaysi moddadan olinadi?",
+     "ok": "Etilen oksid",
+     "no": [
+      "Etanol",
+      "Etilen",
+      "Atsetilen"
+     ],
+     "w": "Etilen oksid gidratlanib glikol beradi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Antifrizning (muzlamaydigan suyuqlik) asosiy komponenti qaysi?",
+     "ok": "Etilenglikol",
+     "no": [
+      "Etanol",
+      "Glitserin",
+      "Metanol"
+     ],
+     "w": "Suv bilan aralashmasi juda past haroratda muzlaydi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Etanol",
+      "why": "Etanol ham muzlamaydi, lekin antifriz asosi etilenglikol."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "OH hisobiga",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenglikolga ortiqcha natriy ta'sir ettiring",
+     "re": [
+      "C2H6O2",
+      "Na"
+     ],
+     "pr": [
+      "C2H4Na2O2",
+      "H2"
+     ],
+     "ans": "C2H6O2+2Na→C2H4Na2O2+H2",
+     "w": "Ikkala OH vodorodi natriyga almashinadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Etilenglikolga 1 mol natriy ta'sir ettiring (bitta OH)",
+     "re": [
+      "C2H6O2",
+      "Na"
+     ],
+     "pr": [
+      "C2H5NaO2",
+      "H2"
+     ],
+     "ans": "2C2H6O2+2Na→2C2H5NaO2+H2",
+     "w": "Faqat bitta OH vodorodi almashinadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "OH hisobiga",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenglikolga mis(II) gidroksid ta'sir ettiring",
+     "re": [
+      "C2H6O2",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C4H10CuO4",
+      "H2O"
+     ],
+     "ans": "2C2H6O2+Cu(OH)2→C4H10CuO4+2H2O",
+     "w": "To'q ko'k kompleks (mis glikolyat) hosil bo'ladi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolga mis(II) gidroksid ta'sir ettiring",
+     "re": [
+      "C3H8O2",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C6H14CuO4",
+      "H2O"
+     ],
+     "ans": "2C3H8O2+Cu(OH)2→C6H14CuO4+2H2O",
+     "w": "To'q ko'k eritma hosil bo'ladi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "OH hisobiga",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glikolga yangi cho'ktirilgan Cu(OH)₂ ta'sir ettirilganda nima kuzatiladi?",
+     "ok": "Cho'kma erib, to'q ko'k eritma hosil bo'ladi",
+     "no": [
+      "Qizil cho'kma",
+      "Rang o'zgarmaydi",
+      "Gaz ajraladi"
+     ],
+     "w": "Mis atomi ikki OH bilan kompleks hosil qiladi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Qizil cho'kma",
+      "why": "Qizil cho'kma (Cu₂O) aldegidlarga xos, glikolga emas."
+     }
+    },
+    {
+     "p": "Yangi cho'ktirilgan Cu(OH)₂ qaysi modda sinfi uchun sifat reaksiyasi?",
+     "ok": "Ko'p atomli spirtlar",
+     "no": [
+      "Bir atomli spirtlar",
+      "Alkenlar",
+      "Oddiy efirlar"
+     ],
+     "w": "Qo'shni OH guruhlari to'q ko'k kompleks beradi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Bir atomli spirtlar",
+      "why": "Bir atomli spirt Cu(OH)₂ bilan reaksiyaga kirishmaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Almashinish va eterifikatsiya",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenglikolga ortiqcha HCl ta'sir ettiring",
+     "re": [
+      "C2H6O2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H4Cl2",
+      "H2O"
+     ],
+     "ans": "C2H6O2+2HCl→C2H4Cl2+2H2O",
+     "w": "Ikkala OH xlorga almashinadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolga ortiqcha HBr ta'sir ettiring",
+     "re": [
+      "C3H8O2",
+      "HBr"
+     ],
+     "pr": [
+      "C3H6Br2",
+      "H2O"
+     ],
+     "ans": "C3H8O2+2HBr→C3H6Br2+2H2O",
+     "w": "Ikkala OH bromga almashinadi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Almashinish va eterifikatsiya",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenglikol va ortiqcha sirka kislota (H₂SO₄): diefir hosil bo'lishini yozing",
+     "re": [
+      "C2H6O2",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C6H10O4",
+      "H2O"
+     ],
+     "ans": "C2H6O2+2C2H4O2→C6H10O4+2H2O",
+     "w": "Ikkala OH sirka kislota bilan efir hosil qiladi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Etilenglikol va 1 mol sirka kislota (H₂SO₄): monoefir hosil bo'lishini yozing",
+     "re": [
+      "C2H6O2",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C4H8O3",
+      "H2O"
+     ],
+     "ans": "C2H6O2+C2H4O2→C4H8O3+H2O",
+     "w": "Bitta OH esterlanadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "Almashinish va eterifikatsiya",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilenglikolga 1 mol HCl ta'sir ettirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "2-xloretanol",
+     "no": [
+      "1,2-dixloretan",
+      "Xloretan",
+      "Etilen oksid"
+     ],
+     "w": "Faqat bitta OH xlorga almashinadi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "1,2-dixloretan",
+      "why": "Dixloretan uchun ikki mol HCl kerak."
+     }
+    },
+    {
+     "p": "Etilenglikol konsentrlangan HNO₃ bilan reaksiyaga kirishsa, qaysi modda hosil bo'ladi?",
+     "ok": "Etilenglikol dinitrati",
+     "no": [
+      "Nitroetan",
+      "Glioksal",
+      "Nitrobenzol"
+     ],
+     "w": "OH guruhlari nitrat efirga aylanadi (portlovchi modda).",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Nitroetan",
+      "why": "Nitroetanda N uglerodga bog'langan. Nitrat efirda esa kislorod orqali."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "d-1",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenglikolning molekulalararo degidratlanishini yozing (diglikol)",
+     "re": [
+      "C2H6O2"
+     ],
+     "pr": [
+      "C4H10O3",
+      "H2O"
+     ],
+     "ans": "2C2H6O2→C4H10O3+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi: efir va spirt guruhli diglikol.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolning molekulalararo degidratlanishini yozing",
+     "re": [
+      "C3H8O2"
+     ],
+     "pr": [
+      "C6H14O3",
+      "H2O"
+     ],
+     "ans": "2C3H8O2→C6H14O3+H2O",
+     "w": "Dipropilenglikol hosil bo'ladi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-2",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilenglikolning ikki molekulasidan dioksan hosil bo'lishini yozing (H₂SO₄)",
+     "re": [
+      "C2H6O2"
+     ],
+     "pr": [
+      "C4H8O2",
+      "H2O"
+     ],
+     "ans": "2C2H6O2→C4H8O2+2H2O",
+     "w": "Ikki molekuladan ikki suv ajraladi: olti a'zoli halqa, 1,4-dioksan.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolning molekula ichida degidratlanishini yozing (H₂SO₄)",
+     "re": [
+      "C3H8O2"
+     ],
+     "pr": [
+      "C3H6O",
+      "H2O"
+     ],
+     "ans": "C3H8O2→C3H6O+H2O",
+     "w": "Bitta suv ajraladi, enol karbonilga izomerlanadi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-3",
+   "group": "Degidratlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilenglikolning ikki molekulasi to'liq degidratlansa, qaysi halqali modda hosil bo'ladi?",
+     "ok": "1,4-dioksan",
+     "no": [
+      "Etilen oksid",
+      "Dietil efir",
+      "Etilen"
+     ],
+     "w": "Ikki molekuladan ikki suv ajralib olti a'zoli halqa hosil bo'ladi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Etilen oksid",
+      "why": "Etilen oksid bir molekulali uch a'zoli halqa. Bu yerda ikki molekula qatnashadi."
+     }
+    },
+    {
+     "p": "Diglikol (HOCH₂CH₂–O–CH₂CH₂OH) qaysi sinflarga mansub?",
+     "ok": "Oddiy efir va spirt",
+     "no": [
+      "Keton",
+      "Aldegid",
+      "Karbon kislota"
+     ],
+     "w": "Molekulada –O– bog'i va ikkita OH guruhi bor.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenglikolning to'liq yonishini yozing",
+     "re": [
+      "C2H6O2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H6O2+5O2→4CO2+6H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolning to'liq yonishini yozing",
+     "re": [
+      "C3H8O2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H8O2+4O2→3CO2+4H2O",
+     "w": "Kislorod: 6 + 4 − 2 = 8 atom, ya'ni 4 O₂.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenglikolni CuO bilan oksidlang (qizdirish): glioksal hosil bo'ladi",
+     "re": [
+      "C2H6O2",
+      "CuO"
+     ],
+     "pr": [
+      "C2H2O2",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H6O2+2CuO→C2H2O2+2Cu+2H2O",
+     "w": "Ikkala birlamchi spirt guruhi aldegidga o'tadi.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Propilenglikolni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C3H8O2",
+      "CuO"
+     ],
+     "pr": [
+      "C3H4O2",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H8O2+2CuO→C3H4O2+2Cu+2H2O",
+     "w": "Metilglioksal hosil bo'ladi.",
+     "uses": [
+      "propilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilenglikolni KMnO₄ bilan kislotali muhitda oksidlang (oksalat kislota)",
+     "re": [
+      "C2H6O2",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H2O4",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C2H6O2+8KMnO4+12H2SO4→5C2H2O4+8MnSO4+4K2SO4+22H2O",
+     "w": "Har CH₂OH guruhi COOH ga o'tadi (4 e), glikol 8 e beradi; Mn⁺⁷ 5 e oladi: 5 : 8.",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Etilenglikolni konsentrlangan HNO₃ bilan oksidlang (oksalat kislota, NO ajraladi)",
+     "re": [
+      "C2H6O2",
+      "HNO3"
+     ],
+     "pr": [
+      "C2H2O4",
+      "NO",
+      "H2O"
+     ],
+     "ans": "3C2H6O2+8HNO3→3C2H2O4+8NO+10H2O",
+     "w": "N⁺⁵ N⁺² ga o'tadi (3 e), glikol 8 e beradi: 3 : 8.",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilenglikol CuO bilan yengil oksidlansa, qaysi modda hosil bo'ladi?",
+     "ok": "Glioksal",
+     "no": [
+      "Sirka kislota",
+      "Oksalat kislota",
+      "Etanal"
+     ],
+     "w": "Ikkala CH₂OH guruhi CHO ga o'tadi.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Oksalat kislota",
+      "why": "Kislota kuchli oksidlovchilar bilan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Etilenglikolni to'liq oksidlasak, qaysi dikarbon kislota hosil bo'ladi?",
+     "ok": "Oksalat kislota",
+     "no": [
+      "Malon kislota",
+      "Sirka kislota",
+      "Chumoli kislota"
+     ],
+     "w": "Ikki uglerodli dikarbon kislota: HOOC–COOH.",
+     "uses": [
+      "etilenglikol"
+     ],
+     "trap": {
+      "opt": "Malon kislota",
+      "why": "Malon kislota uch uglerodli."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing",
+     "re": [
+      "C2H4",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H4Cl2"
+     ],
+     "ans": "C2H4+Cl2→C2H4Cl2",
+     "w": "Xlor qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Cl2",
+       "C2H6O2",
+       "C2H4Br2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing",
+     "re": [
+      "C2H4O",
+      "HCl"
+     ],
+     "pr": [
+      "C2H5ClO"
+     ],
+     "ans": "C2H4O+HCl→C2H5ClO",
+     "w": "Halqa ochiladi: 2-xloretanol.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5ClO",
+       "C2H6O2",
+       "C2H4O"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH ning suvdagi eritmasi, ortiqcha)",
+     "re": [
+      "C2H4Cl2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H6O2",
+      "NaCl"
+     ],
+     "ans": "C2H4Cl2+2NaOH→C2H6O2+2NaCl",
+     "w": "Ikkala xlor OH ga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Cl2",
+       "C2H6O2",
+       "C2H4Br2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etilenglikol"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH ning suvdagi eritmasi)",
+     "re": [
+      "C2H5ClO",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H6O2",
+      "NaCl"
+     ],
+     "ans": "C2H5ClO+NaOH→C2H6O2+NaCl",
+     "w": "Xlor OH ga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5ClO",
+       "C2H6O2",
+       "C2H4O"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "etilenglikol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (HBr, ortiqcha)",
+     "re": [
+      "C2H6O2",
+      "HBr"
+     ],
+     "pr": [
+      "C2H4Br2",
+      "H2O"
+     ],
+     "ans": "C2H6O2+2HBr→C2H4Br2+2H2O",
+     "w": "Ikkala OH bromga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Cl2",
+       "C2H6O2",
+       "C2H4Br2"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (H₂SO₄, qizdirish)",
+     "re": [
+      "C2H6O2"
+     ],
+     "pr": [
+      "C2H4O",
+      "H2O"
+     ],
+     "ans": "C2H6O2→C2H4O+H2O",
+     "w": "Suv ajraladi, enol sirka aldegidga o'tadi.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5ClO",
+       "C2H6O2",
+       "C2H4O"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1039 @@
+{
+ "version": 2,
+ "day": 14,
+ "topic": "Karbon kislotalar",
+ "substances": [
+  "sirka kislota",
+  "chumoli kislota",
+  "propion kislota"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka aldegidning kislorod bilan oksidlanishini yozing (katalizator)",
+     "re": [
+      "C2H4O",
+      "O2"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "2C2H4O+O2→2C2H4O2",
+     "w": "Aldegid kislotaga oksidlanadi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Propanalning kislorod bilan oksidlanishini yozing (katalizator)",
+     "re": [
+      "C3H6O",
+      "O2"
+     ],
+     "pr": [
+      "C3H6O2"
+     ],
+     "ans": "2C3H6O+O2→2C3H6O2",
+     "w": "Propion kislota hosil bo'ladi.",
+     "uses": [
+      "propion kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Asetonitrilning to'liq gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C2H3N",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "NH3"
+     ],
+     "ans": "C2H3N+2H2O→C2H4O2+NH3",
+     "w": "Nitril kislotaga gidrolizlanadi, ammiak ajraladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Butironitrilning to'liq gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C4H7N",
+      "H2O"
+     ],
+     "pr": [
+      "C4H8O2",
+      "NH3"
+     ],
+     "ans": "C4H7N+2H2O→C4H8O2+NH3",
+     "w": "Moy kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metilmagniy bromidga CO₂ ta'sir ettiring",
+     "re": [
+      "CH3MgBr",
+      "CO2"
+     ],
+     "pr": [
+      "C2H3BrMgO2"
+     ],
+     "ans": "CH3MgBr+CO2→C2H3BrMgO2",
+     "w": "Karboksilat hosil bo'ladi: uglerod zanjiri bir atomga uzayadi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Hosil bo'lgan magniyli tuzni suv bilan gidrolizlang",
+     "re": [
+      "C2H3BrMgO2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Mg(OH)Br"
+     ],
+     "ans": "C2H3BrMgO2+H2O→C2H4O2+Mg(OH)Br",
+     "w": "Gidrolizdan sirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etanolni kaliy dixromat bilan kislotagacha oksidlang (H₂SO₄, ortiqcha oksidlovchi)",
+     "re": [
+      "C2H5OH",
+      "K2Cr2O7",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Cr2(SO4)3",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "3C2H5OH+2K2Cr2O7+8H2SO4→3C2H4O2+2Cr2(SO4)3+2K2SO4+11H2O",
+     "w": "Spirt to'liq oksidlanadi (4 e): 3 : 2.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Propanol-1 ni kaliy dixromat bilan kislotagacha oksidlang (H₂SO₄)",
+     "re": [
+      "C3H8O",
+      "K2Cr2O7",
+      "H2SO4"
+     ],
+     "pr": [
+      "C3H6O2",
+      "Cr2(SO4)3",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "3C3H8O+2K2Cr2O7+8H2SO4→3C3H6O2+2Cr2(SO4)3+2K2SO4+11H2O",
+     "w": "Birlamchi spirt kislotaga oksidlanadi.",
+     "uses": [
+      "propion kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Umumiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Aldegid oksidlanganda qaysi modda hosil bo'ladi?",
+     "ok": "Karbon kislota",
+     "no": [
+      "Spirt",
+      "Keton",
+      "Efir"
+     ],
+     "w": "CHO guruhi COOH ga o'tadi.",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "Spirt",
+      "why": "Spirt aldegidni qaytarganda hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Sirka kislotani sanoatda qaysi moddalardan olish mumkin?",
+     "ok": "Metanol va CO",
+     "no": [
+      "Etanol va O₂ (sanoat usuli emas)",
+      "Atsetilen va suv",
+      "Metan va Cl₂"
+     ],
+     "w": "CH₃OH + CO → CH₃COOH (katalizator, bosim).",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "Atsetilen va suv",
+      "why": "Atsetilen va suv sirka aldegid beradi, kislota uchun yana oksidlash kerak."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metanol va uglerod(II) oksid reaksiyasini yozing (katalizator, bosim)",
+     "re": [
+      "CH4O",
+      "CO"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "CH4O+CO→C2H4O2",
+     "w": "Sirka kislotaning sanoat sintezi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Natriy gidroksid va uglerod(II) oksid reaksiyasini yozing (qizdirish, bosim): chumoli kislota tuzi",
+     "re": [
+      "NaOH",
+      "CO"
+     ],
+     "pr": [
+      "CHNaO2"
+     ],
+     "ans": "NaOH+CO→CHNaO2",
+     "w": "Natriy formiat hosil bo'ladi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy formiatga sulfat kislota ta'sir ettiring",
+     "re": [
+      "CHNaO2",
+      "H2SO4"
+     ],
+     "pr": [
+      "CH2O2",
+      "Na2SO4"
+     ],
+     "ans": "2CHNaO2+H2SO4→2CH2O2+Na2SO4",
+     "w": "Kuchli kislota zaif kislotani tuzidan siqib chiqaradi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    },
+    {
+     "p": "Natriy atsetatga sulfat kislota ta'sir ettiring",
+     "re": [
+      "C2H3NaO2",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Na2SO4"
+     ],
+     "ans": "2C2H3NaO2+H2SO4→2C2H4O2+Na2SO4",
+     "w": "Sirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Oziq-ovqat sirkasining asosiy tarkibiy qismi qaysi kislota?",
+     "ok": "Sirka kislota",
+     "no": [
+      "Chumoli kislota",
+      "Limon kislota",
+      "Sulfat kislota"
+     ],
+     "w": "3–9% li sirka kislota eritmasi.",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "Chumoli kislota",
+      "why": "Chumoli kislota ham bor, lekin sirka sirka kislotadan iborat."
+     }
+    },
+    {
+     "p": "Chumoli kislota qayerda uchraydi?",
+     "ok": "Chumolilar va qichitqi o'tda",
+     "no": [
+      "Sut mahsulotlarida",
+      "Mevalarda",
+      "Tuxumda"
+     ],
+     "w": "Nomi chumolidan olingan.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-1",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka kislotaga magniy ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "Mg"
+     ],
+     "pr": [
+      "C4H6MgO4",
+      "H2"
+     ],
+     "ans": "2C2H4O2+Mg→C4H6MgO4+H2",
+     "w": "Magniy atsetat va vodorod hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Chumoli kislotaga rux ta'sir ettiring",
+     "re": [
+      "CH2O2",
+      "Zn"
+     ],
+     "pr": [
+      "C2H2O4Zn",
+      "H2"
+     ],
+     "ans": "2CH2O2+Zn→C2H2O4Zn+H2",
+     "w": "Rux formiat va vodorod hosil bo'ladi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-2",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka kislotaga NaOH eritmasi ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "H2O"
+     ],
+     "ans": "C2H4O2+NaOH→C2H3NaO2+H2O",
+     "w": "Neytrallanish: natriy atsetat.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Chumoli kislotaga KOH eritmasi ta'sir ettiring",
+     "re": [
+      "CH2O2",
+      "KOH"
+     ],
+     "pr": [
+      "CHKO2",
+      "H2O"
+     ],
+     "ans": "CH2O2+KOH→CHKO2+H2O",
+     "w": "Kaliy formiat hosil bo'ladi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-3",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka kislotaga mis(II) oksid ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "CuO"
+     ],
+     "pr": [
+      "C4H6CuO4",
+      "H2O"
+     ],
+     "ans": "2C2H4O2+CuO→C4H6CuO4+H2O",
+     "w": "Mis atsetat hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Sirka kislotaga soda (Na₂CO₃) ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "Na2CO3"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H4O2+Na2CO3→2C2H3NaO2+CO2+H2O",
+     "w": "Karbonat kislotani siqib chiqaradi: CO₂ ajraladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-4",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka kislota va etanol reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "C2H4O2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H8O2",
+      "H2O"
+     ],
+     "ans": "C2H4O2+C2H5OH→C4H8O2+H2O",
+     "w": "Etil atsetat hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Chumoli kislota va metanol reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "CH2O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C2H4O2",
+      "H2O"
+     ],
+     "ans": "CH2O2+CH3OH→C2H4O2+H2O",
+     "w": "Metil formiat hosil bo'ladi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-5",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka kislotaga fosfor(V) xlorid ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "PCl5"
+     ],
+     "pr": [
+      "C2H3ClO",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C2H4O2+PCl5→C2H3ClO+POCl3+HCl",
+     "w": "OH xlorga almashinadi: atsetilxlorid.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Sirka kislotaga tionilxlorid ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "SOCl2"
+     ],
+     "pr": [
+      "C2H3ClO",
+      "SO2",
+      "HCl"
+     ],
+     "ans": "C2H4O2+SOCl2→C2H3ClO+SO2+HCl",
+     "w": "Gazlar ajraladi, atsetilxlorid hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-6",
+   "group": "Karboksil guruhiga xos",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka kislota NaHCO₃ bilan reaksiyaga kirishsa, nima kuzatiladi?",
+     "ok": "CO₂ gazi ajraladi",
+     "no": [
+      "H₂ gazi ajraladi",
+      "Cho'kma tushadi",
+      "Reaksiya bormaydi"
+     ],
+     "w": "Kislota karbonat kislotani siqib chiqaradi.",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "H₂ gazi ajraladi",
+      "why": "Vodorod faol metallar bilan ajraladi, karbonatlar bilan CO₂."
+     }
+    },
+    {
+     "p": "Qaysi qatorda kislotalilik kamayib boradi?",
+     "ok": "HCOOH > CH₃COOH > C₂H₅OH",
+     "no": [
+      "CH₃COOH > HCOOH > C₂H₅OH",
+      "C₂H₅OH > HCOOH > CH₃COOH",
+      "CH₃COOH > C₂H₅OH > HCOOH"
+     ],
+     "w": "Chumoli kislota sirka kislotadan kuchli, spirt esa eng kuchsiz.",
+     "uses": [
+      "chumoli kislota"
+     ],
+     "trap": {
+      "opt": "CH₃COOH > HCOOH > C₂H₅OH",
+      "why": "Metil guruh elektron beradi: sirka kislota chumolidan kuchsiz."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Radikalga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka kislotaga xlor ta'sir ettiring (qizil fosfor, α-holat)",
+     "re": [
+      "C2H4O2",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H3ClO2",
+      "HCl"
+     ],
+     "ans": "C2H4O2+Cl2→C2H3ClO2+HCl",
+     "w": "Karboksilga qo'shni uglerodning vodorodi xlorga almashinadi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Propion kislotaga xlor ta'sir ettiring (qizil fosfor, α-holat)",
+     "re": [
+      "C3H6O2",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H5ClO2",
+      "HCl"
+     ],
+     "ans": "C3H6O2+Cl2→C3H5ClO2+HCl",
+     "w": "2-xlorpropion kislota hosil bo'ladi.",
+     "uses": [
+      "propion kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Radikalga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka kislotaga ortiqcha xlor ta'sir ettiring (uchala vodorod almashinadi)",
+     "re": [
+      "C2H4O2",
+      "Cl2"
+     ],
+     "pr": [
+      "C2HCl3O2",
+      "HCl"
+     ],
+     "ans": "C2H4O2+3Cl2→C2HCl3O2+3HCl",
+     "w": "Trixlorsirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Sirka kislotaga 2 mol xlor ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H2Cl2O2",
+      "HCl"
+     ],
+     "ans": "C2H4O2+2Cl2→C2H2Cl2O2+2HCl",
+     "w": "Dixlorsirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Radikalga xos",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Xlorsirka kislota sirka kislotaga nisbatan qanday?",
+     "ok": "Kuchliroq kislota",
+     "no": [
+      "Kuchsizroq",
+      "Bir xil kuchda",
+      "Kislota emas"
+     ],
+     "w": "Elektronmanfiy xlor karboksilni yanada kislotali qiladi.",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "Kuchsizroq",
+      "why": "Xlor elektron tortadi va kislotalilikni oshiradi."
+     }
+    },
+    {
+     "p": "Qaysi kislota eng kuchli?",
+     "ok": "Trixlorsirka kislota",
+     "no": [
+      "Sirka kislota",
+      "Monoxlorsirka kislota",
+      "Propion kislota"
+     ],
+     "w": "Uchta xlor atomi eng kuchli ta'sir ko'rsatadi.",
+     "uses": [
+      "sirka kislota"
+     ],
+     "trap": {
+      "opt": "Monoxlorsirka kislota",
+      "why": "Uchta xlor bittadan ko'ra kuchliroq."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-1",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Chumoli kislotaga kumush oksidning ammiakli eritmasi ta'sir ettiring",
+     "re": [
+      "CH2O2",
+      "Ag2O"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "Ag"
+     ],
+     "ans": "CH2O2+Ag2O→CO2+H2O+2Ag",
+     "w": "Chumoli kislotada aldegid guruhi bor: kumush ko'zgu.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    },
+    {
+     "p": "Chumoli kislotaga mis(II) gidroksid ta'sir ettiring (qizdirish)",
+     "re": [
+      "CH2O2",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "CO2",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "CH2O2+2Cu(OH)2→CO2+Cu2O+3H2O",
+     "w": "Qizil cho'kma (Cu₂O) hosil bo'ladi.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-2",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Chumoli kislotaning konsentrlangan H₂SO₄ bilan degidratlanishini yozing",
+     "re": [
+      "CH2O2"
+     ],
+     "pr": [
+      "CO",
+      "H2O"
+     ],
+     "ans": "CH2O2→CO+H2O",
+     "w": "Laboratoriyada CO olish usuli.",
+     "uses": [
+      "chumoli kislota"
+     ]
+    },
+    {
+     "p": "Sirka kislotaning degidratlanishini yozing (P₂O₅): angidrid hosil bo'ladi",
+     "re": [
+      "C2H4O2"
+     ],
+     "pr": [
+      "C4H6O3",
+      "H2O"
+     ],
+     "ans": "2C2H4O2→C4H6O3+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-3",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Natriy atsetatni NaOH bilan qizdiring (quruq): metan hosil bo'ladi",
+     "re": [
+      "C2H3NaO2",
+      "NaOH"
+     ],
+     "pr": [
+      "CH4",
+      "Na2CO3"
+     ],
+     "ans": "C2H3NaO2+NaOH→CH4+Na2CO3",
+     "w": "Dekarboksillanish: bitta uglerod kam alkan.",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Natriy atsetat eritmasini elektroliz qiling (Kolbe): etan hosil bo'ladi",
+     "re": [
+      "C2H3NaO2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6",
+      "CO2",
+      "H2",
+      "NaOH"
+     ],
+     "ans": "2C2H3NaO2+2H2O→C2H6+2CO2+H2+2NaOH",
+     "w": "Anodda radikallar birlashadi.",
+     "uses": [
+      "sirka kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-4",
+   "group": "Xususiy reaksiyalar",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Faqat chumoli kislotaga xos bo'lgan reaksiya qaysi?",
+     "ok": "Kumush ko'zgu reaksiyasi",
+     "no": [
+      "Natriy bilan reaksiya",
+      "Eterifikatsiya",
+      "NaOH bilan neytrallanish"
+     ],
+     "w": "Chumoli kislotada aldegid guruhi ham bor.",
+     "uses": [
+      "chumoli kislota"
+     ],
+     "trap": {
+      "opt": "Eterifikatsiya",
+      "why": "Eterifikatsiya barcha karbon kislotalarga xos."
+     }
+    },
+    {
+     "p": "Chumoli kislota to'liq oksidlansa, qaysi moddalar hosil bo'ladi?",
+     "ok": "CO₂ va H₂O",
+     "no": [
+      "CO va H₂",
+      "CH₃OH",
+      "CH₃COOH"
+     ],
+     "w": "Oxirgi mahsulot: uglerod(IV) oksid va suv.",
+     "uses": [
+      "chumoli kislota"
+     ],
+     "trap": {
+      "opt": "CO va H₂",
+      "why": "To'liq oksidlanishda CO₂ hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C2H5OH",
+      "CuO"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H5OH+CuO→C2H4O+Cu+H2O",
+     "w": "Etanol sirka aldegidga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2",
+       "C2H7NO2"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (spirtli eritma)",
+     "re": [
+      "C2H5Br",
+      "KCN"
+     ],
+     "pr": [
+      "C3H5N",
+      "KBr"
+     ],
+     "ans": "C2H5Br+KCN→C3H5N+KBr",
+     "w": "Brom CN ga almashinadi: uglerod zanjiri uzayadi.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C3H5N",
+       "C3H6O2",
+       "C3H5BrO2"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (mis(II) gidroksid, qizdirish)",
+     "re": [
+      "C2H4O",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "C2H4O+2Cu(OH)2→C2H4O2+Cu2O+2H2O",
+     "w": "Aldegid kislotaga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2",
+       "C2H7NO2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (H⁺, qizdirish)",
+     "re": [
+      "C3H5N",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O2",
+      "NH3"
+     ],
+     "ans": "C3H5N+2H2O→C3H6O2+NH3",
+     "w": "Nitril kislotaga gidrolizlanadi.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C3H5N",
+       "C3H6O2",
+       "C3H5BrO2"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "propion kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing",
+     "re": [
+      "C2H4O2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H7NO2"
+     ],
+     "ans": "C2H4O2+NH3→C2H7NO2",
+     "w": "Ammiak bilan ammoniy atsetat tuzi hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2",
+       "C2H7NO2"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "sirka kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (qizil fosfor, α-holat)",
+     "re": [
+      "C3H6O2",
+      "Br2"
+     ],
+     "pr": [
+      "C3H5BrO2",
+      "HBr"
+     ],
+     "ans": "C3H6O2+Br2→C3H5BrO2+HBr",
+     "w": "2-brompropion kislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C3H5N",
+       "C3H6O2",
+       "C3H5BrO2"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "propion kislota"
+     ]
+    }
+   ]
+  }
+ ]
+}

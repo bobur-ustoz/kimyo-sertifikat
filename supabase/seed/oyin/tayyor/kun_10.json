@@ -1,0 +1,1012 @@
+{
+ "version": 2,
+ "day": 10,
+ "topic": "Uch atomli spirtlar",
+ "substances": [
+  "glitserin",
+  "nitroglitserin"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Triatsetinning (glitserin triatsetati) NaOH bilan gidrolizini yozing",
+     "re": [
+      "C9H14O6",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "C2H3NaO2"
+     ],
+     "ans": "C9H14O6+3NaOH→C3H8O3+3C2H3NaO2",
+     "w": "Efir ishqorda glitserin va sirka kislota tuziga ajraladi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Tristearinning NaOH bilan gidrolizini yozing (sovunlash)",
+     "re": [
+      "C57H110O6",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "C18H35NaO2"
+     ],
+     "ans": "C57H110O6+3NaOH→C3H8O3+3C18H35NaO2",
+     "w": "Yog' sovunlanib glitserin va sovun (natriy stearat) hosil qiladi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2,3-tribrompropanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C3H5Br3",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "NaBr"
+     ],
+     "ans": "C3H5Br3+3NaOH→C3H8O3+3NaBr",
+     "w": "Uchala brom OH ga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "1,2,3-trixlorpropanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C3H5Cl3",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "NaCl"
+     ],
+     "ans": "C3H5Cl3+3NaOH→C3H8O3+3NaCl",
+     "w": "Uchala xlor OH ga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Triatsetinning kislotali gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C9H14O6",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O3",
+      "C2H4O2"
+     ],
+     "ans": "C9H14O6+3H2O→C3H8O3+3C2H4O2",
+     "w": "Kislotali gidrolizda glitserin va erkin sirka kislota hosil bo'ladi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Tristearinning kislotali gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C57H110O6",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O3",
+      "C18H36O2"
+     ],
+     "ans": "C57H110O6+3H2O→C3H8O3+3C18H36O2",
+     "w": "Glitserin va stearin kislota hosil bo'ladi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitserinning tuzilish formulasi qaysi?",
+     "ok": "HOCH₂–CH(OH)–CH₂OH",
+     "no": [
+      "HOCH₂–CH₂OH",
+      "CH₃–CH(OH)–CH₂OH",
+      "HOCH₂–CH₂–CH₂OH"
+     ],
+     "w": "Uch uglerodli zanjirning har uglerodida bitta OH.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "CH₃–CH(OH)–CH₂OH",
+      "why": "Bu propilenglikol: ikki atomli spirt."
+     }
+    },
+    {
+     "p": "Yog'larning gidrolizidan qaysi spirt hosil bo'ladi?",
+     "ok": "Glitserin",
+     "no": [
+      "Etilenglikol",
+      "Etanol",
+      "Metanol"
+     ],
+     "w": "Yog'lar glitserin va yuqori kislotalarning efiri.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirtning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (glitserin olinadi)",
+     "re": [
+      "C3H6O",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O3",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C3H6O+2KMnO4+4H2O→3C3H8O3+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikkita OH birikadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glyukozaning gidrogenolizini yozing (katalizator, bosim): glitserin hosil bo'ladi",
+     "re": [
+      "C6H12O6",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O3"
+     ],
+     "ans": "C6H12O6+2H2→2C3H8O3",
+     "w": "Olti uglerodli molekula ikkiga bo'linib ikki glitserin beradi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Epixlorgidrinning gidrolizini yozing",
+     "re": [
+      "C3H5ClO",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O3",
+      "HCl"
+     ],
+     "ans": "C3H5ClO+2H2O→C3H8O3+HCl",
+     "w": "Halqa ochiladi, xlor OH ga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "1,3-dixlor-2-propanolga NaOH ta'sir ettiring (ortiqcha)",
+     "re": [
+      "C3H6Cl2O",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "NaCl"
+     ],
+     "ans": "C3H6Cl2O+2NaOH→C3H8O3+2NaCl",
+     "w": "Ikkala xlor OH ga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitserin sanoatda asosan qanday olinadi?",
+     "ok": "Yog'larni gidrolizlab (sovunlash)",
+     "no": [
+      "Etilenni oksidlab",
+      "Propanni xlorlab",
+      "Atsetilendan"
+     ],
+     "w": "Yog' gidrolizida glitserin qo'shimcha mahsulot.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Sovun hosil bo'lishida glitserin qanday rol o'ynaydi?",
+     "ok": "Qo'shimcha mahsulot sifatida ajraladi",
+     "no": [
+      "Reagent sifatida kerak",
+      "Katalizator",
+      "Hosil bo'lmaydi"
+     ],
+     "w": "Yog' ishqor bilan sovun va glitseringa parchalanadi.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "Reagent sifatida kerak",
+      "why": "Glitserin reagent emas, mahsulot."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Metallar va Cu(OH)₂",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitseringa ortiqcha natriy ta'sir ettiring",
+     "re": [
+      "C3H8O3",
+      "Na"
+     ],
+     "pr": [
+      "C3H5Na3O3",
+      "H2"
+     ],
+     "ans": "2C3H8O3+6Na→2C3H5Na3O3+3H2",
+     "w": "Uchala OH vodorodi natriyga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitseringa 1 mol natriy ta'sir ettiring (bitta OH)",
+     "re": [
+      "C3H8O3",
+      "Na"
+     ],
+     "pr": [
+      "C3H7NaO3",
+      "H2"
+     ],
+     "ans": "2C3H8O3+2Na→2C3H7NaO3+H2",
+     "w": "Faqat bitta OH vodorodi almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Metallar va Cu(OH)₂",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitseringa mis(II) gidroksid ta'sir ettiring",
+     "re": [
+      "C3H8O3",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C6H14CuO6",
+      "H2O"
+     ],
+     "ans": "2C3H8O3+Cu(OH)2→C6H14CuO6+2H2O",
+     "w": "To'q ko'k kompleks (mis glitserati) hosil bo'ladi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitseringa ortiqcha kaliy ta'sir ettiring",
+     "re": [
+      "C3H8O3",
+      "K"
+     ],
+     "pr": [
+      "C3H5K3O3",
+      "H2"
+     ],
+     "ans": "2C3H8O3+6K→2C3H5K3O3+3H2",
+     "w": "Uchala OH vodorodi kaliyga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Metallar va Cu(OH)₂",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitseringa yangi cho'ktirilgan Cu(OH)₂ qo'shilsa, nima kuzatiladi?",
+     "ok": "To'q ko'k eritma hosil bo'ladi",
+     "no": [
+      "Qizil cho'kma",
+      "Yashil cho'kma",
+      "Rang o'zgarmaydi"
+     ],
+     "w": "Qo'shni OH guruhlari mis bilan kompleks hosil qiladi.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "Qizil cho'kma",
+      "why": "Qizil cho'kma (Cu₂O) aldegidlarda qizdirganda hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Glitserinni aniqlash (sifat reaksiyasi) uchun qaysi reaktiv ishlatiladi?",
+     "ok": "Yangi cho'ktirilgan Cu(OH)₂",
+     "no": [
+      "Bromli suv",
+      "AgNO₃ ning ammiakli eritmasi",
+      "FeCl₃"
+     ],
+     "w": "To'q ko'k eritma ko'p atomli spirtni bildiradi.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "AgNO₃ ning ammiakli eritmasi",
+      "why": "Bu aldegidlar uchun \"kumush ko'zgu\" reaktivi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "HX va eterifikatsiya",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitseringa ortiqcha HCl ta'sir ettiring",
+     "re": [
+      "C3H8O3",
+      "HCl"
+     ],
+     "pr": [
+      "C3H5Cl3",
+      "H2O"
+     ],
+     "ans": "C3H8O3+3HCl→C3H5Cl3+3H2O",
+     "w": "Uchala OH xlorga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitseringa 1 mol HBr ta'sir ettiring",
+     "re": [
+      "C3H8O3",
+      "HBr"
+     ],
+     "pr": [
+      "C3H7BrO2",
+      "H2O"
+     ],
+     "ans": "C3H8O3+HBr→C3H7BrO2+H2O",
+     "w": "Bitta OH bromga almashinadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "HX va eterifikatsiya",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserinni nitrolang (HNO₃ + H₂SO₄ aralashmasi): nitroglitserin olinadi",
+     "re": [
+      "C3H8O3",
+      "HNO3"
+     ],
+     "pr": [
+      "C3H5N3O9",
+      "H2O"
+     ],
+     "ans": "C3H8O3+3HNO3→C3H5N3O9+3H2O",
+     "w": "Uchala OH nitrat efirga aylanadi.",
+     "uses": [
+      "nitroglitserin"
+     ]
+    },
+    {
+     "p": "Glitseringa 1 mol HNO₃ ta'sir ettiring (monoefir)",
+     "re": [
+      "C3H8O3",
+      "HNO3"
+     ],
+     "pr": [
+      "C3H7NO5",
+      "H2O"
+     ],
+     "ans": "C3H8O3+HNO3→C3H7NO5+H2O",
+     "w": "Bitta OH nitrat efiriga aylanadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "HX va eterifikatsiya",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserin va ortiqcha sirka kislota reaksiyasini yozing (H₂SO₄): triatsetin",
+     "re": [
+      "C3H8O3",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C9H14O6",
+      "H2O"
+     ],
+     "ans": "C3H8O3+3C2H4O2→C9H14O6+3H2O",
+     "w": "Uchala OH sirka kislota bilan efir hosil qiladi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitserin va stearin kislota reaksiyasini yozing (H₂SO₄): tristearin",
+     "re": [
+      "C3H8O3",
+      "C18H36O2"
+     ],
+     "pr": [
+      "C57H110O6",
+      "H2O"
+     ],
+     "ans": "C3H8O3+3C18H36O2→C57H110O6+3H2O",
+     "w": "Yog' (tristearin) hosil bo'ladi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-4",
+   "group": "HX va eterifikatsiya",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Nitroglitserin kimyoviy jihatdan qaysi sinfga kiradi?",
+     "ok": "Murakkab efir (nitrat efiri)",
+     "no": [
+      "Nitrobirikma",
+      "Spirt",
+      "Aldegid"
+     ],
+     "w": "Kislorod orqali bog'langan –O–NO₂ guruhlari.",
+     "uses": [
+      "nitroglitserin"
+     ],
+     "trap": {
+      "opt": "Nitrobirikma",
+      "why": "Nitrobirikmada azot uglerodga bog'langan (C–NO₂). Nitroglitserinda esa C–O–NO₂."
+     }
+    },
+    {
+     "p": "1 mol glitserinni to'liq nitrolash uchun necha mol HNO₃ kerak?",
+     "ok": "3 mol",
+     "no": [
+      "1 mol",
+      "2 mol",
+      "4 mol"
+     ],
+     "w": "Uchta OH guruhi uchun uchta HNO₃.",
+     "uses": [
+      "nitroglitserin"
+     ],
+     "trap": {
+      "opt": "1 mol",
+      "why": "Bu faqat bitta OH uchun."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "d-1",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glitserinning molekula ichida bitta suv ajralib degidratlanishini yozing",
+     "re": [
+      "C3H8O3"
+     ],
+     "pr": [
+      "C3H6O2",
+      "H2O"
+     ],
+     "ans": "C3H8O3→C3H6O2+H2O",
+     "w": "Bitta suv ajraladi, enol karbonilga izomerlanadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitserinning molekulalararo degidratlanishini yozing (diglitserin)",
+     "re": [
+      "C3H8O3"
+     ],
+     "pr": [
+      "C6H14O5",
+      "H2O"
+     ],
+     "ans": "2C3H8O3→C6H14O5+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-2",
+   "group": "Degidratlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserinni KHSO₄ bilan qizdirilsa, o'tkir hidli qaysi modda hosil bo'ladi?",
+     "ok": "Akrolein",
+     "no": [
+      "Akril kislota",
+      "Aseton",
+      "Propanal"
+     ],
+     "w": "Ikkita suv ajralib to'yinmagan aldegid hosil bo'ladi.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "Propanal",
+      "why": "Akroleinda qo'shbog' bor, propanalda yo'q."
+     }
+    },
+    {
+     "p": "Akrolein qaysi sinfga mansub?",
+     "ok": "To'yinmagan aldegid",
+     "no": [
+      "Keton",
+      "Spirt",
+      "Karboksilli kislota"
+     ],
+     "w": "CH₂=CH–CHO: qo'shbog' va aldegid guruhi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-3",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glitserinning uch molekulasi degidratlanishini yozing (triglitserin)",
+     "re": [
+      "C3H8O3"
+     ],
+     "pr": [
+      "C9H20O7",
+      "H2O"
+     ],
+     "ans": "3C3H8O3→C9H20O7+2H2O",
+     "w": "Uch molekuladan ikki suv ajraladi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitserinning to'rt molekulasi degidratlanishini yozing (tetraglitserin)",
+     "re": [
+      "C3H8O3"
+     ],
+     "pr": [
+      "C12H26O9",
+      "H2O"
+     ],
+     "ans": "4C3H8O3→C12H26O9+3H2O",
+     "w": "To'rt molekuladan uch suv ajraladi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserinning to'liq yonishini yozing",
+     "re": [
+      "C3H8O3",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C3H8O3+7O2→6CO2+8H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Nitroglitserinning portlashini yozing (CO₂, H₂O, N₂ va O₂ hosil bo'ladi)",
+     "re": [
+      "C3H5N3O9"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "N2",
+      "O2"
+     ],
+     "ans": "4C3H5N3O9→12CO2+10H2O+6N2+O2",
+     "w": "Qattiq modda bir lahzada gazlarga aylanadi.",
+     "uses": [
+      "nitroglitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserinni CuO bilan oksidlang (bitta spirt guruhi, qizdirish)",
+     "re": [
+      "C3H8O3",
+      "CuO"
+     ],
+     "pr": [
+      "C3H6O3",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H8O3+CuO→C3H6O3+Cu+H2O",
+     "w": "Chetki CH₂OH guruhi aldegidga o'tadi.",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Glitserinni CuO bilan oksidlang (ikki spirt guruhi)",
+     "re": [
+      "C3H8O3",
+      "CuO"
+     ],
+     "pr": [
+      "C3H4O3",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H8O3+2CuO→C3H4O3+2Cu+2H2O",
+     "w": "Ikkita guruh karbonilga o'tadi.",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "1 mol glitserin to'liq yonishi uchun necha mol O₂ kerak?",
+     "ok": "3,5",
+     "no": [
+      "3",
+      "4",
+      "4,5"
+     ],
+     "w": "3 CO₂ uchun 3 O₂, 4 H₂O uchun 2 O₂, glitserinning 3 ta O atomi 1,5 O₂ beradi: jami 3,5.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "4",
+      "why": "Glitserinda kislorod borligi hisobga olinmagan."
+     }
+    },
+    {
+     "p": "46 g glitserin (M = 92) to'liq yonganda necha litr CO₂ (n.sh.) hosil bo'ladi?",
+     "ok": "33,6 l",
+     "no": [
+      "22,4 l",
+      "67,2 l",
+      "11,2 l"
+     ],
+     "w": "46 : 92 = 0,5 mol; 3 CO₂ hosil bo'ladi: 1,5 mol · 22,4 = 33,6 l.",
+     "uses": [
+      "glitserin"
+     ],
+     "trap": {
+      "opt": "67,2 l",
+      "why": "67,2 l uchun 1 mol (92 g) glitserin kerak edi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Nitroglitserin qayerda ishlatiladi?",
+     "ok": "Dinamit tarkibida va (oz miqdorda) yurak dorisi sifatida",
+     "no": [
+      "Sovun ishlab chiqarishda",
+      "Polimerlar monomeri sifatida",
+      "Oziq-ovqat bo'yog'i sifatida"
+     ],
+     "w": "Nobel nitroglitserindan dinamit yaratgan.",
+     "uses": [
+      "nitroglitserin"
+     ]
+    },
+    {
+     "p": "Nitroglitserin portlaganda qaysi gazlar hosil bo'ladi?",
+     "ok": "CO₂, H₂O (bug'), N₂, O₂",
+     "no": [
+      "Faqat CO₂",
+      "CH₄ va H₂",
+      "NO₂ va SO₂"
+     ],
+     "w": "Barcha mahsulotlar gaz holida: hajm keskin ortadi.",
+     "uses": [
+      "nitroglitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (500 °C)",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H5Cl",
+      "HCl"
+     ],
+     "ans": "C3H6+Cl2→C3H5Cl+HCl",
+     "w": "Alil holatda o'rin olish.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6Cl2O",
+       "C3H8O3"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (KHSO₄, 200 °C)",
+     "re": [
+      "C3H8O3"
+     ],
+     "pr": [
+      "C3H4O",
+      "H2O"
+     ],
+     "ans": "C3H8O3→C3H4O+2H2O",
+     "w": "Ikki suv ajralib akrolein hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C3H8O3",
+       "C3H4O",
+       "C3H6O",
+       "C3H6Br2O"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "glitserin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (HOCl)",
+     "re": [
+      "C3H5Cl",
+      "HOCl"
+     ],
+     "pr": [
+      "C3H6Cl2O"
+     ],
+     "ans": "C3H5Cl+HOCl→C3H6Cl2O",
+     "w": "Cl va OH qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6Cl2O",
+       "C3H8O3"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Ni, qisman gidrogenlash)",
+     "re": [
+      "C3H4O",
+      "H2"
+     ],
+     "pr": [
+      "C3H6O"
+     ],
+     "ans": "C3H4O+H2→C3H6O",
+     "w": "Faqat C=O qaytariladi: allil spirt.",
+     "chain": {
+      "all": [
+       "C3H8O3",
+       "C3H4O",
+       "C3H6O",
+       "C3H6Br2O"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (KOH ning suvdagi eritmasi, ortiqcha)",
+     "re": [
+      "C3H6Cl2O",
+      "KOH"
+     ],
+     "pr": [
+      "C3H8O3",
+      "KCl"
+     ],
+     "ans": "C3H6Cl2O+2KOH→C3H8O3+2KCl",
+     "w": "Ikkala xlor OH ga almashinadi: glitserin.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6Cl2O",
+       "C3H8O3"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "glitserin"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing",
+     "re": [
+      "C3H6O",
+      "Br2"
+     ],
+     "pr": [
+      "C3H6Br2O"
+     ],
+     "ans": "C3H6O+Br2→C3H6Br2O",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C3H8O3",
+       "C3H4O",
+       "C3H6O",
+       "C3H6Br2O"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

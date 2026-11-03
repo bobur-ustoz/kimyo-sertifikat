@@ -1,0 +1,1030 @@
+{
+ "version": 2,
+ "day": 15,
+ "topic": "To'yinmagan bir asosli kislotalar",
+ "substances": [
+  "akril kislota",
+  "metakril kislota",
+  "olein kislota"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Akroleinning oksidlanishini yozing (kislorod, katalizator)",
+     "re": [
+      "C3H4O",
+      "O2"
+     ],
+     "pr": [
+      "C3H4O2"
+     ],
+     "ans": "2C3H4O+O2→2C3H4O2",
+     "w": "Aldegid guruhi COOH ga o'tadi, qo'shbog' saqlanadi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakroleinning oksidlanishini yozing (kislorod, katalizator)",
+     "re": [
+      "C4H6O",
+      "O2"
+     ],
+     "pr": [
+      "C4H6O2"
+     ],
+     "ans": "2C4H6O+O2→2C4H6O2",
+     "w": "Metakril kislota hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotaning degidratlanishini yozing (H₂SO₄, qizdirish): akril kislota",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C3H4O2",
+      "H2O"
+     ],
+     "ans": "C3H6O3→C3H4O2+H2O",
+     "w": "OH guruhi va qo'shni vodorod suv holida ajraladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "2-gidroksiizomoy kislotaning degidratlanishini yozing: metakril kislota",
+     "re": [
+      "C4H8O3"
+     ],
+     "pr": [
+      "C4H6O2",
+      "H2O"
+     ],
+     "ans": "C4H8O3→C4H6O2+H2O",
+     "w": "Suv ajralib qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Akrilonitrilning to'liq gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C3H3N",
+      "H2O"
+     ],
+     "pr": [
+      "C3H4O2",
+      "NH3"
+     ],
+     "ans": "C3H3N+2H2O→C3H4O2+NH3",
+     "w": "Nitril guruhi COOH ga gidrolizlanadi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakrilonitrilning to'liq gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C4H5N",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O2",
+      "NH3"
+     ],
+     "ans": "C4H5N+2H2O→C4H6O2+NH3",
+     "w": "Metakril kislota hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilen, CO va suv reaksiyasini yozing (Ni(CO)₄, Reppe)",
+     "re": [
+      "C2H2",
+      "CO",
+      "H2O"
+     ],
+     "pr": [
+      "C3H4O2"
+     ],
+     "ans": "C2H2+CO+H2O→C3H4O2",
+     "w": "Uchbog'ga H va COOH birikadi: akril kislota.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Propin, CO va suv reaksiyasini yozing (Ni(CO)₄)",
+     "re": [
+      "C3H4",
+      "CO",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O2"
+     ],
+     "ans": "C3H4+CO+H2O→C4H6O2",
+     "w": "Metakril kislota hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Akril kislotaning tuzilish formulasi qaysi?",
+     "ok": "CH₂=CH–COOH",
+     "no": [
+      "CH₃–CH₂–COOH",
+      "CH₂=CH–CH₂OH",
+      "CH₃–CH=CH₂"
+     ],
+     "w": "Qo'shbog' va karboksil guruhi.",
+     "uses": [
+      "akril kislota"
+     ],
+     "trap": {
+      "opt": "CH₃–CH₂–COOH",
+      "why": "Bu propion kislota: qo'shbog'siz."
+     }
+    },
+    {
+     "p": "Olein kislotaning formulasi qaysi?",
+     "ok": "C₁₇H₃₃COOH",
+     "no": [
+      "C₁₇H₃₅COOH",
+      "C₁₅H₃₁COOH",
+      "C₁₇H₃₁COOH"
+     ],
+     "w": "Stearin kislota C₁₇H₃₅COOH dan ikki vodorod kam: bitta qo'shbog'.",
+     "uses": [
+      "olein kislota"
+     ],
+     "trap": {
+      "opt": "C₁₇H₃₅COOH",
+      "why": "Bu stearin kislota (to'yingan)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Akril kislotani gidrogenlang (Ni)",
+     "re": [
+      "C3H4O2",
+      "H2"
+     ],
+     "pr": [
+      "C3H6O2"
+     ],
+     "ans": "C3H4O2+H2→C3H6O2",
+     "w": "Qo'shbog' to'yinadi: propion kislota.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakril kislotani gidrogenlang (Ni)",
+     "re": [
+      "C4H6O2",
+      "H2"
+     ],
+     "pr": [
+      "C4H8O2"
+     ],
+     "ans": "C4H6O2+H2→C4H8O2",
+     "w": "Izomoy kislota hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Akril kislotaga brom ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "Br2"
+     ],
+     "pr": [
+      "C3H4Br2O2"
+     ],
+     "ans": "C3H4O2+Br2→C3H4Br2O2",
+     "w": "Brom qo'shbog'ga birikadi: 2,3-dibrompropion kislota.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakril kislotaga brom ta'sir ettiring",
+     "re": [
+      "C4H6O2",
+      "Br2"
+     ],
+     "pr": [
+      "C4H6Br2O2"
+     ],
+     "ans": "C4H6O2+Br2→C4H6Br2O2",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Olein kislotani gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C18H34O2",
+      "H2"
+     ],
+     "pr": [
+      "C18H36O2"
+     ],
+     "ans": "C18H34O2+H2→C18H36O2",
+     "w": "Stearin kislota hosil bo'ladi.",
+     "uses": [
+      "olein kislota"
+     ]
+    },
+    {
+     "p": "Olein kislotaga brom ta'sir ettiring",
+     "re": [
+      "C18H34O2",
+      "Br2"
+     ],
+     "pr": [
+      "C18H34Br2O2"
+     ],
+     "ans": "C18H34O2+Br2→C18H34Br2O2",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Olein kislota bromli suvni rangsizlantiradimi?",
+     "ok": "Ha",
+     "no": [
+      "Yo'q",
+      "Faqat qizdirilganda",
+      "Faqat yorug'likda"
+     ],
+     "w": "Molekulada qo'shbog' bor: brom birikadi.",
+     "uses": [
+      "olein kislota"
+     ],
+     "trap": {
+      "opt": "Yo'q",
+      "why": "Stearin kislota rangsizlantirmaydi, olein esa qo'shbog'li."
+     }
+    },
+    {
+     "p": "Olein kislotadan stearin kislota olish qanday reaksiya?",
+     "ok": "Gidrogenlash",
+     "no": [
+      "Degidratlash",
+      "Oksidlanish",
+      "Eterifikatsiya"
+     ],
+     "w": "Vodorod qo'shbog'ga birikadi (suyuq yog'dan qattiq yog' olish asosi).",
+     "uses": [
+      "olein kislota"
+     ],
+     "trap": {
+      "opt": "Oksidlanish",
+      "why": "Oksidlanishda qo'shbog' uziladi, gidrogenlashda to'yinadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "HX va boshqa birikishlar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Akril kislotaga HBr ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "HBr"
+     ],
+     "pr": [
+      "C3H5BrO2"
+     ],
+     "ans": "C3H4O2+HBr→C3H5BrO2",
+     "w": "Vodorod va brom qo'shbog'ga birikadi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakril kislotaga HCl ta'sir ettiring",
+     "re": [
+      "C4H6O2",
+      "HCl"
+     ],
+     "pr": [
+      "C4H7ClO2"
+     ],
+     "ans": "C4H6O2+HCl→C4H7ClO2",
+     "w": "Vodorod va xlor qo'shbog'ga birikadi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "HX va boshqa birikishlar",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Akril kislotaga HBr birikkanda asosiy mahsulot qaysi?",
+     "ok": "3-brompropion kislota",
+     "no": [
+      "2-brompropion kislota",
+      "Propion kislota",
+      "Bromoetan"
+     ],
+     "w": "Karboksil elektron tortadi: Markovnikov qoidasiga teskari, brom chetki uglerodga.",
+     "uses": [
+      "akril kislota"
+     ],
+     "trap": {
+      "opt": "2-brompropion kislota",
+      "why": "Karboksil guruhi yo'nalishni o'zgartiradi: brom uzoqroq uglerodga birikadi."
+     }
+    },
+    {
+     "p": "Metakril kislotaga HBr birikkanda asosiy mahsulot qaysi?",
+     "ok": "3-brom-2-metilpropion kislota",
+     "no": [
+      "2-brom-2-metilpropion kislota",
+      "Brompropan",
+      "Metakril bromid"
+     ],
+     "w": "Karboksilning ta'siri tufayli brom CH₂ uglerodga birikadi.",
+     "uses": [
+      "metakril kislota"
+     ],
+     "trap": {
+      "opt": "2-brom-2-metilpropion kislota",
+      "why": "Bu oddiy Markovnikov natijasi, ammo karboksil uni teskari qiladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "HX va boshqa birikishlar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Akril kislotaga HCN ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "HCN"
+     ],
+     "pr": [
+      "C4H5NO2"
+     ],
+     "ans": "C3H4O2+HCN→C4H5NO2",
+     "w": "CN guruhi qo'shbog'ning uzoq uglerodiga birikadi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Akril kislotaga ammiak ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "NH3"
+     ],
+     "pr": [
+      "C3H7NO2"
+     ],
+     "ans": "C3H4O2+NH3→C3H7NO2",
+     "w": "Ammiak qo'shbog'ga birikadi: β-alanin.",
+     "uses": [
+      "akril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-1",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Akril kislotaga NaOH eritmasi ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H3NaO2",
+      "H2O"
+     ],
+     "ans": "C3H4O2+NaOH→C3H3NaO2+H2O",
+     "w": "Natriy akrilat hosil bo'ladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakril kislotaga KOH eritmasi ta'sir ettiring",
+     "re": [
+      "C4H6O2",
+      "KOH"
+     ],
+     "pr": [
+      "C4H5KO2",
+      "H2O"
+     ],
+     "ans": "C4H6O2+KOH→C4H5KO2+H2O",
+     "w": "Kaliy metakrilat hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-2",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Akril kislota va metanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C3H4O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C4H6O2",
+      "H2O"
+     ],
+     "ans": "C3H4O2+CH3OH→C4H6O2+H2O",
+     "w": "Metil akrilat hosil bo'ladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Metakril kislota va metanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C4H6O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C5H8O2",
+      "H2O"
+     ],
+     "ans": "C4H6O2+CH3OH→C5H8O2+H2O",
+     "w": "Metilmetakrilat (organik shisha monomeri) hosil bo'ladi.",
+     "uses": [
+      "metakril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-3",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Akril kislotaga magniy ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "Mg"
+     ],
+     "pr": [
+      "C6H6MgO4",
+      "H2"
+     ],
+     "ans": "2C3H4O2+Mg→C6H6MgO4+H2",
+     "w": "Magniy akrilat va vodorod hosil bo'ladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Olein kislotaga NaOH ta'sir ettiring (sovun hosil bo'ladi)",
+     "re": [
+      "C18H34O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C18H33NaO2",
+      "H2O"
+     ],
+     "ans": "C18H34O2+NaOH→C18H33NaO2+H2O",
+     "w": "Natriy oleat: suyuq sovun.",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-4",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Akril kislotaga PCl₅ ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "PCl5"
+     ],
+     "pr": [
+      "C3H3ClO",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C3H4O2+PCl5→C3H3ClO+POCl3+HCl",
+     "w": "Akriloilxlorid hosil bo'ladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Akril kislotaga tionilxlorid ta'sir ettiring",
+     "re": [
+      "C3H4O2",
+      "SOCl2"
+     ],
+     "pr": [
+      "C3H3ClO",
+      "SO2",
+      "HCl"
+     ],
+     "ans": "C3H4O2+SOCl2→C3H3ClO+SO2+HCl",
+     "w": "Gazlar ajralib, akriloilxlorid hosil bo'ladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Akril kislotaning to'liq yonishini yozing",
+     "re": [
+      "C3H4O2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H4O2+3O2→3CO2+2H2O",
+     "w": "Kislorod: 6 + 2 − 2 = 6 atom, ya'ni 3 O₂.",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Olein kislotaning to'liq yonishini yozing",
+     "re": [
+      "C18H34O2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C18H34O2+51O2→36CO2+34H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Olein kislotaning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (qo'shbog' uziladi)",
+     "re": [
+      "C18H34O2",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C9H18O2",
+      "C9H16O4",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C18H34O2+8KMnO4+12H2SO4→5C9H18O2+5C9H16O4+8MnSO4+4K2SO4+12H2O",
+     "w": "Qo'shbog' uzilib pelargon va azelain kislotalar hosil bo'ladi.",
+     "uses": [
+      "olein kislota"
+     ]
+    },
+    {
+     "p": "Olein kislotaning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner)",
+     "re": [
+      "C18H34O2",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C18H36O4",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C18H34O2+2KMnO4+4H2O→3C18H36O4+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikki OH birikadi: dioksistearin kislota.",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Olein kislota neytral KMnO₄ bilan yumshoq oksidlansa, nima hosil bo'ladi?",
+     "ok": "Dioksistearin kislota",
+     "no": [
+      "Stearin kislota",
+      "Pelargon kislota",
+      "Natriy oleat"
+     ],
+     "w": "Qo'shbog'ga ikkita OH birikadi.",
+     "uses": [
+      "olein kislota"
+     ],
+     "trap": {
+      "opt": "Stearin kislota",
+      "why": "Stearin kislota gidrogenlashdan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Olein kislotaning qo'shbog'i kuchli oksidlovchi bilan nima bo'ladi?",
+     "ok": "Uzilib, ikkita kislota hosil qiladi",
+     "no": [
+      "Hech narsa bo'lmaydi",
+      "Stearin kislotaga aylanadi",
+      "Glitserin hosil bo'ladi"
+     ],
+     "w": "C=C uziladi va har uglerod COOH ga o'tadi.",
+     "uses": [
+      "olein kislota"
+     ],
+     "trap": {
+      "opt": "Stearin kislotaga aylanadi",
+      "why": "Bu qaytarilish: oksidlanishda emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "l-1",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metilmetakrilat polimeri qanday nom bilan ataladi?",
+     "ok": "Organik shisha (pleksiglas)",
+     "no": [
+      "Kapron",
+      "Polietilen",
+      "Neylon"
+     ],
+     "w": "Shaffof, sinmaydigan polimer.",
+     "uses": [
+      "metakril kislota"
+     ]
+    },
+    {
+     "p": "Akril kislotaning polimerlanishidan nima hosil bo'ladi?",
+     "ok": "Poliakril kislota",
+     "no": [
+      "Polietilen",
+      "Polistirol",
+      "Polivinilxlorid"
+     ],
+     "w": "Qo'shbog' ochilib zanjir hosil qiladi.",
+     "uses": [
+      "akril kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-2",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Molyar massasi 100 000 g/mol bo'lgan polimetilmetakrilatning polimerlanish darajasi qancha (M(C₅H₈O₂) = 100)?",
+     "ok": "1000",
+     "no": [
+      "10 000",
+      "100",
+      "500"
+     ],
+     "w": "100 000 : 100 = 1000.",
+     "uses": [
+      "metakril kislota"
+     ],
+     "trap": {
+      "opt": "10 000",
+      "why": "Nol xatosi. 100 000 : 100 = 1000."
+     }
+    },
+    {
+     "p": "Poliakril kislotaning polimerlanish darajasi 200 bo'lsa, molyar massasi qancha (M(C₃H₄O₂) = 72)?",
+     "ok": "14 400",
+     "no": [
+      "1 440",
+      "7 200",
+      "28 800"
+     ],
+     "w": "200 · 72 = 14 400.",
+     "uses": [
+      "akril kislota"
+     ],
+     "trap": {
+      "opt": "7 200",
+      "why": "Bu 100 · 72. Daraja 200."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C3H6O",
+      "CuO"
+     ],
+     "pr": [
+      "C3H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H6O+CuO→C3H4O+Cu+H2O",
+     "w": "Allil spirt akroleinga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C3H6O",
+       "C3H4O",
+       "C3H4O2",
+       "C5H8O2"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (degidrogenlash)",
+     "re": [
+      "C18H36O2"
+     ],
+     "pr": [
+      "C18H34O2",
+      "H2"
+     ],
+     "ans": "C18H36O2→C18H34O2+H2",
+     "w": "Stearin kislotadan vodorod ajralib olein kislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C18H36O2",
+       "C18H34O2",
+       "C18H33KO2",
+       "C36H66CaO4"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (kumush oksidning ammiakli eritmasi)",
+     "re": [
+      "C3H4O",
+      "Ag2O"
+     ],
+     "pr": [
+      "C3H4O2",
+      "Ag"
+     ],
+     "ans": "C3H4O+Ag2O→C3H4O2+2Ag",
+     "w": "Aldegid kislotaga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C3H6O",
+       "C3H4O",
+       "C3H4O2",
+       "C5H8O2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C18H34O2",
+      "KOH"
+     ],
+     "pr": [
+      "C18H33KO2",
+      "H2O"
+     ],
+     "ans": "C18H34O2+KOH→C18H33KO2+H2O",
+     "w": "Kaliy oleat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C18H36O2",
+       "C18H34O2",
+       "C18H33KO2",
+       "C36H66CaO4"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (etanol, H₂SO₄)",
+     "re": [
+      "C3H4O2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C5H8O2",
+      "H2O"
+     ],
+     "ans": "C3H4O2+C2H5OH→C5H8O2+H2O",
+     "w": "Etil akrilat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C3H6O",
+       "C3H4O",
+       "C3H4O2",
+       "C5H8O2"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "akril kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (almashinish)",
+     "re": [
+      "C18H33KO2",
+      "CaCl2"
+     ],
+     "pr": [
+      "C36H66CaO4",
+      "KCl"
+     ],
+     "ans": "2C18H33KO2+CaCl2→C36H66CaO4+2KCl",
+     "w": "Kalsiy oleat cho'kmaga tushadi.",
+     "chain": {
+      "all": [
+       "C18H36O2",
+       "C18H34O2",
+       "C18H33KO2",
+       "C36H66CaO4"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "olein kislota"
+     ]
+    }
+   ]
+  }
+ ]
+}

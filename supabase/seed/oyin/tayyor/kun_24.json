@@ -1,0 +1,1026 @@
+{
+ "version": 2,
+ "day": 24,
+ "topic": "Aminokislotalar",
+ "substances": [
+  "glitsin",
+  "alanin"
+ ],
+ "slots": [
+  {
+   "slot": "n-1",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitsinning tuzilish formulasi qaysi?",
+     "ok": "H₂N–CH₂–COOH",
+     "no": [
+      "CH₃–CH(NH₂)–COOH",
+      "H₂N–CH₂–CH₂–COOH",
+      "CH₃–CH₂–NH₂"
+     ],
+     "w": "Eng oddiy aminokislota: aminosirka kislota.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "CH₃–CH(NH₂)–COOH",
+      "why": "Bu alanin: radikali CH₃."
+     }
+    },
+    {
+     "p": "Alaninning tuzilish formulasi qaysi?",
+     "ok": "CH₃–CH(NH₂)–COOH",
+     "no": [
+      "H₂N–CH₂–COOH",
+      "H₂N–CH₂–CH₂–COOH",
+      "CH₃–CH(OH)–COOH"
+     ],
+     "w": "α-aminopropion kislota.",
+     "uses": [
+      "alanin"
+     ],
+     "trap": {
+      "opt": "CH₃–CH(OH)–COOH",
+      "why": "Bu sut kislota: NH₂ o'rniga OH."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-2",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "α-aminokislotada aminoguruh qayerda joylashgan?",
+     "ok": "Karboksilga qo'shni (2-) uglerodda",
+     "no": [
+      "Oxirgi uglerodda",
+      "Karboksil uglerodida",
+      "3-uglerodda"
+     ],
+     "w": "Alfa holat: karboksildan keyingi birinchi uglerod.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "3-uglerodda",
+      "why": "3-holat β-aminokislotalarga xos."
+     }
+    },
+    {
+     "p": "C₃H₇NO₂ formulaga mos ikki aminokislota izomeri qaysilar?",
+     "ok": "α-alanin va β-alanin",
+     "no": [
+      "Alanin va glitsin",
+      "Alanin va valin",
+      "β-alanin va serin"
+     ],
+     "w": "NH₂ guruhi 2- yoki 3-holatda.",
+     "uses": [
+      "alanin"
+     ],
+     "trap": {
+      "opt": "Alanin va glitsin",
+      "why": "Glitsinning formulasi C₂H₅NO₂."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-3",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Quyidagi aminokislotalardan qaysi birida asimmetrik uglerod atomi yo'q?",
+     "ok": "Glitsin",
+     "no": [
+      "Alanin",
+      "Valin",
+      "Serin"
+     ],
+     "w": "Glitsinda α-uglerodda ikkita vodorod bor.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "Alanin",
+      "why": "Alaninda α-uglerodda H, NH₂, COOH, CH₃: to'rt xil o'rinbosar."
+     }
+    },
+    {
+     "p": "Alaninning nechta optik izomeri bor?",
+     "ok": "2 (D va L)",
+     "no": [
+      "1",
+      "3",
+      "4"
+     ],
+     "w": "Bitta asimmetrik uglerod: ikkita ko'zgusimon izomer.",
+     "uses": [
+      "alanin"
+     ],
+     "trap": {
+      "opt": "1",
+      "why": "Asimmetrik uglerod bor, shuning uchun ikkita izomer."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Bromsirka kislotaga ortiqcha ammiak ta'sir ettiring",
+     "re": [
+      "C2H3BrO2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5NO2",
+      "NH4Br"
+     ],
+     "ans": "C2H3BrO2+2NH3→C2H5NO2+NH4Br",
+     "w": "Brom aminoguruhga almashinadi: glitsin.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "2-xlorpropion kislotaga ortiqcha ammiak ta'sir ettiring",
+     "re": [
+      "C3H5ClO2",
+      "NH3"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "NH4Cl"
+     ],
+     "ans": "C3H5ClO2+2NH3→C3H7NO2+NH4Cl",
+     "w": "Xlor aminoguruhga almashinadi: alanin.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Aminoasetonitrilni to'liq gidrolizlang (H⁺, qizdirish)",
+     "re": [
+      "C2H4N2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H5NO2",
+      "NH3"
+     ],
+     "ans": "C2H4N2+2H2O→C2H5NO2+NH3",
+     "w": "Nitril COOH ga o'tadi: glitsin.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "2-aminobutironitrilni to'liq gidrolizlang (H⁺, qizdirish)",
+     "re": [
+      "C4H8N2",
+      "H2O"
+     ],
+     "pr": [
+      "C4H9NO2",
+      "NH3"
+     ],
+     "ans": "C4H8N2+2H2O→C4H9NO2+NH3",
+     "w": "2-aminobutan kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Nitrosirka kislotani vodorod bilan qaytaring",
+     "re": [
+      "C2H3NO4",
+      "H2"
+     ],
+     "pr": [
+      "C2H5NO2",
+      "H2O"
+     ],
+     "ans": "C2H3NO4+3H2→C2H5NO2+2H2O",
+     "w": "Nitro guruh aminoguruhga qaytariladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "2-nitropropion kislotani vodorod bilan qaytaring",
+     "re": [
+      "C3H5NO4",
+      "H2"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "H2O"
+     ],
+     "ans": "C3H5NO4+3H2→C3H7NO2+2H2O",
+     "w": "Alanin hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegid, ammiak va sianid kislota reaksiyasini yozing (Streker sintezi)",
+     "re": [
+      "C2H4O",
+      "NH3",
+      "HCN"
+     ],
+     "pr": [
+      "C3H6N2",
+      "H2O"
+     ],
+     "ans": "C2H4O+NH3+HCN→C3H6N2+H2O",
+     "w": "α-aminonitril hosil bo'ladi (keyin gidroliz bilan alanin).",
+     "uses": [
+      "alanin"
+     ]
+    },
+    {
+     "p": "Formaldegid, ammiak va sianid kislota reaksiyasini yozing (Streker)",
+     "re": [
+      "CH2O",
+      "NH3",
+      "HCN"
+     ],
+     "pr": [
+      "C2H4N2",
+      "H2O"
+     ],
+     "ans": "CH2O+NH3+HCN→C2H4N2+H2O",
+     "w": "Aminoasetonitril hosil bo'ladi (keyin gidroliz bilan glitsin).",
+     "uses": [
+      "glitsin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Amfoter xossa",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitsinga xlorid kislota ta'sir ettiring",
+     "re": [
+      "C2H5NO2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H6ClNO2"
+     ],
+     "ans": "C2H5NO2+HCl→C2H6ClNO2",
+     "w": "Aminoguruh proton biriktiradi: glitsin gidroxlorid.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alaninga bromid kislota ta'sir ettiring",
+     "re": [
+      "C3H7NO2",
+      "HBr"
+     ],
+     "pr": [
+      "C3H8BrNO2"
+     ],
+     "ans": "C3H7NO2+HBr→C3H8BrNO2",
+     "w": "Alanin gidrobromid hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Amfoter xossa",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glitsinga NaOH ta'sir ettiring",
+     "re": [
+      "C2H5NO2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H4NNaO2",
+      "H2O"
+     ],
+     "ans": "C2H5NO2+NaOH→C2H4NNaO2+H2O",
+     "w": "Karboksil neytrallanadi: natriy glitsinat.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alaninga KOH ta'sir ettiring",
+     "re": [
+      "C3H7NO2",
+      "KOH"
+     ],
+     "pr": [
+      "C3H6KNO2",
+      "H2O"
+     ],
+     "ans": "C3H7NO2+KOH→C3H6KNO2+H2O",
+     "w": "Kaliy alaninat hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Amfoter xossa",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitsinga soda (Na₂CO₃) ta'sir ettiring",
+     "re": [
+      "C2H5NO2",
+      "Na2CO3"
+     ],
+     "pr": [
+      "C2H4NNaO2",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H5NO2+Na2CO3→2C2H4NNaO2+CO2+H2O",
+     "w": "Karboksil guruhi karbonatni parchalaydi: CO₂ ajraladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alaninga magniy ta'sir ettiring",
+     "re": [
+      "C3H7NO2",
+      "Mg"
+     ],
+     "pr": [
+      "C6H12MgN2O4",
+      "H2"
+     ],
+     "ans": "2C3H7NO2+Mg→C6H12MgN2O4+H2",
+     "w": "Magniy alaninat va vodorod hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-4",
+   "group": "Amfoter xossa",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Aminokislotalar qanday xossaga ega?",
+     "ok": "Amfoter: kislota ham, asos ham xossasini ko'rsatadi",
+     "no": [
+      "Faqat kislotali",
+      "Faqat asosli",
+      "Neytral"
+     ],
+     "w": "Karboksil kislota, aminoguruh esa asos xossasini beradi.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "Faqat kislotali",
+      "why": "Aminoguruh asos xossasini ham beradi."
+     }
+    },
+    {
+     "p": "Aminokislotaning ichki tuzi (bipolyar ion) qanday yoziladi?",
+     "ok": "H₃N⁺–CH₂–COO⁻",
+     "no": [
+      "H₂N–CH₂–COOH (neytral)",
+      "H₃N⁺–CH₂–COOH",
+      "H₂N–CH₂–COO⁻"
+     ],
+     "w": "Proton karboksildan aminoguruhga o'tadi.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "H₂N–CH₂–COOH (neytral)",
+      "why": "Qattiq holatda va neytral eritmada bipolyar ion ko'proq."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "e-1",
+   "group": "Esterlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitsin va metanol reaksiyasini yozing (H⁺)",
+     "re": [
+      "C2H5NO2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "H2O"
+     ],
+     "ans": "C2H5NO2+CH3OH→C3H7NO2+H2O",
+     "w": "Glitsinning metil efiri hosil bo'ladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alanin va etanol reaksiyasini yozing (H⁺)",
+     "re": [
+      "C3H7NO2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C5H11NO2",
+      "H2O"
+     ],
+     "ans": "C3H7NO2+C2H5OH→C5H11NO2+H2O",
+     "w": "Alaninning etil efiri hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "e-2",
+   "group": "Esterlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitsin, etanol va HCl reaksiyasini yozing (efir gidroxloridi)",
+     "re": [
+      "C2H5NO2",
+      "C2H5OH",
+      "HCl"
+     ],
+     "pr": [
+      "C4H10ClNO2",
+      "H2O"
+     ],
+     "ans": "C2H5NO2+C2H5OH+HCl→C4H10ClNO2+H2O",
+     "w": "HCl aminoguruhni himoya qilib, efir tuzi hosil qiladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alanin, metanol va HCl reaksiyasini yozing (efir gidroxloridi)",
+     "re": [
+      "C3H7NO2",
+      "CH3OH",
+      "HCl"
+     ],
+     "pr": [
+      "C4H10ClNO2",
+      "H2O"
+     ],
+     "ans": "C3H7NO2+CH3OH+HCl→C4H10ClNO2+H2O",
+     "w": "Alanin metil efirining gidroxloridi hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "e-3",
+   "group": "Esterlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Aminokislota esterlanganda qaysi guruh efirga aylanadi?",
+     "ok": "Karboksil guruhi",
+     "no": [
+      "Aminoguruh",
+      "Ikkala guruh",
+      "Hech biri"
+     ],
+     "w": "Spirt –COOH bilan reaksiyaga kirishadi, aminoguruh saqlanadi.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "Aminoguruh",
+      "why": "Aminoguruh amid bog'i hosil qiladi, efir esa karboksildan."
+     }
+    },
+    {
+     "p": "Aminokislotani esterlashdan asosiy maqsad nima bo'lishi mumkin?",
+     "ok": "Karboksil guruhini himoya qilish (peptid sintezida)",
+     "no": [
+      "Aminoguruhni oksidlash",
+      "Halqa hosil qilish",
+      "Polimer olish"
+     ],
+     "w": "Efir shaklida karboksil boshqa reaksiyalarda qatnashmaydi.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "Halqa hosil qilish",
+      "why": "Halqa boshqa reaksiyalardan chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-1",
+   "group": "Peptid bog'i va oqsil gidrolizi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Ikki molekula alanindan dipeptid hosil bo'lishini yozing",
+     "re": [
+      "C3H7NO2"
+     ],
+     "pr": [
+      "C6H12N2O3",
+      "H2O"
+     ],
+     "ans": "2C3H7NO2→C6H12N2O3+H2O",
+     "w": "Karboksil va aminoguruh orasida peptid bog'i hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    },
+    {
+     "p": "Alanin va glitsindan dipeptid hosil bo'lishini yozing",
+     "re": [
+      "C3H7NO2",
+      "C2H5NO2"
+     ],
+     "pr": [
+      "C5H10N2O3",
+      "H2O"
+     ],
+     "ans": "C3H7NO2+C2H5NO2→C5H10N2O3+H2O",
+     "w": "Alanilglitsin hosil bo'ladi, suv ajraladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-2",
+   "group": "Peptid bog'i va oqsil gidrolizi",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Uch molekula glitsindan tripeptid hosil bo'lishini yozing",
+     "re": [
+      "C2H5NO2"
+     ],
+     "pr": [
+      "C6H11N3O4",
+      "H2O"
+     ],
+     "ans": "3C2H5NO2→C6H11N3O4+2H2O",
+     "w": "Ikkita peptid bog'i hosil bo'ladi: ikki molekula suv ajraladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Uch molekula alanindan tripeptid hosil bo'lishini yozing",
+     "re": [
+      "C3H7NO2"
+     ],
+     "pr": [
+      "C9H17N3O4",
+      "H2O"
+     ],
+     "ans": "3C3H7NO2→C9H17N3O4+2H2O",
+     "w": "Ikki molekula suv ajraladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-3",
+   "group": "Peptid bog'i va oqsil gidrolizi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Diglitsinning to'liq gidrolizini yozing",
+     "re": [
+      "C4H8N2O3",
+      "H2O"
+     ],
+     "pr": [
+      "C2H5NO2"
+     ],
+     "ans": "C4H8N2O3+H2O→2C2H5NO2",
+     "w": "Peptid bog'i uzilib ikki molekula glitsin hosil bo'ladi.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alanilglitsinning to'liq gidrolizini yozing",
+     "re": [
+      "C5H10N2O3",
+      "H2O"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "C2H5NO2"
+     ],
+     "ans": "C5H10N2O3+H2O→C3H7NO2+C2H5NO2",
+     "w": "Alanin va glitsin hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-4",
+   "group": "Peptid bog'i va oqsil gidrolizi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Peptid bog'i qaysi guruhdan iborat?",
+     "ok": "–CO–NH–",
+     "no": [
+      "–CO–O–",
+      "–NH–NH–",
+      "–CH=N–"
+     ],
+     "w": "Amid guruhi: bitta aminokislotaning COOH i boshqasining NH₂ si bilan.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "–CO–O–",
+      "why": "Bu murakkab efir bog'i."
+     }
+    },
+    {
+     "p": "Oqsilning to'liq gidrolizidan nima hosil bo'ladi?",
+     "ok": "α-aminokislotalar aralashmasi",
+     "no": [
+      "Glyukoza",
+      "Yog' kislotalari",
+      "Glitserin"
+     ],
+     "w": "Barcha peptid bog'lari uziladi.",
+     "uses": [
+      "glitsin"
+     ],
+     "trap": {
+      "opt": "Glyukoza",
+      "why": "Glyukoza polisaxaridlar gidrolizida hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "d-1",
+   "group": "Dezaminlash va dekarboksillanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitsinga nitrit kislota ta'sir ettiring",
+     "re": [
+      "C2H5NO2",
+      "HNO2"
+     ],
+     "pr": [
+      "C2H4O3",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C2H5NO2+HNO2→C2H4O3+N2+H2O",
+     "w": "NH₂ guruh OH ga almashinadi: glikol kislota.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alaninga nitrit kislota ta'sir ettiring",
+     "re": [
+      "C3H7NO2",
+      "HNO2"
+     ],
+     "pr": [
+      "C3H6O3",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C3H7NO2+HNO2→C3H6O3+N2+H2O",
+     "w": "Sut kislota hosil bo'ladi, azot ajraladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-2",
+   "group": "Dezaminlash va dekarboksillanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitsinning dekarboksillanishini yozing (Ba(OH)₂, qizdirish)",
+     "re": [
+      "C2H5NO2"
+     ],
+     "pr": [
+      "CH5N",
+      "CO2"
+     ],
+     "ans": "C2H5NO2→CH5N+CO2",
+     "w": "Karboksil CO₂ holida ajraladi: metilamin.",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Alaninning dekarboksillanishini yozing (qizdirish)",
+     "re": [
+      "C3H7NO2"
+     ],
+     "pr": [
+      "C2H7N",
+      "CO2"
+     ],
+     "ans": "C3H7NO2→C2H7N+CO2",
+     "w": "Etilamin hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-3",
+   "group": "Dezaminlash va dekarboksillanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Alaninning dezaminlanishini yozing (ammiak ajraladi): akril kislota",
+     "re": [
+      "C3H7NO2"
+     ],
+     "pr": [
+      "C3H4O2",
+      "NH3"
+     ],
+     "ans": "C3H7NO2→C3H4O2+NH3",
+     "w": "Aminoguruh va qo'shni vodorod ajralib qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "alanin"
+     ]
+    },
+    {
+     "p": "Valinning dezaminlanishini yozing (ammiak ajraladi)",
+     "re": [
+      "C5H11NO2"
+     ],
+     "pr": [
+      "C5H8O2",
+      "NH3"
+     ],
+     "ans": "C5H11NO2→C5H8O2+NH3",
+     "w": "To'yinmagan kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (qizil fosfor)",
+     "re": [
+      "C2H4O2",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H3ClO2",
+      "HCl"
+     ],
+     "ans": "C2H4O2+Cl2→C2H3ClO2+HCl",
+     "w": "α-holatda xlorlash.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO2",
+       "C2H5NO2",
+       "C4H8N2O3"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (sirka aldegid va ammiak)",
+     "re": [
+      "C2H4O",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5N",
+      "H2O"
+     ],
+     "ans": "C2H4O+NH3→C2H5N+H2O",
+     "w": "Imin hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5N",
+       "C3H6N2",
+       "C3H7NO2"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (ortiqcha ammiak)",
+     "re": [
+      "C2H3ClO2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5NO2",
+      "NH4Cl"
+     ],
+     "ans": "C2H3ClO2+2NH3→C2H5NO2+NH4Cl",
+     "w": "Xlor aminoguruhga almashinadi: glitsin.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO2",
+       "C2H5NO2",
+       "C4H8N2O3"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (sianid kislota)",
+     "re": [
+      "C2H5N",
+      "HCN"
+     ],
+     "pr": [
+      "C3H6N2"
+     ],
+     "ans": "C2H5N+HCN→C3H6N2",
+     "w": "α-aminonitril hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5N",
+       "C3H6N2",
+       "C3H7NO2"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (peptid bog'i)",
+     "re": [
+      "C2H5NO2"
+     ],
+     "pr": [
+      "C4H8N2O3",
+      "H2O"
+     ],
+     "ans": "2C2H5NO2→C4H8N2O3+H2O",
+     "w": "Diglitsin hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO2",
+       "C2H5NO2",
+       "C4H8N2O3"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "glitsin"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (H⁺, qizdirish)",
+     "re": [
+      "C3H6N2",
+      "H2O"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "NH3"
+     ],
+     "ans": "C3H6N2+2H2O→C3H7NO2+NH3",
+     "w": "Nitril COOH ga gidrolizlanadi: alanin.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C2H5N",
+       "C3H6N2",
+       "C3H7NO2"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "alanin"
+     ]
+    }
+   ]
+  }
+ ]
+}

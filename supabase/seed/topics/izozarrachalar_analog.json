@@ -1,0 +1,122 @@
+[
+ {
+  "example_number": 1,
+  "analog_savol": "Quyidagi atomlardan qaysi biri ³⁵Cl atomiga izotop bo'ladi? (tartib raqamlari: S-16, Cl-17, Ar-18, K-19)\nA) ³⁵S\nB) ³⁷Cl\nC) ⁴⁰Ar\nD) ³⁹K",
+  "analog_yechim": "Izotoplarning protonlar soni (tartib raqami) bir xil bo'ladi, ya'ni ular bir elementning atomlari. ³⁵Cl va ³⁷Cl ning tartib raqami 17.",
+  "analog_javob": "B) ³⁷Cl"
+ },
+ {
+  "example_number": 2,
+  "analog_savol": "Uglerod izotoplari ¹²C, ¹³C va ¹⁴C tarkibidagi elektronlar yig'indisini toping.\nA) 18\nB) 6\nC) 12\nD) 39",
+  "analog_yechim": "Protonlar soni (tartib raqami) o'zgarmaydi, neytral atomda elektron ham 6 ta. Uchta izotopda: 6 + 6 + 6 = 18.",
+  "analog_javob": "A) 18"
+ },
+ {
+  "example_number": 3,
+  "analog_savol": "Izobarlarning qaysi xususiyatlari turlicha bo'ladi?\n1) atom massasi; 2) protonlar soni; 3) neytronlar soni; 4) massa soni\nA) 1, 2\nB) 1, 4\nC) 2, 3\nD) 3, 4",
+  "analog_yechim": "Izobarlarda atom massasi (massa soni) bir xil. Massa soni = p + n bo'lgani uchun protonlar va neytronlar soni turlicha bo'ladi.",
+  "analog_javob": "C) 2, 3"
+ },
+ {
+  "example_number": 4,
+  "analog_savol": "Na⁺, O²⁻ va N³⁻ tarkibida qaysi zarrachalar soni o'zaro teng? (Na: A=23, Z=11; O: A=16, Z=8; N: A=14, Z=7)\nA) neytronlar\nB) protonlar\nC) massa soni\nD) elektronlar",
+  "analog_yechim": "Na⁺: e = 11 − 1 = 10; O²⁻: e = 8 + 2 = 10; N³⁻: e = 7 + 3 = 10. Protonlar 11, 8, 7; neytronlar 12, 8, 7; massa soni 23, 16, 14: farqli. Teng bo'lgani elektronlar soni.",
+  "analog_javob": "D) elektronlar"
+ },
+ {
+  "example_number": 5,
+  "analog_savol": "Massa sonlari bir xil, yadro zaryadlari turlicha bo'lgan atomlar qanday umumiy nom bilan ataladi?\nA) izobarlar\nB) izotoplar\nC) izotonlar\nD) izoelektronlar",
+  "analog_yechim": "Izobarlarda atom massasi bir xil, yadro zaryadi (proton soni) har xil bo'ladi. Izotoplarda proton, izotonlarda neytron, izoelektronlarda elektron soni bir xil.",
+  "analog_javob": "A) izobarlar"
+ },
+ {
+  "example_number": 6,
+  "analog_savol": "Izobarlar joylashgan qatorni ko'rsating.\nA) ³²S, ³³S, ³⁴S\nB) ¹²C, ¹⁴N, ¹⁶O\nC) ⁴⁰Ar, ³⁹K, ³⁷Cl\nD) ⁵⁰Ti, ⁵⁰V, ⁵⁰Cr",
+  "analog_yechim": "Izobar: atom massalari bir xil. ⁵⁰Ti, ⁵⁰V, ⁵⁰Cr qatorida hammasi 50. Boshqa qatorlarda massalar har xil; ³²S, ³³S, ³⁴S izotoplar.",
+  "analog_javob": "D) ⁵⁰Ti, ⁵⁰V, ⁵⁰Cr"
+ },
+ {
+  "example_number": 7,
+  "analog_savol": "Izobarlarni tanlang.\n1) ⁴⁰Ca; 2) ³⁹K; 3) ⁴⁰Ar; 4) ³⁵Cl; 5) ⁴⁰K; 6) ³⁷Cl\nA) 1, 3, 5\nB) 2, 4\nC) 4, 6\nD) 1, 2, 3",
+  "analog_yechim": "Izobar: massa soni bir xil. 40 raqami 1-, 3- va 5-zarrachada bor (⁴⁰Ca, ⁴⁰Ar, ⁴⁰K).",
+  "analog_javob": "A) 1, 3, 5"
+ },
+ {
+  "example_number": 8,
+  "analog_savol": "Izotonlar keltirilgan qatorni belgilang.\nA) ¹⁶O (Z=8) va ¹⁹F (Z=9)\nB) ³⁵Cl (Z=17) va ³⁷Cl (Z=17)\nC) ³⁹K (Z=19) va ⁴⁰Ca (Z=20)\nD) ²³Na (Z=11) va ²⁷Al (Z=13)",
+  "analog_yechim": "Neytronlar soni N = A − Z. Na: 23 − 11 = 12, Al: 27 − 13 = 14 (teng emas). O: 8, F: 10. Cl: 18 va 20. K: 39 − 19 = 20, Ca: 40 − 20 = 20. Neytronlari teng qator: ³⁹K va ⁴⁰Ca.",
+  "analog_javob": "C) ³⁹K (Z=19) va ⁴⁰Ca (Z=20)"
+ },
+ {
+  "example_number": 9,
+  "analog_savol": "Atomlarni mos ravishda a) izotop; b) izoton; c) izobarlarga ajrating.\n1) ⁴⁰Ar (Z=18); 2) ⁴⁰Ca (Z=20); 3) ⁴²Ca (Z=20)\nA) a) 1, 2; b) 2, 3; c) 1, 3\nB) a) 2, 3; b) 1, 3; c) 1, 2\nC) a) 1, 3; b) 1, 2; c) 2, 3\nD) a) 1, 2; b) 1, 3; c) 2, 3",
+  "analog_yechim": "Neytronlar: 1) 40 − 18 = 22; 2) 40 − 20 = 20; 3) 42 − 20 = 22. Izotop (Z bir xil): 2 va 3. Izoton (N bir xil): 1 va 3. Izobar (A bir xil): 1 va 2.",
+  "analog_javob": "B) a) 2, 3; b) 1, 3; c) 1, 2"
+ },
+ {
+  "example_number": 10,
+  "analog_savol": "Izotonlar keltirilgan qatorni toping.\nA) ¹²C, ¹³C, ¹⁴C\nB) ¹⁴C (Z=6) va ¹⁴N (Z=7)\nC) ²⁴Mg (Z=12) va ²⁸Si (Z=14)\nD) ¹⁸O (Z=8), ¹⁹F (Z=9), ²⁰Ne (Z=10)",
+  "analog_yechim": "Neytron = A − Z. ¹⁸O: 10; ¹⁹F: 10; ²⁰Ne: 10: hammasida teng. Izotonlar neytronlari bir xil atomlar. ¹²C, ¹³C, ¹⁴C izotop; ¹⁴C va ¹⁴N izobar; Mg: 12, Si: 14 teng emas.",
+  "analog_javob": "D) ¹⁸O (Z=8), ¹⁹F (Z=9), ²⁰Ne (Z=10)"
+ },
+ {
+  "example_number": 11,
+  "analog_savol": "Atomlarni mos ravishda a) izotop; b) izoton; c) izobarlarga ajrating.\n1) ²⁸Si (Z=14); 2) ²⁹Si (Z=14); 3) ²⁹P (Z=15)\nA) a) 1, 3; b) 1, 2; c) 2, 3\nB) a) 1, 2; b) 2, 3; c) 1, 3\nC) a) 1, 2; b) 1, 3; c) 2, 3\nD) a) 2, 3; b) 1, 2; c) 1, 3",
+  "analog_yechim": "Neytronlar: 1) 28 − 14 = 14; 2) 29 − 14 = 15; 3) 29 − 15 = 14. Izotop (Z bir xil): 1 va 2. Izoton (N bir xil): 1 va 3. Izobar (A bir xil): 2 va 3.",
+  "analog_javob": "C) a) 1, 2; b) 1, 3; c) 2, 3"
+ },
+ {
+  "example_number": 12,
+  "analog_savol": "Izotonlarning qaysi xususiyati bir xil bo'ladi?\n1) protonlar soni; 2) neytronlar soni; 3) massa soni; 4) elektronlar soni\nA) faqat 1\nB) faqat 2\nC) 1 va 2\nD) 2 va 3",
+  "analog_yechim": "Izotonlarda faqat neytronlar soni bir xil. Protonlar, massa soni va elektronlar soni turlicha.",
+  "analog_javob": "B) faqat 2"
+ },
+ {
+  "example_number": 13,
+  "analog_savol": "Elektronlar soni bir xil bo'lgan zarrachalarni aniqlang.\n1) Ca²⁺; 2) Cl⁻; 3) Na⁺; 4) S²⁻; 5) K⁺\nA) 1, 2, 4, 5\nB) 1, 2, 3\nC) 2, 3, 4\nD) 1, 3, 5",
+  "analog_yechim": "Ca²⁺: 20 − 2 = 18; Cl⁻: 17 + 1 = 18; Na⁺: 11 − 1 = 10; S²⁻: 16 + 2 = 18; K⁺: 19 − 1 = 18. Na⁺ ajralib turadi.",
+  "analog_javob": "A) 1, 2, 4, 5"
+ },
+ {
+  "example_number": 14,
+  "analog_savol": "Quyidagi qatorlardan qaysi birida hamma ionlar izoelektron?\nA) Li⁺, Na⁺, K⁺\nB) Mg²⁺, O²⁻, Cl⁻\nC) Fe²⁺, Na⁺, F⁻\nD) Mg²⁺, O²⁻, F⁻",
+  "analog_yechim": "Mg²⁺: 12 − 2 = 10; O²⁻: 8 + 2 = 10; F⁻: 9 + 1 = 10. Boshqa qatorlarda sonlar turlicha: Li⁺ 2, Na⁺ 10, K⁺ 18; Cl⁻ 18; Fe²⁺ 24.",
+  "analog_javob": "D) Mg²⁺, O²⁻, F⁻"
+ },
+ {
+  "example_number": 15,
+  "analog_savol": "Elektronlar soni bir xil bo'lgan ionlarni ko'rsating.\n1) Fe³⁺; 2) Mn²⁺; 3) Cr²⁺; 4) Co³⁺; 5) V²⁺\nA) 1 va 2\nB) 2 va 3\nC) 3 va 4\nD) 4 va 5",
+  "analog_yechim": "Fe³⁺: 26 − 3 = 23; Mn²⁺: 25 − 2 = 23; Cr²⁺: 24 − 2 = 22; Co³⁺: 27 − 3 = 24; V²⁺: 23 − 2 = 21. Teng bo'lgani 1 va 2.",
+  "analog_javob": "A) 1 va 2"
+ },
+ {
+  "example_number": 16,
+  "analog_savol": "Izotoplarga oid to'g'ri fikrlarni aniqlang.\n1) protonlar soni bir xil; 2) neytronlar soni bir xil; 3) elektronlar soni bir xil; 4) massa sonlari turlicha; 5) yadro zaryadi turlicha\nA) 1, 2, 3\nB) 1, 3, 4\nC) 2, 4, 5\nD) 1, 4, 5",
+  "analog_yechim": "Izotoplarda proton soni (yadro zaryadi) va elektron soni bir xil, neytron soni va massa soni turlicha.",
+  "analog_javob": "B) 1, 3, 4"
+ },
+ {
+  "example_number": 17,
+  "analog_savol": "Izotoplarning qaysi xususiyatlari turlicha bo'ladi?\n1) protonlar soni; 2) neytronlar soni; 3) elektronlar soni; 4) yadro zaryadi; 5) massa soni\nA) 1, 4\nB) 1, 2, 5\nC) 2, 5\nD) 2, 3, 5",
+  "analog_yechim": "Izotoplarda protonlar, elektronlar soni va yadro zaryadi bir xil. Turlicha bo'lganlari: neytronlar soni va massa soni.",
+  "analog_javob": "C) 2, 5"
+ },
+ {
+  "example_number": 18,
+  "analog_savol": "Qaysi atom ³⁹K (Z=19) uchun izotop ham, izobar ham, izoton ham emas? (Z: Ar-18, Ca-20, Cl-17)\nA) ⁴¹K\nB) ³⁹Ar\nC) ⁴⁰Ca\nD) ³⁵Cl",
+  "analog_yechim": "⁴¹K: Z bir xil, izotop. ³⁹Ar: massa 39, izobar. ⁴⁰Ca: N = 40 − 20 = 20, ³⁹K da N = 39 − 19 = 20, izoton. ³⁵Cl: Z = 17, A = 35, N = 18: hech biriga kirmaydi.",
+  "analog_javob": "D) ³⁵Cl"
+ },
+ {
+  "example_number": 19,
+  "analog_savol": "Izotop va izobar juftliklarni toping.\n1) ³⁹K (Z=19); 2) ⁴⁰K (Z=19); 3) ⁴⁰Ca (Z=20)\nA) izotop: 2, 3; izobar: 1, 2\nB) izotop: 1, 2; izobar: 1, 3\nC) izotop: 1, 2; izobar: 2, 3\nD) izotop: 1, 3; izobar: 2, 3",
+  "analog_yechim": "Izotop: protonlari bir xil, 1 va 2 (ikkalasi kaliy). Izobar: massa soni bir xil (40), 2 va 3.",
+  "analog_javob": "C) izotop: 1, 2; izobar: 2, 3"
+ },
+ {
+  "example_number": 20,
+  "analog_savol": "Jadvalga qarab noto'g'ri fikrni aniqlang. X⁻ (p=9, n=10); Y⁺ (p=11, n=12); Z²⁺ (p=12, n=12); T (p=9, n=9).\nA) X⁻ va Y⁺ o'zaro izobar\nB) X⁻ va Y⁺ o'zaro izoelektron\nC) X⁻ va T o'zaro izotop\nD) Y⁺ va Z²⁺ o'zaro izoton",
+  "analog_yechim": "Elektronlar: X⁻ 10, Y⁺ 10: izoelektron (to'g'ri). X va T ning protonlari 9: izotop (to'g'ri). Y⁺ va Z²⁺ da n = 12: izoton (to'g'ri). Massa soni X: 19, Y: 23, izobar emas. Noto'g'ri fikr: X⁻ va Y⁺ izobar.",
+  "analog_javob": "A) X⁻ va Y⁺ o'zaro izobar"
+ }
+]

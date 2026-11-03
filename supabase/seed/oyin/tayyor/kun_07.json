@@ -1,0 +1,1043 @@
+{
+ "version": 2,
+ "day": 7,
+ "topic": "Bir atomli to'yingan spirtlar",
+ "substances": [
+  "metanol",
+  "etanol",
+  "propanol"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenning gidratlanishini yozing (H₃PO₄, 300 °C)",
+     "re": [
+      "C2H4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H5OH"
+     ],
+     "ans": "C2H4+H2O→C2H5OH",
+     "w": "Suv qo'shbog'ga birikadi: etanol.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Propenning gidratlanishini yozing (H₃PO₄, qizdirish)",
+     "re": [
+      "C3H6",
+      "H2O"
+     ],
+     "pr": [
+      "C3H7OH"
+     ],
+     "ans": "C3H6+H2O→C3H7OH",
+     "w": "Markovnikov: asosiy mahsulot propanol-2.",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Bromoetanga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C2H5Br",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H5OH",
+      "NaBr"
+     ],
+     "ans": "C2H5Br+NaOH→C2H5OH+NaBr",
+     "w": "Brom OH ga almashinadi: etanol.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Xlormetanga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "CH3Cl",
+      "NaOH"
+     ],
+     "pr": [
+      "CH3OH",
+      "NaCl"
+     ],
+     "ans": "CH3Cl+NaOH→CH3OH+NaCl",
+     "w": "Xlor OH ga almashinadi: metanol.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka aldegidni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C2H4O",
+      "H2"
+     ],
+     "pr": [
+      "C2H6O"
+     ],
+     "ans": "C2H4O+H2→C2H6O",
+     "w": "Karbonil guruh spirtga qaytariladi: etanol.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Formaldegidni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "CH2O",
+      "H2"
+     ],
+     "pr": [
+      "CH4O"
+     ],
+     "ans": "CH2O+H2→CH4O",
+     "w": "Formaldegid metanolga qaytariladi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sanoatda etilendan etanol olishda qaysi katalizator ishlatiladi?",
+     "ok": "H₃PO₄",
+     "no": [
+      "Ni",
+      "KMnO₄",
+      "AlCl₃"
+     ],
+     "w": "Fosfor kislota katalizator, gidratlanish 300 °C da boradi.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Ni",
+      "why": "Ni gidrogenlash uchun, gidratlash uchun emas."
+     }
+    },
+    {
+     "p": "Sanoatda metanol qaysi gazlar aralashmasidan olinadi?",
+     "ok": "CO va H₂",
+     "no": [
+      "CO₂ va H₂",
+      "CH₄ va O₂",
+      "C va H₂O"
+     ],
+     "w": "CO + 2H₂ → CH₃OH (katalizator, bosim).",
+     "uses": [
+      "metanol"
+     ],
+     "trap": {
+      "opt": "CO₂ va H₂",
+      "why": "Sanoat usuli uglerod(II) oksid va vodoroddan: CO + 2H₂."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sintez-gazdan metanol olishni yozing (ZnO, Cr₂O₃, bosim)",
+     "re": [
+      "CO",
+      "H2"
+     ],
+     "pr": [
+      "CH3OH"
+     ],
+     "ans": "CO+2H2→CH3OH",
+     "w": "Bitta CO ga ikki H₂ birikadi.",
+     "uses": [
+      "metanol"
+     ]
+    },
+    {
+     "p": "Glyukozaning spirtli bijg'ishini yozing (achitqi)",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C2H5OH",
+      "CO2"
+     ],
+     "ans": "C6H12O6→2C2H5OH+2CO2",
+     "w": "Glyukozadan ikki etanol va ikki CO₂ hosil bo'ladi.",
+     "uses": [
+      "etanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etil atsetatga NaOH ta'sir ettiring (gidroliz)",
+     "re": [
+      "C4H8O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+NaOH→C2H3NaO2+C2H5OH",
+     "w": "Murakkab efir ishqorda spirt va tuzga ajraladi.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metil formiatga NaOH ta'sir ettiring (gidroliz)",
+     "re": [
+      "C2H4O2",
+      "NaOH"
+     ],
+     "pr": [
+      "CHNaO2",
+      "CH3OH"
+     ],
+     "ans": "C2H4O2+NaOH→CHNaO2+CH3OH",
+     "w": "Gidrolizdan metanol va natriy formiat hosil bo'ladi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glyukozaning spirtli bijg'ishidan qaysi moddalar hosil bo'ladi?",
+     "ok": "Etanol va CO₂",
+     "no": [
+      "Metanol va CO₂",
+      "Sirka kislota va H₂O",
+      "Etanol va O₂"
+     ],
+     "w": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Metanol va CO₂",
+      "why": "Bijg'ishda metanol emas, etanol hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Metanolning boshqa nomi qaysi?",
+     "ok": "Yog'och spirti",
+     "no": [
+      "Vino spirti",
+      "Glikol",
+      "Glitserin"
+     ],
+     "w": "Metanol qadimda yog'ochni quruq haydashdan olingan.",
+     "uses": [
+      "metanol"
+     ],
+     "trap": {
+      "opt": "Vino spirti",
+      "why": "Vino spirti etanol. Metanol zaharli."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "OH hisobiga (metallar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolga natriy ta'sir ettiring",
+     "re": [
+      "C2H5OH",
+      "Na"
+     ],
+     "pr": [
+      "C2H5ONa",
+      "H2"
+     ],
+     "ans": "2C2H5OH+2Na→2C2H5ONa+H2",
+     "w": "OH vodorodi natriyga almashinadi: natriy etilat.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metanolga kaliy ta'sir ettiring",
+     "re": [
+      "CH3OH",
+      "K"
+     ],
+     "pr": [
+      "CH3OK",
+      "H2"
+     ],
+     "ans": "2CH3OH+2K→2CH3OK+H2",
+     "w": "Kaliy metilat va vodorod hosil bo'ladi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "OH hisobiga (metallar)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etanolga alyuminiy ta'sir ettiring (qizdirish)",
+     "re": [
+      "C2H5OH",
+      "Al"
+     ],
+     "pr": [
+      "(C2H5O)3Al",
+      "H2"
+     ],
+     "ans": "6C2H5OH+2Al→2(C2H5O)3Al+3H2",
+     "w": "Alyuminiy etilat: har metall atomiga uchta OH.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Propanolga magniy ta'sir ettiring (qizdirish)",
+     "re": [
+      "C3H7OH",
+      "Mg"
+     ],
+     "pr": [
+      "(C3H7O)2Mg",
+      "H2"
+     ],
+     "ans": "2C3H7OH+Mg→(C3H7O)2Mg+H2",
+     "w": "Magniy propilat hosil bo'ladi.",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "OH hisobiga (metallar)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Natriy etilat suvda erisa, qaysi moddalar hosil bo'ladi?",
+     "ok": "Etanol va NaOH",
+     "no": [
+      "Etilen va NaOH",
+      "Dietil efir",
+      "Sirka kislota"
+     ],
+     "w": "Alkogolyatlar suv bilan to'liq gidrolizlanadi: spirt ortiq kuchsiz kislota.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Dietil efir",
+      "why": "Efir hosil bo'lishi uchun H₂SO₄ va qizdirish kerak, suvda emas."
+     }
+    },
+    {
+     "p": "Etanol quyidagilardan qaysi biri bilan reaksiyaga kirishmaydi?",
+     "ok": "NaOH",
+     "no": [
+      "Na",
+      "K",
+      "Ca"
+     ],
+     "w": "Spirt kuchsiz kislota: ishqor bilan reaksiya yo'q, faol metall bilan bor.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Na",
+      "why": "Natriy etanol bilan reaksiyaga kirishib vodorod chiqaradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "OH almashinishi (HX)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolga HBr ta'sir ettiring (H₂SO₄, qizdirish)",
+     "re": [
+      "C2H5OH",
+      "HBr"
+     ],
+     "pr": [
+      "C2H5Br",
+      "H2O"
+     ],
+     "ans": "C2H5OH+HBr→C2H5Br+H2O",
+     "w": "OH brom bilan almashinadi.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metanolga HCl ta'sir ettiring (ZnCl₂, qizdirish)",
+     "re": [
+      "CH3OH",
+      "HCl"
+     ],
+     "pr": [
+      "CH3Cl",
+      "H2O"
+     ],
+     "ans": "CH3OH+HCl→CH3Cl+H2O",
+     "w": "OH xlorga almashinadi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "OH almashinishi (HX)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etanolga fosfor(V) xlorid ta'sir ettiring",
+     "re": [
+      "C2H5OH",
+      "PCl5"
+     ],
+     "pr": [
+      "C2H5Cl",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C2H5OH+PCl5→C2H5Cl+POCl3+HCl",
+     "w": "PCl₅ OH ni xlorga almashtiradi.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Etanolga tionilxlorid (SOCl₂) ta'sir ettiring",
+     "re": [
+      "C2H5OH",
+      "SOCl2"
+     ],
+     "pr": [
+      "C2H5Cl",
+      "SO2",
+      "HCl"
+     ],
+     "ans": "C2H5OH+SOCl2→C2H5Cl+SO2+HCl",
+     "w": "Gazlar ajralib chiqib reaksiya oxirigacha ketadi.",
+     "uses": [
+      "etanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "OH almashinishi (HX)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Propanol-2 ga HBr ta'sir ettirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "2-brompropan",
+     "no": [
+      "1-brompropan",
+      "Propen",
+      "Propanal"
+     ],
+     "w": "OH shu uglerodning o'zida brom bilan almashinadi.",
+     "uses": [
+      "propanol"
+     ],
+     "trap": {
+      "opt": "1-brompropan",
+      "why": "Almashinishda uglerod skeleti va o'rni o'zgarmaydi: OH qaysi uglerodda bo'lsa, brom shu yerda."
+     }
+    },
+    {
+     "p": "Etanolning HBr bilan reaksiyasi qanday tur?",
+     "ok": "Almashinish",
+     "no": [
+      "Birikish",
+      "Eliminatsiya",
+      "Polimerlanish"
+     ],
+     "w": "OH guruhi bromga almashinadi, suv ajraladi.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Eliminatsiya",
+      "why": "Eliminatsiyada (degidratlashda) qo'shbog' hosil bo'ladi. Bu yerda esa OH bromga almashadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "d-1",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolning molekula ichida degidratlanishini yozing (H₂SO₄ konts., 170 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C2H4",
+      "H2O"
+     ],
+     "ans": "C2H5OH→C2H4+H2O",
+     "w": "Suv ajralib alken hosil bo'ladi.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Propanolning molekula ichida degidratlanishini yozing (H₂SO₄ konts., 170 °C)",
+     "re": [
+      "C3H7OH"
+     ],
+     "pr": [
+      "C3H6",
+      "H2O"
+     ],
+     "ans": "C3H7OH→C3H6+H2O",
+     "w": "Propen hosil bo'ladi.",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-2",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etanolning molekulalararo degidratlanishini yozing (H₂SO₄, 140 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H10O",
+      "H2O"
+     ],
+     "ans": "2C2H5OH→C4H10O+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi: dietil efir.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metanolning molekulalararo degidratlanishini yozing (H₂SO₄, 140 °C)",
+     "re": [
+      "CH3OH"
+     ],
+     "pr": [
+      "C2H6O",
+      "H2O"
+     ],
+     "ans": "2CH3OH→C2H6O+H2O",
+     "w": "Dimetil efir hosil bo'ladi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-3",
+   "group": "Degidratlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etanol H₂SO₄ bilan 140 °C gacha qizdirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "Dietil efir",
+     "no": [
+      "Etilen",
+      "Etanal",
+      "Sirka kislota"
+     ],
+     "w": "Past haroratda ikki molekula birlashadi.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Etilen",
+      "why": "Etilen 170 °C da hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Etanol H₂SO₄ bilan 170 °C gacha qizdirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "Etilen",
+     "no": [
+      "Dietil efir",
+      "Etanal",
+      "Etan"
+     ],
+     "w": "Yuqori haroratda molekula ichidan suv ajraladi.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Dietil efir",
+      "why": "Efir 140 °C da hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "d-4",
+   "group": "Degidratlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Butanol-2 degidratlanganda (Zaytsev qoidasi) asosiy mahsulot qaysi?",
+     "ok": "Buten-2",
+     "no": [
+      "Buten-1",
+      "Butanal",
+      "Dietil efir"
+     ],
+     "w": "Vodorod kamroq vodorodli qo'shni uglerodan ajraladi: qo'shbog' o'rtada.",
+     "trap": {
+      "opt": "Buten-1",
+      "why": "Buten-1 qo'shimcha mahsulot: Zaytsev bo'yicha mustahkamroq buten-2 asosiy."
+     }
+    },
+    {
+     "p": "Propanol-2 degidratlanganda qaysi alken hosil bo'ladi?",
+     "ok": "Propen",
+     "no": [
+      "Propin",
+      "Propanal",
+      "Propan"
+     ],
+     "w": "Suv ajraladi va qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "propanol"
+     ],
+     "trap": {
+      "opt": "Propanal",
+      "why": "Propanal oksidlanishda hosil bo'ladi, degidratlashda emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolning to'liq yonishini yozing",
+     "re": [
+      "C2H5OH",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C2H5OH+3O2→2CO2+3H2O",
+     "w": "Kislorod: 4 + 3 − 1 = 6 atom, ya'ni 3 O₂.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metanolning to'liq yonishini yozing",
+     "re": [
+      "CH3OH",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2CH3OH+3O2→2CO2+4H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etanolni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C2H5OH",
+      "CuO"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H5OH+CuO→C2H4O+Cu+H2O",
+     "w": "Birlamchi spirt aldegidga oksidlanadi.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Metanolni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "CH3OH",
+      "CuO"
+     ],
+     "pr": [
+      "CH2O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "CH3OH+CuO→CH2O+Cu+H2O",
+     "w": "Metanoldan formaldegid hosil bo'ladi.",
+     "uses": [
+      "metanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etanolni kaliy dixromat bilan oksidlang (H₂SO₄, aldegidgacha)",
+     "re": [
+      "C2H5OH",
+      "K2Cr2O7",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cr2(SO4)3",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "3C2H5OH+K2Cr2O7+4H2SO4→3C2H4O+Cr2(SO4)3+K2SO4+7H2O",
+     "w": "Cr⁺⁶ Cr⁺³ ga o'tadi, har spirt 2 e beradi: 3 : 1.",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Propanol-2 ni kaliy dixromat bilan oksidlang (H₂SO₄)",
+     "re": [
+      "C3H8O",
+      "K2Cr2O7",
+      "H2SO4"
+     ],
+     "pr": [
+      "C3H6O",
+      "Cr2(SO4)3",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "3C3H8O+K2Cr2O7+4H2SO4→3C3H6O+Cr2(SO4)3+K2SO4+7H2O",
+     "w": "Ikkilamchi spirt ketonga oksidlanadi: aseton.",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Birlamchi spirt yengil oksidlanganda qaysi modda sinfi hosil bo'ladi?",
+     "ok": "Aldegid",
+     "no": [
+      "Keton",
+      "Alkan",
+      "Efir"
+     ],
+     "w": "CH₂OH guruhi CHO ga o'tadi.",
+     "uses": [
+      "etanol"
+     ],
+     "trap": {
+      "opt": "Keton",
+      "why": "Keton ikkilamchi spirtdan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Ikkilamchi spirt yengil oksidlanganda qaysi modda sinfi hosil bo'ladi?",
+     "ok": "Keton",
+     "no": [
+      "Aldegid",
+      "Karbon kislota",
+      "Efir"
+     ],
+     "w": "CHOH guruhi C=O ga o'tadi.",
+     "uses": [
+      "propanol"
+     ],
+     "trap": {
+      "opt": "Aldegid",
+      "why": "Aldegid birlamchi spirtdan chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (KOH ning suvdagi eritmasi)",
+     "re": [
+      "C2H5Br",
+      "KOH"
+     ],
+     "pr": [
+      "C2H6O",
+      "KBr"
+     ],
+     "ans": "C2H5Br+KOH→C2H6O+KBr",
+     "w": "Brom OH ga almashinadi: etanol.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C2H6O",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (KOH ning suvdagi eritmasi)",
+     "re": [
+      "C3H7Cl",
+      "KOH"
+     ],
+     "pr": [
+      "C3H8O",
+      "KCl"
+     ],
+     "ans": "C3H7Cl+KOH→C3H8O+KCl",
+     "w": "Xlor OH ga almashinadi: propanol.",
+     "chain": {
+      "all": [
+       "C3H7Cl",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (HCl, ZnCl₂)",
+     "re": [
+      "C2H6O",
+      "HCl"
+     ],
+     "pr": [
+      "C2H5Cl",
+      "H2O"
+     ],
+     "ans": "C2H6O+HCl→C2H5Cl+H2O",
+     "w": "OH xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C2H6O",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etanol"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C3H8O",
+      "CuO"
+     ],
+     "pr": [
+      "C3H6O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H8O+CuO→C3H6O+Cu+H2O",
+     "w": "Spirt oksidlanib karbonilli birikma hosil qiladi.",
+     "chain": {
+      "all": [
+       "C3H7Cl",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "C2H5Cl",
+      "Na"
+     ],
+     "pr": [
+      "C4H10",
+      "NaCl"
+     ],
+     "ans": "2C2H5Cl+2Na→C4H10+2NaCl",
+     "w": "Ikki etil radikal birlashadi: butan.",
+     "chain": {
+      "all": [
+       "C2H5Br",
+       "C2H6O",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H6O",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O"
+     ],
+     "ans": "C3H6O+H2→C3H8O",
+     "w": "Karbonil guruh spirtga qaytariladi.",
+     "chain": {
+      "all": [
+       "C3H7Cl",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "propanol"
+     ]
+    }
+   ]
+  }
+ ]
+}

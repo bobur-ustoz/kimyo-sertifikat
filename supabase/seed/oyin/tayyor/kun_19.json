@@ -1,0 +1,1005 @@
+{
+ "version": 2,
+ "day": 19,
+ "topic": "Murakkab efirlar",
+ "substances": [
+  "etil atsetat",
+  "metil atsetat",
+  "metil formiat"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka kislota va etanol reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "C2H4O2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H8O2",
+      "H2O"
+     ],
+     "ans": "C2H4O2+C2H5OH→C4H8O2+H2O",
+     "w": "Etil atsetat va suv hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Chumoli kislota va metanol reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "CH2O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C2H4O2",
+      "H2O"
+     ],
+     "ans": "CH2O2+CH3OH→C2H4O2+H2O",
+     "w": "Metil formiat hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka kislota va metanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C2H4O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "H2O"
+     ],
+     "ans": "C2H4O2+CH3OH→C3H6O2+H2O",
+     "w": "Metil atsetat hosil bo'ladi.",
+     "uses": [
+      "metil atsetat"
+     ]
+    },
+    {
+     "p": "Chumoli kislota va etanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "CH2O2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "H2O"
+     ],
+     "ans": "CH2O2+C2H5OH→C3H6O2+H2O",
+     "w": "Etil formiat hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilxlorid va etanol reaksiyasini yozing",
+     "re": [
+      "C2H3ClO",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H8O2",
+      "HCl"
+     ],
+     "ans": "C2H3ClO+C2H5OH→C4H8O2+HCl",
+     "w": "Xlorangidrid spirt bilan tez efir hosil qiladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Atsetilxlorid va metanol reaksiyasini yozing",
+     "re": [
+      "C2H3ClO",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "HCl"
+     ],
+     "ans": "C2H3ClO+CH3OH→C3H6O2+HCl",
+     "w": "Metil atsetat va HCl hosil bo'ladi.",
+     "uses": [
+      "metil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidrid va etanol reaksiyasini yozing",
+     "re": [
+      "C4H6O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H8O2",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+C2H5OH→C4H8O2+C2H4O2",
+     "w": "Efir va bitta molekula sirka kislota hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Natriy atsetat va bromoetan reaksiyasini yozing",
+     "re": [
+      "C2H3NaO2",
+      "C2H5Br"
+     ],
+     "pr": [
+      "C4H8O2",
+      "NaBr"
+     ],
+     "ans": "C2H3NaO2+C2H5Br→C4H8O2+NaBr",
+     "w": "Karboksilat galogenalkandagi galogenni almashtiradi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidning Tishchenko reaksiyasini yozing (Al(OC₂H₅)₃)",
+     "re": [
+      "C2H4O"
+     ],
+     "pr": [
+      "C4H8O2"
+     ],
+     "ans": "2C2H4O→C4H8O2",
+     "w": "Ikki aldegid molekulasi bitta efirga birlashadi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Formaldegidning Tishchenko reaksiyasini yozing (katalizator)",
+     "re": [
+      "CH2O"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "2CH2O→C2H4O2",
+     "w": "Metil formiat hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-6",
+   "group": "Olinish (eterifikatsiya)",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Eterifikatsiya reaksiyasida qaysi katalizator ishlatiladi?",
+     "ok": "Konsentrlangan H₂SO₄",
+     "no": [
+      "NaOH",
+      "Ni",
+      "KMnO₄"
+     ],
+     "w": "Kislota protonlari karbonilni faollashtiradi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "NaOH",
+      "why": "Ishqor efirni gidrolizlaydi, hosil qilmaydi."
+     }
+    },
+    {
+     "p": "Eterifikatsiya muvozanatini efir tomon siljitish uchun nima qilinadi?",
+     "ok": "Suvni chiqarib yuboriladi yoki spirt ortiqcha olinadi",
+     "no": [
+      "Harorat keskin tushiriladi",
+      "Bosim pasaytiriladi",
+      "Katalizator olib tashlanadi"
+     ],
+     "w": "Le Shatelye prinsipi: mahsulot chiqarib turilsa muvozanat o'ngga siljiydi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Katalizator olib tashlanadi",
+      "why": "Katalizator muvozanatni siljitmaydi, faqat tezlashtiradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-1",
+   "group": "Gidrolizlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Propil atsetatning gidrolizini yozing (H⁺)",
+     "re": [
+      "C5H10O2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "C3H8O"
+     ],
+     "ans": "C5H10O2+H2O→C2H4O2+C3H8O",
+     "w": "Efir kislota va spirtga gidrolizlanadi."
+    },
+    {
+     "p": "Metil propionatning gidrolizini yozing (H⁺)",
+     "re": [
+      "C4H8O2",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O2",
+      "CH3OH"
+     ],
+     "ans": "C4H8O2+H2O→C3H6O2+CH3OH",
+     "w": "Propion kislota va metanol hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "g-2",
+   "group": "Gidrolizlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etil atsetatga NaOH ta'sir ettiring (qizdirish)",
+     "re": [
+      "C4H8O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+NaOH→C2H3NaO2+C2H5OH",
+     "w": "Ishqoriy gidroliz qaytmas: tuz va spirt.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Metil formiatga NaOH ta'sir ettiring (qizdirish)",
+     "re": [
+      "C2H4O2",
+      "NaOH"
+     ],
+     "pr": [
+      "CHNaO2",
+      "CH3OH"
+     ],
+     "ans": "C2H4O2+NaOH→CHNaO2+CH3OH",
+     "w": "Natriy formiat va metanol hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-3",
+   "group": "Gidrolizlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metil atsetatga KOH ta'sir ettiring (qizdirish)",
+     "re": [
+      "C3H6O2",
+      "KOH"
+     ],
+     "pr": [
+      "C2H3KO2",
+      "CH3OH"
+     ],
+     "ans": "C3H6O2+KOH→C2H3KO2+CH3OH",
+     "w": "Kaliy atsetat va metanol hosil bo'ladi.",
+     "uses": [
+      "metil atsetat"
+     ]
+    },
+    {
+     "p": "Etil formiatga NaOH ta'sir ettiring (qizdirish)",
+     "re": [
+      "C3H6O2",
+      "NaOH"
+     ],
+     "pr": [
+      "CHNaO2",
+      "C2H5OH"
+     ],
+     "ans": "C3H6O2+NaOH→CHNaO2+C2H5OH",
+     "w": "Natriy formiat va etanol hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "g-4",
+   "group": "Gidrolizlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Vinil atsetatga NaOH ta'sir ettiring",
+     "re": [
+      "C4H6O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "C2H4O"
+     ],
+     "ans": "C4H6O2+NaOH→C2H3NaO2+C2H4O",
+     "w": "Hosil bo'lgan vinil spirt sirka aldegidga o'tadi."
+    },
+    {
+     "p": "Fenil atsetatga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C8H8O2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "C6H5ONa",
+      "H2O"
+     ],
+     "ans": "C8H8O2+2NaOH→C2H3NaO2+C6H5ONa+H2O",
+     "w": "Fenol ishqor bilan tuz hosil qiladi: ikki ekvivalent NaOH kerak."
+    }
+   ]
+  },
+  {
+   "slot": "g-5",
+   "group": "Gidrolizlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Murakkab efirning ishqoriy gidrolizi qanday ataladi?",
+     "ok": "Sovunlanish",
+     "no": [
+      "Eterifikatsiya",
+      "Gidrogenlash",
+      "Polimerlanish"
+     ],
+     "w": "Yog'larning ishqoriy gidrolizi sovun beradi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Eterifikatsiya",
+      "why": "Eterifikatsiya efir hosil bo'lish reaksiyasi, gidroliz teskari."
+     }
+    },
+    {
+     "p": "Murakkab efirning kislotali gidrolizi qanday xususiyatga ega?",
+     "ok": "Qaytar reaksiya",
+     "no": [
+      "Qaytmas reaksiya",
+      "Faqat qizdirilganda boradi",
+      "Portlash bilan boradi"
+     ],
+     "w": "Kislota katalizator: muvozanat holati o'rnatiladi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Qaytmas reaksiya",
+      "why": "Qaytmas bo'lgani ishqoriy gidroliz."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Alkogoliz va ammonoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etil atsetatga metanol ta'sir ettiring (transeterifikatsiya)",
+     "re": [
+      "C4H8O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+CH3OH→C3H6O2+C2H5OH",
+     "w": "Spirt radikali almashadi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Metil formiatga etanol ta'sir ettiring (transeterifikatsiya)",
+     "re": [
+      "C2H4O2",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "CH3OH"
+     ],
+     "ans": "C2H4O2+C2H5OH→C3H6O2+CH3OH",
+     "w": "Etil formiat va metanol hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Alkogoliz va ammonoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etil atsetatga ammiak ta'sir ettiring",
+     "re": [
+      "C4H8O2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5NO",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+NH3→C2H5NO+C2H5OH",
+     "w": "Atsetamid va etanol hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Metil atsetatga ammiak ta'sir ettiring",
+     "re": [
+      "C3H6O2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5NO",
+      "CH3OH"
+     ],
+     "ans": "C3H6O2+NH3→C2H5NO+CH3OH",
+     "w": "Atsetamid va metanol hosil bo'ladi.",
+     "uses": [
+      "metil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Alkogoliz va ammonoliz",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etil atsetatga metilamin ta'sir ettiring",
+     "re": [
+      "C4H8O2",
+      "CH5N"
+     ],
+     "pr": [
+      "C3H7NO",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+CH5N→C3H7NO+C2H5OH",
+     "w": "N-metilatsetamid hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Etil atsetatga gidrazin ta'sir ettiring",
+     "re": [
+      "C4H8O2",
+      "N2H4"
+     ],
+     "pr": [
+      "C2H6N2O",
+      "C2H5OH"
+     ],
+     "ans": "C4H8O2+N2H4→C2H6N2O+C2H5OH",
+     "w": "Atsetgidrazid hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-4",
+   "group": "Alkogoliz va ammonoliz",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Murakkab efir ammiak bilan reaksiyaga kirishsa, qanday mahsulotlar hosil bo'ladi?",
+     "ok": "Amid va spirt",
+     "no": [
+      "Amin va kislota",
+      "Nitril va suv",
+      "Tuz va spirt"
+     ],
+     "w": "OR guruhi NH₂ ga almashinadi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Tuz va spirt",
+      "why": "Tuz ishqor bilan gidrolizda hosil bo'ladi, ammiak bilan amid."
+     }
+    },
+    {
+     "p": "Transeterifikatsiya nima?",
+     "ok": "Efir va spirt reaksiyasi: spirt radikali almashadi",
+     "no": [
+      "Efirning suv bilan parchalanishi",
+      "Efirning gidrogenlanishi",
+      "Efirning polimerlanishi"
+     ],
+     "w": "Boshqa spirt bilan yangi efir olinadi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Efirning suv bilan parchalanishi",
+      "why": "Bu gidroliz, transeterifikatsiya esa spirt bilan."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Grinyar reaktivi",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etil atsetatga ortiqcha metilmagniy bromid ta'sir ettiring",
+     "re": [
+      "C4H8O2",
+      "CH3MgBr"
+     ],
+     "pr": [
+      "C4H9BrMgO",
+      "C2H5BrMgO"
+     ],
+     "ans": "C4H8O2+2CH3MgBr→C4H9BrMgO+C2H5BrMgO",
+     "w": "Ikki molekula Grinyar reaktivi: ikki metil birikadi, uchlamchi alkogolyat hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Metil formiatga ortiqcha metilmagniy bromid ta'sir ettiring",
+     "re": [
+      "C2H4O2",
+      "CH3MgBr"
+     ],
+     "pr": [
+      "C3H7BrMgO",
+      "CH3BrMgO"
+     ],
+     "ans": "C2H4O2+2CH3MgBr→C3H7BrMgO+CH3BrMgO",
+     "w": "Formiatdan ikkilamchi alkogolyat hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Grinyar reaktivi",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Uchlamchi magniy alkogolyatini gidrolizlang",
+     "re": [
+      "C4H9BrMgO",
+      "H2O"
+     ],
+     "pr": [
+      "C4H10O",
+      "Mg(OH)Br"
+     ],
+     "ans": "C4H9BrMgO+H2O→C4H10O+Mg(OH)Br",
+     "w": "Uchlamchi butil spirt (2-metilpropanol-2) hosil bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Ikkilamchi magniy alkogolyatini gidrolizlang",
+     "re": [
+      "C3H7BrMgO",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O",
+      "Mg(OH)Br"
+     ],
+     "ans": "C3H7BrMgO+H2O→C3H8O+Mg(OH)Br",
+     "w": "Propanol-2 hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Grinyar reaktivi",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Murakkab efirga ortiqcha Grinyar reaktivi ta'sir etsa (formiatdan boshqa), qanday spirt hosil bo'ladi?",
+     "ok": "Uchlamchi spirt",
+     "no": [
+      "Birlamchi spirt",
+      "Ikkilamchi spirt",
+      "Aldegid"
+     ],
+     "w": "Ikkita radikal bitta uglerodga birikadi: u uch uglerodga bog'langan bo'ladi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Ikkilamchi spirt",
+      "why": "Ikkilamchi spirt formiatlardan chiqadi, boshqa efirlardan uchlamchi."
+     }
+    },
+    {
+     "p": "Metil formiatga ortiqcha Grinyar reaktivi ta'sir etsa, qanday spirt hosil bo'ladi?",
+     "ok": "Ikkilamchi spirt",
+     "no": [
+      "Birlamchi spirt",
+      "Uchlamchi spirt",
+      "Keton"
+     ],
+     "w": "Formiatda uglerodda bitta vodorod bor: u ikkilamchi spirt beradi.",
+     "uses": [
+      "metil formiat"
+     ],
+     "trap": {
+      "opt": "Uchlamchi spirt",
+      "why": "Formiatning uglerodida vodorod qoladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-1",
+   "group": "Gidrogenlash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etil atsetatning gidrogenlanishini yozing (katalizator, bosim)",
+     "re": [
+      "C4H8O2",
+      "H2"
+     ],
+     "pr": [
+      "C2H6O"
+     ],
+     "ans": "C4H8O2+2H2→2C2H6O",
+     "w": "Efir ikki spirtga qaytariladi: ikki molekula etanol.",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Metil atsetatning gidrogenlanishini yozing (katalizator, bosim)",
+     "re": [
+      "C3H6O2",
+      "H2"
+     ],
+     "pr": [
+      "C2H6O",
+      "CH4O"
+     ],
+     "ans": "C3H6O2+2H2→C2H6O+CH4O",
+     "w": "Etanol va metanol hosil bo'ladi.",
+     "uses": [
+      "metil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-2",
+   "group": "Gidrogenlash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metil formiatning gidrogenlanishini yozing",
+     "re": [
+      "C2H4O2",
+      "H2"
+     ],
+     "pr": [
+      "CH4O"
+     ],
+     "ans": "C2H4O2+2H2→2CH4O",
+     "w": "Ikki molekula metanol hosil bo'ladi.",
+     "uses": [
+      "metil formiat"
+     ]
+    },
+    {
+     "p": "Metil benzoatning gidrogenlanishini yozing",
+     "re": [
+      "C8H8O2",
+      "H2"
+     ],
+     "pr": [
+      "C7H8O",
+      "CH4O"
+     ],
+     "ans": "C8H8O2+2H2→C7H8O+CH4O",
+     "w": "Benzil spirt va metanol hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "r-3",
+   "group": "Gidrogenlash",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Murakkab efir gidrogenlanganda qanday moddalar hosil bo'ladi?",
+     "ok": "Ikki spirt",
+     "no": [
+      "Alkan",
+      "Aldegid",
+      "Karbon kislota"
+     ],
+     "w": "Kislota qismi ham spirtga qaytariladi.",
+     "uses": [
+      "etil atsetat"
+     ],
+     "trap": {
+      "opt": "Karbon kislota",
+      "why": "Kislota qismi spirtga qaytariladi, kislota hosil bo'lmaydi."
+     }
+    },
+    {
+     "p": "Suyuq yog'larni gidrogenlash natijasi qanday?",
+     "ok": "Qo'shbog'lar to'yinadi va yog' qattiqlashadi",
+     "no": [
+      "Yog' parchalanadi",
+      "Glitserin hosil bo'ladi",
+      "Sovun hosil bo'ladi"
+     ],
+     "w": "Margarin ishlab chiqarish asosi.",
+     "uses": [
+      "etil atsetat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (H⁺, qizdirish)",
+     "re": [
+      "C4H8O2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "C2H6O"
+     ],
+     "ans": "C4H8O2+H2O→C2H4O2+C2H6O",
+     "w": "Etil atsetat kislota va spirtga gidrolizlanadi.",
+     "chain": {
+      "all": [
+       "C4H8O2",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "etil atsetat"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (katalizator, bosim)",
+     "re": [
+      "CO",
+      "CH3OH"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "CO+CH3OH→C2H4O2",
+     "w": "Metil formiat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "CO",
+       "C2H4O2",
+       "CH3NO",
+       "HCN"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C2H6O",
+      "CuO"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H6O+CuO→C2H4O+Cu+H2O",
+     "w": "Etanol sirka aldegidga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C4H8O2",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C2H4O2",
+      "NH3"
+     ],
+     "pr": [
+      "CH3NO",
+      "CH4O"
+     ],
+     "ans": "C2H4O2+NH3→CH3NO+CH4O",
+     "w": "Formamid va metanol hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "CO",
+       "C2H4O2",
+       "CH3NO",
+       "HCN"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "metil formiat"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (kumush oksidning ammiakli eritmasi)",
+     "re": [
+      "C2H4O",
+      "Ag2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Ag"
+     ],
+     "ans": "C2H4O+Ag2O→C2H4O2+2Ag",
+     "w": "Aldegid sirka kislotaga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C4H8O2",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (P₂O₅, qizdirish)",
+     "re": [
+      "CH3NO"
+     ],
+     "pr": [
+      "HCN",
+      "H2O"
+     ],
+     "ans": "CH3NO→HCN+H2O",
+     "w": "Formamid degidratlanib sianid kislota beradi.",
+     "chain": {
+      "all": [
+       "CO",
+       "C2H4O2",
+       "CH3NO",
+       "HCN"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

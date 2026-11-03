@@ -1,0 +1,1030 @@
+{
+ "version": 2,
+ "day": 6,
+ "topic": "Arenlar",
+ "substances": [
+  "benzol",
+  "toluol",
+  "stirol"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Geksanning degidrosiklanishini yozing (Pt, qizdirish): benzol hosil bo'ladi",
+     "re": [
+      "C6H14"
+     ],
+     "pr": [
+      "C6H6",
+      "H2"
+     ],
+     "ans": "C6H14→C6H6+4H2",
+     "w": "Halqa yopiladi va to'rt molekula vodorod ajraladi.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Geptanning degidrosiklanishini yozing (Pt, qizdirish): toluol hosil bo'ladi",
+     "re": [
+      "C7H16"
+     ],
+     "pr": [
+      "C7H8",
+      "H2"
+     ],
+     "ans": "C7H16→C7H8+4H2",
+     "w": "Zanjir halqaga yopiladi, to'rt vodorod ajraladi.",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Brombenzol, brommetan va natriy: toluol olish reaksiyasini yozing (Vyurs–Fittig)",
+     "re": [
+      "C6H5Br",
+      "CH3Br",
+      "Na"
+     ],
+     "pr": [
+      "C7H8",
+      "NaBr"
+     ],
+     "ans": "C6H5Br+CH3Br+2Na→C7H8+2NaBr",
+     "w": "Ikkala radikal birlashadi: fenil + metil.",
+     "uses": [
+      "toluol"
+     ]
+    },
+    {
+     "p": "Benzol va xlormetanni reaksiyasini yozing (AlCl₃, Fridel–Krafts)",
+     "re": [
+      "C6H6",
+      "CH3Cl"
+     ],
+     "pr": [
+      "C7H8",
+      "HCl"
+     ],
+     "ans": "C6H6+CH3Cl→C7H8+HCl",
+     "w": "Metil guruh halqaga birikadi, HCl ajraladi.",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Benzolni atsetilendan olish usuli qaysi?",
+     "ok": "Atsetilenni 450 °C da aktivlangan ko'mir ustida trimerlash",
+     "no": [
+      "Etilenni polimerlash",
+      "Metanni xlorlash",
+      "Etanolni degidratlash"
+     ],
+     "w": "Uch molekula atsetilen bitta benzol halqasiga birlashadi.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "Etilenni polimerlash",
+      "why": "Etilen polietilen beradi, halqa emas."
+     }
+    },
+    {
+     "p": "Fridel–Krafts reaksiyasida qanday katalizator ishlatiladi?",
+     "ok": "AlCl₃",
+     "no": [
+      "Ni",
+      "H₂SO₄",
+      "KMnO₄"
+     ],
+     "w": "Suvsiz alyuminiy xlorid galogenalkanni faollashtiradi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "H₂SO₄",
+      "why": "H₂SO₄ nitrolash va sulfolash uchun, Fridel–Krafts uchun emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Benzolning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C6H6",
+      "H2"
+     ],
+     "pr": [
+      "C6H12"
+     ],
+     "ans": "C6H6+3H2→C6H12",
+     "w": "Uch molekula vodorod birikib siklogeksan hosil bo'ladi.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Toluolning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C7H8",
+      "H2"
+     ],
+     "pr": [
+      "C7H14"
+     ],
+     "ans": "C7H8+3H2→C7H14",
+     "w": "Halqa to'yinadi: metilsiklogeksan.",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Benzolga yorug'likda xlor ta'sir ettiring (to'liq birikish)",
+     "re": [
+      "C6H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C6H6Cl6"
+     ],
+     "ans": "C6H6+3Cl2→C6H6Cl6",
+     "w": "Yorug'likda uch molekula xlor birikadi: geksaxloran.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Stirolga vodorod ta'sir ettiring (yumshoq sharoit, faqat yon zanjir)",
+     "re": [
+      "C8H8",
+      "H2"
+     ],
+     "pr": [
+      "C8H10"
+     ],
+     "ans": "C8H8+H2→C8H10",
+     "w": "Yon zanjirdagi qo'shbog' to'yinadi, halqa o'zgarmaydi: etilbenzol.",
+     "uses": [
+      "stirol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Benzol bromli suvni rangsizlantiradimi?",
+     "ok": "Yo'q: aromatik halqa barqaror",
+     "no": [
+      "Ha: uchta qo'shbog'i bor",
+      "Faqat qizdirilganda",
+      "Ha, tez"
+     ],
+     "w": "Benzolda oddiy qo'shbog'lar yo'q: yagona aromatik π-tizim.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "Ha: uchta qo'shbog'i bor",
+      "why": "Kekule formulasi shartli: haqiqatda halqa barqaror, oddiy sharoitda birikish bormaydi."
+     }
+    },
+    {
+     "p": "Stirol bromli suvni rangsizlantiradimi?",
+     "ok": "Ha: yon zanjirdagi qo'shbog' tufayli",
+     "no": [
+      "Yo'q: aromatik",
+      "Faqat FeBr₃ bilan",
+      "Faqat yorug'likda"
+     ],
+     "w": "Qo'shbog' halqada emas, yon zanjirda: u oson birikadi.",
+     "uses": [
+      "stirol"
+     ],
+     "trap": {
+      "opt": "Yo'q: aromatik",
+      "why": "Halqa barqaror, lekin yon zanjirdagi qo'shbog' brom bilan birikadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-1",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Benzolga brom ta'sir ettiring (FeBr₃ katalizatori)",
+     "re": [
+      "C6H6",
+      "Br2"
+     ],
+     "pr": [
+      "C6H5Br",
+      "HBr"
+     ],
+     "ans": "C6H6+Br2→C6H5Br+HBr",
+     "w": "Vodorod bromga almashinadi, halqa saqlanadi.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Benzolga xlor ta'sir ettiring (FeCl₃ katalizatori)",
+     "re": [
+      "C6H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C6H5Cl",
+      "HCl"
+     ],
+     "ans": "C6H6+Cl2→C6H5Cl+HCl",
+     "w": "Vodorod xlorga almashinadi.",
+     "uses": [
+      "benzol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-2",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Benzolni nitrolang (HNO₃ + H₂SO₄ aralashmasi)",
+     "re": [
+      "C6H6",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H5NO2",
+      "H2O"
+     ],
+     "ans": "C6H6+HNO3→C6H5NO2+H2O",
+     "w": "Nitro guruh halqaga birikadi, suv ajraladi.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Benzolni sulfolang (konsentrlangan H₂SO₄)",
+     "re": [
+      "C6H6",
+      "H2SO4"
+     ],
+     "pr": [
+      "C6H6O3S",
+      "H2O"
+     ],
+     "ans": "C6H6+H2SO4→C6H6O3S+H2O",
+     "w": "Benzolsulfokislota hosil bo'ladi.",
+     "uses": [
+      "benzol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-3",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Toluolga xlor yorug'likda ta'sir ettiring (yon zanjirda o'rin olish)",
+     "re": [
+      "C7H8",
+      "Cl2"
+     ],
+     "pr": [
+      "C7H7Cl",
+      "HCl"
+     ],
+     "ans": "C7H8+Cl2→C7H7Cl+HCl",
+     "w": "Yorug'likda CH₃ guruhidagi vodorod almashinadi: benzilxlorid.",
+     "uses": [
+      "toluol"
+     ]
+    },
+    {
+     "p": "Toluolni mononitrolang (HNO₃ + H₂SO₄)",
+     "re": [
+      "C7H8",
+      "HNO3"
+     ],
+     "pr": [
+      "C7H7NO2",
+      "H2O"
+     ],
+     "ans": "C7H8+HNO3→C7H7NO2+H2O",
+     "w": "Nitro guruh o- yoki p- holatga birikadi.",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-4",
+   "group": "O'rin olish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Toluolga xlor yorug'likda ta'sir etganda qaysi modda hosil bo'ladi?",
+     "ok": "Benzilxlorid",
+     "no": [
+      "o-xlortoluol",
+      "p-xlortoluol",
+      "Benzoy kislota"
+     ],
+     "w": "Yorug'lik radikal sharoit yaratadi: yon zanjir almashinadi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "o-xlortoluol",
+      "why": "Halqaga xlor FeCl₃ bilan boradi, yorug'likda emas."
+     }
+    },
+    {
+     "p": "Toluolga FeCl₃ ishtirokida xlor ta'sir etganda asosiy mahsulot nima?",
+     "ok": "o- va p-xlortoluol",
+     "no": [
+      "Benzilxlorid",
+      "m-xlortoluol",
+      "Benzaldegid"
+     ],
+     "w": "Katalizator halqada almashinishga olib keladi; CH₃ o,p-yo'naltiruvchi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "Benzilxlorid",
+      "why": "Benzilxlorid yorug'likda hosil bo'ladi, katalizatorda emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Benzolning to'liq yonishini yozing",
+     "re": [
+      "C6H6",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C6H6+15O2→12CO2+6H2O",
+     "w": "Kasrdan qutulish uchun ikki baravar: 2C₆H₆ + 15O₂.",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Toluolning to'liq yonishini yozing",
+     "re": [
+      "C7H8",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C7H8+9O2→7CO2+4H2O",
+     "w": "Kislorod: 14 + 4 = 18 atom, ya'ni 9 O₂.",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Toluolning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄)",
+     "re": [
+      "C7H8",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C7H6O2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C7H8+6KMnO4+9H2SO4→5C7H6O2+6MnSO4+3K2SO4+14H2O",
+     "w": "CH₃ guruh COOH ga o'tadi: benzoy kislota.",
+     "uses": [
+      "toluol"
+     ]
+    },
+    {
+     "p": "Etilbenzolning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄)",
+     "re": [
+      "C8H10",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C7H6O2",
+      "CO2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C8H10+12KMnO4+18H2SO4→5C7H6O2+5CO2+12MnSO4+6K2SO4+28H2O",
+     "w": "Yon zanjir uziladi: halqada faqat COOH qoladi, ikkinchi uglerod CO₂ ga."
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Benzol KMnO₄ eritmasini rangsizlantiradimi?",
+     "ok": "Yo'q",
+     "no": [
+      "Ha",
+      "Faqat qizdirilganda",
+      "Faqat kislotali muhitda"
+     ],
+     "w": "Aromatik halqa oksidlovchiga chidamli.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "Ha",
+      "why": "Benzol halqasi barqaror: KMnO₄ ni rangsizlantirmaydi."
+     }
+    },
+    {
+     "p": "Toluol KMnO₄ bilan oksidlanganda qaysi modda hosil bo'ladi?",
+     "ok": "Benzoy kislota",
+     "no": [
+      "Benzaldegid",
+      "Fenol",
+      "Benzol"
+     ],
+     "w": "Faqat yon zanjir oksidlanadi, CH₃ guruhi COOH ga aylanadi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "Fenol",
+      "why": "Halqaga OH birikmaydi: yon zanjir oksidlanadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "l-1",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Stirolning polimerlanishidan qaysi polimer hosil bo'ladi?",
+     "ok": "Polistirol",
+     "no": [
+      "Polietilen",
+      "Polivinilxlorid",
+      "Polipropilen"
+     ],
+     "w": "Yon zanjirdagi qo'shbog' ochilib zanjir hosil qiladi.",
+     "uses": [
+      "stirol"
+     ]
+    },
+    {
+     "p": "Stirolning tuzilish formulasi qaysi?",
+     "ok": "C₆H₅–CH=CH₂",
+     "no": [
+      "C₆H₅–CH₃",
+      "C₆H₅–C₂H₅",
+      "C₆H₅–C≡CH"
+     ],
+     "w": "Benzol halqasiga vinil guruh birikkan.",
+     "uses": [
+      "stirol"
+     ],
+     "trap": {
+      "opt": "C₆H₅–C₂H₅",
+      "why": "Bu etilbenzol (to'yingan): qo'shbog' yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "l-2",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Molyar massasi 104 000 g/mol bo'lgan polistirolning polimerlanish darajasi qancha (M(C₈H₈) = 104)?",
+     "ok": "1000",
+     "no": [
+      "10 000",
+      "100",
+      "2000"
+     ],
+     "w": "104 000 : 104 = 1000.",
+     "uses": [
+      "stirol"
+     ],
+     "trap": {
+      "opt": "10 000",
+      "why": "Nol xatosi. 104 000 : 104 = 1000."
+     }
+    },
+    {
+     "p": "Polistirolning polimerlanish darajasi 500 bo'lsa, molyar massasi qancha (M(C₈H₈) = 104)?",
+     "ok": "52 000",
+     "no": [
+      "5 200",
+      "104 000",
+      "26 000"
+     ],
+     "w": "500 · 104 = 52 000.",
+     "uses": [
+      "stirol"
+     ],
+     "trap": {
+      "opt": "5 200",
+      "why": "Nol tushib qoldi. 500 · 104 = 52 000."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-1",
+   "group": "O'rinbosarlar orientatsiyasi",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Qaysi o'rinbosar birinchi tur (orto-, para-yo'naltiruvchi)?",
+     "ok": "–CH₃",
+     "no": [
+      "–NO₂",
+      "–COOH",
+      "–SO₃H"
+     ],
+     "w": "Alkil guruh elektron beradi va yangi guruhni o- va p- holatga yo'naltiradi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "–NO₂",
+      "why": "Nitro guruh ikkinchi tur: yangi guruhni meta holatga yo'naltiradi."
+     }
+    },
+    {
+     "p": "Qaysi o'rinbosar ikkinchi tur (meta-yo'naltiruvchi)?",
+     "ok": "–NO₂",
+     "no": [
+      "–OH",
+      "–CH₃",
+      "–NH₂"
+     ],
+     "w": "Elektron tortuvchi guruhlar meta holatga yo'naltiradi.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "–NH₂",
+      "why": "Aminoguruh elektron beradi: o-, p-yo'naltiruvchi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-2",
+   "group": "O'rinbosarlar orientatsiyasi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Toluolni nitrolaganda asosiy mahsulotlar qaysilar?",
+     "ok": "o- va p-nitrotoluol",
+     "no": [
+      "m-nitrotoluol",
+      "Nitrobenzol",
+      "Benzoy kislota"
+     ],
+     "w": "CH₃ birinchi tur: yangi guruh orto va para holatga boradi.",
+     "uses": [
+      "toluol"
+     ],
+     "trap": {
+      "opt": "m-nitrotoluol",
+      "why": "Meta holat ikkinchi tur o'rinbosarlar uchun."
+     }
+    },
+    {
+     "p": "Nitrobenzolni bromlaganda asosiy mahsulot qaysi?",
+     "ok": "m-bromnitrobenzol",
+     "no": [
+      "o-bromnitrobenzol",
+      "p-bromnitrobenzol",
+      "Brombenzol"
+     ],
+     "w": "NO₂ ikkinchi tur: yangi guruh meta holatga boradi.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "p-bromnitrobenzol",
+      "why": "Para holat birinchi tur o'rinbosarlar uchun."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-3",
+   "group": "O'rinbosarlar orientatsiyasi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolga ortiqcha bromli suv ta'sir ettirilsa, nima hosil bo'ladi?",
+     "ok": "2,4,6-tribromfenol",
+     "no": [
+      "m-bromfenol",
+      "Brombenzol",
+      "Pentabromfenol"
+     ],
+     "w": "OH birinchi tur: brom 2, 4, 6 holatlarga boradi (oq cho'kma).",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "m-bromfenol",
+      "why": "OH meta holatga yo'naltirmaydi."
+     }
+    },
+    {
+     "p": "Benzoy kislotani xlorlaganda asosiy mahsulot qaysi?",
+     "ok": "m-xlorbenzoy kislota",
+     "no": [
+      "o-xlorbenzoy kislota",
+      "p-xlorbenzoy kislota",
+      "Benzilxlorid"
+     ],
+     "w": "COOH ikkinchi tur, meta-yo'naltiruvchi.",
+     "uses": [
+      "benzol"
+     ],
+     "trap": {
+      "opt": "p-xlorbenzoy kislota",
+      "why": "Para holat birinchi tur o'rinbosarlarga xos."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-4",
+   "group": "O'rinbosarlar orientatsiyasi",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Toluolni to'liq nitrolang (3 NO₂ guruh, trotil/TNT hosil bo'ladi)",
+     "re": [
+      "C7H8",
+      "HNO3"
+     ],
+     "pr": [
+      "C7H5N3O6",
+      "H2O"
+     ],
+     "ans": "C7H8+3HNO3→C7H5N3O6+3H2O",
+     "w": "CH₃ ga nisbatan 2, 4, 6 holatlarga nitro guruhlar birikadi.",
+     "uses": [
+      "toluol"
+     ]
+    },
+    {
+     "p": "Nitrobenzolga brom ta'sir ettiring (FeBr₃, meta holatga)",
+     "re": [
+      "C6H5NO2",
+      "Br2"
+     ],
+     "pr": [
+      "C6H4BrNO2",
+      "HBr"
+     ],
+     "ans": "C6H5NO2+Br2→C6H4BrNO2+HBr",
+     "w": "NO₂ meta-yo'naltiruvchi: m-bromnitrobenzol.",
+     "uses": [
+      "benzol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-1",
+   "group": "Ko'p halqali arenlar",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Naftalinning molekulyar formulasi qaysi?",
+     "ok": "C₁₀H₈",
+     "no": [
+      "C₁₂H₁₀",
+      "C₁₄H₁₀",
+      "C₆H₆"
+     ],
+     "w": "Ikkita benzol halqasi umumiy bog'ga ega.",
+     "trap": {
+      "opt": "C₁₄H₁₀",
+      "why": "C₁₄H₁₀ antratsen, uch halqali."
+     }
+    },
+    {
+     "p": "Naftalin molekulasida nechta benzol halqasi bor?",
+     "ok": "2",
+     "no": [
+      "1",
+      "3",
+      "4"
+     ],
+     "w": "Ikkita birlashgan (kondensirlangan) halqa.",
+     "trap": {
+      "opt": "3",
+      "why": "Uchta halqa antratsenda."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-2",
+   "group": "Ko'p halqali arenlar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Naftalinning to'liq yonishini yozing",
+     "re": [
+      "C10H8",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C10H8+12O2→10CO2+4H2O",
+     "w": "Kislorod: 20 + 4 = 24 atom, ya'ni 12 O₂."
+    },
+    {
+     "p": "Naftalinning to'liq gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C10H8",
+      "H2"
+     ],
+     "pr": [
+      "C10H18"
+     ],
+     "ans": "C10H8+5H2→C10H18",
+     "w": "Ikkala halqa to'yinadi: dekalin."
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (AlCl₃, xloretan bilan)",
+     "re": [
+      "C6H6",
+      "C2H5Cl"
+     ],
+     "pr": [
+      "C8H10",
+      "HCl"
+     ],
+     "ans": "C6H6+C2H5Cl→C8H10+HCl",
+     "w": "Etil guruh halqaga birikadi: etilbenzol.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C8H10",
+       "C8H8",
+       "C8H8Br2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "benzol"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (yorug'likda, yon zanjir)",
+     "re": [
+      "C7H8",
+      "Br2"
+     ],
+     "pr": [
+      "C7H7Br",
+      "HBr"
+     ],
+     "ans": "C7H8+Br2→C7H7Br+HBr",
+     "w": "CH₃ guruhidagi vodorod bromga almashinadi: benzilbromid.",
+     "chain": {
+      "all": [
+       "C7H8",
+       "C7H7Br",
+       "C7H8O",
+       "C7H6O"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "toluol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Cr₂O₃, qizdirish)",
+     "re": [
+      "C8H10"
+     ],
+     "pr": [
+      "C8H8",
+      "H2"
+     ],
+     "ans": "C8H10→C8H8+H2",
+     "w": "Etilbenzoldan vodorod ajraladi: stirol.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C8H10",
+       "C8H8",
+       "C8H8Br2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "stirol"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH ning suvdagi eritmasi)",
+     "re": [
+      "C7H7Br",
+      "NaOH"
+     ],
+     "pr": [
+      "C7H8O",
+      "NaBr"
+     ],
+     "ans": "C7H7Br+NaOH→C7H8O+NaBr",
+     "w": "Brom OH ga almashinadi: benzil spirt.",
+     "chain": {
+      "all": [
+       "C7H8",
+       "C7H7Br",
+       "C7H8O",
+       "C7H6O"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (CCl₄ da)",
+     "re": [
+      "C8H8",
+      "Br2"
+     ],
+     "pr": [
+      "C8H8Br2"
+     ],
+     "ans": "C8H8+Br2→C8H8Br2",
+     "w": "Yon zanjirdagi qo'shbog'ga brom birikadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C8H10",
+       "C8H8",
+       "C8H8Br2"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "stirol"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C7H8O",
+      "CuO"
+     ],
+     "pr": [
+      "C7H6O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C7H8O+CuO→C7H6O+Cu+H2O",
+     "w": "Birlamchi spirt aldegidga oksidlanadi: benzaldegid.",
+     "chain": {
+      "all": [
+       "C7H8",
+       "C7H7Br",
+       "C7H8O",
+       "C7H6O"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

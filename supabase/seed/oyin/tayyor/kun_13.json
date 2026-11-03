@@ -1,0 +1,1029 @@
+{
+ "version": 2,
+ "day": 13,
+ "topic": "Aldegidlar va ketonlar",
+ "substances": [
+  "etanal",
+  "formaldegid",
+  "aseton"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C2H5OH",
+      "CuO"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H5OH+CuO→C2H4O+Cu+H2O",
+     "w": "Birlamchi spirt aldegidga oksidlanadi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Metanolni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "CH3OH",
+      "CuO"
+     ],
+     "pr": [
+      "CH2O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "CH3OH+CuO→CH2O+Cu+H2O",
+     "w": "Metanoldan formaldegid hosil bo'ladi.",
+     "uses": [
+      "formaldegid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilenning gidratlanishini yozing (Kucherov: HgSO₄, H₂SO₄)",
+     "re": [
+      "C2H2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O"
+     ],
+     "ans": "C2H2+H2O→C2H4O",
+     "w": "Vinil spirt beqaror: sirka aldegidga o'tadi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Propinning gidratlanishini yozing (Kucherov)",
+     "re": [
+      "C3H4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O"
+     ],
+     "ans": "C3H4+H2O→C3H6O",
+     "w": "Markovnikov: OH ikkinchi uglerodga, mahsulot aseton.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,1-dixloretanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C2H4Cl2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H4O",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C2H4Cl2+2NaOH→C2H4O+2NaCl+H2O",
+     "w": "Bitta uglerodda ikkita OH beqaror: suv ajralib aldegid hosil bo'ladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "2,2-dixlorpropanga NaOH ning suvdagi eritmasi (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C3H6Cl2",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H6O",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C3H6Cl2+2NaOH→C3H6O+2NaCl+H2O",
+     "w": "Ikkinchi uglerodda ikki OH: suv ajraladi, keton hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Umumiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kalsiy atsetatni qizdiring (quruq haydash): aseton hosil bo'ladi",
+     "re": [
+      "C4H6CaO4"
+     ],
+     "pr": [
+      "C3H6O",
+      "CaCO3"
+     ],
+     "ans": "C4H6CaO4→C3H6O+CaCO3",
+     "w": "Kalsiy tuzi parchalanib keton va karbonat hosil qiladi.",
+     "uses": [
+      "aseton"
+     ]
+    },
+    {
+     "p": "Kalsiy formiat va kalsiy atsetat aralashmasini qizdiring: sirka aldegid hosil bo'ladi",
+     "re": [
+      "C2H2CaO4",
+      "C4H6CaO4"
+     ],
+     "pr": [
+      "C2H4O",
+      "CaCO3"
+     ],
+     "ans": "C2H2CaO4+C4H6CaO4→2C2H4O+2CaCO3",
+     "w": "Aralash tuz piroliz qilinganda aldegid olinadi.",
+     "uses": [
+      "etanal"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Umumiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Birlamchi spirt yengil oksidlanganda qaysi modda hosil bo'ladi?",
+     "ok": "Aldegid",
+     "no": [
+      "Keton",
+      "Efir",
+      "Karbon kislota"
+     ],
+     "w": "CH₂OH guruhi CHO ga o'tadi.",
+     "uses": [
+      "etanal"
+     ],
+     "trap": {
+      "opt": "Keton",
+      "why": "Keton ikkilamchi spirtdan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Ikkilamchi spirt yengil oksidlanganda qaysi modda hosil bo'ladi?",
+     "ok": "Keton",
+     "no": [
+      "Aldegid",
+      "Karbon kislota",
+      "Efir"
+     ],
+     "w": "CHOH guruhi C=O ga o'tadi.",
+     "uses": [
+      "aseton"
+     ],
+     "trap": {
+      "opt": "Aldegid",
+      "why": "Aldegid birlamchi spirtdan chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etanolning degidrogenlanishini yozing (Cu, 300 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C2H4O",
+      "H2"
+     ],
+     "ans": "C2H5OH→C2H4O+H2",
+     "w": "Spirtdan vodorod ajralib aldegid hosil bo'ladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Propanol-2 ning degidrogenlanishini yozing (Cu, 300 °C)",
+     "re": [
+      "C3H7OH"
+     ],
+     "pr": [
+      "C3H6O",
+      "H2"
+     ],
+     "ans": "C3H7OH→C3H6O+H2",
+     "w": "Ikkilamchi spirt ketonga aylanadi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metanolning havo kislorodi bilan oksidlanishini yozing (Ag, 600 °C)",
+     "re": [
+      "CH3OH",
+      "O2"
+     ],
+     "pr": [
+      "CH2O",
+      "H2O"
+     ],
+     "ans": "2CH3OH+O2→2CH2O+2H2O",
+     "w": "Formaldegidning sanoat usuli.",
+     "uses": [
+      "formaldegid"
+     ]
+    },
+    {
+     "p": "Propanol-2 ning havo kislorodi bilan oksidlanishini yozing (katalizator)",
+     "re": [
+      "C3H8O",
+      "O2"
+     ],
+     "pr": [
+      "C3H6O",
+      "H2O"
+     ],
+     "ans": "2C3H8O+O2→2C3H6O+2H2O",
+     "w": "Aseton hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Formalin nima?",
+     "ok": "Formaldegidning 40% li suvli eritmasi",
+     "no": [
+      "Etanolning 40% li eritmasi",
+      "Aseton eritmasi",
+      "Sirka kislota eritmasi"
+     ],
+     "w": "Formaldegid gaz, u suvda eritib ishlatiladi.",
+     "uses": [
+      "formaldegid"
+     ]
+    },
+    {
+     "p": "Sirka aldegidning formulasi qaysi?",
+     "ok": "CH₃CHO",
+     "no": [
+      "CH₃COCH₃",
+      "HCHO",
+      "CH₃COOH"
+     ],
+     "w": "Metil guruh va aldegid guruhi.",
+     "uses": [
+      "etanal"
+     ],
+     "trap": {
+      "opt": "CH₃COCH₃",
+      "why": "Bu aseton: keton."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "c-1",
+   "group": "Karbonil guruhiga xos",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka aldegidni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C2H4O",
+      "H2"
+     ],
+     "pr": [
+      "C2H6O"
+     ],
+     "ans": "C2H4O+H2→C2H6O",
+     "w": "Karbonil guruh spirtga qaytariladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Formaldegidni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "CH2O",
+      "H2"
+     ],
+     "pr": [
+      "CH4O"
+     ],
+     "ans": "CH2O+H2→CH4O",
+     "w": "Formaldegid metanolga qaytariladi.",
+     "uses": [
+      "formaldegid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-2",
+   "group": "Karbonil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka aldegidga sianid kislota (HCN) ta'sir ettiring",
+     "re": [
+      "C2H4O",
+      "HCN"
+     ],
+     "pr": [
+      "C3H5NO"
+     ],
+     "ans": "C2H4O+HCN→C3H5NO",
+     "w": "Siangidrin hosil bo'ladi: C=O ga birikish.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Asetonga sianid kislota (HCN) ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "HCN"
+     ],
+     "pr": [
+      "C4H7NO"
+     ],
+     "ans": "C3H6O+HCN→C4H7NO",
+     "w": "Aseton siangidrini hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-3",
+   "group": "Karbonil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidga natriy gidrosulfit ta'sir ettiring",
+     "re": [
+      "C2H4O",
+      "NaHSO3"
+     ],
+     "pr": [
+      "C2H5NaO4S"
+     ],
+     "ans": "C2H4O+NaHSO3→C2H5NaO4S",
+     "w": "Kristall gidrosulfit birikma hosil bo'ladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Asetonga natriy gidrosulfit ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "NaHSO3"
+     ],
+     "pr": [
+      "C3H7NaO4S"
+     ],
+     "ans": "C3H6O+NaHSO3→C3H7NaO4S",
+     "w": "Gidrosulfit birikma hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-4",
+   "group": "Karbonil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidga 1 mol etanol ta'sir ettiring (yarim atsetal)",
+     "re": [
+      "C2H4O",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H10O2"
+     ],
+     "ans": "C2H4O+C2H5OH→C4H10O2",
+     "w": "Spirt karbonilga birikib yarim atsetal hosil qiladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Sirka aldegidga ortiqcha etanol ta'sir ettiring (H⁺, atsetal)",
+     "re": [
+      "C2H4O",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C6H14O2",
+      "H2O"
+     ],
+     "ans": "C2H4O+2C2H5OH→C6H14O2+H2O",
+     "w": "Atsetal hosil bo'ladi, suv ajraladi.",
+     "uses": [
+      "etanal"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-5",
+   "group": "Karbonil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidga metilmagniy bromid (Grinyar) ta'sir ettiring",
+     "re": [
+      "C2H4O",
+      "CH3MgBr"
+     ],
+     "pr": [
+      "C3H7BrMgO"
+     ],
+     "ans": "C2H4O+CH3MgBr→C3H7BrMgO",
+     "w": "Alkogolyat hosil bo'ladi: uglerod zanjiri uzayadi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Hosil bo'lgan magniyli alkogolyatni suv bilan gidrolizlang",
+     "re": [
+      "C3H7BrMgO",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O",
+      "Mg(OH)Br"
+     ],
+     "ans": "C3H7BrMgO+H2O→C3H8O+Mg(OH)Br",
+     "w": "Gidrolizdan propanol-2 hosil bo'ladi.",
+     "uses": [
+      "etanal"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Karbonilga qo'shni vodorodga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka aldegidga xlor ta'sir ettiring (α-vodorod almashinadi)",
+     "re": [
+      "C2H4O",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H3ClO",
+      "HCl"
+     ],
+     "ans": "C2H4O+Cl2→C2H3ClO+HCl",
+     "w": "Karbonilga qo'shni uglerodning vodorodi xlorga almashinadi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Asetonga brom ta'sir ettiring (α-vodorod almashinadi)",
+     "re": [
+      "C3H6O",
+      "Br2"
+     ],
+     "pr": [
+      "C3H5BrO",
+      "HBr"
+     ],
+     "ans": "C3H6O+Br2→C3H5BrO+HBr",
+     "w": "Bromatseton hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Karbonilga qo'shni vodorodga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidning aldol kondensatsiyasini yozing (suyultirilgan ishqor)",
+     "re": [
+      "C2H4O"
+     ],
+     "pr": [
+      "C4H8O2"
+     ],
+     "ans": "2C2H4O→C4H8O2",
+     "w": "Aldol: 3-gidroksibutanal.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Asetonning aldol kondensatsiyasini yozing (Ba(OH)₂)",
+     "re": [
+      "C3H6O"
+     ],
+     "pr": [
+      "C6H12O2"
+     ],
+     "ans": "2C3H6O→C6H12O2",
+     "w": "Diatsetonspirt hosil bo'ladi.",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Karbonilga qo'shni vodorodga xos",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Aldol kondensatsiyada qaysi vodorod ishtirok etadi?",
+     "ok": "Karbonilga qo'shni (α) uglerodning vodorodi",
+     "no": [
+      "Aldegid guruhining vodorodi",
+      "Gidroksil vodorodi",
+      "Har qanday metil vodorodi"
+     ],
+     "w": "α-vodorod ishqorda harakatchan bo'ladi.",
+     "uses": [
+      "etanal"
+     ],
+     "trap": {
+      "opt": "Aldegid guruhining vodorodi",
+      "why": "Aldegid vodorodi emas, qo'shni uglerodning vodorodi."
+     }
+    },
+    {
+     "p": "Formaldegid aldol kondensatsiyaga kirishadimi?",
+     "ok": "Yo'q: α-vodorodi yo'q",
+     "no": [
+      "Ha",
+      "Faqat ishqorda",
+      "Faqat kislotada"
+     ],
+     "w": "Karbonilga qo'shni uglerod yo'q.",
+     "uses": [
+      "formaldegid"
+     ],
+     "trap": {
+      "opt": "Ha",
+      "why": "Aldol uchun α-vodorod kerak, formaldegidda u yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-1",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidga kumush oksidning ammiakli eritmasi ta'sir ettiring (kumush ko'zgu)",
+     "re": [
+      "C2H4O",
+      "Ag2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Ag"
+     ],
+     "ans": "C2H4O+Ag2O→C2H4O2+2Ag",
+     "w": "Aldegid kislotaga oksidlanadi, kumush ajraladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Formaldegidga ortiqcha kumush oksid ta'sir ettiring (kumush ko'zgu)",
+     "re": [
+      "CH2O",
+      "Ag2O"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "Ag"
+     ],
+     "ans": "CH2O+2Ag2O→CO2+H2O+4Ag",
+     "w": "Formaldegid to'liq oksidlanadi: 1 mol dan 4 mol kumush.",
+     "uses": [
+      "formaldegid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-2",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka aldegidga mis(II) gidroksid ta'sir ettiring (qizdirish)",
+     "re": [
+      "C2H4O",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "C2H4O+2Cu(OH)2→C2H4O2+Cu2O+2H2O",
+     "w": "Qizil cho'kma (Cu₂O) hosil bo'ladi.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Formaldegidga ortiqcha mis(II) gidroksid ta'sir ettiring (qizdirish)",
+     "re": [
+      "CH2O",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "CO2",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "CH2O+4Cu(OH)2→CO2+2Cu2O+5H2O",
+     "w": "To'liq oksidlanish: 4 mol Cu(OH)₂ sarflanadi.",
+     "uses": [
+      "formaldegid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-3",
+   "group": "Xususiy reaksiyalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka aldegidni KMnO₄ bilan kislotali muhitda oksidlang (H₂SO₄)",
+     "re": [
+      "C2H4O",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C2H4O+2KMnO4+3H2SO4→5C2H4O2+2MnSO4+K2SO4+3H2O",
+     "w": "Aldegid sirka kislotaga o'tadi (2 e), Mn⁺⁷ 5 e oladi: 5 : 2.",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Formaldegidni KMnO₄ bilan kislotali muhitda oksidlang (H₂SO₄)",
+     "re": [
+      "CH2O",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "CO2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5CH2O+4KMnO4+6H2SO4→5CO2+4MnSO4+2K2SO4+11H2O",
+     "w": "Formaldegid CO₂ gacha oksidlanadi (4 e): 5 : 4.",
+     "uses": [
+      "formaldegid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "r-4",
+   "group": "Xususiy reaksiyalar",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "\"Kumush ko'zgu\" reaksiyasi qaysi modda sinfi uchun xos?",
+     "ok": "Aldegidlar",
+     "no": [
+      "Ketonlar",
+      "Spirtlar",
+      "Efirlar"
+     ],
+     "w": "Aldegid kumush oksidni qaytarib, kumush ko'zgu hosil qiladi.",
+     "uses": [
+      "etanal"
+     ],
+     "trap": {
+      "opt": "Ketonlar",
+      "why": "Ketonlar oson oksidlanmaydi, kumush ko'zgu bermaydi."
+     }
+    },
+    {
+     "p": "Aseton kumush oksidning ammiakli eritmasi bilan reaksiyaga kirishadimi?",
+     "ok": "Yo'q",
+     "no": [
+      "Ha",
+      "Faqat qizdirilganda",
+      "Faqat ishqorda"
+     ],
+     "w": "Keton oson oksidlanmaydi.",
+     "uses": [
+      "aseton"
+     ],
+     "trap": {
+      "opt": "Ha",
+      "why": "Faqat aldegidlar bu reaksiyaga kirishadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-5",
+   "group": "Xususiy reaksiyalar",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "1 mol formaldegid kumush oksidning ammiakli eritmasi bilan to'liq reaksiyaga kirishganda necha mol kumush hosil bo'ladi?",
+     "ok": "4",
+     "no": [
+      "1",
+      "2",
+      "3"
+     ],
+     "w": "Formaldegidda ikkita aldegid vodorodi bor: u CO₂ gacha oksidlanadi.",
+     "uses": [
+      "formaldegid"
+     ],
+     "trap": {
+      "opt": "2",
+      "why": "2 mol sirka aldegiddan chiqadi. Formaldegid ikki bosqichda oksidlanib 4 mol kumush beradi."
+     }
+    },
+    {
+     "p": "1 mol sirka aldegid kumush oksid bilan reaksiyaga kirishganda necha mol kumush hosil bo'ladi?",
+     "ok": "2",
+     "no": [
+      "1",
+      "4",
+      "3"
+     ],
+     "w": "Bitta aldegid guruhi: 2 mol Ag.",
+     "uses": [
+      "etanal"
+     ],
+     "trap": {
+      "opt": "4",
+      "why": "4 mol faqat formaldegidga xos."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (H₃PO₄, 300 °C)",
+     "re": [
+      "C2H4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6O"
+     ],
+     "ans": "C2H4+H2O→C2H6O",
+     "w": "Etanol hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H4O",
+       "C4H10O2"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (H₃PO₄, qizdirish)",
+     "re": [
+      "C3H6",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O"
+     ],
+     "ans": "C3H6+H2O→C3H8O",
+     "w": "Markovnikov: propanol-2.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Cu, katalizator)",
+     "re": [
+      "C2H6O",
+      "O2"
+     ],
+     "pr": [
+      "C2H4O",
+      "H2O"
+     ],
+     "ans": "2C2H6O+O2→2C2H4O+2H2O",
+     "w": "Etanol sirka aldegidga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H4O",
+       "C4H10O2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C3H8O",
+      "CuO"
+     ],
+     "pr": [
+      "C3H6O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H8O+CuO→C3H6O+Cu+H2O",
+     "w": "Ikkilamchi spirt ketonga o'tadi.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (metanol, H⁺)",
+     "re": [
+      "C2H4O",
+      "CH3OH"
+     ],
+     "pr": [
+      "C4H10O2",
+      "H2O"
+     ],
+     "ans": "C2H4O+2CH3OH→C4H10O2+H2O",
+     "w": "Dimetilatsetal hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H4O",
+       "C4H10O2"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "etanal"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H6O",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O"
+     ],
+     "ans": "C3H6O+H2→C3H8O",
+     "w": "Aseton qaytarilib propanol-2 hosil qiladi.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H8O",
+       "C3H6O",
+       "C3H8O"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "aseton"
+     ]
+    }
+   ]
+  }
+ ]
+}

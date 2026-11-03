@@ -1,0 +1,1051 @@
+{
+ "version": 2,
+ "day": 2,
+ "topic": "Sikloalkanlar",
+ "substances": [
+  "siklopropan",
+  "siklobutan",
+  "siklopentan",
+  "siklogeksan"
+ ],
+ "slots": [
+  {
+   "slot": "t-1",
+   "group": "Tuzilish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklalkanlarning (bir halqali) umumiy formulasi qaysi?",
+     "ok": "CₙH₂ₙ",
+     "no": [
+      "CₙH₂ₙ₊₂",
+      "CₙH₂ₙ₋₂",
+      "CₙH₂ₙ₋₆"
+     ],
+     "w": "Halqa hosil bo'lishi ikkita vodorodni kamaytiradi: alkan C<sub>n</sub>H<sub>2n+2</sub> dan C<sub>n</sub>H<sub>2n</sub> hosil bo'ladi.",
+     "trap": {
+      "opt": "CₙH₂ₙ₊₂",
+      "why": "Bu alkanlarning formulasi. Siklik tuzilishda uglerodlar yopiq halqa hosil qilgani uchun ikkita vodorod kam."
+     }
+    },
+    {
+     "p": "Siklopentanning molekulyar formulasi qaysi?",
+     "ok": "C₅H₁₀",
+     "no": [
+      "C₅H₁₂",
+      "C₅H₈",
+      "C₄H₈"
+     ],
+     "w": "Besh uglerodli halqa: C<sub>n</sub>H<sub>2n</sub> da n = 5, ya'ni C<sub>5</sub>H<sub>10</sub>.",
+     "uses": [
+      "siklopentan"
+     ],
+     "trap": {
+      "opt": "C₅H₁₂",
+      "why": "C₅H₁₂ pentan (alkan) formulasi. Halqada ikki vodorod kam bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Tuzilish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Eng kichik halqali siklalkan qaysi?",
+     "ok": "Siklopropan",
+     "no": [
+      "Siklobutan",
+      "Siklopentan",
+      "Siklogeksan"
+     ],
+     "w": "Halqa kamida uch uglerod atomidan tuziladi: eng kichigi siklopropan.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Siklobutan",
+      "why": "Eng kichik halqa to'rtta deb o'ylash. Aslida uchta uglerod ham yopiq halqa hosil qiladi."
+     }
+    },
+    {
+     "p": "Siklobutan molekulasida nechta vodorod atomi bor?",
+     "ok": "8",
+     "no": [
+      "10",
+      "6",
+      "4"
+     ],
+     "w": "C<sub>n</sub>H<sub>2n</sub> da n = 4 bo'lsa, vodorod 8 ta: C<sub>4</sub>H<sub>8</sub>.",
+     "uses": [
+      "siklobutan"
+     ],
+     "trap": {
+      "opt": "10",
+      "why": "10 ta vodorod butanda (alkan). Halqa ikkita vodorodni kamaytiradi."
+     }
+    },
+    {
+     "p": "Siklogeksanning molekulyar formulasi qaysi?",
+     "ok": "C₆H₁₂",
+     "no": [
+      "C₆H₁₄",
+      "C₆H₆",
+      "C₆H₁₀"
+     ],
+     "w": "Olti uglerodli halqa: C<sub>6</sub>H<sub>12</sub>.",
+     "uses": [
+      "siklogeksan"
+     ],
+     "trap": {
+      "opt": "C₆H₆",
+      "why": "C₆H₆ benzol: u aromatik modda, siklogeksan emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "1,3-dibrompropan va rux: siklopropan olish reaksiyasini yozing",
+     "re": [
+      "C3H6Br2",
+      "Zn"
+     ],
+     "pr": [
+      "C3H6",
+      "ZnBr2"
+     ],
+     "ans": "C3H6Br2+Zn→C3H6+ZnBr2",
+     "w": "Rux ikkala bromni oladi, chetki uglerodlar o'zaro bog'lanib uch a'zoli halqa hosil bo'ladi.",
+     "uses": [
+      "siklopropan"
+     ]
+    },
+    {
+     "p": "1,3-dixlorpropan va rux: siklopropan olish reaksiyasini yozing",
+     "re": [
+      "C3H6Cl2",
+      "Zn"
+     ],
+     "pr": [
+      "C3H6",
+      "ZnCl2"
+     ],
+     "ans": "C3H6Cl2+Zn→C3H6+ZnCl2",
+     "w": "Rux ikkala xlorni oladi, chetki uglerodlar bog'lanib halqa hosil qiladi.",
+     "uses": [
+      "siklopropan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,5-dibrompentan va rux: siklopentan olish reaksiyasini yozing",
+     "re": [
+      "C5H10Br2",
+      "Zn"
+     ],
+     "pr": [
+      "C5H10",
+      "ZnBr2"
+     ],
+     "ans": "C5H10Br2+Zn→C5H10+ZnBr2",
+     "w": "Besh uglerodli zanjirning ikki uchi bog'lanib besh a'zoli halqa hosil bo'ladi.",
+     "uses": [
+      "siklopentan"
+     ]
+    },
+    {
+     "p": "1,6-dibromgeksan va rux: siklogeksan olish reaksiyasini yozing",
+     "re": [
+      "C6H12Br2",
+      "Zn"
+     ],
+     "pr": [
+      "C6H12",
+      "ZnBr2"
+     ],
+     "ans": "C6H12Br2+Zn→C6H12+ZnBr2",
+     "w": "Olti uglerodli zanjirning ikki uchi bog'lanib olti a'zoli halqa hosil bo'ladi.",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Rux bilan reaksiyada siklopropan beradigan modda qaysi?",
+     "ok": "1,3-dibrompropan",
+     "no": [
+      "1,2-dibrompropan",
+      "1,4-dibrombutan",
+      "2,2-dibrompropan"
+     ],
+     "w": "Halqa hosil bo'lishi uchun brom chetki (1 va 3) uglerodlarda bo'lishi kerak.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "1,2-dibrompropan",
+      "why": "Qo'shni uglerodlardagi ikkita brom ruxda alken (propen) beradi, halqa emas."
+     }
+    },
+    {
+     "p": "1,4-dibrombutan va ruxdan qaysi siklalkan hosil bo'ladi?",
+     "ok": "Siklobutan",
+     "no": [
+      "Siklopropan",
+      "Siklopentan",
+      "Siklogeksan"
+     ],
+     "w": "To'rt uglerodli zanjir uchlari bog'lanadi: halqadagi uglerodlar soni zanjir uzunligiga teng.",
+     "uses": [
+      "siklobutan"
+     ],
+     "trap": {
+      "opt": "Siklopropan",
+      "why": "Halqaga uglerod yo'qolmaydi: to'rt uglerod to'rt a'zoli halqani beradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Geksanning degidrosiklanishini yozing (katalizator, qizdirish): siklogeksan va vodorod hosil bo'ladi",
+     "re": [
+      "C6H14"
+     ],
+     "pr": [
+      "C6H12",
+      "H2"
+     ],
+     "ans": "C6H14→C6H12+H2",
+     "w": "Zanjirning ikki uchidagi vodorodlar ajraladi va uchlar halqaga bog'lanadi.",
+     "uses": [
+      "siklogeksan"
+     ]
+    },
+    {
+     "p": "Pentanning degidrosiklanishini yozing (katalizator, qizdirish): siklopentan va vodorod hosil bo'ladi",
+     "re": [
+      "C5H12"
+     ],
+     "pr": [
+      "C5H10",
+      "H2"
+     ],
+     "ans": "C5H12→C5H10+H2",
+     "w": "Ikki chetki vodorod ajraladi, uglerod zanjiri besh a'zoli halqaga yopiladi.",
+     "uses": [
+      "siklopentan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Dihalogenalkandan siklalkan olishda qaysi metall ishlatiladi?",
+     "ok": "Rux",
+     "no": [
+      "Kaliy",
+      "Kalsiy",
+      "Alyuminiy"
+     ],
+     "w": "Rux ikkita galogenni olib, halqa hosil bo'lishiga imkon beradi."
+    },
+    {
+     "p": "Benzolni gidrogenlab siklogeksan olishda qaysi gaz kerak?",
+     "ok": "Vodorod",
+     "no": [
+      "Kislorod",
+      "Azot",
+      "Karbonat angidrid"
+     ],
+     "w": "Benzolga uch molekula vodorod birikadi (Ni, qizdirish).",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-1",
+   "group": "Galogenlarning ta'siri",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklopropanga brom ta'sir ettiring (halqa ochiladi)",
+     "re": [
+      "C3H6",
+      "Br2"
+     ],
+     "pr": [
+      "C3H6Br2"
+     ],
+     "ans": "C3H6+Br2→C3H6Br2",
+     "w": "Uch a'zoli halqa zo'riqqan: u uziladi va brom ikki uchiga birikadi (1,3-dibrompropan).",
+     "uses": [
+      "siklopropan"
+     ]
+    },
+    {
+     "p": "Siklopropanga xlor ta'sir ettiring (halqa ochiladi)",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H6Cl2"
+     ],
+     "ans": "C3H6+Cl2→C3H6Cl2",
+     "w": "Halqa uziladi, xlor ikki uchiga birikadi (1,3-dixlorpropan).",
+     "uses": [
+      "siklopropan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-2",
+   "group": "Galogenlarning ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Siklopentanga brom yorug'likda ta'sir ettiring (bitta vodorod almashinadi)",
+     "re": [
+      "C5H10",
+      "Br2"
+     ],
+     "pr": [
+      "C5H9Br",
+      "HBr"
+     ],
+     "ans": "C5H10+Br2→C5H9Br+HBr",
+     "w": "Beshlik halqa zo'riqmagan, u alkanga o'xshab o'rin olish reaksiyasiga kirishadi.",
+     "uses": [
+      "siklopentan"
+     ]
+    },
+    {
+     "p": "Siklogeksanga brom yorug'likda ta'sir ettiring (bitta vodorod almashinadi)",
+     "re": [
+      "C6H12",
+      "Br2"
+     ],
+     "pr": [
+      "C6H11Br",
+      "HBr"
+     ],
+     "ans": "C6H12+Br2→C6H11Br+HBr",
+     "w": "Oltilik halqa barqaror: halqa ochilmaydi, vodorod bromga almashinadi.",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-3",
+   "group": "Galogenlarning ta'siri",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Brom bilan reaksiyada qaysi siklalkanda halqa ochiladi?",
+     "ok": "Siklopropan",
+     "no": [
+      "Siklopentan",
+      "Siklogeksan",
+      "Metan"
+     ],
+     "w": "Faqat uch (va qisman to'rt) a'zoli halqa zo'riqqan bo'lib, birikish bilan ochiladi.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Siklogeksan",
+      "why": "Siklogeksan alkanga o'xshaydi: faqat o'rin olish, halqa uzilmaydi."
+     }
+    },
+    {
+     "p": "Siklogeksan xlor bilan yorug'likda qanday reaksiyaga kirishadi?",
+     "ok": "O'rin olish",
+     "no": [
+      "Birikish (halqa ochiladi)",
+      "Polimerlanish",
+      "Reaksiyaga kirishmaydi"
+     ],
+     "w": "Oltilik halqa barqaror: vodorod xlorga almashinadi, HCl ajraladi.",
+     "uses": [
+      "siklogeksan"
+     ],
+     "trap": {
+      "opt": "Birikish (halqa ochiladi)",
+      "why": "Bu faqat siklopropanga xos. Siklogeksanda halqa zo'riqmagan."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-4",
+   "group": "Galogenlarning ta'siri",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "2,1 g siklopropanga (M = 42) ortiqcha brom ta'sir ettirilsa, necha gramm 1,3-dibrompropan (M = 202) hosil bo'ladi?",
+     "ok": "10,1 g",
+     "no": [
+      "5,05 g",
+      "20,2 g",
+      "8,4 g"
+     ],
+     "w": "2,1 : 42 = 0,05 mol; birikishda 1 : 1 nisbat, 0,05 · 202 = 10,1 g.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "20,2 g",
+      "why": "20,2 g 0,1 mol dibromidga to'g'ri keladi; bu 4,2 g siklopropandan chiqadi."
+     }
+    },
+    {
+     "p": "4,2 g siklopropanga ortiqcha brom ta'sir ettirilsa, necha gramm 1,3-dibrompropan (M = 202) hosil bo'ladi?",
+     "ok": "20,2 g",
+     "no": [
+      "10,1 g",
+      "40,4 g",
+      "16,8 g"
+     ],
+     "w": "4,2 : 42 = 0,1 mol; 1 : 1 nisbatda 0,1 · 202 = 20,2 g.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "10,1 g",
+      "why": "10,1 g 2,1 g siklopropandan chiqadi; massa ikki baravar katta."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "HX ning ta'siri",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklopropanga HBr ta'sir ettiring (halqa ochiladi)",
+     "re": [
+      "C3H6",
+      "HBr"
+     ],
+     "pr": [
+      "C3H7Br"
+     ],
+     "ans": "C3H6+HBr→C3H7Br",
+     "w": "Halqa uziladi, HBr ikki uchiga birikadi: 1-brompropan hosil bo'ladi.",
+     "uses": [
+      "siklopropan"
+     ]
+    },
+    {
+     "p": "Siklopropanga HCl ta'sir ettiring (halqa ochiladi)",
+     "re": [
+      "C3H6",
+      "HCl"
+     ],
+     "pr": [
+      "C3H7Cl"
+     ],
+     "ans": "C3H6+HCl→C3H7Cl",
+     "w": "Halqa uziladi, 1-xlorpropan hosil bo'ladi.",
+     "uses": [
+      "siklopropan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "HX ning ta'siri",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qaysi siklalkan HBr bilan oddiy sharoitda reaksiyaga kirishadi?",
+     "ok": "Siklopropan",
+     "no": [
+      "Siklopentan",
+      "Siklogeksan",
+      "Siklogeptan"
+     ],
+     "w": "Uch a'zoli halqa zo'riqqan va HBr ta'sirida ochiladi.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Siklopentan",
+      "why": "Besh va olti a'zoli halqalar zo'riqmagan, HBr ularni ochmaydi."
+     }
+    },
+    {
+     "p": "Siklopropan HBr bilan reaksiyaga kirishsa, qanday modda hosil bo'ladi?",
+     "ok": "1-brompropan",
+     "no": [
+      "2-brompropan",
+      "1,3-dibrompropan",
+      "Brombenzol"
+     ],
+     "w": "Halqa uziladi, uchlariga H va Br birikadi: CH₃CH₂CH₂Br.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "1,3-dibrompropan",
+      "why": "Dibromid Br₂ dan hosil bo'ladi. HBr faqat bitta brom beradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "HX ning ta'siri",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Siklopropanga HBr, hosil bo'lgan moddaga Na (Vyurs) ta'sir ettirilsa, qaysi alkan hosil bo'ladi?",
+     "ok": "Geksan",
+     "no": [
+      "Propan",
+      "Butan",
+      "Pentan"
+     ],
+     "w": "HBr 1-brompropan beradi; Vyurs reaksiyasida uglerod soni ikki baravar ortadi (2C₃ → C₆).",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Propan",
+      "why": "Propan Vyursda emas, galogenalkanning gidrogenlanishida hosil bo'ladi. Vyursda zanjir uzayadi."
+     }
+    },
+    {
+     "p": "Siklopropanga HBr, so'ng Na (Vyurs) ta'sir ettirilsa, oxirgi alkanning molyar massasi qancha?",
+     "ok": "86 g/mol",
+     "no": [
+      "44 g/mol",
+      "58 g/mol",
+      "72 g/mol"
+     ],
+     "w": "Oxirgi modda geksan C₆H₁₄: 6 · 12 + 14 = 86.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "44 g/mol",
+      "why": "44 propanning massasi. Vyursda uglerod soni ikki baravar ortadi, shuning uchun geksan hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-1",
+   "group": "Gidrogenlash",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklopropan vodorod bilan (Ni, ~80 °C) qaysi moddani beradi?",
+     "ok": "Propan",
+     "no": [
+      "Siklopentan",
+      "Etan",
+      "Propen"
+     ],
+     "w": "Uch a'zoli halqa uziladi va ikki vodorod birikadi: C₃H₈.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Propen",
+      "why": "Propen alken bo'lardi. Gidrogenlashda halqa ochiladi va to'yingan alkan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Siklobutan vodorod bilan (Ni, ~120 °C) qaysi moddani beradi?",
+     "ok": "Butan",
+     "no": [
+      "Propan",
+      "Siklobutan hosil bo'lmaydi",
+      "Buten"
+     ],
+     "w": "To'rt a'zoli halqa uziladi: C₄H₁₀.",
+     "uses": [
+      "siklobutan"
+     ],
+     "trap": {
+      "opt": "Propan",
+      "why": "Halqa ochilganda uglerod soni o'zgarmaydi: to'rt uglerod, butan."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-2",
+   "group": "Gidrogenlash",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qaysi siklalkan gidrogenlanganda propan hosil bo'ladi?",
+     "ok": "Siklopropan",
+     "no": [
+      "Siklobutan",
+      "Siklopentan",
+      "Siklogeksan"
+     ],
+     "w": "Uglerod soni saqlanadi: uch uglerodli halqa propan beradi.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "Siklobutan",
+      "why": "Siklobutan butan beradi: uglerod soni halqa ochilganda o'zgarmaydi."
+     }
+    },
+    {
+     "p": "Siklobutanni gidrogenlash mahsuloti qaysi?",
+     "ok": "Butan",
+     "no": [
+      "Propan",
+      "Pentan",
+      "Izobutan"
+     ],
+     "w": "Halqa uziladi, uglerod skeleti o'zgarmaydi: to'g'ri zanjirli butan.",
+     "uses": [
+      "siklobutan"
+     ],
+     "trap": {
+      "opt": "Izobutan",
+      "why": "Halqa skelet tarmoqlanishini hosil qilmaydi: to'g'ri zanjirli butan chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "r-3",
+   "group": "Gidrogenlash",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Siklopentanning gidrogenlanishi siklopropanga nisbatan qanday?",
+     "ok": "Qiyinroq: yuqori harorat kerak",
+     "no": [
+      "Osonroq",
+      "Bir xil sharoitda",
+      "Hech qachon bormaydi"
+     ],
+     "w": "Beshlik halqa zo'riqmagan, shuning uchun gidrogenlash qattiq sharoit (~300 °C) talab qiladi.",
+     "uses": [
+      "siklopentan"
+     ],
+     "trap": {
+      "opt": "Bir xil sharoitda",
+      "why": "Siklopropan zo'riqqan, shu uchun yumshoq sharoitda gidrogenlanadi. Siklopentanga ko'proq harorat kerak."
+     }
+    },
+    {
+     "p": "Siklopentanni gidrogenlash mahsuloti qaysi?",
+     "ok": "Pentan",
+     "no": [
+      "Butan",
+      "Geksan",
+      "Izopentan"
+     ],
+     "w": "Besh uglerodli halqa uziladi: to'g'ri zanjirli pentan.",
+     "uses": [
+      "siklopentan"
+     ],
+     "trap": {
+      "opt": "Izopentan",
+      "why": "Halqani ochish tarmoqlanishni hosil qilmaydi, uglerod skeleti to'g'ri zanjirli."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklopropanning to'liq yonishini koeffitsientlar bilan yozing",
+     "re": [
+      "C3H6",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C3H6+9O2→6CO2+6H2O",
+     "w": "Avval uglerod, keyin vodorod, oxirida kislorod tenglashtiriladi: 2C₃H₆ ga 9 O₂.",
+     "uses": [
+      "siklopropan"
+     ]
+    },
+    {
+     "p": "Siklobutanning to'liq yonishini koeffitsientlar bilan yozing",
+     "re": [
+      "C4H8",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C4H8+6O2→4CO2+4H2O",
+     "w": "CO₂ va H₂O ning kislorodi: 8 + 4 = 12 ta atom, ya'ni 6 O₂.",
+     "uses": [
+      "siklobutan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Siklopentanning to'liq yonishini koeffitsientlar bilan yozing",
+     "re": [
+      "C5H10",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C5H10+15O2→10CO2+10H2O",
+     "w": "Kislorod soni kasr (7,5) chiqadi, shuning uchun hammasi ikki baravar: 2C₅H₁₀ + 15O₂.",
+     "uses": [
+      "siklopentan"
+     ]
+    },
+    {
+     "p": "Siklogeksanning to'liq yonishini koeffitsientlar bilan yozing",
+     "re": [
+      "C6H12",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C6H12+9O2→6CO2+6H2O",
+     "w": "Kislorod: 12 + 6 = 18 ta atom, ya'ni 9 O₂.",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Siklogeksan to'liq yonganda qaysi moddalar hosil bo'ladi?",
+     "ok": "CO₂ va H₂O",
+     "no": [
+      "CO va H₂",
+      "C va H₂O",
+      "CO₂ va H₂"
+     ],
+     "w": "To'liq yonishda uglerod CO₂ ga, vodorod H₂O ga aylanadi.",
+     "uses": [
+      "siklogeksan"
+     ],
+     "trap": {
+      "opt": "CO va H₂",
+      "why": "CO yetishmagan kislorodda hosil bo'ladi. To'liq yonishda faqat CO₂ va H₂O."
+     }
+    },
+    {
+     "p": "Siklopropan yonganda hosil bo'lgan CO₂ va H₂O ning mol nisbati qanday?",
+     "ok": "1 : 1",
+     "no": [
+      "3 : 4",
+      "1 : 2",
+      "2 : 1"
+     ],
+     "w": "C₃H₆ dan 3 CO₂ va 3 H₂O: nisbat 1 : 1.",
+     "uses": [
+      "siklopropan"
+     ],
+     "trap": {
+      "opt": "3 : 4",
+      "why": "3 : 4 propan (alkan) uchun. Siklopropanda vodorod 6 ta, shuning uchun 3 H₂O."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "1 mol siklogeksan to'liq yonishiga necha mol O₂ kerak?",
+     "ok": "9",
+     "no": [
+      "6",
+      "8",
+      "10"
+     ],
+     "w": "6 CO₂ uchun 6 O₂, 6 H₂O uchun yana 3 O₂: jami 9 mol.",
+     "uses": [
+      "siklogeksan"
+     ],
+     "trap": {
+      "opt": "6",
+      "why": "6 faqat CO₂ dagi kislorod. Suvdagi kislorod ham hisobga olinadi."
+     }
+    },
+    {
+     "p": "1 mol siklopentan to'liq yonishiga necha mol O₂ kerak?",
+     "ok": "7,5",
+     "no": [
+      "5",
+      "10",
+      "6"
+     ],
+     "w": "5 CO₂ uchun 5 O₂, 5 H₂O uchun yana 2,5 O₂: jami 7,5 mol.",
+     "uses": [
+      "siklopentan"
+     ],
+     "trap": {
+      "opt": "5",
+      "why": "5 faqat CO₂ uchun yetadi. Suv hosil bo'lishiga ham kislorod ketadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (rux)",
+     "re": [
+      "C4H8Br2",
+      "Zn"
+     ],
+     "pr": [
+      "C4H8",
+      "ZnBr2"
+     ],
+     "ans": "C4H8Br2+Zn→C4H8+ZnBr2",
+     "w": "Rux ikkala bromni oladi, to'rt uglerod halqaga yopiladi: siklobutan.",
+     "chain": {
+      "all": [
+       "C4H8Br2",
+       "C4H8",
+       "C4H10",
+       "C4H9Cl"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "siklobutan"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C6H6",
+      "H2"
+     ],
+     "pr": [
+      "C6H12"
+     ],
+     "ans": "C6H6+3H2→C6H12",
+     "w": "Benzolga uch molekula vodorod birikib siklogeksan hosil qiladi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H12",
+       "C6H11Cl",
+       "C12H22"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Ni, ~120 °C)",
+     "re": [
+      "C4H8",
+      "H2"
+     ],
+     "pr": [
+      "C4H10"
+     ],
+     "ans": "C4H8+H2→C4H10",
+     "w": "Siklobutan halqasi uziladi: butan hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C4H8Br2",
+       "C4H8",
+       "C4H10",
+       "C4H9Cl"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "siklobutan"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C6H12",
+      "Cl2"
+     ],
+     "pr": [
+      "C6H11Cl",
+      "HCl"
+     ],
+     "ans": "C6H12+Cl2→C6H11Cl+HCl",
+     "w": "Siklogeksanning bitta vodorodi xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H12",
+       "C6H11Cl",
+       "C12H22"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "siklogeksan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C4H10",
+      "Cl2"
+     ],
+     "pr": [
+      "C4H9Cl",
+      "HCl"
+     ],
+     "ans": "C4H10+Cl2→C4H9Cl+HCl",
+     "w": "Butanning bitta vodorodi xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C4H8Br2",
+       "C4H8",
+       "C4H10",
+       "C4H9Cl"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "C6H11Cl",
+      "Na"
+     ],
+     "pr": [
+      "C12H22",
+      "NaCl"
+     ],
+     "ans": "2C6H11Cl+2Na→C12H22+2NaCl",
+     "w": "Ikki siklogeksil radikal birlashadi: uglerod soni ikki baravar ortadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H12",
+       "C6H11Cl",
+       "C12H22"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}
