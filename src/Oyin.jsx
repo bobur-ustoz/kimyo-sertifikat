@@ -204,15 +204,41 @@ function Question({ item, onAnswer, locked, result }) {
   const [stake, setStake] = useState(false);
   const t0 = useRef(Date.now());
   useEffect(() => { t0.current = Date.now(); }, [q.id]);
+  const [decided, setDecided] = useState(null);   // id of the question whose stake choice is made
   const send = (a) => onAnswer(a, stake, Date.now() - t0.current);
+  const [left, setLeft] = useState(null);   // seconds left; 0 = time is up (a correct answer then gives +5)
+  const total = stake ? item.stakeLimit : item.limit;
+  useEffect(() => {
+    if (!total || result || locked) return;
+    const tick = () => setLeft(Math.max(0, total - Math.floor((Date.now() - t0.current) / 1000)));
+    tick(); const id = setInterval(tick, 500); return () => clearInterval(id);
+  }, [q.id, total, result, locked, decided]);
   const lvl = q.lvl || 1;
-  return (
+  const gate = item.canStake && !locked && !result && decided !== q.id;   // the question stays hidden until the stake is chosen
+  const decide = (on) => { setStake(on); setDecided(q.id); t0.current = Date.now(); };
+  if (gate) return (
     <>
       <div><span className={"lvl l" + lvl}>{["", "1-daraja", "2-daraja", "3-daraja · qiyin"][lvl]}</span>{item.review && <span className="lvl rev">Takror</span>}</div>
-      <div className="prompt" dangerouslySetInnerHTML={{ __html: q.p }} />
-      {item.canStake && !locked && (
-        <label className="stake"><input type="checkbox" checked={stake} onChange={(e) => setStake(e.target.checked)} /> Stavka: to'g'ri +2 ♥, xato reytingdan −1</label>
+      <div className="prompt">Bu savolga stavka qo'yasizmi?</div>
+      <div className="stake" style={{ display: "block" }}>Savol stavkadan keyin ko'rinadi. To'g'ri javob <b>+2 ♥</b>, xato bo'lsa reytingdan <b>−1</b>.</div>
+      <button className="btn" onClick={() => decide(true)}>Stavka qo'yaman (2×)</button>
+      <button className="btn" style={{ background: "transparent", color: "var(--violet)", boxShadow: "none", border: "2px solid var(--violet-soft)" }} onClick={() => decide(false)}>Stavkasiz davom etaman</button>
+    </>
+  );
+  return (
+    <>
+      <div><span className={"lvl l" + lvl}>{["", "1-daraja", "2-daraja", "3-daraja · qiyin"][lvl]}</span>{item.review && <span className="lvl rev">Takror</span>}{stake && !result && <span className="lvl rev">Stavka 2×</span>}</div>
+      {!result && left !== null && total > 0 && (
+        <div style={{ margin: "6px 0 2px" }}>
+          <div style={{ height: 6, borderRadius: 99, background: "var(--line)", overflow: "hidden" }}>
+            <div style={{ height: "100%", width: `${(left / total) * 100}%`, background: left === 0 ? G.coral : left <= 10 ? G.coral : "var(--violet)", transition: "width .5s linear" }} />
+          </div>
+          <div style={{ font: "600 13px Nunito,system-ui,sans-serif", color: left === 0 ? G.coral : G.muted, marginTop: 4 }}>
+            {left === 0 ? "Vaqt tugadi: to'g'ri javob +5 ♥ beradi" : `${left} soniya`}
+          </div>
+        </div>
       )}
+      <div className="prompt" dangerouslySetInnerHTML={{ __html: q.p }} />
       {q.type === "choice" && (
         <>
           {q.mol && <div className="stage"><MolSvg m={q.mol} /></div>}
@@ -298,7 +324,7 @@ export default function Oyin({ session, setTab }) {
       <button className="btn" onClick={() => setTab("profile")}>Kirish / Ro'yxatdan o'tish</button>
     </div></>);
 
-  const chips = state && <div className="chips"><div className="chip" style={{ color: G.coral }}><Flame size={17} />{state.player.streak}</div><div className="chip" style={{ color: G.coral }}><Heart size={17} fill="currentColor" />{hearts(state.player.xp)}</div></div>;
+  const chips = state && <div className="chips"><div className="chip" style={{ color: G.coral }}><Flame size={17} />{state.player.streak}</div><div className="chip" style={{ color: G.coral }}><Heart size={17} fill="currentColor" />{hearts(state.player.xp)}</div>{state.player.shields > 0 && <div className="chip" style={{ color: G.muted }}>🛡 {state.player.shields}</div>}</div>;
 
   if (view === "quiz" && today) {
     const item = today.items[pos];
@@ -312,13 +338,13 @@ export default function Oyin({ session, setTab }) {
       <Question key={item.question.id} item={item} onAnswer={answer} locked={!!res || busy} result={res} />
       {res && (
         <div className={"sheet " + (res.ok ? "ok" : "no")}>
-          <h3>{res.ok ? "To'g'ri!" : "Hali emas"}{res.xp > 0 ? ` +${hearts(res.xp)} ♥` : ""}</h3>
+          <h3>{res.ok ? "To'g'ri!" : "Hali emas"}{res.xp > 0 ? ` +${hearts(res.xp)} ♥` : ""}{res.late && res.ok ? " (kech)" : ""}</h3>
           <p>
             {!res.ok && res.reveal.message && <>{res.reveal.message} </>}
             {!res.ok && res.reveal.got && <>Siz yig'gan modda: <b>{res.reveal.got}</b>. </>}
             {!res.ok && item.question.type === "write" && <>To'g'ri tenglama: <b><Eq s={res.reveal.correct} /></b><br /></>}
             {!res.ok && item.question.type === "build" && <>To'g'ri javob: <b>{res.reveal.correct.name}</b> ({res.reveal.correct.formula}).<br /></>}
-            {res.stakeLost && <>Stavka yutqazildi: reytingdan −1. </>}{res.shieldUsed && <>Qalqon stavkani saqladi. </>}
+            {res.stakeLost && <>Stavka yutqazildi: reytingdan −1. </>}{res.shieldUsed && <>Qalqon stavkani saqladi. </>}{res.shieldEarned && <>Yangi qalqon oldingiz! 🛡 </>}
             {res.trapHit && res.reveal.trapWhy && <><b>Tuzoq!</b> <span dangerouslySetInnerHTML={{ __html: res.reveal.trapWhy }} /><br /></>}
             <span dangerouslySetInnerHTML={{ __html: res.reveal.explanation }} />
           </p>

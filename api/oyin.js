@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { selectDaily } from "./_oyin/select.js";
 import { publicQuestion, check } from "./_oyin/view.js";
-import { scoreAnswer, canStake, dailyBonus, applyRank, POINTS } from "./_oyin/score.js";
+import { scoreAnswer, canStake, dailyBonus, applyRank, POINTS, timeLimit, isLate } from "./_oyin/score.js";
 
 // Organika game API. One function (Vercel Hobby allows 12), the action is in the body:
 //   state                       -> season, today's day number, the student's totals, the list of days
@@ -10,6 +10,7 @@ import { scoreAnswer, canStake, dailyBonus, applyRank, POINTS } from "./_oyin/sc
 // Correct answers live in og_questions.secret and never leave the server before the student answers.
 // The game is free for every signed-in student.
 
+const MAX_SHIELDS = 2;
 const TZ_HOURS = 5;   // Tashkent
 const dayNumber = (startsOn) => {
   const today = new Date(Date.now() + TZ_HOURS * 3600 * 1000).toISOString().slice(0, 10);
@@ -138,7 +139,7 @@ export default async function handler(req, res) {
         const q = byId.get(it.id);
         const a = answered.get(i);
         return { position: i, review: it.review, fromDay: it.fromDay, canStake: canStake({ lvl: q.lvl, stakesUsed: set.stakes_used }) && !a,
-          question: publicQuestion(q, it.order), answered: a ? { ok: a.ok, stake: a.stake, xp: a.xp } : null };
+          question: publicQuestion(q, it.order), limit: timeLimit(q.type, false), stakeLimit: timeLimit(q.type, true), answered: a ? { ok: a.ok, stake: a.stake, xp: a.xp } : null };
       }),
     });
   }
@@ -149,7 +150,8 @@ export default async function handler(req, res) {
     const q = byId.get(items[position].id);
     const wantsStake = !!stake && canStake({ lvl: q.lvl, stakesUsed: set.stakes_used });
     const r = check(q, answer);
-    const sc = scoreAnswer({ ok: r.ok, stake: wantsStake, replay: false, hasShield: (player.shields || 0) > 0 });
+    const late = isLate(ms, q.type, wantsStake);
+    const sc = scoreAnswer({ ok: r.ok, stake: wantsStake, replay: false, hasShield: (player.shields || 0) > 0, late });
 
     const insA = await admin.from("og_answers").insert({ user_id: userId, season_id: season.id, day, position, question_id: q.id, ok: r.ok, stake: wantsStake,
       trap_hit: r.trapHit, xp: sc.xp, rank: sc.rank, ms: Number.isFinite(ms) ? Math.round(ms) : null });
@@ -170,6 +172,8 @@ export default async function handler(req, res) {
       playerPatch.rank_points = applyRank(playerPatch.rank_points, bonus);
       playerPatch.streak = player.last_day === day - 1 || !player.last_day ? player.streak + 1 : player.last_day === day ? player.streak : 1;
       playerPatch.last_day = day;
+      // every 5th day in a row earns a shield (at most 2 kept)
+      if (playerPatch.streak % 5 === 0 && playerPatch.streak > player.streak) playerPatch.shields = Math.min(MAX_SHIELDS, (playerPatch.shields ?? player.shields ?? 0) + 1);
     }
     if (Object.keys(setPatch).length) await admin.from("og_daily_sets").update(setPatch).eq("user_id", userId).eq("season_id", season.id).eq("day", day);
     await admin.from("og_players").update(playerPatch).eq("user_id", userId).eq("season_id", season.id);
@@ -177,7 +181,7 @@ export default async function handler(req, res) {
     const correctCount = [...answered.values()].filter((a) => a.ok).length + (r.ok ? 1 : 0);
     return res.status(200).json({
       ok: r.ok, trapHit: r.trapHit, reveal: r.reveal, xp: sc.xp, stakeLost: sc.stakeLost, shieldUsed: sc.shieldUsed,
-      done, bonus, correct: correctCount, total: items.length,
+      late, done, bonus, shieldEarned: (playerPatch.shields ?? player.shields) > player.shields - (sc.shieldUsed ? 1 : 0), correct: correctCount, total: items.length,
       player: { xp: playerPatch.xp, rank: playerPatch.rank_points, streak: playerPatch.streak ?? player.streak, shields: playerPatch.shields ?? player.shields },
     });
   }
