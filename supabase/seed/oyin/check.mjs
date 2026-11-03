@@ -14,6 +14,7 @@ import { selectDaily, levelMix } from "../../../api/_oyin/select.js";
 const file = process.argv[2];
 if (!file) { console.error("Usage: node check.mjs <kun_NN.json>"); process.exit(1); }
 const day = loadDay(JSON.parse(readFileSync(file, "utf8")));
+const earlier = process.argv.slice(3).map((f) => loadDay(JSON.parse(readFileSync(f, "utf8"))));   // oldingi kunlar (takror savollar uchun)
 const errors = [];
 const bad = (id, msg) => errors.push(`${id}: ${msg}`);
 const buildable = buildableNames();
@@ -78,8 +79,9 @@ for (const g of groups) if (day.slots.filter((s) => s.group === g).length < 2) b
 if (!errors.length) {
   let dup = 0, miss = 0, bundleBad = 0; const seenSets = new Set(); const pick = {};
   for (let u = 0; u < 1000; u++) {
-    const r = selectDaily({ day: day.day, days: [day], userId: "u" + u });
-    const qs = r.items.map((i) => day.slots.flatMap((s) => s.variants).find((v) => v.id === i.id));
+    const r = selectDaily({ day: day.day, days: [...earlier, day], userId: "u" + u });
+    const own = r.items.filter((i) => !i.review);
+    const qs = own.map((i) => day.slots.flatMap((s) => s.variants).find((v) => v.id === i.id));
     if (qs.length !== day.slots.length) bad("tanlov", `to'plam ${qs.length} ta, ${day.slots.length} ta bo'lishi kerak`);
     if (new Set(qs.map(questionKey)).size !== qs.length) dup++;
     if (r.missing.length) miss++;
