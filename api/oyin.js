@@ -1,12 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
 import { selectDaily } from "./_oyin/select.js";
 import { publicQuestion, check } from "./_oyin/view.js";
+import { drawTeams, pickTeamForLate, lateAllowed, TEAM_NAMES } from "./_oyin/teams.js";
 import { scoreAnswer, canStake, dailyBonus, applyRank, POINTS, timeLimit, isLate } from "./_oyin/score.js";
 
 // Organika game API. One function (Vercel Hobby allows 12), the action is in the body:
 //   state                       -> season, today's day number, the student's totals, the list of days
 //   today   { day? }            -> today's set of questions (without answers) and what is already answered
 //   answer  { day, position, answer, stake?, ms? } -> checks on the server, scores, reveals the answer
+//   draw    { preview?, seed? }  -> admin only: random, strength-balanced team draw (once per season); preview does not save
 // Correct answers live in og_questions.secret and never leave the server before the student answers.
 // The game is free for every signed-in student.
 
@@ -87,7 +89,59 @@ export default async function handler(req, res) {
     const [player, { data: sets }] = await Promise.all([getPlayer(), admin.from("og_daily_sets").select("day,status").eq("user_id", userId).eq("season_id", season.id)]);
     const status = Object.fromEntries((sets || []).map((x) => [x.day, x.status]));
     const days = dayRows.map((d) => ({ day: d.day, topic: d.topic, open: d.day <= current, status: status[d.day] || "new" }));
-    return res.status(200).json({ season: { name: season.name, days: season.days, current }, player: totals(player), days });
+    const team = await loadTeam(player.team_id).catch(() => null);
+    return res.status(200).json({ season: { name: season.name, days: season.days, current }, player: totals(player), days, team });
+  }
+
+  const shortName = (n) => { const [a, b] = String(n || "").trim().split(/\s+/); return a ? (b ? `${a} ${b[0]}.` : a) : "O'quvchi"; };
+  // the student's team with member first names and ratings (null when there is none or the team tables are not set up yet)
+  const loadTeam = async (teamId) => {
+    if (!teamId) return null;
+    const [{ data: team }, { data: mem }] = await Promise.all([
+      admin.from("og_teams").select("id,name").eq("id", teamId).maybeSingle(),
+      admin.from("og_players").select("user_id,rank_points,xp").eq("season_id", season.id).eq("team_id", teamId),
+    ]);
+    if (!team) return null;
+    const { data: profs } = await admin.from("profiles").select("id,full_name").in("id", (mem || []).map((m) => m.user_id));
+    const names = new Map((profs || []).map((x) => [x.id, x.full_name]));
+    const members = (mem || []).map((m) => ({ name: shortName(names.get(m.user_id)), rank: m.rank_points, me: m.user_id === userId })).sort((a, b) => b.rank - a.rank);
+    const avg = members.length ? Math.round(members.reduce((acc, m) => acc + m.rank, 0) / members.length) : 0;
+    return { name: team.name, members, avg };
+  };
+
+  if (action === "draw") {
+    const { data: prof } = await admin.from("profiles").select("is_admin").eq("id", userId).maybeSingle();
+    if (!prof?.is_admin) return fail(res, 403, "Faqat admin");
+    const preview = !!req.body?.preview;
+    if (season.teams_drawn_at && !preview) return fail(res, 409, "Jamoalar allaqachon tuzilgan");
+    const { data: done } = await admin.from("og_daily_sets").select("user_id").eq("season_id", season.id).eq("status", "done");
+    const days = new Map();
+    for (const d of done || []) days.set(d.user_id, (days.get(d.user_id) || 0) + 1);
+    const eligible = [...days].filter(([, n]) => n >= 2).map(([id]) => id);
+    if (eligible.length < 2) return fail(res, 400, "Qur'a uchun kamida 2 kunni bajargan 2 o'quvchi kerak");
+    const { data: pl } = await admin.from("og_players").select("user_id,xp,rank_points").eq("season_id", season.id).in("user_id", eligible);
+    const seed = Number.isInteger(req.body?.seed) ? req.body.seed : Math.floor(Math.random() * 2 ** 31);
+    const teams = drawTeams((pl || []).map((p) => ({ user_id: p.user_id, xp: p.xp })), { seed });
+    const { data: profs } = await admin.from("profiles").select("id,full_name").in("id", eligible);
+    const names = new Map((profs || []).map((x) => [x.id, x.full_name]));
+    const xp = new Map((pl || []).map((p) => [p.user_id, p.xp]));
+    const view = teams.map((t) => ({ name: t.name, size: t.members.length, avgXp: Math.round(t.members.reduce((a, u) => a + (xp.get(u) || 0), 0) / t.members.length), members: t.members.map((u) => shortName(names.get(u))) }));
+    if (preview) return res.status(200).json({ preview: true, seed, players: eligible.length, teams: view });
+    for (const t of teams) {
+      const ins = await admin.from("og_teams").insert({ season_id: season.id, name: t.name }).select("id").single();
+      if (ins.error) return fail(res, 500, ins.error.message);
+      const up = await admin.from("og_players").update({ team_id: ins.data.id }).eq("season_id", season.id).in("user_id", t.members);
+      if (up.error) return fail(res, 500, up.error.message);
+    }
+    const drawnAt = new Date().toISOString();
+    await admin.from("og_seasons").update({ teams_drawn_at: drawnAt }).eq("id", season.id);
+    cache.at = 0;
+    return res.status(200).json({ preview: false, seed, players: eligible.length, teams: view });
+  }
+
+  if (action === "team") {
+    const p = await getPlayer();
+    return res.status(200).json({ team: await loadTeam(p.team_id).catch(() => null), drawn: !!season.teams_drawn_at });
   }
 
   const day = Number.isInteger(dayIn) ? dayIn : Math.min(current, season.days);
@@ -177,6 +231,24 @@ export default async function handler(req, res) {
     }
     if (Object.keys(setPatch).length) await admin.from("og_daily_sets").update(setPatch).eq("user_id", userId).eq("season_id", season.id).eq("day", day);
     await admin.from("og_players").update(playerPatch).eq("user_id", userId).eq("season_id", season.id);
+    if (done && season.teams_drawn_at && !player.team_id && lateAllowed(dayNumber(player.joined_on))) {
+      // joined after the draw (and by day 18): goes to the smallest team automatically; a new team is opened when all are full
+      try {
+        const [{ data: ts }, { data: mem }] = await Promise.all([
+          admin.from("og_teams").select("id,name").eq("season_id", season.id),
+          admin.from("og_players").select("team_id").eq("season_id", season.id).not("team_id", "is", null),
+        ]);
+        const size = new Map(); for (const m of mem || []) size.set(m.team_id, (size.get(m.team_id) || 0) + 1);
+        let teamId = pickTeamForLate((ts || []).map((t) => ({ id: t.id, size: size.get(t.id) || 0 })));
+        if (!teamId) {
+          const taken = new Set((ts || []).map((t) => t.name));
+          const name = TEAM_NAMES.find((n) => !taken.has(n)) || `Jamoa ${(ts || []).length + 1}`;
+          const ins = await admin.from("og_teams").insert({ season_id: season.id, name }).select("id").single();
+          teamId = ins.data?.id;
+        }
+        if (teamId) await admin.from("og_players").update({ team_id: teamId }).eq("user_id", userId).eq("season_id", season.id);
+      } catch { /* the answer is already saved; the student can be placed on the next finished day */ }
+    }
 
     const correctCount = [...answered.values()].filter((a) => a.ok).length + (r.ok ? 1 : 0);
     return res.status(200).json({
