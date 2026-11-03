@@ -374,7 +374,14 @@ export default function Oyin({ session, setTab }) {
     {!state && !err && <div className="hint">Yuklanmoqda…</div>}
     {state && (<>
       <div className="card"><b style={{ font: "600 19px Fredoka,system-ui,sans-serif" }}>24 kunlik mavsum</b>
-        <div className="hint" style={{ textAlign: "left", marginTop: 4 }}>Har kuni yangi mavzu: 30 savol, taxminan 15 daqiqa. Bepul.</div></div>
+        <div className="hint" style={{ textAlign: "left", marginTop: 4 }}>Har kuni yangi mavzu: 30 savol, taxminan 20 daqiqa. Bepul.</div></div>
+      {state.team && (<div className="card">
+        <b style={{ font: "600 19px Fredoka,system-ui,sans-serif" }}>Sizning jamoangiz: {state.team.name}</b>
+        <div className="hint" style={{ textAlign: "left", marginTop: 4 }}>Jamoaning o'rtacha reytingi: <b>{Math.round(state.team.avg / 10)} ♥</b></div>
+        <div style={{ marginTop: 8, display: "grid", gap: 4 }}>
+          {state.team.members.map((m, i) => (<div key={i} style={{ display: "flex", justifyContent: "space-between", fontWeight: m.me ? 800 : 600, color: m.me ? G.green : "inherit" }}>
+            <span>{m.name}{m.me ? " (siz)" : ""}</span><span>{Math.round(m.rank / 10)} ♥</span></div>))}
+        </div></div>)}
       {state.days.length === 0 && <div className="hint">Savollar tez orada qo'shiladi.</div>}
       {state.days.map((d) => (
         <button key={d.day} className={"day " + (d.status === "done" ? "done" : d.open ? "cur" : "")} disabled={!d.open || busy} onClick={() => open(d.day)}>

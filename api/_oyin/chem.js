@@ -33,7 +33,11 @@ function parseSide(t) {
     if (!c) throw new Error("koeffitsient");
     const cnt = parseFormula(m[2]);
     return { c, cnt, k: canon(cnt) };
-  });
+  }).reduce((acc, x) => {   // bir xil modda ikki marta yozilsa (masalan C3H7Cl + C3H7Cl), koeffitsientlar qo'shiladi
+    const same = acc.find((y) => y.k === x.k);
+    if (same) same.c += x.c; else acc.push(x);
+    return acc;
+  }, []);
 }
 
 // Tenglama yozuvi q.re (reagentlar) va q.pr (mahsulotlar) ga mosmi, tenglashganmi, koeffitsientlar eng kichikmi.
