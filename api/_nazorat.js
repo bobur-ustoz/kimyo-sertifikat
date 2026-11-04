@@ -7,6 +7,7 @@
 // TELEGRAM_ADMIN_CHAT_ID (mavjud admin boti).
 
 import { escapeHtml } from "./_telegram.js";
+import { isTgEmail } from "./_tgauth.js";
 
 export const NO_ACTIVITY_DAYS = 3;   // shuncha kun va undan ko'p faolsiz bo'lsa
 export const LOW_PERCENT = 40;       // oxirgi javoblarda shundan kam to'g'ri bo'lsa
@@ -25,6 +26,8 @@ export const STATUS_TEXT = {
 export const NUDGE_EVERY_DAYS = 3;   // bir o'quvchiga eslatma ko'pi bilan shuncha kunda bir marta
 
 const ms = (t) => (t ? new Date(t).getTime() : 0);
+// Bog'lanish uchun: Telegram orqali kirganda email soxta, shuning uchun telefon; aks holda email (va bo'lsa telefon).
+const contactOf = (s) => isTgEmail(s.email) ? (s.phone || "telefon yo'q") : [s.email, s.phone].filter(Boolean).join(", ") || "aloqa yo'q";
 const displayName = (s) => s.full_name || String(s.email || "").split("@")[0] || "Noma'lum";
 
 // students: pullik profillar; views: { student_id, last_at }; answers: { student_id, is_correct, at }.
@@ -61,7 +64,7 @@ export function findFlags({ students, views, answers, now = new Date() }) {
 export function formatReport(flags) {
   if (!flags.length) return null;
   const lines = flags.slice(0, MAX_LINES).map(({ student: s, reasons, status }) =>
-    `• <b>${escapeHtml(displayName(s))}</b> (${escapeHtml(s.email || "email yo'q")}): ${escapeHtml(reasons.join("; "))}${status ? ` — ${STATUS_TEXT[status]}` : ""}`);
+    `• <b>${escapeHtml(displayName(s))}</b> (${escapeHtml(contactOf(s))}): ${escapeHtml(reasons.join("; "))}${status ? ` — ${STATUS_TEXT[status]}` : ""}`);
   const more = flags.length > MAX_LINES ? [`... va yana ${flags.length - MAX_LINES} ta`] : [];
   return [`🔔 <b>Bugun bog'lanish kerak (${flags.length} ta):</b>`, ...lines, ...more].join("\n");
 }
@@ -72,7 +75,7 @@ const optional = ({ data, error }) => { if (error) console.warn("nazorat: jadval
 
 // Bazadan o'quvchilarni yig'ib, bog'lanish kerak bo'lganlarni qaytaradi (hech narsa yubormaydi).
 export async function collect(db, now = new Date()) {
-  const profiles = must(await db.from("profiles").select("id, full_name, email, plan, plan_expires_at, created_at, is_admin").neq("plan", "free"));
+  const profiles = must(await db.from("profiles").select("id, full_name, email, phone, plan, plan_expires_at, created_at, is_admin").neq("plan", "free"));
   const students = profiles.filter((p) => !p.is_admin && (!p.plan_expires_at || new Date(p.plan_expires_at) > now));
   if (!students.length) return [];
   const ids = students.map((s) => s.id);

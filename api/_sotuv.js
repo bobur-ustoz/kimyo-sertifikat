@@ -9,6 +9,7 @@
 
 import { escapeHtml } from "./_telegram.js";
 import { SOTUV_BILIM } from "./_sotuv_bilim.js";
+import { tgEmail } from "./_tgauth.js";
 
 export const SITE_URL = process.env.SITE_URL || "https://kimyo-sertifikat.vercel.app";
 export const DAILY_LIMIT = 40;     // bitta odamga kuniga AI javoblari (Claude xarajatini cheklaydi)
@@ -70,6 +71,14 @@ Eslatmalarni to'xtatish uchun /stop deb yozing.`;
 
 // Ulangan o'quvchi uchun AI ga qo'shimcha: u allaqachon platformada, sotish emas, yordam muhim.
 export const LINKED_NOTE = "\n\nESLATMA: bu odam saytda hisob ochgan va Telegramni ulagan o'quvchi (pullik bo'lishi mumkin). Sotishga emas, yordam berishga va o'qishni davom ettirishiga e'tibor bering.";
+
+export const LOGIN_ASK = `Saytga kirish uchun telefon raqamingizni tasdiqlang. Pastdagi "📱 Raqamni ulashish" tugmasini bosing.
+
+Raqam faqat ustoz siz bilan bog'lanishi uchun kerak.`;
+export const LOGIN_DONE = `✅ Kirdingiz! Saytga qayting, u o'zi ochiladi.
+
+Bir necha kun kirmasangiz, shu yerda muloyim eslatma yuboraman. To'xtatish uchun /stop deb yozing.`;
+const removeKeyboard = { remove_keyboard: true };
 
 export const keyboard = () => ({
   inline_keyboard: [
@@ -148,14 +157,42 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
 
   const startMatch = text.match(/^\/start(?:@\w+)?(?:\s+(\S+))?/i);
   const linkCode = startMatch?.[1]?.startsWith("ulash_") ? startMatch[1].slice(6) : null;   // saytdagi "Telegramni ulash"
+  const loginCode = startMatch?.[1]?.startsWith("kirish_") ? startMatch[1].slice(7) : null;  // "Telegram orqali kirish"
   if (!lead) {
     lead = await store.insertLead({
       tg_id: id, name: fullName(msg.from), username: msg.from.username || null,
-      source: startMatch?.[1] && !linkCode ? startMatch[1].slice(0, 60) : null,
+      source: startMatch?.[1] && !linkCode && !loginCode ? startMatch[1].slice(0, 60) : null,
     });
   }
   await store.updateLead(id, { last_update_id: update.update_id || 0, last_msg_at: new Date().toISOString() });
 
+  // Telegram orqali kirish: havola botga olib keladi, keyin telefon raqam Telegram tomonidan tasdiqlanib ulashiladi.
+  if (loginCode) {
+    if (!(await store.getLogin(loginCode))) {
+      await send("sendMessage", { chat_id: id, text: "Bu havola eskirgan yoki ishlatilgan. Saytda \"Telegram orqali kirish\" tugmasini qayta bosing." });
+      return;
+    }
+    await store.attachLogin(loginCode, id);
+    await send("sendMessage", { chat_id: id, text: LOGIN_ASK, reply_markup: { keyboard: [[{ text: "📱 Raqamni ulashish", request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
+    return;
+  }
+  if (msg.contact) {
+    // Boshqa odamning kontaktini yuborib kirib bo'lmasligi uchun: kontakt egasi yozayotgan odam bo'lishi shart.
+    if (msg.contact.user_id !== id) {
+      await send("sendMessage", { chat_id: id, text: "Faqat o'zingizning raqamingizni ulashing: pastdagi tugmadan foydalaning." });
+      return;
+    }
+    const login = await store.pendingLoginFor(id);
+    if (!login) {
+      await send("sendMessage", { chat_id: id, text: "Avval saytdagi \"Telegram orqali kirish\" tugmasini bosing, keyin raqamni ulashing.", reply_markup: removeKeyboard });
+      return;
+    }
+    const phone = String(msg.contact.phone_number || "");
+    const userId = await store.completeLogin(login.code, { tgId: id, name: fullName(msg.from), phone: phone.startsWith("+") ? phone : `+${phone}` });
+    await send("sendMessage", { chat_id: id, text: LOGIN_DONE, reply_markup: removeKeyboard });
+    await notify(adminCard(lead, "🆕 <b>Telegram orqali kirdi</b>", [`Telefon: ${escapeHtml(phone.startsWith("+") ? phone : `+${phone}`)}`]));
+    return;
+  }
   if (linkCode) {
     const userId = await store.redeemLinkCode(linkCode);
     if (!userId) {
@@ -251,6 +288,37 @@ export function supabaseStore(db) {
       return data;
     },
     async updateLead(id, patch) { await db.from("sotuv_leads").update(patch).eq("tg_id", id); },
+    // --- Telegram orqali kirish ---
+    async getLogin(code) {
+      const { data } = await db.from("tg_logins").select("code").eq("code", code).is("user_id", null).eq("consumed", false).gt("expires_at", new Date().toISOString()).maybeSingle();
+      return data;
+    },
+    async attachLogin(code, tgId) { await db.from("tg_logins").update({ tg_id: tgId }).eq("code", code).is("user_id", null); },
+    async pendingLoginFor(tgId) {
+      const { data } = await db.from("tg_logins").select("code").eq("tg_id", tgId).is("user_id", null).eq("consumed", false)
+        .gt("expires_at", new Date().toISOString()).order("created_at", { ascending: false }).limit(1).maybeSingle();
+      return data;
+    },
+    // Hisobni topadi (shu Telegram allaqachon ulangan bo'lsa u, aks holda yangisini yaratadi), telefonni yozadi va kirishni tasdiqlaydi.
+    async completeLogin(code, { tgId, name, phone }) {
+      const { data: lead } = await db.from("sotuv_leads").select("linked_user_id").eq("tg_id", tgId).maybeSingle();
+      let userId = lead?.linked_user_id || null;
+      let created = false;
+      if (!userId) {
+        const email = tgEmail(tgId);
+        const { data, error } = await db.auth.admin.createUser({ email, email_confirm: true, user_metadata: { full_name: name, provider: "telegram", tg_id: tgId } });
+        if (error) {
+          const { data: p } = await db.from("profiles").select("id").eq("email", email).maybeSingle();   // oldingi urinishda yaratilgan bo'lishi mumkin
+          if (!p) throw error;
+          userId = p.id;
+        } else { userId = data.user.id; created = true; }
+      }
+      await db.from("profiles").update(created && name ? { phone, full_name: name } : { phone }).eq("id", userId);
+      await db.from("sotuv_leads").update({ linked_user_id: null }).eq("linked_user_id", userId).neq("tg_id", tgId);
+      await db.from("sotuv_leads").update({ linked_user_id: userId, remind: true }).eq("tg_id", tgId);
+      await db.from("tg_logins").update({ tg_id: tgId, user_id: userId }).eq("code", code);
+      return userId;
+    },
     // Kod bir marta ishlaydi: used=false bo'lgan va muddati o'tmagan qatorni atomik ravishda ishlatilgan qiladi.
     async redeemLinkCode(code) {
       const { data } = await db.from("tg_link_codes").update({ used: true }).eq("code", code).eq("used", false)

@@ -14,6 +14,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { escapeHtml, telegramConfigured, tg, fmtTime } from "./_telegram.js";
 import { handleTgLink } from "./_tglink.js";
+import { handleTgLogin } from "./_tgauth.js";
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
@@ -27,6 +28,8 @@ export default async function handler(req, res) {
 
   // { action: "tg-link" | "tg-status" }: connect the student's Telegram for study reminders. Merged here for the same reason.
   if (req.body?.action === "tg-link" || req.body?.action === "tg-status") return handleTgLink(req, res);
+  // { action: "tg-login-start" | "tg-login-poll" }: register / sign in with Telegram (no session yet, so before any auth check).
+  if (req.body?.action === "tg-login-start" || req.body?.action === "tg-login-poll") return handleTgLogin(req, res);
 
   // { action: "info" }: which card to pay to. Merged here because the Hobby plan caps the
   // number of serverless functions; the card is only shown to signed-in users.

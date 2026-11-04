@@ -5,6 +5,7 @@ import Survey from "./Survey";
 import Home from "./Home";
 import Oyin from "./Oyin";
 import TelegramLink from "./TelegramLink";
+import TelegramLogin, { userLabel } from "./TelegramLogin";
 import { C } from "./theme";
 import { Home as HomeIcon, ChevronLeft, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
@@ -1539,23 +1540,18 @@ function SubscriptionScreen({plan,session,setTab}) {
 
 // ── PROFILE SCREEN ────────────────────────────────────────────────
 function AuthPanel(){
-  const [mode,setMode]=useState("login");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
+  const [showEmail,setShowEmail]=useState(false);
   const [error,setError]=useState("");
   const [info,setInfo]=useState("");
   const [loading,setLoading]=useState(false);
+  // Yangi o'quvchilar faqat Telegram orqali ro'yxatdan o'tadi; email bilan faqat oldingi hisoblarga kiriladi.
   const submit = async e => {
     e.preventDefault();
     setLoading(true); setError(""); setInfo("");
-    if(mode==="login"){
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if(error) setError(signInErrorText(error));
-    } else {
-      const { error } = await supabase.auth.signUp({ email, password });
-      if(error) setError(error.message);
-      else setInfo("Ro'yxatdan o'tildi! Endi kirishingiz mumkin.");
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if(error) setError(signInErrorText(error));
     setLoading(false);
   };
   const sendReset = async () => {
@@ -1570,28 +1566,31 @@ function AuthPanel(){
   };
   return (
     <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:16,padding:28,maxWidth:380,width:"100%"}}>
-      <div style={{display:"flex",gap:6,marginBottom:20,background:C.bgSoft,borderRadius:10,padding:4}}>
-        {[["login","Kirish"],["signup","Ro'yxatdan o'tish"]].map(([m,l])=>(
-          <button key={m} type="button" onClick={()=>{setMode(m);setError("");setInfo("");}} style={{flex:1,padding:"8px",borderRadius:8,border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:12.5,fontWeight:700,background:mode===m?"#fff":"transparent",color:mode===m?C.primary:C.textMid,boxShadow:mode===m?"0 1px 3px rgba(0,0,0,0.08)":"none"}}>{l}</button>
-        ))}
+      <TelegramLogin/>
+      <div style={{display:"flex",alignItems:"center",gap:10,margin:"20px 0 14px"}}>
+        <div style={{flex:1,height:1,background:C.border}}/><span style={{fontSize:11.5,color:C.textLight}}>yoki</span><div style={{flex:1,height:1,background:C.border}}/>
       </div>
-      <form onSubmit={submit}>
-        <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Email</label>
-        <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:12}}/>
-        <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Parol</label>
-        <input type="password" required minLength={6} value={password} onChange={e=>setPassword(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:14}}/>
-        {error&&<div style={{color:C.danger,fontSize:12,marginBottom:12}}>{error}</div>}
-        {info&&<div style={{color:C.primary,fontSize:12,marginBottom:12}}>{info}</div>}
-        <button type="submit" disabled={loading} style={{width:"100%",padding:"11px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
-          {loading?"Yuklanmoqda...":mode==="login"?"Kirish":"Ro'yxatdan o'tish"}
+      {!showEmail ? (
+        <button type="button" onClick={()=>setShowEmail(true)} style={{width:"100%",background:"none",border:`1px solid ${C.border}`,borderRadius:9,padding:"10px",color:C.textMid,fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit"}}>
+          Email bilan kirish (oldingi hisob)
         </button>
-        {mode==="login"&&(
+      ) : (
+        <form onSubmit={submit}>
+          <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Email</label>
+          <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:12,boxSizing:"border-box"}}/>
+          <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Parol</label>
+          <input type="password" required minLength={6} value={password} onChange={e=>setPassword(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:12,boxSizing:"border-box"}}/>
+          {error&&<div style={{color:C.danger,fontSize:12,marginBottom:12}}>{error}</div>}
+          {info&&<div style={{color:C.primary,fontSize:12,marginBottom:12}}>{info}</div>}
+          <button type="submit" disabled={loading} style={{width:"100%",padding:"11px",borderRadius:9,background:C.primary,color:"#fff",border:"none",fontSize:13,fontWeight:800,cursor:"pointer",fontFamily:"inherit"}}>
+            {loading?"Yuklanmoqda...":"Kirish"}
+          </button>
           <button type="button" onClick={sendReset} disabled={loading}
             style={{width:"100%",marginTop:12,background:"none",border:"none",color:C.textMid,fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",textDecoration:"underline"}}>
             Parolni unutdingizmi?
           </button>
-        )}
-      </form>
+        </form>
+      )}
     </div>
   );
 }
@@ -1623,7 +1622,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           <div style={{width:70,height:70,borderRadius:"50%",background:"rgba(255,255,255,0.18)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:30,flexShrink:0}}>👨‍🎓</div>
           <div style={{flex:1,minWidth:0}}>
             <div style={{fontSize:10,color:C.mint,fontWeight:800,marginBottom:4,letterSpacing:"0.04em"}}>nooracademy · 2026</div>
-            <div style={{fontSize:16,fontWeight:900,marginBottom:3,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{session.user.email}</div>
+            <div style={{fontSize:16,fontWeight:900,marginBottom:3,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{userLabel(session)}</div>
             <div style={{fontSize:12.5,color:"#DCE8FF"}}>{teacher?`${teacher.name} kursi`:"O'qituvchi tanlanmagan"}</div>
             <div style={{display:"inline-flex",alignItems:"center",gap:5,marginTop:6,background:"rgba(255,255,255,0.15)",padding:"4px 12px",borderRadius:20}}>
               <div style={{width:7,height:7,borderRadius:"50%",background:pi.color==="#475569"?"#CBD5E1":C.mint}}/>

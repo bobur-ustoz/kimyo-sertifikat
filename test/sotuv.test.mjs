@@ -1,11 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
   const leads = new Map();
   const codes = new Map();
+  const logins = new Map();
   const msgs = [];
   const sent = [];
   const notes = [];
@@ -14,6 +15,10 @@ function setup(reply = "Salom, yordam beraman.") {
     async getLead(id) { return leads.get(id) || null; },
     async insertLead(row) { const l = { stage: "new", human: false, last_update_id: 0, msg_day: null, msg_count: 0, handoff_reason: null, handoff_at: null, ack_at: null, linked_user_id: null, remind: true, ...row }; leads.set(row.tg_id, l); return { ...l }; },
     async updateLead(id, patch) { Object.assign(leads.get(id), patch); },
+    async getLogin(code) { const l = logins.get(code); return l && !l.user_id && !l.expired ? { code } : null; },
+    async attachLogin(code, tgId) { logins.get(code).tg_id = tgId; },
+    async pendingLoginFor(tgId) { const e = [...logins.entries()].find(([, l]) => l.tg_id === tgId && !l.user_id && !l.expired); return e ? { code: e[0] } : null; },
+    async completeLogin(code, info) { const userId = `u-${info.tgId}`; Object.assign(logins.get(code), { user_id: userId, info }); Object.assign(leads.get(info.tgId), { linked_user_id: userId, remind: true }); return userId; },
     async redeemLinkCode(code) { const c = codes.get(code); if (!c || c.used || c.expired) return null; c.used = true; return c.user_id; },
     async linkLead(id, userId) { for (const l of leads.values()) if (l.linked_user_id === userId) l.linked_user_id = null; Object.assign(leads.get(id), { linked_user_id: userId, remind: true }); },
     async addMessage(id, role, content) { msgs.push({ tg_id: id, role, content }); },
@@ -26,9 +31,9 @@ function setup(reply = "Salom, yordam beraman.") {
     notify: async (t) => { notes.push(t); },
   };
   let uid = 0;
-  const say = (text, from = { id: 7, first_name: "Ali", username: "ali" }) =>
-    handleUpdate({ update_id: ++uid, message: { chat: { type: "private" }, from, text } }, deps);
-  return { leads, codes, msgs, sent, notes, asked, say, deps, next: () => ++uid };
+  const say = (text, from = { id: 7, first_name: "Ali", username: "ali" }, extra = {}) =>
+    handleUpdate({ update_id: ++uid, message: { chat: { type: "private" }, from, text, ...extra } }, deps);
+  return { leads, codes, logins, msgs, sent, notes, asked, say, deps, next: () => ++uid };
 }
 
 test("parseTags: belgilar ajratiladi va matndan olib tashlanadi", () => {
@@ -300,4 +305,60 @@ test("ulash kodi: 12 belgi, Telegram /start parametriga yaroqli; havola botga oc
   for (let i = 0; i < 50; i++) assert.match(newCode(), /^[A-Za-z0-9_-]{12}$/);
   assert.notEqual(newCode(), newCode());
   assert.match(deepLink("XyZ123abc_-9"), /^https:\/\/t\.me\/[A-Za-z0-9_]+bot\?start=ulash_XyZ123abc_-9$/);
+});
+
+// ---- Telegram orqali kirish ----
+test("/start kirish_KOD: telefon so'raladi (contact tugmasi), kod manba bo'lib saqlanmaydi", async () => {
+  const t = setup();
+  t.logins.set("L1", { user_id: null });
+  await t.say("/start kirish_L1");
+  assert.equal(t.leads.get(7).source, null);
+  assert.equal(t.logins.get("L1").tg_id, 7);
+  const kb = t.sent.at(-1).reply_markup.keyboard[0][0];
+  assert.equal(kb.request_contact, true);
+  assert.equal(t.asked.length, 0);
+});
+
+test("kontakt ulashilsa kirish tasdiqlanadi, telefon '+' bilan, ustozga xabar ketadi, klaviatura yopiladi", async () => {
+  const t = setup();
+  t.logins.set("L1", { user_id: null });
+  await t.say("/start kirish_L1");
+  await t.say(undefined, undefined, { contact: { user_id: 7, phone_number: "998901112233" } });
+  assert.equal(t.logins.get("L1").user_id, "u-7");
+  assert.equal(t.logins.get("L1").info.phone, "+998901112233");
+  assert.equal(t.leads.get(7).linked_user_id, "u-7");
+  assert.equal(t.sent.at(-1).text, LOGIN_DONE);
+  assert.deepEqual(t.sent.at(-1).reply_markup, { remove_keyboard: true });
+  assert.match(t.notes.at(-1), /Telegram orqali kirdi/);
+  assert.match(t.notes.at(-1), /\+998901112233/);
+});
+
+test("boshqa odamning kontaktini yuborib kirib bo'lmaydi", async () => {
+  const t = setup();
+  t.logins.set("L1", { user_id: null });
+  await t.say("/start kirish_L1");
+  await t.say(undefined, undefined, { contact: { user_id: 999, phone_number: "998900000000" } });
+  assert.equal(t.logins.get("L1").user_id, null);
+  assert.match(t.sent.at(-1).text, /o'zingizning raqamingizni/);
+});
+
+test("kirish: eskirgan kod rad etiladi, kodsiz kontakt yuborilsa avval saytdagi tugma so'raladi", async () => {
+  const t = setup();
+  t.logins.set("OLD", { user_id: null, expired: true });
+  await t.say("/start kirish_OLD");
+  await t.say("/start kirish_YOQ");
+  assert.equal(t.sent.filter((s) => /eskirgan yoki ishlatilgan/.test(s.text || "")).length, 2);
+  await t.say(undefined, undefined, { contact: { user_id: 7, phone_number: "998900000000" } });
+  assert.match(t.sent.at(-1).text, /Avval saytdagi/);
+  assert.equal(t.logins.get("OLD").user_id, null);
+});
+
+import { tgEmail, isTgEmail, hashSecret, loginLink } from "../api/_tgauth.js";
+test("Telegram hisob email'i, sir xeshi va kirish havolasi", () => {
+  assert.equal(tgEmail(123456), "tg123456@example.com");
+  assert.ok(isTgEmail("tg123456@example.com"));
+  assert.ok(!isTgEmail("ali@example.com") && !isTgEmail("tg1@gmail.com") && !isTgEmail(null));
+  assert.equal(hashSecret("abc"), hashSecret("abc"));
+  assert.notEqual(hashSecret("abc"), hashSecret("abd"));
+  assert.match(loginLink("XyZ123abc_-9"), /\?start=kirish_XyZ123abc_-9$/);
 });

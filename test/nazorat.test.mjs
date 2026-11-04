@@ -163,3 +163,12 @@ test("past foizli, lekin faol o'quvchiga eslatma yuborilmaydi (faqat ustozga his
   assert.equal(r.flagged, 1);
   assert.equal(sent.length, 0);
 });
+
+test("hisobotda aloqa: Telegram hisobi uchun telefon (soxta email ko'rsatilmaydi), oddiy hisob uchun email", () => {
+  const tgUser = { student: student("t", { email: "tg123@example.com", phone: "+998901112233", full_name: "Sardor" }), reasons: ["5 kundan beri"] };
+  const mail = { student: student("m", { phone: null }), reasons: ["4 kundan beri"] };
+  const text = formatReport([tgUser, mail]);
+  assert.match(text, /Sardor<\/b> \(\+998901112233\)/);
+  assert.ok(!text.includes("example.com"));
+  assert.match(text, /m@mail\.uz/);
+});
