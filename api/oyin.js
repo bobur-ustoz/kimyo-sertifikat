@@ -85,14 +85,6 @@ export default async function handler(req, res) {
   };
   const totals = (p) => ({ xp: p.xp, rank: p.rank_points, streak: p.streak, shields: p.shields });
 
-  if (action === "state") {
-    const [player, { data: sets }] = await Promise.all([getPlayer(), admin.from("og_daily_sets").select("day,status").eq("user_id", userId).eq("season_id", season.id)]);
-    const status = Object.fromEntries((sets || []).map((x) => [x.day, x.status]));
-    const days = dayRows.map((d) => ({ day: d.day, topic: d.topic, open: d.day <= current, status: status[d.day] || "new" }));
-    const team = await loadTeam(player.team_id).catch(() => null);
-    return res.status(200).json({ season: { name: season.name, days: season.days, current }, player: totals(player), days, team });
-  }
-
   const shortName = (n) => { const [a, b] = String(n || "").trim().split(/\s+/); return a ? (b ? `${a} ${b[0]}.` : a) : "O'quvchi"; };
   // the student's team with member first names and ratings (null when there is none or the team tables are not set up yet)
   const loadTeam = async (teamId) => {
@@ -108,6 +100,14 @@ export default async function handler(req, res) {
     const avg = members.length ? Math.round(members.reduce((acc, m) => acc + m.rank, 0) / members.length) : 0;
     return { name: team.name, members, avg };
   };
+
+  if (action === "state") {
+    const [player, { data: sets }] = await Promise.all([getPlayer(), admin.from("og_daily_sets").select("day,status").eq("user_id", userId).eq("season_id", season.id)]);
+    const status = Object.fromEntries((sets || []).map((x) => [x.day, x.status]));
+    const days = dayRows.map((d) => ({ day: d.day, topic: d.topic, open: d.day <= current, status: status[d.day] || "new" }));
+    const team = await loadTeam(player.team_id).catch(() => null);
+    return res.status(200).json({ season: { name: season.name, days: season.days, current }, player: totals(player), days, team });
+  }
 
   if (action === "draw") {
     const { data: prof } = await admin.from("profiles").select("is_admin").eq("id", userId).maybeSingle();
