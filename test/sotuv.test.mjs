@@ -137,6 +137,8 @@ test("tizim ko'rsatmasi: salom takrorlanmaydi, yordamchi bot, ESLAT va UZAT bor,
   assert.match(SYSTEM, /Nazorat qanday bo'ladi/);
   assert.match(SYSTEM, /Faqat so'ralgan narsaga javob bering/);
   assert.match(SYSTEM, /BO'SH QATOR/);
+  assert.match(SYSTEM, /ALOHIDA QATORDA "•"/);
+  assert.doesNotMatch(SYSTEM, /ro'yxat belgilarisiz/);
   assert.match(SYSTEM, /TO'LOVGA yo'naltirishdan oldin/);
 });
 
