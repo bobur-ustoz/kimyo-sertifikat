@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, SYSTEM } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
@@ -11,7 +11,7 @@ function setup(reply = "Salom, yordam beraman.") {
   const asked = [];
   const store = {
     async getLead(id) { return leads.get(id) || null; },
-    async insertLead(row) { const l = { stage: "new", human: false, last_update_id: 0, msg_day: null, msg_count: 0, handoff_reason: null, ...row }; leads.set(row.tg_id, l); return { ...l }; },
+    async insertLead(row) { const l = { stage: "new", human: false, last_update_id: 0, msg_day: null, msg_count: 0, handoff_reason: null, handoff_at: null, ack_at: null, ...row }; leads.set(row.tg_id, l); return { ...l }; },
     async updateLead(id, patch) { Object.assign(leads.get(id), patch); },
     async addMessage(id, role, content) { msgs.push({ tg_id: id, role, content }); },
     async history(id, n) { return msgs.filter((m) => m.tg_id === id).slice(-n); },
@@ -29,8 +29,9 @@ function setup(reply = "Salom, yordam beraman.") {
 }
 
 test("parseTags: belgilar ajratiladi va matndan olib tashlanadi", () => {
-  assert.deepEqual(parseTags("Albatta.\n[[UZAT: pul qaytarish]]"), { text: "Albatta.", handoff: "pul qaytarish", stop: false });
-  assert.deepEqual(parseTags("Xo'p. [[TOXTA]]"), { text: "Xo'p.", handoff: null, stop: true });
+  assert.deepEqual(parseTags("Albatta.\n[[UZAT: pul o'tdi, ochilmadi]]"), { text: "Albatta.", handoff: "pul o'tdi, ochilmadi", note: null, stop: false });
+  assert.deepEqual(parseTags("Xo'p. [[TOXTA]]"), { text: "Xo'p.", handoff: null, note: null, stop: true });
+  assert.deepEqual(parseTags("Ustoz yozadi. [[ESLAT: aloqa so'rovi]]"), { text: "Ustoz yozadi.", handoff: null, note: "aloqa so'rovi", stop: false });
   assert.equal(parseTags("[[uzat]]").handoff, "sabab ko'rsatilmagan");
   assert.equal(parseTags("Oddiy javob").text, "Oddiy javob");
   assert.equal(parseTags(null).text, "");
@@ -50,7 +51,8 @@ test("/start: lid manba bilan yaratiladi, AI chaqirilmaydi, tugmalar chiqadi", a
   assert.equal(t.leads.get(7).source, "ig_valent");
   assert.equal(t.asked.length, 0);
   assert.ok(t.sent[0].reply_markup.inline_keyboard.length === 2);
-  assert.match(t.sent[0].text, /AI yordamchi/);
+  assert.match(t.sent[0].text, /yordamchi bot/);
+  assert.doesNotMatch(t.sent[0].text, /AI/);
 });
 
 test("oddiy xabar: AI javobi yuboriladi va jurnalga yoziladi", async () => {
@@ -64,19 +66,75 @@ test("oddiy xabar: AI javobi yuboriladi va jurnalga yoziladi", async () => {
   assert.equal(t.asked[0].chat.at(-1).role, "user");
 });
 
-test("[[UZAT]]: ustozga xabar ketadi, belgi foydalanuvchiga ko'rinmaydi, keyin AI jim", async () => {
-  const t = setup("Bu savolni ustozga yetkazaman. [[UZAT: pul qaytarish so'radi]]");
-  await t.say("Pulni qaytarib bera olasizmi?");
+test("[[UZAT]]: ustozga xabar ketadi, belgi ko'rinmaydi, ikkinchi ortiqcha xabar yo'q, keyin AI jim", async () => {
+  const t = setup("Pul o'tgan bo'lsa, ustoz tekshiradi, odatda 3–4 soat ichida. [[UZAT: pul o'tkazdi, ochilmadi]]");
+  await t.say("Pul o'tkazdim, lekin ochilmadi");
   const texts = t.sent.filter((s) => s.method === "sendMessage").map((s) => s.text);
-  assert.ok(texts.every((x) => !x.includes("[[")));
+  assert.equal(texts.length, 1);
+  assert.ok(!texts[0].includes("[["));
   assert.equal(t.notes.length, 1);
-  assert.match(t.notes[0], /pul qaytarish/);
+  assert.match(t.notes[0], /ochilmadi/);
   assert.equal(t.leads.get(7).human, true);
   assert.equal(t.leads.get(7).stage, "handoff");
+  assert.ok(t.leads.get(7).handoff_at);
   const askedBefore = t.asked.length;
   await t.say("Hali shu yerdamisiz?");
   assert.equal(t.asked.length, askedBefore);
   assert.equal(t.notes.length, 2);
+});
+
+test("ustoz rejimida 'yetkazildi' xabari takrorlanmaydi, lekin har xabar ustozga boradi", async () => {
+  const t = setup("Xo'p. [[UZAT: shikoyat]]");
+  await t.say("Shikoyatim bor");
+  const before = t.sent.length;
+  await t.say("birinchi");
+  await t.say("ikkinchi");
+  assert.equal(t.sent.length, before);          // AI javobi allaqachon aytgan, 30 daqiqa ichida qayta yozilmaydi
+  assert.equal(t.notes.length, 3);              // lekin har xabar ustozga yetadi
+  t.leads.get(7).ack_at = new Date(Date.now() - 31 * 60e3).toISOString();
+  await t.say("uchinchi");
+  await t.say("to'rtinchi");
+  assert.equal(t.sent.length - before, 1);      // 30 daqiqadan keyin faqat bitta "yetkazildi"
+  assert.equal(t.notes.length, 5);
+});
+
+test("[[ESLAT]]: ustozga jim xabar, suhbat davom etadi va AI javob berishda qoladi", async () => {
+  const t = setup("Jonli dars hozir rejada yo'q, bo'lsa e'lon qilinadi. [[ESLAT: jonli dars so'radi]]");
+  await t.say("Jonli dars qachon?");
+  assert.equal(t.notes.length, 1);
+  assert.match(t.notes[0], /jonli dars/);
+  assert.equal(t.leads.get(7).human, false);
+  await t.say("Mayli, mavzu videolari bormi?");
+  assert.equal(t.asked.length, 2);
+  assert.equal(t.sent.filter((s) => s.method === "sendMessage").length, 2);
+});
+
+test("to'liq uzatishdan HANDOFF_HOURS o'tsa AI o'zi qaytadi", async () => {
+  const t = setup("Marhamat.");
+  await t.say("/start");
+  Object.assign(t.leads.get(7), { human: true, stage: "handoff", handoff_at: new Date(Date.now() - (HANDOFF_HOURS + 1) * 3600e3).toISOString() });
+  await t.say("Premium nimalarni beradi?");
+  assert.equal(t.asked.length, 1);
+  assert.equal(t.leads.get(7).human, false);
+});
+
+test("eski (handoff_at yo'q) ustoz rejimidagi lid ham AI'ga qaytadi", async () => {
+  const t = setup("Marhamat.");
+  await t.say("/start");
+  Object.assign(t.leads.get(7), { human: true, stage: "handoff", handoff_at: null });
+  await t.say("Salom");
+  assert.equal(t.asked.length, 1);
+});
+
+test("tizim ko'rsatmasi: salom takrorlanmaydi, yordamchi bot, ESLAT va UZAT bor, yangi bilim kiritilgan", () => {
+  assert.match(SYSTEM, /qayta salomlashmang/);
+  assert.match(SYSTEM, /yordamchi bot/);
+  assert.match(SYSTEM, /\[\[ESLAT/);
+  assert.match(SYSTEM, /FAQAT to'lov muammosi/);
+  assert.match(SYSTEM, /plastik kartaga/);
+  assert.match(SYSTEM, /3–4 soat/);
+  assert.match(SYSTEM, /qaytarilmaydi/);
+  assert.match(SYSTEM, /Nazorat qanday bo'ladi/);
 });
 
 test("[[TOXTA]] va /stop: stopped holati, qayta /start bilan tiklanadi", async () => {
