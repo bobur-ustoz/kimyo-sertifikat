@@ -255,6 +255,13 @@ function PurchaseModal({variant,lesson,planItem,teacher,session,status,onClose,o
   const [copied,setCopied]=useState(false);
   const price = planItem ? planItem.priceNum : lesson ? lesson.price : (variant.price ?? 5000);
   const canPay = !!session && status!=="pending";
+  // Shown right before the card number, so the refund terms are read before paying.
+  const refundNote = planItem
+    ? (planItem.id==="premium"
+        ? <><strong>1 kun ichida pulingizni 100% qaytaramiz.</strong> Keyinroq to'xtatsangiz, ishlatilmagan kunlar summasi plastik kartangizga qaytariladi.</>
+        : "Eslatma: Standart rejada to'lov qaytarilmaydi.")
+    : lesson ? null
+    : "Bir marta to'laysiz, variant doim ochiq qoladi. To'lov qaytarilmaydi.";
 
   useEffect(()=>{
     if(!canPay) return;
@@ -345,6 +352,13 @@ function PurchaseModal({variant,lesson,planItem,teacher,session,status,onClose,o
               <div style={{background:C.dangerBg,border:"1px solid #FECACA",borderRadius:11,padding:"12px 14px",marginBottom:14}}>
                 <div style={{fontSize:13,fontWeight:800,color:C.danger,marginBottom:4}}>Oldingi so'rovingiz rad etildi</div>
                 <p style={{fontSize:12.5,color:"#991B1B",lineHeight:1.6,margin:0}}>{reason||"Sabab ko'rsatilmagan."} Quyida to'lov chekini qayta yuklab, so'rovni yangidan yuborishingiz mumkin.</p>
+              </div>
+            )}
+
+            {refundNote&&(
+              <div style={{background:"#F8FAFC",border:`1px solid ${C.border}`,borderRadius:12,padding:"12px 14px",marginBottom:14}}>
+                <div style={{fontSize:12,fontWeight:800,color:C.text,marginBottom:4}}>To'lov haqida</div>
+                <p style={{fontSize:12.5,color:C.textMid,lineHeight:1.65,margin:0}}>{refundNote}</p>
               </div>
             )}
 

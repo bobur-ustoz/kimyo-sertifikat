@@ -135,6 +135,9 @@ test("tizim ko'rsatmasi: salom takrorlanmaydi, yordamchi bot, ESLAT va UZAT bor,
   assert.match(SYSTEM, /3–4 soat/);
   assert.match(SYSTEM, /qaytarilmaydi/);
   assert.match(SYSTEM, /Nazorat qanday bo'ladi/);
+  assert.match(SYSTEM, /Faqat so'ralgan narsaga javob bering/);
+  assert.match(SYSTEM, /BO'SH QATOR/);
+  assert.match(SYSTEM, /TO'LOVGA yo'naltirishdan oldin/);
 });
 
 test("[[TOXTA]] va /stop: stopped holati, qayta /start bilan tiklanadi", async () => {
@@ -189,7 +192,54 @@ test("narx va ustoz tugmalari", async () => {
   await handleUpdate({ update_id: t.next(), callback_query: { id: "c1", from: { id: 7 }, data: "narx" } }, t.deps);
   assert.match(t.sent.at(-1).text, /200 000/);
   assert.match(t.sent.at(-1).text, /49 900/);
+  assert.match(t.sent.at(-1).text, /\n\n👑/);                       // bo'limlar bo'sh qator bilan ajratilgan
+  assert.doesNotMatch(t.sent.at(-1).text, /qaytar/i);              // qaytarish tafsiloti narx tugmasida yo'q, so'ralganda AI aytadi
   await handleUpdate({ update_id: t.next(), callback_query: { id: "c2", from: { id: 7 }, data: "ustoz" } }, t.deps);
   assert.equal(t.leads.get(7).human, true);
   assert.equal(t.notes.length, 1);
+});
+
+// ---- askClaude: kesilgan/bo'sh javoblar (haqiqiy xato: o'ylash tokenlari max_tokens ni yeb qo'ygan) ----
+import { askClaude } from "../api/_sotuv.js";
+
+const withFetch = async (responses, fn) => {
+  const calls = [];
+  const orig = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    calls.push(JSON.parse(init.body));
+    const { status = 200, body } = responses.shift();
+    return { ok: status < 400, status, json: async () => body };
+  };
+  try { return await fn(calls); } finally { globalThis.fetch = orig; }
+};
+
+test("askClaude: o'ylash o'chiriladi, max_tokens katta, matn bloklari birlashtiriladi", async () => {
+  await withFetch([{ body: { stop_reason: "end_turn", usage: { output_tokens: 40 }, content: [{ type: "thinking", thinking: "" }, { type: "text", text: "Javob." }] } }], async (calls) => {
+    assert.equal(await askClaude("sys", [{ role: "user", content: "q" }]), "Javob.");
+    assert.deepEqual(calls[0].thinking, { type: "between_tools" });
+    assert.ok(calls[0].max_tokens >= 1000);
+  });
+});
+
+test("askClaude: thinking parametri 400 bersa, usiz qayta uriniladi", async () => {
+  await withFetch([
+    { status: 400, body: { error: { message: "thinking: not supported for this model" } } },
+    { body: { stop_reason: "end_turn", content: [{ type: "text", text: "Mayli." }] } },
+  ], async (calls) => {
+    assert.equal(await askClaude("sys", []), "Mayli.");
+    assert.equal(calls.length, 2);
+    assert.equal("thinking" in calls[1], false);
+  });
+});
+
+test("askClaude: matn bo'lmasa (max_tokens ga yetib qolgan) xato beradi, 'tushunmadim' deb yashirmaydi", async () => {
+  await withFetch([{ body: { stop_reason: "max_tokens", content: [{ type: "thinking", thinking: "..." }] } }], async () => {
+    await assert.rejects(() => askClaude("sys", []), /bo'sh javob \(stop_reason=max_tokens\)/);
+  });
+});
+
+test("askClaude: boshqa 4xx/5xx xatolari o'z xabari bilan ko'tariladi", async () => {
+  await withFetch([{ status: 429, body: { error: { message: "rate limited" } } }], async () => {
+    await assert.rejects(() => askClaude("sys", []), /rate limited/);
+  });
 });
