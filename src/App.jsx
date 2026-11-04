@@ -1542,7 +1542,7 @@ function SubscriptionScreen({plan,session,setTab}) {
 function AuthPanel(){
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
-  const [showEmail,setShowEmail]=useState(false);
+  const [showEmail,setShowEmail]=useState(true);   // oldingi hisoblar emailda kiradi: forma yashirin turmasin
   const [error,setError]=useState("");
   const [info,setInfo]=useState("");
   const [loading,setLoading]=useState(false);
