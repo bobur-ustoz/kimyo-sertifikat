@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { findFlags, formatReport, runNazorat, MAX_LINES } from "../api/_nazorat.js";
+import { findFlags, formatReport, runNazorat, nudgeText, MAX_LINES, NUDGE_EVERY_DAYS } from "../api/_nazorat.js";
 
 const NOW = new Date("2026-11-10T04:00:00Z");
 const daysAgo = (d) => new Date(NOW.getTime() - d * 86400e3).toISOString();
@@ -74,7 +74,7 @@ test("runNazorat: bayroq bo'lsa bitta xabar yuboradi, bo'lmasa jim; bepul va adm
     answers: [], adaptive_answers: [],
   });
   const r = await runNazorat(db, notify, NOW);
-  assert.deepEqual(r, { flagged: 1, sent: true });
+  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 0 });
   assert.equal(sent.length, 1);
   assert.match(sent[0], /ali@mail\.uz/);
   assert.ok(!sent[0].includes("adm@"));
@@ -82,7 +82,7 @@ test("runNazorat: bayroq bo'lsa bitta xabar yuboradi, bo'lmasa jim; bepul va adm
 
   const quiet = fakeDb({ profiles: [student("ali")], video_views: [{ student_id: "ali", last_at: daysAgo(0) }], answers: [], adaptive_answers: [] });
   const r2 = await runNazorat(quiet, notify, NOW);
-  assert.deepEqual(r2, { flagged: 0, sent: false });
+  assert.deepEqual(r2, { flagged: 0, sent: false, nudged: 0 });
   assert.equal(sent.length, 1);
 });
 
@@ -93,5 +93,73 @@ test("adaptive_answers jadvali bazada bo'lmasa hisobot yiqilmaydi", async () => 
     ? { select() { return this; }, in() { return this; }, order() { return this; }, limit() { return this; }, then: (f, r) => Promise.resolve({ data: null, error: { message: "table missing" } }).then(f, r) }
     : base.from(t);
   const r = await runNazorat({ from }, async (t) => sent.push(t), NOW);
-  assert.deepEqual(r, { flagged: 1, sent: true });
+  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 0 });
+});
+
+// ---- O'quvchiga eslatma ----
+// Soxta baza: sotuv_leads select/update ni yozib boradi.
+function nudgeDb(leads, tables = {}) {
+  const updates = [];
+  const q = (rows) => { const o = { select: () => o, neq: () => o, in: () => o, order: () => o, limit: () => o, update: (patch) => ({ eq: (c, v) => { updates.push({ patch, [c]: v }); return Promise.resolve({ error: null }); } }), then: (f, r) => Promise.resolve({ data: rows, error: null }).then(f, r) }; return o; };
+  return { updates, from: (t) => q(t === "sotuv_leads" ? leads : tables[t] || []) };
+}
+const inactiveDb = (leads) => nudgeDb(leads, { profiles: [student("ali", { full_name: "Ali Valiyev" })], video_views: [{ student_id: "ali", last_at: daysAgo(5) }] });
+
+test("nudgeText: ism bilan, /stop eslatiladi; hali boshlamagan uchun boshqa matn", () => {
+  const a = nudgeText({ full_name: "Ali Valiyev" }, { days: 5, never: false });
+  assert.match(a, /^Salom, Ali!/);
+  assert.match(a, /kirmadingiz/);
+  assert.match(a, /\/stop/);
+  assert.match(nudgeText({ full_name: "" }, { days: 4, never: true }), /^Salom! Platformada hali hech narsa ochmadingiz/);
+});
+
+test("eslatma: ulangan o'quvchiga yuboriladi, last_nudge_at yoziladi, hisobotda belgilanadi", async () => {
+  const sentTo = [];
+  const db = inactiveDb([{ tg_id: 555, linked_user_id: "ali", remind: true, last_nudge_at: null }]);
+  const notes = [];
+  const r = await runNazorat(db, async (t) => notes.push(t), NOW, async (id, text) => { sentTo.push([id, text]); return { ok: true }; });
+  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 1 });
+  assert.equal(sentTo.length, 1);
+  assert.equal(sentTo[0][0], 555);
+  assert.match(sentTo[0][1], /Salom, Ali!/);
+  assert.ok(db.updates.some((u) => u.tg_id === 555 && u.patch.last_nudge_at));
+  assert.match(notes[0], /eslatma yuborildi/);
+});
+
+test("eslatma: ulanmagan, /stop qilgan va yaqinda yuborilgan o'quvchilarga yuborilmaydi, sabab hisobotda", async () => {
+  const cases = [
+    [[], /Telegram ulanmagan/],
+    [[{ tg_id: 1, linked_user_id: "ali", remind: false, last_nudge_at: null }], /o'chirgan/],
+    [[{ tg_id: 1, linked_user_id: "ali", remind: true, last_nudge_at: daysAgo(NUDGE_EVERY_DAYS - 1) }], /yaqinda/],
+  ];
+  for (const [leads, expected] of cases) {
+    const sent = [], notes = [];
+    await runNazorat(inactiveDb(leads), async (t) => notes.push(t), NOW, async (...a) => { sent.push(a); return { ok: true }; });
+    assert.equal(sent.length, 0);
+    assert.match(notes[0], expected);
+  }
+});
+
+test("eslatma: uch kundan keyin yana yuboriladi; Telegram xato bersa 'yuborilmadi' deb belgilanadi", async () => {
+  const sent = [];
+  const old = inactiveDb([{ tg_id: 1, linked_user_id: "ali", remind: true, last_nudge_at: daysAgo(NUDGE_EVERY_DAYS + 1) }]);
+  await runNazorat(old, async () => {}, NOW, async (...a) => { sent.push(a); return { ok: true }; });
+  assert.equal(sent.length, 1);
+
+  const notes = [];
+  const fail = inactiveDb([{ tg_id: 1, linked_user_id: "ali", remind: true, last_nudge_at: null }]);
+  const r = await runNazorat(fail, async (t) => notes.push(t), NOW, async () => ({ ok: false }));
+  assert.equal(r.nudged, 0);
+  assert.match(notes[0], /yuborilmadi/);
+  assert.equal(fail.updates.length, 0);
+});
+
+test("past foizli, lekin faol o'quvchiga eslatma yuborilmaydi (faqat ustozga hisobot)", async () => {
+  const db = nudgeDb([{ tg_id: 1, linked_user_id: "a", remind: true, last_nudge_at: null }], {
+    profiles: [student("a")], video_views: [{ student_id: "a", last_at: daysAgo(0) }], answers: ans("a", 20, 2, 0),
+  });
+  const sent = [];
+  const r = await runNazorat(db, async () => {}, NOW, async (...a) => { sent.push(a); return { ok: true }; });
+  assert.equal(r.flagged, 1);
+  assert.equal(sent.length, 0);
 });

@@ -14,6 +14,16 @@ export const MIN_ANSWERS = 20;       // foiz hisoblash uchun kamida shuncha javo
 export const MAX_LINES = 15;         // bitta xabarda ko'pi bilan shuncha o'quvchi
 const DAY = 86400e3;
 
+// Eslatma holati: hisobotda har o'quvchi yonida ko'rinadi.
+export const STATUS_TEXT = {
+  sent: "✉️ eslatma yuborildi",
+  not_linked: "⚠️ Telegram ulanmagan, o'zingiz bog'laning",
+  stopped: "🔕 eslatmalarni o'chirgan",
+  recent: "✉️ yaqinda eslatma yuborilgan",
+  failed: "⚠️ eslatma yuborilmadi, o'zingiz bog'laning",
+};
+export const NUDGE_EVERY_DAYS = 3;   // bir o'quvchiga eslatma ko'pi bilan shuncha kunda bir marta
+
 const ms = (t) => (t ? new Date(t).getTime() : 0);
 const displayName = (s) => s.full_name || String(s.email || "").split("@")[0] || "Noma'lum";
 
@@ -26,15 +36,16 @@ export function findFlags({ students, views, answers, now = new Date() }) {
     const mine = answers.filter((a) => a.student_id === s.id).sort((a, b) => ms(b.at) - ms(a.at));
     const times = [...views.filter((v) => v.student_id === s.id).map((v) => ms(v.last_at)), ...mine.map((a) => ms(a.at))].filter(Boolean);
     const reasons = [];
+    let inactive = null;      // { days, never }: o'quvchiga eslatma yuboriladigan faolsizlik
 
     if (times.length) {
       const days = Math.floor((t - Math.max(...times)) / DAY);
-      if (days >= NO_ACTIVITY_DAYS) reasons.push(`${days} kundan beri video ochmagan va savol yechmagan`);
+      if (days >= NO_ACTIVITY_DAYS) { reasons.push(`${days} kundan beri video ochmagan va savol yechmagan`); inactive = { days, never: false }; }
     } else {
       // To'lov paytini planning tugash sanasidan (30 kun) topamiz; bo'lmasa hisob ochilgan sanadan.
       const start = s.plan_expires_at ? ms(s.plan_expires_at) - 30 * DAY : ms(s.created_at);
       const days = Math.floor((t - start) / DAY);
-      if (days >= NO_ACTIVITY_DAYS) reasons.push(`hali hech narsa ochmagan (${days} kun)`);
+      if (days >= NO_ACTIVITY_DAYS) { reasons.push(`hali hech narsa ochmagan (${days} kun)`); inactive = { days, never: true }; }
     }
 
     const last = mine.slice(0, MIN_ANSWERS);
@@ -42,15 +53,15 @@ export function findFlags({ students, views, answers, now = new Date() }) {
       const pct = Math.round((last.filter((a) => a.is_correct).length / last.length) * 100);
       if (pct < LOW_PERCENT) reasons.push(`oxirgi ${MIN_ANSWERS} javobning ${pct}% i to'g'ri`);
     }
-    if (reasons.length) flags.push({ student: s, reasons });
+    if (reasons.length) flags.push({ student: s, reasons, inactive });
   }
   return flags;
 }
 
 export function formatReport(flags) {
   if (!flags.length) return null;
-  const lines = flags.slice(0, MAX_LINES).map(({ student: s, reasons }) =>
-    `• <b>${escapeHtml(displayName(s))}</b> (${escapeHtml(s.email || "email yo'q")}): ${escapeHtml(reasons.join("; "))}`);
+  const lines = flags.slice(0, MAX_LINES).map(({ student: s, reasons, status }) =>
+    `• <b>${escapeHtml(displayName(s))}</b> (${escapeHtml(s.email || "email yo'q")}): ${escapeHtml(reasons.join("; "))}${status ? ` — ${STATUS_TEXT[status]}` : ""}`);
   const more = flags.length > MAX_LINES ? [`... va yana ${flags.length - MAX_LINES} ta`] : [];
   return [`🔔 <b>Bugun bog'lanish kerak (${flags.length} ta):</b>`, ...lines, ...more].join("\n");
 }
@@ -77,10 +88,42 @@ export async function collect(db, now = new Date()) {
   return findFlags({ students, views, answers, now });
 }
 
+const firstName = (s) => String(s.full_name || "").trim().split(/\s+/)[0] || "";
+
+// Muloyim, majburlamaydigan matn. /stop bilan to'xtatish imkoni har safar aytiladi.
+export function nudgeText(student, inactive) {
+  const name = firstName(student);
+  const hi = name ? `Salom, ${name}!` : "Salom!";
+  const body = inactive.never
+    ? "Platformada hali hech narsa ochmadingiz. Qaysi mavzudan boshlashni bilmasangiz, shu yerga yozing, maslahat beraman."
+    : `Bir necha kundan beri platformaga kirmadingiz. Biror savol yoki qiyinchilik bo'lsa, shu yerga yozing, yordam beraman.`;
+  return `${hi} ${body}\n\nEslatmalarni to'xtatish uchun /stop deb yozing.`;
+}
+
+// Faolsiz, Telegramni ulagan va /stop qilmagan o'quvchilarga eslatma yuboradi; har bayroqqa holat yozadi.
+// send(tg_id, text) -> { ok }. Past foizli o'quvchiga yubormaydi (ruhini tushirmaslik uchun), uni ustoz o'zi ko'radi.
+export async function nudge(db, flags, send, now = new Date()) {
+  const targets = flags.filter((f) => f.inactive);
+  if (!targets.length) return;
+  const leads = optional(await db.from("sotuv_leads").select("tg_id, linked_user_id, remind, last_nudge_at").in("linked_user_id", targets.map((f) => f.student.id)));
+  for (const f of targets) {
+    const lead = leads.find((l) => l.linked_user_id === f.student.id);
+    if (!lead) { f.status = "not_linked"; continue; }
+    if (!lead.remind) { f.status = "stopped"; continue; }
+    if (lead.last_nudge_at && now.getTime() - ms(lead.last_nudge_at) < NUDGE_EVERY_DAYS * DAY) { f.status = "recent"; continue; }
+    const r = await send(lead.tg_id, nudgeText(f.student, f.inactive));
+    if (r?.ok) {
+      f.status = "sent";
+      await db.from("sotuv_leads").update({ last_nudge_at: now.toISOString() }).eq("tg_id", lead.tg_id);
+    } else f.status = "failed";
+  }
+}
+
 // Ro'yxat bo'sh bo'lsa hech narsa yubormaydi (ustozga bekorga xabar kelmasin).
-export async function runNazorat(db, notify, now = new Date()) {
+export async function runNazorat(db, notify, now = new Date(), send = null) {
   const flags = await collect(db, now);
+  if (send) await nudge(db, flags, send, now);
   const text = formatReport(flags);
   if (text) await notify(text);
-  return { flagged: flags.length, sent: !!text };
+  return { flagged: flags.length, sent: !!text, nudged: flags.filter((f) => f.status === "sent").length };
 }

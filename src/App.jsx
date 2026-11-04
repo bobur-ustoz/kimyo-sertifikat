@@ -4,6 +4,7 @@ import LiveLessons from "./LiveLessons";
 import Survey from "./Survey";
 import Home from "./Home";
 import Oyin from "./Oyin";
+import TelegramLink from "./TelegramLink";
 import { C } from "./theme";
 import { Home as HomeIcon, ChevronLeft, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
@@ -1650,6 +1651,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
             {plan==="free"&&<button onClick={()=>setTab("obuna")} style={{padding:"10px 16px",borderRadius:10,background:C.primary,color:"#fff",border:"none",fontSize:12.5,fontWeight:700,cursor:"pointer",fontFamily:"inherit",flexShrink:0}}>⬆️ Yangilash</button>}
           </div>
         </div>
+        <TelegramLink session={session}/>
         {teacher&&(
           <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"16px 18px"}}>
             <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13}}>Variant Progressi</div>

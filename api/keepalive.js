@@ -17,7 +17,10 @@ async function nazorat(res) {
   if (!serviceKey || !chat || !process.env.TELEGRAM_BOT_TOKEN) return res.status(503).json({ error: "Nazorat sozlanmagan" });
   const db = createClient(process.env.VITE_SUPABASE_URL, serviceKey, { auth: { persistSession: false } });
   try {
-    const r = await runNazorat(db, (text) => tg("sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true }));
+    // Talabaga eslatma sotuv boti orqali (u Telegramni shu bot bilan ulagan); token bo'lmasa faqat hisobot yuboriladi.
+    const botToken = process.env.SOTUV_BOT_TOKEN;
+    const toStudent = botToken ? (chat_id, text) => tg("sendMessage", { chat_id, text }, { token: botToken }) : null;
+    const r = await runNazorat(db, (text) => tg("sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true }), new Date(), toStudent);
     return res.status(200).json({ ok: true, ...r });
   } catch (e) {
     console.error("nazorat failed:", e.message);

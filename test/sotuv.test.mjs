@@ -1,18 +1,21 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
   const leads = new Map();
+  const codes = new Map();
   const msgs = [];
   const sent = [];
   const notes = [];
   const asked = [];
   const store = {
     async getLead(id) { return leads.get(id) || null; },
-    async insertLead(row) { const l = { stage: "new", human: false, last_update_id: 0, msg_day: null, msg_count: 0, handoff_reason: null, handoff_at: null, ack_at: null, ...row }; leads.set(row.tg_id, l); return { ...l }; },
+    async insertLead(row) { const l = { stage: "new", human: false, last_update_id: 0, msg_day: null, msg_count: 0, handoff_reason: null, handoff_at: null, ack_at: null, linked_user_id: null, remind: true, ...row }; leads.set(row.tg_id, l); return { ...l }; },
     async updateLead(id, patch) { Object.assign(leads.get(id), patch); },
+    async redeemLinkCode(code) { const c = codes.get(code); if (!c || c.used || c.expired) return null; c.used = true; return c.user_id; },
+    async linkLead(id, userId) { for (const l of leads.values()) if (l.linked_user_id === userId) l.linked_user_id = null; Object.assign(leads.get(id), { linked_user_id: userId, remind: true }); },
     async addMessage(id, role, content) { msgs.push({ tg_id: id, role, content }); },
     async history(id, n) { return msgs.filter((m) => m.tg_id === id).slice(-n); },
   };
@@ -25,7 +28,7 @@ function setup(reply = "Salom, yordam beraman.") {
   let uid = 0;
   const say = (text, from = { id: 7, first_name: "Ali", username: "ali" }) =>
     handleUpdate({ update_id: ++uid, message: { chat: { type: "private" }, from, text } }, deps);
-  return { leads, msgs, sent, notes, asked, say, deps, next: () => ++uid };
+  return { leads, codes, msgs, sent, notes, asked, say, deps, next: () => ++uid };
 }
 
 test("parseTags: belgilar ajratiladi va matndan olib tashlanadi", () => {
@@ -244,4 +247,57 @@ test("askClaude: boshqa 4xx/5xx xatolari o'z xabari bilan ko'tariladi", async ()
   await withFetch([{ status: 429, body: { error: { message: "rate limited" } } }], async () => {
     await assert.rejects(() => askClaude("sys", []), /rate limited/);
   });
+});
+
+// ---- Telegramni ulash ----
+test("/start ulash_KOD: hisob ulanadi, kod manba sifatida saqlanmaydi, AI chaqirilmaydi", async () => {
+  const t = setup();
+  t.codes.set("ABC123", { user_id: "user-1", used: false });
+  await t.say("/start ulash_ABC123");
+  assert.equal(t.leads.get(7).linked_user_id, "user-1");
+  assert.equal(t.leads.get(7).source, null);
+  assert.equal(t.sent.at(-1).text, LINKED_TEXT);
+  assert.equal(t.asked.length, 0);
+  assert.match(LINKED_TEXT, /\/stop/);
+});
+
+test("ulash kodi bir marta ishlaydi, eskirgan yoki noto'g'ri kod rad etiladi", async () => {
+  const t = setup();
+  t.codes.set("ONCE", { user_id: "user-1", used: false });
+  t.codes.set("OLD", { user_id: "user-2", used: false, expired: true });
+  await t.say("/start ulash_ONCE");
+  await t.say("/start ulash_ONCE");
+  assert.match(t.sent.at(-1).text, /eskirgan yoki allaqachon ishlatilgan/);
+  await t.say("/start ulash_OLD");
+  await t.say("/start ulash_YOQ");
+  assert.equal(t.leads.get(7).linked_user_id, "user-1");
+  assert.equal(t.sent.filter((s) => /eskirgan/.test(s.text || "")).length, 3);
+});
+
+test("bitta hisobga bitta Telegram: yangi ulash eskisini bo'shatadi", async () => {
+  const t = setup();
+  t.codes.set("A", { user_id: "user-1", used: false });
+  t.codes.set("B", { user_id: "user-1", used: false });
+  await t.say("/start ulash_A");
+  await t.say("/start ulash_B", { id: 8, first_name: "Vali" });
+  assert.equal(t.leads.get(7).linked_user_id, null);
+  assert.equal(t.leads.get(8).linked_user_id, "user-1");
+});
+
+test("/stop eslatmalarni o'chiradi; ulangan o'quvchi uchun AI'ga sotmaslik eslatmasi qo'shiladi", async () => {
+  const t = setup("Albatta, yordam beraman.");
+  t.codes.set("A", { user_id: "user-1", used: false });
+  await t.say("/start ulash_A");
+  await t.say("Menga biror mavzuda yordam kerak");
+  assert.equal(t.asked.at(-1).system, SYSTEM + LINKED_NOTE);
+  await t.say("/stop");
+  assert.equal(t.leads.get(7).remind, false);
+  assert.equal(t.leads.get(7).stage, "stopped");
+});
+
+import { newCode, deepLink } from "../api/_tglink.js";
+test("ulash kodi: 12 belgi, Telegram /start parametriga yaroqli; havola botga ochiladi", () => {
+  for (let i = 0; i < 50; i++) assert.match(newCode(), /^[A-Za-z0-9_-]{12}$/);
+  assert.notEqual(newCode(), newCode());
+  assert.match(deepLink("XyZ123abc_-9"), /^https:\/\/t\.me\/[A-Za-z0-9_]+bot\?start=ulash_XyZ123abc_-9$/);
 });

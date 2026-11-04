@@ -62,6 +62,15 @@ export const SALOM = `Assalomu alaykum! Men Bobur Jumanazarov jamoasining yordam
 
 Nechanchi sinfdasiz va qaysi imtihonga tayyorlanyapsiz?`;
 
+export const LINKED_TEXT = `✅ Telegram hisobingizga ulandi.
+
+Bir necha kun platformaga kirmasangiz, shu yerda muloyim eslatma yuboraman. Savolingiz bo'lsa, shu yerga yozing.
+
+Eslatmalarni to'xtatish uchun /stop deb yozing.`;
+
+// Ulangan o'quvchi uchun AI ga qo'shimcha: u allaqachon platformada, sotish emas, yordam muhim.
+export const LINKED_NOTE = "\n\nESLATMA: bu odam saytda hisob ochgan va Telegramni ulagan o'quvchi (pullik bo'lishi mumkin). Sotishga emas, yordam berishga va o'qishni davom ettirishiga e'tibor bering.";
+
 export const keyboard = () => ({
   inline_keyboard: [
     [{ text: "🆓 Bepul sinash", url: SITE_URL }, { text: "💳 Narxlar", callback_data: "narx" }],
@@ -138,22 +147,33 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   if (lead && update.update_id && update.update_id <= lead.last_update_id) return;
 
   const startMatch = text.match(/^\/start(?:@\w+)?(?:\s+(\S+))?/i);
+  const linkCode = startMatch?.[1]?.startsWith("ulash_") ? startMatch[1].slice(6) : null;   // saytdagi "Telegramni ulash"
   if (!lead) {
     lead = await store.insertLead({
       tg_id: id, name: fullName(msg.from), username: msg.from.username || null,
-      source: startMatch?.[1] ? startMatch[1].slice(0, 60) : null,
+      source: startMatch?.[1] && !linkCode ? startMatch[1].slice(0, 60) : null,
     });
   }
   await store.updateLead(id, { last_update_id: update.update_id || 0, last_msg_at: new Date().toISOString() });
 
+  if (linkCode) {
+    const userId = await store.redeemLinkCode(linkCode);
+    if (!userId) {
+      await send("sendMessage", { chat_id: id, text: "Bu havola eskirgan yoki allaqachon ishlatilgan. Saytda profilingizdagi \"Telegramni ulash\" tugmasini qayta bosing." });
+      return;
+    }
+    await store.linkLead(id, userId);
+    await send("sendMessage", { chat_id: id, text: LINKED_TEXT });
+    return;
+  }
   if (startMatch) {
     await store.updateLead(id, { stage: lead.human ? "handoff" : "new" });
     await send("sendMessage", { chat_id: id, text: SALOM, reply_markup: keyboard() });
     return;
   }
   if (/^\/stop\b/i.test(text)) {
-    await store.updateLead(id, { stage: "stopped" });
-    await send("sendMessage", { chat_id: id, text: "Xo'p, bezovta qilmayman. Kerak bo'lsa /start deb yozing." });
+    await store.updateLead(id, { stage: "stopped", remind: false });
+    await send("sendMessage", { chat_id: id, text: "Xo'p, bezovta qilmayman, eslatmalar ham o'chirildi. Kerak bo'lsa /start deb yozing." });
     return;
   }
   if (/^\/narx\b/i.test(text)) {
@@ -199,7 +219,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
 
   let raw;
   try {
-    raw = await ask(SYSTEM, toChat(await store.history(id, HISTORY)));
+    raw = await ask(lead.linked_user_id ? SYSTEM + LINKED_NOTE : SYSTEM, toChat(await store.history(id, HISTORY)));
   } catch (e) {
     console.error("sotuv ask failed:", e.message);
     await notify(adminCard(lead, "⚠️ <b>Sotuv boti: AI javob bera olmadi</b>", [escapeHtml(text.slice(0, 300))]));
@@ -231,6 +251,17 @@ export function supabaseStore(db) {
       return data;
     },
     async updateLead(id, patch) { await db.from("sotuv_leads").update(patch).eq("tg_id", id); },
+    // Kod bir marta ishlaydi: used=false bo'lgan va muddati o'tmagan qatorni atomik ravishda ishlatilgan qiladi.
+    async redeemLinkCode(code) {
+      const { data } = await db.from("tg_link_codes").update({ used: true }).eq("code", code).eq("used", false)
+        .gt("expires_at", new Date().toISOString()).select("user_id").maybeSingle();
+      return data?.user_id || null;
+    },
+    // Bitta hisobga bitta Telegram: avval shu hisobning eski ulanishi bo'shatiladi.
+    async linkLead(tgId, userId) {
+      await db.from("sotuv_leads").update({ linked_user_id: null }).eq("linked_user_id", userId).neq("tg_id", tgId);
+      await db.from("sotuv_leads").update({ linked_user_id: userId, remind: true }).eq("tg_id", tgId);
+    },
     async addMessage(id, role, content) { await db.from("sotuv_messages").insert({ tg_id: id, role, content }); },
     async history(id, n) {
       const { data } = await db.from("sotuv_messages").select("role, content").eq("tg_id", id).order("id", { ascending: false }).limit(n);
