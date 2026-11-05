@@ -79,6 +79,19 @@ export const LOGIN_DONE = `✅ Kirdingiz! Saytga qayting, u o'zi ochiladi.
 
 Bir necha kun kirmasangiz, shu yerda muloyim eslatma yuboraman. To'xtatish uchun /stop deb yozing.`;
 const removeKeyboard = { remove_keyboard: true };
+const contactKeyboard = { keyboard: [[{ text: "📱 Raqamni ulashish", request_contact: true }]], resize_keyboard: true, one_time_keyboard: true };
+
+// Raqamni xabar sifatida yozish kirishni tasdiqlamaydi: faqat Telegram tugmasi (request_contact) raqamni isbotlaydi.
+export const PHONE_TEXT_LOGIN = `Raqamni xabar qilib yozish yetarli emas. Pastdagi "📱 Raqamni ulashish" tugmasini bosing, shunda Telegram raqamni o'zi tasdiqlaydi.`;
+export const PHONE_TEXT_NOLOGIN = `Raqamni xabar qilib yozish bilan saytga kirib bo'lmaydi.
+
+Saytda "✈️ Telegram orqali kirish" tugmasini bosing: shundan keyin shu yerda "📱 Raqamni ulashish" tugmasi chiqadi.
+
+${SITE_URL}
+
+Raqamingizni ustozga ham yetkazdim, kerak bo'lsa u o'zi yozadi.`;
+const PHONE_ONLY = /^\+?[\d\s\-()]{9,22}$/;
+export const isPhoneText = (t) => { const n = String(t).replace(/\D/g, "").length; return PHONE_ONLY.test(t) && n >= 9 && n <= 15; };
 
 export const keyboard = () => ({
   inline_keyboard: [
@@ -173,7 +186,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
       return;
     }
     await store.attachLogin(loginCode, id);
-    await send("sendMessage", { chat_id: id, text: LOGIN_ASK, reply_markup: { keyboard: [[{ text: "📱 Raqamni ulashish", request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
+    await send("sendMessage", { chat_id: id, text: LOGIN_ASK, reply_markup: contactKeyboard });
     return;
   }
   if (msg.contact) {
@@ -219,6 +232,15 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   }
   if (/^\/ustoz\b/i.test(text)) {
     if (!lead.human) await handoff(lead, "o'quvchi o'zi ustoz bilan gaplashmoqchi", { store, send, notify });
+    return;
+  }
+  if (isPhoneText(text)) {
+    if (await store.pendingLoginFor(id)) {
+      await send("sendMessage", { chat_id: id, text: PHONE_TEXT_LOGIN, reply_markup: contactKeyboard });
+    } else {
+      await send("sendMessage", { chat_id: id, text: PHONE_TEXT_NOLOGIN });
+      await notify(adminCard(lead, "📞 <b>Sotuv boti: raqam yozib qoldirdi</b>", [`Raqam: ${escapeHtml(text)}`, "Saytga kira olmayotgan bo'lishi mumkin: o'zingiz yozing."]));
+    }
     return;
   }
   if (!text) {

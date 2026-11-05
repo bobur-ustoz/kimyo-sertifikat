@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
@@ -361,4 +361,43 @@ test("Telegram hisob email'i, sir xeshi va kirish havolasi", () => {
   assert.equal(hashSecret("abc"), hashSecret("abc"));
   assert.notEqual(hashSecret("abc"), hashSecret("abd"));
   assert.match(loginLink("XyZ123abc_-9"), /\?start=kirish_XyZ123abc_-9$/);
+});
+
+// ---- Telefon raqami matn bo'lib kelsa ----
+test("isPhoneText: raqam shakllari ha, oddiy jumlalar va qisqa sonlar yo'q", () => {
+  for (const ok of ["+998901112233", "998901112233", "90 111 22 33", "+998 (90) 111-22-33", "901112233"]) assert.equal(isPhoneText(ok), true, ok);
+  for (const no of ["10 sinf, 22 noyabr", "22", "2026", "Premium 200 000 so'm", "men 998901112233 raqamdan yozyapman", "", "salom"]) assert.equal(isPhoneText(no), false, no);
+});
+
+test("raqam matn bo'lib kelsa va kirish jarayonda: tugma qayta chiqadi, AI chaqirilmaydi, 'qabul qilindi' deyilmaydi", async () => {
+  const t = setup();
+  t.logins.set("L1", { user_id: null });
+  await t.say("/start kirish_L1");
+  await t.say("+998901112233");
+  const last = t.sent.at(-1);
+  assert.equal(last.text, PHONE_TEXT_LOGIN);
+  assert.equal(last.reply_markup.keyboard[0][0].request_contact, true);
+  assert.equal(t.asked.length, 0);
+  assert.doesNotMatch(last.text, /qabul qilindi/);
+  assert.equal(t.logins.get("L1").user_id, null);        // matn orqali kirish ochilmaydi
+  assert.equal(t.notes.length, 0);
+});
+
+test("raqam matn bo'lib kelsa va kirish jarayoni yo'q: saytdagi tugma tushuntiriladi, raqam ustozga yuboriladi", async () => {
+  const t = setup();
+  await t.say("/start");
+  await t.say("+998 90 111 22 33");
+  assert.equal(t.sent.at(-1).text, PHONE_TEXT_NOLOGIN);
+  assert.match(PHONE_TEXT_NOLOGIN, /Telegram orqali kirish/);
+  assert.equal(t.asked.length, 0);
+  assert.equal(t.notes.length, 1);
+  assert.match(t.notes[0], /\+998 90 111 22 33/);
+  assert.match(t.notes[0], /raqam yozib qoldirdi/);
+});
+
+test("bilim hujjatida saytga kirish yo'li bor va 'raqamingiz qabul qilindi' deyish taqiqlangan", () => {
+  assert.match(SYSTEM, /Telegram orqali kirish/);
+  assert.match(SYSTEM, /Raqamni ulashish/);
+  assert.match(SYSTEM, /oldin email bilan/i);
+  assert.match(SYSTEM, /raqamingiz qabul qilindi" demang/);
 });
