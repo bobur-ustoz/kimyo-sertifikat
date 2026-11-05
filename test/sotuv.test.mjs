@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText, LINK_ALREADY, LOGIN_USED_LINKED } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
@@ -266,17 +266,30 @@ test("/start ulash_KOD: hisob ulanadi, kod manba sifatida saqlanmaydi, AI chaqir
   assert.match(LINKED_TEXT, /\/stop/);
 });
 
-test("ulash kodi bir marta ishlaydi, eskirgan yoki noto'g'ri kod rad etiladi", async () => {
+test("ulash kodi bir marta ishlaydi: ulanmagan odamga 'eskirgan', allaqachon ulangan odamga tasdiq ko'rsatiladi", async () => {
   const t = setup();
-  t.codes.set("ONCE", { user_id: "user-1", used: false });
   t.codes.set("OLD", { user_id: "user-2", used: false, expired: true });
-  await t.say("/start ulash_ONCE");
-  await t.say("/start ulash_ONCE");
+  await t.say("/start ulash_OLD");                       // hali ulanmagan: xato
   assert.match(t.sent.at(-1).text, /eskirgan yoki allaqachon ishlatilgan/);
-  await t.say("/start ulash_OLD");
-  await t.say("/start ulash_YOQ");
+  t.codes.set("ONCE", { user_id: "user-1", used: false });
+  await t.say("/start ulash_ONCE");
   assert.equal(t.leads.get(7).linked_user_id, "user-1");
-  assert.equal(t.sent.filter((s) => /eskirgan/.test(s.text || "")).length, 3);
+  await t.say("/start ulash_ONCE");                      // ikkinchi bosish: ulangan, xato emas
+  assert.equal(t.sent.at(-1).text, LINK_ALREADY);
+  await t.say("/start ulash_YOQ");
+  assert.equal(t.sent.at(-1).text, LINK_ALREADY);
+  assert.equal(t.leads.get(7).linked_user_id, "user-1");
+});
+
+test("kirish havolasi ishlatilgan/eskirgan: ulangan odamga yumshoq xabar, ulanmaganga xato", async () => {
+  const t = setup();
+  await t.say("/start kirish_YOQ");
+  assert.match(t.sent.at(-1).text, /eskirgan yoki ishlatilgan/);
+  assert.notEqual(t.sent.at(-1).text, LOGIN_USED_LINKED);
+  t.leads.get(7).linked_user_id = "user-1";
+  await t.say("/start kirish_YOQ");
+  assert.equal(t.sent.at(-1).text, LOGIN_USED_LINKED);
+  assert.match(LOGIN_USED_LINKED, /hammasi joyida/);
 });
 
 test("bitta hisobga bitta Telegram: yangi ulash eskisini bo'shatadi", async () => {

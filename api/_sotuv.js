@@ -78,6 +78,13 @@ Raqam faqat ustoz siz bilan bog'lanishi uchun kerak.`;
 export const LOGIN_DONE = `✅ Kirdingiz! Saytga qayting, u o'zi ochiladi.
 
 Bir necha kun kirmasangiz, shu yerda muloyim eslatma yuboraman. To'xtatish uchun /stop deb yozing.`;
+// Havola bir martalik: tugmani ikki marta bossa, allaqachon ulangan odamga xato emas, tasdiq ko'rsatiladi.
+export const LINK_ALREADY = `✅ Telegram allaqachon ulangan, hammasi joyida.
+
+Boshqa hisobga ulamoqchi bo'lsangiz, saytda profilingizdagi "Telegramni ulash" tugmasini qayta bosing.`;
+export const LOGIN_USED_LINKED = `Bu havola ishlatilgan yoki eskirgan. Agar saytga allaqachon kirgan bo'lsangiz, hammasi joyida: sahifani yangilang.
+
+Aks holda saytda "✈️ Telegram orqali kirish" tugmasini qayta bosing.`;
 const removeKeyboard = { remove_keyboard: true };
 const contactKeyboard = { keyboard: [[{ text: "📱 Raqamni ulashish", request_contact: true }]], resize_keyboard: true, one_time_keyboard: true };
 
@@ -182,7 +189,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   // Telegram orqali kirish: havola botga olib keladi, keyin telefon raqam Telegram tomonidan tasdiqlanib ulashiladi.
   if (loginCode) {
     if (!(await store.getLogin(loginCode))) {
-      await send("sendMessage", { chat_id: id, text: "Bu havola eskirgan yoki ishlatilgan. Saytda \"Telegram orqali kirish\" tugmasini qayta bosing." });
+      await send("sendMessage", { chat_id: id, text: lead.linked_user_id ? LOGIN_USED_LINKED : "Bu havola eskirgan yoki ishlatilgan. Saytda \"Telegram orqali kirish\" tugmasini qayta bosing." });
       return;
     }
     await store.attachLogin(loginCode, id);
@@ -209,9 +216,10 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   if (linkCode) {
     const userId = await store.redeemLinkCode(linkCode);
     if (!userId) {
-      await send("sendMessage", { chat_id: id, text: "Bu havola eskirgan yoki allaqachon ishlatilgan. Saytda profilingizdagi \"Telegramni ulash\" tugmasini qayta bosing." });
+      await send("sendMessage", { chat_id: id, text: lead.linked_user_id ? LINK_ALREADY : "Bu havola eskirgan yoki allaqachon ishlatilgan. Saytda profilingizdagi \"Telegramni ulash\" tugmasini qayta bosing." });
       return;
     }
+    lead = { ...lead, linked_user_id: userId };
     await store.linkLead(id, userId);
     await send("sendMessage", { chat_id: id, text: LINKED_TEXT });
     return;
