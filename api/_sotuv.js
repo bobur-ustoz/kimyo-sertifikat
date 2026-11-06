@@ -9,7 +9,7 @@
 
 import { escapeHtml } from "./_telegram.js";
 import { SOTUV_BILIM } from "./_sotuv_bilim.js";
-import { tgEmail } from "./_tgauth.js";
+import { tgEmail, finishLink } from "./_tgauth.js";
 
 export const SITE_URL = process.env.SITE_URL || "https://kimyo-sertifikat.vercel.app";
 export const DAILY_LIMIT = 40;     // bitta odamga kuniga AI javoblari (Claude xarajatini cheklaydi)
@@ -75,7 +75,7 @@ export const LINKED_NOTE = "\n\nESLATMA: bu odam saytda hisob ochgan va Telegram
 export const LOGIN_ASK = `Saytga kirish uchun telefon raqamingizni tasdiqlang. Pastdagi "📱 Raqamni ulashish" tugmasini bosing.
 
 Raqam faqat ustoz siz bilan bog'lanishi uchun kerak.`;
-export const LOGIN_DONE = `✅ Kirdingiz! Saytga qayting, u o'zi ochiladi.
+export const LOGIN_DONE = `✅ Tayyor! Saytga kirish uchun pastdagi tugmani bosing.
 
 Bir necha kun kirmasangiz, shu yerda muloyim eslatma yuboraman. To'xtatish uchun /stop deb yozing.`;
 // Havola bir martalik: tugmani ikki marta bossa, allaqachon ulangan odamga xato emas, tasdiq ko'rsatiladi.
@@ -209,7 +209,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
     }
     const phone = String(msg.contact.phone_number || "");
     const userId = await store.completeLogin(login.code, { tgId: id, name: fullName(msg.from), phone: phone.startsWith("+") ? phone : `+${phone}` });
-    await send("sendMessage", { chat_id: id, text: LOGIN_DONE, reply_markup: removeKeyboard });
+    await send("sendMessage", { chat_id: id, text: LOGIN_DONE, reply_markup: { inline_keyboard: [[{ text: "🚀 Saytga kirish", url: finishLink(SITE_URL, login.code) }]] } });
     await notify(adminCard(lead, "🆕 <b>Telegram orqali kirdi</b>", [`Telefon: ${escapeHtml(phone.startsWith("+") ? phone : `+${phone}`)}`]));
     return;
   }
@@ -346,7 +346,7 @@ export function supabaseStore(db) {
       await db.from("profiles").update(created && name ? { phone, full_name: name } : { phone }).eq("id", userId);
       await db.from("sotuv_leads").update({ linked_user_id: null }).eq("linked_user_id", userId).neq("tg_id", tgId);
       await db.from("sotuv_leads").update({ linked_user_id: userId, remind: true }).eq("tg_id", tgId);
-      await db.from("tg_logins").update({ tg_id: tgId, user_id: userId }).eq("code", code);
+      await db.from("tg_logins").update({ tg_id: tgId, user_id: userId, expires_at: new Date(Date.now() + 20 * 60e3).toISOString() }).eq("code", code);   // "Saytga kirish" tugmasi uchun vaqt
       return userId;
     },
     // Kod bir marta ishlaydi: used=false bo'lgan va muddati o'tmagan qatorni atomik ravishda ishlatilgan qiladi.

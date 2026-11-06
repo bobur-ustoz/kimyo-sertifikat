@@ -121,7 +121,7 @@ function Tokens({ tk, cp }) {
   return <>{out}</>;
 }
 
-const KEYS = ["C","H","O","N","Cl","Br","Na","S","Al","Cu","Ag","Ca","Mg","K","Fe","I","1","2","3","4","5","6","7","8","9","0","+","→","(",")","⌫","✕","◀","▶",","];
+const KEYS = ["C","H","O","N","Cl","Br","Na","S","Al","Cu","Ag","Ca","Mg","K","Fe","I","Mn","Zn","P","Cr","F","Li","Ba","Si","1","2","3","4","5","6","7","8","9","0","+","→","(",")","⌫","✕","◀","▶",","];
 
 function WriteInput({ q, onChange, locked }) {
   const [tk, setTk] = useState([]); const [cp, setCp] = useState(0);

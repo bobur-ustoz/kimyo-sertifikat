@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { parseFinishToken, finishToken } from "../api/_tgauth.js";
 import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText, LINK_ALREADY, LOGIN_USED_LINKED } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
@@ -334,14 +335,16 @@ test("/start kirish_KOD: telefon so'raladi (contact tugmasi), kod manba bo'lib s
 
 test("kontakt ulashilsa kirish tasdiqlanadi, telefon '+' bilan, ustozga xabar ketadi, klaviatura yopiladi", async () => {
   const t = setup();
-  t.logins.set("L1", { user_id: null });
-  await t.say("/start kirish_L1");
+  t.logins.set("L1abcdefg", { user_id: null });
+  await t.say("/start kirish_L1abcdefg");
   await t.say(undefined, undefined, { contact: { user_id: 7, phone_number: "998901112233" } });
-  assert.equal(t.logins.get("L1").user_id, "u-7");
-  assert.equal(t.logins.get("L1").info.phone, "+998901112233");
+  assert.equal(t.logins.get("L1abcdefg").user_id, "u-7");
+  assert.equal(t.logins.get("L1abcdefg").info.phone, "+998901112233");
   assert.equal(t.leads.get(7).linked_user_id, "u-7");
   assert.equal(t.sent.at(-1).text, LOGIN_DONE);
-  assert.deepEqual(t.sent.at(-1).reply_markup, { remove_keyboard: true });
+  const btn = t.sent.at(-1).reply_markup.inline_keyboard[0][0];
+  assert.equal(btn.text, "🚀 Saytga kirish");
+  assert.equal(parseFinishToken(new URL(btn.url).searchParams.get("kirish")), "L1abcdefg");
   assert.match(t.notes.at(-1), /Telegram orqali kirdi/);
   assert.match(t.notes.at(-1), /\+998901112233/);
 });
@@ -413,4 +416,13 @@ test("bilim hujjatida saytga kirish yo'li bor va 'raqamingiz qabul qilindi' deyi
   assert.match(SYSTEM, /Raqamni ulashish/);
   assert.match(SYSTEM, /oldin email bilan/i);
   assert.match(SYSTEM, /raqamingiz qabul qilindi" demang/);
+});
+
+test("'Saytga kirish' tokeni: imzo, muddat va buzilgan token", () => {
+  const t = finishToken("L1abcdefg");
+  assert.equal(parseFinishToken(t), "L1abcdefg");
+  assert.equal(parseFinishToken(t, Date.now() + 16 * 60e3), null);            // muddati o'tgan
+  assert.equal(parseFinishToken(t.slice(0, -1) + (t.endsWith("0") ? "1" : "0")), null);   // imzo buzilgan
+  assert.equal(parseFinishToken(t.replace("L1abcdefg", "L1abcdefh")), null);  // boshqa kodga ko'chirilgan
+  assert.equal(parseFinishToken("x.y.z"), null);
 });

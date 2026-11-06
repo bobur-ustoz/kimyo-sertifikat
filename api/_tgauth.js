@@ -3,6 +3,7 @@
 //
 //   tg-login-start { secret } -> { code, url }: botga ochiladigan havola; sir faqat shu brauzerda qoladi
 //   tg-login-poll  { code, secret } -> { status: "pending" | "expired" | "ok", token_hash? }
+//   tg-login-finish { token } -> { status: "expired" | "ok", token_hash? }: botdagi "Saytga kirish" tugmasi (asl oyna yo'qolganda ham ishlaydi)
 //
 // Bot tomoni (telefon ulashish, hisob yaratish) api/_sotuv.js da. Kirish tokeni bir marta beriladi va brauzer uni
 // supabase.auth.verifyOtp({ token_hash, type: "magiclink" }) bilan sessiyaga aylantiradi.
@@ -20,6 +21,18 @@ export const hashSecret = (s) => crypto.createHash("sha256").update(String(s)).d
 export const tgEmail = (tgId) => `tg${tgId}@example.com`;
 export const isTgEmail = (email) => /^tg\d+@example\.com$/.test(String(email || ""));
 
+// "Saytga kirish" havolasi: bot kirishni tasdiqlagach shu tugmani beradi. Havolani Telegram ichki brauzerida ochgan odamning
+// asl oynasi (sir saqlangan joy) yo'qolgan bo'lishi mumkin, shuning uchun sirsiz, lekin imzolangan va bir martalik token.
+const FINISH_MINUTES = 15;
+const signFinish = (s) => crypto.createHmac("sha256", process.env.SUPABASE_SERVICE_ROLE_KEY || "x").update(s).digest("hex").slice(0, 32);
+export const finishToken = (code, now = Date.now()) => { const exp = now + FINISH_MINUTES * 60e3; return `${code}.${exp}.${signFinish(`${code}.${exp}`)}`; };
+export function parseFinishToken(t, now = Date.now()) {
+  const m = /^([A-Za-z0-9_-]{8,64})\.(\d{10,16})\.([0-9a-f]{32})$/.exec(String(t || ""));
+  if (!m || Number(m[2]) < now) return null;
+  return sameHash(m[3], signFinish(`${m[1]}.${m[2]}`)) ? m[1] : null;
+}
+export const finishLink = (site, code) => `${site}/?kirish=${finishToken(code)}`;
+
 const sameHash = (a, b) => {
   const x = Buffer.from(String(a)), y = Buffer.from(String(b));
   return x.length === y.length && crypto.timingSafeEqual(x, y);
@@ -29,7 +42,8 @@ export async function handleTgLogin(req, res) {
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!serviceKey) return res.status(503).json({ error: "Hali sozlanmagan" });
   const admin = createClient(process.env.VITE_SUPABASE_URL, serviceKey, { auth: { persistSession: false } });
-  const { action, secret, code } = req.body || {};
+  const { action, secret, token } = req.body || {};
+  let { code } = req.body || {};
   const goodSecret = typeof secret === "string" && secret.length >= 16 && secret.length <= 128;
 
   if (action === "tg-login-start") {
@@ -43,6 +57,15 @@ export async function handleTgLogin(req, res) {
     return res.status(200).json({ code: c, url: loginLink(c), minutes: LOGIN_MINUTES });
   }
 
+  // tg-login-finish: botdagi "Saytga kirish" tugmasi (sirsiz, imzolangan havola)
+  if (action === "tg-login-finish") {
+    code = parseFinishToken(token);
+    if (!code) return res.status(200).json({ status: "expired" });
+    const { data: row } = await admin.from("tg_logins").select("*").eq("code", code).maybeSingle();
+    if (!row || !row.user_id || row.consumed) return res.status(200).json({ status: "expired" });
+    return issueToken(admin, res, row);
+  }
+
   // tg-login-poll
   if (!goodSecret || typeof code !== "string" || !/^[A-Za-z0-9_-]{8,64}$/.test(code)) return res.status(400).json({ error: "Noto'g'ri so'rov" });
   const { data: row } = await admin.from("tg_logins").select("*").eq("code", code).maybeSingle();
@@ -50,7 +73,11 @@ export async function handleTgLogin(req, res) {
     return res.status(200).json({ status: "expired" });
   }
   if (!row.user_id) return res.status(200).json({ status: "pending" });
+  return issueToken(admin, res, row);
+}
 
+async function issueToken(admin, res, row) {
+  const code = row.code;
   // Token bir marta: kim birinchi "consumed" qila olsa, o oladi.
   const { data: won } = await admin.from("tg_logins").update({ consumed: true }).eq("code", code).eq("consumed", false).select("user_id").maybeSingle();
   if (!won) return res.status(200).json({ status: "expired" });

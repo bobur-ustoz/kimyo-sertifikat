@@ -1551,7 +1551,7 @@ function AuthPanel(){
     e.preventDefault();
     setLoading(true); setError(""); setInfo("");
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if(error) setError(signInErrorText(error));
+    if(error) setError(signInErrorText(error)+(/noto'g'ri/.test(signInErrorText(error))?" Yangi bo'lsangiz, yuqoridagi Telegram tugmasidan foydalaning.":""));
     setLoading(false);
   };
   const sendReset = async () => {
@@ -1576,6 +1576,7 @@ function AuthPanel(){
         </button>
       ) : (
         <form onSubmit={submit}>
+          <p style={{fontSize:12,color:C.textMid,lineHeight:1.6,margin:"0 0 12px"}}>Faqat oldin email bilan ro'yxatdan o'tganlar uchun. Yangi bo'lsangiz, yuqoridagi <b>Telegram orqali kirish</b> tugmasini bosing.</p>
           <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Email</label>
           <input type="email" required value={email} onChange={e=>setEmail(e.target.value)} style={{width:"100%",padding:"10px 12px",borderRadius:9,border:`1px solid ${C.border}`,fontSize:13,fontFamily:"inherit",marginBottom:12,boxSizing:"border-box"}}/>
           <label style={{fontSize:11.5,fontWeight:700,color:C.textMid,marginBottom:5,display:"block"}}>Parol</label>
@@ -1704,6 +1705,34 @@ export default function App() {
     supabase.from("profiles").select("*").eq("id",session.user.id).single().then(({data})=>setProfile(data));
     fetchPurchases(session.user.id).then(setPurchases);
   },[session]);
+
+  // The plan is switched on by the admin's approval, not by the student: re-read it when the
+  // student comes back to the tab and every 30 s, so an open page does not stay on "free".
+  useEffect(()=>{
+    if(!session) return;
+    const refresh = () => {
+      if(document.visibilityState==="hidden") return;
+      supabase.from("profiles").select("*").eq("id",session.user.id).single().then(({data})=>{ if(data) setProfile(data); });
+      fetchPurchases(session.user.id).then(setPurchases);
+    };
+    const t = setInterval(refresh, 30000);
+    document.addEventListener("visibilitychange", refresh);
+    return ()=>{ clearInterval(t); document.removeEventListener("visibilitychange", refresh); };
+  },[session]);
+
+  // Botdagi "Saytga kirish" tugmasi saytni ?kirish=TOKEN bilan ochadi (Telegram ichki brauzerida ham ishlaydi).
+  useEffect(()=>{
+    const token = new URLSearchParams(window.location.search).get("kirish");
+    if(!token) return;
+    window.history.replaceState(null,"",window.location.pathname+window.location.hash);
+    fetch("/api/purchase-request",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"tg-login-finish",token})})
+      .then(r=>r.json())
+      .then(async d=>{
+        if(d.token_hash){ const { error } = await supabase.auth.verifyOtp({token_hash:d.token_hash,type:"magiclink"}); if(!error) return; }
+        setTab("profile");   // havola eskirgan: kirish oynasi ochiladi
+      })
+      .catch(()=>setTab("profile"));
+  },[]);
 
   const [analytics,setAnalytics]=useState([]);
   useEffect(()=>{
