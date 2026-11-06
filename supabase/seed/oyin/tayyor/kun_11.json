@@ -1,0 +1,1013 @@
+{
+ "version": 2,
+ "day": 11,
+ "topic": "Oddiy efirlar",
+ "substances": [
+  "dietil efir",
+  "dimetil efir",
+  "metiletil efir"
+ ],
+ "slots": [
+  {
+   "slot": "n-1",
+   "group": "Nomlanish va izomeriya",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "C₄H₁₀O tarkibli nechta oddiy efir izomeri bor?",
+     "ok": "3",
+     "no": [
+      "2",
+      "4",
+      "5"
+     ],
+     "w": "Metilpropil, metilizopropil va dietil efir.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "2",
+      "why": "Metilizopropil efirni unutish xatosi."
+     }
+    },
+    {
+     "p": "C₃H₈O tarkibli nechta oddiy efir izomeri bor?",
+     "ok": "1",
+     "no": [
+      "2",
+      "3",
+      "0"
+     ],
+     "w": "Faqat metiletil efir (CH₃–O–C₂H₅).",
+     "uses": [
+      "metiletil efir"
+     ],
+     "trap": {
+      "opt": "2",
+      "why": "Propanollar spirt izomeri, efir esa faqat bitta."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-2",
+   "group": "Nomlanish va izomeriya",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "CH₃–O–CH₃ moddaning nomi qaysi?",
+     "ok": "Dimetil efir",
+     "no": [
+      "Metanol",
+      "Etanol",
+      "Metilen"
+     ],
+     "w": "Kislorod ikki metil guruhini bog'laydi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    },
+    {
+     "p": "C₂H₅–O–C₂H₅ moddaning nomi qaysi?",
+     "ok": "Dietil efir",
+     "no": [
+      "Etilenglikol",
+      "Dimetil efir",
+      "Etilatsetat"
+     ],
+     "w": "Kislorod ikki etil guruhini bog'laydi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Dimetil efir",
+      "why": "Dimetil efirda metil guruhlar. Bu yerda etil."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-3",
+   "group": "Nomlanish va izomeriya",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "C₂H₆O formulaga mos ikki izomer qaysilar?",
+     "ok": "Etanol va dimetil efir",
+     "no": [
+      "Etanol va etanal",
+      "Metanol va metan",
+      "Dimetil efir va metanol"
+     ],
+     "w": "Spirt va efir bir xil formulaga ega bo'lishi mumkin.",
+     "uses": [
+      "dimetil efir"
+     ],
+     "trap": {
+      "opt": "Etanol va etanal",
+      "why": "Etanalning formulasi C₂H₄O."
+     }
+    },
+    {
+     "p": "Efir va spirt orasidagi izomeriya turi qaysi?",
+     "ok": "Funksional guruh izomeriyasi",
+     "no": [
+      "Zanjir izomeriyasi",
+      "Fazoviy izomeriya",
+      "Joylashuv izomeriyasi"
+     ],
+     "w": "Molekula tarkibi bir xil, funksional guruh turli: –OH va –O–.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Zanjir izomeriyasi",
+      "why": "Zanjir izomeriyasida uglerod skeleti farq qiladi, bu yerda esa funksional guruh."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolning molekulalararo degidratlanishini yozing (H₂SO₄, 140 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H10O",
+      "H2O"
+     ],
+     "ans": "2C2H5OH→C4H10O+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi: dietil efir.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Metanolning molekulalararo degidratlanishini yozing (H₂SO₄, 140 °C)",
+     "re": [
+      "CH3OH"
+     ],
+     "pr": [
+      "C2H6O",
+      "H2O"
+     ],
+     "ans": "2CH3OH→C2H6O+H2O",
+     "w": "Dimetil efir hosil bo'ladi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy metilat va yodmetan reaksiyasini yozing (Vilyamson)",
+     "re": [
+      "CH3ONa",
+      "CH3I"
+     ],
+     "pr": [
+      "C2H6O",
+      "NaI"
+     ],
+     "ans": "CH3ONa+CH3I→C2H6O+NaI",
+     "w": "Alkogolyatdagi CH₃O⁻ galogenni almashtiradi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    },
+    {
+     "p": "Natriy propilat va 1-brompropan reaksiyasini yozing (Vilyamson)",
+     "re": [
+      "C3H7ONa",
+      "C3H7Br"
+     ],
+     "pr": [
+      "C6H14O",
+      "NaBr"
+     ],
+     "ans": "C3H7ONa+C3H7Br→C6H14O+NaBr",
+     "w": "Dipropil efir hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy etilat va xlormetan reaksiyasini yozing (Vilyamson)",
+     "re": [
+      "C2H5ONa",
+      "CH3Cl"
+     ],
+     "pr": [
+      "C3H8O",
+      "NaCl"
+     ],
+     "ans": "C2H5ONa+CH3Cl→C3H8O+NaCl",
+     "w": "Aralash efir: metiletil efir.",
+     "uses": [
+      "metiletil efir"
+     ]
+    },
+    {
+     "p": "Natriy metilat va bromoetan reaksiyasini yozing (Vilyamson)",
+     "re": [
+      "CH3ONa",
+      "C2H5Br"
+     ],
+     "pr": [
+      "C3H8O",
+      "NaBr"
+     ],
+     "ans": "CH3ONa+C2H5Br→C3H8O+NaBr",
+     "w": "Xuddi shu aralash efir boshqa yo'l bilan.",
+     "uses": [
+      "metiletil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilen va etanol reaksiyasini yozing (H⁺ katalizatori)",
+     "re": [
+      "C2H4",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H10O"
+     ],
+     "ans": "C2H4+C2H5OH→C4H10O",
+     "w": "Spirt qo'shbog'ga birikib efir hosil qiladi.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Propen va metanol reaksiyasini yozing (H⁺ katalizatori)",
+     "re": [
+      "C3H6",
+      "CH3OH"
+     ],
+     "pr": [
+      "C4H10O"
+     ],
+     "ans": "C3H6+CH3OH→C4H10O",
+     "w": "Markovnikov bo'yicha metilizopropil efir."
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Xloretanga kumush oksid ta'sir ettiring (dietil efir hosil bo'ladi)",
+     "re": [
+      "C2H5Cl",
+      "Ag2O"
+     ],
+     "pr": [
+      "C4H10O",
+      "AgCl"
+     ],
+     "ans": "2C2H5Cl+Ag2O→C4H10O+2AgCl",
+     "w": "Kislorod ikki etil guruhini bog'laydi.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Brommetanga kumush oksid ta'sir ettiring (dimetil efir hosil bo'ladi)",
+     "re": [
+      "CH3Br",
+      "Ag2O"
+     ],
+     "pr": [
+      "C2H6O",
+      "AgBr"
+     ],
+     "ans": "2CH3Br+Ag2O→C2H6O+2AgBr",
+     "w": "Ag₂O kislorod manbai bo'ladi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-6",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Dietil efirni etanoldan olishda qanday sharoit kerak?",
+     "ok": "H₂SO₄ ishtirokida 140 °C",
+     "no": [
+      "H₂SO₄ ishtirokida 170 °C",
+      "Na bilan",
+      "Cu, 300 °C"
+     ],
+     "w": "Past haroratda molekulalararo suv ajraladi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "H₂SO₄ ishtirokida 170 °C",
+      "why": "170 °C da etilen hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Oddiy efirlar spirtdan qanday olinadi?",
+     "ok": "Molekulalararo degidratlash",
+     "no": [
+      "Molekula ichidan suv ajratish",
+      "Oksidlash",
+      "Gidrogenlash"
+     ],
+     "w": "Ikki spirt molekulasi bitta suv ajratib birlashadi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Molekula ichidan suv ajratish",
+      "why": "Bunda alken hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-7",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Vilyamson reaksiyasi uchun qaysi reagentlar kerak?",
+     "ok": "Natriy alkogolyati va galogenalkan",
+     "no": [
+      "Spirt va ishqor",
+      "Alken va suv",
+      "Aldegid va spirt"
+     ],
+     "w": "Alkogolyat galogenalkandagi galogenni o'z radikaliga almashtiradi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Spirt va ishqor",
+      "why": "Spirt ishqor bilan reaksiyaga kirishmaydi."
+     }
+    },
+    {
+     "p": "Metanol va etanol aralashmasini degidratlaganda nechta har xil oddiy efir hosil bo'ladi?",
+     "ok": "3 ta",
+     "no": [
+      "1 ta",
+      "2 ta",
+      "4 ta"
+     ],
+     "w": "Dimetil, dietil va metiletil efirlar.",
+     "uses": [
+      "metiletil efir"
+     ],
+     "trap": {
+      "opt": "1 ta",
+      "why": "Aralash efir ham hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "HX ning ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Dietil efirga 1 mol HI ta'sir ettiring",
+     "re": [
+      "C4H10O",
+      "HI"
+     ],
+     "pr": [
+      "C2H5I",
+      "C2H5OH"
+     ],
+     "ans": "C4H10O+HI→C2H5I+C2H5OH",
+     "w": "Efir bog'i uziladi: etil yodid va etanol.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Dimetil efirga 1 mol HI ta'sir ettiring",
+     "re": [
+      "C2H6O",
+      "HI"
+     ],
+     "pr": [
+      "CH3I",
+      "CH3OH"
+     ],
+     "ans": "C2H6O+HI→CH3I+CH3OH",
+     "w": "Metil yodid va metanol hosil bo'ladi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "HX ning ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Dietil efirga ortiqcha HI ta'sir ettiring",
+     "re": [
+      "C4H10O",
+      "HI"
+     ],
+     "pr": [
+      "C2H5I",
+      "H2O"
+     ],
+     "ans": "C4H10O+2HI→2C2H5I+H2O",
+     "w": "Ikkala bog' uziladi: ikki yodid va suv.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Dimetil efirga ortiqcha HI ta'sir ettiring",
+     "re": [
+      "C2H6O",
+      "HI"
+     ],
+     "pr": [
+      "CH3I",
+      "H2O"
+     ],
+     "ans": "C2H6O+2HI→2CH3I+H2O",
+     "w": "Ikki metil yodid va suv hosil bo'ladi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "HX ning ta'siri",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Dietil efirga konsentrlangan HBr ta'sir ettiring (ortiqcha)",
+     "re": [
+      "C4H10O",
+      "HBr"
+     ],
+     "pr": [
+      "C2H5Br",
+      "H2O"
+     ],
+     "ans": "C4H10O+2HBr→2C2H5Br+H2O",
+     "w": "Efir bog'ining ikkalasi uziladi.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Metiletil efirga ortiqcha HBr ta'sir ettiring",
+     "re": [
+      "C3H8O",
+      "HBr"
+     ],
+     "pr": [
+      "CH3Br",
+      "C2H5Br",
+      "H2O"
+     ],
+     "ans": "C3H8O+2HBr→CH3Br+C2H5Br+H2O",
+     "w": "Ikki xil bromalkan hosil bo'ladi.",
+     "uses": [
+      "metiletil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-4",
+   "group": "HX ning ta'siri",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Dietil efirga HI ta'sir etsa (1 mol), qaysi moddalar hosil bo'ladi?",
+     "ok": "Etil yodid va etanol",
+     "no": [
+      "Etilen va suv",
+      "Yodoform",
+      "Sirka kislota"
+     ],
+     "w": "Efir bog'i uziladi, bir yarmi yodidga, ikkinchisi spirtga aylanadi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Etilen va suv",
+      "why": "Alken efirdan emas, spirtdan degidratlash orqali olinadi."
+     }
+    },
+    {
+     "p": "Efir bog'ini uzish uchun qanday reagent kerak?",
+     "ok": "Konsentrlangan HI yoki HBr",
+     "no": [
+      "Suv",
+      "NaOH eritmasi",
+      "Natriy (sovuqda)"
+     ],
+     "w": "Oddiy efirlar kuchli kislotalarda uziladi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "NaOH eritmasi",
+      "why": "Efirlar ishqorga chidamli."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Dietil efirning to'liq yonishini yozing",
+     "re": [
+      "C4H10O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C4H10O+6O2→4CO2+5H2O",
+     "w": "Kislorod: 8 + 5 − 1 = 12 atom, ya'ni 6 O₂.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Dimetil efirning to'liq yonishini yozing",
+     "re": [
+      "C2H6O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C2H6O+3O2→2CO2+3H2O",
+     "w": "Kislorod: 4 + 3 − 1 = 6 atom, ya'ni 3 O₂.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metiletil efirning to'liq yonishini yozing",
+     "re": [
+      "C3H8O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C3H8O+9O2→6CO2+8H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "metiletil efir"
+     ]
+    },
+    {
+     "p": "Dietil efirning havoda oksidlanib peroksid hosil qilishini yozing",
+     "re": [
+      "C4H10O",
+      "O2"
+     ],
+     "pr": [
+      "C4H10O3"
+     ],
+     "ans": "C4H10O+O2→C4H10O3",
+     "w": "Havoda uzoq turganda gidroperoksid hosil bo'ladi: portlash xavfi.",
+     "uses": [
+      "dietil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Dietil efir havoda uzoq saqlanganda nima hosil bo'ladi?",
+     "ok": "Portlovchi peroksidlar",
+     "no": [
+      "Etanol",
+      "Sirka kislota",
+      "Etilen"
+     ],
+     "w": "Kislorod ta'sirida peroksidlar yig'iladi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Sirka kislota",
+      "why": "Efir yonganda emas, saqlashda peroksid chiqadi."
+     }
+    },
+    {
+     "p": "Dietil efirni qanday saqlash kerak?",
+     "ok": "Qorong'i joyda, mahkam yopiq idishda",
+     "no": [
+      "Ochiq idishda",
+      "Yorug'lik tushadigan joyda",
+      "Qizdirib"
+     ],
+     "w": "Yorug'lik va havo peroksid hosil bo'lishini tezlatadi.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Ochiq idishda",
+      "why": "Ochiq idishda havo bilan tez oksidlanadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-1",
+   "group": "Xossalari",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Dietil efir natriy bilan reaksiyaga kirishadimi?",
+     "ok": "Yo'q",
+     "no": [
+      "Ha, vodorod ajraladi",
+      "Ha, alkogolyat hosil bo'ladi",
+      "Faqat qizdirilganda"
+     ],
+     "w": "Efirda harakatchan vodorod (OH) yo'q.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Ha, vodorod ajraladi",
+      "why": "Spirtlar natriy bilan reaksiyaga kirishadi, efirlar esa yo'q."
+     }
+    },
+    {
+     "p": "Dimetil efir ishqor eritmasi bilan reaksiyaga kirishadimi?",
+     "ok": "Yo'q: ishqorga chidamli",
+     "no": [
+      "Ha, gidrolizlanadi",
+      "Ha, tuz hosil qiladi",
+      "Faqat qizdirilganda"
+     ],
+     "w": "Efir bog'i C–O–C kuchli va ishqorda uzilmaydi.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-2",
+   "group": "Xossalari",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Dietil efir suvda qanday eriydi?",
+     "ok": "Kam eriydi",
+     "no": [
+      "Yaxshi eriydi",
+      "Butunlay erimaydi",
+      "Reaksiyaga kirishadi"
+     ],
+     "w": "Vodorod bog'lar kam, suvda kam eriydi.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Efirning qaynash harorati shu massali spirtnikidan...",
+     "ok": "Past",
+     "no": [
+      "Yuqori",
+      "Teng",
+      "Qaynamaydi"
+     ],
+     "w": "Efirlarda molekulalararo vodorod bog'lari yo'q.",
+     "uses": [
+      "dietil efir"
+     ],
+     "trap": {
+      "opt": "Yuqori",
+      "why": "Spirtlarda vodorod bog'lari bor, efirlarda yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-3",
+   "group": "Xossalari",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Dietil efir qayerda ishlatiladi?",
+     "ok": "Erituvchi sifatida",
+     "no": [
+      "Plastmassa ishlab chiqarishda",
+      "O'g'it sifatida",
+      "Rangsiz shisha tayyorlashda"
+     ],
+     "w": "Moylar va smolalarni yaxshi eritadi.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Dimetil efir normal sharoitda qanday agregat holatda?",
+     "ok": "Gaz",
+     "no": [
+      "Suyuqlik",
+      "Qattiq",
+      "Yarim qattiq"
+     ],
+     "w": "Qaynash harorati −24 °C: oddiy sharoitda gaz.",
+     "uses": [
+      "dimetil efir"
+     ],
+     "trap": {
+      "opt": "Suyuqlik",
+      "why": "Dietil efir suyuqlik. Dimetil efir esa yengil, gaz."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-4",
+   "group": "Xossalari",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilen oksid va etanol reaksiyasini yozing (efir-spirt hosil bo'ladi)",
+     "re": [
+      "C2H4O",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H10O2"
+     ],
+     "ans": "C2H4O+C2H5OH→C4H10O2",
+     "w": "Halqa ochiladi: 2-etoksietanol.",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Etilen oksid va metanol reaksiyasini yozing",
+     "re": [
+      "C2H4O",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H8O2"
+     ],
+     "ans": "C2H4O+CH3OH→C3H8O2",
+     "w": "Halqa ochiladi: 2-metoksietanol.",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (H₃PO₄, 300 °C)",
+     "re": [
+      "C2H4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H5OH"
+     ],
+     "ans": "C2H4+H2O→C2H5OH",
+     "w": "Suv qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H5ONa",
+       "C4H10O"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (ZnO, Cr₂O₃, bosim)",
+     "re": [
+      "CO",
+      "H2"
+     ],
+     "pr": [
+      "CH3OH"
+     ],
+     "ans": "CO+2H2→CH3OH",
+     "w": "Metanolning sanoat sintezi.",
+     "chain": {
+      "all": [
+       "CO",
+       "CH4O",
+       "CH3Cl",
+       "C2H6O"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C2H5OH",
+      "Na"
+     ],
+     "pr": [
+      "C2H5ONa",
+      "H2"
+     ],
+     "ans": "2C2H5OH+2Na→2C2H5ONa+H2",
+     "w": "Natriy etilat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H5ONa",
+       "C4H10O"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (ZnCl₂, qizdirish)",
+     "re": [
+      "CH3OH",
+      "HCl"
+     ],
+     "pr": [
+      "CH3Cl",
+      "H2O"
+     ],
+     "ans": "CH3OH+HCl→CH3Cl+H2O",
+     "w": "OH xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "CO",
+       "CH4O",
+       "CH3Cl",
+       "C2H6O"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Vilyamson, bromoetan bilan)",
+     "re": [
+      "C2H5ONa",
+      "C2H5Br"
+     ],
+     "pr": [
+      "C4H10O",
+      "NaBr"
+     ],
+     "ans": "C2H5ONa+C2H5Br→C4H10O+NaBr",
+     "w": "Dietil efir hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H6O",
+       "C2H5ONa",
+       "C4H10O"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "dietil efir"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Vilyamson, natriy metilat bilan)",
+     "re": [
+      "CH3Cl",
+      "CH3ONa"
+     ],
+     "pr": [
+      "C2H6O",
+      "NaCl"
+     ],
+     "ans": "CH3Cl+CH3ONa→C2H6O+NaCl",
+     "w": "Dimetil efir hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "CO",
+       "CH4O",
+       "CH3Cl",
+       "C2H6O"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "dimetil efir"
+     ]
+    }
+   ]
+  }
+ ]
+}

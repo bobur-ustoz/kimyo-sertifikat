@@ -1,0 +1,1022 @@
+{
+ "version": 2,
+ "day": 23,
+ "topic": "Diaminlar",
+ "substances": [
+  "etilendiamin",
+  "geksametilendiamin",
+  "fenilendiamin"
+ ],
+ "slots": [
+  {
+   "slot": "n-1",
+   "group": "Nomlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilendiaminning tuzilish formulasi qaysi?",
+     "ok": "H₂N–CH₂–CH₂–NH₂",
+     "no": [
+      "CH₃–CH(NH₂)₂",
+      "H₂N–CH₂–NH₂",
+      "H₂N–(CH₂)₃–NH₂"
+     ],
+     "w": "Ikki uglerodli zanjirning har uchida NH₂.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "CH₃–CH(NH₂)₂",
+      "why": "Bitta uglerodda ikki NH₂ guruhi (gem-diamin) beqaror."
+     }
+    },
+    {
+     "p": "Geksametilendiaminning tuzilish formulasi qaysi?",
+     "ok": "H₂N–(CH₂)₆–NH₂",
+     "no": [
+      "H₂N–(CH₂)₄–NH₂",
+      "H₂N–(CH₂)₅–NH₂",
+      "H₂N–(CH₂)₈–NH₂"
+     ],
+     "w": "Olti uglerodli zanjir.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "H₂N–(CH₂)₅–NH₂",
+      "why": "Besh uglerodli: kadaverin (pentametilendiamin)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-2",
+   "group": "Nomlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "To'yingan diaminlarning umumiy formulasi qaysi?",
+     "ok": "CₙH₂ₙ₊₄N₂",
+     "no": [
+      "CₙH₂ₙ₊₃N",
+      "CₙH₂ₙ₊₂N₂",
+      "CₙH₂ₙ₊₂N"
+     ],
+     "w": "Alkan (CₙH₂ₙ₊₂) da ikki vodorod NH₂ ga almashgan: CₙH₂ₙ(NH₂)₂.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "CₙH₂ₙ₊₂N₂",
+      "why": "NH₂ guruhlari ikki vodorodni emas, ikkita NH₂ ni qo'shadi: vodorod soni 2n + 4."
+     }
+    },
+    {
+     "p": "Putressin (tetrametilendiamin) formulasi qaysi?",
+     "ok": "C₄H₁₂N₂",
+     "no": [
+      "C₄H₁₀N₂",
+      "C₅H₁₄N₂",
+      "C₄H₁₁N"
+     ],
+     "w": "H₂N–(CH₂)₄–NH₂: C₄H₁₂N₂.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "C₅H₁₄N₂",
+      "why": "Bu kadaverin (pentametilendiamin)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-3",
+   "group": "Nomlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Kadaverin nima?",
+     "ok": "Pentametilendiamin (oqsil chirishida hosil bo'ladi)",
+     "no": [
+      "Geksametilendiamin",
+      "Etilendiamin",
+      "Putressin"
+     ],
+     "w": "H₂N–(CH₂)₅–NH₂: o'tkir hidli modda.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "Putressin",
+      "why": "Putressin to'rt uglerodli diamin."
+     }
+    },
+    {
+     "p": "C₆H₁₆N₂ formulali to'g'ri zanjirli diaminning nomi qaysi?",
+     "ok": "Geksametilendiamin",
+     "no": [
+      "Pentametilendiamin",
+      "Etilendiamin",
+      "Butandiamin"
+     ],
+     "w": "Olti uglerodli zanjir, ikki chetda NH₂.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "Pentametilendiamin",
+      "why": "Pentametilendiaminda 5 uglerod: C₅H₁₄N₂."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2-dixloretanga ortiqcha ammiak ta'sir ettiring",
+     "re": [
+      "C2H4Cl2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H8N2",
+      "NH4Cl"
+     ],
+     "ans": "C2H4Cl2+4NH3→C2H8N2+2NH4Cl",
+     "w": "Ikki xlor aminoguruhga almashinadi, ammiak HCl ni biriktiradi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "1,6-dibromgeksanga ortiqcha ammiak ta'sir ettiring",
+     "re": [
+      "C6H12Br2",
+      "NH3"
+     ],
+     "pr": [
+      "C6H16N2",
+      "NH4Br"
+     ],
+     "ans": "C6H12Br2+4NH3→C6H16N2+2NH4Br",
+     "w": "Geksametilendiamin va ammoniy bromid hosil bo'ladi.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Suksinonitrilni vodorod bilan qaytaring (Ni, bosim): putressin",
+     "re": [
+      "C4H4N2",
+      "H2"
+     ],
+     "pr": [
+      "C4H12N2"
+     ],
+     "ans": "C4H4N2+4H2→C4H12N2",
+     "w": "Ikkala nitril guruhi CH₂NH₂ ga qaytariladi."
+    },
+    {
+     "p": "Glutaronitrilni vodorod bilan qaytaring (Ni, bosim): kadaverin",
+     "re": [
+      "C5H6N2",
+      "H2"
+     ],
+     "pr": [
+      "C5H14N2"
+     ],
+     "ans": "C5H6N2+4H2→C5H14N2",
+     "w": "Pentametilendiamin hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "p-dinitrobenzolni vodorod bilan qaytaring",
+     "re": [
+      "C6H4N2O4",
+      "H2"
+     ],
+     "pr": [
+      "C6H8N2",
+      "H2O"
+     ],
+     "ans": "C6H4N2O4+6H2→C6H8N2+4H2O",
+     "w": "Ikkala nitro guruh aminoguruhga qaytariladi: p-fenilendiamin.",
+     "uses": [
+      "fenilendiamin"
+     ]
+    },
+    {
+     "p": "p-nitroanilinni vodorod bilan qaytaring",
+     "re": [
+      "C6H6N2O2",
+      "H2"
+     ],
+     "pr": [
+      "C6H8N2",
+      "H2O"
+     ],
+     "ans": "C6H6N2O2+3H2→C6H8N2+2H2O",
+     "w": "Qolgan nitro guruh ham qaytariladi.",
+     "uses": [
+      "fenilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Adipin kislotaga ortiqcha ammiak ta'sir ettiring (qizdirish): adiponitril",
+     "re": [
+      "C6H10O4",
+      "NH3"
+     ],
+     "pr": [
+      "C6H8N2",
+      "H2O"
+     ],
+     "ans": "C6H10O4+2NH3→C6H8N2+4H2O",
+     "w": "Karboksil guruhlari nitrilga aylanadi: neylon sintezining oraliq mahsuloti.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    },
+    {
+     "p": "Qahrabo kislotaga ortiqcha ammiak ta'sir ettiring (qizdirish): suksinonitril",
+     "re": [
+      "C4H6O4",
+      "NH3"
+     ],
+     "pr": [
+      "C4H4N2",
+      "H2O"
+     ],
+     "ans": "C4H6O4+2NH3→C4H4N2+4H2O",
+     "w": "Ikkala COOH nitrilga aylanadi."
+    }
+   ]
+  },
+  {
+   "slot": "t-1",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilendiaminga ortiqcha xlorid kislota ta'sir ettiring",
+     "re": [
+      "C2H8N2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H10Cl2N2"
+     ],
+     "ans": "C2H8N2+2HCl→C2H10Cl2N2",
+     "w": "Ikkala aminoguruh proton biriktiradi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Geksametilendiaminga ortiqcha xlorid kislota ta'sir ettiring",
+     "re": [
+      "C6H16N2",
+      "HCl"
+     ],
+     "pr": [
+      "C6H18Cl2N2"
+     ],
+     "ans": "C6H16N2+2HCl→C6H18Cl2N2",
+     "w": "Dixlorid tuzi hosil bo'ladi.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilendiaminga 1 mol xlorid kislota ta'sir ettiring",
+     "re": [
+      "C2H8N2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H9ClN2"
+     ],
+     "ans": "C2H8N2+HCl→C2H9ClN2",
+     "w": "Faqat bitta aminoguruh protonlanadi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Putressinga sulfat kislota ta'sir ettiring",
+     "re": [
+      "C4H12N2",
+      "H2SO4"
+     ],
+     "pr": [
+      "C4H14N2O4S"
+     ],
+     "ans": "C4H12N2+H2SO4→C4H14N2O4S",
+     "w": "Putressin sulfat hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiamin dixloridiga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C2H10Cl2N2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H8N2",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C2H10Cl2N2+2NaOH→C2H8N2+2NaCl+2H2O",
+     "w": "Erkin diamin ajraladi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Geksametilendiamin dixloridiga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C6H18Cl2N2",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H16N2",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C6H18Cl2N2+2NaOH→C6H16N2+2NaCl+2H2O",
+     "w": "Diamin ozod bo'ladi.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-4",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiamin molekulasida nechta asos markazi bor?",
+     "ok": "Ikkita",
+     "no": [
+      "Bitta",
+      "Hech biri",
+      "Uchta"
+     ],
+     "w": "Har bir azot atomida erkin elektron juft bor.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "Bitta",
+      "why": "Ikkita NH₂ guruhi: ikki asos markazi."
+     }
+    },
+    {
+     "p": "Geksametilendiamin va p-fenilendiamindan qaysi biri kuchliroq asos?",
+     "ok": "Geksametilendiamin",
+     "no": [
+      "Fenilendiamin",
+      "Teng",
+      "Ikkalasi neytral"
+     ],
+     "w": "Alifatik aminlar aromatik aminlardan kuchliroq asos.",
+     "uses": [
+      "geksametilendiamin",
+      "fenilendiamin"
+     ],
+     "trap": {
+      "opt": "Fenilendiamin",
+      "why": "Aromatik halqa azotning elektron juftini tortib, asoslikni pasaytiradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Atsillash va alkillash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiaminga ortiqcha atsetilxlorid ta'sir ettiring",
+     "re": [
+      "C2H8N2",
+      "C2H3ClO"
+     ],
+     "pr": [
+      "C6H12N2O2",
+      "HCl"
+     ],
+     "ans": "C2H8N2+2C2H3ClO→C6H12N2O2+2HCl",
+     "w": "Ikkala aminoguruh atsillanadi: diamid.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Geksametilendiaminga ortiqcha sirka angidrid ta'sir ettiring",
+     "re": [
+      "C6H16N2",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C10H20N2O2",
+      "C2H4O2"
+     ],
+     "ans": "C6H16N2+2C4H6O3→C10H20N2O2+2C2H4O2",
+     "w": "Ikkala aminoguruh atsillanadi.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Atsillash va alkillash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiaminga ortiqcha yodmetan ta'sir ettiring (bitta vodorodga ikkita guruh)",
+     "re": [
+      "C2H8N2",
+      "CH3I"
+     ],
+     "pr": [
+      "C4H12N2",
+      "HI"
+     ],
+     "ans": "C2H8N2+2CH3I→C4H12N2+2HI",
+     "w": "Har azot atomida bitta vodorod metilga almashinadi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Geksametilendiaminga bromoetan ta'sir ettiring (2 mol)",
+     "re": [
+      "C6H16N2",
+      "C2H5Br"
+     ],
+     "pr": [
+      "C10H24N2",
+      "HBr"
+     ],
+     "ans": "C6H16N2+2C2H5Br→C10H24N2+2HBr",
+     "w": "Ikkala azotda alkillash.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Atsillash va alkillash",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilendiaminga ikki mol sirka aldegid ta'sir ettiring (Shiff asosi)",
+     "re": [
+      "C2H8N2",
+      "C2H4O"
+     ],
+     "pr": [
+      "C6H12N2",
+      "H2O"
+     ],
+     "ans": "C2H8N2+2C2H4O→C6H12N2+2H2O",
+     "w": "Aminoguruh karbonil bilan reaksiyaga kirib suv ajratadi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Etilendiaminga ikki mol benzaldegid ta'sir ettiring (Shiff asosi)",
+     "re": [
+      "C2H8N2",
+      "C7H6O"
+     ],
+     "pr": [
+      "C16H16N2",
+      "H2O"
+     ],
+     "ans": "C2H8N2+2C7H6O→C16H16N2+2H2O",
+     "w": "Diimin hosil bo'ladi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Nitrit kislota ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiaminga ortiqcha nitrit kislota ta'sir ettiring",
+     "re": [
+      "C2H8N2",
+      "HNO2"
+     ],
+     "pr": [
+      "C2H6O2",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C2H8N2+2HNO2→C2H6O2+2N2+2H2O",
+     "w": "Ikkala aminoguruh OH ga almashinadi: etilenglikol.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Putressinga ortiqcha nitrit kislota ta'sir ettiring",
+     "re": [
+      "C4H12N2",
+      "HNO2"
+     ],
+     "pr": [
+      "C4H10O2",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C4H12N2+2HNO2→C4H10O2+2N2+2H2O",
+     "w": "Butandiol hosil bo'ladi, azot ajraladi."
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Nitrit kislota ta'siri",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiaminga ortiqcha HNO₂ ta'sir etganda qaysi moddalar hosil bo'ladi?",
+     "ok": "Etilenglikol va N₂",
+     "no": [
+      "Etanol va N₂",
+      "Diazoniy tuzi",
+      "Nitroetan"
+     ],
+     "w": "Ikkala NH₂ OH ga almashinadi.",
+     "uses": [
+      "etilendiamin"
+     ],
+     "trap": {
+      "opt": "Etanol va N₂",
+      "why": "Ikki aminoguruh ikki OH ga o'tadi: ikki atomli spirt."
+     }
+    },
+    {
+     "p": "p-fenilendiaminga HNO₂ (0–5 °C, HCl) ta'sir etganda nima hosil bo'ladi?",
+     "ok": "Bis-diazoniy tuzi",
+     "no": [
+      "Fenol va N₂",
+      "Nitrozoamin",
+      "Spirt"
+     ],
+     "w": "Past haroratda aromatik aminlar diazoniy tuzi beradi.",
+     "uses": [
+      "fenilendiamin"
+     ],
+     "trap": {
+      "opt": "Fenol va N₂",
+      "why": "Fenol faqat qizdirilganda hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-1",
+   "group": "Poliamidlar (neylon)",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Geksametilendiamin va adipin kislotaning polikondensatsiyasidan qaysi polimer hosil bo'ladi?",
+     "ok": "Neylon (poliamid 6,6)",
+     "no": [
+      "Kapron",
+      "Lavsan",
+      "Polietilen"
+     ],
+     "w": "Amid bog'i orqali bog'langan zanjir.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "Kapron",
+      "why": "Kapron bitta monomerdan (kaprolaktam) olinadi."
+     }
+    },
+    {
+     "p": "Neylon olish reaksiyasi qanday turga kiradi?",
+     "ok": "Polikondensatsiya",
+     "no": [
+      "Polimerlanish",
+      "Gidroliz",
+      "Oksidlanish"
+     ],
+     "w": "Har bir bog' hosil bo'lishida past molekulyar modda (suv) ajraladi.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "Polimerlanish",
+      "why": "Polimerlanishda hech narsa ajralmaydi, polikondensatsiyada suv ajraladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-2",
+   "group": "Poliamidlar (neylon)",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Geksametilendiamin va adipin kislotaning birinchi bosqich reaksiyasini yozing (amid hosil bo'lishi)",
+     "re": [
+      "C6H16N2",
+      "C6H10O4"
+     ],
+     "pr": [
+      "C12H24N2O3",
+      "H2O"
+     ],
+     "ans": "C6H16N2+C6H10O4→C12H24N2O3+H2O",
+     "w": "Bitta amid bog'i hosil bo'ladi, suv ajraladi.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    },
+    {
+     "p": "Etilendiamin va oksalat kislotaning birinchi bosqich reaksiyasini yozing",
+     "re": [
+      "C2H8N2",
+      "C2H2O4"
+     ],
+     "pr": [
+      "C4H8N2O3",
+      "H2O"
+     ],
+     "ans": "C2H8N2+C2H2O4→C4H8N2O3+H2O",
+     "w": "Amid bog'i hosil bo'ladi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-3",
+   "group": "Poliamidlar (neylon)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Neylon 6,6 sintezida monomerlar qanday mol nisbatda olinadi?",
+     "ok": "1 : 1",
+     "no": [
+      "1 : 2",
+      "2 : 1",
+      "1 : 3"
+     ],
+     "w": "Diamin va dikarbon kislota bir xil miqdorda: zanjir ikki uchi ham funksional.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "2 : 1",
+      "why": "Nisbat 1 : 1, aks holda zanjir qisqa qoladi."
+     }
+    },
+    {
+     "p": "Neylon hosil bo'lishida har bir amid bog'i bilan qaysi modda ajraladi?",
+     "ok": "Suv",
+     "no": [
+      "CO₂",
+      "NH₃",
+      "H₂"
+     ],
+     "w": "–COOH + H₂N– → –CONH– + H₂O.",
+     "uses": [
+      "geksametilendiamin"
+     ],
+     "trap": {
+      "opt": "NH₃",
+      "why": "Ammiak ajralmaydi: u amid tarkibida qoladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Yonish va qo'llanilishi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiaminning to'liq yonishini yozing (azot erkin holda ajraladi)",
+     "re": [
+      "C2H8N2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "N2"
+     ],
+     "ans": "C2H8N2+4O2→2CO2+4H2O+N2",
+     "w": "Azot atomlari N₂ ga birikadi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Geksametilendiaminning to'liq yonishini yozing (azot erkin holda ajraladi)",
+     "re": [
+      "C6H16N2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "N2"
+     ],
+     "ans": "C6H16N2+10O2→6CO2+8H2O+N2",
+     "w": "Kislorod: 12 + 8 = 20 atom, ya'ni 10 O₂.",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Yonish va qo'llanilishi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilendiamin qayerda ishlatiladi?",
+     "ok": "EDTA va polimerlar sintezida",
+     "no": [
+      "Yoqilg'i sifatida",
+      "Oziq-ovqat bo'yog'i sifatida",
+      "Antifriz sifatida"
+     ],
+     "w": "Kompleks hosil qiluvchi EDTA ning xomashyosi.",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Putressin va kadaverin qayerda hosil bo'ladi?",
+     "ok": "Oqsillar chiriganda",
+     "no": [
+      "Kraxmal bijg'ishida",
+      "Yog' gidrolizida",
+      "Fotosintezda"
+     ],
+     "w": "Aminokislotalar dekarboksillanishidan: o'tkir hidli \"murda zahari\".",
+     "trap": {
+      "opt": "Yog' gidrolizida",
+      "why": "Yog' gidrolizidan glitserin va kislotalar chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing",
+     "re": [
+      "C2H4",
+      "Br2"
+     ],
+     "pr": [
+      "C2H4Br2"
+     ],
+     "ans": "C2H4+Br2→C2H4Br2",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Br2",
+       "C2H8N2",
+       "C6H16N2O4"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (ammiak bilan tuz)",
+     "re": [
+      "C6H10O4",
+      "NH3"
+     ],
+     "pr": [
+      "C6H16N2O4"
+     ],
+     "ans": "C6H10O4+2NH3→C6H16N2O4",
+     "w": "Adipin kislota ammiak bilan diammoniy adipinat hosil qiladi.",
+     "chain": {
+      "all": [
+       "C6H10O4",
+       "C6H16N2O4",
+       "C6H8N2",
+       "C6H16N2"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (ortiqcha ammiak)",
+     "re": [
+      "C2H4Br2",
+      "NH3"
+     ],
+     "pr": [
+      "C2H8N2",
+      "NH4Br"
+     ],
+     "ans": "C2H4Br2+4NH3→C2H8N2+2NH4Br",
+     "w": "Ikkala brom aminoguruhga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Br2",
+       "C2H8N2",
+       "C6H16N2O4"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (qizdirish, katalizator)",
+     "re": [
+      "C6H16N2O4"
+     ],
+     "pr": [
+      "C6H8N2",
+      "H2O"
+     ],
+     "ans": "C6H16N2O4→C6H8N2+4H2O",
+     "w": "Ammoniy tuzi degidratlanib dinitril beradi.",
+     "chain": {
+      "all": [
+       "C6H10O4",
+       "C6H16N2O4",
+       "C6H8N2",
+       "C6H16N2"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (sirka kislota)",
+     "re": [
+      "C2H8N2",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C6H16N2O4"
+     ],
+     "ans": "C2H8N2+2C2H4O2→C6H16N2O4",
+     "w": "Diamin ikki molekula sirka kislota bilan tuz hosil qiladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H4Br2",
+       "C2H8N2",
+       "C6H16N2O4"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "etilendiamin"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Ni, bosim)",
+     "re": [
+      "C6H8N2",
+      "H2"
+     ],
+     "pr": [
+      "C6H16N2"
+     ],
+     "ans": "C6H8N2+4H2→C6H16N2",
+     "w": "Adiponitril geksametilendiaminga qaytariladi.",
+     "chain": {
+      "all": [
+       "C6H10O4",
+       "C6H16N2O4",
+       "C6H8N2",
+       "C6H16N2"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "geksametilendiamin"
+     ]
+    }
+   ]
+  }
+ ]
+}

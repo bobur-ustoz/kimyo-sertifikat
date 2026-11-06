@@ -1,0 +1,1036 @@
+{
+ "version": 2,
+ "day": 12,
+ "topic": "Fenollar",
+ "substances": [
+  "fenol",
+  "krezol"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Brombenzolga NaOH ta'sir ettiring (yuqori harorat va bosim)",
+     "re": [
+      "C6H5Br",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H5ONa",
+      "NaBr",
+      "H2O"
+     ],
+     "ans": "C6H5Br+2NaOH→C6H5ONa+NaBr+H2O",
+     "w": "Brom OH ga almashinadi, ortiqcha ishqor fenolni natriy fenolyatga aylantiradi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Natriy fenolyatga xlorid kislota ta'sir ettiring",
+     "re": [
+      "C6H5ONa",
+      "HCl"
+     ],
+     "pr": [
+      "C6H5OH",
+      "NaCl"
+     ],
+     "ans": "C6H5ONa+HCl→C6H5OH+NaCl",
+     "w": "Kuchli kislota fenolyatdan fenolni siqib chiqaradi.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kumolning havo kislorodi bilan oksidlanishini yozing (kumol gidroperoksid hosil bo'ladi)",
+     "re": [
+      "C9H12",
+      "O2"
+     ],
+     "pr": [
+      "C9H12O2"
+     ],
+     "ans": "C9H12+O2→C9H12O2",
+     "w": "Kumol usulining birinchi bosqichi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Kumol gidroperoksidning kislotali parchalanishini yozing (fenol va aseton)",
+     "re": [
+      "C9H12O2"
+     ],
+     "pr": [
+      "C6H6O",
+      "C3H6O"
+     ],
+     "ans": "C9H12O2→C6H6O+C3H6O",
+     "w": "Kumol usulining ikkinchi bosqichi: fenol va aseton.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy benzolsulfonatni NaOH bilan eritish: fenolyat hosil bo'ladi",
+     "re": [
+      "C6H5NaO3S",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H5NaO",
+      "Na2SO3",
+      "H2O"
+     ],
+     "ans": "C6H5NaO3S+2NaOH→C6H5NaO+Na2SO3+H2O",
+     "w": "Sulfo guruh OH ga almashinadi (qizdirib eritish).",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Natriy toluolsulfonatni NaOH bilan eritish: krezolyat hosil bo'ladi",
+     "re": [
+      "C7H7NaO3S",
+      "NaOH"
+     ],
+     "pr": [
+      "C7H7NaO",
+      "Na2SO3",
+      "H2O"
+     ],
+     "ans": "C7H7NaO3S+2NaOH→C7H7NaO+Na2SO3+H2O",
+     "w": "Sulfo guruh OH ga almashinadi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Anilinga nitrit kislota ta'sir ettiring (qizdirish): fenol hosil bo'ladi",
+     "re": [
+      "C6H7N",
+      "HNO2"
+     ],
+     "pr": [
+      "C6H6O",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C6H7N+HNO2→C6H6O+N2+H2O",
+     "w": "Diazoniy tuzi suv bilan parchalanib fenol beradi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Toluidinga nitrit kislota ta'sir ettiring (qizdirish): krezol hosil bo'ladi",
+     "re": [
+      "C7H9N",
+      "HNO2"
+     ],
+     "pr": [
+      "C7H8O",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C7H9N+HNO2→C7H8O+N2+H2O",
+     "w": "Azot gaz holida ajraladi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sanoatda fenol olishning asosiy usuli qaysi?",
+     "ok": "Kumol usuli",
+     "no": [
+      "Gidratlash",
+      "Bijg'ish",
+      "Vyurs reaksiyasi"
+     ],
+     "w": "Kumol havo bilan oksidlanib, keyin fenol va aseton beradi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Kumol usulida fenol bilan birga qaysi modda hosil bo'ladi?",
+     "ok": "Aseton",
+     "no": [
+      "Sirka kislota",
+      "Metanol",
+      "Formaldegid"
+     ],
+     "w": "Kumol gidroperoksid fenol va asetonga parchalanadi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Sirka kislota",
+      "why": "Qo'shimcha mahsulot aseton."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolga xlormetan ta'sir ettiring (AlCl₃): krezol hosil bo'ladi",
+     "re": [
+      "C6H5OH",
+      "CH3Cl"
+     ],
+     "pr": [
+      "C7H8O",
+      "HCl"
+     ],
+     "ans": "C6H5OH+CH3Cl→C7H8O+HCl",
+     "w": "Metil guruh halqaga (o- yoki p-) birikadi.",
+     "uses": [
+      "krezol"
+     ]
+    },
+    {
+     "p": "Fenolga xloretan ta'sir ettiring (AlCl₃)",
+     "re": [
+      "C6H5OH",
+      "C2H5Cl"
+     ],
+     "pr": [
+      "C8H10O",
+      "HCl"
+     ],
+     "ans": "C6H5OH+C2H5Cl→C8H10O+HCl",
+     "w": "Etil guruh halqaga birikadi: etilfenol.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Fenolning formulasi qaysi?",
+     "ok": "C₆H₅OH",
+     "no": [
+      "C₆H₅CH₂OH",
+      "C₆H₁₁OH",
+      "C₆H₅CH₃"
+     ],
+     "w": "OH guruhi bevosita benzol halqasiga birikkan.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "C₆H₅CH₂OH",
+      "why": "Bu benzil spirt: OH yon zanjirda."
+     }
+    },
+    {
+     "p": "Krezolning tuzilishi qaysi?",
+     "ok": "CH₃–C₆H₄–OH",
+     "no": [
+      "C₆H₅–CH₂OH",
+      "C₆H₅–O–CH₃",
+      "C₆H₅–C₂H₅"
+     ],
+     "w": "Metilfenol: halqada CH₃ va OH.",
+     "uses": [
+      "krezol"
+     ],
+     "trap": {
+      "opt": "C₆H₅–CH₂OH",
+      "why": "Benzil spirtda OH yon zanjirda."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fenol benzil spirtdan nimasi bilan farq qiladi?",
+     "ok": "OH guruhi to'g'ridan-to'g'ri benzol halqasida",
+     "no": [
+      "OH guruhi yon zanjirda",
+      "Fenolda OH guruhi yo'q",
+      "Benzil spirt NaOH bilan reaksiyaga kirishadi"
+     ],
+     "w": "Shu sababli fenol kislotali xossa ko'rsatadi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "OH guruhi yon zanjirda",
+      "why": "OH yon zanjirda bo'lsa, bu benzil spirt."
+     }
+    },
+    {
+     "p": "Fenol NaOH eritmasi bilan reaksiyaga kirishadi. Bu nimani ko'rsatadi?",
+     "ok": "Fenol kuchsiz kislota",
+     "no": [
+      "Fenol ishqor",
+      "Fenol neytral",
+      "Fenol efir"
+     ],
+     "w": "Benzol halqasi OH dagi vodorodni harakatchan qiladi.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "OH hisobiga reaksiyalar",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Fenolga natriy ta'sir ettiring",
+     "re": [
+      "C6H5OH",
+      "Na"
+     ],
+     "pr": [
+      "C6H5ONa",
+      "H2"
+     ],
+     "ans": "2C6H5OH+2Na→2C6H5ONa+H2",
+     "w": "Natriy fenolyat va vodorod hosil bo'ladi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Krezolga natriy ta'sir ettiring",
+     "re": [
+      "C7H8O",
+      "Na"
+     ],
+     "pr": [
+      "C7H7NaO",
+      "H2"
+     ],
+     "ans": "2C7H8O+2Na→2C7H7NaO+H2",
+     "w": "Natriy krezolyat va vodorod hosil bo'ladi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "OH hisobiga reaksiyalar",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Fenolga NaOH eritmasi ta'sir ettiring",
+     "re": [
+      "C6H5OH",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H5ONa",
+      "H2O"
+     ],
+     "ans": "C6H5OH+NaOH→C6H5ONa+H2O",
+     "w": "Fenol kuchsiz kislota: ishqor bilan tuz hosil qiladi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Krezolga KOH eritmasi ta'sir ettiring",
+     "re": [
+      "C7H8O",
+      "KOH"
+     ],
+     "pr": [
+      "C7H7KO",
+      "H2O"
+     ],
+     "ans": "C7H8O+KOH→C7H7KO+H2O",
+     "w": "Kaliy krezolyat hosil bo'ladi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "OH hisobiga reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy fenolyatga CO₂ va suv ta'sir ettiring",
+     "re": [
+      "C6H5ONa",
+      "CO2",
+      "H2O"
+     ],
+     "pr": [
+      "C6H5OH",
+      "NaHCO3"
+     ],
+     "ans": "C6H5ONa+CO2+H2O→C6H5OH+NaHCO3",
+     "w": "Karbonat kislota fenoldan kuchli: fenolni siqib chiqaradi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Natriy fenolyatga sulfat kislota ta'sir ettiring",
+     "re": [
+      "C6H5ONa",
+      "H2SO4"
+     ],
+     "pr": [
+      "C6H5OH",
+      "Na2SO4"
+     ],
+     "ans": "2C6H5ONa+H2SO4→2C6H5OH+Na2SO4",
+     "w": "Kuchli kislota fenolni siqib chiqaradi.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-4",
+   "group": "OH hisobiga reaksiyalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fenolga sirka angidrid ta'sir ettiring (atsillash)",
+     "re": [
+      "C6H5OH",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C8H8O2",
+      "C2H4O2"
+     ],
+     "ans": "C6H5OH+C4H6O3→C8H8O2+C2H4O2",
+     "w": "Fenilatsetat va sirka kislota hosil bo'ladi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Fenolga atsetilxlorid ta'sir ettiring",
+     "re": [
+      "C6H5OH",
+      "CH3COCl"
+     ],
+     "pr": [
+      "C8H8O2",
+      "HCl"
+     ],
+     "ans": "C6H5OH+CH3COCl→C8H8O2+HCl",
+     "w": "Fenilatsetat hosil bo'ladi, HCl ajraladi.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-5",
+   "group": "OH hisobiga reaksiyalar",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolning kislotaliligi qanday?",
+     "ok": "H₂CO₃ dan kuchsiz, H₂O dan kuchli",
+     "no": [
+      "H₂CO₃ dan kuchli",
+      "Suvdan kuchsiz",
+      "Sirka kislotadan kuchli"
+     ],
+     "w": "Fenol ishqor bilan reaksiyaga kirishadi, lekin karbonat kislota fenolyatdan fenolni chiqaradi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "H₂CO₃ dan kuchli",
+      "why": "Aksincha: CO₂ + suv fenolyatdan fenolni siqib chiqaradi."
+     }
+    },
+    {
+     "p": "Natriy fenolyat suvda eritilsa, muhit qanday bo'ladi?",
+     "ok": "Ishqoriy (gidroliz)",
+     "no": [
+      "Neytral",
+      "Kislotali",
+      "Gaz ajraladi"
+     ],
+     "w": "Kuchsiz kislota tuzi gidrolizlanib ishqoriy muhit beradi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Neytral",
+      "why": "Kuchsiz kislota tuzi gidrolizlanadi, muhit ishqoriy."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolga ortiqcha bromli suv ta'sir ettiring",
+     "re": [
+      "C6H5OH",
+      "Br2"
+     ],
+     "pr": [
+      "C6H3Br3O",
+      "HBr"
+     ],
+     "ans": "C6H5OH+3Br2→C6H3Br3O+3HBr",
+     "w": "Brom 2, 4, 6 holatlarga birikadi: oq cho'kma.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Krezolga ortiqcha bromli suv ta'sir ettiring",
+     "re": [
+      "C7H8O",
+      "Br2"
+     ],
+     "pr": [
+      "C7H5Br3O",
+      "HBr"
+     ],
+     "ans": "C7H8O+3Br2→C7H5Br3O+3HBr",
+     "w": "Uch vodorod bromga almashinadi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolni to'liq nitrolang (konsentrlangan HNO₃, H₂SO₄): pikrin kislota",
+     "re": [
+      "C6H5OH",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H3N3O7",
+      "H2O"
+     ],
+     "ans": "C6H5OH+3HNO3→C6H3N3O7+3H2O",
+     "w": "2, 4, 6-trinitrofenol (pikrin kislota).",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Fenolni mononitrolang (suyultirilgan HNO₃)",
+     "re": [
+      "C6H5OH",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H5NO3",
+      "H2O"
+     ],
+     "ans": "C6H5OH+HNO3→C6H5NO3+H2O",
+     "w": "o- va p-nitrofenol hosil bo'ladi.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C6H5OH",
+      "H2"
+     ],
+     "pr": [
+      "C6H12O"
+     ],
+     "ans": "C6H5OH+3H2→C6H12O",
+     "w": "Halqa to'yinadi: siklogeksanol.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Krezolni gidrogenlang (Ni, qizdirish)",
+     "re": [
+      "C7H8O",
+      "H2"
+     ],
+     "pr": [
+      "C7H14O"
+     ],
+     "ans": "C7H8O+3H2→C7H14O",
+     "w": "Metilsiklogeksanol hosil bo'ladi.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fenol va formaldegid reaksiyasini yozing (birinchi bosqich, H⁺ yoki OH⁻)",
+     "re": [
+      "C6H5OH",
+      "CH2O"
+     ],
+     "pr": [
+      "C7H8O2"
+     ],
+     "ans": "C6H5OH+CH2O→C7H8O2",
+     "w": "o-gidroksimetilfenol: fenolformaldegid smolasi boshlanishi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Ikki molekula fenol va formaldegid reaksiyasini yozing (suv ajraladi)",
+     "re": [
+      "C6H5OH",
+      "CH2O"
+     ],
+     "pr": [
+      "C13H12O2",
+      "H2O"
+     ],
+     "ans": "2C6H5OH+CH2O→C13H12O2+H2O",
+     "w": "Dioksidifenilmetan hosil bo'ladi: polikondensatsiya zanjiri.",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-5",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolni aniqlash uchun qaysi reaktiv ishlatiladi?",
+     "ok": "FeCl₃ (binafsha rang)",
+     "no": [
+      "Cu(OH)₂ (ko'k eritma)",
+      "AgNO₃ ning ammiakli eritmasi",
+      "KMnO₄ ning rangsizlanishi"
+     ],
+     "w": "Fenollar FeCl₃ bilan binafsha kompleks hosil qiladi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Cu(OH)₂ (ko'k eritma)",
+      "why": "Cu(OH)₂ ko'p atomli spirtlar uchun."
+     }
+    },
+    {
+     "p": "Fenolga bromli suv ta'sir ettirilsa, nima kuzatiladi?",
+     "ok": "Oq cho'kma (2,4,6-tribromfenol)",
+     "no": [
+      "Sariq cho'kma",
+      "Rang o'zgarmaydi",
+      "Binafsha rang"
+     ],
+     "w": "Uch brom birikib, suvda erimaydigan oq modda hosil bo'ladi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Binafsha rang",
+      "why": "Binafsha rang FeCl₃ bilan hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-6",
+   "group": "Benzol halqasiga xos reaksiyalar",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fenol bromli suv bilan reaksiyaga kirishganda nechta vodorod bromga almashadi?",
+     "ok": "3",
+     "no": [
+      "1",
+      "2",
+      "4"
+     ],
+     "w": "OH guruhi o,p-yo'naltiruvchi: 2, 4 va 6 holatlar.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "2",
+      "why": "Ikkita o-holat va bitta p-holat: jami uchta."
+     }
+    },
+    {
+     "p": "Fenoldagi OH guruhi qaysi turdagi o'rinbosar?",
+     "ok": "Birinchi tur (orto-, para-yo'naltiruvchi)",
+     "no": [
+      "Ikkinchi tur (meta-)",
+      "Yo'naltirmaydi",
+      "Faqat meta-yo'naltiruvchi"
+     ],
+     "w": "Elektron beruvchi guruh o va p holatlarni faollashtiradi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Ikkinchi tur (meta-)",
+      "why": "OH elektron beradi, shuning uchun o,p-yo'naltiruvchi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Fenolning to'liq yonishini yozing",
+     "re": [
+      "C6H5OH",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C6H5OH+7O2→6CO2+3H2O",
+     "w": "Kislorod: 12 + 3 − 1 = 14 atom, ya'ni 7 O₂.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Krezolning to'liq yonishini yozing",
+     "re": [
+      "C7H8O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C7H8O+17O2→14CO2+8H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "krezol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fenol uzoq vaqt havoda turganda rangi qanday o'zgaradi?",
+     "ok": "Pushti-qo'ng'ir tusga kiradi (oksidlanadi)",
+     "no": [
+      "Rangsiz qoladi",
+      "Ko'k bo'ladi",
+      "Qorayadi va qotadi"
+     ],
+     "w": "Fenol havo kislorodi ta'sirida asta oksidlanadi.",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Fenol KMnO₄ eritmasini rangsizlantiradimi?",
+     "ok": "Ha: oson oksidlanadi",
+     "no": [
+      "Yo'q",
+      "Faqat sovuqda",
+      "Faqat ishqoriy muhitda"
+     ],
+     "w": "OH guruhi halqani faollashtiradi, fenol benzoldan osonroq oksidlanadi.",
+     "uses": [
+      "fenol"
+     ],
+     "trap": {
+      "opt": "Yo'q",
+      "why": "Benzol rangsizlantirmaydi, fenol esa oson oksidlanadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (FeCl₃)",
+     "re": [
+      "C6H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C6H5Cl",
+      "HCl"
+     ],
+     "ans": "C6H6+Cl2→C6H5Cl+HCl",
+     "w": "Vodorod xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5Cl",
+       "C6H5ONa",
+       "C6H5OH"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (konsentrlangan H₂SO₄)",
+     "re": [
+      "C6H6",
+      "H2SO4"
+     ],
+     "pr": [
+      "C6H6O3S",
+      "H2O"
+     ],
+     "ans": "C6H6+H2SO4→C6H6O3S+H2O",
+     "w": "Benzolsulfokislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H6O3S",
+       "C6H5ONa",
+       "C7H8O"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH, yuqori harorat va bosim)",
+     "re": [
+      "C6H5Cl",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H5ONa",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C6H5Cl+2NaOH→C6H5ONa+NaCl+H2O",
+     "w": "Xlor OH ga almashinadi, fenolyat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5Cl",
+       "C6H5ONa",
+       "C6H5OH"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (NaOH bilan eritish)",
+     "re": [
+      "C6H6O3S",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H5NaO",
+      "Na2SO3",
+      "H2O"
+     ],
+     "ans": "C6H6O3S+3NaOH→C6H5NaO+Na2SO3+2H2O",
+     "w": "Sulfokislota ishqor bilan fenolyat beradi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H6O3S",
+       "C6H5ONa",
+       "C7H8O"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "fenol"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (suv ta'sirida gidroliz)",
+     "re": [
+      "C6H5ONa",
+      "H2O"
+     ],
+     "pr": [
+      "C6H5OH",
+      "NaOH"
+     ],
+     "ans": "C6H5ONa+H2O→C6H5OH+NaOH",
+     "w": "Fenolyat gidrolizlanib fenol hosil qiladi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5Cl",
+       "C6H5ONa",
+       "C6H5OH"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "fenol"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (yodmetan bilan)",
+     "re": [
+      "C6H5ONa",
+      "CH3I"
+     ],
+     "pr": [
+      "C7H8O",
+      "NaI"
+     ],
+     "ans": "C6H5ONa+CH3I→C7H8O+NaI",
+     "w": "Anizol (metilfenil efir) hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H6O3S",
+       "C6H5ONa",
+       "C7H8O"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

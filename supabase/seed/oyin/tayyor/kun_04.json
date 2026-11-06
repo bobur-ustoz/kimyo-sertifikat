@@ -1,0 +1,1027 @@
+{
+ "version": 2,
+ "day": 4,
+ "topic": "Alkinlar",
+ "substances": [
+  "atsetilen",
+  "propin",
+  "butin"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metanning yuqori haroratda (1500 °C) parchalanib atsetilen hosil qilishini yozing",
+     "re": [
+      "CH4"
+     ],
+     "pr": [
+      "C2H2",
+      "H2"
+     ],
+     "ans": "2CH4→C2H2+3H2",
+     "w": "Ikki metan molekulasidan atsetilen va uch molekula vodorod hosil bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "1,2-dibrompropanga KOH ning spirtli eritmasini (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C3H6Br2",
+      "KOH"
+     ],
+     "pr": [
+      "C3H4",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C3H6Br2+2KOH→C3H4+2KBr+2H2O",
+     "w": "Ikki molekula HBr ajraladi va uchbog' hosil bo'ladi: propin.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2-dibrombutanga KOH ning spirtli eritmasini (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C4H8Br2",
+      "KOH"
+     ],
+     "pr": [
+      "C4H6",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C4H8Br2+2KOH→C4H6+2KBr+2H2O",
+     "w": "Ikki HBr ajraladi: butin hosil bo'ladi.",
+     "uses": [
+      "butin"
+     ]
+    },
+    {
+     "p": "1,2-dixloretanga KOH ning spirtli eritmasini (ortiqcha) ta'sir ettiring",
+     "re": [
+      "C2H4Cl2",
+      "KOH"
+     ],
+     "pr": [
+      "C2H2",
+      "KCl",
+      "H2O"
+     ],
+     "ans": "C2H4Cl2+2KOH→C2H2+2KCl+2H2O",
+     "w": "Ikki HCl ajraladi va atsetilen hosil bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Laboratoriyada atsetilen qanday olinadi?",
+     "ok": "Kalsiy karbidga suv ta'sir ettirib",
+     "no": [
+      "Etanolni degidratlab",
+      "Metanni xlorlab",
+      "Etilenni gidrogenlab"
+     ],
+     "w": "CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂: qulay usul.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "Etanolni degidratlab",
+      "why": "Etanoldan suv ajralsa etilen hosil bo'ladi, atsetilen emas."
+     }
+    },
+    {
+     "p": "Sanoatda atsetilen metandan qaysi haroratda olinadi?",
+     "ok": "1500 °C",
+     "no": [
+      "170 °C",
+      "500 °C",
+      "80 °C"
+     ],
+     "w": "Metan juda yuqori haroratda (1500 °C) atsetilenga aylanadi.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "170 °C",
+      "why": "170 °C etanolni degidratlab etilen olish harorati."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Kalsiy oksidning koks bilan reaksiyasini yozing (elektr pechida, kalsiy karbid olinadi)",
+     "re": [
+      "CaO",
+      "C"
+     ],
+     "pr": [
+      "CaC2",
+      "CO"
+     ],
+     "ans": "CaO+3C→CaC2+CO",
+     "w": "Uglerod kalsiy karbidga va uglerod(II) oksidga o'tadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Kalsiyning koks bilan reaksiyasini yozing (kalsiy karbid olinadi)",
+     "re": [
+      "Ca",
+      "C"
+     ],
+     "pr": [
+      "CaC2"
+     ],
+     "ans": "Ca+2C→CaC2",
+     "w": "Karbid: Ca²⁺ va C₂²⁻ ionlaridan tuzilgan.",
+     "uses": [
+      "atsetilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Kalsiy karbidga suv ta'sir ettiring",
+     "re": [
+      "CaC2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H2",
+      "Ca(OH)2"
+     ],
+     "ans": "CaC2+2H2O→C2H2+Ca(OH)2",
+     "w": "Karbid gidrolizlanib atsetilen va ohak hosil qiladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Kalsiy karbidga xlorid kislota ta'sir ettiring",
+     "re": [
+      "CaC2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H2",
+      "CaCl2"
+     ],
+     "ans": "CaC2+2HCl→C2H2+CaCl2",
+     "w": "Kislota ham karbidni parchalab atsetilen beradi.",
+     "uses": [
+      "atsetilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Atsetilenning to'liq gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C2H2",
+      "H2"
+     ],
+     "pr": [
+      "C2H6"
+     ],
+     "ans": "C2H2+2H2→C2H6",
+     "w": "Uchbog' to'liq to'yinadi: ikki molekula vodorod birikadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinning to'liq gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H4",
+      "H2"
+     ],
+     "pr": [
+      "C3H8"
+     ],
+     "ans": "C3H4+2H2→C3H8",
+     "w": "Uchbog'ga ikki molekula vodorod birikib propan hosil bo'ladi.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilenga ortiqcha brom ta'sir ettiring",
+     "re": [
+      "C2H2",
+      "Br2"
+     ],
+     "pr": [
+      "C2H2Br4"
+     ],
+     "ans": "C2H2+2Br2→C2H2Br4",
+     "w": "Ikki bosqichda 2 molekula brom birikadi: 1,1,2,2-tetrabrometan.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinga ortiqcha xlor ta'sir ettiring",
+     "re": [
+      "C3H4",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H4Cl4"
+     ],
+     "ans": "C3H4+2Cl2→C3H4Cl4",
+     "w": "Uchbog'ga ikki molekula xlor birikadi.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Atsetilenga 1 mol HCl ta'sir ettiring (HgCl₂ katalizatori)",
+     "re": [
+      "C2H2",
+      "HCl"
+     ],
+     "pr": [
+      "C2H3Cl"
+     ],
+     "ans": "C2H2+HCl→C2H3Cl",
+     "w": "Vinilxlorid hosil bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinga 1 mol HBr ta'sir ettiring",
+     "re": [
+      "C3H4",
+      "HBr"
+     ],
+     "pr": [
+      "C3H5Br"
+     ],
+     "ans": "C3H4+HBr→C3H5Br",
+     "w": "Markovnikov qoidasi bilan 2-brompropen hosil bo'ladi.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propinga 2 mol HBr birikkanda qaysi modda hosil bo'ladi?",
+     "ok": "2,2-dibrompropan",
+     "no": [
+      "1,2-dibrompropan",
+      "1,1-dibrompropan",
+      "2-brompropen"
+     ],
+     "w": "Markovnikov: ikkala brom ham kamroq vodorodli uglerodga birikadi.",
+     "uses": [
+      "propin"
+     ],
+     "trap": {
+      "opt": "1,2-dibrompropan",
+      "why": "Ikkinchi brom ham birinchisi bilan bitta uglerodga birikadi."
+     }
+    },
+    {
+     "p": "Atsetilenga HCN birikishidan hosil bo'lgan modda qaysi?",
+     "ok": "Akrilonitril CH₂=CH–CN",
+     "no": [
+      "CH₃–CH₂–CN",
+      "CH₂=CH–Cl",
+      "CH₂=CH–COOH"
+     ],
+     "w": "HCN uchbog'ga birikib nitril guruhli alken hosil qiladi.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "CH₂=CH–Cl",
+      "why": "Vinilxlorid HCl dan hosil bo'ladi, HCN dan emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-1",
+   "group": "Gidratlash (Kucherov)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Atsetilenning gidratlanishini yozing (Kucherov reaksiyasi, HgSO₄, H₂SO₄)",
+     "re": [
+      "C2H2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O"
+     ],
+     "ans": "C2H2+H2O→C2H4O",
+     "w": "Vinil spirt beqaror, u sirka aldegidga o'tadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinning gidratlanishini yozing (Kucherov reaksiyasi)",
+     "re": [
+      "C3H4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O"
+     ],
+     "ans": "C3H4+H2O→C3H6O",
+     "w": "Markovnikov: OH ikkinchi uglerodda, mahsulot aseton.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-2",
+   "group": "Gidratlash (Kucherov)",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilenning gidratlanish mahsuloti (Kucherov) qaysi?",
+     "ok": "Sirka aldegid",
+     "no": [
+      "Etanol",
+      "Aseton",
+      "Sirka kislota"
+     ],
+     "w": "Hosil bo'lgan vinil spirt aldegidga o'tadi.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "Etanol",
+      "why": "Etanol alkenning gidratlanishidan hosil bo'ladi. Uchbog'da enol, keyin aldegid."
+     }
+    },
+    {
+     "p": "Propin gidratlansa, qanday modda hosil bo'ladi?",
+     "ok": "Aseton",
+     "no": [
+      "Propanal",
+      "Propanol-2",
+      "Propan kislota"
+     ],
+     "w": "Markovnikov: OH kamroq vodorodli uglerodga birikib, keton hosil qiladi.",
+     "uses": [
+      "propin"
+     ],
+     "trap": {
+      "opt": "Propanal",
+      "why": "Propanal aldegid: faqat atsetilendan aldegid hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-3",
+   "group": "Gidratlash (Kucherov)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Qaysi alkin gidratlanganda aldegid hosil bo'ladi?",
+     "ok": "Atsetilen",
+     "no": [
+      "Propin",
+      "Butin-1",
+      "Butin-2"
+     ],
+     "w": "Faqat atsetilenda uchbog' chetki: boshqa alkinlardan keton hosil bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "Propin",
+      "why": "Propindan aseton, ya'ni keton hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Butin-1 gidratlansa, qaysi modda hosil bo'ladi?",
+     "ok": "Butanon",
+     "no": [
+      "Butanal",
+      "Butanol-2",
+      "Butan kislota"
+     ],
+     "w": "Markovnikov: OH ikkinchi uglerodga, keton hosil bo'ladi.",
+     "uses": [
+      "butin"
+     ],
+     "trap": {
+      "opt": "Butanal",
+      "why": "Aldegid faqat atsetilendan chiqadi, boshqa alkinlardan keton."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilenga natriy ta'sir ettiring (bir vodorod almashinadi)",
+     "re": [
+      "C2H2",
+      "Na"
+     ],
+     "pr": [
+      "C2HNa",
+      "H2"
+     ],
+     "ans": "2C2H2+2Na→2C2HNa+H2",
+     "w": "Uchbog' uglerodidagi vodorod harakatchan: u natriyga almashinadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinga natriy ta'sir ettiring",
+     "re": [
+      "C3H4",
+      "Na"
+     ],
+     "pr": [
+      "C3H3Na",
+      "H2"
+     ],
+     "ans": "2C3H4+2Na→2C3H3Na+H2",
+     "w": "Faqat uchbog'dagi vodorod almashinadi.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilenga kumush oksid ta'sir ettiring (atsetilenid cho'kmasi)",
+     "re": [
+      "C2H2",
+      "Ag2O"
+     ],
+     "pr": [
+      "C2Ag2",
+      "H2O"
+     ],
+     "ans": "C2H2+Ag2O→C2Ag2+H2O",
+     "w": "Ikkala vodorod ham kumushga almashinadi: oq cho'kma.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Butin-1 ga kumush oksid ta'sir ettiring",
+     "re": [
+      "C4H6",
+      "Ag2O"
+     ],
+     "pr": [
+      "C4H5Ag",
+      "H2O"
+     ],
+     "ans": "2C4H6+Ag2O→2C4H5Ag+H2O",
+     "w": "Chetki uchbog'dagi bitta vodorod almashinadi.",
+     "uses": [
+      "butin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "i-1",
+   "group": "Izomerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "C₄H₆ tarkibli nechta alkin izomeri bor?",
+     "ok": "2",
+     "no": [
+      "1",
+      "3",
+      "4"
+     ],
+     "w": "Butin-1 va butin-2.",
+     "uses": [
+      "butin"
+     ],
+     "trap": {
+      "opt": "3",
+      "why": "Uchinchisi yo'q: uchbog'ni boshqa joyga qo'yib bo'lmaydi."
+     }
+    },
+    {
+     "p": "C₅H₈ tarkibli nechta alkin izomeri bor?",
+     "ok": "3",
+     "no": [
+      "2",
+      "4",
+      "5"
+     ],
+     "w": "Pentin-1, pentin-2 va 3-metilbutin-1.",
+     "trap": {
+      "opt": "2",
+      "why": "Tarmoqlangan izomer ham bor: 3-metilbutin-1."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-2",
+   "group": "Izomerlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Quyidagilardan qaysi biri butin-1 ning izomeri?",
+     "ok": "Butin-2",
+     "no": [
+      "Buten-1",
+      "Butan",
+      "Siklobutan"
+     ],
+     "w": "Ikkalasi C₄H₆: faqat uchbog' o'rni farq qiladi.",
+     "uses": [
+      "butin"
+     ],
+     "trap": {
+      "opt": "Buten-1",
+      "why": "Buten-1 ning formulasi C₄H₈: boshqa modda."
+     }
+    },
+    {
+     "p": "C₄H₆ tarkibli alkinning sinfdosh bo'lmagan izomeri qaysi?",
+     "ok": "Butadien-1,3",
+     "no": [
+      "Buten-1",
+      "Siklobutan",
+      "Butan"
+     ],
+     "w": "Alkinlar va alkadienlar bir xil C<sub>n</sub>H<sub>2n−2</sub> formulaga ega.",
+     "uses": [
+      "butin"
+     ],
+     "trap": {
+      "opt": "Buten-1",
+      "why": "Buten C₄H₈: izomer emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Atsetilenning to'liq yonishini yozing",
+     "re": [
+      "C2H2",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H2+5O2→4CO2+2H2O",
+     "w": "Kasrdan qutulish uchun hammasi ikki baravar: 2C₂H₂ + 5O₂.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Propinning to'liq yonishini yozing",
+     "re": [
+      "C3H4",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H4+4O2→3CO2+2H2O",
+     "w": "Kislorod: 6 + 2 = 8 ta atom, ya'ni 4 O₂.",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilen–kislorod alangasi qayerda ishlatiladi?",
+     "ok": "Metallarni payvandlash va kesishda",
+     "no": [
+      "Oziq-ovqat saqlashda",
+      "Suvni tozalashda",
+      "Polimer sintezida"
+     ],
+     "w": "Alanga harorati ~3000 °C ga yetadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Atsetilen havoda yonganda alanga nega qurumli?",
+     "ok": "Uglerod ulushi yuqori, kislorod yetishmaydi",
+     "no": [
+      "Vodorod juda ko'p",
+      "Azot yonadi",
+      "Suv hosil bo'ladi"
+     ],
+     "w": "Ko'p uglerod to'liq yonishga ulgurmaydi va qurum bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Atsetilenning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄)",
+     "re": [
+      "C2H2",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "CO2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "C2H2+2KMnO4+3H2SO4→2CO2+2MnSO4+K2SO4+4H2O",
+     "w": "Har uglerod 5 e beradi: C₂H₂ uchun 10 e, ya'ni 2 KMnO₄.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Butin-2 ning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄)",
+     "re": [
+      "C4H6",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C4H6+6KMnO4+9H2SO4→10C2H4O2+6MnSO4+3K2SO4+4H2O",
+     "w": "Uchbog' uzilib ikki molekula sirka kislota hosil bo'ladi.",
+     "uses": [
+      "butin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-1",
+   "group": "Polimerlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Atsetilendan benzol hosil bo'lishini yozing (Zelinskiy, 450 °C, aktivlangan ko'mir)",
+     "re": [
+      "C2H2"
+     ],
+     "pr": [
+      "C6H6"
+     ],
+     "ans": "3C2H2→C6H6",
+     "w": "Uch molekula atsetilen halqaga birlashadi.",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Atsetilenning dimerlanishini yozing (CuCl, NH₄Cl)",
+     "re": [
+      "C2H2"
+     ],
+     "pr": [
+      "C4H4"
+     ],
+     "ans": "2C2H2→C4H4",
+     "w": "Vinilatsetilen hosil bo'ladi.",
+     "uses": [
+      "atsetilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-2",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "78 g benzol hosil bo'lishi uchun necha gramm atsetilen kerak (M(C₆H₆) = 78)?",
+     "ok": "78 g",
+     "no": [
+      "26 g",
+      "39 g",
+      "234 g"
+     ],
+     "w": "3C₂H₂ → C₆H₆: massa saqlanadi, 3 · 26 = 78 g.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "26 g",
+      "why": "26 g bir mol atsetilen, lekin benzol uchun uch mol kerak."
+     }
+    },
+    {
+     "p": "44,8 l (n.sh.) atsetilendan necha gramm benzol hosil bo'ladi (M(C₆H₆) = 78)?",
+     "ok": "52 g",
+     "no": [
+      "78 g",
+      "26 g",
+      "156 g"
+     ],
+     "w": "44,8 : 22,4 = 2 mol; benzol 2 : 3 mol, 2/3 · 78 = 52 g.",
+     "uses": [
+      "atsetilen"
+     ],
+     "trap": {
+      "opt": "78 g",
+      "why": "78 g uch mol atsetilenga, ya'ni 67,2 l ga to'g'ri keladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Pd, qisman gidrogenlash)",
+     "re": [
+      "C2H2",
+      "H2"
+     ],
+     "pr": [
+      "C2H4"
+     ],
+     "ans": "C2H2+H2→C2H4",
+     "w": "Uchbog' qo'shbog'gacha gidrogenlanadi.",
+     "chain": {
+      "all": [
+       "C2H2",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Pd, qisman gidrogenlash)",
+     "re": [
+      "C3H4",
+      "H2"
+     ],
+     "pr": [
+      "C3H6"
+     ],
+     "ans": "C3H4+H2→C3H6",
+     "w": "Propin propenga aylanadi.",
+     "chain": {
+      "all": [
+       "C3H4",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C2H4",
+      "Br2"
+     ],
+     "pr": [
+      "C2H4Br2"
+     ],
+     "ans": "C2H4+Br2→C2H4Br2",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C2H2",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H6Cl2"
+     ],
+     "ans": "C3H6+Cl2→C3H6Cl2",
+     "w": "Xlor qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C3H4",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (KOH ning spirtli eritmasi, ortiqcha)",
+     "re": [
+      "C2H4Br2",
+      "KOH"
+     ],
+     "pr": [
+      "C2H2",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C2H4Br2+2KOH→C2H2+2KBr+2H2O",
+     "w": "Ikki HBr ajralib uchbog' qayta hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H2",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "atsetilen"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (KOH ning spirtli eritmasi, ortiqcha)",
+     "re": [
+      "C3H6Cl2",
+      "KOH"
+     ],
+     "pr": [
+      "C3H4",
+      "KCl",
+      "H2O"
+     ],
+     "ans": "C3H6Cl2+2KOH→C3H4+2KCl+2H2O",
+     "w": "Ikki HCl ajraladi: propin.",
+     "chain": {
+      "all": [
+       "C3H4",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "propin"
+     ]
+    }
+   ]
+  }
+ ]
+}

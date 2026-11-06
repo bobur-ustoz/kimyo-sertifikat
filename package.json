@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test test/oyin.test.mjs"
+    "test": "node --test test/oyin.test.mjs test/sotuv.test.mjs test/nazorat.test.mjs"
   },
   "dependencies": {
     "@daily-co/daily-js": "^0.94.0",

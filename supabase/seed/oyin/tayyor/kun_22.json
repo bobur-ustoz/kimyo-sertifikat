@@ -1,0 +1,1054 @@
+{
+ "version": 2,
+ "day": 22,
+ "topic": "Aminlar",
+ "substances": [
+  "metilamin",
+  "etilamin",
+  "anilin"
+ ],
+ "slots": [
+  {
+   "slot": "n-1",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "CH₃NH₂ moddaning nomi qaysi?",
+     "ok": "Metilamin",
+     "no": [
+      "Etilamin",
+      "Dimetilamin",
+      "Metanol"
+     ],
+     "w": "Metil radikalga NH₂ guruhi birikkan.",
+     "uses": [
+      "metilamin"
+     ],
+     "trap": {
+      "opt": "Dimetilamin",
+      "why": "Dimetilaminda ikkita metil radikal bor: (CH₃)₂NH."
+     }
+    },
+    {
+     "p": "C₆H₅NH₂ moddaning nomi qaysi?",
+     "ok": "Anilin",
+     "no": [
+      "Fenol",
+      "Toluidin",
+      "Benzilamin"
+     ],
+     "w": "Benzol halqasiga bevosita NH₂ guruhi birikkan.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "Benzilamin",
+      "why": "Benzilaminda NH₂ yon zanjirda: C₆H₅CH₂NH₂."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-2",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "C₂H₇N formulaga mos ikkita amin izomeri qaysilar?",
+     "ok": "Etilamin va dimetilamin",
+     "no": [
+      "Etilamin va trimetilamin",
+      "Metilamin va etilamin",
+      "Dimetilamin va metilamin"
+     ],
+     "w": "Birlamchi (C₂H₅NH₂) va ikkilamchi ((CH₃)₂NH).",
+     "uses": [
+      "etilamin"
+     ],
+     "trap": {
+      "opt": "Etilamin va trimetilamin",
+      "why": "Trimetilaminning formulasi C₃H₉N."
+     }
+    },
+    {
+     "p": "(CH₃)₃N qanday amin?",
+     "ok": "Uchlamchi amin",
+     "no": [
+      "Birlamchi amin",
+      "Ikkilamchi amin",
+      "Amid"
+     ],
+     "w": "Azotda uchta radikal bor.",
+     "uses": [
+      "metilamin"
+     ],
+     "trap": {
+      "opt": "Ikkilamchi amin",
+      "why": "Ikkilamchida ikkita radikal va bitta vodorod."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "n-3",
+   "group": "Izomeriya va nomlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "C₃H₉N tarkibli nechta amin izomeri bor?",
+     "ok": "4",
+     "no": [
+      "3",
+      "2",
+      "5"
+     ],
+     "w": "Propilamin, izopropilamin, metiletilamin va trimetilamin.",
+     "uses": [
+      "etilamin"
+     ],
+     "trap": {
+      "opt": "3",
+      "why": "To'rtinchisini unutish: trimetilamin yoki metiletilamin."
+     }
+    },
+    {
+     "p": "C₄H₁₁N tarkibli nechta birlamchi amin izomeri bor?",
+     "ok": "4",
+     "no": [
+      "2",
+      "3",
+      "5"
+     ],
+     "w": "n-butil-, sek-butil-, izobutil- va tret-butilamin.",
+     "uses": [
+      "etilamin"
+     ],
+     "trap": {
+      "opt": "3",
+      "why": "Uchlamchi butilamin ham bor."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Bromoetanga ammiak ta'sir ettiring (Gofman)",
+     "re": [
+      "C2H5Br",
+      "NH3"
+     ],
+     "pr": [
+      "C2H7N",
+      "HBr"
+     ],
+     "ans": "C2H5Br+NH3→C2H7N+HBr",
+     "w": "Galogen NH₂ guruhi bilan almashinadi: etilamin.",
+     "uses": [
+      "etilamin"
+     ]
+    },
+    {
+     "p": "Xlormetanga ammiak ta'sir ettiring (Gofman)",
+     "re": [
+      "CH3Cl",
+      "NH3"
+     ],
+     "pr": [
+      "CH5N",
+      "HCl"
+     ],
+     "ans": "CH3Cl+NH3→CH5N+HCl",
+     "w": "Metilamin hosil bo'ladi.",
+     "uses": [
+      "metilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Nitroetanni vodorod bilan qaytaring (katalizator)",
+     "re": [
+      "C2H5NO2",
+      "H2"
+     ],
+     "pr": [
+      "C2H7N",
+      "H2O"
+     ],
+     "ans": "C2H5NO2+3H2→C2H7N+2H2O",
+     "w": "Nitro guruh aminoguruhga qaytariladi.",
+     "uses": [
+      "etilamin"
+     ]
+    },
+    {
+     "p": "Nitrometanni vodorod bilan qaytaring (katalizator)",
+     "re": [
+      "CH3NO2",
+      "H2"
+     ],
+     "pr": [
+      "CH5N",
+      "H2O"
+     ],
+     "ans": "CH3NO2+3H2→CH5N+2H2O",
+     "w": "Metilamin hosil bo'ladi.",
+     "uses": [
+      "metilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Asetonitrilni vodorod bilan qaytaring (Ni)",
+     "re": [
+      "C2H3N",
+      "H2"
+     ],
+     "pr": [
+      "C2H7N"
+     ],
+     "ans": "C2H3N+2H2→C2H7N",
+     "w": "Nitril guruh CH₂NH₂ ga qaytariladi: etilamin.",
+     "uses": [
+      "etilamin"
+     ]
+    },
+    {
+     "p": "Propionitrilni vodorod bilan qaytaring (Ni)",
+     "re": [
+      "C3H5N",
+      "H2"
+     ],
+     "pr": [
+      "C3H9N"
+     ],
+     "ans": "C3H5N+2H2→C3H9N",
+     "w": "Propilamin hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Atsetamidga brom va NaOH ta'sir ettiring (Gofman bo'yicha parchalanish): metilamin",
+     "re": [
+      "C2H5NO",
+      "Br2",
+      "NaOH"
+     ],
+     "pr": [
+      "CH5N",
+      "Na2CO3",
+      "NaBr",
+      "H2O"
+     ],
+     "ans": "C2H5NO+Br2+4NaOH→CH5N+Na2CO3+2NaBr+2H2O",
+     "w": "Uglerod soni bittaga kamayadi: amid → bir uglerod kam amin.",
+     "uses": [
+      "metilamin"
+     ]
+    },
+    {
+     "p": "Propionamidga brom va NaOH ta'sir ettiring (Gofman)",
+     "re": [
+      "C3H7NO",
+      "Br2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H7N",
+      "Na2CO3",
+      "NaBr",
+      "H2O"
+     ],
+     "ans": "C3H7NO+Br2+4NaOH→C2H7N+Na2CO3+2NaBr+2H2O",
+     "w": "Etilamin hosil bo'ladi.",
+     "uses": [
+      "etilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Anilin olinishi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Nitrobenzolni vodorod bilan qaytaring (Ni, qizdirish)",
+     "re": [
+      "C6H5NO2",
+      "H2"
+     ],
+     "pr": [
+      "C6H7N",
+      "H2O"
+     ],
+     "ans": "C6H5NO2+3H2→C6H7N+2H2O",
+     "w": "Nitro guruh aminoguruhga qaytariladi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Nitrobenzolni temir va xlorid kislota bilan qaytaring (Zinin)",
+     "re": [
+      "C6H5NO2",
+      "Fe",
+      "HCl"
+     ],
+     "pr": [
+      "C6H7N",
+      "FeCl2",
+      "H2O"
+     ],
+     "ans": "C6H5NO2+3Fe+6HCl→C6H7N+3FeCl2+2H2O",
+     "w": "Temir qaytaruvchi, HCl muhit hosil qiladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Anilin olinishi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Xlorbenzolga ammiak ta'sir ettiring (yuqori harorat va bosim, Cu)",
+     "re": [
+      "C6H5Cl",
+      "NH3"
+     ],
+     "pr": [
+      "C6H7N",
+      "NH4Cl"
+     ],
+     "ans": "C6H5Cl+2NH3→C6H7N+NH4Cl",
+     "w": "Galogen aminoguruhga almashinadi; ikkinchi ammiak HCl ni biriktiradi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Brombenzolga ammiak ta'sir ettiring (Cu, bosim)",
+     "re": [
+      "C6H5Br",
+      "NH3"
+     ],
+     "pr": [
+      "C6H7N",
+      "NH4Br"
+     ],
+     "ans": "C6H5Br+2NH3→C6H7N+NH4Br",
+     "w": "Anilin va ammoniy bromid hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Anilin olinishi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Anilinni nitrobenzoldan olish reaksiyasi kim nomi bilan ataladi?",
+     "ok": "Zinin reaksiyasi",
+     "no": [
+      "Vyurs reaksiyasi",
+      "Kucherov reaksiyasi",
+      "Konovalov reaksiyasi"
+     ],
+     "w": "Nitrobenzolning qaytarilishi: N. N. Zinin.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "Konovalov reaksiyasi",
+      "why": "Konovalov reaksiyasi alkanlarni nitrolashga tegishli."
+     }
+    },
+    {
+     "p": "Zinin reaksiyasida nitro guruhni qaytarish uchun nima ishlatiladi?",
+     "ok": "Temir va HCl (yoki vodorod katalizatorda)",
+     "no": [
+      "O₂",
+      "NaOH",
+      "KMnO₄"
+     ],
+     "w": "Qaytaruvchi kerak: nitro guruh aminoguruhga o'tadi.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "KMnO₄",
+      "why": "KMnO₄ oksidlovchi, qaytaruvchi emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-1",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metilaminga xlorid kislota ta'sir ettiring",
+     "re": [
+      "CH5N",
+      "HCl"
+     ],
+     "pr": [
+      "CH6ClN"
+     ],
+     "ans": "CH5N+HCl→CH6ClN",
+     "w": "Metilammoniy xlorid tuzi hosil bo'ladi.",
+     "uses": [
+      "metilamin"
+     ]
+    },
+    {
+     "p": "Etilaminga sulfat kislota ta'sir ettiring (ortiqcha amin)",
+     "re": [
+      "C2H7N",
+      "H2SO4"
+     ],
+     "pr": [
+      "C4H16N2O4S"
+     ],
+     "ans": "2C2H7N+H2SO4→C4H16N2O4S",
+     "w": "Etilammoniy sulfat hosil bo'ladi.",
+     "uses": [
+      "etilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Anilinga xlorid kislota ta'sir ettiring",
+     "re": [
+      "C6H7N",
+      "HCl"
+     ],
+     "pr": [
+      "C6H8ClN"
+     ],
+     "ans": "C6H7N+HCl→C6H8ClN",
+     "w": "Anilin gidroxlorid (fenilammoniy xlorid) hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Anilinga bromid kislota ta'sir ettiring",
+     "re": [
+      "C6H7N",
+      "HBr"
+     ],
+     "pr": [
+      "C6H8BrN"
+     ],
+     "ans": "C6H7N+HBr→C6H8BrN",
+     "w": "Anilin gidrobromid hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenilammoniy xloridga NaOH ta'sir ettiring",
+     "re": [
+      "C6H8ClN",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H7N",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "C6H8ClN+NaOH→C6H7N+NaCl+H2O",
+     "w": "Kuchli asos zaif asosni tuzidan siqib chiqaradi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Metilammoniy xloridga NaOH ta'sir ettiring",
+     "re": [
+      "CH6ClN",
+      "NaOH"
+     ],
+     "pr": [
+      "CH5N",
+      "NaCl",
+      "H2O"
+     ],
+     "ans": "CH6ClN+NaOH→CH5N+NaCl+H2O",
+     "w": "Metilamin ozod bo'ladi.",
+     "uses": [
+      "metilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-4",
+   "group": "Asoslik va tuz hosil qilish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Quyidagilardan qaysi biri eng kuchli asos?",
+     "ok": "Metilamin",
+     "no": [
+      "Ammiak",
+      "Anilin",
+      "Suv"
+     ],
+     "w": "Metil guruh azotga elektron beradi: asoslik ammiakdan kuchli.",
+     "uses": [
+      "metilamin"
+     ],
+     "trap": {
+      "opt": "Ammiak",
+      "why": "Alifatik aminlar ammiakdan kuchliroq asos."
+     }
+    },
+    {
+     "p": "Anilinning asoslik xossasi ammiakka nisbatan qanday?",
+     "ok": "Kuchsizroq",
+     "no": [
+      "Kuchliroq",
+      "Metilamindan kuchliroq",
+      "Asos emas"
+     ],
+     "w": "Benzol halqasi azotning elektron juftini tortadi.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "Kuchliroq",
+      "why": "Aromatik halqa asoslikni pasaytiradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Nitrit kislota ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilaminga nitrit kislota ta'sir ettiring",
+     "re": [
+      "C2H7N",
+      "HNO2"
+     ],
+     "pr": [
+      "C2H6O",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C2H7N+HNO2→C2H6O+N2+H2O",
+     "w": "Birlamchi alifatik amin spirtga aylanadi, azot ajraladi.",
+     "uses": [
+      "etilamin"
+     ]
+    },
+    {
+     "p": "Metilaminga nitrit kislota ta'sir ettiring",
+     "re": [
+      "CH5N",
+      "HNO2"
+     ],
+     "pr": [
+      "CH4O",
+      "N2",
+      "H2O"
+     ],
+     "ans": "CH5N+HNO2→CH4O+N2+H2O",
+     "w": "Metanol hosil bo'ladi, azot gazi ajraladi.",
+     "uses": [
+      "metilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Nitrit kislota ta'siri",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Anilinga nitrit kislota va xlorid kislota ta'sir ettiring (0–5 °C)",
+     "re": [
+      "C6H7N",
+      "HNO2",
+      "HCl"
+     ],
+     "pr": [
+      "C6H5ClN2",
+      "H2O"
+     ],
+     "ans": "C6H7N+HNO2+HCl→C6H5ClN2+2H2O",
+     "w": "Diazoniy tuzi hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Anilinga nitrit kislota ta'sir ettiring (qizdirish)",
+     "re": [
+      "C6H7N",
+      "HNO2"
+     ],
+     "pr": [
+      "C6H6O",
+      "N2",
+      "H2O"
+     ],
+     "ans": "C6H7N+HNO2→C6H6O+N2+H2O",
+     "w": "Yuqori haroratda fenol va azot hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "Nitrit kislota ta'siri",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Ikkilamchi aminga nitrit kislota ta'sir ettirilsa, nima hosil bo'ladi?",
+     "ok": "N-nitrozoamin (sariq yog'simon modda)",
+     "no": [
+      "Spirt va N₂",
+      "Diazoniy tuzi",
+      "Tuz"
+     ],
+     "w": "Azotda bitta vodorod bor, u NO guruhi bilan almashinadi.",
+     "uses": [
+      "etilamin"
+     ],
+     "trap": {
+      "opt": "Spirt va N₂",
+      "why": "Spirt va N₂ birlamchi alifatik aminlardan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Uchlamchi aminga nitrit kislota ta'sir ettirilsa, nima hosil bo'ladi?",
+     "ok": "Faqat tuz (nitrit)",
+     "no": [
+      "N₂ ajraladi",
+      "Nitrozoamin",
+      "Diazoniy tuzi"
+     ],
+     "w": "Uchlamchi aminda almashinadigan vodorod yo'q: faqat tuz hosil bo'ladi.",
+     "uses": [
+      "metilamin"
+     ],
+     "trap": {
+      "opt": "Nitrozoamin",
+      "why": "Nitrozoamin ikkilamchi aminlardan hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metilaminning to'liq yonishini yozing (azot erkin holda ajraladi)",
+     "re": [
+      "CH5N",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "N2"
+     ],
+     "ans": "4CH5N+9O2→4CO2+10H2O+2N2",
+     "w": "Azot atomlari N₂ ga birikadi: koeffitsientlar 4, 9, 4, 10, 2.",
+     "uses": [
+      "metilamin"
+     ]
+    },
+    {
+     "p": "Etilaminning to'liq yonishini yozing (azot erkin holda ajraladi)",
+     "re": [
+      "C2H7N",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O",
+      "N2"
+     ],
+     "ans": "4C2H7N+15O2→8CO2+14H2O+2N2",
+     "w": "Azot atomlari N₂ ga birikadi.",
+     "uses": [
+      "etilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Anilin havoda uzoq turganda nima bo'ladi?",
+     "ok": "Oksidlanib qorayadi",
+     "no": [
+      "Rangsiz qoladi",
+      "Qizaradi",
+      "Ko'karadi"
+     ],
+     "w": "Aromatik aminlar havo kislorodida oksidlanadi.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "Rangsiz qoladi",
+      "why": "Anilin oksidlanuvchan: rangi qorayadi."
+     }
+    },
+    {
+     "p": "Anilinga bromli suv ta'sir ettirilsa, nima kuzatiladi?",
+     "ok": "Oq cho'kma (2,4,6-tribromanilin)",
+     "no": [
+      "Rang o'zgarmaydi",
+      "Binafsha rang",
+      "Gaz ajraladi"
+     ],
+     "w": "NH₂ guruhi halqani faollashtiradi: uchala o,p-holat bromlanadi.",
+     "uses": [
+      "anilin"
+     ],
+     "trap": {
+      "opt": "Rang o'zgarmaydi",
+      "why": "Anilin benzoldan ancha faol: bromli suv bilan darhol reaksiya."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Almashinish va atsillash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Anilinga ortiqcha bromli suv ta'sir ettiring",
+     "re": [
+      "C6H7N",
+      "Br2"
+     ],
+     "pr": [
+      "C6H4Br3N",
+      "HBr"
+     ],
+     "ans": "C6H7N+3Br2→C6H4Br3N+3HBr",
+     "w": "NH₂ o,p-yo'naltiruvchi: 2, 4, 6 holatlar bromlanadi.",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Anilinga konsentrlangan H₂SO₄ ta'sir ettiring (sulfolash)",
+     "re": [
+      "C6H7N",
+      "H2SO4"
+     ],
+     "pr": [
+      "C6H7NO3S",
+      "H2O"
+     ],
+     "ans": "C6H7N+H2SO4→C6H7NO3S+H2O",
+     "w": "Sulfanil kislota hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Almashinish va atsillash",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilaminga atsetilxlorid ta'sir ettiring",
+     "re": [
+      "C2H7N",
+      "C2H3ClO"
+     ],
+     "pr": [
+      "C4H9NO",
+      "HCl"
+     ],
+     "ans": "C2H7N+C2H3ClO→C4H9NO+HCl",
+     "w": "N-etilatsetamid (atsillash) hosil bo'ladi.",
+     "uses": [
+      "etilamin"
+     ]
+    },
+    {
+     "p": "Anilinga atsetilxlorid ta'sir ettiring",
+     "re": [
+      "C6H7N",
+      "C2H3ClO"
+     ],
+     "pr": [
+      "C8H9NO",
+      "HCl"
+     ],
+     "ans": "C6H7N+C2H3ClO→C8H9NO+HCl",
+     "w": "Atsetanilid hosil bo'ladi.",
+     "uses": [
+      "anilin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (H₂SO₄, nitrolash)",
+     "re": [
+      "C6H6",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H5NO2",
+      "H2O"
+     ],
+     "ans": "C6H6+HNO3→C6H5NO2+H2O",
+     "w": "Nitro guruh halqaga birikadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5NO2",
+       "C6H7N",
+       "C8H9NO"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing",
+     "re": [
+      "C2H4",
+      "HBr"
+     ],
+     "pr": [
+      "C2H5Br"
+     ],
+     "ans": "C2H4+HBr→C2H5Br",
+     "w": "Etilenga HBr birikadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H5Br",
+       "C2H7N",
+       "C3H9N"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (rux va xlorid kislota)",
+     "re": [
+      "C6H5NO2",
+      "Zn",
+      "HCl"
+     ],
+     "pr": [
+      "C6H7N",
+      "ZnCl2",
+      "H2O"
+     ],
+     "ans": "C6H5NO2+3Zn+6HCl→C6H7N+3ZnCl2+2H2O",
+     "w": "Rux qaytaruvchi: nitro guruh aminoguruhga o'tadi.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5NO2",
+       "C6H7N",
+       "C8H9NO"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (ortiqcha ammiak)",
+     "re": [
+      "C2H5Br",
+      "NH3"
+     ],
+     "pr": [
+      "C2H7N",
+      "NH4Br"
+     ],
+     "ans": "C2H5Br+2NH3→C2H7N+NH4Br",
+     "w": "Etilamin va ammoniy bromid hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H5Br",
+       "C2H7N",
+       "C3H9N"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "etilamin"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (sirka angidrid)",
+     "re": [
+      "C6H7N",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C8H9NO",
+      "C2H4O2"
+     ],
+     "ans": "C6H7N+C4H6O3→C8H9NO+C2H4O2",
+     "w": "Anilin atsillanadi: atsetanilid.",
+     "chain": {
+      "all": [
+       "C6H6",
+       "C6H5NO2",
+       "C6H7N",
+       "C8H9NO"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "anilin"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (yodmetan, alkillash)",
+     "re": [
+      "C2H7N",
+      "CH3I"
+     ],
+     "pr": [
+      "C3H9N",
+      "HI"
+     ],
+     "ans": "C2H7N+CH3I→C3H9N+HI",
+     "w": "Azotdagi vodorod metilga almashinadi.",
+     "chain": {
+      "all": [
+       "C2H4",
+       "C2H5Br",
+       "C2H7N",
+       "C3H9N"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "etilamin"
+     ]
+    }
+   ]
+  }
+ ]
+}

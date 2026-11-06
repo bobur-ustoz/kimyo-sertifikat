@@ -1,0 +1,1017 @@
+{
+ "version": 2,
+ "day": 8,
+ "topic": "Bir atomli to'yinmagan spirtlar",
+ "substances": [
+  "allil spirt",
+  "propargil spirt",
+  "krotil spirt"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allilxloridga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C3H5Cl",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H6O",
+      "NaCl"
+     ],
+     "ans": "C3H5Cl+NaOH→C3H6O+NaCl",
+     "w": "Xlor OH ga almashinadi, qo'shbog' saqlanadi: allil spirt.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Propargilbromidga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C3H3Br",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H4O",
+      "NaBr"
+     ],
+     "ans": "C3H3Br+NaOH→C3H4O+NaBr",
+     "w": "Brom OH ga almashinadi, uchbog' saqlanadi: propargil spirt.",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allilbromidga KOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C3H5Br",
+      "KOH"
+     ],
+     "pr": [
+      "C3H6O",
+      "KBr"
+     ],
+     "ans": "C3H5Br+KOH→C3H6O+KBr",
+     "w": "Brom OH ga almashinadi: allil spirt.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Krotonaldegidni gidrogenlang (faqat aldegid guruhi qaytariladi)",
+     "re": [
+      "C4H6O",
+      "H2"
+     ],
+     "pr": [
+      "C4H8O"
+     ],
+     "ans": "C4H6O+H2→C4H8O",
+     "w": "Krotil spirt hosil bo'ladi.",
+     "uses": [
+      "krotil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilen va formaldegid reaksiyasini yozing (Cu₂C₂, Reppe): propargil spirt olinadi",
+     "re": [
+      "C2H2",
+      "CH2O"
+     ],
+     "pr": [
+      "C3H4O"
+     ],
+     "ans": "C2H2+CH2O→C3H4O",
+     "w": "Formaldegid atsetilenning uchbog'dagi vodorodiga birikadi.",
+     "uses": [
+      "propargil spirt"
+     ]
+    },
+    {
+     "p": "Atsetilen va aseton reaksiyasini yozing (KOH, Favorskiy)",
+     "re": [
+      "C2H2",
+      "C3H6O"
+     ],
+     "pr": [
+      "C5H8O"
+     ],
+     "ans": "C2H2+C3H6O→C5H8O",
+     "w": "Aseton karbonili atsetilenga birikib 2-metilbutin-3-ol-2 hosil qiladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allil spirtning tuzilish formulasi qaysi?",
+     "ok": "CH₂=CH–CH₂OH",
+     "no": [
+      "CH₃–CH=CH–OH",
+      "CH₃–CH₂–CH₂OH",
+      "CH₂=C(OH)–CH₃"
+     ],
+     "w": "Qo'shbog' va OH guruhi turli uglerodlarda.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "CH₃–CH=CH–OH",
+      "why": "OH qo'shbog'li uglerodda: bunday enol beqaror, aldegidga o'tadi."
+     }
+    },
+    {
+     "p": "Propargil spirtning tuzilish formulasi qaysi?",
+     "ok": "HC≡C–CH₂OH",
+     "no": [
+      "CH₂=CH–CH₂OH",
+      "CH₃–C≡C–OH",
+      "HC≡C–CH₃"
+     ],
+     "w": "Uchbog' va OH guruhi turli uglerodlarda.",
+     "uses": [
+      "propargil spirt"
+     ],
+     "trap": {
+      "opt": "CH₃–C≡C–OH",
+      "why": "OH uchbog'li uglerodda bo'lmaydi: beqaror."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilen va formaldegiddan propargil spirt olishda qaysi katalizator ishlatiladi?",
+     "ok": "Cu₂C₂ (mis atsetilenidi)",
+     "no": [
+      "Ni",
+      "H₂SO₄",
+      "AlCl₃"
+     ],
+     "w": "Mis atsetilenidi atsetilen bilan karbonil birikmasini bog'laydi.",
+     "uses": [
+      "propargil spirt"
+     ]
+    },
+    {
+     "p": "Allilxloriddan allil spirt olish qaysi sharoitda amalga oshadi?",
+     "ok": "NaOH ning suvdagi eritmasi",
+     "no": [
+      "NaOH ning spirtdagi eritmasi",
+      "H₂SO₄ (konsentrlangan)",
+      "HCl"
+     ],
+     "w": "Suvli ishqorda almashinish bo'ladi.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "NaOH ning spirtdagi eritmasi",
+      "why": "Spirtli ishqor galogenalkandan HCl ni ajratib dien beradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allil spirtni gidrogenlang (Ni)",
+     "re": [
+      "C3H6O",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O"
+     ],
+     "ans": "C3H6O+H2→C3H8O",
+     "w": "Qo'shbog' to'yinadi: propanol-1.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Krotil spirtni gidrogenlang (Ni)",
+     "re": [
+      "C4H8O",
+      "H2"
+     ],
+     "pr": [
+      "C4H10O"
+     ],
+     "ans": "C4H8O+H2→C4H10O",
+     "w": "Qo'shbog' to'yinadi: butanol-1.",
+     "uses": [
+      "krotil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allil spirtga brom ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "Br2"
+     ],
+     "pr": [
+      "C3H6Br2O"
+     ],
+     "ans": "C3H6O+Br2→C3H6Br2O",
+     "w": "Brom qo'shbog'ga birikadi: 2,3-dibrompropanol-1.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Propargil spirtga ortiqcha brom ta'sir ettiring",
+     "re": [
+      "C3H4O",
+      "Br2"
+     ],
+     "pr": [
+      "C3H4Br4O"
+     ],
+     "ans": "C3H4O+2Br2→C3H4Br4O",
+     "w": "Uchbog'ga ikki molekula brom birikadi.",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirtga HBr ta'sir ettiring (qo'shbog'ga birikish)",
+     "re": [
+      "C3H6O",
+      "HBr"
+     ],
+     "pr": [
+      "C3H7BrO"
+     ],
+     "ans": "C3H6O+HBr→C3H7BrO",
+     "w": "H va Br qo'shbog'ga birikadi.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Propargil spirtni to'liq gidrogenlang (Ni)",
+     "re": [
+      "C3H4O",
+      "H2"
+     ],
+     "pr": [
+      "C3H8O"
+     ],
+     "ans": "C3H4O+2H2→C3H8O",
+     "w": "Uchbog' to'liq to'yinadi: propanol-1.",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirt bromli suvni rangsizlantiradimi?",
+     "ok": "Ha",
+     "no": [
+      "Yo'q",
+      "Faqat qizdirilganda",
+      "Faqat yorug'likda"
+     ],
+     "w": "Molekulada qo'shbog' bor: brom oson birikadi.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "Yo'q",
+      "why": "To'yingan spirtlar rangsizlantirmaydi, lekin allil spirtda qo'shbog' bor."
+     }
+    },
+    {
+     "p": "Propargil spirt KMnO₄ eritmasini rangsizlantiradimi?",
+     "ok": "Ha: uchbog' tufayli",
+     "no": [
+      "Yo'q",
+      "Faqat sovuqda",
+      "Faqat ishqoriy muhitda"
+     ],
+     "w": "Uchbog' oksidlanadi, eritma rangsizlanadi.",
+     "uses": [
+      "propargil spirt"
+     ],
+     "trap": {
+      "opt": "Yo'q",
+      "why": "Ko'p bog'li moddalar KMnO₄ ni oson rangsizlantiradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-5",
+   "group": "Birikish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "0,1 mol allil spirt necha gramm brom (M = 160) biriktira oladi?",
+     "ok": "16 g",
+     "no": [
+      "8 g",
+      "32 g",
+      "160 g"
+     ],
+     "w": "Bitta qo'shbog'ga 1 mol brom: 0,1 · 160 = 16 g.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "32 g",
+      "why": "32 g ikki qo'shbog'ga to'g'ri kelardi. Allil spirtda bitta qo'shbog' bor."
+     }
+    },
+    {
+     "p": "0,1 mol propargil spirtga ortiqcha brom ta'sir etsa, necha gramm brom (M = 160) birikadi?",
+     "ok": "32 g",
+     "no": [
+      "16 g",
+      "8 g",
+      "64 g"
+     ],
+     "w": "Uchbog'ga 2 mol brom: 0,2 · 160 = 32 g.",
+     "uses": [
+      "propargil spirt"
+     ],
+     "trap": {
+      "opt": "16 g",
+      "why": "16 g bitta mol bromning yarmi: bitta qo'shbog'ga to'g'ri keladi, uchbog'ga emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "OH hisobiga",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allil spirtga natriy ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "Na"
+     ],
+     "pr": [
+      "C3H5NaO",
+      "H2"
+     ],
+     "ans": "2C3H6O+2Na→2C3H5NaO+H2",
+     "w": "OH vodorodi natriyga almashinadi: natriy allilat.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Krotil spirtga natriy ta'sir ettiring",
+     "re": [
+      "C4H8O",
+      "Na"
+     ],
+     "pr": [
+      "C4H7NaO",
+      "H2"
+     ],
+     "ans": "2C4H8O+2Na→2C4H7NaO+H2",
+     "w": "Natriy krotilat va vodorod hosil bo'ladi.",
+     "uses": [
+      "krotil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "OH hisobiga",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirt va sirka kislota reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "C3H6O",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C5H8O2",
+      "H2O"
+     ],
+     "ans": "C3H6O+C2H4O2→C5H8O2+H2O",
+     "w": "Allil atsetat hosil bo'ladi, suv ajraladi.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Propargil spirt va sirka kislota reaksiyasini yozing (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "C3H4O",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C5H6O2",
+      "H2O"
+     ],
+     "ans": "C3H4O+C2H4O2→C5H6O2+H2O",
+     "w": "Propargil atsetat hosil bo'ladi.",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "OH hisobiga",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirtga fosfor(V) xlorid ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "PCl5"
+     ],
+     "pr": [
+      "C3H5Cl",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C3H6O+PCl5→C3H5Cl+POCl3+HCl",
+     "w": "OH xlorga almashinadi, qo'shbog' saqlanadi.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Allil spirtga tionilxlorid ta'sir ettiring",
+     "re": [
+      "C3H6O",
+      "SOCl2"
+     ],
+     "pr": [
+      "C3H5Cl",
+      "SO2",
+      "HCl"
+     ],
+     "ans": "C3H6O+SOCl2→C3H5Cl+SO2+HCl",
+     "w": "Gazlar ajraladi, allilxlorid hosil bo'ladi.",
+     "uses": [
+      "allil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-4",
+   "group": "OH hisobiga",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Allil spirt molekulasida qaysi funksional guruhlar bor?",
+     "ok": "–OH va C=C",
+     "no": [
+      "–OH va C≡C",
+      "–CHO va C=C",
+      "–COOH va C=C"
+     ],
+     "w": "Spirt guruhi va qo'shbog'.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "–OH va C≡C",
+      "why": "Uchbog' propargil spirtda."
+     }
+    },
+    {
+     "p": "Propargil spirt molekulasida qaysi funksional guruhlar bor?",
+     "ok": "–OH va C≡C",
+     "no": [
+      "–OH va C=C",
+      "–CHO va C≡C",
+      "–OH va C=O"
+     ],
+     "w": "Spirt guruhi va uchbog'.",
+     "uses": [
+      "propargil spirt"
+     ],
+     "trap": {
+      "opt": "–OH va C=C",
+      "why": "Qo'shbog' allil spirtda."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Allil spirtning to'liq yonishini yozing",
+     "re": [
+      "C3H6O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H6O+4O2→3CO2+3H2O",
+     "w": "Kislorod: 6 + 3 − 1 = 8 atom, ya'ni 4 O₂.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Propargil spirtning to'liq yonishini yozing",
+     "re": [
+      "C3H4O",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C3H4O+7O2→6CO2+4H2O",
+     "w": "Kasr chiqadi (3,5): ikki baravar qilinadi.",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Allil spirtni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C3H6O",
+      "CuO"
+     ],
+     "pr": [
+      "C3H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H6O+CuO→C3H4O+Cu+H2O",
+     "w": "Spirt guruhi aldegidga o'tadi, qo'shbog' saqlanadi: akrolein.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Krotil spirtni CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C4H8O",
+      "CuO"
+     ],
+     "pr": [
+      "C4H6O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C4H8O+CuO→C4H6O+Cu+H2O",
+     "w": "Krotonaldegid hosil bo'ladi.",
+     "uses": [
+      "krotil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Allil spirtni KMnO₄ ning suvli eritmasi bilan oksidlang (Vagner)",
+     "re": [
+      "C3H6O",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O3",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C3H6O+2KMnO4+4H2O→3C3H8O3+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikkita OH birikadi: glitserin hosil bo'ladi.",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Krotil spirtni KMnO₄ ning suvli eritmasi bilan oksidlang (Vagner)",
+     "re": [
+      "C4H8O",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C4H10O3",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C4H8O+2KMnO4+4H2O→3C4H10O3+2MnO2+2KOH",
+     "w": "Qo'shbog' glikolga aylanadi: uch atomli spirt.",
+     "uses": [
+      "krotil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Allil spirt CuO bilan yengil oksidlansa, qaysi modda hosil bo'ladi?",
+     "ok": "Akrolein (propenal)",
+     "no": [
+      "Propanal",
+      "Akril kislota",
+      "Aseton"
+     ],
+     "w": "Faqat spirt guruhi oksidlanadi, qo'shbog' saqlanadi.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "Propanal",
+      "why": "Propanal qo'shbog'siz modda: u gidrogenlashda ham chiqadi, bu yerda esa qo'shbog' qoladi."
+     }
+    },
+    {
+     "p": "Akroleinni (CH₂=CH–CHO) faqat aldegid guruhi bo'yicha qaytarsak, qaysi modda hosil bo'ladi?",
+     "ok": "Allil spirt",
+     "no": [
+      "Propanol-1",
+      "Propanol-2",
+      "Propanal"
+     ],
+     "w": "Qo'shbog' saqlanadi, C=O dan CH₂OH hosil bo'ladi.",
+     "uses": [
+      "allil spirt"
+     ],
+     "trap": {
+      "opt": "Propanol-1",
+      "why": "Propanol-1 hosil bo'lishi uchun qo'shbog' ham gidrogenlanishi kerak edi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "e-1",
+   "group": "Enol–keton izomerlanishi",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Vinil spirt (CH₂=CH–OH) barqarormi?",
+     "ok": "Yo'q: sirka aldegidga izomerlanadi",
+     "no": [
+      "Ha: barqaror",
+      "Ha, suvda eriydi",
+      "Yo'q: alkenga aylanadi"
+     ],
+     "w": "OH qo'shbog'li uglerodda bo'lsa, vodorod ko'chib karbonil guruhi hosil bo'ladi.",
+     "trap": {
+      "opt": "Ha: barqaror",
+      "why": "Eltekov qoidasi: bunday enol darhol karbonil birikmaga o'tadi."
+     }
+    },
+    {
+     "p": "Eltekov qoidasi nimani bildiradi?",
+     "ok": "OH qo'shbog'li uglerodda bo'lsa, enol karbonilga izomerlanadi",
+     "no": [
+      "Vodorod kamroq vodorodli uglerodga birikadi",
+      "Qo'shbog' o'rtada barqarorroq",
+      "Spirt degidratlanib alken hosil qiladi"
+     ],
+     "w": "Enol shaklidan karbonil shakliga o'tish.",
+     "trap": {
+      "opt": "Vodorod kamroq vodorodli uglerodga birikadi",
+      "why": "Bu Markovnikov qoidasi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "e-2",
+   "group": "Enol–keton izomerlanishi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Vinilatsetatning gidrolizini yozing (CH₃COOCH=CH₂ + suv)",
+     "re": [
+      "C4H6O2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "C2H4O"
+     ],
+     "ans": "C4H6O2+H2O→C2H4O2+C2H4O",
+     "w": "Hosil bo'lgan vinil spirt aldegidga o'tadi."
+    },
+    {
+     "p": "Izopropenilatsetatning gidrolizini yozing (suv ta'sirida)",
+     "re": [
+      "C5H8O2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "C3H6O"
+     ],
+     "ans": "C5H8O2+H2O→C2H4O2+C3H6O",
+     "w": "Enol aseton (keton) ga izomerlanadi."
+    }
+   ]
+  },
+  {
+   "slot": "e-3",
+   "group": "Enol–keton izomerlanishi",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Propin gidratlanganda aseton hosil bo'lishi qaysi qoidaga asoslangan?",
+     "ok": "Eltekov: enol → keton",
+     "no": [
+      "Markovnikov",
+      "Zaytsev",
+      "Vyurs"
+     ],
+     "w": "Dastlab enol hosil bo'ladi va keton shakliga o'tadi.",
+     "trap": {
+      "opt": "Markovnikov",
+      "why": "Markovnikov OH ning joylashuvini belgilaydi. Enolning ketonga o'tishi esa Eltekov qoidasi."
+     }
+    },
+    {
+     "p": "CH₂=C(OH)–CH₃ izomerlanib qaysi modda hosil qiladi?",
+     "ok": "Aseton",
+     "no": [
+      "Propanal",
+      "Allil spirt",
+      "Propanol-2"
+     ],
+     "w": "OH qo'shbog'li uglerodda: karbonil shaklga o'tadi.",
+     "trap": {
+      "opt": "Propanal",
+      "why": "Propanal aldegid, enolda OH ikkinchi uglerodda, shuning uchun keton."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (500 °C)",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H5Cl",
+      "HCl"
+     ],
+     "ans": "C3H6+Cl2→C3H5Cl+HCl",
+     "w": "Yuqori haroratda alil holatdagi vodorod xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6O",
+       "C3H6Cl2O"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Pd, qisman gidrogenlash)",
+     "re": [
+      "C3H4O",
+      "H2"
+     ],
+     "pr": [
+      "C3H6O"
+     ],
+     "ans": "C3H4O+H2→C3H6O",
+     "w": "Uchbog' qo'shbog'gacha qaytariladi: allil spirt.",
+     "chain": {
+      "all": [
+       "C3H4O",
+       "C3H6O",
+       "C3H5Br",
+       "C6H10"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "propargil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (KOH ning suvdagi eritmasi)",
+     "re": [
+      "C3H5Cl",
+      "KOH"
+     ],
+     "pr": [
+      "C3H6O",
+      "KCl"
+     ],
+     "ans": "C3H5Cl+KOH→C3H6O+KCl",
+     "w": "Xlor OH ga almashinadi: allil spirt.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6O",
+       "C3H6Cl2O"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (HBr, qizdirish)",
+     "re": [
+      "C3H6O",
+      "HBr"
+     ],
+     "pr": [
+      "C3H5Br",
+      "H2O"
+     ],
+     "ans": "C3H6O+HBr→C3H5Br+H2O",
+     "w": "OH bromga almashinadi: allilbromid.",
+     "chain": {
+      "all": [
+       "C3H4O",
+       "C3H6O",
+       "C3H5Br",
+       "C6H10"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "allil spirt"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing",
+     "re": [
+      "C3H6O",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H6Cl2O"
+     ],
+     "ans": "C3H6O+Cl2→C3H6Cl2O",
+     "w": "Xlor qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C3H6",
+       "C3H5Cl",
+       "C3H6O",
+       "C3H6Cl2O"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "allil spirt"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "C3H5Br",
+      "Na"
+     ],
+     "pr": [
+      "C6H10",
+      "NaBr"
+     ],
+     "ans": "2C3H5Br+2Na→C6H10+2NaBr",
+     "w": "Ikki allil radikal birlashadi: geksadien-1,5.",
+     "chain": {
+      "all": [
+       "C3H4O",
+       "C3H6O",
+       "C3H5Br",
+       "C6H10"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1028 @@
+{
+ "version": 2,
+ "day": 20,
+ "topic": "Monosaxaridlar",
+ "substances": [
+  "glyukoza",
+  "riboza"
+ ],
+ "slots": [
+  {
+   "slot": "t-1",
+   "group": "Tuzilish va izomeriya",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glyukozaning molekulyar formulasi qaysi?",
+     "ok": "C₆H₁₂O₆",
+     "no": [
+      "C₁₂H₂₂O₁₁",
+      "C₅H₁₀O₅",
+      "C₆H₁₀O₅"
+     ],
+     "w": "Olti uglerodli monosaxarid (geksoza).",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "C₅H₁₀O₅",
+      "why": "Bu pentoza (riboza) formulasi."
+     }
+    },
+    {
+     "p": "Ribozaning molekulyar formulasi qaysi?",
+     "ok": "C₅H₁₀O₅",
+     "no": [
+      "C₆H₁₂O₆",
+      "C₅H₁₀O₄",
+      "C₁₂H₂₂O₁₁"
+     ],
+     "w": "Besh uglerodli monosaxarid (pentoza).",
+     "uses": [
+      "riboza"
+     ],
+     "trap": {
+      "opt": "C₆H₁₂O₆",
+      "why": "Bu geksoza (glyukoza, fruktoza) formulasi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Tuzilish va izomeriya",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glyukoza molekulasida qanday funksional guruhlar bor?",
+     "ok": "Aldegid guruhi va 5 ta OH",
+     "no": [
+      "Keton guruhi va 5 ta OH",
+      "Aldegid guruhi va 4 ta OH",
+      "Karboksil guruhi va 5 ta OH"
+     ],
+     "w": "Glyukoza aldogeksoza: aldegid va besh gidroksil.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Keton guruhi va 5 ta OH",
+      "why": "Keton guruhi fruktozada bor."
+     }
+    },
+    {
+     "p": "Fruktoza molekulasida qanday karbonil guruhi bor?",
+     "ok": "Keton guruhi",
+     "no": [
+      "Aldegid guruhi",
+      "Ikkita keton guruhi",
+      "Karboksil guruhi"
+     ],
+     "w": "Fruktoza ketogeksoza.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Aldegid guruhi",
+      "why": "Aldegid guruhi glyukozada, fruktozada keton."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Tuzilish va izomeriya",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukoza va fruktoza o'zaro qanday moddalar?",
+     "ok": "Funksional guruh izomerlari",
+     "no": [
+      "Zanjir izomerlari",
+      "Bir xil modda",
+      "Gomologlar"
+     ],
+     "w": "Formula bir xil (C₆H₁₂O₆), karbonil guruhi farq qiladi: aldegid va keton.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Gomologlar",
+      "why": "Gomologlar CH₂ guruhiga farq qiladi, bular esa bir xil formulali."
+     }
+    },
+    {
+     "p": "Riboza va dezoksiriboza orasida qanday farq bor?",
+     "ok": "Dezoksiribozada bitta kislorod atomi kam (2-holatda OH yo'q)",
+     "no": [
+      "Dezoksiribozada bitta uglerod kam",
+      "Ular bir xil modda",
+      "Dezoksiribozada aldegid guruhi yo'q"
+     ],
+     "w": "Dezoksiriboza DNK tarkibiga, riboza RNK tarkibiga kiradi.",
+     "uses": [
+      "riboza"
+     ],
+     "trap": {
+      "opt": "Dezoksiribozada bitta uglerod kam",
+      "why": "Uglerod soni bir xil (5), kislorod kam."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-4",
+   "group": "Tuzilish va izomeriya",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glyukozaning halqali shaklida hosil bo'lgan yangi OH guruhi qanday ataladi?",
+     "ok": "Glikozid (yarim atsetal) gidroksili",
+     "no": [
+      "Spirt gidroksili",
+      "Karboksil gidroksili",
+      "Fenol gidroksili"
+     ],
+     "w": "Karbonil guruh bilan OH birikib yarim atsetal hosil qiladi: u eng faol OH.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Spirt gidroksili",
+      "why": "U oddiy spirt OH dan farq qiladi: yarim atsetal."
+     }
+    },
+    {
+     "p": "Ochiq zanjirli glyukozada nechta asimmetrik uglerod atomi bor?",
+     "ok": "4",
+     "no": [
+      "3",
+      "5",
+      "6"
+     ],
+     "w": "C2, C3, C4 va C5.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "5",
+      "why": "C6 va C1 asimmetrik emas, jami 4 ta."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Fotosintez reaksiyasini yozing (glyukoza hosil bo'ladi)",
+     "re": [
+      "CO2",
+      "H2O"
+     ],
+     "pr": [
+      "C6H12O6",
+      "O2"
+     ],
+     "ans": "6CO2+6H2O→C6H12O6+6O2",
+     "w": "Quyosh nuri energiyasi bilan CO₂ va suvdan glyukoza va kislorod hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Pentozaning fotosintez (sxematik) hosil bo'lishini yozing: riboza",
+     "re": [
+      "CO2",
+      "H2O"
+     ],
+     "pr": [
+      "C5H10O5",
+      "O2"
+     ],
+     "ans": "5CO2+5H2O→C5H10O5+5O2",
+     "w": "Besh CO₂ va besh suvdan riboza va kislorod.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Formaldegiddan glyukoza olishni yozing (Butlerov sintezi, Ca(OH)₂)",
+     "re": [
+      "CH2O"
+     ],
+     "pr": [
+      "C6H12O6"
+     ],
+     "ans": "6CH2O→C6H12O6",
+     "w": "Oltita formaldegid molekulasi birlashadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Formaldegiddan riboza (pentoza) sxematik hosil bo'lishini yozing",
+     "re": [
+      "CH2O"
+     ],
+     "pr": [
+      "C5H10O5"
+     ],
+     "ans": "5CH2O→C5H10O5",
+     "w": "Beshta formaldegid molekulasi birlashadi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kraxmal (yoki sellyuloza) bir zvenosining gidrolizini yozing (H⁺)",
+     "re": [
+      "C6H10O5",
+      "H2O"
+     ],
+     "pr": [
+      "C6H12O6"
+     ],
+     "ans": "C6H10O5+H2O→C6H12O6",
+     "w": "Har bir zveno suv biriktirib glyukoza beradi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Sorbitning oksidlanishini (degidrogenlanishini) yozing",
+     "re": [
+      "C6H14O6"
+     ],
+     "pr": [
+      "C6H12O6",
+      "H2"
+     ],
+     "ans": "C6H14O6→C6H12O6+H2",
+     "w": "Ko'p atomli spirt bitta guruhni karbonilga aylantiradi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sanoatda glyukoza qaysi xomashyodan olinadi?",
+     "ok": "Kraxmal yoki sellyulozaning gidrolizidan",
+     "no": [
+      "Metandan",
+      "Etanoldan",
+      "Glitserindan"
+     ],
+     "w": "Kislotali gidrolizda polimer glyukozagacha parchalanadi.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Etanoldan",
+      "why": "Etanol glyukozadan hosil bo'ladi, aksincha emas."
+     }
+    },
+    {
+     "p": "Fotosintez uchun nimalar kerak?",
+     "ok": "CO₂, suv va quyosh nuri",
+     "no": [
+      "O₂ va suv",
+      "Faqat CO₂",
+      "N₂ va H₂"
+     ],
+     "w": "Xlorofill nur energiyasini kimyoviy energiyaga aylantiradi.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "O₂ va suv",
+      "why": "Kislorod fotosintezda hosil bo'ladi, sarflanmaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butlerov sintezi nimadan nimani beradi?",
+     "ok": "Formaldegiddan ohakli suv ishtirokida shakarsimon moddalarni",
+     "no": [
+      "Glyukozadan spirtni",
+      "Kraxmaldan glyukozani",
+      "Sellyulozadan atsetatni"
+     ],
+     "w": "Formaldegidning polikondensatsiyasi.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Kraxmaldan glyukozani",
+      "why": "Bu gidroliz, Butlerov sintezi emas."
+     }
+    },
+    {
+     "p": "Fotosintezda qaysi gaz ajralib chiqadi?",
+     "ok": "O₂",
+     "no": [
+      "CO₂",
+      "N₂",
+      "H₂"
+     ],
+     "w": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "CO₂",
+      "why": "CO₂ fotosintezda iste'mol qilinadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Aldegid guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaga kumush oksidning ammiakli eritmasi ta'sir ettiring (kumush ko'zgu)",
+     "re": [
+      "C6H12O6",
+      "Ag2O"
+     ],
+     "pr": [
+      "C6H12O7",
+      "Ag"
+     ],
+     "ans": "C6H12O6+Ag2O→C6H12O7+2Ag",
+     "w": "Aldegid guruhi glyukon kislotaga oksidlanadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Ribozaga kumush oksidning ammiakli eritmasi ta'sir ettiring",
+     "re": [
+      "C5H10O5",
+      "Ag2O"
+     ],
+     "pr": [
+      "C5H10O6",
+      "Ag"
+     ],
+     "ans": "C5H10O5+Ag2O→C5H10O6+2Ag",
+     "w": "Riboza kislotaga oksidlanadi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Aldegid guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaga mis(II) gidroksid ta'sir ettiring (qizdirish)",
+     "re": [
+      "C6H12O6",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C6H12O7",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "C6H12O6+2Cu(OH)2→C6H12O7+Cu2O+2H2O",
+     "w": "Qizil cho'kma (Cu₂O) hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Ribozaga mis(II) gidroksid ta'sir ettiring (qizdirish)",
+     "re": [
+      "C5H10O5",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C5H10O6",
+      "Cu2O",
+      "H2O"
+     ],
+     "ans": "C5H10O5+2Cu(OH)2→C5H10O6+Cu2O+2H2O",
+     "w": "Qizil cho'kma hosil bo'ladi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Aldegid guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozani gidrogenlang (Ni, qizdirish): sorbit",
+     "re": [
+      "C6H12O6",
+      "H2"
+     ],
+     "pr": [
+      "C6H14O6"
+     ],
+     "ans": "C6H12O6+H2→C6H14O6",
+     "w": "Aldegid guruhi spirtga qaytariladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Ribozani gidrogenlang (Ni): ribit",
+     "re": [
+      "C5H10O5",
+      "H2"
+     ],
+     "pr": [
+      "C5H12O5"
+     ],
+     "ans": "C5H10O5+H2→C5H12O5",
+     "w": "Besh atomli spirt hosil bo'ladi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-4",
+   "group": "Aldegid guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glyukozaga bromli suv ta'sir ettiring",
+     "re": [
+      "C6H12O6",
+      "Br2",
+      "H2O"
+     ],
+     "pr": [
+      "C6H12O7",
+      "HBr"
+     ],
+     "ans": "C6H12O6+Br2+H2O→C6H12O7+2HBr",
+     "w": "Aldegid guruhi kislotaga oksidlanadi (ketonlarda bu reaksiya bormaydi).",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Ribozaga bromli suv ta'sir ettiring",
+     "re": [
+      "C5H10O5",
+      "Br2",
+      "H2O"
+     ],
+     "pr": [
+      "C5H10O6",
+      "HBr"
+     ],
+     "ans": "C5H10O5+Br2+H2O→C5H10O6+2HBr",
+     "w": "Riboza ribon kislotaga oksidlanadi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-5",
+   "group": "Aldegid guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glyukozaga gidroksilamin (NH₂OH) ta'sir ettiring",
+     "re": [
+      "C6H12O6",
+      "NH2OH"
+     ],
+     "pr": [
+      "C6H13NO6",
+      "H2O"
+     ],
+     "ans": "C6H12O6+NH2OH→C6H13NO6+H2O",
+     "w": "Aldegid guruhi oksimga aylanadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Glyukozaga fenilgidrazin ta'sir ettiring",
+     "re": [
+      "C6H12O6",
+      "C6H8N2"
+     ],
+     "pr": [
+      "C12H18N2O5",
+      "H2O"
+     ],
+     "ans": "C6H12O6+C6H8N2→C12H18N2O5+H2O",
+     "w": "Fenilgidrazon hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaga mis(II) gidroksid ta'sir ettiring (sovuqda)",
+     "re": [
+      "C6H12O6",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C12H22CuO12",
+      "H2O"
+     ],
+     "ans": "2C6H12O6+Cu(OH)2→C12H22CuO12+2H2O",
+     "w": "Ko'p atomli spirt kabi to'q ko'k mis kompleksi hosil qiladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Ribozaga mis(II) gidroksid ta'sir ettiring (sovuqda)",
+     "re": [
+      "C5H10O5",
+      "Cu(OH)2"
+     ],
+     "pr": [
+      "C10H18CuO10",
+      "H2O"
+     ],
+     "ans": "2C5H10O5+Cu(OH)2→C10H18CuO10+2H2O",
+     "w": "To'q ko'k eritma hosil bo'ladi.",
+     "uses": [
+      "riboza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaga ortiqcha sirka angidrid ta'sir ettiring (pentaatsetat)",
+     "re": [
+      "C6H12O6",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C16H22O11",
+      "C2H4O2"
+     ],
+     "ans": "C6H12O6+5C4H6O3→C16H22O11+5C2H4O2",
+     "w": "Beshta OH guruhi atsillanadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Glyukozaga konsentrlangan nitrat kislota ta'sir ettiring (pentanitrat)",
+     "re": [
+      "C6H12O6",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H7N5O16",
+      "H2O"
+     ],
+     "ans": "C6H12O6+5HNO3→C6H7N5O16+5H2O",
+     "w": "Beshta OH nitrat efirga aylanadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Glyukozaga metanol ta'sir ettiring (HCl): metilglikozid",
+     "re": [
+      "C6H12O6",
+      "CH3OH"
+     ],
+     "pr": [
+      "C7H14O6",
+      "H2O"
+     ],
+     "ans": "C6H12O6+CH3OH→C7H14O6+H2O",
+     "w": "Yarim atsetal OH si metilga almashadi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Glyukozaga etanol ta'sir ettiring (HCl): etilglikozid",
+     "re": [
+      "C6H12O6",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C8H16O6",
+      "H2O"
+     ],
+     "ans": "C6H12O6+C2H5OH→C8H16O6+H2O",
+     "w": "Glikozid hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-4",
+   "group": "Gidroksil guruhiga xos",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaga Cu(OH)₂ sovuqda ta'sir ettirilsa, nima kuzatiladi?",
+     "ok": "To'q ko'k eritma (ko'p atomli spirt)",
+     "no": [
+      "Qizil cho'kma",
+      "Rang va cho'kma yo'q",
+      "Yashil cho'kma"
+     ],
+     "w": "Poliolga xos kompleks hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Qizil cho'kma",
+      "why": "Qizil cho'kma qizdirilganda aldegid guruhi hisobiga hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Glyukozada aldegid guruhi borligini qaysi reaksiya ko'rsatadi?",
+     "ok": "Kumush ko'zgu",
+     "no": [
+      "FeCl₃ bilan binafsha rang",
+      "Bromli suv bilan cho'kma",
+      "Natriy bilan vodorod ajralishi"
+     ],
+     "w": "Faqat aldegidlar bu reaksiyani beradi.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "Natriy bilan vodorod ajralishi",
+      "why": "Bu OH guruhi borligini ko'rsatadi, aldegid emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Bijg'ish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Glyukozaning sut kislotali bijg'ishini yozing",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C3H6O3"
+     ],
+     "ans": "C6H12O6→2C3H6O3",
+     "w": "Bakteriyalar ta'sirida ikki molekula sut kislota hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Glyukozaning sirka kislotali bijg'ishini yozing",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "C6H12O6→3C2H4O2",
+     "w": "Uch molekula sirka kislota hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Bijg'ish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaning moy kislotali bijg'ishini yozing",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C4H8O2",
+      "CO2",
+      "H2"
+     ],
+     "ans": "C6H12O6→C4H8O2+2CO2+2H2",
+     "w": "Moy kislota, CO₂ va vodorod hosil bo'ladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Glyukozaning limon kislotali bijg'ishini yozing (O₂ ishtirokida)",
+     "re": [
+      "C6H12O6",
+      "O2"
+     ],
+     "pr": [
+      "C6H8O7",
+      "H2O"
+     ],
+     "ans": "2C6H12O6+3O2→2C6H8O7+4H2O",
+     "w": "Mog'or zamburug'lari limon kislota hosil qiladi.",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Bijg'ish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaning spirtli bijg'ishida qaysi gaz ajraladi?",
+     "ok": "CO₂",
+     "no": [
+      "O₂",
+      "H₂",
+      "CH₄"
+     ],
+     "w": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "H₂",
+      "why": "Vodorod moy kislotali bijg'ishda ajraladi."
+     }
+    },
+    {
+     "p": "Moy kislotali bijg'ishda qaysi gazlar ajraladi?",
+     "ok": "CO₂ va H₂",
+     "no": [
+      "CO₂ va O₂",
+      "CH₄ va CO₂",
+      "N₂ va H₂"
+     ],
+     "w": "C₆H₁₂O₆ → C₃H₇COOH + 2CO₂ + 2H₂.",
+     "uses": [
+      "glyukoza"
+     ],
+     "trap": {
+      "opt": "CH₄ va CO₂",
+      "why": "Metan bijg'ishda emas, boshqa jarayonlarda hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (achitqi)",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C2H6O",
+      "CO2"
+     ],
+     "ans": "C6H12O6→2C2H6O+2CO2",
+     "w": "Spirtli bijg'ish: etanol va CO₂.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "glyukoza"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Kiliani–Fisher: sianid kislota)",
+     "re": [
+      "C6H12O6",
+      "HCN"
+     ],
+     "pr": [
+      "C7H13NO6"
+     ],
+     "ans": "C6H12O6+HCN→C7H13NO6",
+     "w": "Siangidrin hosil bo'ladi: zanjir bir uglerodga uzayadi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C7H13NO6",
+       "C7H14O8",
+       "C7H12O7"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "glyukoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (CuO, qizdirish)",
+     "re": [
+      "C2H6O",
+      "CuO"
+     ],
+     "pr": [
+      "C2H4O",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H6O+CuO→C2H4O+Cu+H2O",
+     "w": "Etanol sirka aldegidga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (H⁺, suv)",
+     "re": [
+      "C7H13NO6",
+      "H2O"
+     ],
+     "pr": [
+      "C7H14O8",
+      "NH3"
+     ],
+     "ans": "C7H13NO6+2H2O→C7H14O8+NH3",
+     "w": "Nitril gidrolizlanib aldon kislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C7H13NO6",
+       "C7H14O8",
+       "C7H12O7"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (kumush oksidning ammiakli eritmasi)",
+     "re": [
+      "C2H4O",
+      "Ag2O"
+     ],
+     "pr": [
+      "C2H4O2",
+      "Ag"
+     ],
+     "ans": "C2H4O+Ag2O→C2H4O2+2Ag",
+     "w": "Aldegid kislotaga oksidlanadi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C2H6O",
+       "C2H4O",
+       "C2H4O2"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (qizdirish)",
+     "re": [
+      "C7H14O8"
+     ],
+     "pr": [
+      "C7H12O7",
+      "H2O"
+     ],
+     "ans": "C7H14O8→C7H12O7+H2O",
+     "w": "Kislotaning OH guruhi bilan halqa hosil bo'ladi: lakton.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C7H13NO6",
+       "C7H14O8",
+       "C7H12O7"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

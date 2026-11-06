@@ -1,0 +1,1024 @@
+{
+ "version": 2,
+ "day": 18,
+ "topic": "Oksikarbon kislotalar",
+ "substances": [
+  "sut kislota",
+  "salitsil kislota",
+  "glikol kislota"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Xlorsirka kislotaga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C2H3ClO2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H4O3",
+      "NaCl"
+     ],
+     "ans": "C2H3ClO2+NaOH→C2H4O3+NaCl",
+     "w": "Xlor OH ga almashinadi: glikol kislota.",
+     "uses": [
+      "glikol kislota"
+     ]
+    },
+    {
+     "p": "2-xlorpropion kislotaga NaOH ning suvdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C3H5ClO2",
+      "NaOH"
+     ],
+     "pr": [
+      "C3H6O3",
+      "NaCl"
+     ],
+     "ans": "C3H5ClO2+NaOH→C3H6O3+NaCl",
+     "w": "Xlor OH ga almashinadi: sut kislota.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glikolonitrilning to'liq gidrolizini yozing",
+     "re": [
+      "C2H3NO",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O3",
+      "NH3"
+     ],
+     "ans": "C2H3NO+2H2O→C2H4O3+NH3",
+     "w": "Nitril COOH ga o'tadi.",
+     "uses": [
+      "glikol kislota"
+     ]
+    },
+    {
+     "p": "2-gidroksibutironitrilning to'liq gidrolizini yozing",
+     "re": [
+      "C4H7NO",
+      "H2O"
+     ],
+     "pr": [
+      "C4H8O3",
+      "NH3"
+     ],
+     "ans": "C4H7NO+2H2O→C4H8O3+NH3",
+     "w": "2-gidroksimoy kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glyukozaning sut kislotali bijg'ishini yozing",
+     "re": [
+      "C6H12O6"
+     ],
+     "pr": [
+      "C3H6O3"
+     ],
+     "ans": "C6H12O6→2C3H6O3",
+     "w": "Glyukozadan ikki molekula sut kislota hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Laktidning to'liq gidrolizini yozing",
+     "re": [
+      "C6H8O4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O3"
+     ],
+     "ans": "C6H8O4+2H2O→2C3H6O3",
+     "w": "Halqa ochilib ikki molekula sut kislota hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kaliy fenolyatga CO₂ ta'sir ettiring (Kolbe–Shmidt, bosim, 125 °C)",
+     "re": [
+      "C6H5OK",
+      "CO2"
+     ],
+     "pr": [
+      "C7H5KO3"
+     ],
+     "ans": "C6H5OK+CO2→C7H5KO3",
+     "w": "COOH guruhi orto holatga birikadi: kaliy salitsilat.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    },
+    {
+     "p": "Kaliy salitsilatga HCl ta'sir ettiring",
+     "re": [
+      "C7H5KO3",
+      "HCl"
+     ],
+     "pr": [
+      "C7H6O3",
+      "KCl"
+     ],
+     "ans": "C7H5KO3+HCl→C7H6O3+KCl",
+     "w": "Kislota ozod bo'ladi: salitsil kislota.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sut kislotaning tuzilish formulasi qaysi?",
+     "ok": "CH₃–CH(OH)–COOH",
+     "no": [
+      "CH₂(OH)–CH₂–COOH",
+      "CH₃–CH₂–COOH",
+      "HOOC–CH₂–COOH"
+     ],
+     "w": "OH guruhi α-holatda (2-uglerodda).",
+     "uses": [
+      "sut kislota"
+     ],
+     "trap": {
+      "opt": "CH₂(OH)–CH₂–COOH",
+      "why": "Bu 3-gidroksipropion kislota. Sut kislotada OH ikkinchi uglerodda."
+     }
+    },
+    {
+     "p": "Salitsil kislota qaysi sinflarga mansub?",
+     "ok": "Fenol va karbon kislota",
+     "no": [
+      "Faqat spirt",
+      "Aldegid va kislota",
+      "Efir"
+     ],
+     "w": "Benzol halqasida OH va COOH (orto holatda).",
+     "uses": [
+      "salitsil kislota"
+     ],
+     "trap": {
+      "opt": "Faqat spirt",
+      "why": "OH halqada: bu fenol."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "c-1",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sut kislotaga magniy ta'sir ettiring",
+     "re": [
+      "C3H6O3",
+      "Mg"
+     ],
+     "pr": [
+      "C6H10MgO6",
+      "H2"
+     ],
+     "ans": "2C3H6O3+Mg→C6H10MgO6+H2",
+     "w": "Magniy laktat va vodorod hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Glikol kislotaga NaOH ta'sir ettiring",
+     "re": [
+      "C2H4O3",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO3",
+      "H2O"
+     ],
+     "ans": "C2H4O3+NaOH→C2H3NaO3+H2O",
+     "w": "Natriy glikolat hosil bo'ladi.",
+     "uses": [
+      "glikol kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-2",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotaga etanol ta'sir ettiring (H₂SO₄, eterifikatsiya)",
+     "re": [
+      "C3H6O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C5H10O3",
+      "H2O"
+     ],
+     "ans": "C3H6O3+C2H5OH→C5H10O3+H2O",
+     "w": "Etil laktat hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Salitsil kislotaga metanol ta'sir ettiring (H₂SO₄)",
+     "re": [
+      "C7H6O3",
+      "CH3OH"
+     ],
+     "pr": [
+      "C8H8O3",
+      "H2O"
+     ],
+     "ans": "C7H6O3+CH3OH→C8H8O3+H2O",
+     "w": "Metil salitsilat (qishki yashil moyi) hosil bo'ladi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "c-3",
+   "group": "Karboksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotaga ichimlik sodasi (NaHCO₃) ta'sir ettiring",
+     "re": [
+      "C3H6O3",
+      "NaHCO3"
+     ],
+     "pr": [
+      "C3H5NaO3",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H6O3+NaHCO3→C3H5NaO3+CO2+H2O",
+     "w": "CO₂ ajraladi: karboksil guruhining isboti.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Vino kislotaga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C4H6O6",
+      "NaOH"
+     ],
+     "pr": [
+      "C4H4Na2O6",
+      "H2O"
+     ],
+     "ans": "C4H6O6+2NaOH→C4H4Na2O6+2H2O",
+     "w": "Natriy tartrat hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "c-4",
+   "group": "Karboksil guruhiga xos",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislota qayerda hosil bo'ladi?",
+     "ok": "Sut mahsulotlarida bijg'ish natijasida",
+     "no": [
+      "Qand lavlagida",
+      "Yog'larda",
+      "Tuzda"
+     ],
+     "w": "Sut qandi bakteriyalar ta'sirida sut kislotaga aylanadi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Sut kislotaning nechta optik izomeri bor?",
+     "ok": "2 (D va L)",
+     "no": [
+      "1",
+      "3",
+      "4"
+     ],
+     "w": "Ikkinchi uglerod asimmetrik (to'rt xil o'rinbosar).",
+     "uses": [
+      "sut kislota"
+     ],
+     "trap": {
+      "opt": "1",
+      "why": "Asimmetrik uglerod bor, shuning uchun ikkita ko'zgusimon izomer."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotani CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C3H6O3",
+      "CuO"
+     ],
+     "pr": [
+      "C3H4O3",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C3H6O3+CuO→C3H4O3+Cu+H2O",
+     "w": "Ikkilamchi spirt guruhi ketonga o'tadi: pirouzum kislota.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Glikol kislotani CuO bilan oksidlang (qizdirish)",
+     "re": [
+      "C2H4O3",
+      "CuO"
+     ],
+     "pr": [
+      "C2H2O3",
+      "Cu",
+      "H2O"
+     ],
+     "ans": "C2H4O3+CuO→C2H2O3+Cu+H2O",
+     "w": "Glioksal kislota hosil bo'ladi.",
+     "uses": [
+      "glikol kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotaga HBr ta'sir ettiring",
+     "re": [
+      "C3H6O3",
+      "HBr"
+     ],
+     "pr": [
+      "C3H5BrO2",
+      "H2O"
+     ],
+     "ans": "C3H6O3+HBr→C3H5BrO2+H2O",
+     "w": "OH bromga almashinadi: 2-brompropion kislota.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Glikol kislotaga HCl ta'sir ettiring",
+     "re": [
+      "C2H4O3",
+      "HCl"
+     ],
+     "pr": [
+      "C2H3ClO2",
+      "H2O"
+     ],
+     "ans": "C2H4O3+HCl→C2H3ClO2+H2O",
+     "w": "OH xlorga almashinadi.",
+     "uses": [
+      "glikol kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sut kislotaga sirka kislota ta'sir ettiring (OH esterlanadi)",
+     "re": [
+      "C3H6O3",
+      "C2H4O2"
+     ],
+     "pr": [
+      "C5H8O4",
+      "H2O"
+     ],
+     "ans": "C3H6O3+C2H4O2→C5H8O4+H2O",
+     "w": "Gidroksil guruhi sirka kislota bilan efir hosil qiladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Sut kislotaga sirka angidrid ta'sir ettiring",
+     "re": [
+      "C3H6O3",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C5H8O4",
+      "C2H4O2"
+     ],
+     "ans": "C3H6O3+C4H6O3→C5H8O4+C2H4O2",
+     "w": "Gidroksil guruhi atsillanadi.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-4",
+   "group": "Gidroksil guruhiga xos",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sut kislotani KMnO₄ bilan kislotali muhitda oksidlang (pirouzum kislota)",
+     "re": [
+      "C3H6O3",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C3H4O3",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C3H6O3+2KMnO4+3H2SO4→5C3H4O3+2MnSO4+K2SO4+8H2O",
+     "w": "Spirt guruhi ketonga oksidlanadi (2 e): 5 : 2.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Glikol kislotani KMnO₄ bilan kislotali muhitda oksidlang",
+     "re": [
+      "C2H4O3",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H2O3",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C2H4O3+2KMnO4+3H2SO4→5C2H2O3+2MnSO4+K2SO4+8H2O",
+     "w": "Glioksal kislota hosil bo'ladi.",
+     "uses": [
+      "glikol kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-1",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glikol kislotaning molekulalararo degidratlanishini yozing (halqali eter)",
+     "re": [
+      "C2H4O3"
+     ],
+     "pr": [
+      "C4H4O4",
+      "H2O"
+     ],
+     "ans": "2C2H4O3→C4H4O4+2H2O",
+     "w": "Olti a'zoli halqa: glikolid.",
+     "uses": [
+      "glikol kislota"
+     ]
+    },
+    {
+     "p": "2-gidroksimoy kislotaning molekulalararo degidratlanishini yozing (halqali eter)",
+     "re": [
+      "C4H8O3"
+     ],
+     "pr": [
+      "C8H12O4",
+      "H2O"
+     ],
+     "ans": "2C4H8O3→C8H12O4+2H2O",
+     "w": "Olti a'zoli halqali dieter hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "d-2",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sut kislotaning ichki degidratlanishini yozing (H₂SO₄)",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C3H4O2",
+      "H2O"
+     ],
+     "ans": "C3H6O3→C3H4O2+H2O",
+     "w": "Suv ajralib qo'shbog' hosil bo'ladi: akril kislota.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Sut kislotaning molekulalararo degidratlanishini yozing (chiziqli dimer)",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C6H10O5",
+      "H2O"
+     ],
+     "ans": "2C3H6O3→C6H10O5+H2O",
+     "w": "Efir bog'i hosil bo'ladi, zanjir uzayadi.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-3",
+   "group": "Degidratlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sut kislotaning konsentrlangan H₂SO₄ bilan qizdirilganda parchalanishini yozing",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C2H4O",
+      "CH2O2"
+     ],
+     "ans": "C3H6O3→C2H4O+CH2O2",
+     "w": "Sirka aldegid va chumoli kislota hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Sut kislotaning kuchli qizdirilganda parchalanishini yozing",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C2H4O",
+      "CO",
+      "H2O"
+     ],
+     "ans": "C3H6O3→C2H4O+CO+H2O",
+     "w": "Sirka aldegid, CO va suv hosil bo'ladi.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "d-4",
+   "group": "Degidratlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Laktid nima?",
+     "ok": "Sut kislotaning halqali dieteri",
+     "no": [
+      "Sut kislotaning angidridi",
+      "Propion kislota",
+      "Aldol"
+     ],
+     "w": "Ikki molekula sut kislotadan olti a'zoli halqa.",
+     "uses": [
+      "sut kislota"
+     ],
+     "trap": {
+      "opt": "Sut kislotaning angidridi",
+      "why": "Angidridda COOH guruhlar birlashadi, laktidda esa COOH va OH."
+     }
+    },
+    {
+     "p": "Polilaktid (PLA) qanday material?",
+     "ok": "Biologik parchalanadigan plastmassa",
+     "no": [
+      "Portlovchi modda",
+      "Elektr o'tkazuvchi metall",
+      "Sintetik kauchuk"
+     ],
+     "w": "Sut kislota polimeri: tabiatda parchalanadi.",
+     "uses": [
+      "sut kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-1",
+   "group": "Salitsil kislota",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Salitsil kislotaga ortiqcha bromli suv ta'sir ettiring",
+     "re": [
+      "C7H6O3",
+      "Br2"
+     ],
+     "pr": [
+      "C7H3Br3O3",
+      "HBr"
+     ],
+     "ans": "C7H6O3+3Br2→C7H3Br3O3+3HBr",
+     "w": "Uch vodorod bromga almashinadi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    },
+    {
+     "p": "Salitsil kislotani nitrolang (HNO₃)",
+     "re": [
+      "C7H6O3",
+      "HNO3"
+     ],
+     "pr": [
+      "C7H5NO5",
+      "H2O"
+     ],
+     "ans": "C7H6O3+HNO3→C7H5NO5+H2O",
+     "w": "Nitro guruh halqaga birikadi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-2",
+   "group": "Salitsil kislota",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Salitsil kislotaga sirka angidrid ta'sir ettiring: aspirin",
+     "re": [
+      "C7H6O3",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C9H8O4",
+      "C2H4O2"
+     ],
+     "ans": "C7H6O3+C4H6O3→C9H8O4+C2H4O2",
+     "w": "Atsetilsalitsil kislota (aspirin) hosil bo'ladi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    },
+    {
+     "p": "Salitsil kislotaga atsetilxlorid ta'sir ettiring",
+     "re": [
+      "C7H6O3",
+      "C2H3ClO"
+     ],
+     "pr": [
+      "C9H8O4",
+      "HCl"
+     ],
+     "ans": "C7H6O3+C2H3ClO→C9H8O4+HCl",
+     "w": "Aspirin hosil bo'ladi, HCl ajraladi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-3",
+   "group": "Salitsil kislota",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Aspirinning gidrolizini yozing (H⁺ yoki namlik)",
+     "re": [
+      "C9H8O4",
+      "H2O"
+     ],
+     "pr": [
+      "C7H6O3",
+      "C2H4O2"
+     ],
+     "ans": "C9H8O4+H2O→C7H6O3+C2H4O2",
+     "w": "Aspirin namlikda salitsil va sirka kislotaga parchalanadi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    },
+    {
+     "p": "Aspiringa ortiqcha NaOH ta'sir ettiring (qizdirish)",
+     "re": [
+      "C9H8O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C7H4Na2O3",
+      "C2H3NaO2",
+      "H2O"
+     ],
+     "ans": "C9H8O4+3NaOH→C7H4Na2O3+C2H3NaO2+2H2O",
+     "w": "Karboksil neytrallanadi, efir gidrolizlanadi va fenol OH ham ishqor bilan tuz hosil qiladi.",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-4",
+   "group": "Salitsil kislota",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Salitsil kislotani FeCl₃ bilan tekshirsak nima kuzatiladi?",
+     "ok": "Binafsha rang",
+     "no": [
+      "Ko'k cho'kma",
+      "Qizil cho'kma",
+      "Rang o'zgarmaydi"
+     ],
+     "w": "Erkin fenol OH guruhi bor.",
+     "uses": [
+      "salitsil kislota"
+     ],
+     "trap": {
+      "opt": "Rang o'zgarmaydi",
+      "why": "Fenol OH bor: FeCl₃ bilan binafsha rang beradi."
+     }
+    },
+    {
+     "p": "Toza aspirin FeCl₃ bilan rang beradimi?",
+     "ok": "Yo'q: fenol OH atsillangan",
+     "no": [
+      "Ha, binafsha rang beradi",
+      "Ha, qizil rang",
+      "Ha, ko'k cho'kma"
+     ],
+     "w": "OH atsetil guruh bilan band: rang paydo bo'lsa, aspirin gidrolizlangan.",
+     "uses": [
+      "salitsil kislota"
+     ],
+     "trap": {
+      "opt": "Ha, binafsha rang beradi",
+      "why": "Binafsha rang erkin fenol OH ga xos, aspirinda u yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (sirka aldegidga HCN)",
+     "re": [
+      "C2H4O",
+      "HCN"
+     ],
+     "pr": [
+      "C3H5NO"
+     ],
+     "ans": "C2H4O+HCN→C3H5NO",
+     "w": "Siangidrin hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C3H5NO",
+       "C3H6O3",
+       "C6H8O4"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (natriy fenolyatga CO₂)",
+     "re": [
+      "C6H5ONa",
+      "CO2"
+     ],
+     "pr": [
+      "C7H5NaO3"
+     ],
+     "ans": "C6H5ONa+CO2→C7H5NaO3",
+     "w": "Natriy salitsilat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H5ONa",
+       "C7H5NaO3",
+       "C7H6O3",
+       "C9H10O3"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (H⁺, suv)",
+     "re": [
+      "C3H5NO",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O3",
+      "NH3"
+     ],
+     "ans": "C3H5NO+2H2O→C3H6O3+NH3",
+     "w": "Nitril guruhi COOH ga gidrolizlanadi: sut kislota.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C3H5NO",
+       "C3H6O3",
+       "C6H8O4"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (HCl)",
+     "re": [
+      "C7H5NaO3",
+      "HCl"
+     ],
+     "pr": [
+      "C7H6O3",
+      "NaCl"
+     ],
+     "ans": "C7H5NaO3+HCl→C7H6O3+NaCl",
+     "w": "Salitsil kislota ozod bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H5ONa",
+       "C7H5NaO3",
+       "C7H6O3",
+       "C9H10O3"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (degidratlanish)",
+     "re": [
+      "C3H6O3"
+     ],
+     "pr": [
+      "C6H8O4",
+      "H2O"
+     ],
+     "ans": "2C3H6O3→C6H8O4+2H2O",
+     "w": "Ikki molekuladan halqali dieter: laktid.",
+     "chain": {
+      "all": [
+       "C2H4O",
+       "C3H5NO",
+       "C3H6O3",
+       "C6H8O4"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "sut kislota"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (etanol, H₂SO₄)",
+     "re": [
+      "C7H6O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C9H10O3",
+      "H2O"
+     ],
+     "ans": "C7H6O3+C2H5OH→C9H10O3+H2O",
+     "w": "Etil salitsilat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H5ONa",
+       "C7H5NaO3",
+       "C7H6O3",
+       "C9H10O3"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "salitsil kislota"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1002 @@
+{
+ "version": 2,
+ "day": 5,
+ "topic": "Alkadienlar",
+ "substances": [
+  "butadien",
+  "izopren"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanoldan butadien-1,3 olish reaksiyasini yozing (Lebedev: ZnO + Al₂O₃, 425 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H6",
+      "H2",
+      "H2O"
+     ],
+     "ans": "2C2H5OH→C4H6+H2+2H2O",
+     "w": "Ikki etanol molekulasidan butadien, vodorod va ikki suv hosil bo'ladi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izopentenning (C₅H₁₀) degidrogenlanib izopren hosil qilishini yozing",
+     "re": [
+      "C5H10"
+     ],
+     "pr": [
+      "C5H8",
+      "H2"
+     ],
+     "ans": "C5H10→C5H8+H2",
+     "w": "Bitta vodorod molekulasi ajralib ikkinchi qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Butenning degidrogenlanishini yozing (katalizator, qizdirish)",
+     "re": [
+      "C4H8"
+     ],
+     "pr": [
+      "C4H6",
+      "H2"
+     ],
+     "ans": "C4H8→C4H6+H2",
+     "w": "Buten-1 dan vodorod ajralib butadien hosil bo'ladi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Butanning to'liq degidrogenlanishini yozing (Cr₂O₃, 600 °C)",
+     "re": [
+      "C4H10"
+     ],
+     "pr": [
+      "C4H6",
+      "H2"
+     ],
+     "ans": "C4H10→C4H6+2H2",
+     "w": "Ikki molekula vodorod ajraladi va ikkita qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "butadien"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Lebedev usulida butadien qaysi moddadan olinadi?",
+     "ok": "Etanol",
+     "no": [
+      "Metan",
+      "Butanol",
+      "Etilen"
+     ],
+     "w": "2C₂H₅OH → C₄H₆ + H₂ + 2H₂O.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "Butanol",
+      "why": "Butanoldan butadien emas, buten hosil bo'ladi. Lebedev usuli etanoldan."
+     }
+    },
+    {
+     "p": "Lebedev reaksiyasi uchun qanday katalizator ishlatiladi?",
+     "ok": "ZnO va Al₂O₃ aralashmasi",
+     "no": [
+      "Ni",
+      "KMnO₄",
+      "H₂SO₄ (konsentrlangan)"
+     ],
+     "w": "Spirt degidrogenlanadi va degidratlanadi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "H₂SO₄ (konsentrlangan)",
+      "why": "Bu katalizator etilen olish uchun, 170 °C da. Lebedev usuli oksidli katalizator."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "92 g etanoldan necha gramm butadien (M = 54) olish mumkin (unum 100%)?",
+     "ok": "54 g",
+     "no": [
+      "27 g",
+      "108 g",
+      "46 g"
+     ],
+     "w": "92 : 46 = 2 mol etanol; 2C₂H₅OH → 1 C₄H₆, ya'ni 1 mol butadien = 54 g.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "27 g",
+      "why": "27 g yarim mol: bu 1 mol (46 g) etanoldan chiqadi. 92 g esa 2 mol."
+     }
+    },
+    {
+     "p": "184 g etanoldan 80% unum bilan necha gramm butadien (M = 54) hosil bo'ladi?",
+     "ok": "86,4 g",
+     "no": [
+      "108 g",
+      "43,2 g",
+      "54 g"
+     ],
+     "w": "184 : 46 = 4 mol etanol, nazariy 2 mol butadien = 108 g; 80% = 86,4 g.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "108 g",
+      "why": "Bu nazariy massa. Unum 80% bo'lgani uchun amalda kamroq."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Xususiy olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Vinilatsetilenni gidrogenlab butadien olishni yozing",
+     "re": [
+      "C4H4",
+      "H2"
+     ],
+     "pr": [
+      "C4H6"
+     ],
+     "ans": "C4H4+H2→C4H6",
+     "w": "Uchbog' qo'shbog'ga o'tadi: butadien-1,3.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Vinilatsetilenga HCl ta'sir ettiring (CuCl, xloropren olinadi)",
+     "re": [
+      "C4H4",
+      "HCl"
+     ],
+     "pr": [
+      "C4H5Cl"
+     ],
+     "ans": "C4H4+HCl→C4H5Cl",
+     "w": "Xloropren hosil bo'ladi: neopren kauchuk monomeri."
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sintetik kauchuk (SK) olinadigan asosiy monomer qaysi?",
+     "ok": "Butadien-1,3",
+     "no": [
+      "Etilen",
+      "Propilen",
+      "Atsetilen"
+     ],
+     "w": "Butadien polimerlanib sintetik kauchuk beradi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Tabiiy kauchukning monomeri qaysi?",
+     "ok": "Izopren",
+     "no": [
+      "Butadien",
+      "Stirol",
+      "Xloropren"
+     ],
+     "w": "Tabiiy kauchuk izoprenning polimeri (2-metilbutadien-1,3).",
+     "uses": [
+      "izopren"
+     ],
+     "trap": {
+      "opt": "Butadien",
+      "why": "Butadien sintetik kauchuk monomeri. Tabiiy kauchukda metil guruh bor: izopren."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Xususiy olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Vinilatsetilenning tuzilishi qaysi?",
+     "ok": "CH₂=CH–C≡CH",
+     "no": [
+      "CH₂=CH–CH=CH₂",
+      "CH₃–C≡C–CH₃",
+      "CH≡C–CH₂–CH₃"
+     ],
+     "w": "Bir qo'shbog' va bir uchbog' bor.",
+     "trap": {
+      "opt": "CH₂=CH–CH=CH₂",
+      "why": "Bu butadien: ikkita qo'shbog'li, uchbog'siz."
+     }
+    },
+    {
+     "p": "Xloropren qaysi moddadan olinadi?",
+     "ok": "Vinilatsetilen",
+     "no": [
+      "Butan",
+      "Etilen",
+      "Stirol"
+     ],
+     "w": "Vinilatsetilenga HCl birikadi."
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga 1 mol vodorod ta'sir ettiring (1,2-birikish)",
+     "re": [
+      "C4H6",
+      "H2"
+     ],
+     "pr": [
+      "C4H8"
+     ],
+     "ans": "C4H6+H2→C4H8",
+     "w": "Bitta qo'shbog' to'yinadi: buten.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenga 1 mol vodorod ta'sir ettiring",
+     "re": [
+      "C5H8",
+      "H2"
+     ],
+     "pr": [
+      "C5H10"
+     ],
+     "ans": "C5H8+H2→C5H10",
+     "w": "Bitta qo'shbog' to'yinadi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ning to'liq gidrogenlanishini yozing (Ni)",
+     "re": [
+      "C4H6",
+      "H2"
+     ],
+     "pr": [
+      "C4H10"
+     ],
+     "ans": "C4H6+2H2→C4H10",
+     "w": "Ikkala qo'shbog' to'yinadi: butan.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenning to'liq gidrogenlanishini yozing (Ni)",
+     "re": [
+      "C5H8",
+      "H2"
+     ],
+     "pr": [
+      "C5H12"
+     ],
+     "ans": "C5H8+2H2→C5H12",
+     "w": "Ikkala qo'shbog' to'yinadi: izopentan.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga 1 mol xlor ta'sir ettiring",
+     "re": [
+      "C4H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C4H6Cl2"
+     ],
+     "ans": "C4H6+Cl2→C4H6Cl2",
+     "w": "Xlor bir qo'shbog'ga (1,2) yoki chetlarga (1,4) birikadi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenga 1 mol brom ta'sir ettiring",
+     "re": [
+      "C5H8",
+      "Br2"
+     ],
+     "pr": [
+      "C5H8Br2"
+     ],
+     "ans": "C5H8+Br2→C5H8Br2",
+     "w": "Brom dienga 1,2- yoki 1,4-holatda birikadi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga 1 mol Br₂ ni 1,4-holatda birikishidan qaysi modda hosil bo'ladi?",
+     "ok": "1,4-dibrombuten-2",
+     "no": [
+      "3,4-dibrombuten-1",
+      "1,2-dibrombutan",
+      "1,4-dibrombutan"
+     ],
+     "w": "Brom chetlarga birikadi va qo'shbog' o'rtaga o'tadi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "1,4-dibrombutan",
+      "why": "1,4-holatda qo'shbog' yo'qolmaydi, u 2-3 uglerodlar orasiga siljiydi."
+     }
+    },
+    {
+     "p": "Butadien-1,3 ga 2 mol Br₂ ortiqcha birikadi. Mahsulot qaysi?",
+     "ok": "1,2,3,4-tetrabrombutan",
+     "no": [
+      "1,4-dibrombuten-2",
+      "3,4-dibrombuten-1",
+      "Dibrombutan"
+     ],
+     "w": "Ikkala qo'shbog' ham to'liq brom bilan to'yinadi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "1,4-dibrombuten-2",
+      "why": "Bu 1 mol brom birikkandagi mahsulot."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "HX va hipogalogenid",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga 1 mol HBr ta'sir ettiring",
+     "re": [
+      "C4H6",
+      "HBr"
+     ],
+     "pr": [
+      "C4H7Br"
+     ],
+     "ans": "C4H6+HBr→C4H7Br",
+     "w": "Vodorod va brom bir qo'shbog'ga (yoki 1,4) birikadi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenga 1 mol HCl ta'sir ettiring",
+     "re": [
+      "C5H8",
+      "HCl"
+     ],
+     "pr": [
+      "C5H9Cl"
+     ],
+     "ans": "C5H8+HCl→C5H9Cl",
+     "w": "Bitta qo'shbog'ga birikish.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "HX va hipogalogenid",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga 1 mol HOCl ta'sir ettiring",
+     "re": [
+      "C4H6",
+      "HOCl"
+     ],
+     "pr": [
+      "C4H7ClO"
+     ],
+     "ans": "C4H6+HOCl→C4H7ClO",
+     "w": "Cl va OH qo'shbog'ga birikadi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenga 1 mol HOCl ta'sir ettiring",
+     "re": [
+      "C5H8",
+      "HOCl"
+     ],
+     "pr": [
+      "C5H9ClO"
+     ],
+     "ans": "C5H8+HOCl→C5H9ClO",
+     "w": "Cl va OH qo'shbog'ga birikadi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-3",
+   "group": "HX va hipogalogenid",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ga HBr 1,4-holatda birikkanda qaysi modda hosil bo'ladi?",
+     "ok": "1-brombuten-2",
+     "no": [
+      "3-brombuten-1",
+      "2-brombutan",
+      "1-brombutan"
+     ],
+     "w": "H birinchi uglerodga, Br to'rtinchiga birikadi, qo'shbog' o'rtada qoladi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "3-brombuten-1",
+      "why": "Bu 1,2-birikish mahsuloti: qo'shbog' chetda qoladi."
+     }
+    },
+    {
+     "p": "Alkadienlarning umumiy formulasi qaysi?",
+     "ok": "CₙH₂ₙ₋₂",
+     "no": [
+      "CₙH₂ₙ",
+      "CₙH₂ₙ₊₂",
+      "CₙH₂ₙ₋₆"
+     ],
+     "w": "Alkinlar bilan bir xil: ikkita qo'shbog' yoki bitta uchbog'.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "CₙH₂ₙ",
+      "why": "Bu alkenlar formulasi: bitta qo'shbog'."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ning to'liq yonishini yozing",
+     "re": [
+      "C4H6",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C4H6+11O2→8CO2+6H2O",
+     "w": "Kislorod: 16 + 6 = 22 atom, ikki baravarga 11 O₂.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenning to'liq yonishini yozing",
+     "re": [
+      "C5H8",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C5H8+7O2→5CO2+4H2O",
+     "w": "Kislorod: 10 + 4 = 14 atom, ya'ni 7 O₂.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing",
+     "re": [
+      "C4H6",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C4H10O4",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C4H6+4KMnO4+8H2O→3C4H10O4+4MnO2+4KOH",
+     "w": "Ikkala qo'shbog'ga to'rtta OH birikadi: tetraol.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing",
+     "re": [
+      "C5H8",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C5H12O4",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C5H8+4KMnO4+8H2O→3C5H12O4+4MnO2+4KOH",
+     "w": "Ikkala qo'shbog' glikol hosil qiladi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "1 mol butadien-1,3 to'liq yonishi uchun necha mol O₂ kerak?",
+     "ok": "5,5",
+     "no": [
+      "4",
+      "6",
+      "6,5"
+     ],
+     "w": "4 CO₂ uchun 4 O₂, 3 H₂O uchun 1,5 O₂: jami 5,5 mol.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "6",
+      "why": "6 mol O₂ butanning yonishiga yaqin: diende vodorod kam."
+     }
+    },
+    {
+     "p": "Izopren yonganda hosil bo'lgan CO₂ va H₂O ning mol nisbati qanday?",
+     "ok": "5 : 4",
+     "no": [
+      "4 : 5",
+      "5 : 8",
+      "1 : 1"
+     ],
+     "w": "C₅H₈ dan 5 CO₂ va 4 H₂O.",
+     "uses": [
+      "izopren"
+     ],
+     "trap": {
+      "opt": "5 : 8",
+      "why": "Vodorod atomlari soni 8, suv esa 4 mol."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "l-1",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Butadien-1,3 ning polimerlanishidan nima hosil bo'ladi?",
+     "ok": "Sintetik kauchuk (polibutadien)",
+     "no": [
+      "Polietilen",
+      "Kapron",
+      "Neylon"
+     ],
+     "w": "Qo'shbog'lar ochilib polimer zanjir hosil qiladi.",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Izoprenning polimerlanishidan nima hosil bo'ladi?",
+     "ok": "Izopren kauchuk",
+     "no": [
+      "Polistirol",
+      "Polivinilxlorid",
+      "Lavsan"
+     ],
+     "w": "Tabiiy kauchukning sun'iy analogi.",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-2",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butadien va stirolning sopolimerlanishidan qaysi kauchuk hosil bo'ladi?",
+     "ok": "Butadien-stirol kauchuk",
+     "no": [
+      "Polistirol",
+      "Neopren",
+      "Nitril kauchuk"
+     ],
+     "w": "Ikki xil monomer birlashadi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "Polistirol",
+      "why": "Polistirol faqat stirolning o'zidan. Bu yerda ikkala monomer ham bor."
+     }
+    },
+    {
+     "p": "Butadien va akrilonitrilning sopolimeri qaysi?",
+     "ok": "Nitril-butadien kauchuk",
+     "no": [
+      "Butadien-stirol kauchuk",
+      "Neopren",
+      "Polietilen"
+     ],
+     "w": "Nitril guruhi moyga chidamlilik beradi.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "Butadien-stirol kauchuk",
+      "why": "Stirol emas, akrilonitril ishtirok etadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "l-3",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kauchukni vulkanlash uchun nima qo'shiladi?",
+     "ok": "Oltingugurt",
+     "no": [
+      "Kislorod",
+      "Xlor",
+      "Azot"
+     ],
+     "w": "Oltingugurt zanjirlarni ko'ndalang bog'lab \"tikadi\"."
+    },
+    {
+     "p": "Vulkanlashdan keyin kauchuk qanday xossaga ega bo'ladi?",
+     "ok": "Mustahkam va elastik rezinaga aylanadi",
+     "no": [
+      "Eruvchan bo'ladi",
+      "Qattiq plastmassaga o'tadi",
+      "Suyuqlanib ketadi"
+     ],
+     "w": "Zanjirlar orasida ko'ndalang bog'lar hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "l-4",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Molyar massasi 162 000 g/mol bo'lgan polibutadienning polimerlanish darajasi qancha (M(C₄H₆) = 54)?",
+     "ok": "3000",
+     "no": [
+      "30 000",
+      "1500",
+      "6000"
+     ],
+     "w": "162 000 : 54 = 3000.",
+     "uses": [
+      "butadien"
+     ],
+     "trap": {
+      "opt": "30 000",
+      "why": "Nol xatosi. 162 000 : 54 = 3000."
+     }
+    },
+    {
+     "p": "Izopren kauchukning polimerlanish darajasi 1500 bo'lsa, molyar massasi qancha (M(C₅H₈) = 68)?",
+     "ok": "102 000",
+     "no": [
+      "10 200",
+      "204 000",
+      "68 000"
+     ],
+     "w": "1500 · 68 = 102 000.",
+     "uses": [
+      "izopren"
+     ],
+     "trap": {
+      "opt": "10 200",
+      "why": "Nol tushib qoldi. 1500 · 68 = 102 000."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Al₂O₃, qizdirish, butandiol-1,3 degidratlanadi)",
+     "re": [
+      "C4H10O2"
+     ],
+     "pr": [
+      "C4H6",
+      "H2O"
+     ],
+     "ans": "C4H10O2→C4H6+2H2O",
+     "w": "Ikkala OH suv holida ajraladi: butadien.",
+     "chain": {
+      "all": [
+       "C4H10O2",
+       "C4H6",
+       "C4H6Br2",
+       "C4H6"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Cr₂O₃, qizdirish)",
+     "re": [
+      "C5H12"
+     ],
+     "pr": [
+      "C5H8",
+      "H2"
+     ],
+     "ans": "C5H12→C5H8+2H2",
+     "w": "Ikki molekula vodorod ajralib izopren hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C5H12",
+       "C5H8",
+       "C5H8Cl2",
+       "C5H8"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (1,4-birikish)",
+     "re": [
+      "C4H6",
+      "Br2"
+     ],
+     "pr": [
+      "C4H6Br2"
+     ],
+     "ans": "C4H6+Br2→C4H6Br2",
+     "w": "Brom 1,4-holatda birikadi: 1,4-dibrombuten-2.",
+     "chain": {
+      "all": [
+       "C4H10O2",
+       "C4H6",
+       "C4H6Br2",
+       "C4H6"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C5H8",
+      "Cl2"
+     ],
+     "pr": [
+      "C5H8Cl2"
+     ],
+     "ans": "C5H8+Cl2→C5H8Cl2",
+     "w": "Xlor dienga birikadi.",
+     "chain": {
+      "all": [
+       "C5H12",
+       "C5H8",
+       "C5H8Cl2",
+       "C5H8"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (rux)",
+     "re": [
+      "C4H6Br2",
+      "Zn"
+     ],
+     "pr": [
+      "C4H6",
+      "ZnBr2"
+     ],
+     "ans": "C4H6Br2+Zn→C4H6+ZnBr2",
+     "w": "Rux ikkala bromni olib, diyenni qayta tiklaydi.",
+     "chain": {
+      "all": [
+       "C4H10O2",
+       "C4H6",
+       "C4H6Br2",
+       "C4H6"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "butadien"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (rux)",
+     "re": [
+      "C5H8Cl2",
+      "Zn"
+     ],
+     "pr": [
+      "C5H8",
+      "ZnCl2"
+     ],
+     "ans": "C5H8Cl2+Zn→C5H8+ZnCl2",
+     "w": "Rux xlorni olib dienni qayta hosil qiladi.",
+     "chain": {
+      "all": [
+       "C5H12",
+       "C5H8",
+       "C5H8Cl2",
+       "C5H8"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "izopren"
+     ]
+    }
+   ]
+  }
+ ]
+}

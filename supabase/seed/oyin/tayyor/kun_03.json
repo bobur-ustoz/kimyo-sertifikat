@@ -1,0 +1,1041 @@
+{
+ "version": 2,
+ "day": 3,
+ "topic": "Alkenlar",
+ "substances": [
+  "etilen",
+  "propilen",
+  "buten"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etanolning degidratlanishini yozing (konsentrlangan H₂SO₄, 170 °C)",
+     "re": [
+      "C2H5OH"
+     ],
+     "pr": [
+      "C2H4",
+      "H2O"
+     ],
+     "ans": "C2H5OH→C2H4+H2O",
+     "w": "Suv ajraladi, qo'shbog' hosil bo'ladi: etilen.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propanol-1 degidratlanishini yozing (konsentrlangan H₂SO₄, 170 °C)",
+     "re": [
+      "C3H7OH"
+     ],
+     "pr": [
+      "C3H6",
+      "H2O"
+     ],
+     "ans": "C3H7OH→C3H6+H2O",
+     "w": "Spirtdan suv ajraladi, propen hosil bo'ladi.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Xloretanga KOH ning spirtdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C2H5Cl",
+      "KOH"
+     ],
+     "pr": [
+      "C2H4",
+      "KCl",
+      "H2O"
+     ],
+     "ans": "C2H5Cl+KOH→C2H4+KCl+H2O",
+     "w": "Spirtli ishqor galogenalkandan HCl ni tortib oladi: alken hosil bo'ladi.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "2-brompropanga KOH ning spirtdagi eritmasi ta'sir ettiring",
+     "re": [
+      "C3H7Br",
+      "KOH"
+     ],
+     "pr": [
+      "C3H6",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C3H7Br+KOH→C3H6+KBr+H2O",
+     "w": "HBr ajraladi va qo'shbog' hosil bo'ladi: propen.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Laboratoriyada etilen olishning to'g'ri usuli qaysi?",
+     "ok": "Etanolni konsentrlangan H₂SO₄ bilan 170 °C da qizdirish",
+     "no": [
+      "Etanolni H₂SO₄ bilan 140 °C da qizdirish",
+      "Etanni xlorlash",
+      "Etanolga natriy ta'sir ettirish"
+     ],
+     "w": "170 °C da molekula ichida suv ajraladi va etilen hosil bo'ladi.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "Etanolni H₂SO₄ bilan 140 °C da qizdirish",
+      "why": "140 °C da ikki molekula orasidan suv ajraladi va dietil efir hosil bo'ladi. Etilen uchun 170 °C kerak."
+     }
+    },
+    {
+     "p": "Propanni katalizatorda qizdirsak, qaysi alken hosil bo'ladi?",
+     "ok": "Propen",
+     "no": [
+      "Propin",
+      "Siklopropan",
+      "Propanol"
+     ],
+     "w": "Degidrogenlashda propandan 2 vodorod ajralib propen hosil bo'ladi.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "Propin",
+      "why": "Propin uchun 4 ta vodorod ajralishi kerak, bir bosqichda 2 ta ajraladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "1,2-dibrombutanga rux ta'sir ettirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "Buten-1",
+     "no": [
+      "Butan",
+      "Butin",
+      "Siklobutan"
+     ],
+     "w": "Qo'shni uglerodlardagi ikki bromni rux oladi, qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "buten"
+     ],
+     "trap": {
+      "opt": "Butan",
+      "why": "Rux vodorod qo'shmaydi, u faqat galogenni oladi. Butan hosil bo'lmaydi."
+     }
+    },
+    {
+     "p": "1,3-dibrompropanga rux ta'sir ettirilsa, qaysi modda hosil bo'ladi?",
+     "ok": "Siklopropan",
+     "no": [
+      "Propen",
+      "Propan",
+      "Propin"
+     ],
+     "w": "Bromlar chetki uglerodlarda joylashgan: ular o'zaro bog'lanib halqa hosil qiladi.",
+     "trap": {
+      "opt": "Propen",
+      "why": "Propen 1,2-dibrompropandan hosil bo'ladi. Bu yerda bromlar chetda, shuning uchun halqa."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C2H4",
+      "H2"
+     ],
+     "pr": [
+      "C2H6"
+     ],
+     "ans": "C2H4+H2→C2H6",
+     "w": "Qo'shbog' ochiladi, ikki vodorod birikadi: etan.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H6",
+      "H2"
+     ],
+     "pr": [
+      "C3H8"
+     ],
+     "ans": "C3H6+H2→C3H8",
+     "w": "Qo'shbog' ochilib propan hosil bo'ladi.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenga xlor ta'sir ettiring",
+     "re": [
+      "C2H4",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H4Cl2"
+     ],
+     "ans": "C2H4+Cl2→C2H4Cl2",
+     "w": "Xlor qo'shbog'ga birikadi: 1,2-dixloretan.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenga brom ta'sir ettiring (oddiy sharoitda)",
+     "re": [
+      "C3H6",
+      "Br2"
+     ],
+     "pr": [
+      "C3H6Br2"
+     ],
+     "ans": "C3H6+Br2→C3H6Br2",
+     "w": "Brom qo'shbog'ga birikadi: 1,2-dibrompropan.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qaysi modda bromli suvni rangsizlantiradi?",
+     "ok": "Etilen",
+     "no": [
+      "Etan",
+      "Metan",
+      "Siklogeksan"
+     ],
+     "w": "Qo'shbog'li moddalar brom bilan birikadi, shuning uchun rang yo'qoladi.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "Siklogeksan",
+      "why": "Siklogeksan bromli suv bilan oddiy sharoitda reaksiyaga kirishmaydi: halqa barqaror."
+     }
+    },
+    {
+     "p": "Propen va propanni qaysi reaktiv bilan ajratish mumkin?",
+     "ok": "Bromli suv",
+     "no": [
+      "Suv",
+      "Natriy xlorid eritmasi",
+      "Kaliy gidroksid eritmasi"
+     ],
+     "w": "Faqat propen bromli suvni rangsizlantiradi.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "Suv",
+      "why": "Ikkala gaz ham suv bilan reaksiyaga kirishmaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish (H₂, galogenlar)",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "5,6 g etilen (M = 28) bilan necha gramm brom (M = 160) birika oladi?",
+     "ok": "32 g",
+     "no": [
+      "16 g",
+      "64 g",
+      "8 g"
+     ],
+     "w": "5,6 : 28 = 0,2 mol; 1 : 1 nisbatda 0,2 · 160 = 32 g.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "16 g",
+      "why": "16 g 0,1 mol bromga to'g'ri keladi: bu 2,8 g etilen."
+     }
+    },
+    {
+     "p": "8,4 g propen (M = 42) to'liq gidrogenlansa, necha gramm propan (M = 44) hosil bo'ladi?",
+     "ok": "8,8 g",
+     "no": [
+      "4,4 g",
+      "17,6 g",
+      "6,4 g"
+     ],
+     "w": "8,4 : 42 = 0,2 mol; 1 : 1 nisbatda 0,2 · 44 = 8,8 g.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "17,6 g",
+      "why": "17,6 g 0,4 mol propanga mos: bu 16,8 g propen."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Birikish (HX, Markovnikov)",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenga HBr ta'sir ettiring",
+     "re": [
+      "C2H4",
+      "HBr"
+     ],
+     "pr": [
+      "C2H5Br"
+     ],
+     "ans": "C2H4+HBr→C2H5Br",
+     "w": "H va Br qo'shbog'ga birikadi: bromoetan.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenga HCl ta'sir ettiring (Markovnikov qoidasi bo'yicha)",
+     "re": [
+      "C3H6",
+      "HCl"
+     ],
+     "pr": [
+      "C3H7Cl"
+     ],
+     "ans": "C3H6+HCl→C3H7Cl",
+     "w": "Vodorod ko'proq vodorodli uglerodga birikadi: 2-xlorpropan.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Birikish (HX, Markovnikov)",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propenga HBr birikkanda asosiy mahsulot qaysi?",
+     "ok": "2-brompropan",
+     "no": [
+      "1-brompropan",
+      "1,2-dibrompropan",
+      "Propanol-2"
+     ],
+     "w": "Markovnikov qoidasi: vodorod ko'proq vodorodli uglerodga, brom esa kamroq vodorodli uglerodga birikadi.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "1-brompropan",
+      "why": "Bu qoidaga teskari. Vodorod CH₂ ga (ko'proq H), brom CH ga (kamroq H) birikadi."
+     }
+    },
+    {
+     "p": "Buten-1 ga HCl birikkanda asosiy mahsulot qaysi?",
+     "ok": "2-xlorbutan",
+     "no": [
+      "1-xlorbutan",
+      "1,2-dixlorbutan",
+      "Butanol-2"
+     ],
+     "w": "Xlor ikkinchi uglerodga (kamroq vodorodli) birikadi.",
+     "uses": [
+      "buten"
+     ],
+     "trap": {
+      "opt": "1-xlorbutan",
+      "why": "Bu Markovnikov qoidasiga zid. Xlor kamroq vodorodli uglerodga birikadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Birikish (HX, Markovnikov)",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qaysi alkenga HBr birikkanda mahsulotning izomeri hosil bo'lmaydi?",
+     "ok": "Etilen",
+     "no": [
+      "Propen",
+      "Buten-1",
+      "Penten-1"
+     ],
+     "w": "Etilen simmetrik: ikkala uglerod bir xil, mahsulot faqat bromoetan.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "Propen",
+      "why": "Propen nosimmetrik: ikki xil mahsulot mumkin (Markovnikov bo'yicha 2-brompropan asosiy)."
+     }
+    },
+    {
+     "p": "Buten-2 ga HBr birikkanda qaysi modda hosil bo'ladi?",
+     "ok": "2-brombutan",
+     "no": [
+      "1-brombutan",
+      "2,3-dibrombutan",
+      "Butanol-2"
+     ],
+     "w": "Qo'shbog' 2 va 3 uglerodlar orasida, ikkalasi ham bir xil: brom ikkinchi uglerodga birikadi.",
+     "uses": [
+      "buten"
+     ],
+     "trap": {
+      "opt": "1-brombutan",
+      "why": "Qo'shbog' markazda, brom chetki uglerodga bormaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "h-1",
+   "group": "Hipogalogenid",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenga xlorli suv (HOCl) ta'sir ettiring",
+     "re": [
+      "C2H4",
+      "HOCl"
+     ],
+     "pr": [
+      "C2H5ClO"
+     ],
+     "ans": "C2H4+HOCl→C2H5ClO",
+     "w": "Cl va OH qo'shbog'ga birikadi: 2-xloretanol.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenga hipoxlorit kislota (HOCl) ta'sir ettiring",
+     "re": [
+      "C3H6",
+      "HOCl"
+     ],
+     "pr": [
+      "C3H7ClO"
+     ],
+     "ans": "C3H6+HOCl→C3H7ClO",
+     "w": "Cl va OH birikadi: 1-xlorpropanol-2.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "h-2",
+   "group": "Hipogalogenid",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Etilen xlorli suv bilan reaksiyaga kirishsa, qanday modda hosil bo'ladi?",
+     "ok": "2-xloretanol",
+     "no": [
+      "1,2-dixloretan",
+      "Etanol",
+      "Xloretan"
+     ],
+     "w": "Xlorli suvda HOCl bor: Cl va OH ikkalasi qo'shbog'ga birikadi.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "1,2-dixloretan",
+      "why": "Dixloretan Cl₂ dan hosil bo'ladi. Xlorli suvda HOCl ishtirok etadi va OH ham birikadi."
+     }
+    },
+    {
+     "p": "Propenga HOCl birikkanda asosiy mahsulot qaysi?",
+     "ok": "1-xlorpropanol-2",
+     "no": [
+      "2-xlorpropanol-1",
+      "1,2-dixlorpropan",
+      "Propanol-2"
+     ],
+     "w": "Markovnikov: OH kamroq vodorodli uglerodga (C2), Cl esa C1 ga.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "2-xlorpropanol-1",
+      "why": "Bu teskari joylashuv. Elektrmanfiy OH kamroq vodorodli uglerodga boradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-1",
+   "group": "O'rin olish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propenga xlor ta'sir ettiring (500 °C, alil holatda o'rin olish)",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H5Cl",
+      "HCl"
+     ],
+     "ans": "C3H6+Cl2→C3H5Cl+HCl",
+     "w": "Yuqori haroratda qo'shbog'ga qo'shni CH₃ dagi vodorod xlorga almashinadi: alilxlorid.",
+     "uses": [
+      "propilen"
+     ]
+    },
+    {
+     "p": "Buten-1 ga xlor ta'sir ettiring (500 °C, alil holatda o'rin olish)",
+     "re": [
+      "C4H8",
+      "Cl2"
+     ],
+     "pr": [
+      "C4H7Cl",
+      "HCl"
+     ],
+     "ans": "C4H8+Cl2→C4H7Cl+HCl",
+     "w": "Qo'shbog'ga qo'shni uglerodning vodorodi almashinadi.",
+     "uses": [
+      "buten"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-2",
+   "group": "O'rin olish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propenga xlor 500 °C da ta'sir etsa, qaysi modda hosil bo'ladi?",
+     "ok": "3-xlorpropen",
+     "no": [
+      "1,2-dixlorpropan",
+      "2-xlorpropan",
+      "1-xlorpropan"
+     ],
+     "w": "Yuqori haroratda birikish emas, alil uglerodda o'rin olish ketadi.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "1,2-dixlorpropan",
+      "why": "Birikish oddiy haroratda ketadi. 500 °C da esa vodorod almashinadi."
+     }
+    },
+    {
+     "p": "Qaysi alken 500 °C da xlor bilan o'rin olish reaksiyasiga kirisha oladi?",
+     "ok": "Propen",
+     "no": [
+      "Etilen",
+      "Ikkalasi ham",
+      "Hech biri"
+     ],
+     "w": "Propenda qo'shbogga qo'shni CH₃ bor, etilenda esa bunday uglerod yo'q.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "Etilen",
+      "why": "Etilenda qo'shbog'ga qo'shni sp³ uglerod yo'q, o'rin olish bormaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenning to'liq yonishini yozing",
+     "re": [
+      "C2H4",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C2H4+3O2→2CO2+2H2O",
+     "w": "Kislorod: CO₂ da 4, H₂O da 2 ta atom, jami 6 ta: 3 O₂.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenning to'liq yonishini yozing",
+     "re": [
+      "C3H6",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C3H6+9O2→6CO2+6H2O",
+     "w": "Kasr chiqmasligi uchun hammasi ikki baravar: 2C₃H₆ + 9O₂.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner reaksiyasi)",
+     "re": [
+      "C2H4",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6O2",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C2H4+2KMnO4+4H2O→3C2H6O2+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikki OH birikadi: etilenglikol, Mn⁺⁷ dan Mn⁺⁴ ga.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner reaksiyasi)",
+     "re": [
+      "C3H6",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C3H8O2",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C3H6+2KMnO4+4H2O→3C3H8O2+2MnO2+2KOH",
+     "w": "Propilenglikol hosil bo'ladi.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Alkenga KMnO₄ eritmasi (qizil-binafsha) ta'sir ettirilsa, nima kuzatiladi?",
+     "ok": "Rang yo'qoladi, qo'ng'ir cho'kma hosil bo'ladi",
+     "no": [
+      "Rang o'zgarmaydi",
+      "Ko'k cho'kma tushadi",
+      "Gaz ajraladi, rang saqlanadi"
+     ],
+     "w": "Mn⁺⁷ Mn⁺⁴ ga aylanib MnO₂ cho'kmasi hosil bo'ladi.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "Rang o'zgarmaydi",
+      "why": "Bu alkanlarga xos: ular KMnO₄ ni rangsizlantirmaydi."
+     }
+    },
+    {
+     "p": "Neytral KMnO₄ bilan alken oksidlanganda qaysi modda sinfi hosil bo'ladi?",
+     "ok": "Ikki atomli spirt (glikol)",
+     "no": [
+      "Aldegid",
+      "Karbon kislota",
+      "Alkan"
+     ],
+     "w": "Qo'shbog'ga ikkita OH birikadi.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "Karbon kislota",
+      "why": "Kislota qattiq sharoitda (H⁺, qizdirish), qo'shbog' uzilganda hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Propenning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄, qo'shbog' uziladi)",
+     "re": [
+      "C3H6",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "CO2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "C3H6+2KMnO4+3H2SO4→C2H4O2+CO2+2MnSO4+K2SO4+4H2O",
+     "w": "Qo'shbog' uziladi: CH₂ ⇒ CO₂, CH ⇒ sirka kislota (jami 10 e, ya'ni 2 KMnO₄).",
+     "uses": [
+      "propilen"
+     ]
+    },
+    {
+     "p": "Buten-2 ning KMnO₄ bilan kislotali muhitda oksidlanishini yozing (H₂SO₄, ikki molekula sirka kislota hosil bo'ladi)",
+     "re": [
+      "C4H8",
+      "KMnO4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C2H4O2",
+      "MnSO4",
+      "K2SO4",
+      "H2O"
+     ],
+     "ans": "5C4H8+8KMnO4+12H2SO4→10C2H4O2+8MnSO4+4K2SO4+12H2O",
+     "w": "Har CH guruhi COOH ga o'tadi (4 e); jami 8 e, shuning uchun 5 : 8.",
+     "uses": [
+      "buten"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-1",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Etilenning polimerlanishidan qaysi polimer hosil bo'ladi?",
+     "ok": "Polietilen",
+     "no": [
+      "Polivinilxlorid",
+      "Polipropilen",
+      "Polistirol"
+     ],
+     "w": "(–CH₂–CH₂–)ₙ: qo'shbog'lar ochilib zanjir hosil qiladi.",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Propenning polimerlanishidan qaysi polimer hosil bo'ladi?",
+     "ok": "Polipropilen",
+     "no": [
+      "Polietilen",
+      "Polivinilxlorid",
+      "Polistirol"
+     ],
+     "w": "(–CH₂–CH(CH₃)–)ₙ: monomer propen.",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "l-2",
+   "group": "Polimerlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Molyar massasi 280 000 g/mol bo'lgan polietilenning polimerlanish darajasi qancha (M(C₂H₄) = 28)?",
+     "ok": "10 000",
+     "no": [
+      "5 000",
+      "28 000",
+      "1 000"
+     ],
+     "w": "280 000 : 28 = 10 000.",
+     "uses": [
+      "etilen"
+     ],
+     "trap": {
+      "opt": "28 000",
+      "why": "Bo'linmani noto'g'ri nolga qo'shish. 280 000 : 28 = 10 000."
+     }
+    },
+    {
+     "p": "Polipropilenning polimerlanish darajasi 5000 bo'lsa, molyar massasi qancha (M(C₃H₆) = 42)?",
+     "ok": "210 000",
+     "no": [
+      "21 000",
+      "420 000",
+      "126 000"
+     ],
+     "w": "5000 · 42 = 210 000.",
+     "uses": [
+      "propilen"
+     ],
+     "trap": {
+      "opt": "21 000",
+      "why": "Nolni tushirib qoldirish. 5000 · 42 = 210 000."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C2H6"
+     ],
+     "pr": [
+      "C2H4",
+      "H2"
+     ],
+     "ans": "C2H6→C2H4+H2",
+     "w": "Etandan vodorod ajraladi: etilen.",
+     "chain": {
+      "all": [
+       "C2H6",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H8"
+     ],
+     "pr": [
+      "C3H6",
+      "H2"
+     ],
+     "ans": "C3H8→C3H6+H2",
+     "w": "Propandan vodorod ajraladi: propen.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C2H4",
+      "Br2"
+     ],
+     "pr": [
+      "C2H4Br2"
+     ],
+     "ans": "C2H4+Br2→C2H4Br2",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C2H6",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etilen"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C3H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H6Cl2"
+     ],
+     "ans": "C3H6+Cl2→C3H6Cl2",
+     "w": "Xlor qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "propilen"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (KOH ning spirtli eritmasi, ortiqcha)",
+     "re": [
+      "C2H4Br2",
+      "KOH"
+     ],
+     "pr": [
+      "C2H2",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C2H4Br2+2KOH→C2H2+2KBr+2H2O",
+     "w": "Ikki molekula HBr ajraladi: ikkinchi qo'shbog' hosil bo'lib atsetilen chiqadi.",
+     "chain": {
+      "all": [
+       "C2H6",
+       "C2H4",
+       "C2H4Br2",
+       "C2H2"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (KOH ning spirtli eritmasi, ortiqcha)",
+     "re": [
+      "C3H6Cl2",
+      "KOH"
+     ],
+     "pr": [
+      "C3H4",
+      "KCl",
+      "H2O"
+     ],
+     "ans": "C3H6Cl2+2KOH→C3H4+2KCl+2H2O",
+     "w": "Ikki molekula HCl ajraladi: propin hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H6",
+       "C3H6Cl2",
+       "C3H4"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

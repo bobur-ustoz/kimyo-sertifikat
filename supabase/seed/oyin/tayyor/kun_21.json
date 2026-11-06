@@ -1,0 +1,1042 @@
+{
+ "version": 2,
+ "day": 21,
+ "topic": "Di- va polisaxaridlar",
+ "substances": [
+  "saxaroza",
+  "maltoza",
+  "kraxmal",
+  "sellyuloza"
+ ],
+ "slots": [
+  {
+   "slot": "t-1",
+   "group": "Disaxaridlarning tuzilishi",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Saxarozaning molekulyar formulasi qaysi?",
+     "ok": "C₁₂H₂₂O₁₁",
+     "no": [
+      "C₆H₁₂O₆",
+      "C₁₂H₂₄O₁₂",
+      "(C₆H₁₀O₅)ₙ"
+     ],
+     "w": "Ikki monosaxaridning birikishidan bitta suv ajraladi.",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "C₆H₁₂O₆",
+      "why": "Bu monosaxarid formulasi. Disaxarid ikkita monosaxariddan hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Maltozaning molekulyar formulasi qaysi?",
+     "ok": "C₁₂H₂₂O₁₁",
+     "no": [
+      "C₆H₁₂O₆",
+      "C₁₂H₂₄O₁₂",
+      "C₁₂H₂₂O₁₀"
+     ],
+     "w": "Saxaroza bilan izomer.",
+     "uses": [
+      "maltoza"
+     ],
+     "trap": {
+      "opt": "C₁₂H₂₄O₁₂",
+      "why": "Ikki monosaxariddan bitta suv ajraladi, shuning uchun kislorod va vodorod kam."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Disaxaridlarning tuzilishi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Saxaroza qaysi monosaxaridlardan tuzilgan?",
+     "ok": "Glyukoza va fruktoza",
+     "no": [
+      "Ikki glyukoza",
+      "Glyukoza va galaktoza",
+      "Ikki fruktoza"
+     ],
+     "w": "α-glyukoza va β-fruktoza qoldiqlari.",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "Ikki glyukoza",
+      "why": "Ikki glyukoza qoldig'i maltozada."
+     }
+    },
+    {
+     "p": "Maltoza qaysi monosaxaridlardan tuzilgan?",
+     "ok": "Ikki glyukoza",
+     "no": [
+      "Glyukoza va fruktoza",
+      "Glyukoza va galaktoza",
+      "Fruktoza va galaktoza"
+     ],
+     "w": "Ikki α-glyukoza qoldig'i.",
+     "uses": [
+      "maltoza"
+     ],
+     "trap": {
+      "opt": "Glyukoza va fruktoza",
+      "why": "Bu saxarozaning tarkibi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Disaxaridlarning tuzilishi",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Quyidagi disaxaridlardan qaysi biri qaytaruvchi emas?",
+     "ok": "Saxaroza",
+     "no": [
+      "Maltoza",
+      "Laktoza",
+      "Sellobioza"
+     ],
+     "w": "Saxarozada ikkala monosaxaridning yarim atsetal OH lari bog' hosil qilishda ishtirok etgan: erkin aldegid guruhi yo'q.",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "Maltoza",
+      "why": "Maltozada bitta zvenoning aldegid guruhi erkin: kumush ko'zgu beradi."
+     }
+    },
+    {
+     "p": "Quyidagilardan qaysi biri qaytaruvchi disaxarid?",
+     "ok": "Maltoza",
+     "no": [
+      "Saxaroza",
+      "Trehaloza",
+      "Kraxmal"
+     ],
+     "w": "Maltozada erkin yarim atsetal OH bor.",
+     "uses": [
+      "maltoza"
+     ],
+     "trap": {
+      "opt": "Saxaroza",
+      "why": "Saxarozada erkin yarim atsetal OH yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-4",
+   "group": "Disaxaridlarning tuzilishi",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Laktoza qayerda uchraydi?",
+     "ok": "Sutda",
+     "no": [
+      "Qand lavlagida",
+      "Solodda",
+      "Asalda"
+     ],
+     "w": "Sut shakari: glyukoza va galaktozadan.",
+     "trap": {
+      "opt": "Qand lavlagida",
+      "why": "Qand lavlagida saxaroza bor."
+     }
+    },
+    {
+     "p": "Maltoza manbai qaysi?",
+     "ok": "Solod (o'sgan don)",
+     "no": [
+      "Sut",
+      "Qand qamish",
+      "Asal"
+     ],
+     "w": "Kraxmalning amilaza bilan qisman gidrolizidan hosil bo'ladi.",
+     "uses": [
+      "maltoza"
+     ],
+     "trap": {
+      "opt": "Qand qamish",
+      "why": "Qand qamishda saxaroza bor."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-1",
+   "group": "Disaxaridlarning reaksiyalari",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Saxarozaning gidrolizida qanday monosaxaridlar hosil bo'ladi?",
+     "ok": "Glyukoza va fruktoza",
+     "no": [
+      "Ikki glyukoza",
+      "Glyukoza va galaktoza",
+      "Ikki fruktoza"
+     ],
+     "w": "Gidrolizdan invert shakar (glyukoza + fruktoza) hosil bo'ladi.",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "Ikki glyukoza",
+      "why": "Ikki glyukoza maltoza gidrolizida hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Maltozaning gidrolizida nima hosil bo'ladi?",
+     "ok": "Ikki molekula glyukoza",
+     "no": [
+      "Glyukoza va fruktoza",
+      "Glyukoza va galaktoza",
+      "Fruktoza va galaktoza"
+     ],
+     "w": "Ikkala qoldiq ham glyukoza.",
+     "uses": [
+      "maltoza"
+     ],
+     "trap": {
+      "opt": "Glyukoza va fruktoza",
+      "why": "Bu saxarozaning gidroliz mahsuloti."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-2",
+   "group": "Disaxaridlarning reaksiyalari",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Saxarozaning gidrolizini yozing (H⁺, qizdirish). Mahsulotlarni 2C₆H₁₂O₆ deb yozing",
+     "re": [
+      "C12H22O11",
+      "H2O"
+     ],
+     "pr": [
+      "C6H12O6"
+     ],
+     "ans": "C12H22O11+H2O→2C6H12O6",
+     "w": "Glyukoza va fruktoza hosil bo'ladi (ikkalasi ham C₆H₁₂O₆).",
+     "uses": [
+      "saxaroza"
+     ]
+    },
+    {
+     "p": "Saxarozaga kalsiy oksid ta'sir ettiring (shakar kalsiy saxarati)",
+     "re": [
+      "C12H22O11",
+      "CaO"
+     ],
+     "pr": [
+      "C12H22CaO12"
+     ],
+     "ans": "C12H22O11+CaO→C12H22CaO12",
+     "w": "Saxaroza kalsiy bilan eruvchan saxarat hosil qiladi.",
+     "uses": [
+      "saxaroza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-3",
+   "group": "Disaxaridlarning reaksiyalari",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Saxarozaning to'liq yonishini yozing",
+     "re": [
+      "C12H22O11",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C12H22O11+12O2→12CO2+11H2O",
+     "w": "Kislorod: 24 + 11 − 11 = 24 atom, ya'ni 12 O₂.",
+     "uses": [
+      "saxaroza"
+     ]
+    },
+    {
+     "p": "Saxarozaga konsentrlangan H₂SO₄ ta'sir ettiring (ko'mirlanish)",
+     "re": [
+      "C12H22O11"
+     ],
+     "pr": [
+      "C",
+      "H2O"
+     ],
+     "ans": "C12H22O11→12C+11H2O",
+     "w": "Sulfat kislota suvni tortib oladi: qora ko'mir qoladi.",
+     "uses": [
+      "saxaroza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-4",
+   "group": "Disaxaridlarning reaksiyalari",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Saxarozaga ortiqcha sirka angidrid ta'sir ettiring (oktaatsetat)",
+     "re": [
+      "C12H22O11",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C28H38O19",
+      "C2H4O2"
+     ],
+     "ans": "C12H22O11+8C4H6O3→C28H38O19+8C2H4O2",
+     "w": "Sakkizta OH guruhi atsillanadi.",
+     "uses": [
+      "saxaroza"
+     ]
+    },
+    {
+     "p": "Maltozaga kumush oksidning ammiakli eritmasi ta'sir ettiring",
+     "re": [
+      "C12H22O11",
+      "Ag2O"
+     ],
+     "pr": [
+      "C12H22O12",
+      "Ag"
+     ],
+     "ans": "C12H22O11+Ag2O→C12H22O12+2Ag",
+     "w": "Maltozaning erkin aldegid guruhi oksidlanadi: kumush ko'zgu.",
+     "uses": [
+      "maltoza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-5",
+   "group": "Disaxaridlarning reaksiyalari",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Saxaroza kumush ko'zgu reaksiyasini beradimi?",
+     "ok": "Yo'q",
+     "no": [
+      "Ha",
+      "Faqat qizdirilganda",
+      "Faqat ishqorda"
+     ],
+     "w": "Saxarozada erkin aldegid guruhi yo'q (gidroliz bo'lmaguncha).",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "Ha",
+      "why": "Aldegid guruhi bog' hosil qilishda ishtirok etgan, shuning uchun qaytaruvchi emas."
+     }
+    },
+    {
+     "p": "Invert shakar nima?",
+     "ok": "Saxaroza gidrolizidan hosil bo'lgan glyukoza va fruktoza aralashmasi",
+     "no": [
+      "Maltoza",
+      "Kraxmal",
+      "Laktoza"
+     ],
+     "w": "Asal tarkibining asosiy qismi shunday aralashma.",
+     "uses": [
+      "saxaroza"
+     ],
+     "trap": {
+      "opt": "Maltoza",
+      "why": "Maltoza kraxmal gidrolizidan chiqadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Kraxmal",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Kraxmalning qisman gidrolizini yozing (amilaza): maltoza hosil bo'ladi",
+     "re": [
+      "C6H10O5",
+      "H2O"
+     ],
+     "pr": [
+      "C12H22O11"
+     ],
+     "ans": "2C6H10O5+H2O→C12H22O11",
+     "w": "Ikki zveno bitta suv biriktirib maltoza beradi.",
+     "uses": [
+      "maltoza"
+     ]
+    },
+    {
+     "p": "Kraxmalning to'liq gidrolizini yozing (H⁺, qizdirish)",
+     "re": [
+      "C6H10O5",
+      "H2O"
+     ],
+     "pr": [
+      "C6H12O6"
+     ],
+     "ans": "C6H10O5+H2O→C6H12O6",
+     "w": "Har zveno suv biriktirib glyukoza beradi.",
+     "uses": [
+      "kraxmal"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Kraxmal",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kraxmal zvenosining to'liq yonishini yozing",
+     "re": [
+      "C6H10O5",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C6H10O5+6O2→6CO2+5H2O",
+     "w": "Kislorod: 12 + 5 − 5 = 12 atom, ya'ni 6 O₂.",
+     "uses": [
+      "kraxmal"
+     ]
+    },
+    {
+     "p": "Kraxmal zvenosiga konsentrlangan H₂SO₄ ta'sir ettiring (ko'mirlanish)",
+     "re": [
+      "C6H10O5"
+     ],
+     "pr": [
+      "C",
+      "H2O"
+     ],
+     "ans": "C6H10O5→6C+5H2O",
+     "w": "Suv ajralib uglerod qoladi.",
+     "uses": [
+      "kraxmal"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Kraxmal",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Kraxmalga yod eritmasi ta'sir ettirilsa, qanday rang paydo bo'ladi?",
+     "ok": "Ko'k",
+     "no": [
+      "Qizil",
+      "Sariq",
+      "Yashil"
+     ],
+     "w": "Yod amiloza spiralida to'planib ko'k kompleks hosil qiladi.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "Qizil",
+      "why": "Qizil rang glikogen yoki dekstrin bilan."
+     }
+    },
+    {
+     "p": "Kraxmalning monomeri qaysi?",
+     "ok": "α-glyukoza",
+     "no": [
+      "β-glyukoza",
+      "Fruktoza",
+      "Riboza"
+     ],
+     "w": "α-glyukoza qoldiqlari zanjir hosil qiladi.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "β-glyukoza",
+      "why": "β-glyukoza qoldiqlari sellyulozani hosil qiladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Kraxmal",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kraxmal qanday polimerlardan iborat?",
+     "ok": "Amiloza va amilopektin",
+     "no": [
+      "Faqat amiloza",
+      "Sellobioza va maltoza",
+      "Glikogen va xitin"
+     ],
+     "w": "Amiloza chiziqli, amilopektin tarmoqlangan.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "Faqat amiloza",
+      "why": "Kraxmalda amilopektin ham bor."
+     }
+    },
+    {
+     "p": "Glikogen nima?",
+     "ok": "Hayvonlar kraxmali",
+     "no": [
+      "O'simlik kraxmali",
+      "Sellyuloza analogi",
+      "Oqsil"
+     ],
+     "w": "Jigar va muskullarda zaxira polisaxarid.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "O'simlik kraxmali",
+      "why": "O'simlikda kraxmal, hayvonlarda glikogen."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-1",
+   "group": "Sellyuloza",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sellyuloza zvenosiga nitrat kislota ta'sir ettiring (trinitrosellyuloza, piroksilin)",
+     "re": [
+      "C6H10O5",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H7N3O11",
+      "H2O"
+     ],
+     "ans": "C6H10O5+3HNO3→C6H7N3O11+3H2O",
+     "w": "Uchala OH nitrat efirga aylanadi: portlovchi modda.",
+     "uses": [
+      "sellyuloza"
+     ]
+    },
+    {
+     "p": "Sellyuloza zvenosiga sirka angidrid ta'sir ettiring (triatsetat)",
+     "re": [
+      "C6H10O5",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C12H16O8",
+      "C2H4O2"
+     ],
+     "ans": "C6H10O5+3C4H6O3→C12H16O8+3C2H4O2",
+     "w": "Atsetat tolasi olinadi.",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-2",
+   "group": "Sellyuloza",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sellyulozaning mononitrat hosil qilishini yozing",
+     "re": [
+      "C6H10O5",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H9NO7",
+      "H2O"
+     ],
+     "ans": "C6H10O5+HNO3→C6H9NO7+H2O",
+     "w": "Bitta OH nitrat efirga aylanadi.",
+     "uses": [
+      "sellyuloza"
+     ]
+    },
+    {
+     "p": "Sellyulozaning dinitrat (kolloksilin) hosil qilishini yozing",
+     "re": [
+      "C6H10O5",
+      "HNO3"
+     ],
+     "pr": [
+      "C6H8N2O9",
+      "H2O"
+     ],
+     "ans": "C6H10O5+2HNO3→C6H8N2O9+2H2O",
+     "w": "Ikki OH nitrat efirga aylanadi: kolloksilin.",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "s-3",
+   "group": "Sellyuloza",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sellyuloza va kraxmalning asosiy farqi nimada?",
+     "ok": "Glyukoza zvenolari β va α shaklda bog'langan",
+     "no": [
+      "Sellyuloza oqsil",
+      "Kraxmal glyukozadan tuzilmagan",
+      "Farqi yo'q"
+     ],
+     "w": "Sellyulozada β-1,4, kraxmalda α-1,4 bog'lar.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Farqi yo'q",
+      "why": "Bog' turi farq qiladi: shuning uchun xossalari ham farq qiladi."
+     }
+    },
+    {
+     "p": "Sellyulozadan qanday sun'iy tolalar olinadi?",
+     "ok": "Viskoza va atsetat tola",
+     "no": [
+      "Kapron",
+      "Lavsan",
+      "Neylon"
+     ],
+     "w": "Kimyoviy qayta ishlangan sellyuloza.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Kapron",
+      "why": "Kapron sintetik tola (poliamid)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-4",
+   "group": "Sellyuloza",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Piroksilin nima?",
+     "ok": "Sellyulozaning trinitrati (portlovchi modda)",
+     "no": [
+      "Nitroglitserin",
+      "TNT",
+      "Pikrin kislota"
+     ],
+     "w": "Tutunsiz porox asosi.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Nitroglitserin",
+      "why": "Nitroglitserin glitserin efiri, piroksilin esa sellyuloza efiri."
+     }
+    },
+    {
+     "p": "Viskoza tolasi sellyulozadan qanday olinadi?",
+     "ok": "NaOH va CS₂ bilan ishlov berib, so'ng kislotada qayta cho'ktirib",
+     "no": [
+      "Kapron bilan aralashtirib",
+      "Polimerlash orqali",
+      "Pishirish orqali"
+     ],
+     "w": "Ksantogenat orqali eruvchan sellyuloza hosil bo'ladi.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Polimerlash orqali",
+      "why": "Sellyuloza tayyor polimer, uni faqat eritib qayta cho'ktiriladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "s-5",
+   "group": "Sellyuloza",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sellyulozada glyukoza zvenolari qanday bog' bilan bog'langan?",
+     "ok": "β-1,4-glikozid bog'i",
+     "no": [
+      "α-1,4-glikozid bog'i",
+      "α-1,6-glikozid bog'i",
+      "Peptid bog'i"
+     ],
+     "w": "β-konfiguratsiya zanjirni to'g'ri chiziqli qiladi.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "α-1,4-glikozid bog'i",
+      "why": "α-1,4 bog' kraxmalda."
+     }
+    },
+    {
+     "p": "Kraxmalning amilozasida zvenolar qanday bog' bilan bog'langan?",
+     "ok": "α-1,4-glikozid bog'i",
+     "no": [
+      "β-1,4-glikozid bog'i",
+      "Peptid bog'i",
+      "Efir bog'i"
+     ],
+     "w": "α-konfiguratsiya zanjirni spiral qiladi.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "β-1,4-glikozid bog'i",
+      "why": "β-1,4 bog' sellyulozada."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "q-1",
+   "group": "Gidroliz va boshqa",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sellyulozaning to'liq gidrolizidan (H₂SO₄) qaysi modda hosil bo'ladi?",
+     "ok": "Glyukoza",
+     "no": [
+      "Fruktoza",
+      "Saxaroza",
+      "Maltoza"
+     ],
+     "w": "Ko'p zvenoli polimer glyukozagacha parchalanadi.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Maltoza",
+      "why": "Maltoza kraxmalning qisman gidrolizidan chiqadi."
+     }
+    },
+    {
+     "p": "Kraxmalning fermentativ (amilaza) gidrolizida asosiy mahsulot qaysi?",
+     "ok": "Maltoza",
+     "no": [
+      "Glyukoza",
+      "Fruktoza",
+      "Saxaroza"
+     ],
+     "w": "Amilaza zanjirni ikki glyukoza birligiga bo'ladi.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "Glyukoza",
+      "why": "To'liq gidrolizda glyukoza, amilaza esa maltoza beradi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "q-2",
+   "group": "Gidroliz va boshqa",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Kraxmaldan etanol olishning umumiy tenglamasini yozing (gidroliz va bijg'ish)",
+     "re": [
+      "C6H10O5",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6O",
+      "CO2"
+     ],
+     "ans": "C6H10O5+H2O→2C2H6O+2CO2",
+     "w": "Kraxmal zvenosidan glyukoza, undan ikki etanol va ikki CO₂ hosil bo'ladi.",
+     "uses": [
+      "kraxmal"
+     ]
+    },
+    {
+     "p": "Sellyuloza zvenosining gidrolizi va gidrogenlanishini yozing (sorbit)",
+     "re": [
+      "C6H10O5",
+      "H2O",
+      "H2"
+     ],
+     "pr": [
+      "C6H14O6"
+     ],
+     "ans": "C6H10O5+H2O+H2→C6H14O6",
+     "w": "Glyukoza hosil bo'lib, sorbitga qaytariladi.",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "q-3",
+   "group": "Gidroliz va boshqa",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Kraxmal odam organizmida qayerda hazm bo'la boshlaydi?",
+     "ok": "Og'iz bo'shlig'ida (amilaza ta'sirida)",
+     "no": [
+      "Oshqozonda pepsin bilan",
+      "Ichakda lipaza bilan",
+      "Hazm bo'lmaydi"
+     ],
+     "w": "So'lak amilazasi kraxmalni maltozagacha parchalaydi.",
+     "uses": [
+      "kraxmal"
+     ],
+     "trap": {
+      "opt": "Oshqozonda pepsin bilan",
+      "why": "Pepsin oqsillarni parchalaydi."
+     }
+    },
+    {
+     "p": "Sellyuloza odam organizmida qanday holatda?",
+     "ok": "Hazm bo'lmaydi (to'qima tolasi sifatida)",
+     "no": [
+      "Glyukozagacha hazm bo'ladi",
+      "Oqsilga aylanadi",
+      "Yog'ga aylanadi"
+     ],
+     "w": "Odamda β-glikozid bog'ni parchalovchi ferment yo'q.",
+     "uses": [
+      "sellyuloza"
+     ],
+     "trap": {
+      "opt": "Glyukozagacha hazm bo'ladi",
+      "why": "Faqat ruminantlar bakteriyalari yordamida hazm qiladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C6H12O6",
+      "H2"
+     ],
+     "pr": [
+      "C6H14O6"
+     ],
+     "ans": "C6H12O6+H2→C6H14O6",
+     "w": "Glyukoza sorbitga qaytariladi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C6H14O6",
+       "C6H10O4",
+       "C6H8Na2O4"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (sellyulozani ishqorlash)",
+     "re": [
+      "C6H10O5",
+      "NaOH"
+     ],
+     "pr": [
+      "C6H9NaO5",
+      "H2O"
+     ],
+     "ans": "C6H10O5+NaOH→C6H9NaO5+H2O",
+     "w": "Ishqor sellyulozaning OH guruhini natriy tuziga o'tkazadi.",
+     "chain": {
+      "all": [
+       "C6H10O5",
+       "C6H9NaO5",
+       "C7H9NaO5S2",
+       "C6H10O5"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (degidratlanish, H⁺)",
+     "re": [
+      "C6H14O6"
+     ],
+     "pr": [
+      "C6H10O4",
+      "H2O"
+     ],
+     "ans": "C6H14O6→C6H10O4+2H2O",
+     "w": "Sorbit ichki degidratlanib izosorbid hosil qiladi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C6H14O6",
+       "C6H10O4",
+       "C6H8Na2O4"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (uglerod sulfid)",
+     "re": [
+      "C6H9NaO5",
+      "CS2"
+     ],
+     "pr": [
+      "C7H9NaO5S2"
+     ],
+     "ans": "C6H9NaO5+CS2→C7H9NaO5S2",
+     "w": "Ksantogenat (viskoza) hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H10O5",
+       "C6H9NaO5",
+       "C7H9NaO5S2",
+       "C6H10O5"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (natriy)",
+     "re": [
+      "C6H10O4",
+      "Na"
+     ],
+     "pr": [
+      "C6H8Na2O4",
+      "H2"
+     ],
+     "ans": "C6H10O4+2Na→C6H8Na2O4+H2",
+     "w": "Ikkala OH vodorodi natriyga almashinadi.",
+     "chain": {
+      "all": [
+       "C6H12O6",
+       "C6H14O6",
+       "C6H10O4",
+       "C6H8Na2O4"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (H₂SO₄): sellyuloza qayta tiklanadi",
+     "re": [
+      "C7H9NaO5S2",
+      "H2SO4"
+     ],
+     "pr": [
+      "C6H10O5",
+      "CS2",
+      "NaHSO4"
+     ],
+     "ans": "C7H9NaO5S2+H2SO4→C6H10O5+CS2+NaHSO4",
+     "w": "Kislota ta'sirida ksantogenat parchalanib sellyuloza (viskoza tola) hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C6H10O5",
+       "C6H9NaO5",
+       "C7H9NaO5S2",
+       "C6H10O5"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "sellyuloza"
+     ]
+    }
+   ]
+  }
+ ]
+}

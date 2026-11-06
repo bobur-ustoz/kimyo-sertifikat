@@ -1,0 +1,1220 @@
+{
+ "version": 2,
+ "day": 1,
+ "topic": "Alkanlar",
+ "substances": [
+  "metan",
+  "etan",
+  "propan",
+  "butan",
+  "izobutan"
+ ],
+ "slots": [
+  {
+   "slot": "nom-1",
+   "group": "Nomlanish",
+   "type": "build",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "2-metilpropan (izobutan) yig'ing",
+     "build": "2-metilpropan",
+     "w": "Asosiy zanjir 3 ta uglerod, ikkinchi uglerodda bitta metil: C₄H₁₀.",
+     "uses": [
+      "izobutan"
+     ]
+    },
+    {
+     "p": "2-metilbutan yig'ing",
+     "build": "2-metilbutan",
+     "w": "Asosiy zanjir 4 ta uglerod, ikkinchi uglerodda bitta metil: C₅H₁₂."
+    }
+   ]
+  },
+  {
+   "slot": "nom-2",
+   "group": "Nomlanish",
+   "type": "build",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "2,2-dimetilpropan yig'ing",
+     "build": "2,2-dimetilpropan",
+     "w": "Uch uglerodli zanjirning o'rtasida ikkita metil: markaziy uglerod to'rt uglerodga bog'langan (neopentan)."
+    },
+    {
+     "p": "2-metilpentan yig'ing",
+     "build": "2-metilpentan",
+     "w": "Asosiy zanjir 5 ta uglerod, ikkinchi uglerodda metil: C₆H₁₄."
+    }
+   ]
+  },
+  {
+   "slot": "nom-3",
+   "group": "Nomlanish",
+   "type": "build",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "2,3-dimetilbutan yig'ing",
+     "build": "2,3-dimetilbutan",
+     "w": "To'rt uglerodli zanjirning 2- va 3-uglerodlarida bittadan metil: C₆H₁₄."
+    },
+    {
+     "p": "3-metilpentan yig'ing",
+     "build": "3-metilpentan",
+     "w": "Besh uglerodli zanjirning o'rtasida (3-uglerodda) metil: C₆H₁₄."
+    }
+   ]
+  },
+  {
+   "slot": "nom-4",
+   "group": "Nomlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "CH₃–CH₂–CH₂–CH₃ moddaning nomi qaysi?",
+     "ok": "Butan",
+     "no": [
+      "Izobutan",
+      "Propan",
+      "Pentan"
+     ],
+     "w": "To'rt uglerodli to'g'ri zanjir: butan.",
+     "uses": [
+      "butan"
+     ],
+     "trap": {
+      "opt": "Izobutan",
+      "why": "Izobutanda zanjir tarmoqlangan: CH₃–CH(CH₃)–CH₃."
+     }
+    },
+    {
+     "p": "Alkanlarning umumiy formulasi qaysi?",
+     "ok": "CₙH₂ₙ₊₂",
+     "no": [
+      "CₙH₂ₙ",
+      "CₙH₂ₙ₋₂",
+      "CₙHₙ"
+     ],
+     "w": "To'yingan uglevodorodlar: vodorod soni uglerodnikidan ikki karra va yana ikkitaga ortiq.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "CₙH₂ₙ",
+      "why": "Bu alkenlar formulasi (bitta qo'shbog' bor)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-1",
+   "group": "Olinish: umumiy",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "1-brompropanga natriy ta'sir ettiring (Vyurs)",
+     "re": [
+      "C3H7Br",
+      "Na"
+     ],
+     "pr": [
+      "C6H14",
+      "NaBr"
+     ],
+     "ans": "2C3H7Br+2Na→C6H14+2NaBr",
+     "w": "Ikkita propil radikal birlashadi: uglerod soni ikki baravar ortadi."
+    },
+    {
+     "p": "Bromoetanga natriy ta'sir ettiring (Vyurs)",
+     "re": [
+      "C2H5Br",
+      "Na"
+     ],
+     "pr": [
+      "C4H10",
+      "NaBr"
+     ],
+     "ans": "2C2H5Br+2Na→C4H10+2NaBr",
+     "w": "Ikkita etil radikal birlashadi: butan.",
+     "uses": [
+      "butan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish: umumiy",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Natriy atsetatni NaOH bilan qizdiring (quruq): metan hosil bo'ladi",
+     "re": [
+      "C2H3NaO2",
+      "NaOH"
+     ],
+     "pr": [
+      "CH4",
+      "Na2CO3"
+     ],
+     "ans": "C2H3NaO2+NaOH→CH4+Na2CO3",
+     "w": "Karboksil CO₂ holida ketadi (soda sifatida), bitta uglerod kam alkan hosil bo'ladi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Natriy propionatni NaOH bilan qizdiring (quruq): etan hosil bo'ladi",
+     "re": [
+      "C3H5NaO2",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H6",
+      "Na2CO3"
+     ],
+     "ans": "C3H5NaO2+NaOH→C2H6+Na2CO3",
+     "w": "Bitta uglerod kam alkan hosil bo'ladi.",
+     "uses": [
+      "etan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish: umumiy",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Etilenning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C2H4",
+      "H2"
+     ],
+     "pr": [
+      "C2H6"
+     ],
+     "ans": "C2H4+H2→C2H6",
+     "w": "Qo'shbog' to'yinadi: etan.",
+     "uses": [
+      "etan"
+     ]
+    },
+    {
+     "p": "Propenning gidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C3H6",
+      "H2"
+     ],
+     "pr": [
+      "C3H8"
+     ],
+     "ans": "C3H6+H2→C3H8",
+     "w": "Qo'shbog' to'yinadi: propan.",
+     "uses": [
+      "propan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish: umumiy",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Laboratoriyada metan qanday olinadi?",
+     "ok": "Natriy atsetatni NaOH bilan qizdirib",
+     "no": [
+      "Etanolni degidratlab",
+      "Atsetilenni gidratlab",
+      "Etilenni gidrogenlab"
+     ],
+     "w": "CH₃COONa + NaOH → CH₄ + Na₂CO₃.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "Etanolni degidratlab",
+      "why": "Etanoldan suv ajralsa etilen hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Alkanlarni alkenlardan olishning usuli qaysi?",
+     "ok": "Gidrogenlash",
+     "no": [
+      "Gidratlash",
+      "Degidratlash",
+      "Polimerlash"
+     ],
+     "w": "Qo'shbog'ga vodorod birikib alkan hosil qiladi.",
+     "uses": [
+      "etan"
+     ],
+     "trap": {
+      "opt": "Gidratlash",
+      "why": "Gidratlashda suv birikadi va spirt hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish: umumiy",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Natriy atsetat eritmasini elektroliz qiling (Kolbe): etan hosil bo'ladi",
+     "re": [
+      "C2H3NaO2",
+      "H2O"
+     ],
+     "pr": [
+      "C2H6",
+      "CO2",
+      "H2",
+      "NaOH"
+     ],
+     "ans": "2C2H3NaO2+2H2O→C2H6+2CO2+H2+2NaOH",
+     "w": "Anodda ikki metil radikal birlashadi.",
+     "uses": [
+      "etan"
+     ]
+    },
+    {
+     "p": "Natriy propionat eritmasini elektroliz qiling (Kolbe): butan hosil bo'ladi",
+     "re": [
+      "C3H5NaO2",
+      "H2O"
+     ],
+     "pr": [
+      "C4H10",
+      "CO2",
+      "H2",
+      "NaOH"
+     ],
+     "ans": "2C3H5NaO2+2H2O→C4H10+2CO2+H2+2NaOH",
+     "w": "Ikki etil radikal birlashadi.",
+     "uses": [
+      "butan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-1",
+   "group": "Olinish: xususiy",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Alyuminiy karbidga suv ta'sir ettiring: metan hosil bo'ladi",
+     "re": [
+      "Al4C3",
+      "H2O"
+     ],
+     "pr": [
+      "CH4",
+      "Al(OH)3"
+     ],
+     "ans": "Al4C3+12H2O→3CH4+4Al(OH)3",
+     "w": "Karbid gidrolizlanib metan va alyuminiy gidroksid beradi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Uglerod va vodoroddan metan olishni yozing (Ni, 500 °C)",
+     "re": [
+      "C",
+      "H2"
+     ],
+     "pr": [
+      "CH4"
+     ],
+     "ans": "C+2H2→CH4",
+     "w": "Sintez: bitta uglerodga ikki molekula vodorod.",
+     "uses": [
+      "metan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-2",
+   "group": "Olinish: xususiy",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Uglerod(II) oksid va vodoroddan metan olishni yozing (Ni, 250 °C)",
+     "re": [
+      "CO",
+      "H2"
+     ],
+     "pr": [
+      "CH4",
+      "H2O"
+     ],
+     "ans": "CO+3H2→CH4+H2O",
+     "w": "Kislorod suv holida ajraladi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Uglerod(IV) oksid va vodoroddan metan olishni yozing (Sabatye)",
+     "re": [
+      "CO2",
+      "H2"
+     ],
+     "pr": [
+      "CH4",
+      "H2O"
+     ],
+     "ans": "CO2+4H2→CH4+2H2O",
+     "w": "Ikki kislorod ikki suv holida ajraladi.",
+     "uses": [
+      "metan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "x-3",
+   "group": "Olinish: xususiy",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Tabiiy gazning asosiy qismi qaysi modda?",
+     "ok": "Metan",
+     "no": [
+      "Etan",
+      "Propan",
+      "Butan"
+     ],
+     "w": "Tabiiy gazda taxminan 90–98% metan bor.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "Propan",
+      "why": "Propan va butan suyultirilgan gaz (ballon gazi) tarkibida."
+     }
+    },
+    {
+     "p": "Yo'ldosh neft gazida qaysi alkanlar ko'p bo'ladi?",
+     "ok": "Etan, propan, butan",
+     "no": [
+      "Faqat metan",
+      "Atsetilen",
+      "Etilen"
+     ],
+     "w": "Neft bilan chiqadigan gazda metan bilan birga og'irroq alkanlar bor.",
+     "uses": [
+      "propan"
+     ],
+     "trap": {
+      "opt": "Atsetilen",
+      "why": "Atsetilen alkin: u tabiiy gazning tarkibiy qismi emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Almashinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metanga xlor ta'sir ettiring (yorug'likda, 1-bosqich)",
+     "re": [
+      "CH4",
+      "Cl2"
+     ],
+     "pr": [
+      "CH3Cl",
+      "HCl"
+     ],
+     "ans": "CH4+Cl2→CH3Cl+HCl",
+     "w": "Bitta vodorod xlorga almashinadi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Etanga brom ta'sir ettiring (yorug'likda, 1-bosqich)",
+     "re": [
+      "C2H6",
+      "Br2"
+     ],
+     "pr": [
+      "C2H5Br",
+      "HBr"
+     ],
+     "ans": "C2H6+Br2→C2H5Br+HBr",
+     "w": "Bitta vodorod bromga almashinadi.",
+     "uses": [
+      "etan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Almashinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metanga ortiqcha xlorning ikkinchi bosqichini yozing",
+     "re": [
+      "CH4",
+      "Cl2"
+     ],
+     "pr": [
+      "CH2Cl2",
+      "HCl"
+     ],
+     "ans": "CH4+2Cl2→CH2Cl2+2HCl",
+     "w": "Ikki vodorod xlorga almashinadi: dixlormetan.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Metanning to'liq xlorlanishini yozing",
+     "re": [
+      "CH4",
+      "Cl2"
+     ],
+     "pr": [
+      "CCl4",
+      "HCl"
+     ],
+     "ans": "CH4+4Cl2→CCl4+4HCl",
+     "w": "Barcha to'rt vodorod almashinadi: uglerod tetraxlorid.",
+     "uses": [
+      "metan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Almashinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metanni nitrolang (HNO₃, qizdirish, bosim): Konovalov reaksiyasi",
+     "re": [
+      "CH4",
+      "HNO3"
+     ],
+     "pr": [
+      "CH3NO2",
+      "H2O"
+     ],
+     "ans": "CH4+HNO3→CH3NO2+H2O",
+     "w": "Vodorod nitro guruhga almashinadi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Propanni nitrolang (HNO₃, qizdirish)",
+     "re": [
+      "C3H8",
+      "HNO3"
+     ],
+     "pr": [
+      "C3H7NO2",
+      "H2O"
+     ],
+     "ans": "C3H8+HNO3→C3H7NO2+H2O",
+     "w": "Nitropropan hosil bo'ladi.",
+     "uses": [
+      "propan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-4",
+   "group": "Almashinish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Metanning xlorlanishi necha bosqichda boradi?",
+     "ok": "To'rt bosqichda",
+     "no": [
+      "Bir bosqichda",
+      "Ikki bosqichda",
+      "Uch bosqichda"
+     ],
+     "w": "CH₃Cl, CH₂Cl₂, CHCl₃, CCl₄ ketma-ket hosil bo'ladi.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "Bir bosqichda",
+      "why": "Reaksiya to'xtamaydi: barcha vodorodlar ketma-ket almashadi."
+     }
+    },
+    {
+     "p": "Qaysi alkanda uchlamchi (3°) uglerodning vodorodi eng oson almashadi?",
+     "ok": "Izobutan",
+     "no": [
+      "Metan",
+      "Etan",
+      "Propan"
+     ],
+     "w": "Faqat izobutanda uchlamchi uglerod bor: radikal eng barqaror.",
+     "uses": [
+      "izobutan"
+     ],
+     "trap": {
+      "opt": "Etan",
+      "why": "Etanda faqat birlamchi uglerodlar bor."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "p-1",
+   "group": "Parchalanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metanning yuqori haroratda parchalanishini yozing (1000 °C)",
+     "re": [
+      "CH4"
+     ],
+     "pr": [
+      "C",
+      "H2"
+     ],
+     "ans": "CH4→C+2H2",
+     "w": "Elementlarga parchalanadi: qurum va vodorod.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Etanning degidrogenlanishini yozing (Ni, qizdirish)",
+     "re": [
+      "C2H6"
+     ],
+     "pr": [
+      "C2H4",
+      "H2"
+     ],
+     "ans": "C2H6→C2H4+H2",
+     "w": "Vodorod ajralib alken hosil bo'ladi.",
+     "uses": [
+      "etan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-2",
+   "group": "Parchalanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Butanning krekingini yozing (alkan va alken hosil bo'ladi)",
+     "re": [
+      "C4H10"
+     ],
+     "pr": [
+      "C2H6",
+      "C2H4"
+     ],
+     "ans": "C4H10→C2H6+C2H4",
+     "w": "Uglerod zanjiri o'rtasidan uziladi.",
+     "uses": [
+      "butan"
+     ]
+    },
+    {
+     "p": "Propanning krekingini yozing",
+     "re": [
+      "C3H8"
+     ],
+     "pr": [
+      "CH4",
+      "C2H4"
+     ],
+     "ans": "C3H8→CH4+C2H4",
+     "w": "Metan va etilen hosil bo'ladi.",
+     "uses": [
+      "propan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "p-3",
+   "group": "Parchalanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Krekking nima?",
+     "ok": "Alkanlarni yuqori haroratda parchalash",
+     "no": [
+      "Alkanni xlorlash",
+      "Alkanni yoqish",
+      "Alkanni gidrogenlash"
+     ],
+     "w": "Uzun zanjirli alkanlardan qisqa alkan va alkenlar olinadi.",
+     "uses": [
+      "butan"
+     ],
+     "trap": {
+      "opt": "Alkanni yoqish",
+      "why": "Yoqish oksidlanish, krekking esa termik parchalanish."
+     }
+    },
+    {
+     "p": "Metanni 1500 °C gacha tez qizdirib, keyin keskin sovutsak, qaysi modda hosil bo'ladi?",
+     "ok": "Atsetilen",
+     "no": [
+      "Etan",
+      "Etilen",
+      "Benzol"
+     ],
+     "w": "2CH₄ → C₂H₂ + 3H₂.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "Etilen",
+      "why": "Etilen 1500 °C da emas, boshqa sharoitda hosil bo'ladi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-1",
+   "group": "Izomerlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "C₄H₁₀ tarkibli nechta izomer bor?",
+     "ok": "2",
+     "no": [
+      "1",
+      "3",
+      "4"
+     ],
+     "w": "Butan va izobutan.",
+     "uses": [
+      "butan"
+     ],
+     "trap": {
+      "opt": "3",
+      "why": "Uchinchisi yo'q: faqat to'g'ri va bitta tarmoqli zanjir."
+     }
+    },
+    {
+     "p": "C₅H₁₂ tarkibli nechta izomer bor?",
+     "ok": "3",
+     "no": [
+      "2",
+      "4",
+      "5"
+     ],
+     "w": "Pentan, 2-metilbutan, 2,2-dimetilpropan.",
+     "trap": {
+      "opt": "2",
+      "why": "Uchinchi, eng tarmoqli izomerni unutish xatosi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-2",
+   "group": "Izomerlanish",
+   "type": "build",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Geksanning tarmoqlangan izomeri 2,2-dimetilbutanni yig'ing",
+     "build": "2,2-dimetilbutan",
+     "w": "To'rt uglerodli zanjirning ikkinchi uglerodida ikkita metil: C₆H₁₄."
+    },
+    {
+     "p": "2,4-dimetilpentan yig'ing",
+     "build": "2,4-dimetilpentan",
+     "w": "Besh uglerodli zanjirning 2- va 4-uglerodlarida bittadan metil: C₇H₁₆."
+    }
+   ]
+  },
+  {
+   "slot": "i-3",
+   "group": "Izomerlanish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "n-butanni izobutanga aylantirish uchun qanday katalizator ishlatiladi?",
+     "ok": "AlCl₃",
+     "no": [
+      "Ni",
+      "KMnO₄",
+      "H₂SO₄"
+     ],
+     "w": "Alyuminiy xlorid (qizdirishda) izomerlanishni tezlashtiradi.",
+     "uses": [
+      "izobutan"
+     ],
+     "trap": {
+      "opt": "Ni",
+      "why": "Ni gidrogenlash uchun."
+     }
+    },
+    {
+     "p": "Alkanlar izomerlanganda oktan soni qanday o'zgaradi?",
+     "ok": "Ortadi (tarmoqlangan izomerlar detonatsiyaga chidamliroq)",
+     "no": [
+      "Kamayadi",
+      "O'zgarmaydi",
+      "Nolga teng bo'ladi"
+     ],
+     "w": "Benzin sifati tarmoqlangan izomerlar hisobiga yaxshilanadi.",
+     "uses": [
+      "butan"
+     ],
+     "trap": {
+      "opt": "Kamayadi",
+      "why": "Tarmoqlangan izomerlar yaxshiroq yonadi: oktan soni oshadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Metanning to'liq yonishini yozing",
+     "re": [
+      "CH4",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "CH4+2O2→CO2+2H2O",
+     "w": "Kislorod: 2 + 2 = 4 atom, ya'ni 2 O₂.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Etanning to'liq yonishini yozing",
+     "re": [
+      "C2H6",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C2H6+7O2→4CO2+6H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "etan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propanning to'liq yonishini yozing",
+     "re": [
+      "C3H8",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C3H8+5O2→3CO2+4H2O",
+     "w": "Kislorod: 6 + 4 = 10 atom, ya'ni 5 O₂.",
+     "uses": [
+      "propan"
+     ]
+    },
+    {
+     "p": "Butanning to'liq yonishini yozing",
+     "re": [
+      "C4H10",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C4H10+13O2→8CO2+10H2O",
+     "w": "Kasr chiqmasligi uchun ikki baravar.",
+     "uses": [
+      "butan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Metanning yetishmagan kislorodda yonishini yozing (CO hosil bo'ladi)",
+     "re": [
+      "CH4",
+      "O2"
+     ],
+     "pr": [
+      "CO",
+      "H2O"
+     ],
+     "ans": "2CH4+3O2→2CO+4H2O",
+     "w": "Uglerod CO gacha oksidlanadi.",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Metanning qurum hosil qilib yonishini yozing",
+     "re": [
+      "CH4",
+      "O2"
+     ],
+     "pr": [
+      "C",
+      "H2O"
+     ],
+     "ans": "CH4+O2→C+2H2O",
+     "w": "Juda kam kislorodda faqat vodorod yonadi, uglerod qurum bo'lib qoladi.",
+     "uses": [
+      "metan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-4",
+   "group": "Oksidlanish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Alkanlar KMnO₄ eritmasini rangsizlantiradimi?",
+     "ok": "Yo'q",
+     "no": [
+      "Ha",
+      "Faqat qizdirilganda",
+      "Faqat kislotali muhitda"
+     ],
+     "w": "To'yingan uglevodorodlar oksidlovchilarga chidamli.",
+     "uses": [
+      "propan"
+     ],
+     "trap": {
+      "opt": "Ha",
+      "why": "Rangsizlantirish alkenlarga xos (qo'shbog' bor)."
+     }
+    },
+    {
+     "p": "Metan havoda yonganda alanga qanday bo'ladi?",
+     "ok": "Ko'kimtir",
+     "no": [
+      "Qurumli sariq",
+      "Yashil",
+      "Qizil"
+     ],
+     "w": "Metan toza yonadi: uglerod ulushi kam.",
+     "uses": [
+      "metan"
+     ],
+     "trap": {
+      "opt": "Qurumli sariq",
+      "why": "Qurumli alanga uglerod ko'p moddalarda (masalan, atsetilen)."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 1,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "CH4",
+      "Br2"
+     ],
+     "pr": [
+      "CH3Br",
+      "HBr"
+     ],
+     "ans": "CH4+Br2→CH3Br+HBr",
+     "w": "Vodorod bromga almashinadi.",
+     "chain": {
+      "all": [
+       "CH4",
+       "CH3Br",
+       "C2H6",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "metan"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C3H8",
+      "Cl2"
+     ],
+     "pr": [
+      "C3H7Cl",
+      "HCl"
+     ],
+     "ans": "C3H8+Cl2→C3H7Cl+HCl",
+     "w": "Bitta vodorod xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H7Cl",
+       "C6H14",
+       "C6H13Br",
+       "C6H12"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "propan"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "CH3Br",
+      "Na"
+     ],
+     "pr": [
+      "C2H6",
+      "NaBr"
+     ],
+     "ans": "2CH3Br+2Na→C2H6+2NaBr",
+     "w": "Ikki metil radikal birlashadi.",
+     "chain": {
+      "all": [
+       "CH4",
+       "CH3Br",
+       "C2H6",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "etan"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "C3H7Cl",
+      "Na"
+     ],
+     "pr": [
+      "C6H14",
+      "NaCl"
+     ],
+     "ans": "2C3H7Cl+2Na→C6H14+2NaCl",
+     "w": "Uglerod soni ikki baravar ortadi: geksan.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H7Cl",
+       "C6H14",
+       "C6H13Br",
+       "C6H12"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C2H6",
+      "Cl2"
+     ],
+     "pr": [
+      "C2H5Cl",
+      "HCl"
+     ],
+     "ans": "C2H6+Cl2→C2H5Cl+HCl",
+     "w": "Etanning bitta vodorodi xlorga almashinadi.",
+     "chain": {
+      "all": [
+       "CH4",
+       "CH3Br",
+       "C2H6",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "etan"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (yorug'likda)",
+     "re": [
+      "C6H14",
+      "Br2"
+     ],
+     "pr": [
+      "C6H13Br",
+      "HBr"
+     ],
+     "ans": "C6H14+Br2→C6H13Br+HBr",
+     "w": "Geksanning bitta vodorodi bromga almashinadi.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H7Cl",
+       "C6H14",
+       "C6H13Br",
+       "C6H12"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-4",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 4-reaksiyasini yozing (Vyurs)",
+     "re": [
+      "C2H5Cl",
+      "Na"
+     ],
+     "pr": [
+      "C4H10",
+      "NaCl"
+     ],
+     "ans": "2C2H5Cl+2Na→C4H10+2NaCl",
+     "w": "Ikki etil radikal birlashadi: butan.",
+     "chain": {
+      "all": [
+       "CH4",
+       "CH3Br",
+       "C2H6",
+       "C2H5Cl",
+       "C4H10"
+      ],
+      "at": 3
+     },
+     "bundle": "A",
+     "uses": [
+      "butan"
+     ]
+    },
+    {
+     "p": "Zanjirning 4-reaksiyasini yozing (KOH ning spirtdagi eritmasi)",
+     "re": [
+      "C6H13Br",
+      "KOH"
+     ],
+     "pr": [
+      "C6H12",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C6H13Br+KOH→C6H12+KBr+H2O",
+     "w": "HBr ajralib qo'shbog' hosil bo'ladi: geksen.",
+     "chain": {
+      "all": [
+       "C3H8",
+       "C3H7Cl",
+       "C6H14",
+       "C6H13Br",
+       "C6H12"
+      ],
+      "at": 3
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}

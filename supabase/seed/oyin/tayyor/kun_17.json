@@ -1,0 +1,1006 @@
+{
+ "version": 2,
+ "day": 17,
+ "topic": "Angidridlar",
+ "substances": [
+  "sirka angidrid",
+  "ftal angidrid",
+  "suksinil angidrid"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka kislotaning degidratlanishini yozing (P₂O₅): sirka angidrid olinadi",
+     "re": [
+      "C2H4O2"
+     ],
+     "pr": [
+      "C4H6O3",
+      "H2O"
+     ],
+     "ans": "2C2H4O2→C4H6O3+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Propion kislotaning degidratlanishini yozing (P₂O₅): propion angidrid olinadi",
+     "re": [
+      "C3H6O2"
+     ],
+     "pr": [
+      "C6H10O3",
+      "H2O"
+     ],
+     "ans": "2C3H6O2→C6H10O3+H2O",
+     "w": "Ikki molekuladan bitta suv ajraladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Propionilxlorid va natriy propionat reaksiyasini yozing: propion angidrid",
+     "re": [
+      "C3H5ClO",
+      "C3H5NaO2"
+     ],
+     "pr": [
+      "C6H10O3",
+      "NaCl"
+     ],
+     "ans": "C3H5ClO+C3H5NaO2→C6H10O3+NaCl",
+     "w": "Xlorangidrid va karboksilat tuzi angidrid beradi."
+    },
+    {
+     "p": "Benzoilxlorid va natriy benzoat reaksiyasini yozing: benzoy angidrid",
+     "re": [
+      "C7H5ClO",
+      "C7H5NaO2"
+     ],
+     "pr": [
+      "C14H10O3",
+      "NaCl"
+     ],
+     "ans": "C7H5ClO+C7H5NaO2→C14H10O3+NaCl",
+     "w": "Aromatik angidrid hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Ftal kislotaning qizdirilganda angidridga aylanishini yozing",
+     "re": [
+      "C8H6O4"
+     ],
+     "pr": [
+      "C8H4O3",
+      "H2O"
+     ],
+     "ans": "C8H6O4→C8H4O3+H2O",
+     "w": "Ikki qo'shni karboksil beshlik halqa hosil qiladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Naftalinning havo kislorodi bilan oksidlanishini yozing (V₂O₅): ftal angidrid hosil bo'ladi",
+     "re": [
+      "C10H8",
+      "O2"
+     ],
+     "pr": [
+      "C8H4O3",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C10H8+9O2→2C8H4O3+4CO2+4H2O",
+     "w": "Bitta halqa uzilib, ikki uglerod CO₂ ga ketadi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qahrabo kislotaning qizdirilganda angidridga aylanishini yozing",
+     "re": [
+      "C4H6O4"
+     ],
+     "pr": [
+      "C4H4O3",
+      "H2O"
+     ],
+     "ans": "C4H6O4→C4H4O3+H2O",
+     "w": "Besh a'zoli halqa: suksinil angidrid.",
+     "uses": [
+      "suksinil angidrid"
+     ]
+    },
+    {
+     "p": "Malein kislotaning qizdirilganda angidridga aylanishini yozing",
+     "re": [
+      "C4H4O4"
+     ],
+     "pr": [
+      "C4H2O3",
+      "H2O"
+     ],
+     "ans": "C4H4O4→C4H2O3+H2O",
+     "w": "Cis-izomer osongina halqa hosil qiladi."
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka angidridning tuzilish formulasi qaysi?",
+     "ok": "(CH₃CO)₂O",
+     "no": [
+      "CH₃COOCH₃",
+      "CH₃COCl",
+      "(CH₃)₂O"
+     ],
+     "w": "Ikki atsil guruhi bitta kislorod orqali bog'langan.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "CH₃COOCH₃",
+      "why": "Bu metil atsetat: murakkab efir."
+     }
+    },
+    {
+     "p": "Karbon kislotalardan angidrid qanday hosil bo'ladi?",
+     "ok": "Ikki molekuladan bitta suv ajralishi bilan",
+     "no": [
+      "Bitta molekuladan CO₂ ajralishi bilan",
+      "Oksidlanish bilan",
+      "Qaytarilish bilan"
+     ],
+     "w": "2RCOOH → (RCO)₂O + H₂O.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "Oksidlanish bilan",
+      "why": "Angidrid oksidlanish emas, suv ajralish mahsuloti."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "g-1",
+   "group": "Gidroliz",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Sirka angidridning gidrolizini yozing",
+     "re": [
+      "C4H6O3",
+      "H2O"
+     ],
+     "pr": [
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+H2O→2C2H4O2",
+     "w": "Angidrid suv bilan ikki molekula kislota beradi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Propion angidridning gidrolizini yozing",
+     "re": [
+      "C6H10O3",
+      "H2O"
+     ],
+     "pr": [
+      "C3H6O2"
+     ],
+     "ans": "C6H10O3+H2O→2C3H6O2",
+     "w": "Ikki molekula propion kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "g-2",
+   "group": "Gidroliz",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Ftal angidridning gidrolizini yozing",
+     "re": [
+      "C8H4O3",
+      "H2O"
+     ],
+     "pr": [
+      "C8H6O4"
+     ],
+     "ans": "C8H4O3+H2O→C8H6O4",
+     "w": "Halqa ochilib ftal kislota hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Suksinil angidridning gidrolizini yozing",
+     "re": [
+      "C4H4O3",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O4"
+     ],
+     "ans": "C4H4O3+H2O→C4H6O4",
+     "w": "Halqa ochilib qahrabo kislota hosil bo'ladi.",
+     "uses": [
+      "suksinil angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-3",
+   "group": "Gidroliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidridga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C4H6O3",
+      "NaOH"
+     ],
+     "pr": [
+      "C2H3NaO2",
+      "H2O"
+     ],
+     "ans": "C4H6O3+2NaOH→2C2H3NaO2+H2O",
+     "w": "Ishqorda ikki molekula tuz hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Ftal angidridga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C8H4O3",
+      "NaOH"
+     ],
+     "pr": [
+      "C8H4Na2O4",
+      "H2O"
+     ],
+     "ans": "C8H4O3+2NaOH→C8H4Na2O4+H2O",
+     "w": "Halqa ochilib dinatriy ftalat hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "g-4",
+   "group": "Gidroliz",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidrid suv bilan reaksiyaga kirishsa, nima hosil bo'ladi?",
+     "ok": "Ikki molekula sirka kislota",
+     "no": [
+      "Aldegid",
+      "Efir",
+      "Spirt"
+     ],
+     "w": "Angidrid gidrolizi kislota beradi.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "Efir",
+      "why": "Efir spirt bilan reaksiyada hosil bo'ladi, suv bilan emas."
+     }
+    },
+    {
+     "p": "Ftal angidrid gidrolizi mahsuloti qaysi?",
+     "ok": "Ftal kislota",
+     "no": [
+      "Benzoy kislota",
+      "Izoftal kislota",
+      "Salitsil kislota"
+     ],
+     "w": "Halqa ochilib ikki COOH guruhi hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ],
+     "trap": {
+      "opt": "Benzoy kislota",
+      "why": "Benzoy kislotada bitta COOH bor, ftalda ikkita."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "a-1",
+   "group": "Alkogoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidridga etanol ta'sir ettiring",
+     "re": [
+      "C4H6O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C4H8O2",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+C2H5OH→C4H8O2+C2H4O2",
+     "w": "Efir va bitta molekula kislota hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Sirka angidridga metanol ta'sir ettiring",
+     "re": [
+      "C4H6O3",
+      "CH3OH"
+     ],
+     "pr": [
+      "C3H6O2",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+CH3OH→C3H6O2+C2H4O2",
+     "w": "Metil atsetat va sirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-2",
+   "group": "Alkogoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Ftal angidridga 1 mol metanol ta'sir ettiring",
+     "re": [
+      "C8H4O3",
+      "CH3OH"
+     ],
+     "pr": [
+      "C9H8O4"
+     ],
+     "ans": "C8H4O3+CH3OH→C9H8O4",
+     "w": "Halqa ochilib monoefir (kislota-efir) hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Suksinil angidridga 1 mol etanol ta'sir ettiring",
+     "re": [
+      "C4H4O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C6H10O4"
+     ],
+     "ans": "C4H4O3+C2H5OH→C6H10O4",
+     "w": "Monoetil suksinat hosil bo'ladi.",
+     "uses": [
+      "suksinil angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "a-3",
+   "group": "Alkogoliz",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Ftal angidrid va ortiqcha butanol reaksiyasini yozing (H₂SO₄): dibutilftalat",
+     "re": [
+      "C8H4O3",
+      "C4H9OH"
+     ],
+     "pr": [
+      "C16H22O4",
+      "H2O"
+     ],
+     "ans": "C8H4O3+2C4H9OH→C16H22O4+H2O",
+     "w": "Ikkala karboksil esterlanadi: plastifikator.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Malein angidrid va ortiqcha etanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C4H2O3",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C8H12O4",
+      "H2O"
+     ],
+     "ans": "C4H2O3+2C2H5OH→C8H12O4+H2O",
+     "w": "Dietil maleat hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "a-4",
+   "group": "Alkogoliz",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidrid etanol bilan reaksiyaga kirishganda qanday moddalar hosil bo'ladi?",
+     "ok": "Etil atsetat va sirka kislota",
+     "no": [
+      "Etil atsetat va suv",
+      "Etilen va sirka kislota",
+      "Dietil efir"
+     ],
+     "w": "Suv ajralmaydi: ikkinchi atsil guruhi kislota bo'lib qoladi.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "Etil atsetat va suv",
+      "why": "Suv eterifikatsiyada ajraladi, angidrid alkogolizida esa sirka kislota hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Ftal angidrid va spirtlardan qanday sanoat moddasi olinadi?",
+     "ok": "Dialkilftalat (plastifikator)",
+     "no": [
+      "Polietilen",
+      "Kapron",
+      "Neylon"
+     ],
+     "w": "Plastmassalarga elastiklik beradi.",
+     "uses": [
+      "ftal angidrid"
+     ],
+     "trap": {
+      "opt": "Kapron",
+      "why": "Kapron kaprolaktamdan olinadi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Ammonoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Sirka angidridga ammiak ta'sir ettiring",
+     "re": [
+      "C4H6O3",
+      "NH3"
+     ],
+     "pr": [
+      "C2H5NO",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+NH3→C2H5NO+C2H4O2",
+     "w": "Asetamid va sirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Propion angidridga ammiak ta'sir ettiring",
+     "re": [
+      "C6H10O3",
+      "NH3"
+     ],
+     "pr": [
+      "C3H7NO",
+      "C3H6O2"
+     ],
+     "ans": "C6H10O3+NH3→C3H7NO+C3H6O2",
+     "w": "Propionamid va propion kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Ammonoliz",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Ftal angidridga ammiak ta'sir ettiring (sovuqda)",
+     "re": [
+      "C8H4O3",
+      "NH3"
+     ],
+     "pr": [
+      "C8H7NO3"
+     ],
+     "ans": "C8H4O3+NH3→C8H7NO3",
+     "w": "Halqa ochilib ftalamid kislota hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Malein angidridga ammiak ta'sir ettiring (sovuqda)",
+     "re": [
+      "C4H2O3",
+      "NH3"
+     ],
+     "pr": [
+      "C4H5NO3"
+     ],
+     "ans": "C4H2O3+NH3→C4H5NO3",
+     "w": "Maleamid kislota hosil bo'ladi."
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Ammonoliz",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Ftal angidrid va ammiakni qizdiring: ftalimid hosil bo'ladi",
+     "re": [
+      "C8H4O3",
+      "NH3"
+     ],
+     "pr": [
+      "C8H5NO2",
+      "H2O"
+     ],
+     "ans": "C8H4O3+NH3→C8H5NO2+H2O",
+     "w": "Halqa yopiladi, suv ajraladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    },
+    {
+     "p": "Suksinil angidrid va ammiakni qizdiring: suksinimid hosil bo'ladi",
+     "re": [
+      "C4H4O3",
+      "NH3"
+     ],
+     "pr": [
+      "C4H5NO2",
+      "H2O"
+     ],
+     "ans": "C4H4O3+NH3→C4H5NO2+H2O",
+     "w": "Imid hosil bo'ladi, suv ajraladi.",
+     "uses": [
+      "suksinil angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-4",
+   "group": "Ammonoliz",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Sirka angidridga anilin ta'sir ettiring: atsetanilid hosil bo'ladi",
+     "re": [
+      "C4H6O3",
+      "C6H7N"
+     ],
+     "pr": [
+      "C8H9NO",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+C6H7N→C8H9NO+C2H4O2",
+     "w": "Aminoguruh atsillanadi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Sirka angidridga metilamin ta'sir ettiring",
+     "re": [
+      "C4H6O3",
+      "CH5N"
+     ],
+     "pr": [
+      "C3H7NO",
+      "C2H4O2"
+     ],
+     "ans": "C4H6O3+CH5N→C3H7NO+C2H4O2",
+     "w": "N-metilatsetamid hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "f-1",
+   "group": "Atsillash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Fenolga sirka angidrid ta'sir ettiring",
+     "re": [
+      "C6H5OH",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C8H8O2",
+      "C2H4O2"
+     ],
+     "ans": "C6H5OH+C4H6O3→C8H8O2+C2H4O2",
+     "w": "Fenilatsetat va sirka kislota hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Salitsil kislotaga sirka angidrid ta'sir ettiring: aspirin olinadi",
+     "re": [
+      "C7H6O3",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C9H8O4",
+      "C2H4O2"
+     ],
+     "ans": "C7H6O3+C4H6O3→C9H8O4+C2H4O2",
+     "w": "OH guruhi atsillanadi: atsetilsalitsil kislota.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "f-2",
+   "group": "Atsillash",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Benzolga sirka angidrid ta'sir ettiring (AlCl₃, Fridel–Krafts)",
+     "re": [
+      "C6H6",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C8H8O",
+      "C2H4O2"
+     ],
+     "ans": "C6H6+C4H6O3→C8H8O+C2H4O2",
+     "w": "Atsetofenon hosil bo'ladi: halqaga atsil guruhi birikadi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Benzolga ftal angidrid ta'sir ettiring (AlCl₃)",
+     "re": [
+      "C6H6",
+      "C8H4O3"
+     ],
+     "pr": [
+      "C14H10O3"
+     ],
+     "ans": "C6H6+C8H4O3→C14H10O3",
+     "w": "o-benzoilbenzoy kislota hosil bo'ladi.",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "f-3",
+   "group": "Atsillash",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Glitserin va ortiqcha sirka angidrid reaksiyasini yozing",
+     "re": [
+      "C3H8O3",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C9H14O6",
+      "C2H4O2"
+     ],
+     "ans": "C3H8O3+3C4H6O3→C9H14O6+3C2H4O2",
+     "w": "Triatsetin hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Etilenglikol va ortiqcha sirka angidrid reaksiyasini yozing",
+     "re": [
+      "C2H6O2",
+      "C4H6O3"
+     ],
+     "pr": [
+      "C6H10O4",
+      "C2H4O2"
+     ],
+     "ans": "C2H6O2+2C4H6O3→C6H10O4+2C2H4O2",
+     "w": "Glikol diatsetat hosil bo'ladi.",
+     "uses": [
+      "sirka angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "f-4",
+   "group": "Atsillash",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Aspirinni olishning usuli qaysi?",
+     "ok": "Salitsil kislotani sirka angidrid bilan atsillash",
+     "no": [
+      "Fenolni CO₂ bilan reaksiyasi",
+      "Benzoy kislotani oksidlash",
+      "Anilinni nitrolash"
+     ],
+     "w": "OH guruhi atsetil guruhiga almashinadi.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "Fenolni CO₂ bilan reaksiyasi",
+      "why": "Bu salitsil kislota olish usuli (Kolbe), aspirin emas."
+     }
+    },
+    {
+     "p": "Atsillash nima?",
+     "ok": "Molekulaga atsil guruhi (RCO–) kiritish",
+     "no": [
+      "Vodorod ajratish",
+      "Kislorod qo'shish",
+      "Halqani ochish"
+     ],
+     "w": "Angidridlar va xlorangidridlar atsillovchi reagentlardir.",
+     "uses": [
+      "sirka angidrid"
+     ],
+     "trap": {
+      "opt": "Vodorod ajratish",
+      "why": "Bu degidrogenlash."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (PCl₃)",
+     "re": [
+      "C2H4O2",
+      "PCl3"
+     ],
+     "pr": [
+      "C2H3ClO",
+      "H3PO3"
+     ],
+     "ans": "3C2H4O2+PCl3→3C2H3ClO+H3PO3",
+     "w": "Sirka kislota atsetilxloridga aylanadi.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO",
+       "C4H6O3",
+       "C2H3ClO"
+      ],
+      "at": 0
+     },
+     "bundle": "A",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (V₂O₅, 400 °C)",
+     "re": [
+      "C8H10",
+      "O2"
+     ],
+     "pr": [
+      "C8H4O3",
+      "H2O"
+     ],
+     "ans": "C8H10+3O2→C8H4O3+3H2O",
+     "w": "o-ksilol oksidlanib ftal angidrid beradi.",
+     "chain": {
+      "all": [
+       "C8H10",
+       "C8H4O3",
+       "C8H4K2O4",
+       "C8H6O4"
+      ],
+      "at": 0
+     },
+     "bundle": "B",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing",
+     "re": [
+      "C2H3ClO",
+      "C2H3NaO2"
+     ],
+     "pr": [
+      "C4H6O3",
+      "NaCl"
+     ],
+     "ans": "C2H3ClO+C2H3NaO2→C4H6O3+NaCl",
+     "w": "Atsetilxlorid va natriy atsetat sirka angidrid beradi.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO",
+       "C4H6O3",
+       "C2H3ClO"
+      ],
+      "at": 1
+     },
+     "bundle": "A",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (ortiqcha KOH)",
+     "re": [
+      "C8H4O3",
+      "KOH"
+     ],
+     "pr": [
+      "C8H4K2O4",
+      "H2O"
+     ],
+     "ans": "C8H4O3+2KOH→C8H4K2O4+H2O",
+     "w": "Halqa ochilib dikaliy ftalat hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C8H10",
+       "C8H4O3",
+       "C8H4K2O4",
+       "C8H6O4"
+      ],
+      "at": 1
+     },
+     "bundle": "B",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (PCl₅)",
+     "re": [
+      "C4H6O3",
+      "PCl5"
+     ],
+     "pr": [
+      "C2H3ClO",
+      "POCl3"
+     ],
+     "ans": "C4H6O3+PCl5→2C2H3ClO+POCl3",
+     "w": "Angidrid PCl₅ ta'sirida atsetilxloridga qaytadi.",
+     "chain": {
+      "all": [
+       "C2H4O2",
+       "C2H3ClO",
+       "C4H6O3",
+       "C2H3ClO"
+      ],
+      "at": 2
+     },
+     "bundle": "A",
+     "uses": [
+      "sirka angidrid"
+     ]
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (HCl)",
+     "re": [
+      "C8H4K2O4",
+      "HCl"
+     ],
+     "pr": [
+      "C8H6O4",
+      "KCl"
+     ],
+     "ans": "C8H4K2O4+2HCl→C8H6O4+2KCl",
+     "w": "Kuchli kislota ftal kislotani ozod qiladi.",
+     "chain": {
+      "all": [
+       "C8H10",
+       "C8H4O3",
+       "C8H4K2O4",
+       "C8H6O4"
+      ],
+      "at": 2
+     },
+     "bundle": "B",
+     "uses": [
+      "ftal angidrid"
+     ]
+    }
+   ]
+  }
+ ]
+}

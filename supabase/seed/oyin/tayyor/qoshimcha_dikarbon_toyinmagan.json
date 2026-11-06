@@ -1,0 +1,1009 @@
+{
+ "version": 2,
+ "day": 17,
+ "topic": "To'yinmagan dikarbon kislotalar",
+ "substances": [
+  "malein kislota",
+  "fumar kislota",
+  "malein angidrid"
+ ],
+ "slots": [
+  {
+   "slot": "o-1",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Benzolning havo kislorodi bilan oksidlanishini yozing (V₂O₅, 450 °C): malein angidrid hosil bo'ladi",
+     "re": [
+      "C6H6",
+      "O2"
+     ],
+     "pr": [
+      "C4H2O3",
+      "CO2",
+      "H2O"
+     ],
+     "ans": "2C6H6+9O2→2C4H2O3+4CO2+4H2O",
+     "w": "Halqa uziladi, ikki uglerod CO₂ ga ketadi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    },
+    {
+     "p": "Butanning havo kislorodi bilan oksidlanishini yozing (V₂O₅ katalizatori): malein angidrid hosil bo'ladi",
+     "re": [
+      "C4H10",
+      "O2"
+     ],
+     "pr": [
+      "C4H2O3",
+      "H2O"
+     ],
+     "ans": "2C4H10+7O2→2C4H2O3+8H2O",
+     "w": "Sanoatda butandan malein angidrid olinadi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-2",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein angidridning gidrolizini yozing",
+     "re": [
+      "C4H2O3",
+      "H2O"
+     ],
+     "pr": [
+      "C4H4O4"
+     ],
+     "ans": "C4H2O3+H2O→C4H4O4",
+     "w": "Angidrid suv bilan malein kislotaga aylanadi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    },
+    {
+     "p": "Alma kislotaning degidratlanishini yozing (qizdirish): fumar kislota hosil bo'ladi",
+     "re": [
+      "C4H6O5"
+     ],
+     "pr": [
+      "C4H4O4",
+      "H2O"
+     ],
+     "ans": "C4H6O5→C4H4O4+H2O",
+     "w": "Suv ajralib qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-3",
+   "group": "Olinish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Atsetilen, CO va suv reaksiyasini yozing (Ni(CO)₄, 2 mol CO): qahrabo kislota olinadi",
+     "re": [
+      "C2H2",
+      "CO",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O4"
+     ],
+     "ans": "C2H2+2CO+2H2O→C4H6O4",
+     "w": "Atsetilenga ikki karboksil guruhi va vodorod birikadi; keyin degidrogenlab to'yinmagan kislota olinadi."
+    },
+    {
+     "p": "Qahrabo kislotaning degidrogenlanishini yozing",
+     "re": [
+      "C4H6O4"
+     ],
+     "pr": [
+      "C4H4O4",
+      "H2"
+     ],
+     "ans": "C4H6O4→C4H4O4+H2",
+     "w": "Ikki vodorod ajralib qo'shbog' hosil bo'ladi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "o-4",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein kislotaning tuzilish formulasi qaysi?",
+     "ok": "HOOC–CH=CH–COOH",
+     "no": [
+      "HOOC–CH₂–CH₂–COOH",
+      "HOOC–COOH",
+      "CH₂=C(COOH)₂"
+     ],
+     "w": "Qo'shbog'li to'yinmagan dikarbon kislota.",
+     "uses": [
+      "malein kislota"
+     ],
+     "trap": {
+      "opt": "HOOC–CH₂–CH₂–COOH",
+      "why": "Bu qahrabo kislota: qo'shbog'siz."
+     }
+    },
+    {
+     "p": "Quyidagilardan qaysi biri to'yinmagan dikarbon kislota?",
+     "ok": "Fumar kislota",
+     "no": [
+      "Qahrabo kislota",
+      "Oksalat kislota",
+      "Adipin kislota"
+     ],
+     "w": "HOOC–CH=CH–COOH (trans).",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Qahrabo kislota",
+      "why": "Qahrabo kislota to'yingan."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "o-5",
+   "group": "Olinish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein angidrid sanoatda qaysi moddalardan olinadi?",
+     "ok": "Benzol yoki butanni oksidlab",
+     "no": [
+      "Etanolni oksidlab",
+      "Glitserindan",
+      "Metandan"
+     ],
+     "w": "V₂O₅ katalizatorida havo kislorodi bilan.",
+     "uses": [
+      "malein angidrid"
+     ],
+     "trap": {
+      "opt": "Etanolni oksidlab",
+      "why": "Etanol oksidlansa sirka kislota hosil bo'ladi."
+     }
+    },
+    {
+     "p": "Malein kislotaning izomeri qaysi?",
+     "ok": "Fumar kislota",
+     "no": [
+      "Qahrabo kislota",
+      "Malon kislota",
+      "Oksalat kislota"
+     ],
+     "w": "Ikkalasi C₄H₄O₄: faqat fazoviy joylashuvi farq qiladi.",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Qahrabo kislota",
+      "why": "Qahrabo kislotaning formulasi C₄H₆O₄."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-1",
+   "group": "Cis-trans izomeriya",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein kislota qanday izomer?",
+     "ok": "Cis-izomer",
+     "no": [
+      "Trans-izomer",
+      "Optik izomer",
+      "Zanjir izomeri"
+     ],
+     "w": "Ikkala COOH bir tomonda.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislota qanday izomer?",
+     "ok": "Trans-izomer",
+     "no": [
+      "Cis-izomer",
+      "Optik izomer",
+      "Zanjir izomeri"
+     ],
+     "w": "COOH guruhlar qarama-qarshi tomonda.",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Cis-izomer",
+      "why": "Cis-izomer malein kislota."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-2",
+   "group": "Cis-trans izomeriya",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Qaysi biri suvda yaxshiroq eriydi?",
+     "ok": "Malein kislota (cis)",
+     "no": [
+      "Fumar kislota (trans)",
+      "Ikkalasi teng",
+      "Ikkalasi erimaydi"
+     ],
+     "w": "Cis-izomer qutbliroq, suvda ancha yaxshi eriydi.",
+     "uses": [
+      "malein kislota"
+     ],
+     "trap": {
+      "opt": "Fumar kislota (trans)",
+      "why": "Trans-izomer simmetrik va suvda kam eriydi."
+     }
+    },
+    {
+     "p": "Qaysi birining suyuqlanish harorati yuqori?",
+     "ok": "Fumar kislota",
+     "no": [
+      "Malein kislota",
+      "Teng",
+      "Ikkalasi suyuqlanmaydi"
+     ],
+     "w": "Simmetrik trans-izomer kristallarda zich joylashadi.",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Malein kislota",
+      "why": "Cis-izomerda suyuqlanish harorati ancha past."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "i-3",
+   "group": "Cis-trans izomeriya",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Cis-trans izomeriya uchun qanday shart bajarilishi kerak?",
+     "ok": "Qo'shbog'dagi har bir uglerodda ikki xil o'rinbosar bo'lishi kerak",
+     "no": [
+      "Qo'shbog' bo'lishining o'zi kifoya",
+      "Uchbog' bo'lishi kerak",
+      "Halqa bo'lishi shart"
+     ],
+     "w": "Qo'shbog' atrofida aylanish yo'q va har tomonda har xil guruhlar bor.",
+     "uses": [
+      "malein kislota"
+     ],
+     "trap": {
+      "opt": "Qo'shbog' bo'lishining o'zi kifoya",
+      "why": "Etilenda ikkala uglerodda ham bir xil vodorodlar: izomeriya yo'q."
+     }
+    },
+    {
+     "p": "Quyidagilardan qaysi biri cis-trans izomeriyaga ega?",
+     "ok": "Buten-2",
+     "no": [
+      "Buten-1",
+      "Propen",
+      "Etilen"
+     ],
+     "w": "Ikkala qo'shbog'li uglerodda H va CH₃.",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Buten-1",
+      "why": "Bitta uglerodda ikkita H: izomer yo'q."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "m-1",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein kislotaga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "NaOH"
+     ],
+     "pr": [
+      "C4H2Na2O4",
+      "H2O"
+     ],
+     "ans": "C4H4O4+2NaOH→C4H2Na2O4+2H2O",
+     "w": "Natriy maleat hosil bo'ladi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislotaga ortiqcha KOH ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "KOH"
+     ],
+     "pr": [
+      "C4H2K2O4",
+      "H2O"
+     ],
+     "ans": "C4H4O4+2KOH→C4H2K2O4+2H2O",
+     "w": "Kaliy fumarat hosil bo'ladi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-2",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein kislota va ortiqcha metanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C4H4O4",
+      "CH3OH"
+     ],
+     "pr": [
+      "C6H8O4",
+      "H2O"
+     ],
+     "ans": "C4H4O4+2CH3OH→C6H8O4+2H2O",
+     "w": "Dimetil maleat hosil bo'ladi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislota va ortiqcha etanol reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C4H4O4",
+      "C2H5OH"
+     ],
+     "pr": [
+      "C8H12O4",
+      "H2O"
+     ],
+     "ans": "C4H4O4+2C2H5OH→C8H12O4+2H2O",
+     "w": "Dietil fumarat hosil bo'ladi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "m-3",
+   "group": "Kislotali xossalar",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein kislotaga rux ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "Zn"
+     ],
+     "pr": [
+      "C4H2O4Zn",
+      "H2"
+     ],
+     "ans": "C4H4O4+Zn→C4H2O4Zn+H2",
+     "w": "Rux maleat va vodorod hosil bo'ladi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislotaga magniy ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "Mg"
+     ],
+     "pr": [
+      "C4H2MgO4",
+      "H2"
+     ],
+     "ans": "C4H4O4+Mg→C4H2MgO4+H2",
+     "w": "Magniy fumarat va vodorod hosil bo'ladi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-1",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein kislotani gidrogenlang (Ni)",
+     "re": [
+      "C4H4O4",
+      "H2"
+     ],
+     "pr": [
+      "C4H6O4"
+     ],
+     "ans": "C4H4O4+H2→C4H6O4",
+     "w": "Qo'shbog' to'yinadi: qahrabo kislota.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Malein angidridni gidrogenlang (Ni)",
+     "re": [
+      "C4H2O3",
+      "H2"
+     ],
+     "pr": [
+      "C4H4O3"
+     ],
+     "ans": "C4H2O3+H2→C4H4O3",
+     "w": "Suksinil angidrid hosil bo'ladi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-2",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein kislotaga xlor ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "Cl2"
+     ],
+     "pr": [
+      "C4H4Cl2O4"
+     ],
+     "ans": "C4H4O4+Cl2→C4H4Cl2O4",
+     "w": "Xlor qo'shbog'ga birikadi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislotaga yod ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "I2"
+     ],
+     "pr": [
+      "C4H4I2O4"
+     ],
+     "ans": "C4H4O4+I2→C4H4I2O4",
+     "w": "Yod qo'shbog'ga birikadi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-3",
+   "group": "Birikish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein kislotaga HBr ta'sir ettiring",
+     "re": [
+      "C4H4O4",
+      "HBr"
+     ],
+     "pr": [
+      "C4H5BrO4"
+     ],
+     "ans": "C4H4O4+HBr→C4H5BrO4",
+     "w": "Brom va vodorod qo'shbog'ga birikadi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislotaga suv birikishini yozing (fumaraza, organizmda)",
+     "re": [
+      "C4H4O4",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O5"
+     ],
+     "ans": "C4H4O4+H2O→C4H6O5",
+     "w": "Alma kislota hosil bo'ladi: hujayra nafasi (Krebs sikli) bosqichi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "b-4",
+   "group": "Birikish",
+   "type": "choice",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Fumar kislotaga suv birikishidan qaysi kislota hosil bo'ladi?",
+     "ok": "Alma kislota (oksiqahrabo)",
+     "no": [
+      "Limon kislota",
+      "Sut kislota",
+      "Qahrabo kislota"
+     ],
+     "w": "Suv qo'shbog'ga birikib bitta OH guruhini beradi.",
+     "uses": [
+      "fumar kislota"
+     ],
+     "trap": {
+      "opt": "Qahrabo kislota",
+      "why": "Qahrabo kislota gidrogenlashdan hosil bo'ladi, gidratlashdan emas."
+     }
+    },
+    {
+     "p": "Malein kislota gidrogenlansa, qaysi modda hosil bo'ladi?",
+     "ok": "Qahrabo kislota",
+     "no": [
+      "Fumar kislota",
+      "Alma kislota",
+      "Adipin kislota"
+     ],
+     "w": "Qo'shbog' to'yinadi, to'rt uglerodli to'yingan dikarbon kislota.",
+     "uses": [
+      "malein kislota"
+     ],
+     "trap": {
+      "opt": "Fumar kislota",
+      "why": "Fumar kislota malein kislotaning izomeri, gidrogenlash mahsuloti emas."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "t-1",
+   "group": "Angidrid va qizdirish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein kislotaning qizdirilganda angidridga aylanishini yozing",
+     "re": [
+      "C4H4O4"
+     ],
+     "pr": [
+      "C4H2O3",
+      "H2O"
+     ],
+     "ans": "C4H4O4→C4H2O3+H2O",
+     "w": "Cis-izomer halqa hosil qilib suv ajratadi.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Malein angidrid va ortiqcha metanol reaksiyasini yozing",
+     "re": [
+      "C4H2O3",
+      "CH3OH"
+     ],
+     "pr": [
+      "C6H8O4",
+      "H2O"
+     ],
+     "ans": "C4H2O3+2CH3OH→C6H8O4+H2O",
+     "w": "Dimetil maleat hosil bo'ladi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-2",
+   "group": "Angidrid va qizdirish",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein angidridga ortiqcha NaOH ta'sir ettiring",
+     "re": [
+      "C4H2O3",
+      "NaOH"
+     ],
+     "pr": [
+      "C4H2Na2O4",
+      "H2O"
+     ],
+     "ans": "C4H2O3+2NaOH→C4H2Na2O4+H2O",
+     "w": "Angidrid ochilib natriy maleat hosil bo'ladi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    },
+    {
+     "p": "Malein angidridga ammiak ta'sir ettiring",
+     "re": [
+      "C4H2O3",
+      "NH3"
+     ],
+     "pr": [
+      "C4H5NO3"
+     ],
+     "ans": "C4H2O3+NH3→C4H5NO3",
+     "w": "Halqa ochilib amid-kislota hosil bo'ladi.",
+     "uses": [
+      "malein angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "t-3",
+   "group": "Angidrid va qizdirish",
+   "type": "choice",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein angidrid suv bilan reaksiyaga kirishsa, nima hosil bo'ladi?",
+     "ok": "Malein kislota",
+     "no": [
+      "Fumar kislota",
+      "Qahrabo kislota",
+      "Sirka kislota"
+     ],
+     "w": "Angidrid gidrolizlanib dikarbon kislota beradi.",
+     "uses": [
+      "malein angidrid"
+     ],
+     "trap": {
+      "opt": "Fumar kislota",
+      "why": "Halqa ochilganda cis-konfiguratsiya saqlanadi: malein kislota."
+     }
+    },
+    {
+     "p": "Qaysi izomer qizdirilganda osongina angidrid hosil qiladi?",
+     "ok": "Malein kislota",
+     "no": [
+      "Fumar kislota",
+      "Ikkalasi birdek",
+      "Hech biri"
+     ],
+     "w": "Cis-izomerda ikkala COOH bir tomonda va halqa hosil qila oladi.",
+     "uses": [
+      "malein kislota"
+     ],
+     "trap": {
+      "opt": "Fumar kislota",
+      "why": "Trans-izomerda COOH guruhlar halqa hosil qila olmaydi."
+     }
+    }
+   ]
+  },
+  {
+   "slot": "k-1",
+   "group": "Oksidlanish va qo'llanilishi",
+   "type": "write",
+   "lvl": 2,
+   "variants": [
+    {
+     "p": "Malein kislotaning to'liq yonishini yozing",
+     "re": [
+      "C4H4O4",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C4H4O4+3O2→4CO2+2H2O",
+     "w": "Kislorod: 8 + 2 − 4 = 6 atom, ya'ni 3 O₂.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Malein angidridning to'liq yonishini yozing",
+     "re": [
+      "C4H2O3",
+      "O2"
+     ],
+     "pr": [
+      "CO2",
+      "H2O"
+     ],
+     "ans": "C4H2O3+3O2→4CO2+H2O",
+     "w": "Kislorod: 8 + 1 − 3 = 6 atom, ya'ni 3 O₂.",
+     "uses": [
+      "malein angidrid"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-2",
+   "group": "Oksidlanish va qo'llanilishi",
+   "type": "write",
+   "lvl": 3,
+   "variants": [
+    {
+     "p": "Malein kislotaning KMnO₄ ning suvli eritmasi bilan oksidlanishini yozing (Vagner)",
+     "re": [
+      "C4H4O4",
+      "KMnO4",
+      "H2O"
+     ],
+     "pr": [
+      "C4H6O6",
+      "MnO2",
+      "KOH"
+     ],
+     "ans": "3C4H4O4+2KMnO4+4H2O→3C4H6O6+2MnO2+2KOH",
+     "w": "Qo'shbog'ga ikkita OH birikadi: vino kislota.",
+     "uses": [
+      "malein kislota"
+     ]
+    },
+    {
+     "p": "Fumar kislotaga vodorod peroksid ta'sir ettiring (gidroksillash)",
+     "re": [
+      "C4H4O4",
+      "H2O2"
+     ],
+     "pr": [
+      "C4H6O6"
+     ],
+     "ans": "C4H4O4+H2O2→C4H6O6",
+     "w": "Ikkita OH guruhi birikadi: vino kislota.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "k-3",
+   "group": "Oksidlanish va qo'llanilishi",
+   "type": "choice",
+   "lvl": 1,
+   "variants": [
+    {
+     "p": "Malein angidrid qayerda ishlatiladi?",
+     "ok": "Alkid va poliefir smolalar ishlab chiqarishda",
+     "no": [
+      "Oziq-ovqat bo'yog'ida",
+      "Portlovchi moddalarda",
+      "O'g'itlarda"
+     ],
+     "w": "Smolalar va sopolimerlar uchun monomer.",
+     "uses": [
+      "malein angidrid"
+     ]
+    },
+    {
+     "p": "Fumar kislota oziq-ovqat sanoatida qanday vazifani bajaradi?",
+     "ok": "Kislotalilik regulyatori (E297)",
+     "no": [
+      "Qand o'rnini bosuvchi",
+      "Tuz",
+      "Bo'yoq"
+     ],
+     "w": "Nordon ta'm beradi va pH ni boshqaradi.",
+     "uses": [
+      "fumar kislota"
+     ]
+    }
+   ]
+  },
+  {
+   "slot": "z-1",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing (ortiqcha PCl₅)",
+     "re": [
+      "C4H4O4",
+      "PCl5"
+     ],
+     "pr": [
+      "C4H2Cl2O2",
+      "POCl3",
+      "HCl"
+     ],
+     "ans": "C4H4O4+2PCl5→C4H2Cl2O2+2POCl3+2HCl",
+     "w": "Ikkala OH xlorga almashinadi: dixlorangidrid.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H2Cl2O2",
+       "C6H8O4",
+       "C6H10O4"
+      ],
+      "at": 0
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 1-reaksiyasini yozing",
+     "re": [
+      "C4H4O4",
+      "Br2"
+     ],
+     "pr": [
+      "C4H4Br2O4"
+     ],
+     "ans": "C4H4O4+Br2→C4H4Br2O4",
+     "w": "Brom qo'shbog'ga birikadi.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H4Br2O4",
+       "C4K2O4",
+       "C4H2O4"
+      ],
+      "at": 0
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-2",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 2,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (metanol)",
+     "re": [
+      "C4H2Cl2O2",
+      "CH3OH"
+     ],
+     "pr": [
+      "C6H8O4",
+      "HCl"
+     ],
+     "ans": "C4H2Cl2O2+2CH3OH→C6H8O4+2HCl",
+     "w": "Xlorangidrid metanol bilan dimetil efir hosil qiladi.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H2Cl2O2",
+       "C6H8O4",
+       "C6H10O4"
+      ],
+      "at": 1
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 2-reaksiyasini yozing (KOH ning spirtdagi eritmasi, ortiqcha)",
+     "re": [
+      "C4H4Br2O4",
+      "KOH"
+     ],
+     "pr": [
+      "C4K2O4",
+      "KBr",
+      "H2O"
+     ],
+     "ans": "C4H4Br2O4+4KOH→C4K2O4+2KBr+4H2O",
+     "w": "Ikki HBr ajralib uchbog' hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H4Br2O4",
+       "C4K2O4",
+       "C4H2O4"
+      ],
+      "at": 1
+     },
+     "bundle": "B"
+    }
+   ]
+  },
+  {
+   "slot": "z-3",
+   "group": "Zanjir",
+   "type": "write",
+   "lvl": 3,
+   "bundleGroup": "zanjir",
+   "variants": [
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (Ni, qizdirish)",
+     "re": [
+      "C6H8O4",
+      "H2"
+     ],
+     "pr": [
+      "C6H10O4"
+     ],
+     "ans": "C6H8O4+H2→C6H10O4",
+     "w": "Qo'shbog' to'yinadi: dimetil suksinat.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H2Cl2O2",
+       "C6H8O4",
+       "C6H10O4"
+      ],
+      "at": 2
+     },
+     "bundle": "A"
+    },
+    {
+     "p": "Zanjirning 3-reaksiyasini yozing (H₂SO₄)",
+     "re": [
+      "C4K2O4",
+      "H2SO4"
+     ],
+     "pr": [
+      "C4H2O4",
+      "K2SO4"
+     ],
+     "ans": "C4K2O4+H2SO4→C4H2O4+K2SO4",
+     "w": "Atsetilendikarbon kislota hosil bo'ladi.",
+     "chain": {
+      "all": [
+       "C4H4O4",
+       "C4H4Br2O4",
+       "C4K2O4",
+       "C4H2O4"
+      ],
+      "at": 2
+     },
+     "bundle": "B"
+    }
+   ]
+  }
+ ]
+}
