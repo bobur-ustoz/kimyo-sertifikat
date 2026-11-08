@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Upload } from "tus-js-client";
-import { Plus, Trash2, Save, ChevronLeft, CheckCircle2, UploadCloud, FileText } from "lucide-react";
+import { Plus, Trash2, Save, ChevronLeft, CheckCircle2, UploadCloud, FileText, Play } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import { C, inputStyle, btnPrimary, btnGhost, card } from "./adminStyles";
 
@@ -108,12 +108,17 @@ function ExampleRow({ex,topicName,onChanged}){
   const [dirty,setDirty]=useState(false);
   const [open,setOpen]=useState(false);
   const set=(k,v)=>{setF(p=>({...p,[k]:v}));setDirty(true);};
+  // The analog text lives in topic_example_analogs (readable only by paid plans and admins).
+  useEffect(()=>{
+    supabase.from("topic_example_analogs").select("analog_savol,analog_yechim,analog_javob").eq("example_id",ex.id).maybeSingle()
+      .then(({data})=>{ if(data) setF(p=>({...p,...data})); });
+  },[ex.id]);
   const saveVideo = async videoId => {
     await supabase.from("topic_examples").update({bunny_video_id:videoId}).eq("id",ex.id);
     setF(p=>({...p,bunny_video_id:videoId})); onChanged();
   };
   const saveAnalog = async () => {
-    await supabase.from("topic_examples").update({analog_savol:f.analog_savol||null,analog_yechim:f.analog_yechim||null,analog_javob:f.analog_javob||null}).eq("id",ex.id);
+    await supabase.from("topic_example_analogs").upsert({example_id:ex.id,analog_savol:f.analog_savol||null,analog_yechim:f.analog_yechim||null,analog_javob:f.analog_javob||null,updated_at:new Date().toISOString()});
     setDirty(false); onChanged();
   };
   return (
@@ -136,6 +141,76 @@ function ExampleRow({ex,topicName,onChanged}){
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// Mavzuga biriktiriladigan vizual video va PDF (o'quvchi sahifasida "Materiallar" bo'limi).
+function MaterialsSection({topic}){
+  const [items,setItems]=useState([]);
+  const [title,setTitle]=useState("");
+  const [busy,setBusy]=useState("");
+  const [err,setErr]=useState("");
+  const [pct,setPct]=useState(null);
+  const vref=useRef(null), pref=useRef(null);
+  const load = async () => {
+    const { data } = await supabase.from("topic_materials").select("*").eq("topic_id",topic.id).order("sort_order");
+    setItems(data||[]);
+  };
+  useEffect(()=>{load();},[topic.id]);
+  const nextOrder = () => (items.reduce((m,x)=>Math.max(m,x.sort_order||0),0)+1);
+  const fail = e => setErr(e.message||String(e));
+  const addVideo = async file => {
+    const name=title.trim()||file.name.replace(/\.[^.]+$/,"");
+    setErr(""); setBusy("video"); setPct(0);
+    try{
+      const videoId=await uploadToBunny(file,`${topic.name} — ${name}`,setPct);
+      const { error } = await supabase.from("topic_materials").insert({topic_id:topic.id,kind:"video",title:name,bunny_video_id:videoId,sort_order:nextOrder()});
+      if(error) throw error;
+      setTitle(""); load();
+    }catch(e){ fail(e); }
+    setBusy(""); setPct(null);
+  };
+  const addPdf = async file => {
+    const name=title.trim()||file.name.replace(/\.pdf$/i,"");
+    setErr(""); setBusy("pdf");
+    try{
+      const path=`${topic.id}/${Date.now()}.pdf`;
+      const up=await supabase.storage.from("materiallar").upload(path,file,{contentType:"application/pdf"});
+      if(up.error) throw up.error;
+      const url=supabase.storage.from("materiallar").getPublicUrl(path).data.publicUrl;
+      const { error } = await supabase.from("topic_materials").insert({topic_id:topic.id,kind:"pdf",title:name,file_url:url,sort_order:nextOrder()});
+      if(error) throw error;
+      setTitle(""); load();
+    }catch(e){ fail(e); }
+    setBusy("");
+  };
+  const del = async m => {
+    if(!confirm(`"${m.title}" materialini o'chirishni tasdiqlaysizmi?`)) return;
+    await supabase.from("topic_materials").delete().eq("id",m.id);
+    const i=(m.file_url||"").indexOf("/materiallar/");
+    if(m.kind==="pdf"&&i>0) await supabase.storage.from("materiallar").remove([m.file_url.slice(i+"/materiallar/".length)]);
+    load();
+  };
+  return (
+    <div style={{...card,marginBottom:14}}>
+      <div style={{fontSize:10.5,fontWeight:700,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:8}}>Materiallar (vizual video va PDF, hamma ko'radi)</div>
+      {items.map(m=>(
+        <div key={m.id} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 0",borderBottom:`1px solid ${C.border}`}}>
+          {m.kind==="pdf"?<FileText size={14} color={C.primary}/>:<Play size={13} color={C.primary}/>}
+          <div style={{flex:1,fontSize:13,fontWeight:600,color:C.text}}>{m.title}<span style={{fontWeight:400,color:C.textLight,fontSize:11.5}}> · {m.kind==="pdf"?"PDF":"video"}</span></div>
+          <button style={{...btnGhost,padding:7,color:C.danger}} onClick={()=>del(m)}><Trash2 size={13}/></button>
+        </div>
+      ))}
+      {items.length===0&&<div style={{fontSize:12.5,color:C.textLight,padding:"4px 0 8px"}}>Hali material yo'q</div>}
+      <div style={{display:"flex",gap:8,marginTop:10,flexWrap:"wrap"}}>
+        <input style={{...inputStyle,flex:1,minWidth:200}} placeholder="Material nomi (masalan: Alkanlar olinish sxemasi)" value={title} onChange={e=>setTitle(e.target.value)}/>
+        <input ref={vref} type="file" accept="video/*" style={{display:"none"}} onChange={e=>{const f=e.target.files[0];if(f)addVideo(f);e.target.value="";}}/>
+        <input ref={pref} type="file" accept="application/pdf" style={{display:"none"}} onChange={e=>{const f=e.target.files[0];if(f)addPdf(f);e.target.value="";}}/>
+        <button style={btnGhost} disabled={!!busy} onClick={()=>vref.current?.click()}><UploadCloud size={13}/> {busy==="video"?`Yuklanmoqda… ${pct??0}%`:"Video yuklash"}</button>
+        <button style={btnGhost} disabled={!!busy} onClick={()=>pref.current?.click()}><UploadCloud size={13}/> {busy==="pdf"?"Yuklanmoqda…":"PDF yuklash"}</button>
+      </div>
+      {err&&<p style={{fontSize:11.5,color:C.danger,marginTop:6}}>Xatolik: {err}</p>}
     </div>
   );
 }
@@ -179,6 +254,7 @@ function TopicEditor({topic,onBack,onChanged}){
         </div>
         <TranscriptField target={{topic_id:topic.id}}/>
       </div>
+      <MaterialsSection topic={t}/>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
         <h3 style={{fontSize:15,fontWeight:800,color:C.text}}>To'plam: misollar tahlili <span style={{fontWeight:600,color:C.textMid,fontSize:12.5}}>({ready}/{examples.length||20} video tayyor)</span></h3>
         {examples.length<20&&<button style={btnPrimary} onClick={createExamples}><Plus size={14}/> {examples.length?"Qolgan misollarni yaratish":"20 ta misol yaratish"}</button>}
