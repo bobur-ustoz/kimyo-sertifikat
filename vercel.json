@@ -10,12 +10,12 @@
   ],
   "crons": [
     {
-      "path": "/api/keepalive",
-      "schedule": "0 6 * * *"
-    },
-    {
       "path": "/api/keepalive?job=nazorat",
       "schedule": "0 4 * * *"
+    },
+    {
+      "path": "/api/keepalive?job=yangilik",
+      "schedule": "0 15 * * *"
     }
   ]
 }

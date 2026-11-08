@@ -8,6 +8,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { tg } from "./_telegram.js";
 import { runNazorat } from "./_nazorat.js";
+import { runYangilik } from "./_yangilik.js";
 
 // ?job=nazorat (second cron): the daily "who to contact" report for the teacher; it shares this
 // function because the Hobby plan caps how many functions the project may have.
@@ -28,6 +29,24 @@ async function nazorat(res) {
   }
 }
 
+// ?job=yangilik (third cron): one digest a day to Premium students who linked Telegram.
+// ?sinov=1 only returns the text that would be sent and records nothing.
+async function yangilik(req, res) {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const botToken = process.env.SOTUV_BOT_TOKEN;
+  if (!serviceKey || !botToken) return res.status(503).json({ error: "Yangilik sozlanmagan" });
+  const db = createClient(process.env.VITE_SUPABASE_URL, serviceKey, { auth: { persistSession: false } });
+  const site = process.env.SITE_URL || "https://kimyo-sertifikat.vercel.app";
+  try {
+    const send = (chat_id, text, btn) => tg("sendMessage", { chat_id, text, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: { inline_keyboard: [[btn]] } }, { token: botToken });
+    const r = await runYangilik(db, send, site, { dryRun: !!req.query?.sinov });
+    return res.status(200).json({ ok: true, ...r });
+  } catch (e) {
+    console.error("yangilik failed:", e.message);
+    return res.status(500).json({ ok: false, error: e.message });
+  }
+}
+
 export default async function handler(req, res) {
   // Vercel signs its own cron calls; if a secret is configured, require it.
   const secret = process.env.CRON_SECRET;
@@ -36,6 +55,7 @@ export default async function handler(req, res) {
   }
 
   if (req.query?.job === "nazorat") return nazorat(res);
+  if (req.query?.job === "yangilik") return yangilik(req, res);
 
   const url = process.env.VITE_SUPABASE_URL;
   const key = process.env.VITE_SUPABASE_ANON_KEY;

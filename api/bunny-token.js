@@ -20,11 +20,13 @@ export default async function handler(req, res) {
 
   // Topic lessons (Mavzular): the lesson video is open to everyone; the 20 example videos,
   // AI and analog are Premium.
-  const [{ data: topicHit }, { data: exampleHit }] = await Promise.all([
+  const [{ data: topicHit }, { data: exampleHit }, { data: materialHit }] = await Promise.all([
     anon.from("topics").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
     anon.from("topic_examples").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
+    anon.from("topic_materials").select("id").eq("bunny_video_id", videoId).limit(1).maybeSingle(),
   ]);
-  if (topicHit) return res.status(200).json(signToken(videoId));
+  // Topic materials (3D visuals) are open like the lesson itself.
+  if (topicHit || materialHit) return res.status(200).json(signToken(videoId));
   if (exampleHit) {
     const jwt = (req.headers.authorization || "").replace(/^Bearer\s+/i, "");
     const premiumOnly = { locked: true, error: "Misollar videosi Premium rejada." };

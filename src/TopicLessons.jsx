@@ -245,16 +245,29 @@ function Analog({ex,topicName,onPdf}){
 function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
   const [examples,setExamples]=useState([]);
   const [active,setActive]=useState(null); // example_number, null = topic video
+  const [materials,setMaterials]=useState([]);
+  const [mat,setMat]=useState(null);         // a video material shown in the main player
   const [time,setTime]=useState(0);
   const playerRef=useRef(null);
-  useEffect(()=>{ setTime(0); },[active]);
+  useEffect(()=>{ setTime(0); },[active,mat]);
   useEffect(()=>{
-    setActive(null);
-    supabase.from("topic_examples").select("id,example_number,bunny_video_id,analog_savol,analog_yechim,analog_javob").eq("topic_id",topic.id).order("example_number")
+    setActive(null); setMat(null);
+    supabase.from("topic_materials").select("id,kind,title,bunny_video_id,file_url").eq("topic_id",topic.id).order("sort_order")
+      .then(({data})=>setMaterials(data||[]));
+    supabase.from("topic_examples").select("id,example_number,bunny_video_id").eq("topic_id",topic.id).order("example_number")
       .then(({data})=>setExamples(data||[]));
   },[topic.id]);
-  const ex = examples.find(e=>e.example_number===active);
-  const exLocked = !!ex && plan==="free";   // example videos are Premium; the topic lesson stays open
+  const exBase = examples.find(e=>e.example_number===active);
+  // The analog text sits in its own table that only paid plans can read.
+  const [analogs,setAnalogs]=useState({});
+  useEffect(()=>{
+    if(!exBase||plan==="free"||analogs[exBase.id]!==undefined) return;
+    supabase.from("topic_example_analogs").select("analog_savol,analog_yechim,analog_javob").eq("example_id",exBase.id).maybeSingle()
+      .then(({data})=>setAnalogs(a=>({...a,[exBase.id]:data||null})));
+  },[exBase?.id,plan]);
+  const ex = exBase ? {...exBase,...(analogs[exBase.id]||{})} : undefined;
+  const matVideo = materials.find(m=>m.id===mat);
+  const exLocked = !!ex && !matVideo && plan==="free";   // example videos are Premium; the topic lesson stays open
   const readyN=examples.filter(e=>e.bunny_video_id).length;
   return (
     <div className="video-layout" style={{display:"flex",gap:0,height:"100%",overflow:"hidden"}}>
@@ -262,7 +275,7 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
         <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:13,fontSize:12.5,color:C.textMid,flexWrap:"wrap"}}>
           <button onClick={onBack} style={{background:"none",border:"none",cursor:"pointer",color:C.accent,fontWeight:600,fontFamily:"inherit",fontSize:12.5,padding:0}}>Mavzular</button>
           <ChevronRight size={13}/><span style={{color:C.primary,fontWeight:700}}>{topic.name}</span>
-          <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{ex?`${ex.example_number}-Misol`:"Mavzu darsi"}</span>
+          <ChevronRight size={13}/><span style={{color:C.text,fontWeight:700}}>{matVideo?matVideo.title:ex?`${ex.example_number}-Misol`:"Mavzu darsi"}</span>
         </div>
         {exLocked ? (
           <div style={{position:"relative",paddingTop:"56.25%",background:"radial-gradient(ellipse at center,#0d2040 0%,#060c17 100%)",borderRadius:14,overflow:"hidden"}}>
@@ -274,10 +287,10 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
             </div>
           </div>
         ) : (
-          <VideoBox Player={Player} session={session} videoId={ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
+          <VideoBox key={matVideo?.id||"main"} Player={Player} session={session} videoId={matVideo?matVideo.bunny_video_id:ex?ex.bunny_video_id:topic.bunny_video_id} onTime={sec=>setTime(Math.floor(sec))} playerRef={playerRef}/>
         )}
         <div style={{display:"flex",flexDirection:"column",gap:14,marginTop:14}}>
-          {!exLocked&&<AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>}
+          {!exLocked&&!matVideo&&<AskAI session={session} setTab={setTab} time={time} playerRef={playerRef} target={ex?{exampleId:ex.id}:{topicId:topic.id}}/>}
           <div style={{background:C.mintBg,border:`1px solid ${C.borderGreen}`,borderRadius:12,padding:"12px 14px",display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
             <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>Mavzu: <b style={{color:C.primary}}>{topic.name}</b></span>
             <span style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,padding:"5px 12px",fontSize:12,color:C.textMid}}>{ex?<>Misol: <b style={{color:C.primary}}>{ex.example_number}-misol</b></>:<>Turi: <b style={{color:C.primary}}>Mavzu darsi</b></>}</span>
@@ -289,8 +302,8 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
       <div className="video-sidebar" style={{width:250,borderLeft:`1px solid ${C.border}`,background:"#fff",overflowY:"auto",flexShrink:0,padding:"14px 11px"}}>
         <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",marginBottom:4,padding:"0 4px"}}>Mavzu · Misollar</div>
         <div style={{fontSize:11,color:C.textMid,marginBottom:10,padding:"0 4px"}}>{examples.length?`${readyN}/${examples.length} video tayyor`:"Misollar tez orada qo'shiladi"}</div>
-        {[{key:"lesson",num:null,label:"Mavzu darsi",sub:"Nazariy video",ready:!!topic.bunny_video_id,on:active===null,go:()=>setActive(null)},
-          ...examples.map(e=>({key:e.id,num:e.example_number,label:`${e.example_number}-Misol`,sub:e.analog_savol?"Video tahlil + analog":"Video tahlil",ready:!!e.bunny_video_id,on:active===e.example_number,go:()=>setActive(e.example_number)}))
+        {[{key:"lesson",num:null,label:"Mavzu darsi",sub:"Nazariy video",ready:!!topic.bunny_video_id,on:active===null&&!mat,go:()=>{setActive(null);setMat(null);}},
+          ...examples.map(e=>({key:e.id,num:e.example_number,label:`${e.example_number}-Misol`,sub:"Video tahlil + analog",ready:!!e.bunny_video_id,on:active===e.example_number&&!mat,go:()=>{setActive(e.example_number);setMat(null);}}))
         ].map(it=>(
           <button key={it.key} onClick={it.go} disabled={!it.ready}
             style={{width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:it.on?C.primary:"transparent",border:it.on?"none":`1px solid ${it.ready?"#BBF7D0":C.border}`,cursor:it.ready?"pointer":"default",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,opacity:it.ready?1:0.55}}>
@@ -304,6 +317,21 @@ function TopicPage({topic,Player,session,setTab,onBack,plan,onPdf}){
             {it.on&&<div style={{width:6,height:6,borderRadius:"50%",background:C.mint,flexShrink:0,boxShadow:"0 0 0 3px rgba(110,231,183,0.3)"}}/>}
           </button>
         ))}
+        {materials.length>0&&<>
+          <div style={{fontSize:10,fontWeight:800,color:C.textLight,textTransform:"uppercase",letterSpacing:"0.09em",margin:"14px 0 6px",padding:"0 4px"}}>Materiallar</div>
+          {materials.map(m=>{
+            const on=mat===m.id, style={width:"100%",padding:"7px 9px",borderRadius:8,marginBottom:3,background:on?C.primary:"transparent",border:on?"none":"1px solid #BBF7D0",cursor:"pointer",textAlign:"left",fontFamily:"inherit",display:"flex",alignItems:"center",gap:7,textDecoration:"none",boxSizing:"border-box"};
+            const body=<>
+              <div style={{width:22,height:22,borderRadius:"50%",flexShrink:0,background:on?"rgba(255,255,255,0.18)":C.mintBg,display:"flex",alignItems:"center",justifyContent:"center",color:on?C.mint:C.primary}}>{m.kind==="pdf"?<Download size={10}/>:<Play size={9} fill="currentColor"/>}</div>
+              <div style={{minWidth:0,flex:1}}>
+                <div style={{fontSize:10.5,fontWeight:700,color:on?"#fff":C.text,lineHeight:1.3}}>{m.title}</div>
+                <div style={{fontSize:9,color:on?"#BBD3FF":C.textLight}}>{m.kind==="pdf"?"PDF yuklab olish":"Vizual video"}</div>
+              </div></>;
+            return m.kind==="pdf"
+              ? <a key={m.id} href={m.file_url} target="_blank" rel="noopener noreferrer" style={style}>{body}</a>
+              : <button key={m.id} onClick={()=>setMat(m.id)} style={style}>{body}</button>;
+          })}
+        </>}
       </div>
     </div>
   );
