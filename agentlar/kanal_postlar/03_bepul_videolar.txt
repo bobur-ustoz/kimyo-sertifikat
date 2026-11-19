@@ -1,0 +1,7 @@
+<b>Kimyoni noldan boshlamoqchimisiz?</b>
+
+Hozir saytda mavzu videolarining hammasi ochiq, to'lamasdan ko'rishingiz mumkin 🆓
+
+1️⃣ Saytga kiring: <a href="https://kimyo-sertifikat.vercel.app">nooracademy</a>
+2️⃣ "Mavzular" bo'limini oching
+3️⃣ Qaysi videodan boshlashni bilmasangiz, botga yozing
