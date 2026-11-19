@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseFinishToken, finishToken } from "../api/_tgauth.js";
-import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText, LINK_ALREADY, LOGIN_USED_LINKED } from "../api/_sotuv.js";
+import { handleUpdate, parseTags, toChat, tashkentDay, DAILY_LIMIT, HANDOFF_HOURS, SYSTEM, LINKED_TEXT, LINKED_NOTE, mavzularNote, LOGIN_DONE, PHONE_TEXT_LOGIN, PHONE_TEXT_NOLOGIN, isPhoneText, LINK_ALREADY, LOGIN_USED_LINKED } from "../api/_sotuv.js";
 
 // Xotiradagi soxta baza, Telegram, Claude va ustoz xabari.
 function setup(reply = "Salom, yordam beraman.") {
@@ -451,4 +451,33 @@ test("umumiy navbat: ustozga uzatish 'savol', AI xatosi 'xato' bo'lib yoziladi; 
   n.deps.log = async (y) => { nlogs.push(y); };
   await n.say("salom");
   assert.equal(nlogs.length, 0);                    // oddiy suhbat navbatga yozilmaydi
+});
+
+test("mavzular ro'yxati: bazadan olinib tizim ko'rsatmasiga qo'shiladi; olinmasa qo'shilmaydi va bot ishlayveradi", async () => {
+  assert.equal(mavzularNote(["Proporsiya", "Alkanlar"]), "\n\nHOZIR PLATFORMADA BOR MAVZU DARSLARI (videosi yuklangan, tartib bilan): Proporsiya; Alkanlar.");
+  for (const bosh of [null, undefined, [], "Alkanlar"]) assert.equal(mavzularNote(bosh), "");
+
+  const t = setup("Organikadan hozir Alkanlar va Sikloalkanlar darsi bor.");
+  t.deps.store.topics = async () => ["Proporsiya", "Alkanlar", "Sikloalkanlar"];
+  await t.say("organikadan qaysi mavzular bor?");
+  assert.match(t.asked[0].system, /HOZIR PLATFORMADA BOR MAVZU DARSLARI[^\n]*Proporsiya; Alkanlar; Sikloalkanlar\.$/);
+
+  const x = setup("Mavzular bo'limida ko'rasiz.");
+  x.deps.store.topics = async () => { throw new Error("baza uzildi"); };
+  await x.say("qaysi mavzular bor?");
+  assert.doesNotMatch(x.asked[0].system, /videosi yuklangan, tartib bilan/);
+  assert.equal(x.sent.at(-1).text, "Mavzular bo'limida ko'rasiz.");
+
+  const y = setup("Salom.");                        // store.topics umuman yo'q (eski store)
+  await y.say("salom");
+  assert.doesNotMatch(y.asked[0].system, /videosi yuklangan, tartib bilan/);
+});
+
+test("bilim hujjati: muloqot tamoyillari kiritilgan, bosimli usullar taqiqlangan", () => {
+  for (const kerak of [/Muloqot tamoyillari/, /Natijani ayting, xususiyatni emas/, /Aynan qaysi tomoni qimmat tuyuldi\?/, /Sizni aynan nima ikkilantiryapti/, /Bitta javobda ko'pi bilan bitta savol/, /Suhbatni ochiq qoldirmang/, /HOZIR PLATFORMADA BOR MAVZU DARSLARI/])
+    assert.match(SYSTEM, kerak);
+  assert.match(SYSTEM, /Bahslashish, uyaltirish, "olmasangiz yutqazasiz" deb xavotirni kuchaytirish/);
+  assert.match(SYSTEM, /Natija yoki ball kafolati/);
+  assert.match(SYSTEM, /Rad etgan yoki javob bermagan odamdan sababini qayta so'rash/);
+  assert.doesNotMatch(SYSTEM, /Qaysi mavzu video borligini bilmasa, nom keltirmaydi/);      // eski qoida almashtirilgan
 });

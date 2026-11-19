@@ -30,7 +30,7 @@ Platformada kuzatuv bor:
 • Ustoz admin panelda o'quvchi qaysi videoni qancha ko'rganini ko'radi.
 
 Ota-onaga alohida hisobot yuborilmaydi, lekin ular o'quvchi bilan panelni birga ko'ra oladi.
-Imkon bo'lsa oxirida bitta aniq savol bering, alohida abzasda. "Siz" deb murojaat qiling.
+Har javob oxirida bitta aniq keyingi qadam yoki bitta aniq savol bo'lsin, alohida abzasda. Bitta xabarda ko'pi bilan bitta savol. Ikki marta aniqlashtirgandan keyin savol bermang: aniq darsni yoki rejani tavsiya qiling. "Siz" deb murojaat qiling.
 Karta raqamini o'zingiz yozmang: to'lov uchun ${SITE_URL} saytiga yo'naltiring.
 Majburlamang, shoshirmang. Taklifni bir marta ayting. Rad etilsa rahmat deng.
 Kerak bo'lganda javob OXIRIGA alohida belgi qo'shing (foydalanuvchiga ko'rinmaydi):
@@ -70,6 +70,13 @@ Bir necha kun platformaga kirmasangiz, shu yerda muloyim eslatma yuboraman. Savo
 Eslatmalarni to'xtatish uchun /stop deb yozing.`;
 
 // Ulangan o'quvchi uchun AI ga qo'shimcha: u allaqachon platformada, sotish emas, yordam muhim.
+// Platformadagi videoli mavzu darslari ro'yxati: bot "qaysi mavzular bor?" degan savolga aniq javob berishi uchun
+// har so'rovda bazadan olinadi (bilim hujjatiga qo'lda yozilsa eskirib qoladi). Ro'yxat olinmasa hech narsa qo'shilmaydi
+// va bot hujjatdagi qoida bo'yicha "Mavzular bo'limida ko'rasiz" deydi.
+export const mavzularNote = (names) => Array.isArray(names) && names.length
+  ? `\n\nHOZIR PLATFORMADA BOR MAVZU DARSLARI (videosi yuklangan, tartib bilan): ${names.slice(0, 80).join("; ")}.`
+  : "";
+
 export const LINKED_NOTE = "\n\nESLATMA: bu odam saytda hisob ochgan va Telegramni ulagan o'quvchi (pullik bo'lishi mumkin). Sotishga emas, yordam berishga va o'qishni davom ettirishiga e'tibor bering.";
 
 export const LOGIN_ASK = `Saytga kirish uchun telefon raqamingizni tasdiqlang. Pastdagi "📱 Raqamni ulashish" tugmasini bosing.
@@ -290,7 +297,7 @@ export async function handleUpdate(update, { store, send, ask, notify, log = noL
 
   let raw;
   try {
-    raw = await ask(lead.linked_user_id ? SYSTEM + LINKED_NOTE : SYSTEM, toChat(await store.history(id, HISTORY)));
+    raw = await ask((lead.linked_user_id ? SYSTEM + LINKED_NOTE : SYSTEM) + mavzularNote(await store.topics?.().catch(() => null)), toChat(await store.history(id, HISTORY)));
   } catch (e) {
     console.error("sotuv ask failed:", e.message);
     await notify(adminCard(lead, "⚠️ <b>Sotuv boti: AI javob bera olmadi</b>", [escapeHtml(text.slice(0, 300))]));
@@ -366,6 +373,10 @@ export function supabaseStore(db) {
       await db.from("sotuv_leads").update({ linked_user_id: userId, remind: true }).eq("tg_id", tgId);
     },
     async addMessage(id, role, content) { await db.from("sotuv_messages").insert({ tg_id: id, role, content }); },
+    async topics() {
+      const { data, error } = await db.from("topics").select("name, sort_order").not("bunny_video_id", "is", null).order("sort_order");
+      return error ? null : (data || []).map((t) => t.name);
+    },
     async history(id, n) {
       const { data } = await db.from("sotuv_messages").select("role, content").eq("tg_id", id).order("id", { ascending: false }).limit(n);
       return (data || []).reverse();
