@@ -42,6 +42,9 @@
   .raqamlar strong { display: block; font-family: "DIN Condensed", sans-serif; font-size: 27px; color: var(--oq); }
   .tugma { display: flex; gap: 8px; } .tugma button, .kab .yop { border: 0; border-radius: 14px; padding: 11px 10px; font: 700 13px "Avenir Next", Arial, sans-serif; cursor: pointer; }
   .asosiy { flex: 1; background: var(--sariq); color: #061247; } .ikkinchi { background: rgba(255, 255, 255, .11); color: var(--oq); flex: 0 0 84px; }
+  .korinish { position: fixed; right: 22px; top: 70px; z-index: 5; display: flex; gap: 6px; }
+  .korinish button { border: 1px solid var(--chegara); background: var(--panel); color: var(--oq); border-radius: 12px; padding: 8px 12px; font: 700 12px "Avenir Next", Arial, sans-serif; cursor: pointer; backdrop-filter: blur(8px); }
+  .korinish button.tanlangan { background: var(--sariq); color: #061247; border-color: var(--sariq); }
   .dok { position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; gap: 7px; padding: 12px 18px 14px; overflow-x: auto; background: linear-gradient(180deg, rgba(6, 10, 28, 0), rgba(6, 10, 28, .92) 45%); scrollbar-width: none; }
   .dok::-webkit-scrollbar { display: none; }
   .dok button { flex: none; border: 1px solid var(--chegara); background: var(--panel); color: var(--oq); border-radius: 18px; padding: 8px 13px 8px 10px; font: 700 12px "Avenir Next", Arial, sans-serif; cursor: pointer; white-space: nowrap; }
@@ -66,7 +69,7 @@
   .kab .bosh { color: var(--xira); font-size: 12.5px; }
   .xabar { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 9; color: var(--xira); font-size: 14px; text-align: center; line-height: 1.6; }
   .ogoh { position: fixed; left: 22px; top: 118px; z-index: 4; font-size: 12px; color: #ffb3ba; max-width: 420px; }
-  @media (max-width: 760px) { .kut { left: 14px; right: 14px; top: 104px; width: auto; } .karta { left: 12px; right: 12px; width: auto; bottom: 62px; } .ust h1 { font-size: 34px; } }
+  @media (max-width: 760px) { .korinish { left: 14px; right: auto; top: 158px; } .kut { left: 14px; right: 14px; top: 104px; width: auto; } .karta { left: 12px; right: 12px; width: auto; bottom: 62px; } .ust h1 { font-size: 34px; } }
 </style>
 </head>
 <body>
@@ -74,6 +77,7 @@
 <div class="ogoh" id="ogoh"></div>
 <div class="karta" id="karta"></div>
 <div class="kut" id="kut"><button id="kutTugma">Sizdan kutilmoqda <b id="kutSoni">0</b></button><ul id="kutRoyxat"></ul></div>
+<div class="korinish" id="korinish"><button data-k="3d" class="tanlangan">3D</button><button data-k="tepa">Tepadan</button><button data-k="yon">Yondan</button><button data-k="aylan">Aylantir</button></div>
 <div class="dok" id="dok"></div>
 <aside class="kab" id="kab"></aside>
 <div class="xabar" id="xabar">Ofis yuklanmoqda...</div>
@@ -122,10 +126,12 @@ renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadow
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
 document.body.prepend(renderer.domElement);
 const scene = new THREE.Scene(); scene.fog = new THREE.Fog(0x060a1c, 90, 220);
-const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 500);
+const camera = new THREE.PerspectiveCamera(36, innerWidth / innerHeight, 0.1, 600);
+const FK = 0.84;                                     // ko'rish burchagi kengaygani uchun masofalar shuncha qisqaradi
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; controls.screenSpacePanning = false; controls.minDistance = 7; controls.maxDistance = 160;
-controls.minPolarAngle = 0.45; controls.maxPolarAngle = 1.3; controls.minAzimuthAngle = 0.15; controls.maxAzimuthAngle = 1.42;
+// Erkin kamera: har tomondan aylantirish, tepadan to'g'ri qarash, deyarli yer sathigacha tushish.
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.screenSpacePanning = false; controls.minDistance = 6; controls.maxDistance = 170;
+controls.minPolarAngle = 0.02; controls.maxPolarAngle = 1.46; controls.autoRotateSpeed = 0.9; controls.zoomToCursor = true;
 
 scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a2a70, 1.3));
 const quyosh = new THREE.DirectionalLight(0xffffff, 2.0); quyosh.position.set(18, 30, 12); quyosh.castShadow = true;
@@ -153,8 +159,8 @@ function tekis(w, h, tex, x, y, z, p, ry = 0, shaffof = false) {
 const suzuvchi = [], aylanuvchi = [], miltillovchi = [], robotlar = [];
 
 // zamin
-const yer = new THREE.Mesh(new THREE.CircleGeometry(180, 64), new THREE.MeshStandardMaterial({ color: 0x070c24, roughness: 1 })); yer.rotation.x = -Math.PI / 2; yer.position.y = -0.62; yer.receiveShadow = true; scene.add(yer);
-const katak = new THREE.GridHelper(300, 150, 0x1b2b6e, 0x101a48); katak.position.y = -0.61; katak.material.transparent = true; katak.material.opacity = 0.45; scene.add(katak);
+const yer = new THREE.Mesh(new THREE.CircleGeometry(180, 64), new THREE.MeshStandardMaterial({ color: 0x070c24, roughness: 1 })); yer.rotation.x = -Math.PI / 2; yer.position.y = -1.72; yer.receiveShadow = true; scene.add(yer);
+const katak = new THREE.GridHelper(300, 150, 0x1b2b6e, 0x101a48); katak.position.y = -1.71; katak.material.transparent = true; katak.material.opacity = 0.45; scene.add(katak);
 const QADAM = 7.5, S = 6.4;
 const YOLAK = 3.0;                                   // bo'limlar orasidagi yo'lak kengligi
 
@@ -303,10 +309,13 @@ agentlar.forEach((a, i) => {
   const p = new THREE.Group(); p.position.set(cx, 0, cz); scene.add(p);
   const pol = quti(S, 0.1, S, mat(yoq ? 0x9aa3c7 : 0xe9eefc, { roughness: 0.8 }), 0, -0.05, 0, p, 0.04); pol.userData.agent = a.id; bosiladigan.push(pol);
   const dv = mat(yoq ? 0x2a3566 : 0x2140c4, { roughness: 0.85 });
-  quti(S + 0.3, 2.7, 0.24, dv, 0, 1.25, -S / 2 - 0.03, p, 0.07); quti(0.24, 2.7, S + 0.3, dv, -S / 2 - 0.03, 1.25, 0, p, 0.07);
+  // Devorlar ikki guruhda: kamera devorning orqa tomoniga o'tsa baland devor yashirinadi, past to'siq qoladi (xona ichi doim ko'rinadi).
+  const orqa = new THREE.Group(), chap = new THREE.Group(); p.add(orqa, chap);
+  quti(S + 0.3, 2.7, 0.24, dv, 0, 1.25, -S / 2 - 0.03, orqa, 0.07); quti(0.24, 2.7, S + 0.3, dv, -S / 2 - 0.03, 1.25, 0, chap, 0.07);
+  quti(S + 0.3, 0.5, 0.24, dv, 0, 0.15, -S / 2 - 0.03, p, 0.07); quti(0.24, 0.5, S + 0.3, dv, -S / 2 - 0.03, 0.15, 0, p, 0.07);
   const chiz = yoq ? mat(0x5d6b9c) : nur(rang, 1.5);
-  quti(S + 0.34, 0.09, 0.28, chiz, 0, 2.63, -S / 2 - 0.03, p, 0.04); quti(0.28, 0.09, S + 0.34, chiz, -S / 2 - 0.03, 2.63, 0, p, 0.04);
-  tekis(3.2, 0.58, tasvir(640, 116, (x) => { x.font = "700 74px 'DIN Condensed', 'Arial Narrow', sans-serif"; x.textAlign = "center"; x.fillStyle = yoq ? "#7c86ac" : "#ffffff"; x.fillText(a.nom.toUpperCase(), 320, 84, 620); }), 1.2, 2.18, -S / 2 + 0.11, p, 0, true);
+  quti(S + 0.34, 0.09, 0.28, chiz, 0, 2.63, -S / 2 - 0.03, orqa, 0.04); quti(0.28, 0.09, S + 0.34, chiz, -S / 2 - 0.03, 2.63, 0, chap, 0.04);
+  tekis(3.2, 0.58, tasvir(640, 116, (x) => { x.font = "700 74px 'DIN Condensed', 'Arial Narrow', sans-serif"; x.textAlign = "center"; x.fillStyle = yoq ? "#7c86ac" : "#ffffff"; x.fillText(a.nom.toUpperCase(), 320, 84, 620); }), 1.2, 2.18, -S / 2 + 0.11, orqa, 0, true);
   quti(2.6, 0.1, 1.15, mat(0xffffff, { roughness: 0.35 }), -0.9, 0.9, -2.3, p, 0.04); [[-2.05, -2.75], [0.25, -2.75], [-2.05, -1.85], [0.25, -1.85]].forEach(([x, z]) => quti(0.1, 0.86, 0.1, mat(0x0b1030), x, 0.45, z, p, 0.02));
   quti(1.5, 0.92, 0.07, mat(0x0b1030), -1.0, 1.6, -2.72, p, 0.03); sil(0.04, 0.04, 0.3, mat(0x0b1030), -1.0, 1.07, -2.74, p); sil(0.24, 0.27, 0.04, mat(0x0b1030), -1.0, 0.96, -2.72, p);
   const ek = new THREE.Mesh(geo("ekran", () => new THREE.PlaneGeometry(1.38, 0.8)), yoq ? mat(0x1a2350) : nur(a.belgi === "xato" ? 0xff4d5e : 0x1f49d8, 0.9)); ek.position.set(-1.0, 1.6, -2.68); p.add(ek);
@@ -316,10 +325,11 @@ agentlar.forEach((a, i) => {
   tor(1.5, 0.03, yoq ? mat(0x5d6b9c) : nur(rang, 1.4), 0.55, 0.04, -0.35, p).rotation.x = Math.PI / 2;
   sil(0.28, 0.21, 0.42, mat(0xf2f5ff), 2.5, 0.21, -2.5, p); [[0, 0.82, 0, 0.38], [0.22, 0.64, 0.1, 0.28], [-0.2, 0.68, -0.08, 0.3], [0.04, 1.14, 0.04, 0.25]].forEach(([x, y, z, r]) => shar(r, mat(yoq ? 0x6f7fa8 : 0x35c97a, { roughness: 0.8 }), 2.5 + x, y, -2.5 + z, p));
   (BUYUM[a.buyum] || (() => {}))(p, rang);
+  for (const c of [...p.children]) if (c.geometry?.type === "PlaneGeometry" && Math.abs(c.position.x - D_X) < 1e-6) chap.add(c);   // chap devordagi doskalar devor bilan birga yashirinadi
   const r = robot(p, rang, yoq); if (a.buyum === "toj") toj(r);
   r.ishchan = a.belgi === "ishlayapti" || a.belgi === "faol"; r.g.traverse((m) => { if (m.isMesh) { m.userData.agent = a.id; bosiladigan.push(m); } });
   const y = document.createElement("div"); y.className = `yorliq b-${a.belgi}`; y.innerHTML = `<i></i>${esc(a.nom)}`; y.onclick = () => tanla(a.id); document.body.appendChild(y);
-  xonalar.set(a.id, { a, cx, cz, r, y });
+  xonalar.set(a.id, { a, cx, cz, r, y, orqa, chap });
 });
 
 // ---------- bo'lim maydonchalari va nomlari
@@ -327,20 +337,49 @@ const bolimlar = new Map();
 for (const x of xonalar.values()) { const b = bolimlar.get(x.a.guruh) || { nom: x.a.guruh, x0: 1e9, x1: -1e9, z0: 1e9, z1: -1e9, soni: 0 }; b.x0 = Math.min(b.x0, x.cx); b.x1 = Math.max(b.x1, x.cx); b.z0 = Math.min(b.z0, x.cz); b.z1 = Math.max(b.z1, x.cz); b.soni++; bolimlar.set(x.a.guruh, b); }
 for (const b of bolimlar.values()) {
   const rang = GURUH[b.nom] ?? 0xffd633, w = b.x1 - b.x0 + S + 1.3, d = b.z1 - b.z0 + S + 1.3; b.cx = (b.x0 + b.x1) / 2; b.cz = (b.z0 + b.z1) / 2; b.olcham = Math.max(w, d);
-  quti(w, 0.5, d, mat(0x0b1650), b.cx, -0.36, b.cz, scene, 0.2);
-  quti(w + 0.1, 0.09, 0.09, nur(rang, 1.8), b.cx, -0.12, b.cz + d / 2 + 0.02, scene, 0.03); quti(0.09, 0.09, d + 0.1, nur(rang, 1.8), b.cx + w / 2 + 0.02, -0.12, b.cz, scene, 0.03);
+  quti(w, 1.5, d, mat(0x0b1650), b.cx, -0.86, b.cz, scene, 0.22);                                   // baland maydoncha: yerdan ko'tarilgan
+  quti(w - 0.5, 0.14, d - 0.5, mat(0x081040), b.cx, -1.64, b.cz, scene, 0.05);
+  const ost = new THREE.Mesh(new THREE.PlaneGeometry(w + 2.6, d + 2.6), new THREE.MeshBasicMaterial({ color: rang, transparent: true, opacity: 0.16, depthWrite: false })); ost.rotation.x = -Math.PI / 2; ost.position.set(b.cx, -1.7, b.cz); scene.add(ost);   // ostidan bo'lim rangidagi yorug'lik
+  for (const s2 of [1, -1]) { quti(w + 0.1, 0.09, 0.09, nur(rang, 1.8), b.cx, -0.12, b.cz + s2 * (d / 2 + 0.02), scene, 0.03); quti(0.09, 0.09, d + 0.1, nur(rang, 1.8), b.cx + s2 * (w / 2 + 0.02), -0.12, b.cz, scene, 0.03); }
   const y = document.createElement("div"); y.className = "bolim"; y.style.background = "#" + rang.toString(16).padStart(6, "0");
   y.innerHTML = `${esc(b.nom)} bo'limi <small>${b.soni} agent</small>`; y.onclick = () => bolimga(b.nom); document.body.appendChild(y); b.y = y; b.d = d;
 }
 
+// ---------- markaziy mayoq: yo'laklar kesishgan joyda aylanib turadigan brend belgisi
+{
+  const mx = (joyi(1, 2)[0] + joyi(2, 2)[0]) / 2, mz = (joyi(0, 1)[1] + joyi(0, 2)[1]) / 2, g = new THREE.Group(); g.position.set(mx, -1.7, mz); scene.add(g);
+  sil(0.9, 1.1, 0.5, mat(0x0b1650), 0, 0.25, 0, g, 32); tor(0.95, 0.05, nur(0xffd633, 2), 0, 0.52, 0, g).rotation.x = Math.PI / 2;
+  const kolba = new THREE.Group(); kolba.position.y = 2.3; g.add(kolba);                              // kimyo kolbasi
+  const shisha = new THREE.MeshStandardMaterial({ color: 0xcfe0ff, transparent: true, opacity: 0.32, roughness: 0.05, metalness: 0.2 });
+  konus(0.9, 1.4, shisha, 0, 0, 0, kolba, 32); sil(0.22, 0.22, 0.8, shisha, 0, 1.05, 0, kolba, 24); tor(0.24, 0.05, mat(0xf2f5ff), 0, 1.45, 0, kolba).rotation.x = Math.PI / 2;
+  konus(0.74, 0.8, nur(0xffd633, 1.5), 0, -0.28, 0, kolba, 32); [[0.2, 0.5, 0.1, 0.09], [-0.15, 0.85, -0.1, 0.07], [0.05, 1.3, 0.12, 0.06]].forEach(([x, y, z, r], i) => { const p = shar(r, nur(0xffd633, 2), x, y, z, kolba); suzuvchi.push([p, y, 0.12, 2 + i]); });
+  aylanuvchi.push([kolba, "y", 0.5]); suzuvchi.push([kolba, 2.3, 0.18, 1.1]);
+  const halqa = tor(1.5, 0.03, nur(0x2459f0, 2.2), 0, 1.9, 0, g); halqa.rotation.x = Math.PI / 2; aylanuvchi.push([halqa, "z", 0.8]);
+  const nur1 = new THREE.PointLight(0xffd633, 40, 16); nur1.position.set(0, 2.6, 0); g.add(nur1);
+}
+
 // ================= kamera =================
 const UZOQ = { p: new THREE.Vector3(), t: new THREE.Vector3() }; let nishon = null, tanlangan = null;
-function umumiy() { const a = innerWidth / innerHeight, k = (a < 1 ? Math.min(3.8, 1.42 / a) : Math.max(1, 1.75 / a)) * 1.08; UZOQ.t.set(a < 1 ? 1.5 : 0.3, 0, a < 1 ? 1.5 : 0.3); UZOQ.p.set(31, 30, 31).multiplyScalar(k).add(UZOQ.t); }
-function yaqin(x) { const tor = innerWidth / innerHeight < 1, t = new THREE.Vector3(x.cx + (tor ? 0.2 : 1.0), tor ? -0.9 : 0.7, x.cz + (tor ? 0.6 : 0.4)); return { t, p: t.clone().add(tor ? new THREE.Vector3(10.4, 9.2, 10.4) : new THREE.Vector3(7.6, 6.4, 8.6)) }; }
-function bolimKamera(b) { const a = innerWidth / innerHeight, d = (8 + b.olcham * 0.95) * (a < 1 ? Math.min(2.4, 1.15 / a) : 1), t = new THREE.Vector3(b.cx + 0.3, 0, b.cz + (a < 1 ? 1.5 : 0.3)); return { t, p: t.clone().add(new THREE.Vector3(1, 0.95, 1).multiplyScalar(d)) }; }
+function umumiy() { const a = innerWidth / innerHeight, k = (a < 1 ? Math.min(3.8, 1.42 / a) : Math.max(1, 1.75 / a)) * 1.08; UZOQ.t.set(a < 1 ? 1.5 : 0.3, 0, a < 1 ? 1.5 : 0.3); UZOQ.p.set(31, 30, 31).multiplyScalar(k * FK).add(UZOQ.t); }
+function yaqin(x) { const tor = innerWidth / innerHeight < 1, t = new THREE.Vector3(x.cx + (tor ? 0.2 : 1.0), tor ? -0.9 : 0.7, x.cz + (tor ? 0.6 : 0.4)); return { t, p: t.clone().add(tor ? new THREE.Vector3(10.4, 9.2, 10.4) : new THREE.Vector3(7.6, 6.4, 8.6)).multiplyScalar(FK) }; }
+function bolimKamera(b) { const a = innerWidth / innerHeight, d = (8 + b.olcham * 0.95) * FK * (a < 1 ? Math.min(2.4, 1.15 / a) : 1), t = new THREE.Vector3(b.cx + 0.3, 0, b.cz + (a < 1 ? 1.5 : 0.3)); return { t, p: t.clone().add(new THREE.Vector3(1, 0.95, 1).multiplyScalar(d)) }; }
 let tanlanganBolim = null;
 function bolimga(nom) { tanla(null); tanlanganBolim = nom; nishon = bolimKamera(bolimlar.get(nom)); document.querySelectorAll(".dok .g").forEach((g) => g.classList.toggle("tanlangan", g.dataset.bolim === nom)); document.querySelector(".dok .ofis").classList.remove("tanlangan"); }
 window.__bolimga = bolimga;
+// Ko'rinishlar: 3D (burchakdan), tepadan (reja kabi), yondan (past burchak), aylantir (o'zi sekin aylanadi).
+function korinish(k) {
+  if (k === "aylan") { controls.autoRotate = !controls.autoRotate; document.querySelector('.korinish [data-k="aylan"]').classList.toggle("tanlangan", controls.autoRotate); return; }
+  document.querySelectorAll(".korinish button:not([data-k=aylan])").forEach((b) => b.classList.toggle("tanlangan", b.dataset.k === k));
+  const t = tanlangan ? yaqin(xonalar.get(tanlangan)).t : tanlanganBolim ? bolimKamera(bolimlar.get(tanlanganBolim)).t : UZOQ.t.clone();
+  const asos = tanlangan ? yaqin(xonalar.get(tanlangan)) : tanlanganBolim ? bolimKamera(bolimlar.get(tanlanganBolim)) : UZOQ, d = asos.p.distanceTo(asos.t);
+  // Tepadan qaraganda xonalar to'g'ri turadi (reja kabi), shuning uchun kamera biroz uzoqroq va old tomondan.
+  const yon = k === "tepa" ? new THREE.Vector3(0, 1, 0.03) : k === "yon" ? new THREE.Vector3(1, 0.34, 1) : new THREE.Vector3(1, 0.95, 1);
+  nishon = { t, p: t.clone().add(yon.normalize().multiplyScalar(d * (k === "tepa" ? 1.16 : 1))) };
+}
+// Kamerani berilgan tomonga burish (tekshirish uchun): burchak gorizontal (radian), balandlik 0..1.
+window.__qara = (burchak, balandlik = 0.95) => { const d = UZOQ.p.distanceTo(UZOQ.t); nishon = { t: UZOQ.t.clone(), p: UZOQ.t.clone().add(new THREE.Vector3(Math.sin(burchak), balandlik, Math.cos(burchak)).normalize().multiplyScalar(d)) }; };
+window.__korinish = korinish;
+document.querySelectorAll(".korinish button").forEach((b) => (b.onclick = () => korinish(b.dataset.k)));
 umumiy(); camera.position.copy(UZOQ.p); controls.target.copy(UZOQ.t);
 controls.addEventListener("start", () => { nishon = null; });
 addEventListener("resize", () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); umumiy(); nishon = tanlangan ? yaqin(xonalar.get(tanlangan)) : tanlanganBolim ? bolimKamera(bolimlar.get(tanlanganBolim)) : UZOQ; });
@@ -416,6 +455,7 @@ function kadr() {
   const uzoq = camera.position.distanceTo(controls.target) > 26;
   document.body.classList.toggle("ixcham", uzoq && innerWidth < 760);        // tor ekranda uzoqdan faqat holat nuqtalari
   for (const x of xonalar.values()) {
+    x.orqa.visible = camera.position.z > x.cz - S / 2 - 0.4; x.chap.visible = camera.position.x > x.cx - S / 2 - 0.4;
     v.set(x.cx + 0.55, uzoq ? 3.4 : 2.75, x.cz - 0.35).project(camera);
     const korinadi = v.z < 1 && (!tanlangan || uzoq);
     x.y.style.display = korinadi ? "" : "none"; if (korinadi) { x.y.style.left = `${(v.x * 0.5 + 0.5) * innerWidth}px`; x.y.style.top = `${(-v.y * 0.5 + 0.5) * innerHeight}px`; }
