@@ -196,10 +196,23 @@ test("runMurabbiy: Telegram yubora olmasa vaqt belgilanmaydi va xato navbatga ko
   assert.deepEqual({ tur: t.logs[0].tur, kimga: t.logs[0].kimga }, { tur: "xato", kimga: "kod" });
 });
 
-test("runMurabbiy: pullik o'quvchi yo'q bo'lsa yoki xabar kerak bo'lmasa navbatga hech narsa yozilmaydi", async () => {
+test("runMurabbiy: hech kimga xabar ketmagan kuni ham hisobot yoziladi (ishlagani ko'rinsin)", async () => {
   const t = setup(baza({ profiles: [st({ id: "bepul", plan: "free" })] }));
   assert.deepEqual(await t.run(), { oquvchilar: 0, yuborildi: 0, xato: 0, turlar: {} });
-  assert.equal(t.logs.length, 0);
+  assert.equal(t.logs.length, 1);
+  assert.deepEqual({ tur: t.logs[0].tur, kalit: t.logs[0].kalit, royxat: t.logs[0].tafsilot.royxat }, { tur: "hisobot", kalit: "murabbiy:2026-11-19", royxat: [] });
+  assert.match(t.logs[0].sarlavha, /0 ta yuborildi \(0 ta o'quvchi ko'rildi\)/);
+});
+
+test("runMurabbiy: hisobotda har o'quvchi bo'yicha qaror bor (yuborildi, yetmadi yoki sababi)", async () => {
+  const t = setup(baza());
+  await t.run();
+  assert.deepEqual(t.logs[0].tafsilot.royxat, [
+    { id: "ali", ism: "Ali", tur: "davom", holat: "yuborildi" }, { id: "vali", ism: "Vali", tur: "davom", holat: "/stop qilgan" },
+    { id: "guli", ism: "Guli", tur: "davom", holat: "yaqinda xabar yuborilgan" }, { id: "sami", ism: "Sami", tur: "davom", holat: "Telegram ulanmagan" }]);
+  const y = setup(baza(), undefined, { ok: false });
+  await y.run();
+  assert.equal(y.logs[0].tafsilot.royxat[0].holat, "yetmadi");
 });
 
 test("runMurabbiy: asosiy jadval o'qilmasa xato yashirilmaydi va hech kimga yozilmaydi", async () => {

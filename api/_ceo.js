@@ -15,10 +15,36 @@ export const tashkentKun = (d = new Date()) => new Date(d.getTime() + 5 * 3600e3
 export const yakshanbami = (d = new Date()) => new Date(d.getTime() + 5 * 3600e3).getUTCDay() === 0;
 const AGENT_NOM = { sotuv: "Sotuv boti", nazoratchi: "Nazoratchi", yangilik: "Yangiliklar", kanal: "Kanal postchisi", instagram: "Instagram agenti", platforma: "Platforma agenti", montaj: "Montaj agenti", kod: "Kod agenti", murabbiy: "O'quvchi murabbiyi", marketolog: "Marketolog" };
 
+// Nazoratchi va Murabbiy bir xil o'quvchilarga ertalab alohida qaraydi. CEO ikkalasining kunlik hisobotini (navbatdagi
+// tafsilot.royxat) solishtiradi va faqat FARQNI aytadi (ustoz 2026-11-19). n, m: tafsilot yoki null (hisobot yo'q).
+// Solishtirilmaydi: "past natija" (nazoratchi oxirgi 20 javobga, murabbiy mavzu bo'yicha qaraydi: o'lchov boshqa) va
+// "boshlash" xabari (murabbiy yangi o'quvchiga birinchi kundan yozadi, nazoratchi 3 kun kutadi: bu qoida, farq emas).
+export const FARQ_MAX = 6;
+export function solishtir(n, m) {
+  if (!n && !m) return ["Nazoratchi ham, Murabbiy ham bugun hisobot bermadi (ertalabki ish yurmagan)"];
+  if (!n) return ["Nazoratchi bugun hisobot bermadi"];
+  if (!m) return ["Murabbiy bugun hisobot bermadi"];
+  if (!Array.isArray(n.royxat) || !Array.isArray(m.royxat)) return [];      // eski ko'rinishdagi yozuv: solishtirib bo'lmaydi
+  const q = [];
+  if (n.jami !== m.oquvchilar) q.push(`Pullik o'quvchilar soni: Nazoratchi ${n.jami} ta, Murabbiy ${m.oquvchilar} ta ko'rgan`);
+  const mBy = new Map(m.royxat.map((r) => [r.id, r])), nBy = new Map(n.royxat.map((r) => [r.id, r]));
+  const toliq = n.royxat.length === n.flagged && m.royxat.length === m.oquvchilar;      // ro'yxat kesilgan bo'lsa "yo'q" deb bo'lmaydi
+  for (const r of n.royxat) {
+    const x = mBy.get(r.id);
+    if (r.faolsiz && !x) { if (toliq) q.push(`${r.ism}: Nazoratchi faolsiz deydi, Murabbiy ro'yxatida yo'q`); continue; }
+    if (r.faolsiz && !["davom", "boshlash", "reja"].includes(x.tur)) q.push(`${r.ism}: Nazoratchi faolsiz deydi, Murabbiy faol deb hisoblagan`);
+    if (r.status === "sent" && x?.holat === "yuborildi") q.push(`${r.ism}: bugun ikkalasidan ham xabar oldi`);
+  }
+  if (toliq) for (const x of m.royxat) if (x.tur === "davom" && !nBy.get(x.id)?.faolsiz) q.push(`${x.ism}: Murabbiy faolsiz deb hisoblagan, Nazoratchi faol deydi`);
+  const yetmadi = m.royxat.filter((x) => x.holat === "yetmadi").map((x) => x.ism);
+  if (yetmadi.length) q.push(`Murabbiy xabari yetmadi: ${yetmadi.slice(0, 5).join(", ")}${yetmadi.length > 5 ? ` va yana ${yetmadi.length - 5} ta` : ""}`);
+  return q.length > FARQ_MAX ? [...q.slice(0, FARQ_MAX), `... va yana ${q.length - FARQ_MAX} ta farq`] : q;
+}
+
 // Sof hisob: berilgan qatorlardan hisobot raqamlari. kun: davr uzunligi (1 yoki 7).
 // Taqqoslash ("oldingi") faqat sanasi o'zgarmaydigan narsalar uchun: yangi hisob, yangi lid, tushum.
 // Faol o'quvchilar soni taqqoslanmaydi: video_views.last_at har ko'rishda yangilanadi, o'tgan davr uchun ishonchsiz.
-export function hisobla({ profiles = [], leads = [], messages = [], views = [], answers = [], guestViews = [], aiSavollar = [], purchases = [], posts = [], navbat = [], ochiq = [], haftaFaol = null, now = new Date(), kun = 1 }) {
+export function hisobla({ profiles = [], leads = [], messages = [], views = [], answers = [], guestViews = [], aiSavollar = [], purchases = [], posts = [], navbat = [], ochiq = [], haftaFaol = null, ertalab = null, now = new Date(), kun = 1 }) {
   const t = now.getTime(), boshi = t - kun * DAY, oldingi = boshi - kun * DAY;
   const ichida = (x) => ms(x) > boshi && ms(x) <= t, avval = (x) => ms(x) > oldingi && ms(x) <= boshi;
   const talaba = profiles.filter((p) => !p.is_admin);
@@ -60,6 +86,8 @@ export function hisobla({ profiles = [], leads = [], messages = [], views = [], 
       platforma: nv.filter((r) => r.agent === "platforma" && r.tur === "ish" && /^Platformaga joylandi/.test(r.sarlavha)).length,
     },
     agentlar: x.agentlar,
+    // ertalab: { nazorat, murabbiy } bugungi hisobot tafsilotlari; berilmasa (haftalik, test) solishtirilmaydi.
+    farqlar: kun === 1 && ertalab ? solishtir(ertalab.nazorat, ertalab.murabbiy) : [],
     ustozga: ochiq.filter((r) => r.kimga === "ustoz"),
     kodga: ochiq.filter((r) => r.kimga === "kod").length,
     platformaga: ochiq.filter((r) => r.kimga === "platforma").length,
@@ -99,6 +127,7 @@ function formatKunlik(h, { sana }) {
     ...(kontent ? [`Joylandi: ${kontent}`] : []));
   const et = etibor(h);
   if (et.length) L.push("", "<b>E'tibor</b>", ...et.map((x) => `• ${e(x)}`));
+  if (h.farqlar.length) L.push("", "<b>Nazoratchi va Murabbiy hisobotida farq</b>", ...h.farqlar.map((x) => `• ${e(x)}`));
   L.push("", "To'liq raqamlar yakshanba kungi haftalik hisobotda.");
   return L.join("\n");
 }
@@ -162,7 +191,13 @@ export async function collectCeo(db, { now = new Date(), kun = 1 } = {}) {
     db.from("answers").select("student_id").gte("answered_at", hafta7).limit(10000).then(optional),
   ]);
   const haftaFaol = [...new Set([...v7, ...a7].map((r) => r.student_id))];
-  return hisobla({ profiles, purchases, leads, messages, views, answers, guestViews, aiSavollar, posts, navbat, ochiq, haftaFaol, now, kun });
+  // Ertalabki ikki hisobot (kunlik hisobot uchun). Navbat jadvali o'qilmasa solishtirilmaydi: soxta "hisobot bermadi" chiqmasin.
+  let ertalab = null;
+  if (kun === 1) {
+    const sana = tashkentKun(now), { data, error } = await db.from(NAVBAT).select("kalit,tafsilot").in("kalit", [`nazorat:${sana}`, `murabbiy:${sana}`]);
+    if (!error) ertalab = { nazorat: data?.find((r) => r.kalit === `nazorat:${sana}`)?.tafsilot || null, murabbiy: data?.find((r) => r.kalit === `murabbiy:${sana}`)?.tafsilot || null };
+  }
+  return hisobla({ profiles, purchases, leads, messages, views, answers, guestViews, aiSavollar, posts, navbat, ochiq, haftaFaol, ertalab, now, kun });
 }
 
 // Hisobotni yuboradi. Navbatdagi kalit orqali kuniga (haftasiga) bir marta: kron ikki marta ishlasa ikkinchisi yubormaydi.

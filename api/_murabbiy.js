@@ -16,6 +16,7 @@ export const ZAIF_MIN = 6;          // mavzu bo'yicha kamida shuncha javob bo'ls
 export const ZAIF_FOIZ = 50;        // shundan past bo'lsa mavzu "qiyin" hisoblanadi
 export const ZAIF_KUN = 30;         // oxirgi shuncha kun javoblari
 export const TUGASH_KUN = 3;        // reja shuncha kun ichida tugasa bir marta eslatiladi
+export const ROYXAT_MAX = 500;    // hisobotga yoziladigan o'quvchilar soni chegarasi
 const DAY = 86400e3;
 const ms = (t) => (t ? new Date(t).getTime() : 0);
 const norm = (s) => String(s ?? "").toLowerCase().replace(/[‘’ʻʼ`´']/g, "'").replace(/\s+/g, " ").trim();
@@ -150,15 +151,19 @@ export async function collectMurabbiy(db, { now = new Date() } = {}) {
   });
 }
 
-// send(tg_id, text) -> { ok }. Yuborilganlarni belgilaydi va navbatga kunlik bitta yozuv qo'yadi.
+// send(tg_id, text) -> { ok }. Yuborilganlarni belgilaydi va navbatga kunlik bitta hisobot qo'yadi (har o'quvchi bo'yicha qaror bilan).
 export async function runMurabbiy(db, send, { now = new Date(), log = (y) => yoz(db, y) } = {}) {
   const hammasi = await collectMurabbiy(db, { now });
-  const turlar = {};
+  const turlar = {}, royxat = [];
   let yuborildi = 0, xato = 0;
   for (const r of hammasi) {
+    // Har o'quvchi bo'yicha qaror hisobotga yoziladi: CEO uni nazoratchi ro'yxati bilan solishtiradi.
+    const qator = { id: r.student.id, ism: String(r.student.full_name || "").trim().slice(0, 60) || "Noma'lum", tur: r.xabar?.tur || null, holat: r.sabab };
+    royxat.push(qator);
     if (r.sabab) continue;
     const res = await send(r.lead.tg_id, r.xabar.text);
-    if (!res?.ok) { xato++; continue; }
+    if (!res?.ok) { xato++; qator.holat = "yetmadi"; continue; }
+    qator.holat = "yuborildi";
     yuborildi++; turlar[r.xabar.tur] = (turlar[r.xabar.tur] || 0) + 1;
     const patch = { last_nudge_at: now.toISOString() };
     if (r.xabar.tur === "reja") patch.reja_eslatma = r.student.plan_expires_at;
@@ -167,6 +172,9 @@ export async function runMurabbiy(db, send, { now = new Date(), log = (y) => yoz
     if (error && patch.reja_eslatma) await db.from("sotuv_leads").update({ last_nudge_at: patch.last_nudge_at }).eq("tg_id", r.lead.tg_id);
   }
   const kun = new Date(now.getTime() + 5 * 3600e3).toISOString().slice(0, 10);
-  if (yuborildi || xato) await log({ agent: "murabbiy", tur: xato && !yuborildi ? "xato" : "hisobot", sarlavha: `O'quvchilarga yo'l-yo'riq: ${yuborildi} ta yuborildi${xato ? `, ${xato} tasi yetmadi` : ""}`, tafsilot: { yuborildi, xato, turlar, oquvchilar: hammasi.length }, kalit: `murabbiy:${kun}`, ...(xato && !yuborildi ? { kimga: "kod" } : {}) });
+  // Hisobot HAR KUNI yoziladi, hech kimga xabar ketmagan kuni ham (ustoz 2026-11-19): shunda "yuboradigan odam yo'q edi"
+  // bilan "umuman ishlamadi" ajraladi. Kalit kuniga bitta: kron qayta ishlasa birinchi hisobot qoladi.
+  const sarlavha = `O'quvchilarga yo'l-yo'riq: ${yuborildi} ta yuborildi${xato ? `, ${xato} tasi yetmadi` : ""} (${hammasi.length} ta o'quvchi ko'rildi)`;
+  await log({ agent: "murabbiy", tur: xato && !yuborildi ? "xato" : "hisobot", sarlavha, tafsilot: { yuborildi, xato, turlar, oquvchilar: hammasi.length, royxat: royxat.slice(0, ROYXAT_MAX) }, kalit: `murabbiy:${kun}`, ...(xato && !yuborildi ? { kimga: "kod" } : {}) });
   return { oquvchilar: hammasi.length, yuborildi, xato, turlar };
 }

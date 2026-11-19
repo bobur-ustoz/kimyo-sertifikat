@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { moliya, moliyaQatorlar, som, oyBoshi, TUGASH_KUN } from "../api/_hisobchi.js";
-import { hisobla, formatHisobot, etibor, runCeo, yakshanbami, tashkentKun } from "../api/_ceo.js";
+import { solishtir, FARQ_MAX, hisobla, formatHisobot, etibor, runCeo, yakshanbami, tashkentKun } from "../api/_ceo.js";
 
 const NOW = new Date("2026-11-19T15:00:00Z");                 // Toshkentda 20:00, payshanba
 const kunOldin = (d) => new Date(NOW.getTime() - d * 86400e3).toISOString();
@@ -186,4 +186,47 @@ test("runCeo: ixtiyoriy jadvallar yo'q bo'lsa ham hisobot chiqadi; asosiy jadval
     await assert.rejects(() => runCeo(fakeDb({ agent_navbat: [] }, ["profiles"]), async (t) => { notes.push(t); }, { now: NOW }), /profiles does not exist/);
   } finally { console.warn = warn; }
   assert.equal(notes.length, 1);
+});
+
+// ---- Nazoratchi va Murabbiy hisobotini solishtirish ----
+const nz = (royxat, extra = {}) => ({ flagged: royxat.length, jami: 4, royxat, ...extra });
+const mr = (royxat, extra = {}) => ({ oquvchilar: royxat.length, royxat, ...extra });
+const N = (id, extra = {}) => ({ id, ism: id, faolsiz: true, past: false, status: null, ...extra });
+const M = (id, tur, holat) => ({ id, ism: id, tur, holat });
+
+test("solishtir: hisobot yo'q bo'lsa aytadi; eski ko'rinishdagi yozuvda jim", () => {
+  assert.match(solishtir(null, null)[0], /ham bugun hisobot bermadi/);
+  assert.deepEqual(solishtir(null, mr([])), ["Nazoratchi bugun hisobot bermadi"]);
+  assert.deepEqual(solishtir(nz([]), null), ["Murabbiy bugun hisobot bermadi"]);
+  assert.deepEqual(solishtir({ flagged: 2, sent: true, nudged: 0 }, mr([])), []);
+});
+
+test("solishtir: ikkalasi mos bo'lsa farq yo'q", () => {
+  const n = nz([N("ali"), N("vali", { status: "not_linked" }), N("guli", { faolsiz: false, past: true })]);
+  const m = mr([M("ali", "davom", "yuborildi"), M("vali", "boshlash", "Telegram ulanmagan"), M("guli", "qiyin", "yuborildi"), M("sami", null, "bugun xabar kerak emas")]);
+  assert.deepEqual(solishtir(n, m), []);
+});
+
+test("solishtir: faollik bo'yicha kelishmovchilik, ikki xabar, yetmagan xabar va son farqi topiladi", () => {
+  const n = nz([N("ali"), N("vali", { status: "sent" }), N("yoq")], { jami: 5 });
+  const m = mr([M("ali", null, "bugun xabar kerak emas"), M("vali", "davom", "yuborildi"), M("guli", "davom", "yetmadi"), M("sami", "boshlash", "yuborildi")]);
+  assert.deepEqual(solishtir(n, m), [
+    "Pullik o'quvchilar soni: Nazoratchi 5 ta, Murabbiy 4 ta ko'rgan",
+    "ali: Nazoratchi faolsiz deydi, Murabbiy faol deb hisoblagan",
+    "vali: bugun ikkalasidan ham xabar oldi",
+    "yoq: Nazoratchi faolsiz deydi, Murabbiy ro'yxatida yo'q",
+    "guli: Murabbiy faolsiz deb hisoblagan, Nazoratchi faol deydi",
+    "Murabbiy xabari yetmadi: guli",
+  ]);
+});
+
+test("solishtir: farq ko'p bo'lsa qisqartiriladi; hisobotda alohida bo'lim, farq bo'lmasa bo'lim yo'q", () => {
+  const ids = Array.from({ length: 10 }, (_, i) => `o${i}`);
+  const q = solishtir(nz(ids.map((id) => N(id)), { jami: 10 }), mr(ids.map((id) => M(id, null, "bugun xabar kerak emas"))));
+  assert.equal(q.length, FARQ_MAX + 1);
+  assert.match(q.at(-1), /va yana 4 ta farq/);
+  const bor = formatHisobot(hisobla({ now: NOW, ertalab: { nazorat: nz([N("ali")], { jami: 1 }), murabbiy: null } }), { sana: "2026-11-19" });
+  assert.match(bor, /Nazoratchi va Murabbiy hisobotida farq<\/b>\n• Murabbiy bugun hisobot bermadi/);
+  assert.doesNotMatch(formatHisobot(hisobla({ now: NOW }), { sana: "2026-11-19" }), /hisobotida farq/);
+  assert.deepEqual(hisobla({ now: NOW, kun: 7, ertalab: { nazorat: null, murabbiy: null } }).farqlar, []);      // haftalikda solishtirilmaydi
 });

@@ -13,6 +13,7 @@ export const NO_ACTIVITY_DAYS = 3;   // shuncha kun va undan ko'p faolsiz bo'lsa
 export const LOW_PERCENT = 40;       // oxirgi javoblarda shundan kam to'g'ri bo'lsa
 export const MIN_ANSWERS = 20;       // foiz hisoblash uchun kamida shuncha javob
 export const MAX_LINES = 15;         // bitta xabarda ko'pi bilan shuncha o'quvchi
+export const ROYXAT_MAX = 500;       // hisobotga yoziladigan o'quvchilar soni chegarasi
 const DAY = 86400e3;
 
 // Eslatma holati: hisobotda har o'quvchi yonida ko'rinadi.
@@ -56,7 +57,7 @@ export function findFlags({ students, views, answers, now = new Date() }) {
       const pct = Math.round((last.filter((a) => a.is_correct).length / last.length) * 100);
       if (pct < LOW_PERCENT) reasons.push(`oxirgi ${MIN_ANSWERS} javobning ${pct}% i to'g'ri`);
     }
-    if (reasons.length) flags.push({ student: s, reasons, inactive });
+    if (reasons.length) flags.push({ student: s, reasons, inactive, past: reasons.length > (inactive ? 1 : 0) });
   }
   return flags;
 }
@@ -73,11 +74,11 @@ const must = ({ data, error }) => { if (error) throw new Error(error.message); r
 // Ba'zi jadvallar (masalan adaptive_answers) hamma bazada qo'llanmagan bo'lishi mumkin: ularsiz ham hisobot chiqadi.
 const optional = ({ data, error }) => { if (error) console.warn("nazorat: jadval o'tkazib yuborildi:", error.message); return error ? [] : data || []; };
 
-// Bazadan o'quvchilarni yig'ib, bog'lanish kerak bo'lganlarni qaytaradi (hech narsa yubormaydi).
-export async function collect(db, now = new Date()) {
+// Bazadan o'quvchilarni yig'ib, bog'lanish kerak bo'lganlarni va pullik o'quvchilar sonini qaytaradi (hech narsa yubormaydi).
+export async function collectAll(db, now = new Date()) {
   const profiles = must(await db.from("profiles").select("id, full_name, email, phone, plan, plan_expires_at, created_at, is_admin").neq("plan", "free"));
   const students = profiles.filter((p) => !p.is_admin && (!p.plan_expires_at || new Date(p.plan_expires_at) > now));
-  if (!students.length) return [];
+  if (!students.length) return { jami: 0, flags: [] };
   const ids = students.map((s) => s.id);
   const [views, regular, adaptive] = await Promise.all([
     db.from("video_views").select("student_id, last_at").in("student_id", ids).then(must),
@@ -88,8 +89,9 @@ export async function collect(db, now = new Date()) {
     ...regular.map((a) => ({ student_id: a.student_id, is_correct: a.is_correct, at: a.answered_at })),
     ...adaptive.map((a) => ({ student_id: a.student_id, is_correct: a.is_correct, at: a.created_at })),
   ];
-  return findFlags({ students, views, answers, now });
+  return { jami: students.length, flags: findFlags({ students, views, answers, now }) };
 }
+export const collect = async (db, now = new Date()) => (await collectAll(db, now)).flags;
 
 const firstName = (s) => String(s.full_name || "").trim().split(/\s+/)[0] || "";
 
@@ -123,10 +125,12 @@ export async function nudge(db, flags, send, now = new Date()) {
 }
 
 // Ro'yxat bo'sh bo'lsa hech narsa yubormaydi (ustozga bekorga xabar kelmasin).
+// `royxat` navbatdagi kunlik hisobotga yoziladi: CEO uni murabbiy hisoboti bilan solishtiradi.
 export async function runNazorat(db, notify, now = new Date(), send = null) {
-  const flags = await collect(db, now);
+  const { jami, flags } = await collectAll(db, now);
   if (send) await nudge(db, flags, send, now);
   const text = formatReport(flags);
   if (text) await notify(text);
-  return { flagged: flags.length, sent: !!text, nudged: flags.filter((f) => f.status === "sent").length };
+  const royxat = flags.slice(0, ROYXAT_MAX).map((f) => ({ id: f.student.id, ism: displayName(f.student).slice(0, 60), faolsiz: !!f.inactive, past: !!f.past, status: f.status || null }));
+  return { flagged: flags.length, sent: !!text, nudged: flags.filter((f) => f.status === "sent").length, jami, royxat };
 }

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { findFlags, formatReport, runNazorat, nudgeText, MAX_LINES, NUDGE_EVERY_DAYS } from "../api/_nazorat.js";
 
 const NOW = new Date("2026-11-10T04:00:00Z");
+const qisqa = ({ flagged, sent, nudged }) => ({ flagged, sent, nudged });      // ro'yxatsiz qismi
 const daysAgo = (d) => new Date(NOW.getTime() - d * 86400e3).toISOString();
 const student = (id, extra = {}) => ({ id, full_name: id, email: `${id}@mail.uz`, plan: "premium", plan_expires_at: null, created_at: daysAgo(60), ...extra });
 const ans = (id, n, correct, ago = 0) => Array.from({ length: n }, (_, i) => ({ student_id: id, is_correct: i < correct, at: daysAgo(ago) }));
@@ -74,7 +75,7 @@ test("runNazorat: bayroq bo'lsa bitta xabar yuboradi, bo'lmasa jim; bepul va adm
     answers: [], adaptive_answers: [],
   });
   const r = await runNazorat(db, notify, NOW);
-  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 0 });
+  assert.deepEqual(qisqa(r), { flagged: 1, sent: true, nudged: 0 });
   assert.equal(sent.length, 1);
   assert.match(sent[0], /ali@mail\.uz/);
   assert.ok(!sent[0].includes("adm@"));
@@ -82,7 +83,7 @@ test("runNazorat: bayroq bo'lsa bitta xabar yuboradi, bo'lmasa jim; bepul va adm
 
   const quiet = fakeDb({ profiles: [student("ali")], video_views: [{ student_id: "ali", last_at: daysAgo(0) }], answers: [], adaptive_answers: [] });
   const r2 = await runNazorat(quiet, notify, NOW);
-  assert.deepEqual(r2, { flagged: 0, sent: false, nudged: 0 });
+  assert.deepEqual(qisqa(r2), { flagged: 0, sent: false, nudged: 0 });
   assert.equal(sent.length, 1);
 });
 
@@ -93,7 +94,7 @@ test("adaptive_answers jadvali bazada bo'lmasa hisobot yiqilmaydi", async () => 
     ? { select() { return this; }, in() { return this; }, order() { return this; }, limit() { return this; }, then: (f, r) => Promise.resolve({ data: null, error: { message: "table missing" } }).then(f, r) }
     : base.from(t);
   const r = await runNazorat({ from }, async (t) => sent.push(t), NOW);
-  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 0 });
+  assert.deepEqual(qisqa(r), { flagged: 1, sent: true, nudged: 0 });
 });
 
 // ---- O'quvchiga eslatma ----
@@ -118,7 +119,7 @@ test("eslatma: ulangan o'quvchiga yuboriladi, last_nudge_at yoziladi, hisobotda 
   const db = inactiveDb([{ tg_id: 555, linked_user_id: "ali", remind: true, last_nudge_at: null }]);
   const notes = [];
   const r = await runNazorat(db, async (t) => notes.push(t), NOW, async (id, text) => { sentTo.push([id, text]); return { ok: true }; });
-  assert.deepEqual(r, { flagged: 1, sent: true, nudged: 1 });
+  assert.deepEqual(qisqa(r), { flagged: 1, sent: true, nudged: 1 });
   assert.equal(sentTo.length, 1);
   assert.equal(sentTo[0][0], 555);
   assert.match(sentTo[0][1], /Salom, Ali!/);
@@ -171,4 +172,15 @@ test("hisobotda aloqa: Telegram hisobi uchun telefon (soxta email ko'rsatilmaydi
   assert.match(text, /Sardor<\/b> \(\+998901112233\)/);
   assert.ok(!text.includes("example.com"));
   assert.match(text, /m@mail\.uz/);
+});
+
+test("runNazorat: hisobotga CEO solishtirishi uchun pullik o'quvchilar soni va ro'yxat yoziladi", async () => {
+  const db = fakeDb({
+    profiles: [student("ali"), student("vali"), student("guli")],
+    video_views: [{ student_id: "ali", last_at: daysAgo(8) }, { student_id: "vali", last_at: daysAgo(0) }, { student_id: "guli", last_at: daysAgo(0) }],
+    answers: Array.from({ length: 20 }, (_, i) => ({ student_id: "guli", is_correct: i < 2, answered_at: daysAgo(0) })), adaptive_answers: [],
+  });
+  const r = await runNazorat(db, async () => {}, NOW);
+  assert.equal(r.jami, 3);
+  assert.deepEqual(r.royxat, [{ id: "ali", ism: "ali", faolsiz: true, past: false, status: null }, { id: "guli", ism: "guli", faolsiz: false, past: true, status: null }]);
 });
