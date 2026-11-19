@@ -481,3 +481,14 @@ test("bilim hujjati: muloqot tamoyillari kiritilgan, bosimli usullar taqiqlangan
   assert.match(SYSTEM, /Rad etgan yoki javob bermagan odamdan sababini qayta so'rash/);
   assert.doesNotMatch(SYSTEM, /Qaysi mavzu video borligini bilmasa, nom keltirmaydi/);      // eski qoida almashtirilgan
 });
+
+test("sotuv yopiq rejimi: bot pullik rejani o'zi taklif qilmaydi, so'ralsa rost javob beradi", () => {
+  assert.match(SYSTEM, /Hozir SOTUV YOPIQ/);
+  assert.match(SYSTEM, /Hozirgi rejim: SOTUV YOPIQ/);
+  assert.match(SYSTEM, /Pullik rejalarni \(Premium, Standart, alohida variant\) o'zingiz taklif qilmang/);
+  assert.match(SYSTEM, /Odam o'zi narx yoki reja haqida so'rasa\*\*, rost va qisqa javob bering/);
+  assert.match(SYSTEM, /Pullik reja taklif qilinmaydi \(sotuv yopiq\)/);
+  assert.doesNotMatch(SYSTEM, /Mos taklif:\*\* kerak bo'lsa Premium/);
+  assert.doesNotMatch(SYSTEM, /Taklifni bir marta ayting/);
+  assert.ok(SYSTEM.indexOf("Hozirgi rejim: SOTUV YOPIQ") < SYSTEM.indexOf("## Narxlar va to'lov"));   // narxlardan oldin o'qiladi
+});
