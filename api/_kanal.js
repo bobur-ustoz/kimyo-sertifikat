@@ -57,6 +57,18 @@ export function yigish(post, chat = KANAL) {
     : { method: "sendMessage", payload: { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true } };
 }
 
+// Kanalga CHIQQAN postni tuzatish yoki o'chirish so'rovi (kompyuterdagi agentlar/kanal.mjs ishlatadi, faqat ustoz aytganda).
+// Rasmli postda matn rasm ostidagi yozuv, shuning uchun editMessageCaption.
+export function tuzatishSorov(post, chat = KANAL) {
+  if (post.holat !== "yuborildi" || !post.message_id) throw new Error("faqat kanalga chiqqan postni tuzatib bo'ladi");
+  const text = toliqMatn(post), asos = { chat_id: chat, message_id: post.message_id, parse_mode: "HTML" };
+  return post.rasm_url ? { method: "editMessageCaption", payload: { ...asos, caption: text } } : { method: "editMessageText", payload: { ...asos, text, disable_web_page_preview: true } };
+}
+export function ochirishSorov(post, chat = KANAL) {
+  if (post.holat !== "yuborildi" || !post.message_id) throw new Error("faqat kanalga chiqqan postni o'chirib bo'ladi");
+  return { method: "deleteMessage", payload: { chat_id: chat, message_id: post.message_id } };
+}
+
 // Kuniga bitta: bugun post chiqqan bo'lsa to'xtaydi. Aks holda reja kuni kelgan eng eski tasdiqlangan postni yuboradi.
 // send(method, payload) -> Telegram javobi ({ ok, result: { message_id }, description }).
 // -> { sent: 0|1, id?, sabab? }

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { tekshir, toliqMatn, yigish, runKanal, tashkentKun, IMZO, KANAL } from "../api/_kanal.js";
+import { tuzatishSorov, ochirishSorov, tekshir, toliqMatn, yigish, runKanal, tashkentKun, IMZO, KANAL } from "../api/_kanal.js";
 
 const NOW = new Date("2026-11-20T15:00:00Z");           // Toshkentda 20:00, 20-noyabr
 
@@ -150,4 +150,13 @@ test("runKanal: postni egallab bo'lmasa (yozish ishlamasa) yuborilmaydi", async 
   const t = setup([post(1)], undefined, { failOn: "update" });
   await assert.rejects(() => t.run(), /baza ishlamadi/);
   assert.equal(t.sent.length, 0);
+});
+
+test("tuzatishSorov va ochirishSorov: faqat kanalga chiqqan post uchun; rasmli postda rasm osti yozuvi tuzatiladi", () => {
+  const post = { id: 3, matn: "Yangi <b>matn</b>", holat: "yuborildi", message_id: 77, imzo: false, rasm_url: null };
+  assert.deepEqual(tuzatishSorov(post, "@k"), { method: "editMessageText", payload: { chat_id: "@k", message_id: 77, parse_mode: "HTML", text: "Yangi <b>matn</b>", disable_web_page_preview: true } });
+  assert.equal(tuzatishSorov({ ...post, rasm_url: "https://x.uz/a.jpg" }, "@k").method, "editMessageCaption");
+  assert.deepEqual(ochirishSorov(post, "@k"), { method: "deleteMessage", payload: { chat_id: "@k", message_id: 77 } });
+  assert.throws(() => tuzatishSorov({ ...post, holat: "tasdiqlangan" }), /faqat kanalga chiqqan/);
+  assert.throws(() => ochirishSorov({ ...post, message_id: null }), /faqat kanalga chiqqan/);
 });

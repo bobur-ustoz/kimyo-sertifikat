@@ -5,6 +5,7 @@ import Survey from "./Survey";
 import Home from "./Home";
 import Oyin from "./Oyin";
 import TelegramLink from "./TelegramLink";
+import XatoXabar from "./XatoXabar";
 import TelegramLogin, { userLabel } from "./TelegramLogin";
 import { C } from "./theme";
 import { Home as HomeIcon, ChevronLeft, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
@@ -1652,6 +1653,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
           </div>
         </div>
         <TelegramLink session={session}/>
+        <XatoXabar session={session}/>
         {teacher&&(
           <div style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:14,padding:"16px 18px"}}>
             <div style={{fontSize:13,fontWeight:800,color:C.text,marginBottom:13}}>Variant Progressi</div>

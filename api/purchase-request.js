@@ -15,6 +15,7 @@ import { createClient } from "@supabase/supabase-js";
 import { escapeHtml, telegramConfigured, tg, fmtTime } from "./_telegram.js";
 import { handleTgLink } from "./_tglink.js";
 import { handleTgLogin } from "./_tgauth.js";
+import { handleXato } from "./_xato.js";
 
 const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
@@ -26,6 +27,8 @@ const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "i
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
+  // { action: "xato" | "xato-xabar" }: an error from the student's browser, or a problem the student reported. Merged here for the same reason.
+  if (req.body?.action === "xato" || req.body?.action === "xato-xabar") return handleXato(req, res);
   // { action: "tg-link" | "tg-status" }: connect the student's Telegram for study reminders. Merged here for the same reason.
   if (req.body?.action === "tg-link" || req.body?.action === "tg-status") return handleTgLink(req, res);
   // { action: "tg-login-start" | "tg-login-poll" }: register / sign in with Telegram (no session yet, so before any auth check).

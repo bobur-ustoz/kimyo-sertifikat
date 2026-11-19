@@ -230,3 +230,24 @@ test("solishtir: farq ko'p bo'lsa qisqartiriladi; hisobotda alohida bo'lim, farq
   assert.doesNotMatch(formatHisobot(hisobla({ now: NOW }), { sana: "2026-11-19" }), /hisobotida farq/);
   assert.deepEqual(hisobla({ now: NOW, kun: 7, ertalab: { nazorat: null, murabbiy: null } }).farqlar, []);      // haftalikda solishtirilmaydi
 });
+
+// ---- Kutilgan ish jadvali va eskirgan ishlar ----
+test("etibor: reja kuni kelgan post chiqmasa, post xato bo'lsa va ssenariylar tugayotgan bo'lsa aytadi", () => {
+  const posts = [{ holat: "tasdiqlangan", reja_kuni: "2026-11-18" }, { holat: "tasdiqlangan", reja_kuni: "2026-12-01" }, { holat: "xato", reja_kuni: "2026-11-10" }];
+  const e1 = etibor(hisobla({ now: NOW, posts, rejaOxiri: "2026-11-21" })).join("\n");
+  assert.match(e1, /reja kuni kelgan 1 ta tasdiqlangan post bor, lekin bugun post chiqmadi/);
+  assert.match(e1, /1 ta post xato bilan to'xtagan/);
+  assert.match(e1, /Tayyor ssenariylar 2026-11-21 gacha yetadi \(2 kun qoldi\)/);
+  const chiqdi = [...posts, { holat: "yuborildi", sent_at: new Date(NOW.getTime() - 3600e3).toISOString() }];
+  assert.doesNotMatch(etibor(hisobla({ now: NOW, posts: chiqdi })).join("\n"), /bugun post chiqmadi/);      // kuniga bitta: bugun chiqqan, qolgani navbatda
+  assert.doesNotMatch(etibor(hisobla({ now: NOW, rejaOxiri: "2026-11-29" })).join("\n"), /ssenariylar/);    // hali uzoq
+  assert.match(etibor(hisobla({ now: NOW, rejaOxiri: "2026-11-17" })).join("\n"), /2026-11-17 da tugagan/);
+});
+
+test("etibor: 3 kundan eski ochiq ish nomi bilan ko'rsatiladi, yangisi faqat sonda", () => {
+  const eski = new Date(NOW.getTime() - 5 * 86400e3).toISOString(), yangi = new Date(NOW.getTime() - 86400e3).toISOString();
+  const ochiq = [{ sarlavha: "Bazada ustun yo'q", kimga: "kod", tur: "xato", created_at: eski }, { sarlavha: "Yangi xato", kimga: "kod", tur: "xato", created_at: yangi }, { sarlavha: "To'lov kutyapti", kimga: "ustoz", tur: "savol", created_at: eski }];
+  const e1 = etibor(hisobla({ now: NOW, ochiq })).join("\n");
+  assert.match(e1, /5 kundan beri ochiq \(kod agenti\): Bazada ustun yo'q/);
+  assert.doesNotMatch(e1, /beri ochiq.*Yangi xato|beri ochiq.*To'lov/);
+});

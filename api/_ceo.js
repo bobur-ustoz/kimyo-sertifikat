@@ -13,7 +13,7 @@ const DAY = 86400e3;
 const ms = (t) => (t ? new Date(t).getTime() : 0);
 export const tashkentKun = (d = new Date()) => new Date(d.getTime() + 5 * 3600e3).toISOString().slice(0, 10);
 export const yakshanbami = (d = new Date()) => new Date(d.getTime() + 5 * 3600e3).getUTCDay() === 0;
-const AGENT_NOM = { sotuv: "Sotuv boti", nazoratchi: "Nazoratchi", yangilik: "Yangiliklar", kanal: "Kanal postchisi", instagram: "Instagram agenti", platforma: "Platforma agenti", montaj: "Montaj agenti", kod: "Kod agenti", murabbiy: "O'quvchi murabbiyi", marketolog: "Marketolog" };
+const AGENT_NOM = { sayt: "Sayt (o'quvchi ekranidagi xatolar)", sotuv: "Sotuv boti", nazoratchi: "Nazoratchi", yangilik: "Yangiliklar", kanal: "Kanal postchisi", instagram: "Instagram agenti", platforma: "Platforma agenti", montaj: "Montaj agenti", kod: "Kod agenti", murabbiy: "O'quvchi murabbiyi", marketolog: "Marketolog" };
 
 // Nazoratchi va Murabbiy bir xil o'quvchilarga ertalab alohida qaraydi. CEO ikkalasining kunlik hisobotini (navbatdagi
 // tafsilot.royxat) solishtiradi va faqat FARQNI aytadi (ustoz 2026-11-19). n, m: tafsilot yoki null (hisobot yo'q).
@@ -44,7 +44,7 @@ export function solishtir(n, m) {
 // Sof hisob: berilgan qatorlardan hisobot raqamlari. kun: davr uzunligi (1 yoki 7).
 // Taqqoslash ("oldingi") faqat sanasi o'zgarmaydigan narsalar uchun: yangi hisob, yangi lid, tushum.
 // Faol o'quvchilar soni taqqoslanmaydi: video_views.last_at har ko'rishda yangilanadi, o'tgan davr uchun ishonchsiz.
-export function hisobla({ profiles = [], leads = [], messages = [], views = [], answers = [], guestViews = [], aiSavollar = [], purchases = [], posts = [], navbat = [], ochiq = [], haftaFaol = null, ertalab = null, now = new Date(), kun = 1 }) {
+export function hisobla({ profiles = [], leads = [], messages = [], views = [], answers = [], guestViews = [], aiSavollar = [], purchases = [], posts = [], navbat = [], ochiq = [], haftaFaol = null, ertalab = null, rejaOxiri = null, now = new Date(), kun = 1 }) {
   const t = now.getTime(), boshi = t - kun * DAY, oldingi = boshi - kun * DAY;
   const ichida = (x) => ms(x) > boshi && ms(x) <= t, avval = (x) => ms(x) > oldingi && ms(x) <= boshi;
   const talaba = profiles.filter((p) => !p.is_admin);
@@ -86,6 +86,11 @@ export function hisobla({ profiles = [], leads = [], messages = [], views = [], 
       platforma: nv.filter((r) => r.agent === "platforma" && r.tur === "ish" && /^Platformaga joylandi/.test(r.sarlavha)).length,
     },
     agentlar: x.agentlar,
+    // Kutilgan ish jadvali uchun: reja kuni kelgan, lekin chiqmagan va xato bilan to'xtagan kanal postlari; tayyor ssenariylar qaysi kungacha yetadi.
+    kanal_kechikdi: posts.filter((p) => p.holat === "tasdiqlangan" && p.reja_kuni && p.reja_kuni <= tashkentKun(now)).length,
+    kanal_xato: posts.filter((p) => p.holat === "xato").length,
+    reja_qoldi: rejaOxiri ? Math.round((ms(`${rejaOxiri}T00:00:00+05:00`) - ms(`${tashkentKun(now)}T00:00:00+05:00`)) / DAY) : null, reja_oxiri: rejaOxiri,
+    eskirgan: ochiq.filter((r) => (r.kimga === "kod" || r.kimga === "platforma") && t - ms(r.created_at) >= ESKI_KUN * DAY),
     // ertalab: { nazorat, murabbiy } bugungi hisobot tafsilotlari; berilmasa (haftalik, test) solishtirilmaydi.
     farqlar: kun === 1 && ertalab ? solishtir(ertalab.nazorat, ertalab.murabbiy) : [],
     ustozga: ochiq.filter((r) => r.kimga === "ustoz"),
@@ -97,6 +102,8 @@ export function hisobla({ profiles = [], leads = [], messages = [], views = [], 
 const farq = (hozir, oldin) => oldin === hozir ? "" : ` (${hozir > oldin ? "+" : ""}${hozir - oldin} o'tgan haftaga nisbatan)`;
 
 // Kuniga bitta Reels rejasi shu kundan boshlanadi (brend qo'llanmasi: 23-noyabr 2026).
+// Ochiq ish shuncha kundan oshsa nomi bilan ko'rsatiladi; tayyor ssenariylar shuncha kun qolganda eslatiladi.
+export const ESKI_KUN = 3, REJA_OGOH_KUN = 2;
 export const REELS_BOSHI = "2026-11-23";
 
 // CEO nimaga e'tibor qaratadi (agentlar/ceo.md dagi qoidalar). Har qator bitta fakt, baho va maslahatsiz.
@@ -108,7 +115,13 @@ export function etibor(h) {
   for (const x of m.tugagan) q.push(`${x.ism}: ${x.plan} ${x.kun === 0 ? "bugun tugadi" : `${x.kun} kun oldin tugadi`}, uzaytirmagan`);
   for (const [a, n] of Object.entries(h.agentlar)) if (n.xato) q.push(`${AGENT_NOM[a] || a}: ${n.xato} ta xato`);
   if (h.kun === 1 && h.sana >= REELS_BOSHI && !h.kontent.instagram) q.push("Bugun Reels joylanmadi (reja: kuniga 1 ta)");
+  // Kutilgan ish jadvali (ustoz 2026-11-19): kutilgan ish bo'lmasa aytiladi. Ertalabki ikki agent solishtir() da tekshiriladi.
+  if (h.kun === 1 && h.kanal_kechikdi && !h.kontent.kanal) q.push(`Kanal: reja kuni kelgan ${h.kanal_kechikdi} ta tasdiqlangan post bor, lekin bugun post chiqmadi`);
+  if (h.kanal_xato) q.push(`Kanal: ${h.kanal_xato} ta post xato bilan to'xtagan`);
+  if (h.reja_qoldi != null && h.reja_qoldi <= REJA_OGOH_KUN) q.push(h.reja_qoldi < 0 ? `Tayyor ssenariylar ${h.reja_oxiri} da tugagan, yangi kontent reja kerak` : `Tayyor ssenariylar ${h.reja_oxiri} gacha yetadi (${h.reja_qoldi} kun qoldi), kelasi hafta rejasi kerak`);
   if (h.kodga || h.platformaga) q.push(`Agentlar navbatida ochiq ish: kod agentida ${h.kodga} ta, platforma agentida ${h.platformaga} ta`);
+  for (const r of (h.eskirgan || []).slice(0, 3)) q.push(`${Math.floor((ms(`${h.sana}T23:59:59+05:00`) - ms(r.created_at)) / DAY)} kundan beri ochiq (${r.kimga === "kod" ? "kod agenti" : "platforma agenti"}): ${r.sarlavha}`);
+  if ((h.eskirgan || []).length > 3) q.push(`... va yana ${h.eskirgan.length - 3} ta eskirgan ish`);
   return q;
 }
 
@@ -184,7 +197,7 @@ export async function collectCeo(db, { now = new Date(), kun = 1 } = {}) {
     db.from("answers").select("student_id,answered_at").gte("answered_at", dan).limit(10000).then(optional),
     db.from("guest_views").select("last_at").gte("last_at", dan).limit(10000).then(optional),
     db.from("video_questions").select("created_at").gte("created_at", dan).limit(10000).then(optional),
-    db.from("kanal_postlar").select("holat,sent_at").limit(1000).then(optional),
+    db.from("kanal_postlar").select("holat,sent_at,reja_kuni").limit(1000).then(optional),
     db.from(NAVBAT).select("agent,tur,holat,sarlavha,kimga,created_at").gte("created_at", dan).limit(5000).then(optional),
     db.from(NAVBAT).select("sarlavha,kimga,tur,created_at").in("holat", ["yangi", "jarayonda"]).in("tur", ["xato", "savol"]).order("created_at").limit(1000).then(optional),
     db.from("video_views").select("student_id").gte("last_at", hafta7).limit(10000).then(optional),
@@ -197,7 +210,10 @@ export async function collectCeo(db, { now = new Date(), kun = 1 } = {}) {
     const sana = tashkentKun(now), { data, error } = await db.from(NAVBAT).select("kalit,tafsilot").in("kalit", [`nazorat:${sana}`, `murabbiy:${sana}`]);
     if (!error) ertalab = { nazorat: data?.find((r) => r.kalit === `nazorat:${sana}`)?.tafsilot || null, murabbiy: data?.find((r) => r.kalit === `murabbiy:${sana}`)?.tafsilot || null };
   }
-  return hisobla({ profiles, purchases, leads, messages, views, answers, guestViews, aiSavollar, posts, navbat, ochiq, haftaFaol, ertalab, now, kun });
+  // Marketolog reja tuzganda navbatga "tayyor ssenariylar qaysi kungacha yetadi" (tafsilot.reja_oxiri: YYYY-MM-DD) deb yozadi; eng oxirgisi olinadi.
+  const mk = await db.from(NAVBAT).select("tafsilot,created_at").eq("agent", "marketolog").order("created_at", { ascending: false }).limit(30).then(optional);
+  const rejaOxiri = mk.map((r) => r.tafsilot?.reja_oxiri).find((x) => /^\d{4}-\d{2}-\d{2}$/.test(String(x || ""))) || null;
+  return hisobla({ profiles, purchases, leads, messages, views, answers, guestViews, aiSavollar, posts, navbat, ochiq, haftaFaol, ertalab, rejaOxiri, now, kun });
 }
 
 // Hisobotni yuboradi. Navbatdagi kalit orqali kuniga (haftasiga) bir marta: kron ikki marta ishlasa ikkinchisi yubormaydi.
