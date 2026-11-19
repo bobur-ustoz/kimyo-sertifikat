@@ -426,3 +426,29 @@ test("'Saytga kirish' tokeni: imzo, muddat va buzilgan token", () => {
   assert.equal(parseFinishToken(t.replace("L1abcdefg", "L1abcdefh")), null);  // boshqa kodga ko'chirilgan
   assert.equal(parseFinishToken("x.y.z"), null);
 });
+
+test("umumiy navbat: ustozga uzatish 'savol', AI xatosi 'xato' bo'lib yoziladi; log berilmasa ham ishlaydi", async () => {
+  const t = setup("Xo'p. [[UZAT: pul o'tkazdi, ochilmadi]]");
+  const logs = [];
+  t.deps.log = async (y) => { logs.push(y); };
+  await t.say("pul o'tkazdim, ochilmadi");
+  assert.equal(logs.length, 1);
+  assert.deepEqual({ agent: logs[0].agent, tur: logs[0].tur, kimga: logs[0].kimga }, { agent: "sotuv", tur: "savol", kimga: "ustoz" });
+  assert.match(logs[0].sarlavha, /pul o'tkazdi, ochilmadi/);
+  assert.deepEqual(logs[0].tafsilot, { tg_id: 7 });
+
+  const e = setup(() => { throw new Error("429"); });
+  const elogs = [];
+  e.deps.log = async (y) => { elogs.push(y); };
+  const err = console.error; console.error = () => {};
+  try { await e.say("narx qancha turadi o'zi?"); } finally { console.error = err; }
+  assert.equal(elogs.length, 1);
+  assert.deepEqual({ agent: elogs[0].agent, tur: elogs[0].tur, kimga: elogs[0].kimga }, { agent: "sotuv", tur: "xato", kimga: "kod" });
+  assert.equal(elogs[0].tafsilot.xato, "429");
+
+  const n = setup("Salom, yordam beraman.");
+  const nlogs = [];
+  n.deps.log = async (y) => { nlogs.push(y); };
+  await n.say("salom");
+  assert.equal(nlogs.length, 0);                    // oddiy suhbat navbatga yozilmaydi
+});

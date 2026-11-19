@@ -144,15 +144,19 @@ function adminCard(lead, header, lines = []) {
 
 // Ustozga uzatish: AI jim bo'ladi, odam o'zi yozadi. Ustozga bot orqali karta yuboriladi.
 // `say: false` bo'lsa mijozga alohida xabar yuborilmaydi (AI javobi o'zi allaqachon aytgan).
-async function handoff(lead, reason, { store, send, notify, say = true }) {
+async function handoff(lead, reason, { store, send, notify, log = noLog, say = true }) {
   const now = new Date().toISOString();
   await store.updateLead(lead.tg_id, { stage: "handoff", human: true, handoff_reason: reason, handoff_at: now, ack_at: now });
   const recent = (await store.history(lead.tg_id, 4)).map((m) => `${m.role === "user" ? "👤" : "🤖"} ${escapeHtml(String(m.content).slice(0, 300))}`);
   await notify(adminCard(lead, "🙋 <b>Sotuv boti: ustoz kerak</b>", [`Sabab: ${escapeHtml(reason)}`, "", ...recent]));
+  await log({ agent: "sotuv", tur: "savol", sarlavha: `Ustoz kerak: ${reason}`, tafsilot: { tg_id: lead.tg_id }, kimga: "ustoz" });
   if (say) await send("sendMessage", { chat_id: lead.tg_id, text: "Ustozga yetkazdim, u odatda 3–4 soat ichida o'zi sizga yozadi." });
 }
 
-export async function handleUpdate(update, { store, send, ask, notify }) {
+// Umumiy navbatga yozuv (api/_navbat.js yoz): berilmasa hech narsa yozilmaydi.
+const noLog = async () => {};
+
+export async function handleUpdate(update, { store, send, ask, notify, log = noLog }) {
   // Tugma bosilishi
   if (update.callback_query) {
     const cq = update.callback_query;
@@ -162,7 +166,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
     const lead = await store.getLead(id);
     if (!lead) return;
     if (cq.data === "narx") await send("sendMessage", { chat_id: id, text: NARX_MATNI, parse_mode: "HTML", disable_web_page_preview: true });
-    else if (cq.data === "ustoz" && !lead.human) await handoff(lead, "o'quvchi o'zi ustoz bilan gaplashmoqchi", { store, send, notify });
+    else if (cq.data === "ustoz" && !lead.human) await handoff(lead, "o'quvchi o'zi ustoz bilan gaplashmoqchi", { store, send, notify, log });
     return;
   }
 
@@ -239,7 +243,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
     return;
   }
   if (/^\/ustoz\b/i.test(text)) {
-    if (!lead.human) await handoff(lead, "o'quvchi o'zi ustoz bilan gaplashmoqchi", { store, send, notify });
+    if (!lead.human) await handoff(lead, "o'quvchi o'zi ustoz bilan gaplashmoqchi", { store, send, notify, log });
     return;
   }
   if (isPhoneText(text)) {
@@ -290,6 +294,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   } catch (e) {
     console.error("sotuv ask failed:", e.message);
     await notify(adminCard(lead, "⚠️ <b>Sotuv boti: AI javob bera olmadi</b>", [escapeHtml(text.slice(0, 300))]));
+    await log({ agent: "sotuv", tur: "xato", sarlavha: "AI javob bera olmadi", tafsilot: { tg_id: id, xato: String(e.message).slice(0, 300) }, kimga: "kod" });
     await send("sendMessage", { chat_id: id, text: "Hozir javob bera olmayapman, savolingizni ustozga yetkazdim." });
     return;
   }
@@ -304,7 +309,7 @@ export async function handleUpdate(update, { store, send, ask, notify }) {
   await send("sendMessage", { chat_id: id, text: reply, disable_web_page_preview: true });
   // Jim ogohlantirish: ustozga xabar ketadi, suhbat to'xtamaydi.
   if (tags.note) await notify(adminCard(lead, "ℹ️ <b>Sotuv boti: ustozga eslatma</b>", [`Sabab: ${escapeHtml(tags.note)}`, `👤 ${escapeHtml(text.slice(0, 300))}`]));
-  if (tags.handoff) await handoff(lead, tags.handoff, { store, send, notify, say: false });
+  if (tags.handoff) await handoff(lead, tags.handoff, { store, send, notify, log, say: false });
 }
 
 // ---- Tashqi bog'lanishlar (webhook shularni beradi) ----

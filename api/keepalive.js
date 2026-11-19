@@ -9,6 +9,10 @@ import { createClient } from "@supabase/supabase-js";
 import { tg } from "./_telegram.js";
 import { runNazorat } from "./_nazorat.js";
 import { runYangilik } from "./_yangilik.js";
+import { yoz } from "./_navbat.js";
+
+// Asia/Tashkent bo'yicha bugungi sana: navbatda kuniga bitta yozuv bo'lishi uchun kalit.
+const bugun = () => new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
 
 // ?job=nazorat (second cron): the daily "who to contact" report for the teacher; it shares this
 // function because the Hobby plan caps how many functions the project may have.
@@ -22,9 +26,11 @@ async function nazorat(res) {
     const botToken = process.env.SOTUV_BOT_TOKEN;
     const toStudent = botToken ? (chat_id, text) => tg("sendMessage", { chat_id, text }, { token: botToken }) : null;
     const r = await runNazorat(db, (text) => tg("sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true }), new Date(), toStudent);
+    await yoz(db, { agent: "nazoratchi", tur: "hisobot", sarlavha: `Kunlik tekshiruv: ${r.flagged} ta o'quvchi bilan bog'lanish kerak, ${r.nudged} tasiga eslatma yuborildi`, tafsilot: r, kalit: `nazorat:${bugun()}` });
     return res.status(200).json({ ok: true, ...r });
   } catch (e) {
     console.error("nazorat failed:", e.message);
+    await yoz(db, { agent: "nazoratchi", tur: "xato", sarlavha: "Kunlik tekshiruv ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod" });
     return res.status(500).json({ ok: false, error: e.message });
   }
 }
@@ -39,10 +45,13 @@ async function yangilik(req, res) {
   const site = process.env.SITE_URL || "https://kimyo-sertifikat.vercel.app";
   try {
     const send = (chat_id, text, btn) => tg("sendMessage", { chat_id, text, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: { inline_keyboard: [[btn]] } }, { token: botToken });
-    const r = await runYangilik(db, send, site, { dryRun: !!req.query?.sinov });
+    const dryRun = !!req.query?.sinov;
+    const r = await runYangilik(db, send, site, { dryRun });
+    if (!dryRun && r.items) await yoz(db, { agent: "yangilik", tur: "hisobot", sarlavha: `Yangiliklar xabari: ${r.sent} o'quvchiga yuborildi, ${r.failed} tasiga yetmadi`, tafsilot: { sent: r.sent, failed: r.failed, items: r.items }, kalit: `yangilik:${bugun()}` });
     return res.status(200).json({ ok: true, ...r });
   } catch (e) {
     console.error("yangilik failed:", e.message);
+    await yoz(db, { agent: "yangilik", tur: "xato", sarlavha: "Yangiliklar xabari ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod" });
     return res.status(500).json({ ok: false, error: e.message });
   }
 }

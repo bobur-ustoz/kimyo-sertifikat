@@ -15,6 +15,7 @@ import crypto from "crypto";
 import { tg } from "./_telegram.js";
 import { handleUpdate } from "./_organika.js";
 import { handleUpdate as handleSotuv, supabaseStore, askClaude } from "./_sotuv.js";
+import { yoz } from "./_navbat.js";
 
 export const config = { maxDuration: 60 };   // the sales bot waits for a Claude reply
 
@@ -45,7 +46,7 @@ export default async function handler(req, res) {
       const notify = (text) => process.env.TELEGRAM_ADMIN_CHAT_ID
         ? tg("sendMessage", { chat_id: process.env.TELEGRAM_ADMIN_CHAT_ID, text, parse_mode: "HTML", disable_web_page_preview: true })
         : Promise.resolve();
-      await handleSotuv(req.body || {}, { store: supabaseStore(db), send, ask: askClaude, notify });
+      await handleSotuv(req.body || {}, { store: supabaseStore(db), send, ask: askClaude, notify, log: (y) => yoz(db, y) });
     } else {
       await handleUpdate(req.body || {}, db, send);
     }
