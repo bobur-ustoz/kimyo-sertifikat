@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AI ofis · Kimyogar Bobur</title>
+<style>
+  :root { --tun: #060a1c; --kok: #2459f0; --sariq: #ffd633; --oq: #ffffff; --xira: #8e9bc4; --panel: rgba(8, 16, 52, .88); --chegara: rgba(140, 170, 255, .34); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: radial-gradient(ellipse 90% 70% at 50% 110%, #16308f 0%, #0a1338 45%, var(--tun) 100%); overflow: hidden;
+    font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; color: var(--oq); -webkit-font-smoothing: antialiased; }
+  canvas { display: block; position: fixed; inset: 0; }
+  h1, h2, h3, .din { font-family: "DIN Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: .6px; font-weight: 700; }
+  .ust { position: fixed; left: 22px; top: 18px; z-index: 4; pointer-events: none; }
+  .ust .b { display: inline-block; background: var(--sariq); color: #061247; font-weight: 700; font-size: 11px; letter-spacing: 1.6px; padding: 4px 12px; border-radius: 20px; }
+  .ust h1 { font-size: 42px; line-height: 1; margin-top: 9px; } .ust h1 em { font-style: normal; color: var(--sariq); }
+  .ust p { color: var(--xira); font-size: 12.5px; margin-top: 3px; }
+  .kut { position: fixed; right: 22px; top: 18px; z-index: 5; width: 320px; }
+  .kut button { width: 100%; text-align: left; border: 1px solid var(--chegara); background: var(--panel); color: var(--oq); border-radius: 16px; padding: 11px 14px; font: 700 13px "Avenir Next", Arial, sans-serif; cursor: pointer; backdrop-filter: blur(8px); }
+  .kut button b { color: var(--sariq); float: right; font-family: "DIN Condensed", sans-serif; font-size: 20px; line-height: .9; }
+  .kut ul { list-style: none; margin-top: 8px; background: var(--panel); border: 1px solid var(--chegara); border-radius: 16px; padding: 8px 12px; display: none; backdrop-filter: blur(8px); max-height: 46vh; overflow: auto; }
+  .kut.ochiq ul { display: block; } .kut li { font-size: 12.5px; line-height: 1.4; padding: 7px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); cursor: pointer; } .kut li:last-child { border: 0; }
+  .kut li small { display: block; color: var(--xira); font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase; }
+  .yorliq { position: fixed; z-index: 2; transform: translate(-50%, -100%); padding: 5px 11px 5px 9px; border-radius: 18px; font-size: 11.5px; font-weight: 700; white-space: nowrap;
+    background: rgba(8, 16, 52, .86); border: 1px solid var(--chegara); cursor: pointer; user-select: none; }
+  .yorliq i, .nuqta { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; background: #5d6b9c; }
+  .b-faol i, .nuqta.b-faol { background: #41e08a; box-shadow: 0 0 9px #41e08a; } .b-ishlayapti i, .nuqta.b-ishlayapti { background: #41e08a; box-shadow: 0 0 9px #41e08a; animation: nafas 1.2s infinite; }
+  .b-savol i, .nuqta.b-savol { background: var(--sariq); box-shadow: 0 0 9px var(--sariq); animation: nafas 1.6s infinite; } .b-xato i, .nuqta.b-xato { background: #ff4d5e; box-shadow: 0 0 9px #ff4d5e; animation: nafas .9s infinite; }
+  .yorliq.b-yoq, .dok .xira { opacity: .55; }
+  body.ixcham .yorliq { font-size: 0; padding: 6px; } body.ixcham .yorliq i { margin: 0; width: 10px; height: 10px; }
+  @keyframes nafas { 50% { opacity: .3; } }
+  .karta { position: fixed; left: 22px; bottom: 86px; width: 350px; z-index: 5; padding: 17px 19px; border-radius: 22px; background: linear-gradient(160deg, rgba(31, 63, 174, .74), rgba(8, 14, 48, .95));
+    border: 1px solid var(--chegara); backdrop-filter: blur(10px); box-shadow: 0 24px 60px rgba(0, 0, 0, .5); opacity: 0; transform: translateY(24px); pointer-events: none; transition: all .4s cubic-bezier(.2, .9, .3, 1.15); }
+  .karta.ochiq { opacity: 1; transform: none; pointer-events: auto; }
+  .rol { font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--xira); font-weight: 700; }
+  .karta h2 { font-size: 33px; margin: 2px 0 9px; line-height: 1; }
+  .qator { font-size: 12.8px; line-height: 1.45; margin-bottom: 8px; color: #dbe3ff; }
+  .qator b, .sarl { color: var(--sariq); font-weight: 700; display: block; font-size: 10.5px; letter-spacing: 1.3px; text-transform: uppercase; margin-bottom: 1px; }
+  .raqamlar { display: flex; gap: 9px; margin: 11px 0 13px; }
+  .raqamlar div { flex: 1; background: rgba(255, 255, 255, .07); border-radius: 14px; padding: 8px 10px; font-size: 10px; color: var(--xira); letter-spacing: .6px; text-transform: uppercase; }
+  .raqamlar strong { display: block; font-family: "DIN Condensed", sans-serif; font-size: 27px; color: var(--oq); }
+  .tugma { display: flex; gap: 8px; } .tugma button, .kab .yop { border: 0; border-radius: 14px; padding: 11px 10px; font: 700 13px "Avenir Next", Arial, sans-serif; cursor: pointer; }
+  .asosiy { flex: 1; background: var(--sariq); color: #061247; } .ikkinchi { background: rgba(255, 255, 255, .11); color: var(--oq); flex: 0 0 84px; }
+  .dok { position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; display: flex; gap: 7px; padding: 12px 18px 14px; overflow-x: auto; background: linear-gradient(180deg, rgba(6, 10, 28, 0), rgba(6, 10, 28, .92) 45%); scrollbar-width: none; }
+  .dok::-webkit-scrollbar { display: none; }
+  .dok button { flex: none; border: 1px solid var(--chegara); background: var(--panel); color: var(--oq); border-radius: 18px; padding: 8px 13px 8px 10px; font: 700 12px "Avenir Next", Arial, sans-serif; cursor: pointer; white-space: nowrap; }
+  .dok button.tanlangan { background: var(--sariq); color: #061247; border-color: var(--sariq); opacity: 1; } .dok .ofis { background: rgba(255, 255, 255, .14); padding-left: 13px; }
+  .dok button.g { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--r); border-color: var(--r); background: rgba(8, 16, 52, .6); margin-left: 10px; padding: 8px 12px; }
+  .dok button.g.tanlangan { background: var(--r); color: #061247; }
+  .bolim { position: fixed; z-index: 3; transform: translate(-50%, -50%); padding: 6px 14px 4px; border-radius: 10px; color: #061247; font-family: "DIN Condensed", "Arial Narrow", sans-serif; font-size: 19px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; white-space: nowrap; cursor: pointer; user-select: none; box-shadow: 0 8px 22px rgba(0, 0, 0, .45); }
+  .bolim small { font-family: "Avenir Next", Arial, sans-serif; font-size: 10px; letter-spacing: .6px; opacity: .75; margin-left: 6px; }
+  body.ixcham .bolim { font-size: 14px; padding: 4px 9px 2px; } body.ixcham .bolim small { display: none; }
+  .kab { position: fixed; top: 0; right: 0; bottom: 0; width: min(470px, 100vw); z-index: 8; background: linear-gradient(170deg, #12277a 0%, #0a1338 38%, #060a1c 100%); border-left: 1px solid var(--chegara);
+    box-shadow: -30px 0 80px rgba(0, 0, 0, .55); transform: translateX(105%); transition: transform .45s cubic-bezier(.2, .9, .3, 1); overflow-y: auto; padding: 22px 24px 40px; }
+  .kab.ochiq { transform: none; }
+  .kab .yop { float: right; background: rgba(255, 255, 255, .12); color: var(--oq); padding: 8px 14px; }
+  .kab h2 { font-size: 44px; line-height: 1; margin: 4px 0 6px; } .kab .hol { font-size: 13px; color: #dbe3ff; margin-bottom: 14px; }
+  .kab section { background: rgba(255, 255, 255, .055); border: 1px solid rgba(140, 170, 255, .16); border-radius: 18px; padding: 14px 16px; margin-top: 12px; }
+  .kab section.sariq { background: rgba(255, 214, 51, .1); border-color: rgba(255, 214, 51, .45); }
+  .kab ul { list-style: none; } .kab li { font-size: 13px; line-height: 1.42; padding: 7px 0; border-bottom: 1px solid rgba(255, 255, 255, .07); } .kab li:last-child { border: 0; padding-bottom: 0; }
+  .kab li small { display: block; color: var(--xira); font-size: 10.5px; letter-spacing: .5px; margin-top: 1px; }
+  .kab .qob li::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 2px; background: var(--sariq); margin-right: 9px; vertical-align: 1px; }
+  .kab .ikki { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } .kab .ikki div { font-size: 12.5px; color: #dbe3ff; }
+  .kab .ikki b { display: block; color: var(--xira); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; }
+  .kab .bosh { color: var(--xira); font-size: 12.5px; }
+  .xabar { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 9; color: var(--xira); font-size: 14px; text-align: center; line-height: 1.6; }
+  .ogoh { position: fixed; left: 22px; top: 118px; z-index: 4; font-size: 12px; color: #ffb3ba; max-width: 420px; }
+  @media (max-width: 760px) { .kut { left: 14px; right: 14px; top: 104px; width: auto; } .karta { left: 12px; right: 12px; width: auto; bottom: 62px; } .ust h1 { font-size: 34px; } }
+</style>
+</head>
+<body>
+<div class="ust"><span class="b">KIMYOGAR BOBUR</span><h1>AI <em>ofis</em></h1><p id="yangilandi">Yuklanmoqda...</p></div>
+<div class="ogoh" id="ogoh"></div>
+<div class="karta" id="karta"></div>
+<div class="kut" id="kut"><button id="kutTugma">Sizdan kutilmoqda <b id="kutSoni">0</b></button><ul id="kutRoyxat"></ul></div>
+<div class="dok" id="dok"></div>
+<aside class="kab" id="kab"></aside>
+<div class="xabar" id="xabar">Ofis yuklanmoqda...</div>
+
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const GURUH = { "Kontent": 0xffd633, "O'quvchilar": 0x41e08a, "Platforma": 0x4d8bff, "Nazorat": 0xa98bff };
+const BELGI = { faol: "Bugun ishlagan", ishlayapti: "Hozir ishlayapti", savol: "Sizdan javob kutyapti", xato: "Xato bor", kutmoqda: "Kutmoqda", yoq: "Hali qurilmagan" };
+const HOLAT = { ishlaydi: "Ishlaydi", sinovda: "O'rgatilgan, sinovda", qurilmagan: "Qurilmagan" };
+const vaqt = (t) => { if (!t) return ""; const d = new Date(t), s = (Date.now() - d) / 3600e3;
+  const soat = d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Tashkent" }), kun = d.toLocaleDateString("ru-RU", { day: "numeric", month: "numeric", timeZone: "Asia/Tashkent" });
+  return s < 1 ? `${Math.max(1, Math.round(s * 60))} daqiqa oldin` : s < 20 ? `bugun ${soat}` : `${kun}, ${soat}`; };
+
+// Ma'lumot manbai: kompyuterda mahalliy server (malumot.json), saytda esa faqat adminga javob beradigan server.
+// Saytda admin panelga kirgan odamning sessiyasi ishlatiladi (shu brauzerda saqlangan); sessiya bo'lmasa hech narsa ko'rsatilmaydi.
+async function yukla() {
+  if (["localhost", "127.0.0.1"].includes(location.hostname)) {
+    try { const r = await fetch("malumot.json", { cache: "no-store" }); if (r.ok) return await r.json(); } catch {}
+  }
+  const kalit = Object.keys(localStorage).find((k) => /^sb-.+-auth-token$/.test(k));
+  let token = null; try { token = kalit && JSON.parse(localStorage.getItem(kalit))?.access_token; } catch {}
+  if (!token) throw new Error("Admin hisobi bilan kiring: avval admin panelni oching.");
+  const r = await fetch("/api/bunny-auth", { method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ ofis: true }) });
+  if (r.status === 401) throw new Error("Sessiya eskirgan: admin panelni yangilab, qayta oching.");
+  if (r.status === 403) throw new Error("Bu sahifa faqat admin uchun.");
+  if (!r.ok) throw new Error("Server javob bermadi. Birozdan keyin qayta urinib ko'ring.");
+  return r.json();
+}
+let D;
+try { D = await yukla(); }
+catch (e) { $("xabar").textContent = e.message || "Ma'lumot olinmadi."; throw e; }
+$("xabar").remove();
+$("yangilandi").textContent = `${D.agentlar.length} agent · yangilandi: ${vaqt(D.vaqt)}`;
+if (D.ogohlantirish) $("ogoh").textContent = D.ogohlantirish;
+
+// ================= 3D sahna =================
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.prepend(renderer.domElement);
+const scene = new THREE.Scene(); scene.fog = new THREE.Fog(0x060a1c, 90, 220);
+const camera = new THREE.PerspectiveCamera(30, innerWidth / innerHeight, 0.1, 500);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.screenSpacePanning = false; controls.minDistance = 7; controls.maxDistance = 160;
+controls.minPolarAngle = 0.45; controls.maxPolarAngle = 1.3; controls.minAzimuthAngle = 0.15; controls.maxAzimuthAngle = 1.42;
+
+scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a2a70, 1.3));
+const quyosh = new THREE.DirectionalLight(0xffffff, 2.0); quyosh.position.set(18, 30, 12); quyosh.castShadow = true;
+quyosh.shadow.mapSize.set(4096, 4096); Object.assign(quyosh.shadow.camera, { left: -24, right: 24, top: 24, bottom: -24, near: 1, far: 90 }); quyosh.shadow.bias = -0.0005; quyosh.shadow.radius = 3;
+scene.add(quyosh);
+
+const mk = new Map();
+const mat = (color, o = {}) => { const k = color + JSON.stringify(o); if (!mk.has(k)) mk.set(k, new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.05, ...o })); return mk.get(k); };
+const nur = (color, kuch = 1.6) => new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: kuch, roughness: 0.4 });
+const gk = new Map();
+const geo = (k, f) => { if (!gk.has(k)) gk.set(k, f()); return gk.get(k); };
+function quti(w, h, d, m, x, y, z, p, r = 0.05) {
+  const g = new THREE.Mesh(geo(`q${w},${h},${d},${r}`, () => new RoundedBoxGeometry(w, h, d, 3, Math.min(r, w / 2.01, h / 2.01, d / 2.01))), m);
+  g.position.set(x, y, z); g.castShadow = true; g.receiveShadow = true; p.add(g); return g;
+}
+function sil(rt, rb, h, m, x, y, z, p, seg = 20) { const g = new THREE.Mesh(geo(`s${rt},${rb},${h},${seg}`, () => new THREE.CylinderGeometry(rt, rb, h, seg)), m); g.position.set(x, y, z); g.castShadow = true; p.add(g); return g; }
+function shar(r, m, x, y, z, p) { const g = new THREE.Mesh(geo(`h${r}`, () => new THREE.SphereGeometry(r, 24, 18)), m); g.position.set(x, y, z); g.castShadow = true; p.add(g); return g; }
+function tor(R, r, m, x, y, z, p) { const g = new THREE.Mesh(geo(`t${R},${r}`, () => new THREE.TorusGeometry(R, r, 10, 48)), m); g.position.set(x, y, z); p.add(g); return g; }
+function konus(r, h, m, x, y, z, p, seg = 20) { const g = new THREE.Mesh(geo(`k${r},${h},${seg}`, () => new THREE.ConeGeometry(r, h, seg)), m); g.position.set(x, y, z); g.castShadow = true; p.add(g); return g; }
+function tasvir(w, h, chiz) { const c = document.createElement("canvas"); c.width = w; c.height = h; chiz(c.getContext("2d"), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; }
+function tekis(w, h, tex, x, y, z, p, ry = 0, shaffof = false) {
+  const g = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex, toneMapped: false, transparent: shaffof, side: shaffof ? THREE.DoubleSide : THREE.FrontSide, depthWrite: !shaffof }));
+  g.position.set(x, y, z); g.rotation.y = ry; p.add(g); return g;
+}
+const suzuvchi = [], aylanuvchi = [], miltillovchi = [], robotlar = [];
+
+// zamin
+const yer = new THREE.Mesh(new THREE.CircleGeometry(180, 64), new THREE.MeshStandardMaterial({ color: 0x070c24, roughness: 1 })); yer.rotation.x = -Math.PI / 2; yer.position.y = -0.62; yer.receiveShadow = true; scene.add(yer);
+const katak = new THREE.GridHelper(300, 150, 0x1b2b6e, 0x101a48); katak.position.y = -0.61; katak.material.transparent = true; katak.material.opacity = 0.45; scene.add(katak);
+const QADAM = 7.5, S = 6.4;
+const YOLAK = 3.0;                                   // bo'limlar orasidagi yo'lak kengligi
+
+// ---------- robot
+function robot(p, rang, uxlaydi) {
+  const g = new THREE.Group(); g.position.set(0.55, 0, -0.35); g.rotation.y = 0.62; p.add(g);
+  const tana = new THREE.Group(); g.add(tana);
+  const oqM = mat(uxlaydi ? 0x9aa3c7 : 0xf2f5ff, { roughness: 0.28, metalness: 0.08 }), rM = mat(rang, { roughness: 0.35 });
+  const gavda = new THREE.Mesh(geo("gavda", () => new THREE.CapsuleGeometry(0.4, 0.36, 8, 24)), oqM); gavda.position.y = 0.9; gavda.castShadow = true; tana.add(gavda);
+  tor(0.41, 0.045, rM, 0, 0.83, 0, tana).rotation.x = Math.PI / 2;
+  const kokrak = new THREE.Mesh(geo("kokrak", () => new THREE.CircleGeometry(0.11, 24)), uxlaydi ? mat(0x4a5480) : nur(rang, 1.6)); kokrak.position.set(0, 1.03, 0.402); tana.add(kokrak);
+  const bosh = new THREE.Group(); bosh.position.y = 1.7; tana.add(bosh);
+  const kalla = new THREE.Mesh(geo("kalla", () => new THREE.SphereGeometry(0.44, 32, 24)), oqM); kalla.scale.set(1.12, 0.92, 1); kalla.castShadow = true; bosh.add(kalla);
+  const niqob = new THREE.Mesh(geo("niqob", () => new THREE.SphereGeometry(0.37, 32, 24)), mat(0x070d2c, { roughness: 0.15, metalness: 0.4 })); niqob.scale.set(1.02, 0.6, 0.5); niqob.position.set(0, 0.02, 0.27); bosh.add(niqob);
+  const kozM = uxlaydi ? mat(0x39426e) : nur(0xffd633, 2.6);
+  const kozlar = [-0.15, 0.15].map((x) => { const k = new THREE.Mesh(geo("koz", () => new THREE.CapsuleGeometry(0.046, 0.08, 6, 12)), kozM); k.position.set(x, 0.03, 0.445); if (uxlaydi) k.scale.y = 0.15; bosh.add(k); return k; });
+  [-1, 1].forEach((s) => { sil(0.1, 0.1, 0.09, rM, s * 0.5, 0, 0, bosh).rotation.z = Math.PI / 2; });
+  sil(0.016, 0.016, 0.26, mat(0x9aa7d6), 0, 0.52, 0, bosh, 8); const antenna = shar(0.058, uxlaydi ? mat(0x4a5480) : nur(rang, 2.2), 0, 0.68, 0, bosh);
+  const qollar = [-1, 1].map((s) => { const q = new THREE.Group(); q.position.set(s * 0.49, 1.15, 0.02); tana.add(q);
+    const m = new THREE.Mesh(geo("qol", () => new THREE.CapsuleGeometry(0.085, 0.34, 6, 12)), oqM); m.position.y = -0.24; m.castShadow = true; q.add(m); shar(0.105, rM, 0, -0.49, 0, q); q.rotation.z = s * 0.22; return q; });
+  const disk = tor(0.35, 0.04, uxlaydi ? mat(0x39426e) : nur(0x2459f0, 2.6), 0, 0.3, 0, tana); disk.rotation.x = Math.PI / 2;
+  const r = { g, tana, bosh, kozlar, qollar, antenna, disk, uxlaydi, faza: Math.random() * 6, ishchan: false };
+  robotlar.push(r); return r;
+}
+
+// ---------- kasbiy buyumlar (xona markaziga nisbatan; devorlar x = -3.2 va z = -3.2 da)
+const D_X = -S / 2 + 0.11;                           // chap devor yuzasi
+const BUYUM = {
+  doska(p) {                                         // marketolog: haftalik reja doskasi va g'oya chirog'i
+    tekis(2.9, 1.5, tasvir(580, 300, (x) => { x.fillStyle = "#0a1448"; x.fillRect(0, 0, 580, 300); x.fillStyle = "#ffd633"; x.font = "700 30px Arial"; x.fillText("HAFTALIK REJA", 22, 42);
+      const r = ["#2459f0", "#ffd633", "#35c97a", "#ff6b8a", "#7c5cff", "#4d8bff", "#ffb347"]; for (let i = 0; i < 7; i++) { x.fillStyle = r[i]; x.beginPath(); x.roundRect(22 + i * 78, 66, 68, 210 - (i % 3) * 46, 10); x.fill(); } }), D_X, 1.5, 0.3, p, Math.PI / 2);
+    sil(0.04, 0.04, 1.3, mat(0x0b1030), -2.1, 0.65, 2.0, p); const l = shar(0.3, nur(0xffd633, 2.2), -2.1, 1.55, 2.0, p); miltillovchi.push([l, 2.2, 0.9, 1.7]); sil(0.14, 0.17, 0.2, mat(0x9aa7d6), -2.1, 1.24, 2.0, p);
+  },
+  kamera(p) {                                        // reels montajchisi: shtativdagi kamera va vaqt chizig'i
+    const g = new THREE.Group(); g.position.set(-1.9, 0, 1.7); g.rotation.y = 2.3; p.add(g);
+    [0, 2.1, 4.2].forEach((a) => { const o = sil(0.03, 0.03, 1.5, mat(0x0b1030), Math.cos(a) * 0.26, 0.72, Math.sin(a) * 0.26, g, 8); o.rotation.z = Math.cos(a) * 0.34; o.rotation.x = -Math.sin(a) * 0.34; });
+    quti(0.58, 0.4, 0.36, mat(0x16276f), 0, 1.62, 0, g, 0.06); sil(0.14, 0.17, 0.26, mat(0x0b1030), 0, 1.62, 0.3, g).rotation.x = Math.PI / 2;
+    const y = shar(0.04, nur(0xff3b4e, 2.5), 0.2, 1.78, 0.19, g); miltillovchi.push([y, 2.6, 2.4, 5]);
+    const t = tekis(1.7, 0.85, tasvir(340, 170, (x) => { x.fillStyle = "rgba(6,12,44,.78)"; x.beginPath(); x.roundRect(2, 2, 336, 166, 16); x.fill(); x.strokeStyle = "#ffd633"; x.lineWidth = 3; x.stroke();
+      [["#4d8bff", 14, 20, 130], ["#ffd633", 152, 20, 70], ["#4d8bff", 230, 20, 96], ["#35c97a", 14, 68, 200], ["#7c5cff", 222, 68, 104], ["#ffd633", 14, 116, 312]].forEach(([c, a, b, w]) => { x.fillStyle = c; x.beginPath(); x.roundRect(a, b, w, 34, 8); x.fill(); }); }), 2.2, 1.8, 0.1, p, 0.5, true);
+    suzuvchi.push([t, 1.8, 0.06, 1.2]);
+  },
+  film(p) {                                          // dars montajchisi: katta ekran va tasma g'altagi
+    tekis(2.8, 1.6, tasvir(560, 320, (x) => { x.fillStyle = "#0a1448"; x.fillRect(0, 0, 560, 320); x.fillStyle = "#12277a"; x.fillRect(20, 20, 520, 220); x.fillStyle = "#ffd633"; x.beginPath(); x.arc(280, 130, 46, 0, 7); x.fill();
+      x.fillStyle = "#0a1448"; x.beginPath(); x.moveTo(266, 106); x.lineTo(308, 130); x.lineTo(266, 154); x.fill(); x.fillStyle = "#4d8bff"; x.fillRect(20, 262, 330, 14); x.fillStyle = "#ffffff"; x.fillRect(350, 256, 6, 26); }), D_X, 1.5, 0.3, p, Math.PI / 2);
+    const g = new THREE.Group(); g.position.set(-1.9, 1.0, 1.9); g.rotation.y = 0.75; p.add(g); const ich = new THREE.Group(); g.add(ich);
+    sil(0.62, 0.62, 0.12, mat(0x0b1030), 0, 0, 0, ich, 32).rotation.x = Math.PI / 2; for (let i = 0; i < 5; i++) sil(0.12, 0.12, 0.14, mat(0xffd633), Math.cos(i * 1.257) * 0.36, Math.sin(i * 1.257) * 0.36, 0, ich, 16).rotation.x = Math.PI / 2;
+    aylanuvchi.push([ich, "z", 0.6]); sil(0.05, 0.05, 1.0, mat(0x9aa7d6), -1.9, 0.5, 1.9, p);
+  },
+  telefon(p) {                                       // instagram: katta telefon va yurakchalar
+    const g = new THREE.Group(); g.position.set(-1.8, 1.25, 1.6); g.rotation.y = 0.75; p.add(g);
+    quti(1.1, 2.1, 0.12, mat(0x0b1030), 0, 0, 0, g, 0.12);
+    tekis(0.96, 1.92, tasvir(240, 480, (x) => { const gr = x.createLinearGradient(0, 0, 240, 480); gr.addColorStop(0, "#7c5cff"); gr.addColorStop(.5, "#ff5c8a"); gr.addColorStop(1, "#ffb347"); x.fillStyle = gr; x.fillRect(0, 0, 240, 480);
+      x.fillStyle = "rgba(255,255,255,.92)"; x.beginPath(); x.arc(120, 200, 52, 0, 7); x.fill(); x.fillStyle = "#ff5c8a"; x.beginPath(); x.moveTo(104, 172); x.lineTo(150, 200); x.lineTo(104, 228); x.fill();
+      x.fillStyle = "rgba(255,255,255,.9)"; x.fillRect(24, 400, 150, 12); x.fillRect(24, 424, 100, 10); }), 0, 0, 0.065, g);
+    suzuvchi.push([g, 1.25, 0.05, 1]);
+    [[-0.9, 2.7, 1.2, 0.16], [-2.5, 2.5, 2.3, 0.12]].forEach(([x, y, z, r], i) => { const h = shar(r, nur(0xff5c8a, 1.6), x, y, z, p); suzuvchi.push([h, y, 0.14, 1.6 + i]); });
+  },
+  megafon(p) {                                       // kanal postchisi: karnay va uchayotgan xabarlar
+    const g = new THREE.Group(); g.position.set(-1.9, 1.35, 1.7); g.rotation.set(0, 0.9, 0.25); p.add(g);
+    konus(0.55, 1.1, mat(0xffd633), 0.3, 0, 0, g, 28).rotation.z = Math.PI / 2; sil(0.16, 0.16, 0.5, mat(0xf2f5ff), -0.45, 0, 0, g).rotation.z = Math.PI / 2; quti(0.12, 0.5, 0.12, mat(0x0b1030), -0.45, -0.3, 0, g);
+    sil(0.04, 0.04, 1.2, mat(0x0b1030), -1.9, 0.6, 1.7, p);
+    [[-0.6, 2.3, 1.5], [0.2, 2.7, 2.3], [-1.2, 2.9, 2.5]].forEach(([x, y, z], i) => { const q = quti(0.5, 0.34, 0.04, mat(0x4d8bff), x, y, z, p, 0.04); q.rotation.set(0.2, 0.8, 0.15); suzuvchi.push([q, y, 0.12, 1.3 + i * 0.5]); });
+  },
+  qurilish(p) {                                      // qurilmagan agent: to'siq va konuslar
+    [[-1.6, 1.5], [1.9, 1.9], [-0.4, 2.3]].forEach(([x, z]) => { konus(0.24, 0.6, mat(0xff8a3d), x, 0.36, z, p); quti(0.6, 0.06, 0.6, mat(0xff8a3d), x, 0.04, z, p, 0.02); });
+    quti(2.4, 0.26, 0.1, mat(0xffd633), 0.2, 0.95, 1.3, p, 0.04); [-0.9, 1.3].forEach((x) => quti(0.1, 0.95, 0.1, mat(0x9aa7d6), x, 0.48, 1.3, p, 0.02));
+  },
+  suhbat(p) {                                        // sotuv boti: suhbat pufakchalari
+    [[-1.9, 2.2, 1.2, 1.3, 0x4d8bff], [-0.9, 2.8, 2.0, 1.0, 0xf2f5ff], [-2.2, 1.45, 2.3, 0.9, 0x41e08a]].forEach(([x, y, z, w, c], i) => { const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = 0.75; p.add(g);
+      quti(w, 0.52, 0.1, mat(c), 0, 0, 0, g, 0.2); [-0.24, 0, 0.24].forEach((dx) => shar(0.055, mat(0x0b1750), dx * w * 0.8, 0, 0.07, g)); suzuvchi.push([g, y, 0.09, 1.1 + i * 0.6]); });
+  },
+  yurak(p) {                                         // murabbiy: yurak va yulduzchalar
+    const g = new THREE.Group(); g.position.set(-1.8, 2.0, 1.6); g.rotation.y = 0.75; p.add(g); const m = nur(0xff5c8a, 1.3);
+    shar(0.36, m, -0.26, 0.2, 0, g); shar(0.36, m, 0.26, 0.2, 0, g); const k = konus(0.57, 0.8, m, 0, -0.3, 0, g, 4); k.rotation.set(Math.PI, Math.PI / 4, 0); k.scale.z = 0.62;
+    suzuvchi.push([g, 2.0, 0.1, 1.5]); miltillovchi.push([g.children[0], 1.3, 0.5, 2.4]);
+    [[-0.5, 2.9, 2.3], [-2.5, 1.2, 2.4]].forEach(([x, y, z], i) => { const s = konus(0.16, 0.3, nur(0xffd633, 1.8), x, y, z, p, 4); suzuvchi.push([s, y, 0.12, 1.8 + i]); aylanuvchi.push([s, "y", 1.5]); });
+    sil(0.5, 0.5, 0.06, mat(0xf2f5ff), -1.8, 0.04, 1.6, p, 32);
+  },
+  server(p) {                                        // platforma: server javoni va bulut
+    quti(1.0, 2.2, 0.8, mat(0x0b1030), -2.2, 1.1, 1.5, p, 0.06);
+    for (let i = 0; i < 6; i++) { quti(0.8, 0.2, 0.04, mat(0x16276f), -2.2, 0.36 + i * 0.32, 1.92, p, 0.02); const l = shar(0.035, nur(i % 3 ? 0x41e08a : 0xffd633, 2.4), -1.9, 0.36 + i * 0.32, 1.95, p); miltillovchi.push([l, 2.4, 2.2, 3 + i * 0.7]); }
+    const b = new THREE.Group(); b.position.set(-0.6, 2.9, 1.9); p.add(b); [[0, 0, 0.42], [0.42, -0.06, 0.32], [-0.42, -0.08, 0.3], [0.16, 0.2, 0.3]].forEach(([x, y, r]) => shar(r, mat(0xf2f5ff, { roughness: 0.9 }), x, y, 0, b)); suzuvchi.push([b, 2.9, 0.1, 0.9]);
+  },
+  kolba(p) {                                         // imtihon tuzuvchi: kolba, probirkalar va test varaqlari
+    quti(1.5, 0.08, 0.9, mat(0xffffff), -2.0, 0.92, 1.7, p); [[-2.6, 1.35], [-1.4, 1.35], [-2.6, 2.05], [-1.4, 2.05]].forEach(([x, z]) => quti(0.08, 0.9, 0.08, mat(0x0b1030), x, 0.46, z, p, 0.02));
+    const shisha = new THREE.MeshStandardMaterial({ color: 0xcfe0ff, transparent: true, opacity: 0.35, roughness: 0.05, metalness: 0.2 });
+    konus(0.36, 0.6, shisha, -2.3, 1.28, 1.7, p, 24); sil(0.1, 0.1, 0.34, shisha, -2.3, 1.7, 1.7, p); konus(0.3, 0.36, nur(0x41e08a, 1.1), -2.3, 1.16, 1.7, p, 24);
+    sil(0.07, 0.07, 0.6, shisha, -1.75, 1.26, 1.55, p); sil(0.06, 0.06, 0.3, nur(0xff5c8a, 1.1), -1.75, 1.12, 1.55, p); sil(0.07, 0.07, 0.6, shisha, -1.55, 1.26, 1.85, p); sil(0.06, 0.06, 0.4, nur(0xffd633, 1.1), -1.55, 1.17, 1.85, p);
+    for (let i = 0; i < 5; i++) quti(0.7, 0.02, 0.95, mat(0xffffff), 1.9 + i * 0.03, 0.02 + i * 0.03, 1.9, p, 0.005).rotation.y = 0.2 + i * 0.07;
+    [[-0.9, 2.6, 2.2], [-2.9, 2.3, 2.6]].forEach(([x, y, z], i) => { const s = shar(0.1, nur(0x41e08a, 1.6), x, y, z, p); suzuvchi.push([s, y, 0.16, 1.4 + i]); });
+  },
+  qogoz(p) {                                         // pdf dizayneri: sahifalar va printer
+    [[-2.3, 1.7, 1.5, -0.2], [-1.5, 2.0, 2.0, 0.1], [-2.5, 2.4, 2.4, 0.3]].forEach(([x, y, z, r], i) => { const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.set(0, 0.75, r); p.add(g);
+      quti(0.9, 1.25, 0.03, mat(0xffffff), 0, 0, 0, g, 0.01); quti(0.9, 0.3, 0.035, mat(0x2459f0), 0, 0.475, 0, g, 0.01); [0.1, -0.1, -0.3].forEach((yy, k) => quti(0.66 - k * 0.12, 0.06, 0.036, mat(k ? 0xcfd8f5 : 0xffd633), -0.06 - k * 0.03, yy, 0, g, 0.01)); suzuvchi.push([g, y, 0.07, 1 + i * 0.5]); });
+    quti(1.1, 0.5, 0.8, mat(0xf2f5ff), 1.9, 0.26, 1.9, p, 0.08); quti(0.8, 0.04, 0.5, mat(0xffffff), 1.9, 0.53, 2.0, p, 0.01); quti(0.9, 0.08, 0.06, mat(0x0b1030), 1.9, 0.4, 2.3, p, 0.02);
+  },
+  mikrofon(p) {                                      // ovozli yechim: mikrofon va tovush to'lqinlari
+    sil(0.04, 0.04, 1.5, mat(0x0b1030), -1.9, 0.75, 1.7, p); sil(0.34, 0.38, 0.06, mat(0x0b1030), -1.9, 0.04, 1.7, p);
+    const m = new THREE.Mesh(geo("mik", () => new THREE.CapsuleGeometry(0.2, 0.3, 8, 20)), mat(0x9aa7d6, { metalness: 0.6, roughness: 0.3 })); m.position.set(-1.9, 1.75, 1.7); m.castShadow = true; p.add(m);
+    tor(0.21, 0.03, mat(0xffd633), -1.9, 1.62, 1.7, p).rotation.x = Math.PI / 2;
+    [0.5, 0.8, 1.1].forEach((r, i) => { const t = tor(r, 0.025, nur(0x4d8bff, 1.6), -1.9, 1.75, 1.7, p); t.rotation.y = 0.75; miltillovchi.push([t, 1.6, 1.4, 2.5 + i * 0.9]); });
+  },
+  lupa(p) {                                          // nazoratchi: katta lupa va radar
+    const g = new THREE.Group(); g.position.set(-1.8, 1.9, 1.6); g.rotation.set(0, 0.75, 0.5); p.add(g);
+    tor(0.6, 0.08, mat(0xffd633, { metalness: 0.4, roughness: 0.3 }), 0, 0, 0, g); g.add(new THREE.Mesh(new THREE.CircleGeometry(0.56, 32), new THREE.MeshStandardMaterial({ color: 0xbcd4ff, transparent: true, opacity: 0.3, roughness: 0.05, side: THREE.DoubleSide })));
+    sil(0.07, 0.07, 0.9, mat(0x0b1030), 0, -1.05, 0, g); suzuvchi.push([g, 1.9, 0.1, 1.1]);
+    const r = new THREE.Group(); r.position.set(1.9, 0.04, 1.9); p.add(r); sil(0.7, 0.7, 0.06, mat(0x0b1750), 0, 0, 0, r, 32); tor(0.7, 0.03, nur(0x41e08a, 1.8), 0, 0.04, 0, r).rotation.x = Math.PI / 2; tor(0.4, 0.02, nur(0x41e08a, 1.2), 0, 0.04, 0, r).rotation.x = Math.PI / 2;
+    const a = new THREE.Group(); r.add(a); quti(0.7, 0.03, 0.05, nur(0x41e08a, 2.4), 0.35, 0.05, 0, a, 0.01); aylanuvchi.push([a, "y", 1.6]);
+  },
+  terminal(p) {                                      // kod agenti: kod ekrani va belgilar
+    tekis(2.9, 1.6, tasvir(580, 320, (x) => { x.fillStyle = "#070d2c"; x.fillRect(0, 0, 580, 320); x.fillStyle = "#12277a"; x.fillRect(0, 0, 580, 34); ["#ff5c6c", "#ffd633", "#41e08a"].forEach((c, i) => { x.fillStyle = c; x.beginPath(); x.arc(22 + i * 24, 17, 7, 0, 7); x.fill(); });
+      const r = ["#a98bff", "#4d8bff", "#ffd633", "#41e08a", "#dbe3ff"]; for (let i = 0; i < 11; i++) { let xx = 22 + (i % 4) * 22; for (let k = 0; k < 2 + (i * 7) % 4; k++) { const w = 34 + ((i * 13 + k * 29) % 90); x.fillStyle = r[(i + k) % 5]; x.fillRect(xx, 54 + i * 23, w, 10); xx += w + 12; } } }), D_X, 1.5, 0.3, p, Math.PI / 2);
+    [[-2.0, 2.3, 1.9, "{ }"], [-0.9, 2.8, 2.4, "</>"]].forEach(([x, y, z, s], i) => { const t = tekis(0.8, 0.5, tasvir(160, 100, (c) => { c.fillStyle = "#a98bff"; c.font = "700 64px Menlo, monospace"; c.textAlign = "center"; c.fillText(s, 80, 72); }), x, y, z, p, 0.75, true); suzuvchi.push([t, y, 0.12, 1.2 + i]); });
+  },
+  tangalar(p) {                                      // hisobchi: tanga ustunlari va ustunli diagramma
+    const oltin = mat(0xffd633, { metalness: 0.7, roughness: 0.25 });
+    [[-2.3, 1.5, 6], [-1.8, 1.9, 9], [-2.5, 2.2, 4], [-1.5, 1.4, 3]].forEach(([x, z, n]) => { for (let i = 0; i < n; i++) sil(0.24, 0.24, 0.075, oltin, x + (i % 2) * 0.02, 0.04 + i * 0.085, z, p, 24); });
+    [0.5, 0.9, 0.7, 1.3, 1.7].forEach((h, i) => quti(0.3, h, 0.3, mat(i === 4 ? 0xffd633 : 0x4d8bff), 1.3 + i * 0.4, h / 2, 2.2, p, 0.04));
+    const t = sil(0.34, 0.34, 0.06, nur(0xffd633, 1.2), -0.7, 2.6, 2.0, p, 32); t.rotation.z = Math.PI / 2; aylanuvchi.push([t, "y", 1.8]); suzuvchi.push([t, 2.6, 0.1, 1.3]);
+  },
+  toj(p) {                                           // CEO: katta hisobot ekrani va globus
+    tekis(3.0, 1.7, tasvir(600, 340, (x) => { x.fillStyle = "#0a1448"; x.fillRect(0, 0, 600, 340); x.fillStyle = "#ffd633"; x.font = "700 32px Arial"; x.fillText("KUNLIK HISOBOT", 24, 46);
+      x.strokeStyle = "#4d8bff"; x.lineWidth = 6; x.beginPath(); [200, 170, 190, 130, 150, 90, 110, 60].forEach((y, i) => (i ? x.lineTo(30 + i * 50, y + 60) : x.moveTo(30, y + 60))); x.stroke();
+      [["#41e08a", 430, 80], ["#ffd633", 430, 150], ["#ff5c8a", 430, 220]].forEach(([c, a, b]) => { x.fillStyle = c; x.beginPath(); x.roundRect(a, b, 146, 52, 12); x.fill(); }); }), D_X, 1.5, 0.3, p, Math.PI / 2);
+    const g = new THREE.Group(); g.position.set(-1.9, 1.4, 1.8); p.add(g); shar(0.55, mat(0x2459f0, { roughness: 0.4 }), 0, 0, 0, g); tor(0.56, 0.02, nur(0xffd633, 1.6), 0, 0, 0, g).rotation.x = Math.PI / 2; tor(0.56, 0.02, nur(0xffd633, 1.6), 0, 0, 0, g); tor(0.56, 0.02, nur(0xffd633, 1.6), 0, 0, 0, g).rotation.y = Math.PI / 2;
+    aylanuvchi.push([g, "y", 0.5]); sil(0.05, 0.05, 0.8, mat(0x0b1030), -1.9, 0.42, 1.8, p); sil(0.3, 0.34, 0.06, mat(0x0b1030), -1.9, 0.04, 1.8, p);
+  },
+};
+function toj(r) {                                    // CEO robotining toji
+  const g = new THREE.Group(); g.position.y = 0.44; r.bosh.add(g); const m = mat(0xffd633, { metalness: 0.7, roughness: 0.25 });
+  tor(0.26, 0.045, m, 0, 0, 0, g).rotation.x = Math.PI / 2; for (let i = 0; i < 5; i++) konus(0.07, 0.2, m, Math.cos(i * 1.257) * 0.26, 0.12, Math.sin(i * 1.257) * 0.26, g, 4);
+}
+
+// ---------- xonalar
+// Bo'limlar: har biri alohida maydonchada. Tepada Kontent (3x2) va O'quvchilar (1x2), pastda Platforma (2x2) va Nazorat (2x2).
+const JOY = { marketolog: [0, 0], montaj: [1, 0], dars_montaj: [2, 0], instagram: [0, 1], kanal: [1, 1], izoh: [2, 1], sotuv: [3, 0], murabbiy: [3, 1],
+  platforma: [0, 2], imtihon: [1, 2], pdf: [0, 3], ovozli: [1, 3], nazoratchi: [2, 2], kod: [3, 2], hisobchi: [2, 3], ceo: [3, 3] };
+const BOLIM_TARTIB = ["Kontent", "O'quvchilar", "Platforma", "Nazorat"];
+const joyi = (col, row) => [col * QADAM + ((row < 2 ? col >= 3 : col >= 2) ? YOLAK : 0) - (3 * QADAM + YOLAK) / 2, row * QADAM + (row >= 2 ? YOLAK : 0) - (3 * QADAM + YOLAK) / 2];
+let qoshimcha = 0;
+const agentlar = [...D.agentlar].sort((a, b) => (BOLIM_TARTIB.indexOf(a.guruh) - BOLIM_TARTIB.indexOf(b.guruh)) || ((JOY[a.id]?.[1] ?? 9) - (JOY[b.id]?.[1] ?? 9)) || ((JOY[a.id]?.[0] ?? 9) - (JOY[b.id]?.[0] ?? 9)));
+const xonalar = new Map(), bosiladigan = [];
+agentlar.forEach((a, i) => {
+  const [cx, cz] = JOY[a.id] ? joyi(...JOY[a.id]) : joyi(qoshimcha++ % 4, 4), rang = GURUH[a.guruh] ?? 0xffd633, yoq = a.holat === "qurilmagan";   // ro'yxatda yo'q agent: orqadagi qo'shimcha qatorga
+  const p = new THREE.Group(); p.position.set(cx, 0, cz); scene.add(p);
+  const pol = quti(S, 0.1, S, mat(yoq ? 0x9aa3c7 : 0xe9eefc, { roughness: 0.8 }), 0, -0.05, 0, p, 0.04); pol.userData.agent = a.id; bosiladigan.push(pol);
+  const dv = mat(yoq ? 0x2a3566 : 0x2140c4, { roughness: 0.85 });
+  quti(S + 0.3, 2.7, 0.24, dv, 0, 1.25, -S / 2 - 0.03, p, 0.07); quti(0.24, 2.7, S + 0.3, dv, -S / 2 - 0.03, 1.25, 0, p, 0.07);
+  const chiz = yoq ? mat(0x5d6b9c) : nur(rang, 1.5);
+  quti(S + 0.34, 0.09, 0.28, chiz, 0, 2.63, -S / 2 - 0.03, p, 0.04); quti(0.28, 0.09, S + 0.34, chiz, -S / 2 - 0.03, 2.63, 0, p, 0.04);
+  tekis(3.2, 0.58, tasvir(640, 116, (x) => { x.font = "700 74px 'DIN Condensed', 'Arial Narrow', sans-serif"; x.textAlign = "center"; x.fillStyle = yoq ? "#7c86ac" : "#ffffff"; x.fillText(a.nom.toUpperCase(), 320, 84, 620); }), 1.2, 2.18, -S / 2 + 0.11, p, 0, true);
+  quti(2.6, 0.1, 1.15, mat(0xffffff, { roughness: 0.35 }), -0.9, 0.9, -2.3, p, 0.04); [[-2.05, -2.75], [0.25, -2.75], [-2.05, -1.85], [0.25, -1.85]].forEach(([x, z]) => quti(0.1, 0.86, 0.1, mat(0x0b1030), x, 0.45, z, p, 0.02));
+  quti(1.5, 0.92, 0.07, mat(0x0b1030), -1.0, 1.6, -2.72, p, 0.03); sil(0.04, 0.04, 0.3, mat(0x0b1030), -1.0, 1.07, -2.74, p); sil(0.24, 0.27, 0.04, mat(0x0b1030), -1.0, 0.96, -2.72, p);
+  const ek = new THREE.Mesh(geo("ekran", () => new THREE.PlaneGeometry(1.38, 0.8)), yoq ? mat(0x1a2350) : nur(a.belgi === "xato" ? 0xff4d5e : 0x1f49d8, 0.9)); ek.position.set(-1.0, 1.6, -2.68); p.add(ek);
+  if (!yoq) [0.2, 0.02, -0.16].forEach((y, k) => { const q = new THREE.Mesh(geo(`ch${k}`, () => new THREE.PlaneGeometry(0.9 - k * 0.2, 0.07)), nur(k === 1 ? rang : 0xffffff, 1.1)); q.position.set(-1.15 + k * 0.08, 1.6 + y, -2.675); p.add(q); });
+  quti(0.9, 0.04, 0.3, mat(0x0b1030), -1.0, 0.97, -2.0, p, 0.02);
+  const gl = sil(1.5, 1.5, 0.03, mat(yoq ? 0x39426e : 0x12277a, { roughness: 0.95 }), 0.55, 0.02, -0.35, p, 48); gl.castShadow = false; gl.receiveShadow = true;
+  tor(1.5, 0.03, yoq ? mat(0x5d6b9c) : nur(rang, 1.4), 0.55, 0.04, -0.35, p).rotation.x = Math.PI / 2;
+  sil(0.28, 0.21, 0.42, mat(0xf2f5ff), 2.5, 0.21, -2.5, p); [[0, 0.82, 0, 0.38], [0.22, 0.64, 0.1, 0.28], [-0.2, 0.68, -0.08, 0.3], [0.04, 1.14, 0.04, 0.25]].forEach(([x, y, z, r]) => shar(r, mat(yoq ? 0x6f7fa8 : 0x35c97a, { roughness: 0.8 }), 2.5 + x, y, -2.5 + z, p));
+  (BUYUM[a.buyum] || (() => {}))(p, rang);
+  const r = robot(p, rang, yoq); if (a.buyum === "toj") toj(r);
+  r.ishchan = a.belgi === "ishlayapti" || a.belgi === "faol"; r.g.traverse((m) => { if (m.isMesh) { m.userData.agent = a.id; bosiladigan.push(m); } });
+  const y = document.createElement("div"); y.className = `yorliq b-${a.belgi}`; y.innerHTML = `<i></i>${esc(a.nom)}`; y.onclick = () => tanla(a.id); document.body.appendChild(y);
+  xonalar.set(a.id, { a, cx, cz, r, y });
+});
+
+// ---------- bo'lim maydonchalari va nomlari
+const bolimlar = new Map();
+for (const x of xonalar.values()) { const b = bolimlar.get(x.a.guruh) || { nom: x.a.guruh, x0: 1e9, x1: -1e9, z0: 1e9, z1: -1e9, soni: 0 }; b.x0 = Math.min(b.x0, x.cx); b.x1 = Math.max(b.x1, x.cx); b.z0 = Math.min(b.z0, x.cz); b.z1 = Math.max(b.z1, x.cz); b.soni++; bolimlar.set(x.a.guruh, b); }
+for (const b of bolimlar.values()) {
+  const rang = GURUH[b.nom] ?? 0xffd633, w = b.x1 - b.x0 + S + 1.3, d = b.z1 - b.z0 + S + 1.3; b.cx = (b.x0 + b.x1) / 2; b.cz = (b.z0 + b.z1) / 2; b.olcham = Math.max(w, d);
+  quti(w, 0.5, d, mat(0x0b1650), b.cx, -0.36, b.cz, scene, 0.2);
+  quti(w + 0.1, 0.09, 0.09, nur(rang, 1.8), b.cx, -0.12, b.cz + d / 2 + 0.02, scene, 0.03); quti(0.09, 0.09, d + 0.1, nur(rang, 1.8), b.cx + w / 2 + 0.02, -0.12, b.cz, scene, 0.03);
+  const y = document.createElement("div"); y.className = "bolim"; y.style.background = "#" + rang.toString(16).padStart(6, "0");
+  y.innerHTML = `${esc(b.nom)} bo'limi <small>${b.soni} agent</small>`; y.onclick = () => bolimga(b.nom); document.body.appendChild(y); b.y = y; b.d = d;
+}
+
+// ================= kamera =================
+const UZOQ = { p: new THREE.Vector3(), t: new THREE.Vector3() }; let nishon = null, tanlangan = null;
+function umumiy() { const a = innerWidth / innerHeight, k = (a < 1 ? Math.min(3.8, 1.42 / a) : Math.max(1, 1.75 / a)) * 1.08; UZOQ.t.set(a < 1 ? 1.5 : 0.3, 0, a < 1 ? 1.5 : 0.3); UZOQ.p.set(31, 30, 31).multiplyScalar(k).add(UZOQ.t); }
+function yaqin(x) { const tor = innerWidth / innerHeight < 1, t = new THREE.Vector3(x.cx + (tor ? 0.2 : 1.0), tor ? -0.9 : 0.7, x.cz + (tor ? 0.6 : 0.4)); return { t, p: t.clone().add(tor ? new THREE.Vector3(10.4, 9.2, 10.4) : new THREE.Vector3(7.6, 6.4, 8.6)) }; }
+function bolimKamera(b) { const a = innerWidth / innerHeight, d = (8 + b.olcham * 0.95) * (a < 1 ? Math.min(2.4, 1.15 / a) : 1), t = new THREE.Vector3(b.cx + 0.3, 0, b.cz + (a < 1 ? 1.5 : 0.3)); return { t, p: t.clone().add(new THREE.Vector3(1, 0.95, 1).multiplyScalar(d)) }; }
+let tanlanganBolim = null;
+function bolimga(nom) { tanla(null); tanlanganBolim = nom; nishon = bolimKamera(bolimlar.get(nom)); document.querySelectorAll(".dok .g").forEach((g) => g.classList.toggle("tanlangan", g.dataset.bolim === nom)); document.querySelector(".dok .ofis").classList.remove("tanlangan"); }
+window.__bolimga = bolimga;
+umumiy(); camera.position.copy(UZOQ.p); controls.target.copy(UZOQ.t);
+controls.addEventListener("start", () => { nishon = null; });
+addEventListener("resize", () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); umumiy(); nishon = tanlangan ? yaqin(xonalar.get(tanlangan)) : tanlanganBolim ? bolimKamera(bolimlar.get(tanlanganBolim)) : UZOQ; });
+
+// ================= karta, kabinet, dok =================
+const royxat = (qator, bosh) => qator.length ? `<ul>${qator.map((r) => `<li>${esc(r.sarlavha)}<small>${vaqt(r.vaqt)}${r.holat === "jarayonda" ? " · jarayonda" : ""}</small></li>`).join("")}</ul>` : `<p class="bosh">${bosh}</p>`;
+function kartaChiz(a) {
+  const hozir = a.hozir ? `Ishlayapti: ${esc(a.hozir)}` : a.holat === "qurilmagan" ? "Hali qurilmagan" : a.ochiq.length ? `Sizdan javob kutyapti (${a.ochiq.length} ta)` : `Kutmoqda${a.jadval ? `. Ish vaqti: ${esc(a.jadval.toLowerCase())}` : ""}`;
+  $("karta").innerHTML = `<div class="rol">${esc(a.guruh)} bo'limi · ${esc(a.joy)}</div><h2>${esc(a.nom)}</h2>
+    <div class="qator"><b>Hozir</b>${hozir}</div>
+    <div class="qator"><b>Oxirgi ishi${a.oxirgi ? ` (${vaqt(a.oxirgi.vaqt)})` : ""}</b>${a.oxirgi ? esc(a.oxirgi.sarlavha) : "Navbatda hali yozuv yo'q"}</div>
+    <div class="raqamlar"><div><strong>${a.soni.ish + a.soni.hisobot}</strong>ish (30 kun)</div><div><strong>${a.soni.ochiq}</strong>ochiq savol</div><div><strong>${a.soni.xato7}</strong>xato (7 kun)</div></div>
+    <div class="tugma"><button class="asosiy" id="kOch">Kabinetni ochish →</button><button class="ikkinchi" id="kOfis">Ofis</button></div>`;
+  $("kOch").onclick = () => kabinet(a); $("kOfis").onclick = () => tanla(null);
+}
+function kabinet(a) {
+  $("kab").innerHTML = `<button class="yop" id="kYop">Yopish ✕</button><div class="rol">${esc(a.guruh)} bo'limi</div><h2>${esc(a.nom)}</h2>
+    <div class="hol"><span class="nuqta b-${a.belgi}"></span>${BELGI[a.belgi]} · ${HOLAT[a.holat] || esc(a.holat)}</div>
+    ${a.ochiq.length ? `<section class="sariq"><span class="sarl">Sizdan kutilmoqda</span>${royxat(a.ochiq, "")}</section>` : ""}
+    <section><span class="sarl">Qayerda va qachon ishlaydi</span><div class="ikki"><div><b>Joyi</b>${esc(a.joy)}</div><div><b>Ish vaqti</b>${esc(a.jadval || "belgilanmagan")}</div></div>
+      ${a.izoh ? `<p class="bosh" style="margin-top:10px">${esc(a.izoh)}</p>` : ""}</section>
+    <section class="qob"><span class="sarl">Qobiliyatlari</span><ul>${a.qobiliyat.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></section>
+    <section><span class="sarl">Oxirgi ishlari</span>${royxat(a.ishlar, "Navbatda hali yozuv yo'q. Agent ishini tugatganda shu yerda ko'rinadi.")}</section>
+    <section><span class="sarl">Raqamlar (30 kun)</span><div class="raqamlar" style="margin:6px 0 0"><div><strong>${a.soni.ish}</strong>ish</div><div><strong>${a.soni.hisobot}</strong>hisobot</div><div><strong>${a.soni.xato7}</strong>xato (7 kun)</div></div>
+      <p class="bosh" style="margin-top:10px">Bajarish tezligi hali o'lchanmaydi: navbatga ish boshlangan vaqt yozilmaydi.</p></section>
+    ${a.hujjat ? `<section><span class="sarl">Bilim hujjati</span><p class="bosh">${esc(a.hujjat)}</p></section>` : ""}`;
+  $("kab").classList.add("ochiq"); $("kab").scrollTop = 0; $("kYop").onclick = () => $("kab").classList.remove("ochiq");
+}
+function tanla(id) {
+  tanlangan = id; tanlanganBolim = null; document.querySelectorAll(".dok .g").forEach((g) => g.classList.remove("tanlangan")); $("kab").classList.remove("ochiq"); $("kut").classList.remove("ochiq");
+  document.querySelectorAll(".dok button").forEach((b) => b.classList.toggle("tanlangan", b.dataset.id === (id || "")));
+  $("kut").style.display = id && innerWidth < 760 ? "none" : "";
+  if (!id) { $("karta").classList.remove("ochiq"); nishon = UZOQ; return; }
+  const x = xonalar.get(id); kartaChiz(x.a); $("karta").classList.add("ochiq"); nishon = yaqin(x);
+  document.querySelector(`.dok button[data-id="${id}"]`)?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+}
+window.__tanla = tanla; window.__kabinet = (id) => kabinet(xonalar.get(id).a);
+let dok = `<button class="ofis tanlangan" data-id="">Ofis</button>`, oldingi = "";
+agentlar.forEach((a) => { if (a.guruh !== oldingi) { dok += `<button class="g" data-bolim="${esc(a.guruh)}" style="--r:#${(GURUH[a.guruh] ?? 0xffd633).toString(16).padStart(6, "0")}">${esc(a.guruh)}</button>`; oldingi = a.guruh; } dok += `<button data-id="${a.id}" class="${a.belgi === "yoq" ? "xira" : ""}"><span class="nuqta b-${a.belgi}"></span>${esc(a.nom)}</button>`; });
+$("dok").innerHTML = dok; $("dok").querySelectorAll("button").forEach((b) => (b.onclick = () => (b.dataset.bolim ? bolimga(b.dataset.bolim) : tanla(b.dataset.id || null))));
+$("kutSoni").textContent = D.ustozga.length;
+$("kutRoyxat").innerHTML = D.ustozga.length ? D.ustozga.map((r) => `<li data-id="${esc(r.agent)}">${esc(r.sarlavha)}<small>${esc(xonalar.get(r.agent)?.a.nom || r.agent)} · ${vaqt(r.vaqt)}</small></li>`).join("") : `<li>Hozircha sizdan hech narsa kutilmayapti</li>`;
+$("kutTugma").onclick = () => $("kut").classList.toggle("ochiq");
+$("kutRoyxat").querySelectorAll("li[data-id]").forEach((l) => (l.onclick = () => xonalar.has(l.dataset.id) && tanla(l.dataset.id)));
+
+const nurlagich = new THREE.Raycaster(), sich = new THREE.Vector2(); let bosildi = null;
+renderer.domElement.addEventListener("pointerdown", (e) => { bosildi = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener("pointerup", (e) => {
+  if (!bosildi || Math.hypot(e.clientX - bosildi[0], e.clientY - bosildi[1]) > 6) return;
+  sich.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); nurlagich.setFromCamera(sich, camera);
+  const u = nurlagich.intersectObjects(bosiladigan, false)[0]; if (u) tanla(u.object.userData.agent);
+});
+
+// ================= harakat =================
+const soat = new THREE.Clock(), v = new THREE.Vector3();
+function kadr() {
+  const t = soat.getElapsedTime();
+  for (const r of robotlar) {
+    const f = t + r.faza;
+    if (r.uxlaydi) { r.tana.position.y = -0.12 + Math.sin(f * 0.8) * 0.015; r.bosh.rotation.x = 0.32; continue; }
+    r.tana.position.y = 0.07 + Math.sin(f * 2.1) * 0.06; r.tana.rotation.z = Math.sin(f * 1.05) * 0.03;
+    const qara = Math.sin(f * 0.45) > 0.25;
+    r.bosh.rotation.y = THREE.MathUtils.lerp(r.bosh.rotation.y, qara ? 0.8 : 0.1, 0.04); r.bosh.rotation.x = Math.sin(f * 1.3) * 0.05;
+    const yum = (f % 3.6) < 0.13 ? 0.12 : 1; r.kozlar.forEach((k) => (k.scale.y = THREE.MathUtils.lerp(k.scale.y, yum, 0.5)));
+    r.qollar.forEach((q, i) => { q.rotation.x = (qara && i === 1 ? -1.2 : -0.25) + Math.sin(f * (r.ishchan ? 6 : 2.5) + i * 2.1) * (r.ishchan ? 0.16 : 0.05); });
+    r.antenna.material.emissiveIntensity = 1.5 + Math.sin(f * 4) * 1; r.disk.rotation.z = t * 1.5;
+  }
+  for (const [o, y, a, w] of suzuvchi) o.position.y = y + Math.sin(t * w) * a;
+  for (const [o, ok, w] of aylanuvchi) o.rotation[ok] = t * w;
+  for (const [o, k, a, w] of miltillovchi) if (o.material) o.material.emissiveIntensity = Math.max(0.1, k + Math.sin(t * w) * a);
+  if (nishon) { camera.position.lerp(nishon.p, 0.06); controls.target.lerp(nishon.t, 0.06); if (camera.position.distanceTo(nishon.p) < 0.04) nishon = null; }
+  controls.update();
+  const uzoq = camera.position.distanceTo(controls.target) > 26;
+  document.body.classList.toggle("ixcham", uzoq && innerWidth < 760);        // tor ekranda uzoqdan faqat holat nuqtalari
+  for (const x of xonalar.values()) {
+    v.set(x.cx + 0.55, uzoq ? 3.4 : 2.75, x.cz - 0.35).project(camera);
+    const korinadi = v.z < 1 && (!tanlangan || uzoq);
+    x.y.style.display = korinadi ? "" : "none"; if (korinadi) { x.y.style.left = `${(v.x * 0.5 + 0.5) * innerWidth}px`; x.y.style.top = `${(-v.y * 0.5 + 0.5) * innerHeight}px`; }
+  }
+  for (const b of bolimlar.values()) {
+    v.set(b.cx - 1.2, 4.9, b.z0 - S / 2 - 0.4).project(camera);          // bo'limning orqa devori ustida: xona yorliqlarini yopmaydi
+    const korinadi = v.z < 1 && uzoq && !tanlangan;
+    b.y.style.display = korinadi ? "" : "none"; if (korinadi) { b.y.style.left = `${(v.x * 0.5 + 0.5) * innerWidth}px`; b.y.style.top = `${(-v.y * 0.5 + 0.5) * innerHeight}px`; }
+  }
+  renderer.render(scene, camera); requestAnimationFrame(kadr);
+}
+kadr();
+</script>
+</body>
+</html>

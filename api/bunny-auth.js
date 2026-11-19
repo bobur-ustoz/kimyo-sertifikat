@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
+import { ofisMalumot } from "./_ofis.js";
 
 const supabase = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
 
@@ -18,6 +19,15 @@ export default async function handler(req, res) {
   });
   const { data: profile } = await supabaseAsUser.from("profiles").select("is_admin").eq("id", userData.user.id).single();
   if (!profile?.is_admin) return res.status(403).json({ error: "Admin only" });
+
+  // { ofis: true } returns the AI office data (agents and their queue entries) for the admin panel.
+  // Merged here for the same reason as delete: this function already checks that the caller is an admin.
+  if (req.body?.ofis) {
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return res.status(503).json({ error: "Server sozlanmagan" });
+    const admin = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(200).json(await ofisMalumot(admin));
+  }
 
   // { videoId, delete: true } removes a video (merged here to stay under the Hobby plan's
   // serverless function limit). Refuses to delete one a question still points at.

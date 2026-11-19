@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare, Download, Video, ClipboardList, Eye, Quote, Users } from "lucide-react";
+import { LogOut, FlaskConical, Wallet, BookOpen, MessageSquare, Download, Video, ClipboardList, Eye, Quote, Users, Bot } from "lucide-react";
 import { supabase } from "./lib/supabaseClient";
 import Login from "./admin/Login";
 import TeachersPanel from "./admin/TeachersPanel";
@@ -83,7 +83,7 @@ export default function Admin() {
           <FlaskConical size={19} color={C.mint}/>
           <span style={{color:"#fff",fontWeight:800,fontSize:14.5}}>nooracademy — {isAdmin ? "Admin" : "Moderator"}</span>
         </div>
-        <div style={{display:"flex",alignItems:"center",gap:8}}>
+        <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",justifyContent:"flex-end"}}>
           {isAdmin && <button style={headerBtn(screen === "content")} onClick={() => { setScreen("content"); setTeacher(null); setVariant(null); }}>
             <FlaskConical size={13}/> O'qituvchilar
           </button>}
@@ -108,6 +108,9 @@ export default function Admin() {
           {isAdmin && <button style={headerBtn(screen === "live")} onClick={() => setScreen("live")}>
             <Video size={13}/> Jonli dars
           </button>}
+          {isAdmin && <button style={headerBtn(screen === "ofis")} onClick={() => setScreen("ofis")}>
+            <Bot size={13}/> AI ofis
+          </button>}
           {isAdmin && <button style={headerBtn(screen === "purchases")}
             onClick={() => setScreen(screen === "purchases" ? "content" : "purchases")}>
             <Wallet size={13}/> To'lovlar
@@ -121,7 +124,12 @@ export default function Admin() {
         </div>
       </div>
 
-      <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px"}}>
+      {/* The AI office is a full-width 3D page of its own (public/ofis); it reads this admin session and
+          asks the server, which answers admins only. */}
+      {isAdmin && screen === "ofis" && <iframe src="/ofis/index.html" title="AI ofis"
+        style={{display:"block",width:"100%",height:"calc(100vh - 57px)",border:"none",background:"#060a1c"}}/>}
+
+      <div style={{maxWidth:920,margin:"0 auto",padding:"24px 20px",display:screen === "ofis" && isAdmin ? "none" : undefined}}>
         {screen === "questions" ? <QuestionsReview/>
           : !isAdmin ? null
           : screen === "topics" ? <TopicsAdmin/>
@@ -130,6 +138,7 @@ export default function Admin() {
           : screen === "testimonials" ? <TestimonialsPanel/>
           : screen === "oyin" ? <OyinTeamsPanel/>
           : screen === "live" ? <LivePanel/>
+          : screen === "ofis" ? null
           : screen === "purchases" ? <PurchasesPanel onBack={() => setScreen("content")}/>
           : content}
       </div>
