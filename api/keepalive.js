@@ -14,6 +14,7 @@ import { runKanal, KANAL } from "./_kanal.js";
 import { runTekshiruv, bunnyRoyxat } from "./_tekshiruv.js";
 import { runCeo, yakshanbami } from "./_ceo.js";
 import { runMurabbiy } from "./_murabbiy.js";
+import { vazifaEslatma } from "./_vazifa.js";
 
 // Asia/Tashkent bo'yicha bugungi sana: navbatda kuniga bitta yozuv bo'lishi uchun kalit.
 const bugun = () => new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
@@ -40,6 +41,12 @@ async function nazorat(res) {
         await yoz(db, { agent: "murabbiy", tur: "xato", sarlavha: "O'quvchi murabbiyi ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod", kalit: `murabbiy-xato:${bugun()}` });
       }
     }
+    // Uyga vazifa va imtihon muddati yaqinlashgan o'quvchilarga bitta eslatma. Jadval hali yaratilmagan bo'lsa jim o'tadi.
+    let vazifa;
+    if (botToken) {
+      try { vazifa = await vazifaEslatma(db, (chat_id, text, reply_markup) => tg("sendMessage", { chat_id, text, reply_markup }, { token: botToken })); }
+      catch (e) { vazifa = { ok: false, error: e.message }; if (!/does not exist|schema cache/.test(e.message)) console.error("vazifa eslatma failed:", e.message); }
+    }
     const r = await runNazorat(db, (text) => tg("sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true }), new Date(), toStudent);
     await yoz(db, { agent: "nazoratchi", tur: "hisobot", sarlavha: `Kunlik tekshiruv: ${r.flagged} ta o'quvchi bilan bog'lanish kerak, ${r.nudged} tasiga eslatma yuborildi`, tafsilot: r, kalit: `nazorat:${bugun()}` });
     // Platforma kamchiliklari: alohida try, shunda u buzilsa ham o'quvchilar hisoboti ketgan bo'ladi.
@@ -51,7 +58,7 @@ async function nazorat(res) {
       tekshiruv = { ok: false, error: e.message };
       await yoz(db, { agent: "nazoratchi", tur: "xato", sarlavha: "Platforma tekshiruvi ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod", kalit: `tekshiruv-xato:${bugun()}` });
     }
-    return res.status(200).json({ ok: true, ...r, tekshiruv, murabbiy });
+    return res.status(200).json({ ok: true, ...r, tekshiruv, murabbiy, vazifa });
   } catch (e) {
     console.error("nazorat failed:", e.message);
     await yoz(db, { agent: "nazoratchi", tur: "xato", sarlavha: "Kunlik tekshiruv ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod" });

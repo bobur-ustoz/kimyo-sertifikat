@@ -11,6 +11,7 @@ import SurveyResults from "./admin/SurveyResults";
 import ViewsPanel from "./admin/ViewsPanel";
 import TestimonialsPanel from "./admin/TestimonialsPanel";
 import OyinTeamsPanel from "./admin/OyinTeamsPanel";
+import VazifaPanel from "./admin/VazifaPanel";
 import { C } from "./admin/ui";
 import TopicsAdmin from "./AdminTopics";
 import QuestionsReview from "./AdminQuestions";
@@ -108,6 +109,9 @@ export default function Admin() {
           {isAdmin && <button style={headerBtn(screen === "live")} onClick={() => setScreen("live")}>
             <Video size={13}/> Jonli dars
           </button>}
+          {isAdmin && <button style={headerBtn(screen === "vazifa")} onClick={() => setScreen("vazifa")}>
+            <ClipboardList size={13}/> Vazifalar
+          </button>}
           {isAdmin && <button style={headerBtn(screen === "ofis")} onClick={() => setScreen("ofis")}>
             <Bot size={13}/> AI ofis
           </button>}
@@ -137,6 +141,7 @@ export default function Admin() {
           : screen === "views" ? <ViewsPanel/>
           : screen === "testimonials" ? <TestimonialsPanel/>
           : screen === "oyin" ? <OyinTeamsPanel/>
+          : screen === "vazifa" ? <VazifaPanel/>
           : screen === "live" ? <LivePanel/>
           : screen === "ofis" ? null
           : screen === "purchases" ? <PurchasesPanel onBack={() => setScreen("content")}/>

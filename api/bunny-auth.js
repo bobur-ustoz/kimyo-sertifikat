@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
 import { ofisMalumot } from "./_ofis.js";
+import { adminAmal } from "./_vazifa.js";
 
 const supabase = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
 
@@ -19,6 +20,16 @@ export default async function handler(req, res) {
   });
   const { data: profile } = await supabaseAsUser.from("profiles").select("is_admin").eq("id", userData.user.id).single();
   if (!profile?.is_admin) return res.status(403).json({ error: "Admin only" });
+
+  // { vazifa: { amal, ... } }: homework and exams (what can be assigned, assign, results). Merged here for the same
+  // reason as the office: this function already checks that the caller is an admin.
+  if (req.body?.vazifa) {
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) return res.status(503).json({ error: "Server sozlanmagan" });
+    const admin = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+    res.setHeader("Cache-Control", "no-store");
+    try { const r = await adminAmal(admin, userData.user.id, req.body.vazifa); return res.status(r.status).json(r.body); }
+    catch (e) { console.error("vazifa admin failed:", e.message); return res.status(500).json({ error: /does not exist|schema cache/.test(e.message) ? "Vazifalar jadvali hali yaratilmagan (SQL ishga tushirilmagan)" : "Xatolik yuz berdi" }); }
+  }
 
   // { ofis: true } returns the AI office data (agents and their queue entries) for the admin panel.
   // Merged here for the same reason as delete: this function already checks that the caller is an admin.

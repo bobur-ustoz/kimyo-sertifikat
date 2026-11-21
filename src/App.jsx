@@ -6,6 +6,7 @@ import Home from "./Home";
 import Oyin from "./Oyin";
 import TelegramLink from "./TelegramLink";
 import XatoXabar from "./XatoXabar";
+import Vazifalar from "./Vazifalar";
 import TelegramLogin, { userLabel } from "./TelegramLogin";
 import { C } from "./theme";
 import { Home as HomeIcon, ChevronLeft, ClipboardList, Video, FlaskConical, Grid3X3, Tag, Wand2, User, Play, Download, ChevronRight, CheckCircle2, Award, TrendingUp, ChevronDown, Eye, Volume2, SkipForward, Settings, Info, BarChart3, Users, BookOpen, AlertTriangle, Trophy, Target, Lightbulb, Zap, Sparkles, Lock, CreditCard, Star, XCircle, Menu, X } from "lucide-react";
@@ -404,7 +405,7 @@ function PurchaseModal({variant,lesson,planItem,teacher,session,status,onClose,o
 
 // ── SIDEBAR ──────────────────────────────────────────────────────
 function Sidebar({tab,setTab,teacher,setTeacher,setVarId,plan,mobileOpen,onClose,variants}) {
-  const TABS=[{id:"home",label:"Bosh sahifa",icon:HomeIcon},{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"oyin",label:"Organika o'yini",icon:FlaskConical},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"live",label:"Jonli dars",icon:Video},{id:"survey",label:"So'rov",icon:ClipboardList},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
+  const TABS=[{id:"home",label:"Bosh sahifa",icon:HomeIcon},{id:"collections",label:"Milliy Sertifikat",icon:BookOpen},{id:"dtm",label:"DTM",icon:Award},{id:"topics",label:"Mavzular",icon:Tag},{id:"vazifa",label:"Vazifalarim",icon:ClipboardList},{id:"oyin",label:"Organika o'yini",icon:FlaskConical},{id:"analytics",label:"Tahlil & Grafik",icon:BarChart3},{id:"generator",label:"Test Generator",icon:Wand2},{id:"live",label:"Jonli dars",icon:Video},{id:"survey",label:"So'rov",icon:ClipboardList},{id:"obuna",label:"Obuna & Narxlar",icon:CreditCard},{id:"profile",label:"Profilim",icon:User}];
   const vList=teacher?variants:[];
   const total=vList.length;
   const done=vList.filter(v=>v.total>0&&v.ready===v.total).length;
@@ -1673,7 +1674,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
 
 // ── APP ───────────────────────────────────────────────────────────
 export default function App() {
-  const [tab,setTab]=useState(()=>{ try{ const h=window.location.hash; return h==="#live"?"live":h==="#survey"?"survey":h==="#oyin"?"oyin":"home"; }catch{ return "home"; } });
+  const [tab,setTab]=useState(()=>{ try{ const h=window.location.hash; return h==="#live"?"live":h==="#survey"?"survey":h==="#oyin"?"oyin":h==="#vazifa"?"vazifa":"home"; }catch{ return "home"; } });
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
   const [mobileOpen,setMobileOpen]=useState(false);
@@ -1805,6 +1806,7 @@ export default function App() {
         {tab==="variants"&&teacher&&varId&&<VideoPlayer variantId={varId} teacher={teacher} onBack={()=>setVarId(null)} plan={plan} setTab={setTab} questions={questions} session={session} variant={variants.find(x=>x.number===varId)} purchases={purchases} onBuy={v=>setBuying(v)}/>}
         {tab==="topics"&&<TopicLessons Player={BunnyPlayer} session={session} setTab={setTab} plan={plan} onPdf={downloadAnalogPDF}/>}
         {tab==="analytics"&&(plan==="free"?<FeatureLock title="Tahlil & Grafik" setTab={setTab}/>:<AnalyticsScreen session={session} analytics={analytics} setTab={setTab}/>)}
+        {tab==="vazifa"&&<Vazifalar session={session} setTab={setTab}/>}
         {tab==="survey"&&<Survey session={session} setTab={setTab}/>}
         {tab==="live"&&<LiveLessons session={session} plan={plan} setTab={setTab} Player={BunnyPlayer} PurchaseModal={PurchaseModal}/>}
         {tab==="generator"&&<TestGenerator teacher={teacher} teachers={teachers} plan={plan} setTab={setTab} session={session}/>}
