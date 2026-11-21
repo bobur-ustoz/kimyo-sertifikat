@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { analogSavol, variantlarniAjrat, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, SONI_MAX } from "../api/_vazifa.js";
+import { analogSavol, variantlarniAjrat, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, vazifaTugma, SONI_MAX } from "../api/_vazifa.js";
 
 const NOW = new Date("2026-11-20T10:00:00Z");
 // Soxta baza: jadvallar oddiy massiv; so'rovlar filtrlanadi, insert id beradi, update/upsert qatorlarni o'zgartiradi.
@@ -75,15 +75,15 @@ test("tekshir: nom, mavzu, son va o'quvchi shart; muddat kun oxiriga qo'yiladi",
   assert.equal(tekshir({ nom: "ab", variantlar: ["v1"], soni: 5, oquvchilar: ["x"] }, NOW).muddat, null);
 });
 
-test("yarat: vazifa va topshiriqlar yoziladi, admin kirmaydi, Telegram faqat ulangan va /stop demaganga", async () => {
+test("yarat: vazifa va topshiriqlar yoziladi, boshqa admin kirmaydi, Telegram faqat ulangan va /stop demaganga", async () => {
   const db = fakeDb(baza()), sent = [];
   const r = await yarat(db, {}, sent);
-  assert.deepEqual(r.body, { ok: true, id: 1, oquvchilar: 3, yuborildi: 1, yetmadi: 0, xabarsiz: 2 });
+  assert.deepEqual(r.body, { ok: true, id: 1, oquvchilar: 4, yuborildi: 1, yetmadi: 0, xabarsiz: 3 });      // tayinlagan adminning o'zi ham kiradi (sinov uchun)
   assert.deepEqual(db.tables.vazifalar[0].savollar, ["q1", "q2", "q3"]);
-  assert.deepEqual(db.tables.vazifa_topshiriq.map((t) => t.student_id), ["ali", "vali", "guli"]);
+  assert.deepEqual(db.tables.vazifa_topshiriq.map((t) => t.student_id), ["ali", "vali", "guli", "adm"]);
   assert.deepEqual(sent.map((s) => s.tg_id), [1]);
   assert.match(sent[0].text, /^Assalomu alaykum, Ali! Yangi uyga vazifa: "pH vazifasi", 3 ta savol\. Muddati: 22\.11\.2026 gacha\./);
-  assert.equal(sent[0].markup.inline_keyboard[0][0].url, "https://sayt.uz/#vazifa");
+  assert.deepEqual(sent[0].markup.inline_keyboard, [[{ text: "▶️ Shu yerda ishlash", callback_data: "vz:b:1" }], [{ text: "Saytda ochish", url: "https://sayt.uz/#vazifa" }]]);
   assert.ok(db.tables.vazifa_topshiriq[0].tg_xabar_at && !db.tables.vazifa_topshiriq[1].tg_xabar_at);
 });
 
@@ -134,10 +134,12 @@ test("admin: malumot mavzularni va o'quvchilarni beradi; natija kim bajarganini 
   const m = await adminAmal(db, "adm", { amal: "malumot" }, { now: NOW, send: null });
   assert.deepEqual(m.body.mavzular, [{ id: "t-mol", nom: "Mol", soni: 1 }]);          // analogi yo'q mavzu ko'rinmaydi
   assert.deepEqual(m.body.variantlar, [{ id: "v1", nom: "DTM 2019, 2-variant", soni: 4 }]);
-  assert.deepEqual(m.body.oquvchilar.map((o) => [o.ism, o.telegram]), [["Ali Valiyev", "ulangan"], ["Vali", "o'chirgan"], ["Guli", "yo'q"]]);
-  assert.deepEqual({ berilgan: m.body.vazifalar[0].berilgan, bajargan: m.body.vazifalar[0].bajargan, ortacha: m.body.vazifalar[0].ortacha }, { berilgan: 3, bajargan: 1, ortacha: 100 });
+  assert.deepEqual(m.body.oquvchilar.map((o) => [o.ism, o.telegram]), [["Ustoz", "yo'q"], ["Ali Valiyev", "ulangan"], ["Vali", "o'chirgan"], ["Guli", "yo'q"]]);
+  assert.equal(m.body.oquvchilar[0].oz, true);
+  assert.equal((await adminAmal(db, "boshqa-admin", { amal: "malumot" }, { now: NOW, send: null })).body.oquvchilar.some((o) => o.ism === "Ustoz"), false);
+  assert.deepEqual({ berilgan: m.body.vazifalar[0].berilgan, bajargan: m.body.vazifalar[0].bajargan, ortacha: m.body.vazifalar[0].ortacha }, { berilgan: 4, bajargan: 1, ortacha: 100 });
   const n = await adminAmal(db, "adm", { amal: "natija", id: 1 }, { now: NOW, send: null });
-  assert.deepEqual(n.body.oquvchilar.map((o) => [o.ism, o.holat, o.togri]), [["Ali Valiyev", "bajarildi", 3], ["Guli", "yangi", null], ["Vali", "yangi", null]]);
+  assert.deepEqual(n.body.oquvchilar.map((o) => [o.ism, o.holat, o.togri]), [["Ali Valiyev", "bajarildi", 3], ["Guli", "yangi", null], ["Ustoz", "yangi", null], ["Vali", "yangi", null]]);
 });
 
 test("holat: muddat o'tsa kechikkan; eslatma muddatga yaqin, topshirmagan va ulangan o'quvchiga bir marta", async () => {
@@ -150,4 +152,55 @@ test("holat: muddat o'tsa kechikkan; eslatma muddatga yaqin, topshirmagan va ula
   assert.match(sent[0].text, /"pH vazifasi" vazifasining muddati 21\.11\.2026 da tugaydi/);
   assert.deepEqual(await vazifaEslatma(db, send, { now: NOW }), { yuborildi: 0 });   // ikkinchi marta yo'q
   assert.match(xabarMatni({ tur: "imtihon", nom: "X", savollar: [1, 2], muddat: null }, {}), /^Assalomu alaykum! Sizga imtihon tayinlandi: "X", 2 ta savol\./);
+});
+
+// ---- yordamchi bot ichida ishlash ----
+function bot(db) {
+  const out = [];
+  const send = async (method, payload) => { out.push({ method, ...payload }); return { ok: true }; };
+  const bos = (data, from = 1, message = { chat: { id: from }, message_id: 50 }) => vazifaTugma(db, send, { id: "cq", data, from: { id: from }, message }, { now: NOW, site: "https://sayt.uz" });
+  return { out, bos, oxirgi: () => out[out.length - 1] };
+}
+
+test("bot: savol yangi xabar bo'lib keladi, javobdan keyin hukm, oxirida vazifa topshiriladi va natija yoziladi", async () => {
+  const db = fakeDb(baza());
+  await yarat(db);                                              // ali (tg 1) ga 3 ta savol: q1 A, q2 B, q3 C
+  const b = bot(db);
+  await b.bos("vz:b:1");
+  assert.deepEqual({ m: b.oxirgi().method, n: /1\/3/.test(b.oxirgi().text), tugma: b.oxirgi().reply_markup.inline_keyboard[0].map((x) => x.callback_data) },
+    { m: "sendMessage", n: true, tugma: ["vz:a:1:0:A", "vz:a:1:0:B", "vz:a:1:0:C", "vz:a:1:0:D"] });
+  assert.equal(JSON.stringify(b.out).includes("correct_option"), false);
+  await b.bos("vz:a:1:0:A");
+  assert.deepEqual({ m: b.oxirgi().method, ok: /✅/.test(b.oxirgi().text), keyingi: b.oxirgi().reply_markup.inline_keyboard[0][0].callback_data }, { m: "editMessageText", ok: true, keyingi: "vz:n:1" });
+  await b.bos("vz:a:1:0:B");                                    // ikkinchi marta bosish o'tmaydi
+  assert.match(b.oxirgi().text, /allaqachon javob berilgan/);
+  await b.bos("vz:n:1");
+  assert.deepEqual({ m: b.oxirgi().method, n: /2\/3/.test(b.oxirgi().text) }, { m: "editMessageText", n: true });
+  await b.bos("vz:a:1:1:D");
+  assert.match(b.oxirgi().text, /❌ <b>Noto'g'ri\.<\/b> To'g'ri javob: <b>B\)<\/b> 2/);
+  await b.bos("vz:n:1"); await b.bos("vz:a:1:2:C");
+  assert.match(b.oxirgi().text, /Vazifa topshirildi: 2 \/ 3/);
+  const t = db.tables.vazifa_topshiriq.find((x) => x.student_id === "ali");
+  assert.deepEqual({ holat: t.holat, togri: t.togri, jami: t.jami }, { holat: "topshirilgan", togri: 2, jami: 3 });
+  await b.bos("vz:b:1");
+  assert.match(b.oxirgi().text, /topshirilgan: 2 \/ 3/);
+});
+
+test("bot: ulanmagan odam, begona vazifa va imtihon rad etiladi; botda berilgan javob saytda o'zgarmaydi", async () => {
+  const db = fakeDb(baza());
+  await yarat(db);
+  await yarat(db, { tur: "imtihon", nom: "Imtihon" });
+  const b = bot(db);
+  await b.bos("vz:b:1", 999);
+  assert.match(b.oxirgi().text, /Telegramni hisobingizga ulang/);
+  await b.bos("vz:b:77");
+  assert.match(b.oxirgi().text, /topilmadi/);
+  await b.bos("vz:b:2");
+  assert.match(b.oxirgi().text, /Imtihon saytda ishlanadi/);
+  await b.bos("vz:b:1"); await b.bos("vz:a:1:0:D");            // q1 ga botda xato javob (to'g'risi A)
+  const ol = await oquvchiAmal(db, "ali", { action: "vazifa-ol", id: 1 }, { now: NOW });
+  assert.deepEqual({ qulf: ol.body.qulf, javoblar: ol.body.javoblar }, { qulf: true, javoblar: { q1: "D" } });
+  const tp = await oquvchiAmal(db, "ali", { action: "vazifa-topshir", id: 1, javoblar: { q1: "A", q2: "B", q3: "C" } }, { now: NOW });
+  assert.deepEqual({ togri: tp.body.natija.togri, q1: tp.body.natija.tafsil[0].tanlangan }, { togri: 2, q1: "D" });      // saytda to'g'rilab bo'lmadi
+  assert.equal((await oquvchiAmal(db, "ali", { action: "vazifa-royxat" }, { now: NOW })).body.vazifalar.find((x) => x.id === 1).javob_berilgan, 3);
 });

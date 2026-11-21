@@ -38,7 +38,7 @@ export default function VazifaPanel() {
   const bor = tanlanganManba.reduce((a, m) => a + m.soni, 0);
   const manbaNom = tanlanganManba.length === 1 ? tanlanganManba[0].nom : tanlanganManba.length ? `${tanlanganManba.length} ta manba` : "";
   const manbaBos = (kalit, id) => setF((x) => ({ ...x, [kalit]: x[kalit].includes(id) ? x[kalit].filter((m) => m !== id) : [...x[kalit], id] }));
-  const royxat = d.oquvchilar.filter((o) => !faqatPullik || o.plan !== "free");
+  const royxat = d.oquvchilar.filter((o) => o.oz || !faqatPullik || o.plan !== "free");
   const hammasi = royxat.length > 0 && royxat.every((o) => tanlangan.includes(o.id));
   const bos = (id) => setTanlangan((t) => t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
 
@@ -104,8 +104,8 @@ export default function VazifaPanel() {
           {royxat.map((o) => (
             <label key={o.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderBottom: `1px solid ${C.border}`, cursor: "pointer", fontSize: 13 }}>
               <input type="checkbox" checked={tanlangan.includes(o.id)} onChange={() => bos(o.id)} />
-              <span style={{ flex: 1, fontWeight: 600, color: C.text }}>{o.ism}</span>
-              <span style={{ fontSize: 11, color: C.textMid }}>{o.plan === "free" ? "bepul" : o.plan}</span>
+              <span style={{ flex: 1, fontWeight: 600, color: C.text }}>{o.ism}{o.oz && <span style={{ fontWeight: 700, color: C.accent }}> · siz (sinov uchun)</span>}</span>
+              <span style={{ fontSize: 11, color: C.textMid }}>{o.oz ? "" : o.plan === "free" ? "bepul" : o.plan}</span>
               <span style={{ fontSize: 11, fontWeight: 700, color: TG[o.telegram][1] }}>{TG[o.telegram][0]}</span>
             </label>
           ))}

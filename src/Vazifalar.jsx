@@ -56,14 +56,14 @@ export default function Vazifalar({ session, setTab }) {
 
   const och = async (id) => {
     setErr(""); setBusy(true);
-    try { const d = await call(session, { action: "vazifa-ol", id }); setOchiq(d); setI(Math.min(Object.keys(d.javoblar || {}).length, d.savollar.length - 1)); }
+    try { const d = await call(session, { action: "vazifa-ol", id }); setOchiq({ ...d, botJavob: d.qulf ? d.javoblar : null }); setI(Math.min(Object.keys(d.javoblar || {}).length, d.savollar.length - 1)); }
     catch (e) { setErr(e.message); } finally { setBusy(false); }
   };
   const pdf = async (v, savollar) => { setPdfBusy(true); try { await pdfYukla(v, savollar); } catch { setErr("PDF tayyorlanmadi. Qayta urinib ko'ring."); } finally { setPdfBusy(false); } };
 
   // ---------- bitta vazifa ----------
   if (ochiq) {
-    const { vazifa, savollar, javoblar, natija } = ochiq;
+    const { vazifa, savollar, javoblar, natija, qulf } = ochiq;
     const yop = () => { setOchiq(null); yukla(); };
     const bosh = (
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
@@ -106,6 +106,8 @@ export default function Vazifalar({ session, setTab }) {
     }
 
     const q = savollar[i], tanlangan = javoblar[q.id];
+    // Vazifa Telegramdagi botda boshlangan bo'lsa, berilgan javob o'zgarmaydi (botda to'g'ri javob ko'rsatilgan).
+    const qotgan = qulf && !!ochiq.botJavob?.[q.id];
     const berilgan = Object.keys(javoblar).length;
     const tanla = (h) => {
       const yangi = { ...javoblar, [q.id]: h };
@@ -130,7 +132,7 @@ export default function Vazifalar({ session, setTab }) {
           {HARF.map((h) => {
             const on = tanlangan === h;
             return (
-              <button key={h} onClick={() => tanla(h)} aria-pressed={on}
+              <button key={h} onClick={() => !qotgan && tanla(h)} aria-pressed={on} disabled={qotgan}
                 style={{ display: "flex", alignItems: "center", gap: 12, textAlign: "left", padding: "12px 14px", borderRadius: 12, border: `${on ? 2 : 1.2}px solid ${on ? C.primary : C.border}`, background: on ? C.mintBg : "#fff", fontSize: 15.5, fontWeight: 600, color: C.text, cursor: "pointer", fontFamily: "inherit" }}>
                 <span style={{ flex: "none", width: 28, height: 28, borderRadius: "50%", background: on ? C.primary : C.mintBg, color: on ? "#fff" : C.primary, fontSize: 12.5, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center" }}>{h}</span>
                 {q[`option_${h.toLowerCase()}`]}
@@ -138,6 +140,7 @@ export default function Vazifalar({ session, setTab }) {
             );
           })}
         </div>
+        {qotgan && <p style={{ fontSize: 12, color: C.textMid, margin: "0 0 10px" }}>Bu savolga Telegramdagi botda javob bergansiz, uni o'zgartirib bo'lmaydi.</p>}
         {err && <p style={{ fontSize: 12.5, color: C.danger, margin: "0 0 10px" }}>{err}</p>}
         <div style={{ display: "flex", gap: 10 }}>
           <button style={btn(false, { flex: 1, opacity: i === 0 ? 0.45 : 1 })} disabled={i === 0} onClick={() => setI(i - 1)}>Orqaga</button>

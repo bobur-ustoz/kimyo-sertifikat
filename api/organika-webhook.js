@@ -16,6 +16,7 @@ import { tg } from "./_telegram.js";
 import { handleUpdate } from "./_organika.js";
 import { handleUpdate as handleSotuv, supabaseStore, askClaude } from "./_sotuv.js";
 import { yoz } from "./_navbat.js";
+import { vazifaTugma } from "./_vazifa.js";
 
 export const config = { maxDuration: 60 };   // the sales bot waits for a Claude reply
 
@@ -41,7 +42,10 @@ export default async function handler(req, res) {
   const send = (method, payload) => tg(method, payload, { token });
 
   try {
-    if (sotuv) {
+    if (sotuv && String(req.body?.callback_query?.data || "").startsWith("vz:")) {
+      // Homework done inside the helper bot (buttons under a question): handled by the homework module, not the sales chat.
+      await vazifaTugma(db, send, req.body.callback_query);
+    } else if (sotuv) {
       // Heads-up goes to the teacher's admin chat through the payment bot's token.
       const notify = (text) => process.env.TELEGRAM_ADMIN_CHAT_ID
         ? tg("sendMessage", { chat_id: process.env.TELEGRAM_ADMIN_CHAT_ID, text, parse_mode: "HTML", disable_web_page_preview: true })
