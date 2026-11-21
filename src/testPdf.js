@@ -1,8 +1,12 @@
 // Test-generator PDF in the look of the printed Kimyo books: Latin Modern serif, two columns with a
-// rule between them, a green header band, option letters in roman and the option text slanted.
+// rule between them, substances and numbers slanted, a blue-and-yellow header band (the only coloured part of the page; the
+// questions below it stay black, as on a DTM sheet), option letters in roman and the option text slanted.
 // Pure drawing code (no DOM), so the app and a Node preview share it. Fonts are registered by
 // the caller as "LM" (normal/bold), "LMSl" (slanted) and "DejaVu" (symbols Latin Modern lacks).
-const GREEN = [15, 81, 50], INK = [20, 20, 20], GRAY = [90, 100, 96], RULE = [150, 150, 150];
+const NAVY = [6, 18, 71], YELLOW = [255, 214, 51], INK = [20, 20, 20], GRAY = [90, 96, 110], RULE = [150, 150, 150];
+// The teacher's name goes in the header band; the links go on the strip at the foot of every page.
+export const AUTHOR = "Bobur Jumanazarov";
+export const LINKS = "Telegram: @KimyogarBobur  ·  Instagram: @kimyogarbobur  ·  Platforma: nooracademy";
 const PT = 0.3528;                      // 1 pt in mm
 
 const SUB = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9", "ₐ": "a", "ₑ": "e", "ₒ": "o", "ₓ": "x", "ₕ": "h", "ₖ": "k", "ₗ": "l", "ₘ": "m", "ₙ": "n", "ₚ": "p", "ₛ": "s", "ₜ": "t", "₊": "+", "₋": "−" };
@@ -29,6 +33,8 @@ const isFormula = (w) => {
   return hasEl && rest === "";
 };
 
+// A number at the start of a word: optional "(", sign, digits with , or . inside, optional ·10ⁿ and %.
+const NUMBER = new RegExp(`^(\\(?)([+−–-]?\\d(?:[\\d.,]*\\d)?(?:·10[${SUPC}]+)?%?)(.*)$`);
 // text -> words, each word a list of runs { t, k: "n" | "sub" | "sup", f: "LM" | "DejaVu", b: bold, s: slanted }
 function words(text, base) {
   const out = [];
@@ -49,13 +55,17 @@ function words(text, base) {
       else if (SUP[ch]) push(SUP[ch], "sup", "LM", sl);
       else push(ch, "n", FALLBACK.test(ch) ? "DejaVu" : "LM", sl);
     } };
-    emit(lead, !!base.s); emit(core, !!base.s || slant); emit(trail, !!base.s);
+    // Numbers are slanted like the substances (teacher's rule, 2026-11-20): "2,24", "16%", "5·10⁻¹⁰", "+2".
+    // A unit glued to the number stays upright ("0,4M", "70°C", "24%li"); the bold question number is left alone.
+    const num = !slant && !base.s && !base.plain && !base.b ? core.match(NUMBER) : null;
+    if (num) { emit(lead + num[1], false); emit(num[2], true); emit(num[3] + trail, false); }
+    else { emit(lead, !!base.s); emit(core, !!base.s || slant); emit(trail, !!base.s); }
     if (cur.length) out.push(cur);
   }
   return out;
 }
 
-export function buildTestPdf(doc, { questions, brand = "nooracademy", label = "Aralash test", subtitle = "" }) {
+export function buildTestPdf(doc, { questions, brand = "nooracademy", label = "Aralash test", subtitle = "", author = AUTHOR, links = LINKS }) {
   const W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
   const mx = 14, gap = 9, colW = (W - mx * 2 - gap) / 2, bottom = H - 17;
   const SIZE = 10.5, LEAD = 4.95, SUBK = 0.7;
@@ -157,21 +167,31 @@ export function buildTestPdf(doc, { questions, brand = "nooracademy", label = "A
   let page = 0;
   const header = () => {
     page++;
-    doc.setFillColor(...GREEN); doc.roundedRect(mx, 11, 10, 10, 1.6, 1.6, "F");
-    doc.setFont("LM", "bold"); doc.setFontSize(17); doc.setTextColor(255, 255, 255); doc.text("n", mx + 5, 18.4, { align: "center" });
-    doc.setFont("LM", "bold"); doc.setFontSize(17); doc.setTextColor(...GREEN); doc.text(brand, mx + 13, 18.6);
+    // Navy band: the teacher's name leads, the label pill and the platform name sit on the right; on the
+    // first page the band is taller and also carries the collection name.
+    const first = page === 1, bh = first ? 19 : 14;
+    doc.setFillColor(...NAVY); doc.roundedRect(mx, 9, W - mx * 2, bh, 2, 2, "F");
+    doc.setFont("LM", "bold"); doc.setFontSize(17); doc.setTextColor(255, 255, 255); doc.text(author || brand, mx + 4, 17.6);
     doc.setFont("LM", "bold"); doc.setFontSize(10.5);
     const pw = doc.getTextWidth(label) + 9;
-    doc.setFillColor(...GREEN); doc.roundedRect(W - mx - pw, 12, pw, 7.4, 3.7, 3.7, "F");
-    doc.setTextColor(255, 255, 255); doc.text(label, W - mx - pw / 2, 17, { align: "center" });
+    doc.setFillColor(...YELLOW); doc.roundedRect(W - mx - pw - 3, 11.6, pw, 7.4, 3.7, 3.7, "F");
+    doc.setTextColor(...NAVY); doc.text(label, W - mx - 3 - pw / 2, 16.6, { align: "center" });
+    if (first) {
+      doc.setFont("LM", "normal"); doc.setFontSize(9.5); doc.setTextColor(201, 214, 255); if (subtitle) doc.text(subtitle, mx + 4, 24.3);
+      doc.setFont("LM", "bold"); doc.setFontSize(9.5); doc.setTextColor(...YELLOW); doc.text(brand, W - mx - 3, 24.3, { align: "right" });
+    }
+    // Foot of every page (and only there): the "where to find us" strip, then the page number.
+    if (links) {
+      doc.setFillColor(...YELLOW); doc.roundedRect(mx, H - 14.4, W - mx * 2, 5.6, 1.4, 1.4, "F");
+      doc.setFont("LM", "bold"); doc.setFontSize(8.6); doc.setTextColor(...NAVY); doc.text(links, W / 2, H - 10.5, { align: "center" });
+    }
     doc.setFont("LM", "normal"); doc.setFontSize(10); doc.setTextColor(...GRAY);
-    doc.text(String(page), W / 2, H - 9, { align: "center" });
+    doc.text(String(page), W / 2, H - (links ? 4.6 : 9), { align: "center" });
   };
   const rule = (top) => { doc.setDrawColor(...RULE); doc.setLineWidth(0.25); doc.line(W / 2, top, W / 2, bottom); };
 
   header();
-  let top = 25;
-  if (subtitle) { doc.setFont("LM", "normal"); doc.setFontSize(9.5); doc.setTextColor(...GRAY); doc.text(subtitle, mx, 26.6); top = 30; }
+  let top = 30;      // below the first page's taller band
   top += 3; rule(top);
   let col = 0, y = top;
   questions.forEach((q, i) => {
