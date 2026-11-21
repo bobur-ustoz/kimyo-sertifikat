@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { yaroqli, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, SONI_MAX } from "../api/_vazifa.js";
+import { analogSavol, variantlarniAjrat, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, SONI_MAX } from "../api/_vazifa.js";
 
 const NOW = new Date("2026-11-20T10:00:00Z");
 // Soxta baza: jadvallar oddiy massiv; so'rovlar filtrlanadi, insert id beradi, update/upsert qatorlarni o'zgartiradi.
@@ -27,22 +27,29 @@ function fakeDb(tables) {
   };
   return { from, tables };
 }
-const Q = (id, correct = "B", extra = {}) => ({ id, variant_id: "v1", topic: "pH", formula: "", question_text: `Savol ${id}`, option_a: "1", option_b: "2", option_c: "3", option_d: "4", correct_option: correct, question_type: "mcq", ...extra });
+const Q = (id, correct = "B") => ({ id, question_text: `Savol ${id}`, formula: "", option_a: "1", option_b: "2", option_c: "3", option_d: "4", correct_option: correct, question_type: "mcq" });
+// Analog yozuvi bazadagidek: savol "shart A) ..; B) ..", javob "C) ...".
+const A = (id, question_id, harf, extra = {}) => ({ id, question_id, savol: `Savol ${id} A) 1; B) 2; C) 3; D) 4`, formula: "", javob: `${harf}) ${" 1234"["ABCD".indexOf(harf) + 1]}`, is_approved: true, ...extra });
 const baza = () => ({
-  questions: [Q("q1", "A"), Q("q2", "B"), Q("q3", "C"), Q("q4", "D"), Q("ochiq", null, { question_type: "open" }), Q("boshqa", "A", { topic: "Mol" })],
+  // q1..q4 birinchi variantning savollari, ularning analoglari a1..a4; a5 tasdiqlanmagan, a6 variantlarsiz
+  questions: ["s1", "s2", "s3", "s4", "s5", "s6"].map((id) => ({ id, variant_id: "v1" })),
+  analog_questions: [A("q1", "s1", "A"), A("q2", "s2", "B"), A("q3", "s3", "C"), A("q4", "s4", "D"), A("a5", "s5", "A", { is_approved: false }), A("a6", "s6", "A", { savol: "Variantsiz savol" })],
+  topic_examples: [{ id: "e1", topic_id: "t-mol" }], topic_example_analogs: [{ example_id: "e1", analog_savol: "Mol savoli A) 1; B) 2; C) 3; D) 4", analog_javob: "A) 1" }],
+  topics: [{ id: "t-mol", name: "Mol", sort_order: 1 }, { id: "t-bosh", name: "Bo'sh mavzu", sort_order: 2 }],
   variants: [{ id: "v1", teacher_id: "t1", variant_number: 2 }], teachers: [{ id: "t1", name: "DTM 2019" }],
   profiles: [{ id: "ali", full_name: "Ali Valiyev", plan: "premium" }, { id: "vali", full_name: "Vali", plan: "premium" }, { id: "guli", full_name: "Guli", plan: "free" }, { id: "adm", full_name: "Ustoz", is_admin: true }],
   sotuv_leads: [{ tg_id: 1, linked_user_id: "ali", remind: true }, { tg_id: 2, linked_user_id: "vali", remind: false }],
   vazifalar: [], vazifa_topshiriq: [], answers: [],
 });
-const yarat = async (db, extra = {}, sent = []) => adminAmal(db, "adm", { amal: "yarat", nom: "pH vazifasi", mavzu: "pH", soni: 3, kun: 2, oquvchilar: ["ali", "vali", "guli", "adm"], ...extra },
+const yarat = async (db, extra = {}, sent = []) => adminAmal(db, "adm", { amal: "yarat", nom: "pH vazifasi", variantlar: ["v1"], manba_nom: "DTM 2019, 2-variant", soni: 3, kun: 2, oquvchilar: ["ali", "vali", "guli", "adm"], ...extra },
   { now: NOW, rnd: () => 0.999, send: async (tg_id, text, markup) => { sent.push({ tg_id, text, markup }); return { ok: true }; }, log: async () => {}, site: "https://sayt.uz" });
 
-test("yaroqli: faqat to'rt javobli va kalitli test; tanla: so'ralgan sonni beradi", () => {
-  assert.equal(!!yaroqli(Q("x")), true);
-  assert.equal(!!yaroqli(Q("x", null)), false);
-  assert.equal(!!yaroqli(Q("x", "A", { option_d: "" })), false);
-  assert.equal(!!yaroqli(Q("x", "A", { question_type: "match" })), false);
+test("analogSavol: matndan shart, to'rt javob va kalit harfi ajratiladi; ajralmasa savol ishlatilmaydi", () => {
+  assert.deepEqual(variantlarniAjrat("Qaysi sinf? A) aldegidlar; B) kislotalar; C) spirtlar; D) efirlar"), { stem: "Qaysi sinf?", opts: { A: "aldegidlar", B: "kislotalar", C: "spirtlar", D: "efirlar" } });
+  const q = analogSavol({ id: "x", savol: "Qaysi sinf? A) aldegidlar; B) kislotalar; C) spirtlar; D) efirlar", javob: "C) spirtlar" });
+  assert.deepEqual({ t: q.question_text, c: q.option_c, k: q.correct_option }, { t: "Qaysi sinf?", c: "spirtlar", k: "C" });
+  assert.equal(analogSavol({ id: "x", savol: "Variantsiz savol", javob: "C) x" }), null);
+  assert.equal(analogSavol({ id: "x", savol: "S A) 1; B) 2; C) 3; D) 4", javob: "42" }), null);
   assert.deepEqual(tanla([1, 2, 3, 4], 2, () => 0.999), [1, 2]);
   assert.equal(tanla([1, 2], 5).length, 2);
 });
@@ -58,14 +65,14 @@ test("bahola va javobTozala: begona savol va noto'g'ri harf tashlanadi, javobsiz
 
 test("tekshir: nom, mavzu, son va o'quvchi shart; muddat kun oxiriga qo'yiladi", () => {
   assert.match(tekshir({ nom: "a" }).xato, /nomini/);
-  assert.match(tekshir({ nom: "ab", soni: 5, oquvchilar: ["x"] }).xato, /Mavzu yoki variantni/);
-  assert.deepEqual(tekshir({ nom: "ab", mavzular: ["pH", "Mol", "pH"], soni: 5, oquvchilar: ["x"] }, NOW).mavzular, ["pH", "Mol"]);
-  assert.match(tekshir({ nom: "ab", mavzu: "pH", soni: SONI_MAX + 1, oquvchilar: ["x"] }).xato, /Savollar soni/);
-  assert.match(tekshir({ nom: "ab", mavzu: "pH", soni: 5, oquvchilar: [] }).xato, /o'quvchini/);
-  const t = tekshir({ nom: "ab", mavzu: "pH", soni: 5, kun: 2, oquvchilar: ["x", "x"] }, NOW);
+  assert.match(tekshir({ nom: "ab", soni: 5, oquvchilar: ["x"] }).xato, /Variant yoki mavzuni/);
+  assert.deepEqual(tekshir({ nom: "ab", mavzular: ["t1", "t2", "t1"], soni: 5, oquvchilar: ["x"] }, NOW).mavzular, ["t1", "t2"]);
+  assert.match(tekshir({ nom: "ab", variantlar: ["v1"], soni: SONI_MAX + 1, oquvchilar: ["x"] }).xato, /Savollar soni/);
+  assert.match(tekshir({ nom: "ab", variantlar: ["v1"], soni: 5, oquvchilar: [] }).xato, /o'quvchini/);
+  const t = tekshir({ nom: "ab", variantlar: ["v1"], soni: 5, kun: 2, oquvchilar: ["x", "x"] }, NOW);
   assert.equal(t.muddat, "2026-11-22T18:59:00.000Z");          // 22-noyabr 23:59 Toshkent
   assert.deepEqual(t.oquvchilar, ["x"]);
-  assert.equal(tekshir({ nom: "ab", mavzu: "pH", soni: 5, oquvchilar: ["x"] }, NOW).muddat, null);
+  assert.equal(tekshir({ nom: "ab", variantlar: ["v1"], soni: 5, oquvchilar: ["x"] }, NOW).muddat, null);
 });
 
 test("yarat: vazifa va topshiriqlar yoziladi, admin kirmaydi, Telegram faqat ulangan va /stop demaganga", async () => {
@@ -84,18 +91,18 @@ test("yarat: mavzuda savol yetmasa rad etadi va hech narsa yozmaydi", async () =
   const db = fakeDb(baza());
   const r = await yarat(db, { soni: 9 });
   assert.equal(r.status, 400);
-  assert.match(r.body.error, /faqat 4 ta yaroqli savol/);
+  assert.match(r.body.error, /faqat 4 ta analog savol/);          // tasdiqlanmagan va variantsiz analoglar sanalmaydi
   assert.equal(db.tables.vazifalar.length, 0);
 });
 
-test("yarat: bir necha mavzudan yoki bitta variantdan ham tuzadi", async () => {
+test("yarat: variant va dars mavzusi analoglari birga olinadi; begona manbada savol yo'q", async () => {
   const db = fakeDb(baza());
-  const a = await yarat(db, { mavzu: undefined, mavzular: ["pH", "Mol"], soni: 5 });
+  const a = await yarat(db, { mavzular: ["t-mol"], soni: 5, manba_nom: "Aralash" });
   assert.equal(a.status, 200);
-  assert.deepEqual({ n: db.tables.vazifalar[0].savollar.length, mavzu: db.tables.vazifalar[0].mavzu }, { n: 5, mavzu: "pH, Mol" });
-  const b = await yarat(db, { mavzu: undefined, variant_id: "v1", variant_nom: "DTM 2019, 2-variant", soni: 5 });
-  assert.deepEqual({ status: b.status, mavzu: db.tables.vazifalar[1].mavzu }, { status: 200, mavzu: "DTM 2019, 2-variant" });
-  assert.equal((await yarat(db, { mavzu: undefined, variant_id: "yoq", soni: 1 })).status, 400);
+  assert.deepEqual({ n: db.tables.vazifalar[0].savollar.length, e1: db.tables.vazifalar[0].savollar.includes("e1"), mavzu: db.tables.vazifalar[0].mavzu }, { n: 5, e1: true, mavzu: "Aralash" });
+  assert.equal((await yarat(db, { variantlar: ["yoq"], soni: 1 })).status, 400);
+  const ol = await oquvchiAmal(db, "ali", { action: "vazifa-ol", id: 1 }, { now: NOW });
+  assert.equal(ol.body.savollar.length, 5);                       // dars analogi ham savol bo'lib keladi
 });
 
 test("o'quvchi: ro'yxat, savollar kalitsiz, saqlash, topshirish va natija; ikkinchi marta topshirib bo'lmaydi", async () => {
@@ -112,7 +119,7 @@ test("o'quvchi: ro'yxat, savollar kalitsiz, saqlash, topshirish va natija; ikkin
   assert.equal((await am("vazifa-royxat")).body.vazifalar[0].holat, "jarayonda");
   const tp = await am("vazifa-topshir", { javoblar: { q1: "A", q2: "C", q3: "C" } });
   assert.deepEqual({ togri: tp.body.natija.togri, jami: tp.body.natija.jami }, { togri: 2, jami: 3 });
-  assert.equal(db.tables.answers.length, 3);
+  assert.equal(db.tables.answers.length, 0);                                 // analog javoblari umumiy statistikaga yozilmaydi
   assert.equal((await am("vazifa-topshir", { javoblar: { q1: "B" } })).status, 409);
   const keyin = await am("vazifa-ol");
   assert.equal(keyin.body.natija.tafsil[1].togri_javob, "B");               // topshirgach kalit ko'rinadi
@@ -125,8 +132,8 @@ test("admin: malumot mavzularni va o'quvchilarni beradi; natija kim bajarganini 
   await yarat(db);
   await oquvchiAmal(db, "ali", { action: "vazifa-topshir", id: 1, javoblar: { q1: "A", q2: "B", q3: "C" } }, { now: NOW });
   const m = await adminAmal(db, "adm", { amal: "malumot" }, { now: NOW, send: null });
-  assert.deepEqual(m.body.mavzular, [{ nom: "Mol", soni: 1 }, { nom: "pH", soni: 4 }]);
-  assert.deepEqual(m.body.variantlar, [{ id: "v1", nom: "DTM 2019, 2-variant", soni: 5 }]);
+  assert.deepEqual(m.body.mavzular, [{ id: "t-mol", nom: "Mol", soni: 1 }]);          // analogi yo'q mavzu ko'rinmaydi
+  assert.deepEqual(m.body.variantlar, [{ id: "v1", nom: "DTM 2019, 2-variant", soni: 4 }]);
   assert.deepEqual(m.body.oquvchilar.map((o) => [o.ism, o.telegram]), [["Ali Valiyev", "ulangan"], ["Vali", "o'chirgan"], ["Guli", "yo'q"]]);
   assert.deepEqual({ berilgan: m.body.vazifalar[0].berilgan, bajargan: m.body.vazifalar[0].bajargan, ortacha: m.body.vazifalar[0].ortacha }, { berilgan: 3, bajargan: 1, ortacha: 100 });
   const n = await adminAmal(db, "adm", { amal: "natija", id: 1 }, { now: NOW, send: null });

@@ -20,7 +20,7 @@ const label = { fontSize: 11.5, fontWeight: 700, color: C.textMid, marginBottom:
 export default function VazifaPanel() {
   const [d, setD] = useState(null);
   const [err, setErr] = useState("");
-  const [f, setF] = useState({ tur: "uyga", nom: "", manba: "variant", mavzular: [], variant_id: "", soni: 10, kun: 2 });
+  const [f, setF] = useState({ tur: "uyga", nom: "", variantlar: [], mavzular: [], soni: 10, kun: 2 });
   const [tanlangan, setTanlangan] = useState([]);
   const [faqatPullik, setFaqatPullik] = useState(true);
   const [busy, setBusy] = useState(false);
@@ -33,11 +33,11 @@ export default function VazifaPanel() {
   if (err && !d) return <div style={{ ...card, color: C.danger, fontSize: 13 }}>{err}</div>;
   if (!d) return <div style={{ ...card, fontSize: 13, color: C.textMid }}>Yuklanmoqda…</div>;
 
-  // Savollar manbai: bitta variant yoki bir necha mavzu (bitta mavzuda savol kam bo'lishi mumkin).
-  const variant = d.variantlar.find((v) => v.id === f.variant_id);
-  const bor = f.manba === "variant" ? (variant?.soni || 0) : d.mavzular.filter((m) => f.mavzular.includes(m.nom)).reduce((a, m) => a + m.soni, 0);
-  const manbaNom = f.manba === "variant" ? (variant?.nom || "") : f.mavzular.length === 1 ? f.mavzular[0] : f.mavzular.length ? `${f.mavzular.length} ta mavzu` : "";
-  const mavzuBos = (nom) => setF((x) => ({ ...x, mavzular: x.mavzular.includes(nom) ? x.mavzular.filter((m) => m !== nom) : [...x.mavzular, nom] }));
+  // Savollar analoglardan olinadi: variant savollarining analoglari va dars misollarining analoglari.
+  const tanlanganManba = [...d.variantlar.filter((v) => f.variantlar.includes(v.id)), ...d.mavzular.filter((m) => f.mavzular.includes(m.id))];
+  const bor = tanlanganManba.reduce((a, m) => a + m.soni, 0);
+  const manbaNom = tanlanganManba.length === 1 ? tanlanganManba[0].nom : tanlanganManba.length ? `${tanlanganManba.length} ta manba` : "";
+  const manbaBos = (kalit, id) => setF((x) => ({ ...x, [kalit]: x[kalit].includes(id) ? x[kalit].filter((m) => m !== id) : [...x[kalit], id] }));
   const royxat = d.oquvchilar.filter((o) => !faqatPullik || o.plan !== "free");
   const hammasi = royxat.length > 0 && royxat.every((o) => tanlangan.includes(o.id));
   const bos = (id) => setTanlangan((t) => t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
@@ -46,7 +46,7 @@ export default function VazifaPanel() {
     setBusy(true); setErr(""); setXabar("");
     try {
       const r = await ask({ amal: "yarat", tur: f.tur, soni: f.soni, kun: f.kun, nom: f.nom || standartNom, oquvchilar: tanlangan,
-        ...(f.manba === "variant" ? { variant_id: f.variant_id, variant_nom: variant?.nom } : { mavzular: f.mavzular }) });
+        variantlar: f.variantlar, mavzular: f.mavzular, manba_nom: tanlanganManba.map((m) => m.nom).join(", ") });
       setXabar(`Tayinlandi: ${r.oquvchilar} ta o'quvchi. Telegramga xabar ${r.yuborildi} tasiga ketdi${r.xabarsiz ? `, ${r.xabarsiz} tasi vazifani faqat platformada ko'radi` : ""}.`);
       setTanlangan([]); setF((x) => ({ ...x, nom: "" })); yukla();
     } catch (e) { setErr(e.message); }
@@ -59,32 +59,28 @@ export default function VazifaPanel() {
     <div style={{ display: "grid", gap: 16 }}>
       <div style={card}>
         <div style={{ fontSize: 15, fontWeight: 800, color: C.text, marginBottom: 4 }}>Vazifa tayinlash</div>
-        <p style={{ fontSize: 12.5, color: C.textMid, margin: "0 0 14px", lineHeight: 1.6 }}>Savollar tanlangan variant yoki mavzulardan tasodifiy olinadi. O'quvchi platformada ishlaydi, natija darhol chiqadi. Yechim ko'rsatilmaydi.</p>
+        <p style={{ fontSize: 12.5, color: C.textMid, margin: "0 0 14px", lineHeight: 1.6 }}>Savollar analoglardan tasodifiy olinadi: video tushuntirish uchun, vazifada esa o'sha misolning analogi beriladi. O'quvchi platformada ishlaydi, natija darhol chiqadi. Yechim ko'rsatilmaydi.</p>
 
         <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
           {[["uyga", "Uyga vazifa"], ["imtihon", "Imtihon"]].map(([k, n]) => <button key={k} style={toggleBtn(f.tur === k)} onClick={() => setF({ ...f, tur: k })}>{n}</button>)}
         </div>
 
-        <span style={label}>Savollar qayerdan olinadi</span>
-        <div style={{ display: "flex", gap: 6, marginBottom: 8 }}>
-          {[["variant", "Bitta variantdan"], ["mavzu", "Mavzulardan"]].map(([k, n]) => <button key={k} style={toggleBtn(f.manba === k)} onClick={() => setF({ ...f, manba: k })}>{n}</button>)}
+        <span style={label}>Savollar qayerdan olinadi (analoglar)</span>
+        <div style={{ maxHeight: 210, overflowY: "auto", border: `1px solid ${C.border}`, borderRadius: 10, marginBottom: 14, padding: "4px 0" }}>
+          {[["variantlar", "VARIANT SAVOLLARINING ANALOGLARI", d.variantlar], ["mavzular", "DARS MISOLLARINING ANALOGLARI", d.mavzular]].map(([kalit, sarlavha, royxati]) => royxati.length > 0 && (
+            <div key={kalit}>
+              <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 0.8, color: C.textLight, padding: "7px 12px 3px" }}>{sarlavha}</div>
+              {royxati.map((m) => (
+                <label key={m.id} style={{ display: "flex", alignItems: "center", gap: 9, padding: "5px 12px", cursor: "pointer", fontSize: 12.5 }}>
+                  <input type="checkbox" checked={f[kalit].includes(m.id)} onChange={() => manbaBos(kalit, m.id)} />
+                  <span style={{ flex: 1, color: C.text }}>{m.nom}</span><span style={{ color: C.textLight }}>{m.soni} ta analog</span>
+                </label>
+              ))}
+            </div>
+          ))}
+          {!d.variantlar.length && !d.mavzular.length && <div style={{ padding: 12, fontSize: 12.5, color: C.warning }}>Bazada tasdiqlangan analog savol topilmadi.</div>}
         </div>
-        {f.manba === "variant" ? (
-          <select value={f.variant_id} onChange={(e) => setF({ ...f, variant_id: e.target.value })} style={{ ...inputStyle, marginBottom: 14 }}>
-            <option value="">Variantni tanlang…</option>
-            {d.variantlar.map((v) => <option key={v.id} value={v.id}>{v.nom} ({v.soni} ta savol)</option>)}
-          </select>
-        ) : (
-          <div style={{ maxHeight: 190, overflowY: "auto", border: `1px solid ${C.border}`, borderRadius: 10, marginBottom: 14, padding: "4px 0" }}>
-            {d.mavzular.map((m) => (
-              <label key={m.nom} style={{ display: "flex", alignItems: "center", gap: 9, padding: "5px 12px", cursor: "pointer", fontSize: 12.5 }}>
-                <input type="checkbox" checked={f.mavzular.includes(m.nom)} onChange={() => mavzuBos(m.nom)} />
-                <span style={{ flex: 1, color: C.text }}>{m.nom}</span><span style={{ color: C.textLight }}>{m.soni} ta</span>
-              </label>
-            ))}
-          </div>
-        )}
-        {bor > 0 && <p style={{ fontSize: 12, color: C.textMid, margin: "-6px 0 12px" }}>Tanlangan manbada {bor} ta yaroqli savol bor.</p>}
+        {bor > 0 && <p style={{ fontSize: 12, color: C.textMid, margin: "-6px 0 12px" }}>Tanlangan manbada {bor} ta analog savol bor.</p>}
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 12 }}>
           <label><span style={label}>Savollar soni</span>
@@ -94,8 +90,7 @@ export default function VazifaPanel() {
           <label><span style={label}>Nomi (ixtiyoriy)</span>
             <input value={f.nom} maxLength={120} placeholder={standartNom || "Masalan: pH va pOH hisoblash"} onChange={(e) => setF({ ...f, nom: e.target.value })} style={inputStyle} /></label>
         </div>
-        {bor > 0 && f.soni > bor && <p style={{ fontSize: 12, color: C.danger, margin: "8px 0 0" }}>Tanlangan manbada faqat {bor} ta yaroqli savol bor.</p>}
-        {!d.mavzular.length && <p style={{ fontSize: 12, color: C.warning, margin: "8px 0 0" }}>Bazada mavzusi belgilangan, to'rt javobli va to'g'ri javobi kiritilgan savol topilmadi.</p>}
+        {bor > 0 && f.soni > bor && <p style={{ fontSize: 12, color: C.danger, margin: "8px 0 0" }}>Tanlangan manbada faqat {bor} ta analog savol bor.</p>}
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "18px 0 8px", gap: 8, flexWrap: "wrap" }}>
           <span style={{ ...label, margin: 0 }}>O'quvchilar ({tanlangan.length} ta tanlandi)</span>

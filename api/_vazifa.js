@@ -1,4 +1,4 @@
-// Uyga vazifa va imtihon: ustoz (admin) mavzu, savollar soni va o'quvchilarni tanlaydi, murabbiy o'quvchining
+// Uyga vazifa va imtihon: ustoz (admin) manba, savollar soni va o'quvchilarni tanlaydi, murabbiy o'quvchining
 // Telegramiga xabar yuboradi, o'quvchi platformadagi "Vazifalarim" sahifasida ishlaydi, natija darhol chiqadi.
 // Ustoz qarori (2026-11-20): yechim ko'rsatilmaydi, javoblar platformada kiritiladi, PDF yuklab olinadi.
 //
@@ -9,7 +9,10 @@
 //
 // Jadvallar: vazifalar, vazifa_topshiriq (supabase/migrations/20261120000000_vazifalar.sql). Ularga faqat server
 // (service role) kiradi: o'quvchi to'g'ri javoblarni shu yo'ldan ololmaydi va natijani o'zi yozolmaydi.
-// Birinchi bosqich: faqat to'rt javobli test savollari. Yozma masala kataklari keyingi bosqichda.
+// Savollar ANALOGLARDAN olinadi (ustoz qarori, 2026-11-21): video tushuntirish uchun, vazifa va imtihonda esa o'sha
+// misolning analogi (boshqa modda va sonlar) beriladi. Manbalar: analog_questions (variant savollarining tasdiqlangan
+// analoglari) va topic_example_analogs (dars misollarining analoglari). Ikkalasida ham savol "shart A) ..; B) ..; C) ..; D) .."
+// ko'rinishida, javob "C) spirtlar" ko'rinishida saqlanadi. Faqat to'rt javobli testlar; yozma kataklar keyingi bosqichda.
 
 import { createClient } from "@supabase/supabase-js";
 import { yoz } from "./_navbat.js";
@@ -19,14 +22,27 @@ export const TURLAR = ["uyga", "imtihon"];
 export const SONI_MAX = 43, OQUVCHI_MAX = 500, NOM_MAX = 120;
 export const ESLATMA_SOAT = 36;      // muddatga shuncha soat qolganda bitta eslatma
 const HOUR = 3600e3;
-const SAVOL_USTUN = "id,variant_id,topic,formula,question_text,option_a,option_b,option_c,option_d,correct_option,question_type";
 const ms = (t) => (t ? new Date(t).getTime() : 0);
 const ism = (p) => String(p?.full_name || "").trim().split(/\s+/)[0] || "";
 export const TUR_NOM = { uyga: "Uyga vazifa", imtihon: "Imtihon" };
 
-// Vazifaga yaraydigan savol: to'rtta javobi va to'g'ri javobi bor test.
-export const yaroqli = (q) => (q.question_type || "mcq") === "mcq" && ["A", "B", "C", "D"].includes(q.correct_option)
-  && [q.option_a, q.option_b, q.option_c, q.option_d].every((x) => String(x ?? "").trim()) && String(q.question_text ?? "").trim();
+// "shart ... A) x; B) y; C) z; D) w" -> { stem, opts } (bunday ko'rinmasa null). src/analogPdf.js dagi bilan bir xil qoida.
+export function variantlarniAjrat(text) {
+  const t = String(text || "").replace(/\s+/g, " ").trim();
+  const i = t.search(/(?:Variantlar:\s*)?A\)\s/);
+  if (i < 0) return null;
+  const stem = t.slice(0, i).replace(/[\s:]+$/, "");
+  const parts = t.slice(i).replace(/^Variantlar:\s*/i, "").split(/\s*([ABCD])\)\s*/).slice(1);
+  const opts = {};
+  for (let k = 0; k + 1 < parts.length; k += 2) opts[parts[k]] = parts[k + 1].replace(/[;\s]+$/, "");
+  return stem && ["A", "B", "C", "D"].every((l) => opts[l]) ? { stem, opts } : null;
+}
+// Analog yozuvini vazifa savoliga aylantiradi. Variantlari yoki javob harfi aniqlanmasa null (bunday analog ishlatilmaydi).
+export function analogSavol({ id, savol, formula, javob }) {
+  const p = variantlarniAjrat(savol), harf = String(javob ?? "").trim().match(/^([A-D])\s*\)/)?.[1];
+  if (!id || !p || !harf) return null;
+  return { id, question_text: p.stem, formula: formula || "", option_a: p.opts.A, option_b: p.opts.B, option_c: p.opts.C, option_d: p.opts.D, correct_option: harf, question_type: "mcq" };
+}
 
 // Havzadan tasodifiy `soni` ta savol (tartibi ham tasodifiy). rnd sinov uchun almashtiriladi.
 export function tanla(pool, soni, rnd = Math.random) {
@@ -84,10 +100,29 @@ const botSend = () => {
 
 // ---------------------------------------------------------------- o'quvchi
 
+// Vazifadagi savollarni (analog id lari) ikki jadvaldan o'qib, saqlangan tartibda qaytaradi.
 async function savollarTartibda(db, idlar) {
-  const rows = must(await db.from("questions").select(SAVOL_USTUN).in("id", idlar));
-  const by = new Map(rows.map((q) => [q.id, q]));
+  const [a, m] = await Promise.all([
+    db.from("analog_questions").select("id,savol,formula,javob").in("id", idlar).then(must),
+    db.from("topic_example_analogs").select("example_id,analog_savol,analog_javob").in("example_id", idlar).then(optional),
+  ]);
+  const by = new Map([...a.map(analogSavol), ...m.map((r) => analogSavol({ id: r.example_id, savol: r.analog_savol, javob: r.analog_javob }))].filter(Boolean).map((q) => [q.id, q]));
   return idlar.map((id) => by.get(id)).filter(Boolean);
+}
+
+// Ishlatsa bo'ladigan hamma analoglar, qaysi variant yoki dars mavzusiga tegishli ekani bilan. -> [{ ...savol, variant_id | topic_id }]
+async function havza(db) {
+  const [a, qs, m, ex] = await Promise.all([
+    db.from("analog_questions").select("id,question_id,savol,formula,javob,is_approved").eq("is_approved", true).limit(20000).then(must),
+    db.from("questions").select("id,variant_id").limit(20000).then(must),
+    db.from("topic_example_analogs").select("example_id,analog_savol,analog_javob").limit(20000).then(optional),
+    db.from("topic_examples").select("id,topic_id").limit(20000).then(optional),
+  ]);
+  const varBy = new Map(qs.map((q) => [q.id, q.variant_id])), topBy = new Map(ex.map((e) => [e.id, e.topic_id]));
+  return [
+    ...a.map((r) => { const q = analogSavol(r); return q && varBy.has(r.question_id) ? { ...q, variant_id: varBy.get(r.question_id) } : null; }),
+    ...m.map((r) => { const q = analogSavol({ id: r.example_id, savol: r.analog_savol, javob: r.analog_javob }); return q && topBy.has(r.example_id) ? { ...q, topic_id: topBy.get(r.example_id) } : null; }),
+  ].filter(Boolean);
 }
 
 // -> { status, body }. now sinov uchun.
@@ -130,9 +165,7 @@ export async function oquvchiAmal(db, userId, body = {}, { now = new Date() } = 
     // Egallash: ikki marta bosilsa ham bir marta topshiriladi.
     const oldim = must(await db.from("vazifa_topshiriq").update({ javoblar, holat: "topshirilgan", togri: natija.togri, jami: natija.jami, topshirilgan_at: now.toISOString() }).eq("id", top.id).neq("holat", "topshirilgan").select("id"));
     if (!oldim.length) return { status: 409, body: { error: "Bu vazifa topshirilgan" } };
-    // Umumiy statistika (Tahlil, murabbiy) ham shu javoblarni ko'rsin. Yozilmasa natija baribir saqlangan.
-    const rows = natija.tafsil.filter((t) => t.tanlangan).map((t) => ({ student_id: userId, question_id: t.id, selected_option: t.tanlangan, is_correct: t.togri, answered_at: now.toISOString() }));
-    if (rows.length) { const { error } = await db.from("answers").upsert(rows, { onConflict: "student_id,question_id" }); if (error) console.error("vazifa: answers yozilmadi:", error.message); }
+    // Javoblar umumiy `answers` jadvaliga yozilmaydi: u variant savollari uchun, bu yerda esa ularning analoglari.
     return { status: 200, body: { ok: true, natija } };
   }
   return { status: 400, body: { error: "Noma'lum amal" } };
@@ -157,17 +190,17 @@ export async function handleVazifa(req, res) {
 
 // ---------------------------------------------------------------- admin
 
-// Yangi vazifa so'rovini tekshiradi. -> { xato } | { nom, tur, mavzular, variant_id, soni, muddat, oquvchilar }
+// Yangi vazifa so'rovini tekshiradi. -> { xato } | { nom, tur, variantlar, mavzular, soni, muddat, oquvchilar }
 export function tekshir(b = {}, now = new Date()) {
   const nom = String(b.nom ?? "").trim().slice(0, NOM_MAX);
-  // Manba: bir yoki bir necha mavzu, yoki bitta variant (bazada bitta mavzuda savol kam bo'lishi mumkin).
-  const mavzular = [...new Set((Array.isArray(b.mavzular) ? b.mavzular : b.mavzu ? [b.mavzu] : []).map((x) => String(x).trim()).filter(Boolean))].slice(0, 100);
-  const variant_id = b.variant_id ? String(b.variant_id) : null;
+  // Manba: variantlar (ularning savollariga yozilgan analoglar) va/yoki dars mavzulari (misollarining analoglari).
+  const idlar = (x) => [...new Set((Array.isArray(x) ? x : []).map(String).filter(Boolean))].slice(0, 200);
+  const variantlar = idlar(b.variantlar), mavzular = idlar(b.mavzular);
   const tur = TURLAR.includes(b.tur) ? b.tur : "uyga";
   const soni = Number(b.soni), kun = Number(b.kun);
   const oquvchilar = [...new Set(Array.isArray(b.oquvchilar) ? b.oquvchilar.map(String) : [])];
   if (nom.length < 2) return { xato: "Vazifa nomini yozing" };
-  if (!mavzular.length && !variant_id) return { xato: "Mavzu yoki variantni tanlang" };
+  if (!mavzular.length && !variantlar.length) return { xato: "Variant yoki mavzuni tanlang" };
   if (!Number.isInteger(soni) || soni < 1 || soni > SONI_MAX) return { xato: `Savollar soni 1 dan ${SONI_MAX} gacha bo'lsin` };
   if (!oquvchilar.length) return { xato: "Kamida bitta o'quvchini tanlang" };
   if (oquvchilar.length > OQUVCHI_MAX) return { xato: `Bir vazifaga ko'pi bilan ${OQUVCHI_MAX} o'quvchi` };
@@ -175,29 +208,28 @@ export function tekshir(b = {}, now = new Date()) {
   // Muddat: shuncha kundan keyingi kunning oxiri (Toshkent vaqti bilan 23:59).
   let muddat = null;
   if (Number.isFinite(kun) && kun >= 1) { const d = new Date(now.getTime() + 5 * HOUR + kun * 24 * HOUR).toISOString().slice(0, 10); muddat = new Date(`${d}T23:59:00+05:00`).toISOString(); }
-  return { nom, tur, mavzular, variant_id, soni, muddat, oquvchilar };
+  return { nom, tur, variantlar, mavzular, soni, muddat, oquvchilar };
 }
 
 export async function adminAmal(db, adminId, body = {}, { now = new Date(), send = botSend(), rnd = Math.random, log = (y) => yoz(db, y), site = sayt() } = {}) {
   if (body.amal === "malumot") {
-    const [qs, profiles, leads, vs, tops, variants, teachers] = await Promise.all([
-      db.from("questions").select(SAVOL_USTUN).limit(20000).then(must),
+    const [pool, profiles, leads, vs, tops, variants, teachers, topics] = await Promise.all([
+      havza(db),
       db.from("profiles").select("id,full_name,email,phone,plan,plan_expires_at,is_admin").limit(5000).then(must),
       db.from("sotuv_leads").select("linked_user_id,remind").not("linked_user_id", "is", null).limit(5000).then(optional),
       db.from("vazifalar").select("id,tur,nom,mavzu,savollar,muddat,created_at").order("created_at", { ascending: false }).limit(50).then(must),
       db.from("vazifa_topshiriq").select("vazifa_id,holat,togri,jami").limit(20000).then(must),
       db.from("variants").select("id,teacher_id,variant_number").limit(2000).then(must),
       db.from("teachers").select("id,name").limit(500).then(must),
+      db.from("topics").select("id,name,sort_order").limit(500).then(optional),
     ]);
-    const varSoni = {};
-    for (const q of qs) if (yaroqli(q)) varSoni[q.variant_id] = (varSoni[q.variant_id] || 0) + 1;
-    const mavzu = {};
-    for (const q of qs) if (yaroqli(q) && String(q.topic || "").trim()) mavzu[q.topic.trim()] = (mavzu[q.topic.trim()] || 0) + 1;
+    const san = (k) => pool.reduce((o, q) => (q[k] ? { ...o, [q[k]]: (o[q[k]] || 0) + 1 } : o), {});
+    const varSoni = san("variant_id"), mavSoni = san("topic_id");
     const ulangan = new Map(leads.map((l) => [l.linked_user_id, l.remind]));
     return { status: 200, body: {
       variantlar: variants.filter((v) => varSoni[v.id]).map((v) => ({ id: v.id, nom: `${teachers.find((x) => x.id === v.teacher_id)?.name || "To'plam"}, ${v.variant_number}-variant`, soni: varSoni[v.id] }))
         .sort((a, b) => a.nom.localeCompare(b.nom, "uz", { numeric: true })),
-      mavzular: Object.entries(mavzu).map(([nom, soni]) => ({ nom, soni })).sort((a, b) => a.nom.localeCompare(b.nom, "uz")),
+      mavzular: topics.filter((t) => mavSoni[t.id]).sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0)).map((t) => ({ id: t.id, nom: t.name, soni: mavSoni[t.id] })),
       oquvchilar: profiles.filter((p) => !p.is_admin).map((p) => ({ id: p.id, ism: p.full_name || String(p.email || "").split("@")[0] || "Ismsiz",
         plan: p.plan && (!p.plan_expires_at || ms(p.plan_expires_at) > now.getTime()) ? p.plan : "free", telegram: !ulangan.has(p.id) ? "yo'q" : ulangan.get(p.id) ? "ulangan" : "o'chirgan" }))
         .sort((a, b) => (a.plan === "free") - (b.plan === "free") || a.ism.localeCompare(b.ism, "uz")),
@@ -221,9 +253,9 @@ export async function adminAmal(db, adminId, body = {}, { now = new Date(), send
   if (body.amal === "yarat") {
     const t = tekshir(body, now);
     if (t.xato) return { status: 400, body: { error: t.xato } };
-    const pool = must(await (t.variant_id ? db.from("questions").select(SAVOL_USTUN).eq("variant_id", t.variant_id) : db.from("questions").select(SAVOL_USTUN).in("topic", t.mavzular)).limit(5000)).filter(yaroqli);
-    if (pool.length < t.soni) return { status: 400, body: { error: `Tanlangan ${t.variant_id ? "variantda" : "mavzularda"} faqat ${pool.length} ta yaroqli savol bor` } };
-    const mavzu = (t.variant_id ? String(body.variant_nom || "Variant") : t.mavzular.join(", ")).slice(0, 300);
+    const pool = (await havza(db)).filter((q) => (q.variant_id && t.variantlar.includes(q.variant_id)) || (q.topic_id && t.mavzular.includes(q.topic_id)));
+    if (pool.length < t.soni) return { status: 400, body: { error: `Tanlangan manbada faqat ${pool.length} ta analog savol bor` } };
+    const mavzu = String(body.manba_nom || "Analog savollar").slice(0, 300);
     const profiles = must(await db.from("profiles").select("id,full_name,is_admin").in("id", t.oquvchilar)).filter((p) => !p.is_admin);
     if (!profiles.length) return { status: 400, body: { error: "Tanlangan o'quvchilar topilmadi" } };
     const savollar = tanla(pool, t.soni, rnd).map((q) => q.id);
