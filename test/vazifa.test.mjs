@@ -13,6 +13,7 @@ function fakeDb(tables) {
       if (q.op === "insert") { const add = (Array.isArray(q.val) ? q.val : [q.val]).map((r) => ({ id: (seq[name] = (seq[name] || rows.length) + 1), holat: name === "vazifa_topshiriq" ? "berilgan" : undefined, javoblar: name === "vazifa_topshiriq" ? {} : undefined, ...r })); rows.push(...add); return { data: add, error: null }; }
       if (q.op === "upsert") { for (const r of q.val) { const i = rows.findIndex((x) => x.student_id === r.student_id && x.question_id === r.question_id); if (i >= 0) rows[i] = { ...rows[i], ...r }; else rows.push(r); } return { data: q.val, error: null }; }
       if (q.op === "update") { const h = hit(); h.forEach((r) => Object.assign(r, q.val)); return { data: h, error: null }; }
+      if (q.op === "delete") { const h = hit(); for (const r of h) rows.splice(rows.indexOf(r), 1); return { data: h, error: null }; }
       return { data: hit(), error: null };
     };
     const api = {
@@ -20,6 +21,7 @@ function fakeDb(tables) {
       insert(v) { q.op = "insert"; q.val = v; return api; }, update(v) { q.op = "update"; q.val = v; return api; }, upsert(v) { q.op = "upsert"; q.val = v; return api; },
       eq(k, v) { q.f.push((r) => r[k] === v); return api; }, neq(k, v) { q.f.push((r) => r[k] !== v); return api; },
       in(k, vs) { q.f.push((r) => vs.includes(r[k])); return api; }, not(k) { q.f.push((r) => r[k] != null); return api; },
+      is(k, v) { q.f.push((r) => (v === null ? r[k] == null : r[k] === v)); return api; }, delete() { q.op = "delete"; return api; },
       gt(k, v) { q.f.push((r) => r[k] > v); return api; }, lt(k, v) { q.f.push((r) => r[k] < v); return api; },
       then(a, b) { return Promise.resolve(run()).then(a, b); },
     };

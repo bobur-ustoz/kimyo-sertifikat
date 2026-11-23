@@ -15,6 +15,7 @@ import { runTekshiruv, bunnyRoyxat } from "./_tekshiruv.js";
 import { runCeo, yakshanbami } from "./_ceo.js";
 import { runMurabbiy } from "./_murabbiy.js";
 import { vazifaEslatma } from "./_vazifa.js";
+import { rejaIsh } from "./_reja.js";
 
 // Asia/Tashkent bo'yicha bugungi sana: navbatda kuniga bitta yozuv bo'lishi uchun kalit.
 const bugun = () => new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);
@@ -46,6 +47,11 @@ async function nazorat(res) {
     if (botToken) {
       try { vazifa = await vazifaEslatma(db, (chat_id, text, reply_markup) => tg("sendMessage", { chat_id, text, reply_markup }, { token: botToken })); }
       catch (e) { vazifa = { ok: false, error: e.message }; if (!/does not exist|schema cache/.test(e.message)) console.error("vazifa eslatma failed:", e.message); }
+      // Shaxsiy reja: murabbiy har pullik o'quvchini mavzular ketma-ketligida yuritadi. Jadval hali yaratilmagan bo'lsa jim o'tadi.
+      try { vazifa = { ...vazifa, reja: await rejaIsh(db) }; }
+      catch (e) {
+        if (!/does not exist|schema cache/.test(e.message)) { console.error("shaxsiy reja failed:", e.message); await yoz(db, { agent: "murabbiy", tur: "xato", sarlavha: "Shaxsiy reja ishlamadi", tafsilot: { xato: String(e.message).slice(0, 300) }, kimga: "kod", kalit: `reja-xato:${bugun()}` }); }
+      }
     }
     const r = await runNazorat(db, (text) => tg("sendMessage", { chat_id: chat, text, parse_mode: "HTML", disable_web_page_preview: true }), new Date(), toStudent);
     await yoz(db, { agent: "nazoratchi", tur: "hisobot", sarlavha: `Kunlik tekshiruv: ${r.flagged} ta o'quvchi bilan bog'lanish kerak, ${r.nudged} tasiga eslatma yuborildi`, tafsilot: r, kalit: `nazorat:${bugun()}` });

@@ -1674,7 +1674,7 @@ function ProfileScreen({teacher,plan,session,setTab,variants}) {
 
 // ── APP ───────────────────────────────────────────────────────────
 export default function App() {
-  const [tab,setTab]=useState(()=>{ try{ const h=window.location.hash; return h==="#live"?"live":h==="#survey"?"survey":h==="#oyin"?"oyin":h==="#vazifa"?"vazifa":"home"; }catch{ return "home"; } });
+  const [tab,setTab]=useState(()=>{ try{ const h=window.location.hash; return h==="#live"?"live":h==="#survey"?"survey":h==="#oyin"?"oyin":h==="#vazifa"?"vazifa":h==="#mavzular"?"topics":"home"; }catch{ return "home"; } });
   const [teacher,setTeacher]=useState(null);
   const [varId,setVarId]=useState(null);
   const [mobileOpen,setMobileOpen]=useState(false);

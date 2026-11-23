@@ -6,6 +6,7 @@
 //   o'quvchi amallari  -> api/purchase-request.js  { action: "vazifa-royxat" | "vazifa-ol" | "vazifa-saqla" | "vazifa-topshir" }
 //   admin amallari     -> api/bunny-auth.js        { vazifa: { amal: "malumot" | "yarat" | "natija", ... } }
 //   muddat eslatmasi   -> api/keepalive.js?job=nazorat ichida (vazifaEslatma)
+//   shaxsiy reja       -> api/_reja.js (murabbiy har o'quvchi bo'yicha mavzular ketma-ketligida ishlaydi)
 //   bot ichida ishlash -> api/organika-webhook.js?bot=sotuv, tugma ma'lumoti "vz:..." (vazifaTugma)
 //
 // Jadvallar: vazifalar, vazifa_topshiriq (supabase/migrations/20261120000000_vazifalar.sql). Ularga faqat server
@@ -18,6 +19,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { yoz } from "./_navbat.js";
 import { tg, escapeHtml } from "./_telegram.js";
+import { rejaOquvchi, rejaAdmin } from "./_reja.js";
 
 export const TURLAR = ["uyga", "imtihon"];
 export const SONI_MAX = 43, OQUVCHI_MAX = 500, NOM_MAX = 120;
@@ -141,7 +143,7 @@ async function savollarTartibda(db, idlar) {
 }
 
 // Ishlatsa bo'ladigan hamma analoglar, qaysi variant yoki dars mavzusiga tegishli ekani bilan. -> [{ ...savol, variant_id | topic_id }]
-async function havza(db) {
+export async function havza(db) {
   const [a, qs, m, ex] = await Promise.all([
     db.from("analog_questions").select("id,question_id,savol,formula,javob,is_approved").eq("is_approved", true).limit(20000).then(must),
     db.from("questions").select("id,variant_id").limit(20000).then(must),
@@ -158,6 +160,7 @@ async function havza(db) {
 // -> { status, body }. now sinov uchun.
 export async function oquvchiAmal(db, userId, body = {}, { now = new Date() } = {}) {
   const amal = body.action;
+  if (amal === "vazifa-reja") return { status: 200, body: await rejaOquvchi(db, userId) };       // "Mening rejam": mavzular va qayerda turgani
   if (amal === "vazifa-royxat") {
     const tops = must(await db.from("vazifa_topshiriq").select("vazifa_id,holat,javoblar,togri,jami,topshirilgan_at").eq("student_id", userId));
     if (!tops.length) return { status: 200, body: { vazifalar: [] } };
@@ -219,7 +222,42 @@ export async function handleVazifa(req, res) {
   }
 }
 
+// ---------------------------------------------------------------- tayinlash (qo'lda ham, reja bo'yicha ham shu)
+
+// Vazifani yaratadi, o'quvchilarga biriktiradi va Telegramga yuboradi. tanlangan: analog savollar (to'liq, kaliti bilan).
+// -> { id, oquvchilar, yuborildi, yetmadi, xabarsiz }
+export async function tayinla(db, { tur, nom, mavzu, tanlangan, muddat, profiles, adminId = null, reja = false }, { now = new Date(), send = botSend(), sendDoc = botDoc(), pdf = pdfYasovchi(sayt()), log = (y) => yoz(db, y), site = sayt() } = {}) {
+  const savollar = tanlangan.map((q) => q.id);
+  const v = must(await db.from("vazifalar").insert({ tur, nom, mavzu, savollar, muddat, created_by: adminId }).select("id,tur,nom,mavzu,savollar,muddat"))[0];
+  must(await db.from("vazifa_topshiriq").insert(profiles.map((p) => ({ vazifa_id: v.id, student_id: p.id }))).select("id"));
+
+  // Telegram: faqat botni ulagan va /stop demagan o'quvchiga. Qolganlari vazifani platformada ko'radi.
+  // Uyga vazifa dizaynli PDF fayl bo'lib boradi (xabar matni fayl ostida). PDF yasalmasa, oddiy xabar ketadi.
+  let yuborildi = 0, yetmadi = 0, hujjat = null;
+  if (send && sendDoc && v.tur === "uyga") { try { hujjat = { buffer: await pdf(v, tanlangan), filename: faylNomi(v.nom) }; } catch (e) { console.error("vazifa pdf yasalmadi:", e.message); } }
+  const leads = send ? optional(await db.from("sotuv_leads").select("tg_id,linked_user_id,remind").in("linked_user_id", profiles.map((p) => p.id))) : [];
+  for (const p of profiles) {
+    const lead = leads.find((l) => l.linked_user_id === p.id);
+    if (!lead || !lead.remind) continue;
+    let r = null;
+    if (hujjat) {
+      try { r = await sendDoc(lead.tg_id, { ...hujjat, caption: xabarMatni(v, p), reply_markup: tugma(site, v) }); } catch { r = null; }
+      const fid = r?.result?.document?.file_id;
+      if (fid) hujjat = { file_id: fid };                    // keyingi o'quvchilarga qayta yuklanmaydi
+    }
+    if (!r?.ok) { try { r = await send(lead.tg_id, xabarMatni(v, p, false), tugma(site, v)); } catch { r = null; } }
+    if (r?.ok) { yuborildi++; await db.from("vazifa_topshiriq").update({ tg_xabar_at: now.toISOString() }).eq("vazifa_id", v.id).eq("student_id", p.id); } else yetmadi++;
+  }
+  const xabarsiz = profiles.length - yuborildi;
+  await log({ agent: "murabbiy", tur: "ish", sarlavha: `${TUR_NOM[v.tur]} tayinlandi${reja ? " (reja bo'yicha)" : ""}: "${v.nom}" (${profiles.length} o'quvchi, ${yuborildi} tasiga Telegram xabar)`,
+    tafsilot: { vazifa_id: v.id, tur: v.tur, mavzu: v.mavzu, savollar: savollar.length, oquvchilar: profiles.length, yuborildi, yetmadi, xabarsiz, ...(reja ? { reja: true } : {}) } });
+  return { id: v.id, oquvchilar: profiles.length, yuborildi, yetmadi, xabarsiz };
+}
+
 // ---------------------------------------------------------------- admin
+
+// Muddat: shuncha kundan keyingi kunning oxiri (Toshkent vaqti bilan 23:59).
+export const muddatHisob = (kun, now = new Date()) => new Date(`${new Date(now.getTime() + 5 * HOUR + kun * 24 * HOUR).toISOString().slice(0, 10)}T23:59:00+05:00`).toISOString();
 
 // Yangi vazifa so'rovini tekshiradi. -> { xato } | { nom, tur, variantlar, mavzular, soni, muddat, oquvchilar }
 export function tekshir(b = {}, now = new Date()) {
@@ -237,8 +275,7 @@ export function tekshir(b = {}, now = new Date()) {
   if (oquvchilar.length > OQUVCHI_MAX) return { xato: `Bir vazifaga ko'pi bilan ${OQUVCHI_MAX} o'quvchi` };
   if (b.kun != null && b.kun !== "" && (!Number.isFinite(kun) || kun < 1 || kun > 60)) return { xato: "Muddat 1 dan 60 kungacha bo'lsin" };
   // Muddat: shuncha kundan keyingi kunning oxiri (Toshkent vaqti bilan 23:59).
-  let muddat = null;
-  if (Number.isFinite(kun) && kun >= 1) { const d = new Date(now.getTime() + 5 * HOUR + kun * 24 * HOUR).toISOString().slice(0, 10); muddat = new Date(`${d}T23:59:00+05:00`).toISOString(); }
+  const muddat = Number.isFinite(kun) && kun >= 1 ? muddatHisob(kun, now) : null;
   return { nom, tur, variantlar, mavzular, soni, muddat, oquvchilar };
 }
 
@@ -271,6 +308,7 @@ export async function adminAmal(db, adminId, body = {}, { now = new Date(), send
     } };
   }
 
+  if (body.amal === "reja") return { status: 200, body: await rejaAdmin(db, { now }) };          // shaxsiy rejalar: mavzular va har o'quvchi qayerda
   if (body.amal === "natija") {
     const id = Number(body.id);
     const v = must(await db.from("vazifalar").select("id,tur,nom,mavzu,savollar,muddat").eq("id", id))[0];
@@ -290,32 +328,10 @@ export async function adminAmal(db, adminId, body = {}, { now = new Date(), send
     const mavzu = String(body.manba_nom || "Analog savollar").slice(0, 300);
     const profiles = must(await db.from("profiles").select("id,full_name,is_admin").in("id", t.oquvchilar)).filter((p) => !p.is_admin || p.id === adminId);
     if (!profiles.length) return { status: 400, body: { error: "Tanlangan o'quvchilar topilmadi" } };
-    const tanlangan = tanla(pool, t.soni, rnd), savollar = tanlangan.map((q) => q.id);
-    const v = must(await db.from("vazifalar").insert({ tur: t.tur, nom: t.nom, mavzu, savollar, muddat: t.muddat, created_by: adminId }).select("id,tur,nom,mavzu,savollar,muddat"))[0];
-    must(await db.from("vazifa_topshiriq").insert(profiles.map((p) => ({ vazifa_id: v.id, student_id: p.id }))).select("id"));
-
-    // Telegram: faqat botni ulagan va /stop demagan o'quvchiga. Qolganlari vazifani platformada ko'radi.
-    // Uyga vazifa dizaynli PDF fayl bo'lib boradi (xabar matni fayl ostida). PDF yasalmasa, oddiy xabar ketadi.
-    let yuborildi = 0, yetmadi = 0, hujjat = null;
-    if (send && sendDoc && v.tur === "uyga") { try { hujjat = { buffer: await pdf(v, tanlangan), filename: faylNomi(v.nom) }; } catch (e) { console.error("vazifa pdf yasalmadi:", e.message); } }
-    const leads = send ? optional(await db.from("sotuv_leads").select("tg_id,linked_user_id,remind").in("linked_user_id", profiles.map((p) => p.id))) : [];
-    for (const p of profiles) {
-      const lead = leads.find((l) => l.linked_user_id === p.id);
-      if (!lead || !lead.remind) continue;
-      let r = null;
-      if (hujjat) {
-        try { r = await sendDoc(lead.tg_id, { ...hujjat, caption: xabarMatni(v, p), reply_markup: tugma(site, v) }); } catch { r = null; }
-        const fid = r?.result?.document?.file_id;
-        if (fid) hujjat = { file_id: fid };                    // keyingi o'quvchilarga qayta yuklanmaydi
-      }
-      if (!r?.ok) { try { r = await send(lead.tg_id, xabarMatni(v, p, false), tugma(site, v)); } catch { r = null; } }
-      if (r?.ok) { yuborildi++; await db.from("vazifa_topshiriq").update({ tg_xabar_at: now.toISOString() }).eq("vazifa_id", v.id).eq("student_id", p.id); } else yetmadi++;
-    }
-    const xabarsiz = profiles.length - yuborildi;
-    await log({ agent: "murabbiy", tur: "ish", sarlavha: `${TUR_NOM[v.tur]} tayinlandi: "${v.nom}" (${profiles.length} o'quvchi, ${yuborildi} tasiga Telegram xabar)`,
-      tafsilot: { vazifa_id: v.id, tur: v.tur, mavzu: v.mavzu, savollar: savollar.length, oquvchilar: profiles.length, yuborildi, yetmadi, xabarsiz } });
-    return { status: 200, body: { ok: true, id: v.id, oquvchilar: profiles.length, yuborildi, yetmadi, xabarsiz } };
+    const r = await tayinla(db, { tur: t.tur, nom: t.nom, mavzu, tanlangan: tanla(pool, t.soni, rnd), muddat: t.muddat, profiles, adminId }, { now, send, sendDoc, pdf, log, site });
+    return { status: 200, body: { ok: true, ...r } };
   }
+
   return { status: 400, body: { error: "Noma'lum amal" } };
 }
 

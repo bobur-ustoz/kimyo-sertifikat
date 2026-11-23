@@ -42,9 +42,10 @@ export default function Vazifalar({ session, setTab }) {
   const [i, setI] = useState(0);
   const [busy, setBusy] = useState(false);
   const [pdfBusy, setPdfBusy] = useState(false);
+  const [reja, setReja] = useState(null);        // shaxsiy reja: mavzular va qayerda turgani (pullik o'quvchilarda)
 
   const yukla = () => call(session, { action: "vazifa-royxat" }).then((d) => setRoyxat(d.vazifalar)).catch((e) => { setErr(e.message); setRoyxat([]); });
-  useEffect(() => { if (session) yukla(); }, [session?.user?.id]);
+  useEffect(() => { if (session) { yukla(); call(session, { action: "vazifa-reja" }).then((d) => setReja(d.kirish ? "kirish" : d.mavzular || null)).catch(() => {}); } }, [session?.user?.id]);
 
   if (!session) return (
     <div style={{ maxWidth: 520, margin: "40px auto", textAlign: "center", padding: "0 20px" }}>
@@ -157,6 +158,23 @@ export default function Vazifalar({ session, setTab }) {
     <div style={{ maxWidth: 620, margin: "0 auto", padding: "18px 16px 30px" }}>
       <div style={{ fontSize: 22, fontWeight: 800, color: C.text }}>Vazifalarim</div>
       <p style={{ fontSize: 13, color: C.textMid, margin: "2px 0 16px" }}>Ustoz tayinlagan uyga vazifa va imtihonlar</p>
+      {reja === "kirish" && <div style={{ ...karta, fontSize: 13, color: C.textMid, lineHeight: 1.6 }}><b style={{ color: C.text }}>Mening rejam.</b> Avval pastdagi kirish testini ishlang: natijasiga qarab qaysi mavzulardan boshlashingiz aniqlanadi va reja shu yerda chiqadi.</div>}
+      {Array.isArray(reja) && (
+        <div style={{ ...karta, padding: "14px 16px 8px" }}>
+          <div style={{ fontSize: 13, fontWeight: 800, color: C.text, marginBottom: 8 }}>Mening rejam <span style={{ fontWeight: 600, color: C.textMid }}>· {reja.filter((m) => m.holat === "tugadi").length} / {reja.filter((m) => m.holat !== "biladi").length} mavzu</span></div>
+          {reja.map((m, k) => {
+            const hozir = m.holat === "hozir", tugadi = m.holat === "tugadi" || m.holat === "biladi";
+            return (
+              <div key={k} style={{ display: "flex", alignItems: "center", gap: 10, padding: "7px 0", borderTop: k ? `1px solid ${C.border}` : "none" }}>
+                <span style={{ flex: "none", width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11.5, fontWeight: 800, background: tugadi ? C.okBg : hozir ? C.primary : C.bgSoft, color: tugadi ? C.ok : hozir ? "#fff" : C.textLight }}>{tugadi ? "✓" : k + 1}</span>
+                <span style={{ flex: 1, fontSize: 13.5, fontWeight: hozir ? 800 : 600, color: tugadi ? C.textMid : hozir ? C.text : C.textLight }}>{m.nom}</span>
+                {m.holat === "biladi" && <span style={{ fontSize: 11.5, color: C.ok, fontWeight: 700 }}>bilasiz</span>}
+                {hozir && <button onClick={() => m.bosqich === "dars" && setTab("topics")} style={{ border: "none", background: C.mintBg, color: C.primary, fontSize: 11.5, fontWeight: 700, padding: "4px 10px", borderRadius: 20, cursor: m.bosqich === "dars" ? "pointer" : "default", fontFamily: "inherit" }}>{{ dars: "darsni ko'ring ›", vazifa: "uyga vazifa", imtihon: "imtihon", tugadi: "" }[m.bosqich]}</button>}
+              </div>
+            );
+          })}
+        </div>
+      )}
       {err && <p style={{ fontSize: 12.5, color: C.danger, margin: "0 0 10px" }}>{err}</p>}
       {royxat === null && <div style={{ ...karta, fontSize: 13, color: C.textMid }}>Yuklanmoqda…</div>}
       {royxat?.length === 0 && !err && <div style={{ ...karta, fontSize: 13.5, color: C.textMid, lineHeight: 1.6 }}>Hozircha sizga vazifa berilmagan. Ustoz tayinlaganda shu yerda ko'rinadi.</div>}

@@ -26,9 +26,9 @@ export default function VazifaPanel() {
   const [busy, setBusy] = useState(false);
   const [xabar, setXabar] = useState("");
   const [natija, setNatija] = useState(null);
-
+  const [reja, setReja] = useState(null);       // shaxsiy rejalar: mavzular ketma-ketligi va har o'quvchi qayerda
   const yukla = () => ask({ amal: "malumot" }).then(setD).catch((e) => setErr(e.message));
-  useEffect(() => { yukla(); }, []);
+  useEffect(() => { yukla(); ask({ amal: "reja" }).then(setReja).catch(() => setReja({ yoq: true })); }, []);
 
   if (err && !d) return <div style={{ ...card, color: C.danger, fontSize: 13 }}>{err}</div>;
   if (!d) return <div style={{ ...card, fontSize: 13, color: C.textMid }}>Yuklanmoqda…</div>;
@@ -116,6 +116,34 @@ export default function VazifaPanel() {
           {xabar && <span style={{ fontSize: 12.5, color: C.primary, fontWeight: 600 }}>{xabar}</span>}
           {err && <span style={{ fontSize: 12.5, color: C.danger }}>{err}</span>}
         </div>
+      </div>
+
+      <div style={card}>
+        <div style={{ fontSize: 15, fontWeight: 800, color: C.text, marginBottom: 4 }}>Shaxsiy reja: murabbiy o'zi yuritadi</div>
+        <p style={{ fontSize: 12.5, color: C.textMid, margin: "0 0 12px", lineHeight: 1.6 }}>Pullik o'quvchi avval kirish testini ishlaydi (savoli bor har mavzudan 3 tadan). Hammasini to'g'ri ishlagan mavzusi rejadan chiqadi, qolganlari shu ketma-ketlikda o'tiladi: dars ko'riladi, murabbiy uyga vazifa yuboradi, keyin imtihon, keyin keyingi mavzu. Murabbiy har ertalab o'zi tekshiradi va yuboradi. Tartib "Mavzular" bo'limidagi tartib raqamidan olinadi.</p>
+        {!reja ? <p style={{ fontSize: 12.5, color: C.textMid, margin: 0 }}>Yuklanmoqda…</p>
+          : reja.yoq ? <p style={{ fontSize: 12.5, color: C.warning, margin: 0 }}>Reja jadvali hali yaratilmagan (SQL ishga tushirilmagan).</p> : (<>
+            <span style={label}>Mavzular ketma-ketligi ({reja.jami} ta)</span>
+            <div style={{ border: `1px solid ${C.border}`, borderRadius: 10, marginBottom: 14 }}>
+              {reja.mavzular.map((m, i) => (
+                <div key={m.tartib} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", fontSize: 12.5, borderBottom: i < reja.mavzular.length - 1 ? `1px solid ${C.border}` : "none" }}>
+                  <span style={{ width: 22, fontWeight: 800, color: C.primary }}>{m.tartib}</span>
+                  <span style={{ flex: 1, fontWeight: 600, color: C.text }}>{m.nom}</span>
+                  <span style={{ color: m.analoglar ? C.textMid : C.danger, fontWeight: m.analoglar ? 400 : 700 }}>{m.analoglar ? `vazifa ${m.vazifa} ta, imtihon ${m.imtihon ? `${m.imtihon} ta` : "yo'q"}` : "savol yo'q: vazifasiz o'tiladi"}</span>
+                  <span style={{ minWidth: 76, textAlign: "right", color: m.oquvchilar ? C.accent : C.textLight, fontWeight: 700 }}>{m.oquvchilar ? `${m.oquvchilar} o'quvchi` : ""}</span>
+                </div>
+              ))}
+            </div>
+            <span style={label}>O'quvchilar ({reja.oquvchilar.length} ta)</span>
+            {reja.oquvchilar.length === 0 && <p style={{ fontSize: 12.5, color: C.textMid, margin: 0 }}>Hali hech kim rejada emas. Pullik o'quvchilar ertalabki ishda o'zi qo'shiladi.</p>}
+            {reja.oquvchilar.map((o, i) => (
+              <div key={i} style={{ display: "flex", gap: 10, padding: "7px 0", fontSize: 12.5, borderTop: i ? `1px solid ${C.border}` : "none" }}>
+                <span style={{ flex: 1, fontWeight: 600, color: C.text }}>{o.ism}</span>
+                <span style={{ color: C.textMid }}>{o.bosqich === "kirish" ? "kirish testini ishlayapti" : o.bosqich === "tugadi" ? "hamma mavzuni tugatgan" : `${o.bilgan ? `${o.bilgan} tasini biladi · ` : ""}${o.tartib}-mavzu: ${o.mavzu}`}</span>
+                <span style={{ minWidth: 130, textAlign: "right", fontWeight: 700, color: o.bosqich === "dars" && o.kun >= 3 ? C.danger : C.primary }}>{{ kirish: `kirish testi (${o.kun} kun)`, dars: `darsni ko'rishi kerak (${o.kun} kun)`, vazifa: "uyga vazifada", imtihon: "imtihonda", tugadi: "tugatgan" }[o.bosqich]}</span>
+              </div>
+            ))}
+          </>)}
       </div>
 
       <div style={card}>
