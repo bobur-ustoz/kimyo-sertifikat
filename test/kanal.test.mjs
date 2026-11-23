@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { tuzatishSorov, ochirishSorov, tekshir, toliqMatn, yigish, runKanal, tashkentKun, IMZO, KANAL } from "../api/_kanal.js";
+import { sorovAjrat, yigishlar, tuzatishSorov, ochirishSorov, tekshir, toliqMatn, yigish, runKanal, tashkentKun, IMZO, KANAL } from "../api/_kanal.js";
 
 const NOW = new Date("2026-11-20T15:00:00Z");           // Toshkentda 20:00, 20-noyabr
 
@@ -159,4 +159,46 @@ test("tuzatishSorov va ochirishSorov: faqat kanalga chiqqan post uchun; rasmli p
   assert.deepEqual(ochirishSorov(post, "@k"), { method: "deleteMessage", payload: { chat_id: "@k", message_id: 77 } });
   assert.throws(() => tuzatishSorov({ ...post, holat: "tasdiqlangan" }), /faqat kanalga chiqqan/);
   assert.throws(() => ochirishSorov({ ...post, message_id: null }), /faqat kanalga chiqqan/);
+});
+
+// ---- so'rovnoma (quiz) ----
+const SOROV = `#sorov
+Olmani kesib qo'ysangiz, bir necha daqiqada qorayadi. Nega?
+A) Olma suvi bug'lanib ketadi
+B) Olmadagi moddalar kislorod bilan oksidlanadi *
+C) Olmaga chang qo'nadi
+izoh: Kesilganda hujayralar buziladi, ichidagi moddalar havodagi kislorod bilan oksidlanadi.`;
+
+test("so'rovnoma: savol, javoblar, to'g'ri javob va izoh ajratiladi; xatolar aytiladi", () => {
+  const s = sorovAjrat(SOROV);
+  assert.deepEqual({ savol: s.savol, n: s.variantlar.length, togri: s.togri, b: s.variantlar[1] }, { savol: "Olmani kesib qo'ysangiz, bir necha daqiqada qorayadi. Nega?", n: 3, togri: 1, b: "Olmadagi moddalar kislorod bilan oksidlanadi" });
+  assert.equal(sorovAjrat("Oddiy post"), null);
+  assert.deepEqual(tekshir({ matn: SOROV, reja_kuni: "2026-11-24" }), []);
+  assert.match(tekshir({ matn: SOROV.replace(" *", ""), reja_kuni: "2026-11-24" }).join(), /to'g'ri javob bitta/);
+  assert.match(tekshir({ matn: "#sorov\nSavol?\nA) bitta *", reja_kuni: "2026-11-24" }).join(), /2 tadan 10 tagacha/);
+  assert.match(tekshir({ matn: SOROV.replace("Olmaga chang qo'nadi", "x".repeat(120)), reja_kuni: "2026-11-24" }).join(), /javob uzun/);
+  assert.match(tekshir({ matn: SOROV + "y".repeat(200), reja_kuni: "2026-11-24" }).join(), /izoh uzun/);
+});
+
+test("so'rovnoma: rasm bo'lsa avval rasm, keyin quiz; kanalga ikkalasi chiqadi; tuzatib bo'lmaydi", async () => {
+  const post = { id: 9, matn: SOROV, rasm_url: "https://x.uz/olma.png", imzo: true, reja_kuni: "2026-11-20", holat: "tasdiqlangan" };
+  const q = yigishlar(post, "@k");
+  assert.deepEqual(q.map((x) => x.method), ["sendPhoto", "sendPoll"]);
+  assert.deepEqual({ type: q[1].payload.type, ok: q[1].payload.correct_option_id, opt: q[1].payload.options[0], izoh: /oksidlanadi/.test(q[1].payload.explanation) }, { type: "quiz", ok: 1, opt: { text: "Olma suvi bug'lanib ketadi" }, izoh: true });
+  assert.deepEqual(yigishlar({ ...post, rasm_url: null }, "@k").map((x) => x.method), ["sendPoll"]);
+  assert.equal(yigishlar({ matn: "Oddiy", imzo: false }, "@k").length, 1);
+  const t = setup([post]);
+  assert.deepEqual(await t.run(), { sent: 1, id: 9 });
+  assert.deepEqual(t.sent.map((x) => x.method), ["sendPhoto", "sendPoll"]);
+  assert.throws(() => tuzatishSorov({ ...post, holat: "yuborildi", message_id: 5 }), /so'rovnomani tuzatib bo'lmaydi/);
+});
+
+test("majbur: ustoz aytganda bugun ikkinchi post ham chiqadi, lekin tasdiqlanmagani baribir chiqmaydi", async () => {
+  const bugun = { id: 1, matn: "Birinchi", rasm_url: null, imzo: true, reja_kuni: "2026-11-20", holat: "yuborildi", sent_at: NOW.toISOString() };
+  const rows = [bugun, post(2), post(3, { holat: "qoralama" })];
+  const sent = [];
+  const send = async (method, payload) => { sent.push({ method, payload }); return { ok: true, result: { message_id: 7 } }; };
+  assert.deepEqual(await runKanal(fakeDb(rows), send, { now: NOW, log: async () => {} }), { sent: 0, sabab: "bugun post chiqqan" });
+  assert.deepEqual(await runKanal(fakeDb(rows), send, { now: NOW, log: async () => {}, majbur: true }), { sent: 1, id: 2 });
+  assert.deepEqual(await runKanal(fakeDb(rows), send, { now: NOW, log: async () => {}, majbur: true }), { sent: 0, sabab: "tasdiqlangan post yo'q" });
 });

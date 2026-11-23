@@ -117,13 +117,13 @@ async function yangilik(req, res) {
 // Kanal postchisi: kuniga ko'pi bilan bitta tasdiqlangan post, yordamchi bot orqali. Alohida kron emas
 // (Hobby rejasida kronlar soni cheklangan): kechki "yangilik" kroni bilan birga ishlaydi, ?job=kanal bilan alohida ham chaqiriladi.
 // Hech qachon xato otmaydi: kanal ishlamasa ham yangilik xabari ketaveradi.
-async function kanalIsh() {
+async function kanalIsh({ majbur = false } = {}) {
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const botToken = process.env.SOTUV_BOT_TOKEN;
   if (!serviceKey || !botToken) return { ok: false, error: "Kanal sozlanmagan" };
   const db = createClient(process.env.VITE_SUPABASE_URL, serviceKey, { auth: { persistSession: false } });
   try {
-    const r = await runKanal(db, (method, payload) => tg(method, payload, { token: botToken }), { chat: process.env.KANAL_CHAT_ID || KANAL });
+    const r = await runKanal(db, (method, payload) => tg(method, payload, { token: botToken }), { chat: process.env.KANAL_CHAT_ID || KANAL, majbur });
     return { ok: true, ...r };
   } catch (e) {
     console.error("kanal failed:", e.message);
@@ -142,7 +142,7 @@ export default async function handler(req, res) {
   if (req.query?.job === "nazorat") return nazorat(res);
   if (req.query?.job === "yangilik") return yangilik(req, res);
   if (req.query?.job === "ceo") { const r = await ceoIsh({ hafta: req.query?.hafta ? true : false }); return res.status(r.ok ? 200 : 500).json(r); }
-  if (req.query?.job === "kanal") { const r = await kanalIsh(); return res.status(r.ok ? 200 : 500).json(r); }
+  if (req.query?.job === "kanal") { const r = await kanalIsh({ majbur: !!req.query?.majbur }); return res.status(r.ok ? 200 : 500).json(r); }
 
   const url = process.env.VITE_SUPABASE_URL;
   const key = process.env.VITE_SUPABASE_ANON_KEY;
