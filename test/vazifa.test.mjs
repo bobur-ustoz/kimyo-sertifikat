@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { analogSavol, variantlarniAjrat, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, vazifaTugma, SONI_MAX } from "../api/_vazifa.js";
+import { analogSavol, variantlarniAjrat, tanla, javobTozala, bahola, holat, tekshir, xabarMatni, oquvchiSavol, oquvchiAmal, adminAmal, vazifaEslatma, vazifaTugma, vazifaMatn, javobHarflari, SONI_MAX } from "../api/_vazifa.js";
 
 const NOW = new Date("2026-11-20T10:00:00Z");
 // Soxta baza: jadvallar oddiy massiv; so'rovlar filtrlanadi, insert id beradi, update/upsert qatorlarni o'zgartiradi.
@@ -83,7 +83,7 @@ test("yarat: vazifa va topshiriqlar yoziladi, boshqa admin kirmaydi, Telegram fa
   assert.deepEqual(db.tables.vazifa_topshiriq.map((t) => t.student_id), ["ali", "vali", "guli", "adm"]);
   assert.deepEqual(sent.map((s) => s.tg_id), [1]);
   assert.match(sent[0].text, /^Assalomu alaykum, Ali! Yangi uyga vazifa: "pH vazifasi", 3 ta savol\. Muddati: 22\.11\.2026 gacha\./);
-  assert.deepEqual(sent[0].markup.inline_keyboard, [[{ text: "✍️ Javoblarni belgilash", callback_data: "vz:b:1" }], [{ text: "Saytda ochish", url: "https://sayt.uz/#vazifa" }]]);
+  assert.deepEqual(sent[0].markup.inline_keyboard, [[{ text: "✍️ Javoblarni qanday yuboraman?", callback_data: "vz:b:1" }], [{ text: "Saytda ochish", url: "https://sayt.uz/#vazifa" }]]);
   assert.ok(db.tables.vazifa_topshiriq[0].tg_xabar_at && !db.tables.vazifa_topshiriq[1].tg_xabar_at);
 });
 
@@ -213,27 +213,55 @@ test("PDF: uyga vazifa dizaynli fayl bo'lib ketadi (matn fayl ostida), ikkinchi 
   const r = await yarat(db, {}, sent, { sendDoc });
   assert.deepEqual({ yuborildi: r.body.yuborildi, matnXabar: sent.length, fayl: docs.length }, { yuborildi: 2, matnXabar: 0, fayl: 2 });
   assert.deepEqual({ yuklandi: !!docs[0].buffer, nom: docs[0].filename, qayta: docs[1].file_id, tugma: docs[0].reply_markup.inline_keyboard[0][0].callback_data }, { yuklandi: true, nom: "pH_vazifasi.pdf", qayta: "F1", tugma: "vz:b:1" });
-  assert.match(docs[0].caption, /Savollar shu fayl ichida/);
+  assert.match(docs[0].caption, /Savollar shu fayl ichida\. Ishlab bo'lgach, javoblarni shu yerga bitta xabar qilib yozing, masalan: ABC \(3 ta harf\)/);
   await yarat(db, { tur: "imtihon", nom: "Imtihon" }, sent, { sendDoc });
   assert.deepEqual({ matnXabar: sent.length, fayl: docs.length }, { matnXabar: 2, fayl: 2 });          // imtihonga PDF yuborilmaydi
   const yiq = await yarat(fakeDb(baza()), {}, sent, { sendDoc, pdf: async () => { throw new Error("shrift yo'q"); } });
   assert.equal(yiq.body.yuborildi, 1);                          // PDF yasalmasa oddiy xabar ketadi
 });
 
-test("bot (PDF rejimi): fayl ostidagi tugmadan keyin faqat savol raqami so'raladi; eslatmadan boshlansa avval PDF keladi", async () => {
+test("javobHarflari: turli yozilishlar o'tadi, oddiy gap esa javob emas", () => {
+  assert.equal(javobHarflari("ABCDABCDAB"), "ABCDABCDAB");
+  assert.equal(javobHarflari("a b c d"), "ABCD");
+  assert.equal(javobHarflari("1A 2B 3C"), "ABC");
+  assert.equal(javobHarflari("1-a, 2-b, 3-d"), "ABD");
+  assert.equal(javobHarflari("АВСД"), "ABCD");                   // kirill harflar
+  for (const t of ["Salom", "A", "Bu savolda xato bor", "ABCE", "narxi qancha"]) assert.equal(javobHarflari(t), null);
+});
+
+test("bot (PDF rejimi): javoblar bitta xabarda yoziladi, tasdiqdan keyin topshiriladi va har savol natijasi chiqadi", async () => {
+  const db = fakeDb(baza());
+  await yarat(db);                                              // ali (tg 1): q1 A, q2 B, q3 C
+  const b = bot(db, { sendDoc: async () => ({ ok: true }) });
+  const yoz = (text, from = 1) => vazifaMatn(db, async (method, payload) => { b.out.push({ method, ...payload }); return { ok: true }; }, { text, from: { id: from }, chat: { id: from } }, { now: NOW });
+  await b.bos("vz:b:1", 1, { chat: { id: 1 }, message_id: 9, document: { file_id: "F" } });
+  assert.match(b.oxirgi().text, /bitta xabar qilib yozing\. 3 ta harf/);          // tugma faqat yo'riqnoma beradi
+  assert.equal(await yoz("Assalomu alaykum, savolim bor"), false);                 // oddiy gap: yordamchi botga o'tadi
+  assert.equal(await yoz("ABCD"), true);                                          // soni mos emas
+  assert.match(b.oxirgi().text, /3 ta savol bor, siz 4 ta javob yozdingiz/);
+  assert.equal(await yoz("a b d"), true);
+  assert.match(b.oxirgi().text, /1-A  2-B  3-D/);
+  assert.deepEqual(b.oxirgi().reply_markup.inline_keyboard.map((r) => r[0].callback_data), ["vz:t:1:ABD", "vz:q:1"]);
+  assert.equal(db.tables.vazifa_topshiriq[0].holat, "berilgan");                   // tasdiqlanmaguncha topshirilmaydi
+  await b.bos("vz:t:1:ABD");
+  assert.match(b.oxirgi().text, /Natija: 2 \/ 3[\s\S]*1\. ✅ A\n2\. ✅ B\n3\. ❌ D \(to'g'ri: C\)/);
+  const t = db.tables.vazifa_topshiriq[0];
+  assert.deepEqual({ holat: t.holat, togri: t.togri, qulf: t.javoblar._bot }, { holat: "topshirilgan", togri: 2, qulf: true });
+  assert.equal(await yoz("ABC"), false);                                          // ochiq vazifa qolmadi: oddiy xabar
+  await b.bos("vz:t:1:ABC");
+  assert.match(b.oxirgi().text, /topshirilgan/);
+  assert.equal(await yoz("ABC", 999), false);                                     // ulanmagan odam
+});
+
+test("bot: eslatmadagi tugmadan boshlansa avval PDF keladi; qayta yozish tugmasi yo'riqnomani beradi", async () => {
   const db = fakeDb(baza()), docs = [];
   await yarat(db);
-  const b = bot(db, { sendDoc: async (chat_id, d) => { docs.push(d); return { ok: true, result: { document: { file_id: "F" } } }; } });
-  await b.bos("vz:b:1", 1, { chat: { id: 1 }, message_id: 9, document: { file_id: "F" } });
-  assert.equal(docs.length, 0);                                 // fayl o'quvchida bor, qayta yuborilmaydi
-  assert.deepEqual({ t: /<b>1-savol\.<\/b> Javobingizni tanlang/.test(b.oxirgi().text), matnYoq: !/Savol q1/.test(b.oxirgi().text), d: b.oxirgi().reply_markup.inline_keyboard[0][0].callback_data }, { t: true, matnYoq: true, d: "vz:a:1:0:A" });
-  await b.bos("vz:a:1:0:B");
-  assert.match(b.oxirgi().text, /<b>1-savol\.<\/b>\nSizning javobingiz: <b>B\)<\/b> 2\n❌/);
-  assert.equal(b.oxirgi().reply_markup.inline_keyboard[0][0].callback_data, "vz:n:1");
-  const c = bot(fakeDb((() => { const t = baza(); return t; })()), {});
-  const db2 = fakeDb(baza()); await yarat(db2);
-  const e = bot(db2, { sendDoc: async (chat_id, d) => { docs.push(d); return { ok: true }; } });
+  const e = bot(db, { sendDoc: async (chat_id, d) => { docs.push(d); return { ok: true }; } });
   await e.bos("vz:b:1");                                        // oddiy xabar (eslatma) ostidagi tugma
   assert.equal(docs.length, 1);
-  assert.match(e.oxirgi().text, /Javobingizni tanlang/);
+  assert.match(e.oxirgi().text, /bitta xabar qilib yozing/);
+  await e.bos("vz:q:1");
+  assert.match(e.oxirgi().text, /qaytadan yozing/);
+  await e.bos("vz:t:1:AB");
+  assert.match(e.oxirgi().text, /to'liq emas/);
 });

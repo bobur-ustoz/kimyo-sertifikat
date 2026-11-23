@@ -85,12 +85,15 @@ export function holat(vazifa, top, now = new Date()) {
 const sana = (t) => new Date(ms(t) + 5 * HOUR).toISOString().slice(0, 10).split("-").reverse().join(".");
 const STOP = "\n\nBunday xabarlar kerak bo'lmasa, /stop deb yozing.";
 // Murabbiy ohangida (agentlar/murabbiy.md): iliq, majburlamaydi, tekshirib bo'lmaydigan gap yo'q.
-export function xabarMatni(v, p) {
+// fayl: xabar PDF fayl ostida ketyaptimi (yo'q bo'lsa savollar botning o'zida birma-bir beriladi).
+export function xabarMatni(v, p, fayl = true) {
   const salom = ism(p) ? `Assalomu alaykum, ${ism(p)}!` : "Assalomu alaykum!";
   const muddat = v.muddat ? ` Muddati: ${sana(v.muddat)} gacha.` : "";
   return v.tur === "imtihon"
     ? `${salom} Sizga imtihon tayinlandi: "${v.nom}", ${v.savollar.length} ta savol.${muddat} Tayyor bo'lganingizda pastdagi tugma orqali boshlang.${STOP}`
-    : `${salom} Yangi uyga vazifa: "${v.nom}", ${v.savollar.length} ta savol.${muddat} Savollar shu fayl ichida. Ishlab bo'lgach, pastdagi tugma orqali javoblarni shu yerning o'zida belgilaysiz, natija darhol chiqadi.${STOP}`;
+    : `${salom} Yangi uyga vazifa: "${v.nom}", ${v.savollar.length} ta savol.${muddat} ` + (fayl
+      ? `Savollar shu fayl ichida. Ishlab bo'lgach, javoblarni shu yerga bitta xabar qilib yozing, masalan: ${namunaHarf(v.savollar.length)} (${v.savollar.length} ta harf). Natija darhol chiqadi.`
+      : "Pastdagi tugma orqali shu yerning o'zida ishlaysiz, natija darhol chiqadi.") + STOP;
 }
 export function eslatmaMatni(v, p, bajarilgan) {
   const salom = ism(p) ? `Assalomu alaykum, ${ism(p)}!` : "Assalomu alaykum!";
@@ -98,7 +101,7 @@ export function eslatmaMatni(v, p, bajarilgan) {
 }
 // Uyga vazifa botning o'zida ishlanadi ("Boshlash"), saytda ham ochsa bo'ladi. Imtihon faqat saytda.
 const tugma = (site, v) => ({ inline_keyboard: v?.tur === "uyga" && v.id
-  ? [[{ text: "✍️ Javoblarni belgilash", callback_data: `vz:b:${v.id}` }], [{ text: "Saytda ochish", url: `${site}/#vazifa` }]]
+  ? [[{ text: "✍️ Javoblarni qanday yuboraman?", callback_data: `vz:b:${v.id}` }], [{ text: "Saytda ochish", url: `${site}/#vazifa` }]]
   : [[{ text: "Vazifani ochish", url: `${site}/#vazifa` }]] });
 
 const must = ({ data, error }) => { if (error) throw new Error(error.message); return data || []; };
@@ -305,7 +308,7 @@ export async function adminAmal(db, adminId, body = {}, { now = new Date(), send
         const fid = r?.result?.document?.file_id;
         if (fid) hujjat = { file_id: fid };                    // keyingi o'quvchilarga qayta yuklanmaydi
       }
-      if (!r?.ok) { try { r = await send(lead.tg_id, xabarMatni(v, p), tugma(site, v)); } catch { r = null; } }
+      if (!r?.ok) { try { r = await send(lead.tg_id, xabarMatni(v, p, false), tugma(site, v)); } catch { r = null; } }
       if (r?.ok) { yuborildi++; await db.from("vazifa_topshiriq").update({ tg_xabar_at: now.toISOString() }).eq("vazifa_id", v.id).eq("student_id", p.id); } else yetmadi++;
     }
     const xabarsiz = profiles.length - yuborildi;
@@ -363,6 +366,46 @@ export function hukmEkrani(v, q, idx, tanlangan, oxirgi, natija, site, matn = fa
   return { text, reply_markup: kb([{ text: "Natijani saytda ko'rish", url: `${site}/#vazifa` }]) };
 }
 
+function namunaHarf(n) { return "ABCDBCADCB".slice(0, Math.min(n, 10)) + (n > 10 ? "..." : ""); }
+export const yoriqnoma = (v, n) => `<b>${escapeHtml(v.nom)}</b>\n\nJavoblaringizni 1-savoldan boshlab, bitta xabar qilib yozing. ${n} ta harf bo'lsin, masalan:\n<code>${namunaHarf(n)}</code>`;
+// Yozilgan javoblar: "ABCDABCDAB", "a b c d", "1A 2B 3C", "1-a, 2-b" va kirill А В С Д ham o'tadi. Boshqa so'z aralashsa null
+// (unda xabar oddiy savol hisoblanadi va yordamchi bot javob beradi).
+export function javobHarflari(text) {
+  const t = String(text ?? "").trim();
+  if (t.length < 2 || t.length > 400) return null;
+  const KIR = { "А": "A", "В": "B", "С": "C", "Д": "D", "а": "A", "в": "B", "с": "C", "д": "D", "Б": "B", "б": "B" };
+  const toza = [...t].map((ch) => KIR[ch] || ch).join("").toUpperCase().replace(/[\d\s.,;:)(\-–—_/]+/g, "");
+  return /^[A-D]{2,}$/.test(toza) ? toza : null;
+}
+const qatorlar = (harflar) => [...harflar].map((h, i) => `${i + 1}-${h}`).join("  ");
+export function natijaEkrani(v, natija, site) {
+  const foiz = Math.round((natija.togri / natija.jami) * 100);
+  const satr = natija.tafsil.map((t, i) => `${i + 1}. ${t.togri ? "✅" : "❌"} ${t.tanlangan || "—"}${t.togri ? "" : ` (to'g'ri: ${t.togri_javob})`}`).join("\n");
+  return { text: `<b>${escapeHtml(v.nom)}</b>\n\n🎯 <b>Natija: ${natija.togri} / ${natija.jami}</b>\n\n${satr}\n\n${foiz >= 80 ? "Barakalla, yaxshi natija." : foiz >= 50 ? "Yomon emas. Xato chiqqan savollarni yana bir ko'rib chiqing." : "Xavotir olmang. Mavzuni yana bir ko'rib chiqing, tushunmagan joyingizni shu yerga yozing."}`,
+    reply_markup: kb([{ text: "Natijani saytda ko'rish", url: `${site}/#vazifa` }]) };
+}
+
+// Yozma xabar javoblar qatoriga o'xshasa va o'quvchida ochiq uyga vazifa bo'lsa, uni qabul qiladi. -> true: xabar shu yerda hal bo'ldi.
+// Topshirishdan oldin tasdiq so'raladi (noto'g'ri terib yuborilgan bo'lishi mumkin, topshirilgach o'zgarmaydi).
+export async function vazifaMatn(db, send, msg, { now = new Date() } = {}) {
+  const harflar = javobHarflari(msg?.text);
+  if (!harflar || !msg.from?.id) return false;
+  const lead = optional(await db.from("sotuv_leads").select("linked_user_id").eq("tg_id", msg.from.id))[0];
+  if (!lead?.linked_user_id) return false;
+  const tops = must(await db.from("vazifa_topshiriq").select("vazifa_id,holat,javoblar,created_at").eq("student_id", lead.linked_user_id).neq("holat", "topshirilgan"));
+  if (!tops.length) return false;
+  const vs = must(await db.from("vazifalar").select("id,tur,nom,savollar,muddat,created_at").in("id", tops.map((t) => t.vazifa_id))).filter((v) => v.tur === "uyga")
+    .sort((a, b) => ms(b.created_at) - ms(a.created_at));
+  if (!vs.length) return false;
+  const yubor = (text, reply_markup) => send("sendMessage", { chat_id: msg.chat.id, parse_mode: "HTML", text, ...(reply_markup ? { reply_markup } : {}) });
+  // Harflar soni mos kelgan eng yangi vazifa; mos kelmasa eng yangisi bo'yicha tushuntiriladi.
+  const v = vs.find((x) => x.savollar.length === harflar.length);
+  if (!v) { await yubor(`"${escapeHtml(vs[0].nom)}" vazifasida ${vs[0].savollar.length} ta savol bor, siz ${harflar.length} ta javob yozdingiz. Hamma savolga bittadan harf yozing.`); return true; }
+  await yubor(`<b>${escapeHtml(v.nom)}</b>\n\nJavoblaringiz:\n<code>${qatorlar(harflar)}</code>\n\nTopshiraymi? Topshirilgach o'zgartirib bo'lmaydi.`,
+    kb([{ text: "✅ Topshirish", callback_data: `vz:t:${v.id}:${harflar}` }], [{ text: "✏️ Qayta yozaman", callback_data: `vz:q:${v.id}` }]));
+  return true;
+}
+
 // Tugma bosilishi: "vz:b:<vazifa>" boshlash yoki davom etish (savol yangi xabar bo'lib keladi, tayinlash xabari joyida qoladi),
 // "vz:n:<vazifa>" keyingi savol (shu xabar o'rnida), "vz:a:<vazifa>:<idx>:<harf>" javob.
 // send(method, payload) -> Bot API. Tugma bosilgan xabar tahrirlanadi (chat xabarga to'lib ketmaydi).
@@ -400,7 +443,22 @@ export async function vazifaTugma(db, send, cq, { now = new Date(), site = sayt(
       if (sendDoc) { try { r = await sendDoc(chat_id, { buffer: await pdf(v, qs), filename: faylNomi(v.nom), caption: `"${v.nom}": savollar shu faylda.` }); } catch (e) { console.error("vazifa pdf yuborilmadi:", e.message); } }
       matn = !r?.ok;
     }
+    // Savollar PDF'da: javoblar bitta xabarda yoziladi (ustoz 2026-11-23: "shunchaki ABCDABD deb kiritish qulay").
+    if (amal === "b" && !matn) return korsat({ text: yoriqnoma(v, qs.length) }, true);
     return korsat(savolEkrani(v, qs[idx], idx, qs.length, matn), amal === "b");
+  }
+  // "vz:t:<vazifa>:<harflar>": yozilgan javoblarni tasdiqlab topshirish. "vz:q:<vazifa>": qayta yozish.
+  if (amal === "q") { await ack(); return korsat({ text: `Xo'p, javoblarni qaytadan yozing.\n\n${yoriqnoma(v, qs.length)}` }); }
+  if (amal === "t") {
+    const harflar = String(idxS || "").toUpperCase();
+    if (harflar.length !== qs.length || /[^A-D]/.test(harflar)) return ack("Javoblar to'liq emas. Qaytadan yozing.");
+    const yangi = qoshJavob(javoblar, Object.fromEntries(qs.map((q, i) => [q.id, harflar[i]])));
+    yangi[BOT] = true;
+    const natija = bahola(qs, yangi);
+    const yozildi = must(await db.from("vazifa_topshiriq").update({ javoblar: yangi, holat: "topshirilgan", togri: natija.togri, jami: natija.jami, topshirilgan_at: now.toISOString() }).eq("id", top.id).neq("holat", "topshirilgan").select("id"));
+    if (!yozildi.length) return ack("Bu vazifa topshirilgan.");
+    await ack();
+    return korsat(natijaEkrani(v, natija, site));
   }
   if (amal === "a") {
     const idx = Number(idxS), q = qs[idx];

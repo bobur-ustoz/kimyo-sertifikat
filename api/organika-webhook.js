@@ -16,7 +16,7 @@ import { tg } from "./_telegram.js";
 import { handleUpdate } from "./_organika.js";
 import { handleUpdate as handleSotuv, supabaseStore, askClaude } from "./_sotuv.js";
 import { yoz } from "./_navbat.js";
-import { vazifaTugma } from "./_vazifa.js";
+import { vazifaTugma, vazifaMatn } from "./_vazifa.js";
 
 export const config = { maxDuration: 60 };   // the sales bot waits for a Claude reply
 
@@ -45,6 +45,8 @@ export default async function handler(req, res) {
     if (sotuv && String(req.body?.callback_query?.data || "").startsWith("vz:")) {
       // Homework done inside the helper bot (buttons under a question): handled by the homework module, not the sales chat.
       await vazifaTugma(db, send, req.body.callback_query);
+    } else if (sotuv && req.body?.message?.chat?.type === "private" && await vazifaMatn(db, send, req.body.message).catch((e) => { console.error("vazifa matn:", e.message); return false; })) {
+      // The message was a row of homework answers ("ABCDABCDAB"): the homework module replied, the sales chat stays out of it.
     } else if (sotuv) {
       // Heads-up goes to the teacher's admin chat through the payment bot's token.
       const notify = (text) => process.env.TELEGRAM_ADMIN_CHAT_ID
