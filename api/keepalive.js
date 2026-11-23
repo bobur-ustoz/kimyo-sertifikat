@@ -139,9 +139,10 @@ async function kanalIsh({ majbur = false } = {}) {
 }
 
 export default async function handler(req, res) {
-  // Vercel signs its own cron calls; if a secret is configured, require it.
+  // Vercel sends "Authorization: Bearer <CRON_SECRET>" with its own cron calls. Nothing else is accepted:
+  // a request header alone (x-vercel-cron) can be forged by anyone, so it no longer opens the door.
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.authorization !== `Bearer ${secret}` && !req.headers["x-vercel-cron"]) {
+  if (secret && req.headers.authorization !== `Bearer ${secret}`) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
