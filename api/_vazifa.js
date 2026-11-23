@@ -90,7 +90,7 @@ export function xabarMatni(v, p) {
   const muddat = v.muddat ? ` Muddati: ${sana(v.muddat)} gacha.` : "";
   return v.tur === "imtihon"
     ? `${salom} Sizga imtihon tayinlandi: "${v.nom}", ${v.savollar.length} ta savol.${muddat} Tayyor bo'lganingizda pastdagi tugma orqali boshlang.${STOP}`
-    : `${salom} Yangi uyga vazifa: "${v.nom}", ${v.savollar.length} ta savol.${muddat} Pastdagi tugma bilan shu yerning o'zida ishlaysiz, natija darhol chiqadi. Xohlasangiz saytda ochib, PDF qilib yuklab olasiz.${STOP}`;
+    : `${salom} Yangi uyga vazifa: "${v.nom}", ${v.savollar.length} ta savol.${muddat} Savollar shu fayl ichida. Ishlab bo'lgach, pastdagi tugma orqali javoblarni shu yerning o'zida belgilaysiz, natija darhol chiqadi.${STOP}`;
 }
 export function eslatmaMatni(v, p, bajarilgan) {
   const salom = ism(p) ? `Assalomu alaykum, ${ism(p)}!` : "Assalomu alaykum!";
@@ -98,7 +98,7 @@ export function eslatmaMatni(v, p, bajarilgan) {
 }
 // Uyga vazifa botning o'zida ishlanadi ("Boshlash"), saytda ham ochsa bo'ladi. Imtihon faqat saytda.
 const tugma = (site, v) => ({ inline_keyboard: v?.tur === "uyga" && v.id
-  ? [[{ text: "▶️ Shu yerda ishlash", callback_data: `vz:b:${v.id}` }], [{ text: "Saytda ochish", url: `${site}/#vazifa` }]]
+  ? [[{ text: "✍️ Javoblarni belgilash", callback_data: `vz:b:${v.id}` }], [{ text: "Saytda ochish", url: `${site}/#vazifa` }]]
   : [[{ text: "Vazifani ochish", url: `${site}/#vazifa` }]] });
 
 const must = ({ data, error }) => { if (error) throw new Error(error.message); return data || []; };
@@ -108,6 +108,22 @@ const botSend = () => {
   const token = process.env.SOTUV_BOT_TOKEN;
   return token ? (chat_id, text, reply_markup) => tg("sendMessage", { chat_id, text, reply_markup }, { token }) : null;
 };
+
+// PDF faylni Telegramga yuboradi. Birinchi yuborishda fayl yuklanadi, keyingilarida Telegram bergan file_id ishlatiladi.
+// -> (chat_id, { buffer | file_id, filename, caption, reply_markup }) => Bot API javobi
+export const hujjatYuboruvchi = (token) => (chat_id, { buffer, file_id, filename, caption, reply_markup }) => {
+  if (file_id) return tg("sendDocument", { chat_id, document: file_id, caption, reply_markup }, { token });
+  const form = new FormData();
+  form.append("chat_id", String(chat_id));
+  form.append("document", new Blob([buffer], { type: "application/pdf" }), filename);
+  if (caption) form.append("caption", caption);
+  if (reply_markup) form.append("reply_markup", JSON.stringify(reply_markup));
+  return tg("sendDocument", null, { form, token });
+};
+const botDoc = () => (process.env.SOTUV_BOT_TOKEN ? hujjatYuboruvchi(process.env.SOTUV_BOT_TOKEN) : null);
+// PDF kutubxonasi og'ir, shuning uchun faqat kerak bo'lganda yuklanadi (bu fayl to'rtta funksiyaga ulanadi).
+const pdfYasovchi = (site) => async (v, qs) => { const m = await import("./_vazifa_pdf.js"); return m.vazifaPdf(v, qs.map(oquvchiSavol), { olib: m.saytdanOlib(site) }); };
+export const faylNomi = (nom) => `${String(nom).replace(/[^\p{L}\p{N}-]+/gu, "_").replace(/^_+|_+$/g, "").slice(0, 60) || "vazifa"}.pdf`;
 
 // ---------------------------------------------------------------- o'quvchi
 
@@ -223,7 +239,7 @@ export function tekshir(b = {}, now = new Date()) {
   return { nom, tur, variantlar, mavzular, soni, muddat, oquvchilar };
 }
 
-export async function adminAmal(db, adminId, body = {}, { now = new Date(), send = botSend(), rnd = Math.random, log = (y) => yoz(db, y), site = sayt() } = {}) {
+export async function adminAmal(db, adminId, body = {}, { now = new Date(), send = botSend(), sendDoc = botDoc(), pdf = pdfYasovchi(sayt()), rnd = Math.random, log = (y) => yoz(db, y), site = sayt() } = {}) {
   if (body.amal === "malumot") {
     const [pool, profiles, leads, vs, tops, variants, teachers, topics] = await Promise.all([
       havza(db),
@@ -271,17 +287,25 @@ export async function adminAmal(db, adminId, body = {}, { now = new Date(), send
     const mavzu = String(body.manba_nom || "Analog savollar").slice(0, 300);
     const profiles = must(await db.from("profiles").select("id,full_name,is_admin").in("id", t.oquvchilar)).filter((p) => !p.is_admin || p.id === adminId);
     if (!profiles.length) return { status: 400, body: { error: "Tanlangan o'quvchilar topilmadi" } };
-    const savollar = tanla(pool, t.soni, rnd).map((q) => q.id);
+    const tanlangan = tanla(pool, t.soni, rnd), savollar = tanlangan.map((q) => q.id);
     const v = must(await db.from("vazifalar").insert({ tur: t.tur, nom: t.nom, mavzu, savollar, muddat: t.muddat, created_by: adminId }).select("id,tur,nom,mavzu,savollar,muddat"))[0];
     must(await db.from("vazifa_topshiriq").insert(profiles.map((p) => ({ vazifa_id: v.id, student_id: p.id }))).select("id"));
 
     // Telegram: faqat botni ulagan va /stop demagan o'quvchiga. Qolganlari vazifani platformada ko'radi.
-    let yuborildi = 0, yetmadi = 0;
+    // Uyga vazifa dizaynli PDF fayl bo'lib boradi (xabar matni fayl ostida). PDF yasalmasa, oddiy xabar ketadi.
+    let yuborildi = 0, yetmadi = 0, hujjat = null;
+    if (send && sendDoc && v.tur === "uyga") { try { hujjat = { buffer: await pdf(v, tanlangan), filename: faylNomi(v.nom) }; } catch (e) { console.error("vazifa pdf yasalmadi:", e.message); } }
     const leads = send ? optional(await db.from("sotuv_leads").select("tg_id,linked_user_id,remind").in("linked_user_id", profiles.map((p) => p.id))) : [];
     for (const p of profiles) {
       const lead = leads.find((l) => l.linked_user_id === p.id);
       if (!lead || !lead.remind) continue;
-      let r; try { r = await send(lead.tg_id, xabarMatni(v, p), tugma(site, v)); } catch { r = null; }
+      let r = null;
+      if (hujjat) {
+        try { r = await sendDoc(lead.tg_id, { ...hujjat, caption: xabarMatni(v, p), reply_markup: tugma(site, v) }); } catch { r = null; }
+        const fid = r?.result?.document?.file_id;
+        if (fid) hujjat = { file_id: fid };                    // keyingi o'quvchilarga qayta yuklanmaydi
+      }
+      if (!r?.ok) { try { r = await send(lead.tg_id, xabarMatni(v, p), tugma(site, v)); } catch { r = null; } }
       if (r?.ok) { yuborildi++; await db.from("vazifa_topshiriq").update({ tg_xabar_at: now.toISOString() }).eq("vazifa_id", v.id).eq("student_id", p.id); } else yetmadi++;
     }
     const xabarsiz = profiles.length - yuborildi;
@@ -319,18 +343,21 @@ export async function vazifaEslatma(db, send, { now = new Date(), site = sayt() 
 const HARF = ["A", "B", "C", "D"];
 const chiziq = (done, total) => "▰".repeat(done) + "▱".repeat(Math.max(total - done, 0));
 const kb = (...rows) => ({ inline_keyboard: rows });
-// Savol ekrani: sarlavha, progress, shart va to'rt javob; ostida A B C D tugmalari.
-export function savolEkrani(v, q, idx, jami) {
-  const text = `<b>${escapeHtml(v.nom)}</b>\n${chiziq(idx, jami)}  ${idx + 1}/${jami}\n\n${escapeHtml(q.question_text)}${q.formula ? `\n${escapeHtml(q.formula)}` : ""}\n\n`
-    + HARF.map((h) => `<b>${h})</b> ${escapeHtml(q[`option_${h.toLowerCase()}`])}`).join("\n");
-  return { text, reply_markup: kb(HARF.map((h) => ({ text: h, callback_data: `vz:a:${v.id}:${idx}:${h}` }))) };
+// Javob kiritish ekrani. Savollar matni dizaynli PDF faylda, shuning uchun bu yerda faqat savol raqami va A B C D tugmalari.
+// PDF yuborib bo'lmagan bo'lsa (matn = true), savolning o'zi ham yoziladi.
+export function savolEkrani(v, q, idx, jami, matn = false) {
+  const bosh = `<b>${escapeHtml(v.nom)}</b>\n${chiziq(idx, jami)}  ${idx + 1}/${jami}\n\n`;
+  const text = matn
+    ? bosh + `${escapeHtml(q.question_text)}${q.formula ? `\n${escapeHtml(q.formula)}` : ""}\n\n` + HARF.map((h) => `<b>${h})</b> ${escapeHtml(q[`option_${h.toLowerCase()}`])}`).join("\n")
+    : bosh + `<b>${idx + 1}-savol.</b> Javobingizni tanlang.`;
+  return { text, reply_markup: kb(HARF.map((h) => ({ text: h, callback_data: `vz:a:${v.id}:${idx}:${h}${matn ? ":m" : ""}` }))) };
 }
 // Javobdan keyin: to'g'ri yoki noto'g'ri va to'g'ri javob. Yechim ko'rsatilmaydi (ustoz qarori).
-export function hukmEkrani(v, q, tanlangan, oxirgi, natija, site) {
+export function hukmEkrani(v, q, idx, tanlangan, oxirgi, natija, site, matn = false) {
   const ok = tanlangan === q.correct_option, t = q.correct_option;
-  let text = `<b>${escapeHtml(v.nom)}</b>\n\n${escapeHtml(q.question_text)}\n\nSizning javobingiz: <b>${tanlangan})</b> ${escapeHtml(q[`option_${tanlangan.toLowerCase()}`])}\n`
+  let text = `<b>${escapeHtml(v.nom)}</b>\n\n<b>${idx + 1}-savol.</b>${matn ? ` ${escapeHtml(q.question_text)}` : ""}\nSizning javobingiz: <b>${tanlangan})</b> ${escapeHtml(q[`option_${tanlangan.toLowerCase()}`])}\n`
     + (ok ? "✅ <b>To'g'ri!</b>" : `❌ <b>Noto'g'ri.</b> To'g'ri javob: <b>${t})</b> ${escapeHtml(q[`option_${t.toLowerCase()}`])}`);
-  if (!oxirgi) return { text, reply_markup: kb([{ text: "Keyingi ▶", callback_data: `vz:n:${v.id}` }]) };
+  if (!oxirgi) return { text, reply_markup: kb([{ text: "Keyingi ▶", callback_data: `vz:n:${v.id}${matn ? ":m" : ""}` }]) };
   const foiz = Math.round((natija.togri / natija.jami) * 100);
   text += `\n\n🎯 <b>Vazifa topshirildi: ${natija.togri} / ${natija.jami}</b>\n${foiz >= 80 ? "Barakalla, yaxshi natija." : foiz >= 50 ? "Yomon emas. Xato chiqqan savollarni yana bir ko'rib chiqing." : "Xavotir olmang. Mavzuni yana bir ko'rib chiqing, tushunmagan joyingizni shu yerga yozing."}`;
   return { text, reply_markup: kb([{ text: "Natijani saytda ko'rish", url: `${site}/#vazifa` }]) };
@@ -339,8 +366,10 @@ export function hukmEkrani(v, q, tanlangan, oxirgi, natija, site) {
 // Tugma bosilishi: "vz:b:<vazifa>" boshlash yoki davom etish (savol yangi xabar bo'lib keladi, tayinlash xabari joyida qoladi),
 // "vz:n:<vazifa>" keyingi savol (shu xabar o'rnida), "vz:a:<vazifa>:<idx>:<harf>" javob.
 // send(method, payload) -> Bot API. Tugma bosilgan xabar tahrirlanadi (chat xabarga to'lib ketmaydi).
-export async function vazifaTugma(db, send, cq, { now = new Date(), site = sayt() } = {}) {
-  const [, amal, vid, idxS, harf] = String(cq.data || "").split(":");
+export async function vazifaTugma(db, send, cq, { now = new Date(), site = sayt(), sendDoc = botDoc(), pdf = pdfYasovchi(sayt()) } = {}) {
+  const qism = String(cq.data || "").split(":");
+  const [, amal, vid, idxS, harf] = qism;
+  let matn = qism[qism.length - 1] === "m";             // PDF'siz rejim: savol matni xabarning o'zida
   const chat_id = cq.message?.chat?.id ?? cq.from?.id, message_id = cq.message?.message_id;
   const ack = (text) => send("answerCallbackQuery", { callback_query_id: cq.id, ...(text ? { text, show_alert: true } : {}) });
   const korsat = (ekran, yangi = false) => message_id && !yangi
@@ -364,7 +393,14 @@ export async function vazifaTugma(db, send, cq, { now = new Date(), site = sayt(
     await ack();
     const idx = keyingi();
     if (idx < 0) return topshir();                       // hammasiga javob berilgan, lekin topshirilmagan (saytda boshlangan)
-    return korsat(savolEkrani(v, qs[idx], idx, qs.length), amal === "b");
+    // "Javoblarni belgilash" PDF fayl ostida bosilgan bo'lsa savollar o'quvchida bor. Aks holda (eslatma yoki oddiy xabar)
+    // avval PDF yuboriladi; uni ham yasab bo'lmasa, savol matni xabarning o'zida beriladi.
+    if (amal === "b" && !cq.message?.document) {
+      let r = null;
+      if (sendDoc) { try { r = await sendDoc(chat_id, { buffer: await pdf(v, qs), filename: faylNomi(v.nom), caption: `"${v.nom}": savollar shu faylda.` }); } catch (e) { console.error("vazifa pdf yuborilmadi:", e.message); } }
+      matn = !r?.ok;
+    }
+    return korsat(savolEkrani(v, qs[idx], idx, qs.length, matn), amal === "b");
   }
   if (amal === "a") {
     const idx = Number(idxS), q = qs[idx];
@@ -379,7 +415,7 @@ export async function vazifaTugma(db, send, cq, { now = new Date(), site = sayt(
       : { holat: "boshlangan", ...(top.holat === "berilgan" ? { boshlangan_at: now.toISOString() } : {}) }) }).eq("id", top.id).neq("holat", "topshirilgan").select("id"));
     if (!yozildi.length) return ack("Bu vazifa topshirilgan.");
     await ack();
-    return korsat(hukmEkrani(v, q, harf, oxirgi, natija, site));
+    return korsat(hukmEkrani(v, q, idx, harf, oxirgi, natija, site, matn));
   }
   return ack();
 
