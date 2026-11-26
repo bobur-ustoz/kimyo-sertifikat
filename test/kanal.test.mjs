@@ -202,3 +202,14 @@ test("majbur: ustoz aytganda bugun ikkinchi post ham chiqadi, lekin tasdiqlanmag
   assert.deepEqual(await runKanal(fakeDb(rows), send, { now: NOW, log: async () => {}, majbur: true }), { sent: 1, id: 2 });
   assert.deepEqual(await runKanal(fakeDb(rows), send, { now: NOW, log: async () => {}, majbur: true }), { sent: 0, sabab: "tasdiqlangan post yo'q" });
 });
+
+test("kalitMos: faqat aynan bir xil va yetarlicha uzun kalit mos keladi", async () => {
+  const { kalitMos } = await import("../api/_kanal.js");
+  const k = "a".repeat(40);
+  assert.equal(kalitMos(k, k), true);
+  assert.equal(kalitMos(k, "a".repeat(39) + "b"), false);
+  assert.equal(kalitMos("qisqa", "qisqa"), false);          // qisqa kalit qabul qilinmaydi
+  assert.equal(kalitMos("", ""), false);
+  assert.equal(kalitMos(k, undefined), false);               // jadval bo'sh
+  assert.equal(kalitMos(undefined, k), false);
+});

@@ -10,7 +10,7 @@ import { tg } from "./_telegram.js";
 import { runNazorat } from "./_nazorat.js";
 import { runYangilik } from "./_yangilik.js";
 import { yoz } from "./_navbat.js";
-import { runKanal, KANAL } from "./_kanal.js";
+import { runKanal, KANAL, kalitMos } from "./_kanal.js";
 import { runTekshiruv, bunnyRoyxat } from "./_tekshiruv.js";
 import { runCeo, yakshanbami } from "./_ceo.js";
 import { runMurabbiy } from "./_murabbiy.js";
@@ -138,18 +138,33 @@ async function kanalIsh({ majbur = false } = {}) {
   }
 }
 
+// Taymer kaliti to'g'rimi. Jadval yo'q, kalit bo'sh yoki qisqa bo'lsa: yo'q.
+async function taymerKaliti(auth) {
+  const berilgan = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+  if (berilgan.length < 32 || !process.env.SUPABASE_SERVICE_ROLE_KEY) return false;
+  try {
+    const db = createClient(process.env.VITE_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+    const { data } = await db.from("ichki_kalit").select("qiymat").eq("nom", "kanal").maybeSingle();
+    return kalitMos(berilgan, data?.qiymat);
+  } catch { return false; }
+}
+
 export default async function handler(req, res) {
   // Vercel sends "Authorization: Bearer <CRON_SECRET>" with its own cron calls. Nothing else is accepted:
   // a request header alone (x-vercel-cron) can be forged by anyone, so it no longer opens the door.
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.authorization !== `Bearer ${secret}`) {
-    return res.status(401).json({ error: "Unauthorized" });
-  }
+  const auth = req.headers.authorization || "";
+  let ruxsat = !secret || auth === `Bearer ${secret}`;
+  // Kanal postini aniq 19:00 da chiqaradigan Supabase taymeri (pg_cron) o'z kaliti bilan keladi. Kalit bazada
+  // (ichki_kalit jadvali, faqat server o'qiydi) o'zi yaratiladi, uni hech kim ko'rmaydi va qo'lda yozmaydi.
+  // Bu kalit FAQAT kunlik kanal postini ochadi: boshqa ishlarni ham, "majbur" ni ham ochmaydi.
+  const taymer = !ruxsat && req.query?.job === "kanal" && await taymerKaliti(auth);
+  if (!ruxsat && !taymer) return res.status(401).json({ error: "Unauthorized" });
 
   if (req.query?.job === "nazorat") return nazorat(res);
   if (req.query?.job === "yangilik") return yangilik(req, res);
   if (req.query?.job === "ceo") { const r = await ceoIsh({ hafta: req.query?.hafta ? true : false }); return res.status(r.ok ? 200 : 500).json(r); }
-  if (req.query?.job === "kanal") { const r = await kanalIsh({ majbur: !!req.query?.majbur }); return res.status(r.ok ? 200 : 500).json(r); }
+  if (req.query?.job === "kanal") { const r = await kanalIsh({ majbur: !taymer && !!req.query?.majbur }); return res.status(r.ok ? 200 : 500).json(r); }
 
   const url = process.env.VITE_SUPABASE_URL;
   const key = process.env.VITE_SUPABASE_ANON_KEY;

@@ -1,3 +1,4 @@
+import crypto from "crypto";
 // Kanal postchisi: tasdiqlangan postlarni Telegram kanalga navbat bilan chiqaradi (kuniga ko'pi bilan bitta).
 //
 // Ishga tushirish: kechki kron /api/keepalive?job=yangilik (har kuni 20:00, Toshkent) shu ishni ham bajaradi;
@@ -115,6 +116,12 @@ export function yigishlar(post, chat = KANAL) {
   if (post.rasm_url) out.push({ method: "sendPhoto", payload: { chat_id: chat, photo: post.rasm_url, ...(post.imzo === false ? {} : { caption: IMZO, parse_mode: "HTML" }) } });
   out.push({ method: "sendPoll", payload: { chat_id: chat, question: s.savol, options: s.variantlar.map((text) => ({ text })), type: "quiz", correct_option_id: s.togri, is_anonymous: true, ...(s.izoh ? { explanation: s.izoh } : {}) } });
   return out;
+}
+
+// Taymer kalitini solishtirish (vaqt bo'yicha sizib chiqmaydigan usulda). Bo'sh yoki qisqa kalit hech qachon mos kelmaydi.
+export function kalitMos(berilgan, saqlangan) {
+  const a = Buffer.from(String(berilgan ?? "")), b = Buffer.from(String(saqlangan ?? ""));
+  return a.length >= 32 && a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
 // Kuniga bitta: bugun post chiqqan bo'lsa to'xtaydi. Aks holda reja kuni kelgan eng eski tasdiqlangan postni yuboradi.
